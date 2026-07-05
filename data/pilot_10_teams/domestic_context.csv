@@ -1,0 +1,11 @@
+season,team_id,domestic_position,league_team_count,is_league_champion,is_cup_winner,european_entry_type,competition,entry_round
+2025/26,1,5,20,false,false,League Fifth,UEL,League Phase
+2025/26,2,1,16,true,false,League Champion,UCL,Second Qualifying Round
+2025/26,3,1,10,true,false,League Champion,UCL,First Qualifying Round
+2025/26,4,,,false,true,Cup Winner,UEL,Playoff Round
+2025/26,5,6,20,false,false,League Sixth,UECL,League Phase
+2025/26,6,2,20,false,false,League Runner-up,UCL,League Phase
+2025/26,7,1,20,true,false,League Champion,UCL,League Phase
+2025/26,8,3,16,false,false,League Third,UECL,Third Qualifying Round
+2025/26,9,4,14,false,false,League Fourth,UECL,Second Qualifying Round
+2025/26,10,1,16,true,true,League and Cup Winner,UCL,Playoff Round

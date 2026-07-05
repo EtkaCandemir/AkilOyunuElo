@@ -1,0 +1,11 @@
+season,team_id,team_name_source,country_code,club_points_t_minus_4,club_points_t_minus_3,club_points_t_minus_2,club_points_t_minus_1,club_points_t,played_t_minus_4,played_t_minus_3,played_t_minus_2,played_t_minus_1,played_t,matches_t_minus_4,matches_t_minus_3,matches_t_minus_2,matches_t_minus_1,matches_t,match_cap_t_minus_4,match_cap_t_minus_3,match_cap_t_minus_2,match_cap_t_minus_1,match_cap_t,official_club_coefficient,country_part
+2025/26,1,Metro Albion,EXA,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,6,8,8,0,0
+2025/26,2,Midoria Champions,EXB,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,6,8,8,0,0
+2025/26,3,Smallia Kings,EXC,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,6,8,8,0,0
+2025/26,4,Cupmark Rangers,EXD,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,6,8,8,0,0
+2025/26,5,Few Match Wanderers,EXA,5,5,6,6,7,1,1,1,1,1,2,2,2,2,2,6,6,6,8,8,29,4
+2025/26,6,Continental Giants,EXA,12,14,16,18,20,1,1,1,1,1,6,6,6,8,8,6,6,6,8,8,80,5
+2025/26,7,Low Score Veterans,EXA,0.5,0.5,0.5,0.5,0.5,1,1,1,1,1,6,6,6,8,8,6,6,6,8,8,2.5,5
+2025/26,8,Last Season Sparks,EXB,0,0,0,0,10,0,0,0,0,1,0,0,0,0,8,6,6,6,8,8,10,2
+2025/26,9,Distant History FC,EXD,8,7,6,0,0,1,1,1,0,0,6,6,6,0,0,6,6,6,8,8,21,3
+2025/26,10,Double Crown Athletic,EXB,2,4,6,8,10,1,1,1,1,1,4,5,6,7,8,6,6,6,8,8,30,4
