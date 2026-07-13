@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+from math import isfinite
 from pathlib import Path
 
 import pandas as pd
 
-from ao_elo.config import AOEuropeanEloConfig, SEASON_KEYS
+from ao_elo.config import AOEuropeanEloConfig
 from ao_elo.features import (
     compute_domestic_achievement,
     compute_league_strength,
@@ -22,18 +23,25 @@ from ao_elo.scoring import (
 )
 from ao_elo.validators import (
     validate_club_european_points,
+    validate_country_coefficients,
     validate_domestic_context,
     validate_input_columns,
+    validate_required_club_history_rows,
+    validate_teams,
 )
 
 
 OUTPUT_COLUMNS = [
+    "season",
     "team_id",
     "team_name",
     "country",
     "country_code",
+    "domestic_league",
     "competition",
     "entry_round",
+    "domestic_position",
+    "league_team_count",
     "weighted_country_score",
     "league_strength_norm",
     "league_strength",
@@ -70,6 +78,8 @@ def compute_ao_first_elo(
         domestic_context,
         club_european_points,
     )
+    validate_teams(teams)
+    validate_country_coefficients(country_coefficients)
     validate_club_european_points(club_european_points)
     domestic_warnings = validate_domestic_context(domestic_context)
 
@@ -95,6 +105,8 @@ def compute_ao_first_elo(
             "Missing domestic context for team_id(s): "
             + ", ".join(sorted(missing.astype(str).unique()))
         )
+
+    validate_required_club_history_rows(data, club_european_points)
 
     data = (
         data.merge(
@@ -124,8 +136,6 @@ def compute_ao_first_elo(
             "Missing country coefficients for country_code(s): "
             + ", ".join(sorted(missing.astype(str).unique()))
         )
-
-    _fill_missing_european_history(data)
 
     domestic_features = data.apply(
         lambda row: compute_domestic_achievement(
@@ -198,6 +208,8 @@ def compute_ao_first_elo(
         ),
         axis=1,
     )
+    _validate_output_invariants(data, config)
+
     data["rating_source_type"] = data["european_exposure"].apply(
         lambda exposure: rating_source_type(
             exposure,
@@ -232,9 +244,75 @@ def compute_ao_first_elo_from_csv(
     return output
 
 
-def _fill_missing_european_history(data: pd.DataFrame) -> None:
-    """Treat absent European history rows as zero history and zero exposure."""
-    for key in SEASON_KEYS:
-        for prefix in ("club_points", "played", "matches"):
-            data[f"{prefix}_{key}"] = data[f"{prefix}_{key}"].fillna(0.0)
-        data[f"match_cap_{key}"] = data[f"match_cap_{key}"].fillna(1.0)
+def _validate_output_invariants(
+    data: pd.DataFrame,
+    config: AOEuropeanEloConfig,
+) -> None:
+    """Guard the bounded model contract after feature computation."""
+    numeric_columns = [
+        "weighted_country_score",
+        "league_strength_norm",
+        "league_strength",
+        "league_finish_score",
+        "cup_base_score",
+        "cup_double_bonus",
+        "domestic_achievement_score",
+        "domestic_prior",
+        "weighted_european_history",
+        "european_history_norm",
+        "european_prior",
+        "weighted_season_exposure",
+        "weighted_match_exposure",
+        "european_exposure",
+        "ao_first_elo",
+    ]
+    for column in numeric_columns:
+        invalid = ~data[column].map(lambda value: isfinite(float(value)))
+        _raise_invariant_error(data, invalid, f"{column} must be finite")
+
+    for column in (
+        "league_strength_norm",
+        "league_strength",
+        "european_history_norm",
+        "weighted_season_exposure",
+        "weighted_match_exposure",
+        "european_exposure",
+    ):
+        outside = (data[column] < -1e-12) | (data[column] > 1.0 + 1e-12)
+        _raise_invariant_error(data, outside, f"{column} must be between 0 and 1")
+
+    achievement_outside = (data["domestic_achievement_score"] < -1e-12) | (
+        data["domestic_achievement_score"] > config.achievement_cap + 1e-12
+    )
+    _raise_invariant_error(
+        data,
+        achievement_outside,
+        "domestic_achievement_score must respect achievement_cap",
+    )
+
+    lower_prior = data[["domestic_prior", "european_prior"]].min(axis=1)
+    upper_prior = data[["domestic_prior", "european_prior"]].max(axis=1)
+    outside_priors = (data["ao_first_elo"] < lower_prior - 1e-9) | (
+        data["ao_first_elo"] > upper_prior + 1e-9
+    )
+    _raise_invariant_error(
+        data,
+        outside_priors,
+        "ao_first_elo must stay between domestic_prior and european_prior",
+    )
+
+
+def _raise_invariant_error(
+    data: pd.DataFrame,
+    invalid: pd.Series,
+    message: str,
+) -> None:
+    if not invalid.any():
+        return
+    rows = data.loc[invalid, ["season", "team_id", "country_code"]]
+    keys = "; ".join(
+        f"season={row['season']}, team_id={row['team_id']}, "
+        f"country_code={row['country_code']}"
+        for _, row in rows.iterrows()
+    )
+    raise ValueError(f"Model invariant failed: {message} ({keys})")

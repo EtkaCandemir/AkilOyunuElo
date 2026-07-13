@@ -67,7 +67,7 @@ def test_pipeline_no_european_history_equals_domestic_prior() -> None:
                 }
             ]
         ),
-        club_european_points=empty_club_history(),
+        club_european_points=zero_club_history(),
         config=AOEuropeanEloConfig(
             country_strength_benchmark=25,
             european_history_benchmark=20,
@@ -78,25 +78,22 @@ def test_pipeline_no_european_history_equals_domestic_prior() -> None:
     assert row["european_exposure"] == pytest.approx(0.0)
     assert row["ao_first_elo"] == pytest.approx(row["domestic_prior"])
     assert row["rating_source_type"] == "Pure Domestic Projection"
+    assert row["season"] == "2025/26"
+    assert row["domestic_league"] == "Example League"
+    assert row["domestic_position"] == 1
+    assert row["league_team_count"] == 20
 
 
-def empty_club_history() -> pd.DataFrame:
-    columns = [
-        "season",
-        "team_id",
-        "team_name_source",
-        "country_code",
-        "official_club_coefficient",
-        "country_part",
-    ]
+def zero_club_history() -> pd.DataFrame:
+    row: dict[str, object] = {
+        "season": "2025/26",
+        "team_id": 1,
+        "team_name_source": "No Europe FC",
+        "country_code": "EX",
+    }
     for key in SEASON_KEYS:
-        columns.extend(
-            [
-                f"club_points_{key}",
-                f"played_{key}",
-                f"matches_{key}",
-                f"match_cap_{key}",
-            ]
-        )
-    return pd.DataFrame(columns=columns)
-
+        row[f"club_points_{key}"] = 0
+        row[f"played_{key}"] = 0
+        row[f"matches_{key}"] = 0
+        row[f"match_cap_{key}"] = 6
+    return pd.DataFrame([row])

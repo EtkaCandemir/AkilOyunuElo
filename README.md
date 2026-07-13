@@ -67,6 +67,23 @@ Model dört ana input CSV bekler:
 4. `club_european_points.csv`
    - Kulübün son 5 sezon Avrupa puanları, Avrupa oynayıp oynamadığı, maç sayıları ve match cap değerleri.
    - European Prior ve European Exposure hesabında kullanılır.
+   - Her hedef takım için bir satır zorunludur. Avrupa geçmişi yoksa beş sezonun puan, played ve matches değerleri açıkça `0` yazılır.
+
+### Sezon Tanımı
+
+CSV dosyalarındaki `season`, rating'in üretildiği hedef sezonu gösterir. `t`, hedef sezon başlamadan önce tamamlanmış en güncel sezon; `t_minus_4` ise beş sezonluk pencerenin en eski sezonudur. Bu kural ülke ve kulüp puanlarına aynı şekilde uygulanır ve geleceğe ait veri kullanımını engeller.
+
+### Veri Güvenliği
+
+- `teams.csv`: `team_id` tekil olmalıdır.
+- `country_coefficients.csv`: `season + country_code` tekil olmalıdır.
+- `domestic_context.csv`: tek bir hedef sezon içermeli ve `season + team_id` tekil olmalıdır.
+- `club_european_points.csv`: `season + team_id + country_code` tekil ve tüm hedef takımlar için mevcut olmalıdır.
+- Eksik, negatif, sonsuz veya sayısal olmayan ülke/kulüp puanları reddedilir.
+- Boolean alanlar yalnızca `true/false` veya `0/1` kabul eder.
+- `official_five_year_total`, `official_country_rank`, `official_club_coefficient` ve `country_part` opsiyonel denetim alanlarıdır; ana formülde kullanılmaz.
+
+Output CSV, ara model metriklerine ek olarak hedef `season`, `domestic_league`, `domestic_position` ve `league_team_count` alanlarını içerir. Final rating kolonunun kalıcı adı `ao_first_elo` değeridir.
 
 Detaylı alan sözlüğü için:
 
@@ -89,7 +106,7 @@ pytest -q
 Beklenen mevcut sonuç:
 
 ```text
-9 passed
+55 passed
 ```
 
 ## Pilot Veri Setini Çalıştırma

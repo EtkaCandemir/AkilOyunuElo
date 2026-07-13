@@ -83,9 +83,10 @@ def compute_domestic_achievement(
         position = float(domestic_position)
         team_count = float(league_team_count)
         if team_count <= 1:
-            percentile = 1.0
-        else:
-            percentile = (team_count - position) / (team_count - 1.0)
+            raise ValueError("league_team_count must be > 1 when position is known")
+        if position < 1 or position > team_count:
+            raise ValueError("domestic_position must be between 1 and league_team_count")
+        percentile = (team_count - position) / (team_count - 1.0)
         percentile_score = config.percentile_floor + config.percentile_scale * (
             percentile**config.percentile_delta
         )

@@ -23,7 +23,7 @@ from reportlab.platypus import (
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = ROOT / "output" / "pdf"
-OUTPUT_PDF = OUTPUT_DIR / "ao_european_elo_data_requirements.pdf"
+OUTPUT_PDF = OUTPUT_DIR / "AkilOyunu_VeriAnlamlandirma.pdf"
 
 FONT_REGULAR = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf"
 
@@ -139,16 +139,17 @@ def story() -> list:
             Paragraph("2. Sezon Notasyonu", styles["H1"]),
             Paragraph(
                 "Her satır bir hedef sezon için hazırlanır. Örneğin hedef sezon "
-                "2025/26 ise t son tamamlanmış veya modele dahil edilen en güncel "
+                "2025/26 ise t hedef sezon başlamadan önce tamamlanmış en güncel "
                 "Avrupa sezonunu, t_minus_1 bir önceki sezonu, t_minus_4 ise beş "
-                "yıllık pencerenin en eski sezonunu temsil eder. Aynı notasyon hem "
-                "ülke puanları hem de kulüp puanları için kullanılır.",
+                "yıllık pencerenin en eski sezonunu temsil eder. Hedef sezonun "
+                "henüz oluşmamış verisi kullanılmaz. Aynı notasyon hem ülke "
+                "puanları hem de kulüp puanları için kullanılır.",
                 styles["Body"],
             ),
             simple_table(
                 [
                     ["Alan eki", "Anlam"],
-                    ["t", "En güncel sezon"],
+                    ["t", "Hedef sezondan önce tamamlanmış en güncel sezon"],
                     ["t_minus_1", "1 sezon önce"],
                     ["t_minus_2", "2 sezon önce"],
                     ["t_minus_3", "3 sezon önce"],
@@ -192,8 +193,8 @@ def story() -> list:
                     ["points_t_minus_2", "Evet", "2 sezon önceki UEFA ülke puanı", "12.000"],
                     ["points_t_minus_1", "Evet", "1 sezon önceki UEFA ülke puanı", "8.600"],
                     ["points_t", "Evet", "En güncel sezon UEFA ülke puanı", "9.900"],
-                    ["official_five_year_total", "Evet", "UEFA resmi 5 yıllık toplam", "49.000"],
-                    ["official_country_rank", "Evet", "UEFA resmi ülke sıralaması", "9"],
+                    ["official_five_year_total", "Hayır", "Opsiyonel UEFA resmi 5 yıllık toplam kontrol alanı", "49.000"],
+                    ["official_country_rank", "Hayır", "Opsiyonel UEFA resmi ülke sıralaması kontrol alanı", "9"],
                 ],
                 styles,
             ),
@@ -239,7 +240,8 @@ def story() -> list:
                 "Bu tablo kulübün kendi Avrupa geçmişini ve bu geçmişin kaç sezon/maç "
                 "veriye dayandığını toplar. Burada mümkünse official club coefficient "
                 "toplamını değil, kulübün sezon sezon kendi Avrupa puanlarını "
-                "kullanmak gerekir.",
+                "kullanmak gerekir. Her hedef takım için satır zorunludur; Avrupa "
+                "geçmişi olmayan takım da açık sıfır satırıyla yazılmalıdır.",
                 styles["Body"],
             ),
             PageBreak(),
@@ -253,8 +255,8 @@ def story() -> list:
                     ["played_t_minus_4..t", "Evet", "O sezon Avrupa maçı oynadı mı?", "0 / 1"],
                     ["matches_t_minus_4..t", "Evet", "O sezon oynanan toplam Avrupa maç sayısı", "0, 6, 8, 12"],
                     ["match_cap_t_minus_4..t", "Evet", "Exposure için yeterli sezonluk maç eşiği", "6 veya 8"],
-                    ["official_club_coefficient", "Önerilir", "UEFA resmi kulüp katsayısı toplam kontrol alanı", "31.500"],
-                    ["country_part", "Önerilir", "Ülke payından gelen minimum katsayı kontrol alanı", "9.800"],
+                    ["official_club_coefficient", "Hayır", "Opsiyonel UEFA resmi kulüp katsayısı kontrol alanı", "31.500"],
+                    ["country_part", "Hayır", "Opsiyonel ülke payı kontrol alanı", "9.800"],
                 ],
                 styles,
             ),
@@ -300,13 +302,17 @@ def story() -> list:
             *bullet_list(
                 [
                     "Country_Strength_Benchmark ve European_History_Benchmark > 0 olmadan model çalıştırılmaz.",
-                    "played alanları sadece 0 veya 1 olmalıdır.",
+                    "Her takım için season + team_id + country_code ile eşleşen açık bir kulüp geçmişi satırı bulunmalıdır.",
+                    "domestic_context.csv tek bir hedef sezon içermelidir.",
+                    "Takım, ülke ve sezon anahtarlarında duplicate satır bulunmamalıdır.",
+                    "Ülke ve kulüp puanları eksik, negatif, sonsuz veya sayısal olmayan değer içeremez.",
+                    "Boolean alanlar yalnızca true/false veya 0/1 olmalıdır.",
                     "played = 0 ise matches = 0 ve club_points = 0 olmalıdır.",
                     "played = 1 ise matches en az 1 olmalıdır.",
-                    "matches > 0 ise match_cap > 0 olmalıdır.",
-                    "domestic_position >= 1 ve domestic_position <= league_team_count olmalıdır.",
+                    "match_cap tüm sezonlarda sonlu ve 0'dan büyük olmalıdır.",
+                    "Lig pozisyonu biliniyorsa league_team_count > 1 ve domestic_position bu aralıkta olmalıdır.",
                     "is_league_champion = true ise domestic_position normalde 1 olmalıdır; değilse manuel kontrol gerekir.",
-                    "Avrupa geçmişi olmayan takımlar için club_points, played ve matches alanları 0 yazılmalıdır.",
+                    "Avrupa geçmişi olmayan takımlar için club_points, played ve matches alanları beş sezon boyunca 0 yazılmalıdır.",
                     "Official club coefficient, kulübün kendi sezon puanlarıyla karıştırılmamalıdır.",
                 ],
                 styles,
@@ -315,8 +321,11 @@ def story() -> list:
                 "Sonuc",
                 "Bu veri setleri tamamlandığında model her takım için Domestic Prior, "
                 "European Prior, European Exposure ve final AO First Elo puanını "
-                "üretebilir. Bu doküman veri toplama kapsamıdır; model matematik "
-                "detayı için mevcut teknik spesifikasyon PDF'leri referans alınmalıdır.",
+                "üretebilir. Output ayrıca hedef sezon, yerel lig, lig pozisyonu ve "
+                "ligdeki takım sayısını denetim alanı olarak taşır. Final rating "
+                "kolonunun adı ao_first_elo olarak sabittir. Bu doküman veri toplama "
+                "kapsamıdır; model matematik detayı için mevcut teknik spesifikasyon "
+                "PDF'leri referans alınmalıdır.",
                 styles,
             ),
         ]

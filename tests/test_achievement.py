@@ -55,3 +55,47 @@ def test_champion_position_mismatch_returns_warning() -> None:
 
     assert "domestic_position is not 1" in warnings[0][0]
 
+
+@pytest.mark.parametrize(
+    (
+        "position",
+        "team_count",
+        "champion",
+        "cup_winner",
+        "expected_finish",
+        "expected_bonus",
+        "expected_achievement",
+    ),
+    [
+        (1, 20, True, False, 1.0, 0.0, 1.0),
+        (1, 20, True, True, 1.0, 0.08, 1.08),
+        (2, 20, False, False, 0.8131578947, 0.0, 0.8131578947),
+        (2, 20, False, True, 0.8131578947, 0.0650526316, 0.8782105263),
+        (2, 6, False, False, 0.71, 0.0, 0.71),
+        (6, 6, False, False, 0.15, 0.0, 0.15),
+        (15, 20, False, True, 0.3342105263, 0.0267368421, 0.6467368421),
+        (None, None, False, False, 0.10, 0.0, 0.10),
+        (None, None, False, True, 0.10, 0.0, 0.62),
+    ],
+)
+def test_domestic_achievement_reference_table(
+    config: AOEuropeanEloConfig,
+    position: int | None,
+    team_count: int | None,
+    champion: bool,
+    cup_winner: bool,
+    expected_finish: float,
+    expected_bonus: float,
+    expected_achievement: float,
+) -> None:
+    result = compute_domestic_achievement(
+        position,
+        team_count,
+        champion,
+        cup_winner,
+        config,
+    )
+
+    assert result.league_finish_score == pytest.approx(expected_finish)
+    assert result.cup_double_bonus == pytest.approx(expected_bonus)
+    assert result.domestic_achievement_score == pytest.approx(expected_achievement)

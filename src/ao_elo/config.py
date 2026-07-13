@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from math import isfinite
 
 
 SEASON_KEYS: tuple[str, ...] = (
@@ -53,17 +54,11 @@ class AOEuropeanEloConfig:
     rating_source_evidence_threshold: float = 0.75
 
     def validate(self) -> None:
-        """Fail loudly when calibration-critical parameters are unavailable."""
-        if (
-            self.country_strength_benchmark is None
-            or self.country_strength_benchmark <= 0
-        ):
+        """Fail loudly when model parameters cannot produce bounded ratings."""
+        if not _is_positive_finite(self.country_strength_benchmark):
             raise ValueError("Country_Strength_Benchmark must be calibrated and > 0")
 
-        if (
-            self.european_history_benchmark is None
-            or self.european_history_benchmark <= 0
-        ):
+        if not _is_positive_finite(self.european_history_benchmark):
             raise ValueError("European_History_Benchmark must be calibrated and > 0")
 
         missing_weights = set(SEASON_KEYS) - set(self.season_weights)
@@ -71,11 +66,79 @@ class AOEuropeanEloConfig:
             missing = ", ".join(sorted(missing_weights))
             raise ValueError(f"Missing season weights: {missing}")
 
+        unexpected_weights = set(self.season_weights) - set(SEASON_KEYS)
+        if unexpected_weights:
+            unexpected = ", ".join(sorted(unexpected_weights))
+            raise ValueError(f"Unexpected season weights: {unexpected}")
+
+        for key in SEASON_KEYS:
+            weight = self.season_weights[key]
+            if not _is_non_negative_finite(weight):
+                raise ValueError(f"Season weight {key} must be finite and >= 0")
+
         total_weight = sum(self.season_weights[key] for key in SEASON_KEYS)
         if abs(total_weight - 1.0) > 1e-9:
             raise ValueError("Season weights must sum to 1.0")
+
+        _require_finite("base_rating", self.base_rating)
+        _require_positive("gamma", self.gamma)
+        for name in (
+            "domestic_league_component",
+            "domestic_achievement_component",
+            "percentile_floor",
+            "percentile_scale",
+            "champion_base_score",
+            "unknown_league_finish_score",
+            "cup_base_score",
+            "cup_double_bonus_multiplier",
+            "european_prior_max_boost",
+        ):
+            _require_non_negative(name, getattr(self, name))
+
+        _require_between_zero_and_one("achievement_alpha", self.achievement_alpha)
+        _require_positive("percentile_delta", self.percentile_delta)
+        _require_positive("achievement_cap", self.achievement_cap)
+        _require_between_zero_and_one(
+            "exposure_season_weight",
+            self.exposure_season_weight,
+        )
+        _require_between_zero_and_one(
+            "exposure_match_weight",
+            self.exposure_match_weight,
+        )
+        _require_between_zero_and_one(
+            "rating_source_evidence_threshold",
+            self.rating_source_evidence_threshold,
+        )
 
         exposure_weight_total = self.exposure_season_weight + self.exposure_match_weight
         if abs(exposure_weight_total - 1.0) > 1e-9:
             raise ValueError("Exposure season/match weights must sum to 1.0")
 
+
+def _is_positive_finite(value: float | None) -> bool:
+    return value is not None and isfinite(float(value)) and float(value) > 0
+
+
+def _is_non_negative_finite(value: float) -> bool:
+    return isfinite(float(value)) and float(value) >= 0
+
+
+def _require_finite(name: str, value: float) -> None:
+    if not isfinite(float(value)):
+        raise ValueError(f"{name} must be finite")
+
+
+def _require_positive(name: str, value: float) -> None:
+    if not isfinite(float(value)) or float(value) <= 0:
+        raise ValueError(f"{name} must be finite and > 0")
+
+
+def _require_non_negative(name: str, value: float) -> None:
+    if not _is_non_negative_finite(value):
+        raise ValueError(f"{name} must be finite and >= 0")
+
+
+def _require_between_zero_and_one(name: str, value: float) -> None:
+    if not isfinite(float(value)) or not 0 <= float(value) <= 1:
+        raise ValueError(f"{name} must be finite and between 0 and 1")

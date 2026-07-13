@@ -17,6 +17,19 @@ DATA_DIR = ROOT / "data" / "pilot_10_teams"
 OUTPUT_DIR = ROOT / "output" / "pilot_10_teams"
 OUTPUT_CSV = OUTPUT_DIR / "ao_first_elo_pilot_output.csv"
 
+EXPECTED_AO_FIRST_ELO = {
+    "Metro Albion": 749.011464500652,
+    "Midoria Champions": 752.2551037650705,
+    "Smallia Kings": 706.4507259676069,
+    "Cupmark Rangers": 679.8501411222367,
+    "Few Match Wanderers": 763.010604894901,
+    "Continental Giants": 901.1654490536773,
+    "Low Score Veterans": 555.9349943673824,
+    "Last Season Sparks": 712.4945092732662,
+    "Distant History FC": 685.0553451963483,
+    "Double Crown Athletic": 791.3687425343417,
+}
+
 
 def main() -> None:
     config = AOEuropeanEloConfig(
@@ -65,6 +78,14 @@ def run_smoke_checks(output: pd.DataFrame) -> None:
     unknown_cup = output.loc[output["team_name"] == "Cupmark Rangers"].iloc[0]
     assert unknown_cup["league_finish_score"] == 0.10
     assert unknown_cup["cup_double_bonus"] == 0
+
+    actual_ratings = output.set_index("team_name")["ao_first_elo"].to_dict()
+    for team_name, expected_rating in EXPECTED_AO_FIRST_ELO.items():
+        actual_rating = float(actual_ratings[team_name])
+        assert abs(actual_rating - expected_rating) < 1e-9, (
+            f"pilot rating changed for {team_name}: "
+            f"expected {expected_rating}, got {actual_rating}"
+        )
 
 
 def print_summary(output: pd.DataFrame) -> None:
