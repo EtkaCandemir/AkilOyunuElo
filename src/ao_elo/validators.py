@@ -213,9 +213,9 @@ def validate_domestic_context(domestic_context: pd.DataFrame) -> list[list[str]]
             )
 
         if champion and position_value is not None and position_value != 1.0:
-            row_warnings.append(
-                "is_league_champion is true but domestic_position is not 1; "
-                "use final standings if possible"
+            raise ValueError(
+                f"domestic_context.csv {key} is_league_champion=true requires "
+                "domestic_position=1 when domestic_position is provided"
             )
 
         warnings_by_row.append(row_warnings)

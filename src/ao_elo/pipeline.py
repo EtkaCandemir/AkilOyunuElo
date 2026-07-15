@@ -17,6 +17,7 @@ from ao_elo.features import (
 from ao_elo.scoring import (
     compute_ao_first_elo as compute_final_rating,
     compute_domestic_prior,
+    compute_effective_european_exposure,
     compute_european_prior,
     normalize_log_score,
     rating_source_type,
@@ -57,7 +58,9 @@ OUTPUT_COLUMNS = [
     "weighted_season_exposure",
     "weighted_match_exposure",
     "european_exposure",
+    "effective_european_exposure",
     "ao_first_elo",
+    "ao_first_elo_rank",
     "rating_source_type",
     "validation_warnings",
 ]
@@ -199,12 +202,18 @@ def compute_ao_first_elo(
         config.exposure_season_weight * data["weighted_season_exposure"]
         + config.exposure_match_weight * data["weighted_match_exposure"]
     )
+    data["effective_european_exposure"] = data["european_exposure"].apply(
+        lambda exposure: compute_effective_european_exposure(
+            exposure,
+            config.max_european_exposure,
+        )
+    )
 
     data["ao_first_elo"] = data.apply(
         lambda row: compute_final_rating(
             row["domestic_prior"],
             row["european_prior"],
-            row["european_exposure"],
+            row["effective_european_exposure"],
         ),
         axis=1,
     )
@@ -219,6 +228,14 @@ def compute_ao_first_elo(
 
     data["competition"] = data.get("competition", pd.NA)
     data["entry_round"] = data.get("entry_round", data["european_entry_type"])
+    data["ao_first_elo_rank"] = data["ao_first_elo"].rank(
+        method="min",
+        ascending=False,
+    ).astype(int)
+    data = data.sort_values(
+        ["ao_first_elo", "team_id"],
+        ascending=[False, True],
+    ).reset_index(drop=True)
 
     return data[OUTPUT_COLUMNS].copy()
 
@@ -264,6 +281,7 @@ def _validate_output_invariants(
         "weighted_season_exposure",
         "weighted_match_exposure",
         "european_exposure",
+        "effective_european_exposure",
         "ao_first_elo",
     ]
     for column in numeric_columns:
@@ -277,9 +295,22 @@ def _validate_output_invariants(
         "weighted_season_exposure",
         "weighted_match_exposure",
         "european_exposure",
+        "effective_european_exposure",
     ):
         outside = (data[column] < -1e-12) | (data[column] > 1.0 + 1e-12)
         _raise_invariant_error(data, outside, f"{column} must be between 0 and 1")
+
+    effective_exposure_invalid = (
+        data["effective_european_exposure"] > data["european_exposure"] + 1e-12
+    ) | (
+        data["effective_european_exposure"]
+        > config.max_european_exposure + 1e-12
+    )
+    _raise_invariant_error(
+        data,
+        effective_exposure_invalid,
+        "effective_european_exposure must not exceed raw exposure or config cap",
+    )
 
     achievement_outside = (data["domestic_achievement_score"] < -1e-12) | (
         data["domestic_achievement_score"] > config.achievement_cap + 1e-12

@@ -1,0 +1,541 @@
+season,competition,round,home_team_id,away_team_id,home_team_name,away_team_name,home_goals,away_goals
+2020/21,UCL,Preliminary Round,191,166,Tre Fiori,Linfield Belfast,0,2
+2020/21,UCL,Preliminary Round,127,6,FC Drita,Inter Club d'Escaldes,2,1
+2020/21,UCL,Preliminary Round,127,166,FC Drita,Linfield Belfast,0,3
+2020/21,UCL,1st Qualifying Round,101,216,Ferencváros,Djurgårdens IF,2,0
+2020/21,UCL,1st Qualifying Round,194,106,Celtic,KR Reykjavik,6,0
+2020/21,UCL,1st Qualifying Round,173,166,Legia Warsaw,Linfield Belfast,1,0
+2020/21,UCL,1st Qualifying Round,150,139,Sheriff Tiraspol,CS Fola Esch,2,0
+2020/21,UCL,1st Qualifying Round,236,31,Connah's Quay,FK Sarajevo,0,2
+2020/21,UCL,1st Qualifying Round,198,92,Red Star Belgrade,Europa FC,5,0
+2020/21,UCL,1st Qualifying Round,151,36,Buducnost Podgorica,Ludogorets Razgrad,1,3
+2020/21,UCL,1st Qualifying Round,9,46,Ararat-Armenia,Omonia Nicosia,0,1
+2020/21,UCL,1st Qualifying Round,143,180,Floriana,CFR Cluj,0,2
+2020/21,UCL,1st Qualifying Round,115,132,Maccabi Tel-Aviv,Riga FC,2,0
+2020/21,UCL,1st Qualifying Round,19,163,Qarabag FK,Sileks Kratovo,4,0
+2020/21,UCL,1st Qualifying Round,82,3,Dinamo Tbilisi,KF Tirana,0,2
+2020/21,UCL,1st Qualifying Round,23,123,Dynamo Brest,FK Astana,6,3
+2020/21,UCL,1st Qualifying Round,168,74,Molde FK,KuPS Kuopio,5,0
+2020/21,UCL,1st Qualifying Round,63,137,Flora Tallinn,Suduva Marijampole,1,1
+2020/21,UCL,1st Qualifying Round,206,110,NK Celje,Dundalk,3,0
+2020/21,UCL,1st Qualifying Round,69,204,KI Klaksvik,Slovan Bratislava,3,0
+2020/21,UCL,2nd Qualifying Round,180,38,CFR Cluj,Dinamo Zagreb,2,2
+2020/21,UCL,2nd Qualifying Round,223,69,Young Boys,KI Klaksvik,3,1
+2020/21,UCL,2nd Qualifying Round,194,101,Celtic,Ferencváros,1,2
+2020/21,UCL,2nd Qualifying Round,137,115,Suduva Marijampole,Maccabi Tel-Aviv,0,3
+2020/21,UCL,2nd Qualifying Round,173,46,Legia Warsaw,Omonia Nicosia,0,2
+2020/21,UCL,2nd Qualifying Round,206,168,NK Celje,Molde FK,1,2
+2020/21,UCL,2nd Qualifying Round,36,54,Ludogorets Razgrad,FC Midtjylland,0,1
+2020/21,UCL,2nd Qualifying Round,23,31,Dynamo Brest,FK Sarajevo,2,1
+2020/21,UCL,2nd Qualifying Round,19,150,Qarabag FK,Sheriff Tiraspol,2,1
+2020/21,UCL,2nd Qualifying Round,3,198,KF Tirana,Red Star Belgrade,0,1
+2020/21,UCL,2nd Qualifying Round,155,51,AZ Alkmaar,Viktoria Plzen,3,1
+2020/21,UCL,2nd Qualifying Round,99,225,PAOK Thessaloniki,Besiktas,3,1
+2020/21,UCL,2nd Qualifying Round,40,14,Lokomotiva Zagreb,Rapid Wien,0,1
+2020/21,UCL,3rd Qualifying Round,101,38,Ferencváros,Dinamo Zagreb,2,1
+2020/21,UCL,3rd Qualifying Round,19,168,Qarabag FK,Molde FK,0,0
+2020/21,UCL,3rd Qualifying Round,46,198,Omonia Nicosia,Red Star Belgrade,1,1
+2020/21,UCL,3rd Qualifying Round,54,223,FC Midtjylland,Young Boys,3,0
+2020/21,UCL,3rd Qualifying Round,115,23,Maccabi Tel-Aviv,Dynamo Brest,1,0
+2020/21,UCL,3rd Qualifying Round,99,175,PAOK Thessaloniki,Benfica,2,1
+2020/21,UCL,3rd Qualifying Round,230,155,Dinamo Kiev,AZ Alkmaar,2,0
+2020/21,UCL,3rd Qualifying Round,25,14,AA Gent,Rapid Wien,2,1
+2020/21,UCL,Qualifying Play-off Round,48,54,Slavia Praha,FC Midtjylland,0,0
+2020/21,UCL,Qualifying Play-off Round,54,48,FC Midtjylland,Slavia Praha,4,1
+2020/21,UCL,Qualifying Play-off Round,115,12,Maccabi Tel-Aviv,FC Salzburg,1,2
+2020/21,UCL,Qualifying Play-off Round,12,115,FC Salzburg,Maccabi Tel-Aviv,3,1
+2020/21,UCL,Qualifying Play-off Round,98,46,Olympiakos Piraeus,Omonia Nicosia,2,0
+2020/21,UCL,Qualifying Play-off Round,46,98,Omonia Nicosia,Olympiakos Piraeus,0,0
+2020/21,UCL,Qualifying Play-off Round,168,101,Molde FK,Ferencváros,3,3
+2020/21,UCL,Qualifying Play-off Round,101,168,Ferencváros,Molde FK,0,0
+2020/21,UCL,Qualifying Play-off Round,186,99,FK Krasnodar,PAOK Thessaloniki,2,1
+2020/21,UCL,Qualifying Play-off Round,99,186,PAOK Thessaloniki,FK Krasnodar,1,2
+2020/21,UCL,Qualifying Play-off Round,25,230,AA Gent,Dinamo Kiev,1,2
+2020/21,UCL,Qualifying Play-off Round,230,25,Dinamo Kiev,AA Gent,3,0
+2020/21,UCL,Group Stage,12,188,FC Salzburg,Lokomotiv Moscow,2,2
+2020/21,UCL,Group Stage,188,12,Lokomotiv Moscow,FC Salzburg,1,3
+2020/21,UCL,Group Stage,87,209,Bayern München,Atlético Madrid,4,0
+2020/21,UCL,Group Stage,209,87,Atlético Madrid,Bayern München,1,1
+2020/21,UCL,Group Stage,209,12,Atlético Madrid,FC Salzburg,3,2
+2020/21,UCL,Group Stage,12,209,FC Salzburg,Atlético Madrid,0,2
+2020/21,UCL,Group Stage,188,87,Lokomotiv Moscow,Bayern München,1,2
+2020/21,UCL,Group Stage,87,188,Bayern München,Lokomotiv Moscow,2,0
+2020/21,UCL,Group Stage,188,209,Lokomotiv Moscow,Atlético Madrid,1,1
+2020/21,UCL,Group Stage,209,188,Atlético Madrid,Lokomotiv Moscow,0,0
+2020/21,UCL,Group Stage,12,87,FC Salzburg,Bayern München,2,6
+2020/21,UCL,Group Stage,87,12,Bayern München,FC Salzburg,3,1
+2020/21,UCL,Group Stage,212,232,Real Madrid,Shakhtar Donetsk,2,3
+2020/21,UCL,Group Stage,232,212,Shakhtar Donetsk,Real Madrid,2,0
+2020/21,UCL,Group Stage,119,89,Internazionale,Borussia Mönchengladbach,2,2
+2020/21,UCL,Group Stage,89,119,Borussia Mönchengladbach,Internazionale,2,3
+2020/21,UCL,Group Stage,89,212,Borussia Mönchengladbach,Real Madrid,2,2
+2020/21,UCL,Group Stage,212,89,Real Madrid,Borussia Mönchengladbach,2,0
+2020/21,UCL,Group Stage,232,119,Shakhtar Donetsk,Internazionale,0,0
+2020/21,UCL,Group Stage,119,232,Internazionale,Shakhtar Donetsk,0,0
+2020/21,UCL,Group Stage,232,89,Shakhtar Donetsk,Borussia Mönchengladbach,0,6
+2020/21,UCL,Group Stage,89,232,Borussia Mönchengladbach,Shakhtar Donetsk,4,0
+2020/21,UCL,Group Stage,212,119,Real Madrid,Internazionale,3,2
+2020/21,UCL,Group Stage,119,212,Internazionale,Real Madrid,0,2
+2020/21,UCL,Group Stage,60,176,Manchester City,FC Porto,3,1
+2020/21,UCL,Group Stage,176,60,FC Porto,Manchester City,0,0
+2020/21,UCL,Group Stage,98,77,Olympiakos Piraeus,Olympique Marseille,1,0
+2020/21,UCL,Group Stage,77,98,Olympique Marseille,Olympiakos Piraeus,2,1
+2020/21,UCL,Group Stage,77,60,Olympique Marseille,Manchester City,0,3
+2020/21,UCL,Group Stage,60,77,Manchester City,Olympique Marseille,3,0
+2020/21,UCL,Group Stage,176,98,FC Porto,Olympiakos Piraeus,2,0
+2020/21,UCL,Group Stage,98,176,Olympiakos Piraeus,FC Porto,0,2
+2020/21,UCL,Group Stage,176,77,FC Porto,Olympique Marseille,3,0
+2020/21,UCL,Group Stage,77,176,Olympique Marseille,FC Porto,0,2
+2020/21,UCL,Group Stage,60,98,Manchester City,Olympiakos Piraeus,3,0
+2020/21,UCL,Group Stage,98,60,Olympiakos Piraeus,Manchester City,0,1
+2020/21,UCL,Group Stage,54,118,FC Midtjylland,Atalanta,0,4
+2020/21,UCL,Group Stage,118,54,Atalanta,FC Midtjylland,1,1
+2020/21,UCL,Group Stage,156,59,Ajax,Liverpool,0,1
+2020/21,UCL,Group Stage,59,156,Liverpool,Ajax,1,0
+2020/21,UCL,Group Stage,59,54,Liverpool,FC Midtjylland,2,0
+2020/21,UCL,Group Stage,54,59,FC Midtjylland,Liverpool,1,1
+2020/21,UCL,Group Stage,118,156,Atalanta,Ajax,2,2
+2020/21,UCL,Group Stage,156,118,Ajax,Atalanta,0,1
+2020/21,UCL,Group Stage,118,59,Atalanta,Liverpool,0,5
+2020/21,UCL,Group Stage,59,118,Liverpool,Atalanta,0,2
+2020/21,UCL,Group Stage,54,156,FC Midtjylland,Ajax,1,2
+2020/21,UCL,Group Stage,156,54,Ajax,FC Midtjylland,3,1
+2020/21,UCL,Group Stage,57,214,Chelsea,Sevilla,0,0
+2020/21,UCL,Group Stage,214,57,Sevilla,Chelsea,0,4
+2020/21,UCL,Group Stage,79,186,Stade Rennais,FK Krasnodar,1,1
+2020/21,UCL,Group Stage,186,79,FK Krasnodar,Stade Rennais,1,0
+2020/21,UCL,Group Stage,186,57,FK Krasnodar,Chelsea,0,4
+2020/21,UCL,Group Stage,57,186,Chelsea,FK Krasnodar,1,1
+2020/21,UCL,Group Stage,214,79,Sevilla,Stade Rennais,1,0
+2020/21,UCL,Group Stage,79,214,Stade Rennais,Sevilla,1,3
+2020/21,UCL,Group Stage,214,186,Sevilla,FK Krasnodar,3,2
+2020/21,UCL,Group Stage,186,214,FK Krasnodar,Sevilla,1,2
+2020/21,UCL,Group Stage,57,79,Chelsea,Stade Rennais,3,0
+2020/21,UCL,Group Stage,79,57,Stade Rennais,Chelsea,1,2
+2020/21,UCL,Group Stage,189,27,Zenit St. Petersburg,Club Brugge,1,2
+2020/21,UCL,Group Stage,27,189,Club Brugge,Zenit St. Petersburg,3,0
+2020/21,UCL,Group Stage,121,88,Lazio,Borussia Dortmund,3,1
+2020/21,UCL,Group Stage,88,121,Borussia Dortmund,Lazio,1,1
+2020/21,UCL,Group Stage,88,189,Borussia Dortmund,Zenit St. Petersburg,2,0
+2020/21,UCL,Group Stage,189,88,Zenit St. Petersburg,Borussia Dortmund,1,2
+2020/21,UCL,Group Stage,27,121,Club Brugge,Lazio,1,1
+2020/21,UCL,Group Stage,121,27,Lazio,Club Brugge,2,2
+2020/21,UCL,Group Stage,27,88,Club Brugge,Borussia Dortmund,0,3
+2020/21,UCL,Group Stage,88,27,Borussia Dortmund,Club Brugge,3,0
+2020/21,UCL,Group Stage,189,121,Zenit St. Petersburg,Lazio,1,1
+2020/21,UCL,Group Stage,121,189,Lazio,Zenit St. Petersburg,3,1
+2020/21,UCL,Group Stage,210,101,FC Barcelona,Ferencváros,5,1
+2020/21,UCL,Group Stage,101,210,Ferencváros,FC Barcelona,0,3
+2020/21,UCL,Group Stage,230,120,Dinamo Kiev,Juventus,0,2
+2020/21,UCL,Group Stage,120,230,Juventus,Dinamo Kiev,3,0
+2020/21,UCL,Group Stage,120,210,Juventus,FC Barcelona,0,2
+2020/21,UCL,Group Stage,210,120,FC Barcelona,Juventus,0,3
+2020/21,UCL,Group Stage,101,230,Ferencváros,Dinamo Kiev,2,2
+2020/21,UCL,Group Stage,230,101,Dinamo Kiev,Ferencváros,1,0
+2020/21,UCL,Group Stage,101,120,Ferencváros,Juventus,1,4
+2020/21,UCL,Group Stage,120,101,Juventus,Ferencváros,2,1
+2020/21,UCL,Group Stage,210,230,FC Barcelona,Dinamo Kiev,2,1
+2020/21,UCL,Group Stage,230,210,Dinamo Kiev,FC Barcelona,0,4
+2020/21,UCL,Group Stage,90,227,RB Leipzig,Istanbul Basaksehir,2,0
+2020/21,UCL,Group Stage,227,90,Istanbul Basaksehir,RB Leipzig,3,4
+2020/21,UCL,Group Stage,78,61,Paris Saint-Germain,Manchester United,1,2
+2020/21,UCL,Group Stage,61,78,Manchester United,Paris Saint-Germain,1,3
+2020/21,UCL,Group Stage,61,90,Manchester United,RB Leipzig,5,0
+2020/21,UCL,Group Stage,90,61,RB Leipzig,Manchester United,3,2
+2020/21,UCL,Group Stage,227,78,Istanbul Basaksehir,Paris Saint-Germain,0,2
+2020/21,UCL,Group Stage,78,227,Paris Saint-Germain,Istanbul Basaksehir,5,1
+2020/21,UCL,Group Stage,227,61,Istanbul Basaksehir,Manchester United,2,1
+2020/21,UCL,Group Stage,61,227,Manchester United,Istanbul Basaksehir,4,1
+2020/21,UCL,Group Stage,90,78,RB Leipzig,Paris Saint-Germain,2,1
+2020/21,UCL,Group Stage,78,90,Paris Saint-Germain,RB Leipzig,1,0
+2020/21,UCL,Round 2,89,60,Borussia Mönchengladbach,Manchester City,0,2
+2020/21,UCL,Round 2,60,89,Manchester City,Borussia Mönchengladbach,2,0
+2020/21,UCL,Round 2,121,87,Lazio,Bayern München,1,4
+2020/21,UCL,Round 2,87,121,Bayern München,Lazio,2,1
+2020/21,UCL,Round 2,209,57,Atlético Madrid,Chelsea,0,1
+2020/21,UCL,Round 2,57,209,Chelsea,Atlético Madrid,2,0
+2020/21,UCL,Round 2,90,59,RB Leipzig,Liverpool,0,2
+2020/21,UCL,Round 2,59,90,Liverpool,RB Leipzig,2,0
+2020/21,UCL,Round 2,176,120,FC Porto,Juventus,2,1
+2020/21,UCL,Round 2,120,176,Juventus,FC Porto,3,2
+2020/21,UCL,Round 2,210,78,FC Barcelona,Paris Saint-Germain,1,4
+2020/21,UCL,Round 2,78,210,Paris Saint-Germain,FC Barcelona,1,1
+2020/21,UCL,Round 2,214,88,Sevilla,Borussia Dortmund,2,3
+2020/21,UCL,Round 2,88,214,Borussia Dortmund,Sevilla,2,2
+2020/21,UCL,Round 2,118,212,Atalanta,Real Madrid,0,1
+2020/21,UCL,Round 2,212,118,Real Madrid,Atalanta,3,1
+2020/21,UCL,Quarter Finals,60,88,Manchester City,Borussia Dortmund,2,1
+2020/21,UCL,Quarter Finals,88,60,Borussia Dortmund,Manchester City,1,2
+2020/21,UCL,Quarter Finals,176,57,FC Porto,Chelsea,0,2
+2020/21,UCL,Quarter Finals,57,176,Chelsea,FC Porto,0,1
+2020/21,UCL,Quarter Finals,87,78,Bayern München,Paris Saint-Germain,2,3
+2020/21,UCL,Quarter Finals,78,87,Paris Saint-Germain,Bayern München,0,1
+2020/21,UCL,Quarter Finals,212,59,Real Madrid,Liverpool,3,1
+2020/21,UCL,Quarter Finals,59,212,Liverpool,Real Madrid,0,0
+2020/21,UCL,Semi Finals,78,60,Paris Saint-Germain,Manchester City,1,2
+2020/21,UCL,Semi Finals,60,78,Manchester City,Paris Saint-Germain,2,0
+2020/21,UCL,Semi Finals,212,57,Real Madrid,Chelsea,1,1
+2020/21,UCL,Semi Finals,57,212,Chelsea,Real Madrid,2,0
+2020/21,UCL,Final,60,57,Manchester City,Chelsea,0,1
+2020/21,UEL,Preliminary Round,192,129,Tre Penne,SC Gjilani,1,3
+2020/21,UEL,Preliminary Round,93,128,Lincoln Red Imps,FC Prishtina,3,0
+2020/21,UEL,Preliminary Round,5,152,FC Santa Coloma,Iskra Danilovgrad,0,0
+2020/21,UEL,Preliminary Round,7,154,UE Engordany,Zeta Golubovci,1,3
+2020/21,UEL,Preliminary Round,165,68,Glentoran,HB Torshavn,1,0
+2020/21,UEL,Preliminary Round,94,67,St Joseph's FC,B36 Torshavn,1,2
+2020/21,UEL,Preliminary Round,164,190,Coleraine,La Fiorita,1,0
+2020/21,UEL,Preliminary Round,70,235,NSI Runavik,Barry Town,5,1
+2020/21,UEL,1st Qualifying Round,207,164,NK Maribor,Coleraine,1,1
+2020/21,UEL,1st Qualifying Round,208,107,Olimpija Ljubljana,Vikingur Reykjavik,2,1
+2020/21,UEL,1st Qualifying Round,67,65,B36 Torshavn,Levadia Tallinn,4,3
+2020/21,UEL,1st Qualifying Round,135,109,FK Riteriai,Derry City,3,2
+2020/21,UEL,1st Qualifying Round,138,66,Zalgiris Vilnius,Paide Linnameeskond,2,0
+2020/21,UEL,1st Qualifying Round,102,73,Honvéd Budapest,Inter Turku,2,1
+2020/21,UEL,1st Qualifying Round,33,140,Zrinjski Mostar,Differdange 03,3,0
+2020/21,UEL,1st Qualifying Round,146,234,Valletta FC,Bala Town,0,1
+2020/21,UEL,1st Qualifying Round,93,142,Lincoln Red Imps,Union Titus Pétange,2,0
+2020/21,UEL,1st Qualifying Round,169,104,Rosenborg BK,Breidablik,4,2
+2020/21,UEL,1st Qualifying Round,193,70,Aberdeen,NSI Runavik,6,0
+2020/21,UEL,1st Qualifying Round,196,165,Motherwell,Glentoran,5,1
+2020/21,UEL,1st Qualifying Round,217,103,Hammarby IF,Puskás Akadémia,3,0
+2020/21,UEL,1st Qualifying Round,219,171,Malmö FF,Cracovia Kraków,2,0
+2020/21,UEL,1st Qualifying Round,1,37,FK Kukësi,Slavia Sofia,2,1
+2020/21,UEL,1st Qualifying Round,130,147,FK Ventspils,Dinamo-Auto Tiraspol,2,1
+2020/21,UEL,1st Qualifying Round,24,149,Shakhtior Saligorsk,Sfântul Gheorghe,0,0
+2020/21,UEL,1st Qualifying Round,22,174,Dinamo Minsk,Piast Gliwice,0,2
+2020/21,UEL,1st Qualifying Round,52,71,AGF Aarhus,Honka Espoo,5,2
+2020/21,UEL,1st Qualifying Round,111,72,Shamrock Rovers,Ilves Tampere,2,2
+2020/21,UEL,1st Qualifying Round,105,201,FH Hafnarfjardar,DAC Dunajska Streda,0,2
+2020/21,UEL,1st Qualifying Round,237,203,The New Saints,MSK Zilina,3,1
+2020/21,UEL,1st Qualifying Round,134,144,FC Vaduz,Hibernians FC,0,2
+2020/21,UEL,1st Qualifying Round,222,202,Servette FC Genève,MFK Ruzomberok,3,0
+2020/21,UEL,1st Qualifying Round,18,160,Neftchi Baku,FK Shkupi,2,1
+2020/21,UEL,1st Qualifying Round,17,2,Kesla FK,KF Laçi,0,0
+2020/21,UEL,1st Qualifying Round,113,81,Hapoel Beer-Sheva,Dinamo Batumi,3,0
+2020/21,UEL,1st Qualifying Round,64,205,Kalju Nomme,Mura Murska Sobota,0,4
+2020/21,UEL,1st Qualifying Round,167,136,Bodø/Glimt,Kauno Zalgiris,6,1
+2020/21,UEL,1st Qualifying Round,100,108,FC Fehérvár,Bohemians Dublin,1,1
+2020/21,UEL,1st Qualifying Round,45,84,Apollon Limassol,Saburtalo Tbilisi,5,1
+2020/21,UEL,1st Qualifying Round,114,32,Maccabi Haifa,Zeljeznicar Sarajevo,3,1
+2020/21,UEL,1st Qualifying Round,8,161,Alashkert FC,Renova Dzepciste,0,1
+2020/21,UEL,1st Qualifying Round,197,131,Partizan Belgrade,RFS Riga,1,0
+2020/21,UEL,1st Qualifying Round,172,133,Lech Poznan,Valmieras FK,3,0
+2020/21,UEL,1st Qualifying Round,126,181,Ordabasy Shymkent,FC Botosani,1,2
+2020/21,UEL,1st Qualifying Round,182,11,FCSB,Shirak Gyumri,3,0
+2020/21,UEL,1st Qualifying Round,141,154,Progrès Niederkorn,Zeta Golubovci,3,0
+2020/21,UEL,1st Qualifying Round,34,145,CSKA Sofia,Sirens FC,2,1
+2020/21,UEL,1st Qualifying Round,148,199,Petrocub Hîncesti,TSC Backa Topola,0,2
+2020/21,UEL,1st Qualifying Round,20,162,Sumgayit FK,Shkendija Tetovo,0,2
+2020/21,UEL,1st Qualifying Round,124,10,Kairat Almaty,FC Noah,4,1
+2020/21,UEL,1st Qualifying Round,83,183,Lokomotivi Tbilisi,Universitatea Craiova,2,1
+2020/21,UEL,1st Qualifying Round,4,112,Teuta Durrës,Beitar Jerusalem,2,0
+2020/21,UEL,1st Qualifying Round,30,153,Borac Banja Luka,Sutjeska Niksic,1,0
+2020/21,UEL,1st Qualifying Round,152,35,Iskra Danilovgrad,Lokomotiv Plovdiv,0,1
+2020/21,UEL,1st Qualifying Round,129,43,SC Gjilani,APOEL Nicosia,0,2
+2020/21,UEL,2nd Qualifying Round,217,172,Hammarby IF,Lech Poznan,0,3
+2020/21,UEL,2nd Qualifying Round,125,43,Kaysar Kyzylorda,APOEL Nicosia,1,4
+2020/21,UEL,2nd Qualifying Round,205,52,Mura Murska Sobota,AGF Aarhus,3,0
+2020/21,UEL,2nd Qualifying Round,114,124,Maccabi Haifa,Kairat Almaty,2,1
+2020/21,UEL,2nd Qualifying Round,83,185,Lokomotivi Tbilisi,Dinamo Moscow,2,1
+2020/21,UEL,2nd Qualifying Round,18,226,Neftchi Baku,Galatasaray,1,3
+2020/21,UEL,2nd Qualifying Round,67,237,B36 Torshavn,The New Saints,2,2
+2020/21,UEL,2nd Qualifying Round,164,196,Coleraine,Motherwell,2,2
+2020/21,UEL,2nd Qualifying Round,218,53,IFK Göteborg,FC København,1,2
+2020/21,UEL,2nd Qualifying Round,199,182,TSC Backa Topola,FCSB,6,6
+2020/21,UEL,2nd Qualifying Round,4,211,Teuta Durrës,Granada CF,0,4
+2020/21,UEL,2nd Qualifying Round,97,45,OFI Heraklion,Apollon Limassol,0,1
+2020/21,UEL,2nd Qualifying Round,141,159,Progrès Niederkorn,Willem II Tilburg,0,5
+2020/21,UEL,2nd Qualifying Round,170,193,Viking Stavanger,Aberdeen,0,2
+2020/21,UEL,2nd Qualifying Round,29,234,Standard Liège,Bala Town,2,0
+2020/21,UEL,2nd Qualifying Round,149,197,Sfântul Gheorghe,Partizan Belgrade,0,1
+2020/21,UEL,2nd Qualifying Round,34,21,CSKA Sofia,BATE Borisov,2,0
+2020/21,UEL,2nd Qualifying Round,181,162,FC Botosani,Shkendija Tetovo,0,1
+2020/21,UEL,2nd Qualifying Round,35,62,Lokomotiv Plovdiv,Tottenham Hotspur,1,2
+2020/21,UEL,2nd Qualifying Round,2,113,KF Laçi,Hapoel Beer-Sheva,1,2
+2020/21,UEL,2nd Qualifying Round,96,231,Aris Thessaloniki,Kolos Kovalivka,1,2
+2020/21,UEL,2nd Qualifying Round,102,219,Honvéd Budapest,Malmö FF,0,2
+2020/21,UEL,2nd Qualifying Round,130,169,FK Ventspils,Rosenborg BK,1,5
+2020/21,UEL,2nd Qualifying Round,135,49,FK Riteriai,Slovan Liberec,1,5
+2020/21,UEL,2nd Qualifying Round,93,195,Lincoln Red Imps,Glasgow Rangers,0,5
+2020/21,UEL,2nd Qualifying Round,222,80,Servette FC Genève,Stade de Reims,0,1
+2020/21,UEL,2nd Qualifying Round,30,177,Borac Banja Luka,Rio Ave,0,2
+2020/21,UEL,2nd Qualifying Round,161,39,Renova Dzepciste,Hajduk Split,0,1
+2020/21,UEL,2nd Qualifying Round,208,33,Olimpija Ljubljana,Zrinjski Mostar,2,3
+2020/21,UEL,2nd Qualifying Round,1,91,FK Kukësi,VfL Wolfsburg,0,4
+2020/21,UEL,2nd Qualifying Round,201,47,DAC Dunajska Streda,FK Jablonec,5,3
+2020/21,UEL,2nd Qualifying Round,174,15,Piast Gliwice,TSV Hartberg,3,2
+2020/21,UEL,2nd Qualifying Round,41,220,NK Osijek,FC Basel,1,2
+2020/21,UEL,2nd Qualifying Round,111,116,Shamrock Rovers,AC Milan,0,2
+2020/21,UEL,2nd Qualifying Round,144,100,Hibernians FC,FC Fehérvár,0,1
+2020/21,UEL,2nd Qualifying Round,167,138,Bodø/Glimt,Zalgiris Vilnius,3,1
+2020/21,UEL,2nd Qualifying Round,6,110,Inter Club d'Escaldes,Dundalk,0,1
+2020/21,UEL,2nd Qualifying Round,74,204,KuPS Kuopio,Slovan Bratislava,1,1
+2020/21,UEL,2nd Qualifying Round,166,143,Linfield Belfast,Floriana,0,1
+2020/21,UEL,2nd Qualifying Round,132,191,Riga FC,Tre Fiori,1,0
+2020/21,UEL,2nd Qualifying Round,216,92,Djurgårdens IF,Europa FC,2,1
+2020/21,UEL,2nd Qualifying Round,63,106,Flora Tallinn,KR Reykjavik,2,1
+2020/21,UEL,2nd Qualifying Round,163,127,Sileks Kratovo,FC Drita,0,2
+2020/21,UEL,2nd Qualifying Round,123,151,FK Astana,Buducnost Podgorica,0,1
+2020/21,UEL,2nd Qualifying Round,9,139,Ararat-Armenia,CS Fola Esch,4,3
+2020/21,UEL,2nd Qualifying Round,236,82,Connah's Quay,Dinamo Tbilisi,0,1
+2020/21,UEL,3rd Qualifying Round,205,158,Mura Murska Sobota,PSV Eindhoven,1,5
+2020/21,UEL,3rd Qualifying Round,219,40,Malmö FF,Lokomotiva Zagreb,5,0
+2020/21,UEL,3rd Qualifying Round,179,193,Sporting CP Lisbon,Aberdeen,1,0
+2020/21,UEL,3rd Qualifying Round,26,197,Charleroi,Partizan Belgrade,2,1
+2020/21,UEL,3rd Qualifying Round,169,224,Rosenborg BK,Alanyaspor,1,0
+2020/21,UEL,3rd Qualifying Round,91,229,VfL Wolfsburg,Desna Chernihiv,2,0
+2020/21,UEL,3rd Qualifying Round,100,80,FC Fehérvár,Stade de Reims,0,0
+2020/21,UEL,3rd Qualifying Round,211,83,Granada CF,Lokomotivi Tbilisi,2,0
+2020/21,UEL,3rd Qualifying Round,42,231,NK Rijeka,Kolos Kovalivka,2,0
+2020/21,UEL,3rd Qualifying Round,221,95,FC Sankt Gallen,AEK Athens,0,1
+2020/21,UEL,3rd Qualifying Round,13,201,LASK,DAC Dunajska Streda,7,0
+2020/21,UEL,3rd Qualifying Round,116,167,AC Milan,Bodø/Glimt,3,2
+2020/21,UEL,3rd Qualifying Round,162,62,Shkendija Tetovo,Tottenham Hotspur,1,3
+2020/21,UEL,3rd Qualifying Round,29,200,Standard Liège,Vojvodina Novi Sad,2,1
+2020/21,UEL,3rd Qualifying Round,187,114,FK Rostov,Maccabi Haifa,1,2
+2020/21,UEL,3rd Qualifying Round,159,195,Willem II Tilburg,Glasgow Rangers,0,4
+2020/21,UEL,3rd Qualifying Round,45,172,Apollon Limassol,Lech Poznan,0,5
+2020/21,UEL,3rd Qualifying Round,225,177,Besiktas,Rio Ave,1,1
+2020/21,UEL,3rd Qualifying Round,182,49,FCSB,Slovan Liberec,0,2
+2020/21,UEL,3rd Qualifying Round,113,196,Hapoel Beer-Sheva,Motherwell,3,0
+2020/21,UEL,3rd Qualifying Round,53,174,FC København,Piast Gliwice,3,0
+2020/21,UEL,3rd Qualifying Round,220,44,FC Basel,Anorthosis Famagusta,3,2
+2020/21,UEL,3rd Qualifying Round,226,39,Galatasaray,Hajduk Split,2,0
+2020/21,UEL,3rd Qualifying Round,51,55,Viktoria Plzen,SønderjyskE,3,0
+2020/21,UEL,3rd Qualifying Round,43,33,APOEL Nicosia,Zrinjski Mostar,2,2
+2020/21,UEL,3rd Qualifying Round,34,67,CSKA Sofia,B36 Torshavn,3,1
+2020/21,UEL,3rd Qualifying Round,31,151,FK Sarajevo,Buducnost Podgorica,2,1
+2020/21,UEL,3rd Qualifying Round,150,110,Sheriff Tiraspol,Dundalk,1,1
+2020/21,UEL,3rd Qualifying Round,9,206,Ararat-Armenia,NK Celje,1,0
+2020/21,UEL,3rd Qualifying Round,132,194,Riga FC,Celtic,0,1
+2020/21,UEL,3rd Qualifying Round,74,137,KuPS Kuopio,Suduva Marijampole,2,0
+2020/21,UEL,3rd Qualifying Round,173,127,Legia Warsaw,FC Drita,2,0
+2020/21,UEL,3rd Qualifying Round,69,82,KI Klaksvik,Dinamo Tbilisi,6,1
+2020/21,UEL,3rd Qualifying Round,216,180,Djurgårdens IF,CFR Cluj,0,1
+2020/21,UEL,3rd Qualifying Round,143,63,Floriana,Flora Tallinn,0,0
+2020/21,UEL,Qualifying Play-off Round,113,51,Hapoel Beer-Sheva,Viktoria Plzen,1,0
+2020/21,UEL,Qualifying Play-off Round,169,158,Rosenborg BK,PSV Eindhoven,0,2
+2020/21,UEL,Qualifying Play-off Round,95,91,AEK Athens,VfL Wolfsburg,2,1
+2020/21,UEL,Qualifying Play-off Round,220,34,FC Basel,CSKA Sofia,1,3
+2020/21,UEL,Qualifying Play-off Round,179,13,Sporting CP Lisbon,LASK,1,4
+2020/21,UEL,Qualifying Play-off Round,26,172,Charleroi,Lech Poznan,1,2
+2020/21,UEL,Qualifying Play-off Round,177,116,Rio Ave,AC Milan,2,2
+2020/21,UEL,Qualifying Play-off Round,53,42,FC København,NK Rijeka,0,1
+2020/21,UEL,Qualifying Play-off Round,219,211,Malmö FF,Granada CF,1,3
+2020/21,UEL,Qualifying Play-off Round,62,114,Tottenham Hotspur,Maccabi Haifa,7,2
+2020/21,UEL,Qualifying Play-off Round,49,43,Slovan Liberec,APOEL Nicosia,1,0
+2020/21,UEL,Qualifying Play-off Round,29,100,Standard Liège,FC Fehérvár,3,1
+2020/21,UEL,Qualifying Play-off Round,195,226,Glasgow Rangers,Galatasaray,2,1
+2020/21,UEL,Qualifying Play-off Round,223,3,Young Boys,KF Tirana,3,0
+2020/21,UEL,Qualifying Play-off Round,38,63,Dinamo Zagreb,Flora Tallinn,3,1
+2020/21,UEL,Qualifying Play-off Round,180,74,CFR Cluj,KuPS Kuopio,3,1
+2020/21,UEL,Qualifying Play-off Round,9,198,Ararat-Armenia,Red Star Belgrade,1,2
+2020/21,UEL,Qualifying Play-off Round,23,36,Dynamo Brest,Ludogorets Razgrad,0,2
+2020/21,UEL,Qualifying Play-off Round,31,194,FK Sarajevo,Celtic,0,1
+2020/21,UEL,Qualifying Play-off Round,173,19,Legia Warsaw,Qarabag FK,0,3
+2020/21,UEL,Qualifying Play-off Round,110,69,Dundalk,KI Klaksvik,3,1
+2020/21,UEL,Group Stage,223,117,Young Boys,AS Roma,1,2
+2020/21,UEL,Group Stage,117,223,AS Roma,Young Boys,3,1
+2020/21,UEL,Group Stage,34,180,CSKA Sofia,CFR Cluj,0,2
+2020/21,UEL,Group Stage,180,34,CFR Cluj,CSKA Sofia,0,0
+2020/21,UEL,Group Stage,180,223,CFR Cluj,Young Boys,1,1
+2020/21,UEL,Group Stage,223,180,Young Boys,CFR Cluj,2,1
+2020/21,UEL,Group Stage,117,34,AS Roma,CSKA Sofia,0,0
+2020/21,UEL,Group Stage,34,117,CSKA Sofia,AS Roma,3,1
+2020/21,UEL,Group Stage,117,180,AS Roma,CFR Cluj,5,0
+2020/21,UEL,Group Stage,180,117,CFR Cluj,AS Roma,0,2
+2020/21,UEL,Group Stage,223,34,Young Boys,CSKA Sofia,3,0
+2020/21,UEL,Group Stage,34,223,CSKA Sofia,Young Boys,0,1
+2020/21,UEL,Group Stage,14,56,Rapid Wien,Arsenal,1,2
+2020/21,UEL,Group Stage,56,14,Arsenal,Rapid Wien,4,1
+2020/21,UEL,Group Stage,110,168,Dundalk,Molde FK,1,2
+2020/21,UEL,Group Stage,168,110,Molde FK,Dundalk,3,1
+2020/21,UEL,Group Stage,168,14,Molde FK,Rapid Wien,1,0
+2020/21,UEL,Group Stage,14,168,Rapid Wien,Molde FK,2,2
+2020/21,UEL,Group Stage,56,110,Arsenal,Dundalk,3,0
+2020/21,UEL,Group Stage,110,56,Dundalk,Arsenal,2,4
+2020/21,UEL,Group Stage,56,168,Arsenal,Molde FK,4,1
+2020/21,UEL,Group Stage,168,56,Molde FK,Arsenal,0,3
+2020/21,UEL,Group Stage,14,110,Rapid Wien,Dundalk,4,3
+2020/21,UEL,Group Stage,110,14,Dundalk,Rapid Wien,1,3
+2020/21,UEL,Group Stage,113,48,Hapoel Beer-Sheva,Slavia Praha,3,1
+2020/21,UEL,Group Stage,48,113,Slavia Praha,Hapoel Beer-Sheva,3,0
+2020/21,UEL,Group Stage,86,76,Bayer Leverkusen,OGC Nice,6,2
+2020/21,UEL,Group Stage,76,86,OGC Nice,Bayer Leverkusen,2,3
+2020/21,UEL,Group Stage,76,113,OGC Nice,Hapoel Beer-Sheva,1,0
+2020/21,UEL,Group Stage,113,76,Hapoel Beer-Sheva,OGC Nice,1,0
+2020/21,UEL,Group Stage,48,86,Slavia Praha,Bayer Leverkusen,1,0
+2020/21,UEL,Group Stage,86,48,Bayer Leverkusen,Slavia Praha,4,0
+2020/21,UEL,Group Stage,48,76,Slavia Praha,OGC Nice,3,2
+2020/21,UEL,Group Stage,76,48,OGC Nice,Slavia Praha,1,3
+2020/21,UEL,Group Stage,113,86,Hapoel Beer-Sheva,Bayer Leverkusen,2,4
+2020/21,UEL,Group Stage,86,113,Bayer Leverkusen,Hapoel Beer-Sheva,4,1
+2020/21,UEL,Group Stage,172,175,Lech Poznan,Benfica,2,4
+2020/21,UEL,Group Stage,175,172,Benfica,Lech Poznan,4,0
+2020/21,UEL,Group Stage,29,195,Standard Liège,Glasgow Rangers,0,2
+2020/21,UEL,Group Stage,195,29,Glasgow Rangers,Standard Liège,3,2
+2020/21,UEL,Group Stage,195,172,Glasgow Rangers,Lech Poznan,1,0
+2020/21,UEL,Group Stage,172,195,Lech Poznan,Glasgow Rangers,0,2
+2020/21,UEL,Group Stage,175,29,Benfica,Standard Liège,3,0
+2020/21,UEL,Group Stage,29,175,Standard Liège,Benfica,2,2
+2020/21,UEL,Group Stage,175,195,Benfica,Glasgow Rangers,3,3
+2020/21,UEL,Group Stage,195,175,Glasgow Rangers,Benfica,2,2
+2020/21,UEL,Group Stage,172,29,Lech Poznan,Standard Liège,3,1
+2020/21,UEL,Group Stage,29,172,Standard Liège,Lech Poznan,2,1
+2020/21,UEL,Group Stage,99,46,PAOK Thessaloniki,Omonia Nicosia,1,1
+2020/21,UEL,Group Stage,46,99,Omonia Nicosia,PAOK Thessaloniki,2,1
+2020/21,UEL,Group Stage,158,211,PSV Eindhoven,Granada CF,1,2
+2020/21,UEL,Group Stage,211,158,Granada CF,PSV Eindhoven,0,1
+2020/21,UEL,Group Stage,211,99,Granada CF,PAOK Thessaloniki,0,0
+2020/21,UEL,Group Stage,99,211,PAOK Thessaloniki,Granada CF,0,0
+2020/21,UEL,Group Stage,46,158,Omonia Nicosia,PSV Eindhoven,1,2
+2020/21,UEL,Group Stage,158,46,PSV Eindhoven,Omonia Nicosia,4,0
+2020/21,UEL,Group Stage,46,211,Omonia Nicosia,Granada CF,0,2
+2020/21,UEL,Group Stage,211,46,Granada CF,Omonia Nicosia,2,1
+2020/21,UEL,Group Stage,99,158,PAOK Thessaloniki,PSV Eindhoven,4,1
+2020/21,UEL,Group Stage,158,99,PSV Eindhoven,PAOK Thessaloniki,3,2
+2020/21,UEL,Group Stage,42,213,NK Rijeka,Real Sociedad,0,1
+2020/21,UEL,Group Stage,213,42,Real Sociedad,NK Rijeka,2,2
+2020/21,UEL,Group Stage,122,155,Napoli,AZ Alkmaar,0,1
+2020/21,UEL,Group Stage,155,122,AZ Alkmaar,Napoli,1,1
+2020/21,UEL,Group Stage,155,42,AZ Alkmaar,NK Rijeka,4,1
+2020/21,UEL,Group Stage,42,155,NK Rijeka,AZ Alkmaar,2,1
+2020/21,UEL,Group Stage,213,122,Real Sociedad,Napoli,0,1
+2020/21,UEL,Group Stage,122,213,Napoli,Real Sociedad,1,1
+2020/21,UEL,Group Stage,213,155,Real Sociedad,AZ Alkmaar,1,0
+2020/21,UEL,Group Stage,155,213,AZ Alkmaar,Real Sociedad,0,0
+2020/21,UEL,Group Stage,42,122,NK Rijeka,Napoli,1,2
+2020/21,UEL,Group Stage,122,42,Napoli,NK Rijeka,2,0
+2020/21,UEL,Group Stage,58,233,Leicester City,Zorya Luhansk,3,0
+2020/21,UEL,Group Stage,233,58,Zorya Luhansk,Leicester City,1,0
+2020/21,UEL,Group Stage,178,95,Sporting Braga,AEK Athens,3,0
+2020/21,UEL,Group Stage,95,178,AEK Athens,Sporting Braga,2,4
+2020/21,UEL,Group Stage,95,58,AEK Athens,Leicester City,1,2
+2020/21,UEL,Group Stage,58,95,Leicester City,AEK Athens,2,0
+2020/21,UEL,Group Stage,233,178,Zorya Luhansk,Sporting Braga,1,2
+2020/21,UEL,Group Stage,178,233,Sporting Braga,Zorya Luhansk,2,0
+2020/21,UEL,Group Stage,233,95,Zorya Luhansk,AEK Athens,1,4
+2020/21,UEL,Group Stage,95,233,AEK Athens,Zorya Luhansk,0,3
+2020/21,UEL,Group Stage,58,178,Leicester City,Sporting Braga,4,0
+2020/21,UEL,Group Stage,178,58,Sporting Braga,Leicester City,3,3
+2020/21,UEL,Group Stage,194,116,Celtic,AC Milan,1,3
+2020/21,UEL,Group Stage,116,194,AC Milan,Celtic,4,2
+2020/21,UEL,Group Stage,50,75,Sparta Praha,Lille OSC,1,4
+2020/21,UEL,Group Stage,75,50,Lille OSC,Sparta Praha,2,1
+2020/21,UEL,Group Stage,75,194,Lille OSC,Celtic,2,2
+2020/21,UEL,Group Stage,194,75,Celtic,Lille OSC,3,2
+2020/21,UEL,Group Stage,116,50,AC Milan,Sparta Praha,3,0
+2020/21,UEL,Group Stage,50,116,Sparta Praha,AC Milan,0,1
+2020/21,UEL,Group Stage,116,75,AC Milan,Lille OSC,0,3
+2020/21,UEL,Group Stage,75,116,Lille OSC,AC Milan,1,1
+2020/21,UEL,Group Stage,194,50,Celtic,Sparta Praha,1,4
+2020/21,UEL,Group Stage,50,194,Sparta Praha,Celtic,4,1
+2020/21,UEL,Group Stage,215,228,Villarreal,Sivasspor,5,3
+2020/21,UEL,Group Stage,228,215,Sivasspor,Villarreal,0,1
+2020/21,UEL,Group Stage,115,19,Maccabi Tel-Aviv,Qarabag FK,1,0
+2020/21,UEL,Group Stage,19,115,Qarabag FK,Maccabi Tel-Aviv,1,1
+2020/21,UEL,Group Stage,19,215,Qarabag FK,Villarreal,1,3
+2020/21,UEL,Group Stage,215,19,Villarreal,Qarabag FK,3,0
+2020/21,UEL,Group Stage,228,115,Sivasspor,Maccabi Tel-Aviv,1,2
+2020/21,UEL,Group Stage,115,228,Maccabi Tel-Aviv,Sivasspor,1,0
+2020/21,UEL,Group Stage,228,19,Sivasspor,Qarabag FK,2,0
+2020/21,UEL,Group Stage,19,228,Qarabag FK,Sivasspor,2,3
+2020/21,UEL,Group Stage,215,115,Villarreal,Maccabi Tel-Aviv,4,0
+2020/21,UEL,Group Stage,115,215,Maccabi Tel-Aviv,Villarreal,1,1
+2020/21,UEL,Group Stage,36,28,Ludogorets Razgrad,Royal Antwerp,1,2
+2020/21,UEL,Group Stage,28,36,Royal Antwerp,Ludogorets Razgrad,3,1
+2020/21,UEL,Group Stage,62,13,Tottenham Hotspur,LASK,3,0
+2020/21,UEL,Group Stage,13,62,LASK,Tottenham Hotspur,3,3
+2020/21,UEL,Group Stage,13,36,LASK,Ludogorets Razgrad,4,3
+2020/21,UEL,Group Stage,36,13,Ludogorets Razgrad,LASK,1,3
+2020/21,UEL,Group Stage,28,62,Royal Antwerp,Tottenham Hotspur,1,0
+2020/21,UEL,Group Stage,62,28,Tottenham Hotspur,Royal Antwerp,2,0
+2020/21,UEL,Group Stage,28,13,Royal Antwerp,LASK,0,1
+2020/21,UEL,Group Stage,13,28,LASK,Royal Antwerp,0,2
+2020/21,UEL,Group Stage,36,62,Ludogorets Razgrad,Tottenham Hotspur,1,3
+2020/21,UEL,Group Stage,62,36,Tottenham Hotspur,Ludogorets Razgrad,4,0
+2020/21,UEL,Group Stage,38,157,Dinamo Zagreb,Feyenoord,0,0
+2020/21,UEL,Group Stage,157,38,Feyenoord,Dinamo Zagreb,0,2
+2020/21,UEL,Group Stage,16,184,Wolfsberger AC,CSKA Moscow,1,1
+2020/21,UEL,Group Stage,184,16,CSKA Moscow,Wolfsberger AC,0,1
+2020/21,UEL,Group Stage,184,38,CSKA Moscow,Dinamo Zagreb,0,0
+2020/21,UEL,Group Stage,38,184,Dinamo Zagreb,CSKA Moscow,3,1
+2020/21,UEL,Group Stage,157,16,Feyenoord,Wolfsberger AC,1,4
+2020/21,UEL,Group Stage,16,157,Wolfsberger AC,Feyenoord,1,0
+2020/21,UEL,Group Stage,157,184,Feyenoord,CSKA Moscow,3,1
+2020/21,UEL,Group Stage,184,157,CSKA Moscow,Feyenoord,0,0
+2020/21,UEL,Group Stage,38,16,Dinamo Zagreb,Wolfsberger AC,1,0
+2020/21,UEL,Group Stage,16,38,Wolfsberger AC,Dinamo Zagreb,0,3
+2020/21,UEL,Group Stage,85,198,1899 Hoffenheim,Red Star Belgrade,2,0
+2020/21,UEL,Group Stage,198,85,Red Star Belgrade,1899 Hoffenheim,0,0
+2020/21,UEL,Group Stage,49,25,Slovan Liberec,AA Gent,1,0
+2020/21,UEL,Group Stage,25,49,AA Gent,Slovan Liberec,1,2
+2020/21,UEL,Group Stage,25,85,AA Gent,1899 Hoffenheim,1,4
+2020/21,UEL,Group Stage,85,25,1899 Hoffenheim,AA Gent,4,1
+2020/21,UEL,Group Stage,198,49,Red Star Belgrade,Slovan Liberec,5,1
+2020/21,UEL,Group Stage,49,198,Slovan Liberec,Red Star Belgrade,0,0
+2020/21,UEL,Group Stage,198,25,Red Star Belgrade,AA Gent,2,1
+2020/21,UEL,Group Stage,25,198,AA Gent,Red Star Belgrade,0,2
+2020/21,UEL,Group Stage,85,49,1899 Hoffenheim,Slovan Liberec,5,0
+2020/21,UEL,Group Stage,49,85,Slovan Liberec,1899 Hoffenheim,0,2
+2020/21,UEL,Round 2,16,62,Wolfsberger AC,Tottenham Hotspur,1,4
+2020/21,UEL,Round 2,62,16,Tottenham Hotspur,Wolfsberger AC,4,0
+2020/21,UEL,Round 2,230,27,Dinamo Kiev,Club Brugge,1,1
+2020/21,UEL,Round 2,27,230,Club Brugge,Dinamo Kiev,0,1
+2020/21,UEL,Round 2,213,61,Real Sociedad,Manchester United,0,4
+2020/21,UEL,Round 2,61,213,Manchester United,Real Sociedad,0,0
+2020/21,UEL,Round 2,175,56,Benfica,Arsenal,1,1
+2020/21,UEL,Round 2,56,175,Arsenal,Benfica,3,2
+2020/21,UEL,Round 2,198,116,Red Star Belgrade,AC Milan,2,2
+2020/21,UEL,Round 2,116,198,AC Milan,Red Star Belgrade,1,1
+2020/21,UEL,Round 2,28,195,Royal Antwerp,Glasgow Rangers,3,4
+2020/21,UEL,Round 2,195,28,Glasgow Rangers,Royal Antwerp,5,2
+2020/21,UEL,Round 2,48,58,Slavia Praha,Leicester City,0,0
+2020/21,UEL,Round 2,58,48,Leicester City,Slavia Praha,0,2
+2020/21,UEL,Round 2,12,215,FC Salzburg,Villarreal,0,2
+2020/21,UEL,Round 2,215,12,Villarreal,FC Salzburg,2,1
+2020/21,UEL,Round 2,178,117,Sporting Braga,AS Roma,0,2
+2020/21,UEL,Round 2,117,178,AS Roma,Sporting Braga,3,1
+2020/21,UEL,Round 2,186,38,FK Krasnodar,Dinamo Zagreb,2,3
+2020/21,UEL,Round 2,38,186,Dinamo Zagreb,FK Krasnodar,1,0
+2020/21,UEL,Round 2,223,86,Young Boys,Bayer Leverkusen,4,3
+2020/21,UEL,Round 2,86,223,Bayer Leverkusen,Young Boys,0,2
+2020/21,UEL,Round 2,168,85,Molde FK,1899 Hoffenheim,3,3
+2020/21,UEL,Round 2,85,168,1899 Hoffenheim,Molde FK,0,2
+2020/21,UEL,Round 2,211,122,Granada CF,Napoli,2,0
+2020/21,UEL,Round 2,122,211,Napoli,Granada CF,2,1
+2020/21,UEL,Round 2,115,232,Maccabi Tel-Aviv,Shakhtar Donetsk,0,2
+2020/21,UEL,Round 2,232,115,Shakhtar Donetsk,Maccabi Tel-Aviv,1,0
+2020/21,UEL,Round 2,75,156,Lille OSC,Ajax,1,2
+2020/21,UEL,Round 2,156,75,Ajax,Lille OSC,2,1
+2020/21,UEL,Round 2,98,158,Olympiakos Piraeus,PSV Eindhoven,4,2
+2020/21,UEL,Round 2,158,98,PSV Eindhoven,Olympiakos Piraeus,2,1
+2020/21,UEL,Round 3,156,223,Ajax,Young Boys,3,0
+2020/21,UEL,Round 3,223,156,Young Boys,Ajax,0,2
+2020/21,UEL,Round 3,230,215,Dinamo Kiev,Villarreal,0,2
+2020/21,UEL,Round 3,215,230,Villarreal,Dinamo Kiev,2,0
+2020/21,UEL,Round 3,117,232,AS Roma,Shakhtar Donetsk,3,0
+2020/21,UEL,Round 3,232,117,Shakhtar Donetsk,AS Roma,1,2
+2020/21,UEL,Round 3,98,56,Olympiakos Piraeus,Arsenal,1,3
+2020/21,UEL,Round 3,56,98,Arsenal,Olympiakos Piraeus,0,1
+2020/21,UEL,Round 3,62,38,Tottenham Hotspur,Dinamo Zagreb,2,0
+2020/21,UEL,Round 3,38,62,Dinamo Zagreb,Tottenham Hotspur,3,0
+2020/21,UEL,Round 3,61,116,Manchester United,AC Milan,1,1
+2020/21,UEL,Round 3,116,61,AC Milan,Manchester United,0,1
+2020/21,UEL,Round 3,48,195,Slavia Praha,Glasgow Rangers,1,1
+2020/21,UEL,Round 3,195,48,Glasgow Rangers,Slavia Praha,0,2
+2020/21,UEL,Round 3,211,168,Granada CF,Molde FK,2,0
+2020/21,UEL,Round 3,168,211,Molde FK,Granada CF,2,1
+2020/21,UEL,Quarter Finals,211,61,Granada CF,Manchester United,0,2
+2020/21,UEL,Quarter Finals,61,211,Manchester United,Granada CF,2,0
+2020/21,UEL,Quarter Finals,56,48,Arsenal,Slavia Praha,1,1
+2020/21,UEL,Quarter Finals,48,56,Slavia Praha,Arsenal,0,4
+2020/21,UEL,Quarter Finals,156,117,Ajax,AS Roma,1,2
+2020/21,UEL,Quarter Finals,117,156,AS Roma,Ajax,1,1
+2020/21,UEL,Quarter Finals,38,215,Dinamo Zagreb,Villarreal,0,1
+2020/21,UEL,Quarter Finals,215,38,Villarreal,Dinamo Zagreb,2,1
+2020/21,UEL,Semi Finals,61,117,Manchester United,AS Roma,6,2
+2020/21,UEL,Semi Finals,117,61,AS Roma,Manchester United,3,2
+2020/21,UEL,Semi Finals,215,56,Villarreal,Arsenal,2,1
+2020/21,UEL,Semi Finals,56,215,Arsenal,Villarreal,0,0
+2020/21,UEL,Final,215,61,Villarreal,Manchester United,1,1

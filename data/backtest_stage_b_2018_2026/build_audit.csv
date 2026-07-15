@@ -1,0 +1,881 @@
+season,country,check,status,detail
+2018/19,Albania,league_team_count_plausible,PASS,10
+2018/19,Albania,participant_position_coverage,PASS,all=4/4; required=4/4
+2018/19,Andorra,league_team_count_plausible,PASS,8
+2018/19,Andorra,participant_position_coverage,PASS,all=3/3; required=3/3
+2018/19,Armenia,league_team_count_plausible,PASS,6
+2018/19,Armenia,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Austria,league_team_count_plausible,PASS,10
+2018/19,Austria,participant_position_coverage,PASS,all=5/5; required=5/5
+2018/19,Azerbaijan,league_team_count_plausible,PASS,8
+2018/19,Azerbaijan,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Belarus,league_team_count_plausible,PASS,16
+2018/19,Belarus,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Belgium,league_team_count_plausible,PASS,16
+2018/19,Belgium,participant_position_coverage,PASS,all=5/5; required=5/5
+2018/19,Bosnia-Herzegovina,league_team_count_plausible,PASS,12
+2018/19,Bosnia-Herzegovina,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Bulgaria,league_team_count_plausible,PASS,14
+2018/19,Bulgaria,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Croatia,league_team_count_plausible,PASS,10
+2018/19,Croatia,participant_position_coverage,PASS,all=4/4; required=4/4
+2018/19,Cyprus,league_team_count_plausible,PASS,14
+2018/19,Cyprus,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Czechia,league_team_count_plausible,PASS,16
+2018/19,Czechia,participant_position_coverage,PASS,all=5/5; required=5/5
+2018/19,Denmark,league_team_count_plausible,PASS,14
+2018/19,Denmark,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,England,league_team_count_plausible,PASS,20
+2018/19,England,participant_position_coverage,PASS,all=7/7; required=6/6
+2018/19,Estonia,league_team_count_plausible,PASS,10
+2018/19,Estonia,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Faroe Islands,league_team_count_plausible,PASS,10
+2018/19,Faroe Islands,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Finland,league_team_count_plausible,PASS,12
+2018/19,Finland,participant_position_coverage,PASS,all=4/4; required=4/4
+2018/19,France,league_team_count_plausible,PASS,20
+2018/19,France,participant_position_coverage,PASS,all=6/6; required=6/6
+2018/19,Georgia,league_team_count_plausible,PASS,10
+2018/19,Georgia,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Germany,league_team_count_plausible,PASS,18
+2018/19,Germany,participant_position_coverage,PASS,all=7/7; required=6/6
+2018/19,Gibraltar,league_team_count_plausible,PASS,10
+2018/19,Gibraltar,participant_position_coverage,PASS,all=3/3; required=2/2
+2018/19,Greece,league_team_count_plausible,PASS,16
+2018/19,Greece,participant_position_coverage,PASS,all=5/5; required=5/5
+2018/19,Hungary,league_team_count_plausible,PASS,12
+2018/19,Hungary,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Iceland,league_team_count_plausible,PASS,12
+2018/19,Iceland,participant_position_coverage,PASS,all=3/4; required=3/3
+2018/19,Ireland,league_team_count_plausible,PASS,12
+2018/19,Ireland,participant_position_coverage,PASS,all=4/4; required=4/4
+2018/19,Israel,league_team_count_plausible,PASS,14
+2018/19,Israel,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Italy,league_team_count_plausible,PASS,20
+2018/19,Italy,participant_position_coverage,PASS,all=7/7; required=7/7
+2018/19,Kazakhstan,league_team_count_plausible,PASS,12
+2018/19,Kazakhstan,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Kosovo,league_team_count_plausible,PASS,12
+2018/19,Kosovo,participant_position_coverage,PASS,all=2/2; required=1/1
+2018/19,Latvia,league_team_count_plausible,PASS,8
+2018/19,Latvia,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Liechtenstein,league_table_read,PASS,not_applicable
+2018/19,Liechtenstein,participant_position_coverage,PASS,not_applicable=1
+2018/19,Lithuania,league_team_count_plausible,PASS,8
+2018/19,Lithuania,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Luxembourg,league_team_count_plausible,PASS,14
+2018/19,Luxembourg,participant_position_coverage,PASS,all=3/4; required=3/3
+2018/19,Malta,league_team_count_plausible,PASS,14
+2018/19,Malta,participant_position_coverage,PASS,all=4/4; required=4/4
+2018/19,Moldova,league_team_count_plausible,PASS,10
+2018/19,Moldova,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Montenegro,league_team_count_plausible,PASS,10
+2018/19,Montenegro,participant_position_coverage,PASS,all=3/4; required=3/3
+2018/19,Netherlands,league_team_count_plausible,PASS,18
+2018/19,Netherlands,participant_position_coverage,PASS,all=5/5; required=4/4
+2018/19,North Macedonia,league_team_count_plausible,PASS,10
+2018/19,North Macedonia,participant_position_coverage,PASS,all=4/4; required=4/4
+2018/19,Northern Ireland,league_team_count_plausible,PASS,12
+2018/19,Northern Ireland,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Norway,league_team_count_plausible,PASS,16
+2018/19,Norway,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Poland,league_team_count_plausible,PASS,16
+2018/19,Poland,participant_position_coverage,PASS,all=4/4; required=4/4
+2018/19,Portugal,league_team_count_plausible,PASS,18
+2018/19,Portugal,participant_position_coverage,PASS,all=5/5; required=5/5
+2018/19,Romania,league_team_count_plausible,PASS,14
+2018/19,Romania,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Russia,league_team_count_plausible,PASS,16
+2018/19,Russia,participant_position_coverage,PASS,all=6/6; required=6/6
+2018/19,San Marino,league_team_count_plausible,PASS,8
+2018/19,San Marino,participant_position_coverage,PASS,all=3/3; required=3/3
+2018/19,Scotland,league_team_count_plausible,PASS,12
+2018/19,Scotland,participant_position_coverage,PASS,all=4/4; required=4/4
+2018/19,Serbia,league_team_count_plausible,PASS,16
+2018/19,Serbia,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Slovakia,league_team_count_plausible,PASS,12
+2018/19,Slovakia,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Slovenia,league_team_count_plausible,PASS,10
+2018/19,Slovenia,participant_position_coverage,PASS,all=4/4; required=4/4
+2018/19,Spain,league_team_count_plausible,PASS,20
+2018/19,Spain,participant_position_coverage,PASS,all=7/7; required=7/7
+2018/19,Sweden,league_team_count_plausible,PASS,16
+2018/19,Sweden,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,Switzerland,league_team_count_plausible,PASS,10
+2018/19,Switzerland,participant_position_coverage,PASS,all=5/5; required=4/4
+2018/19,Türkiye,league_team_count_plausible,PASS,18
+2018/19,Türkiye,participant_position_coverage,PASS,all=5/5; required=4/4
+2018/19,Ukraine,league_team_count_plausible,PASS,13
+2018/19,Ukraine,participant_position_coverage,PASS,all=5/5; required=5/5
+2018/19,Wales,league_team_count_plausible,PASS,12
+2018/19,Wales,participant_position_coverage,PASS,all=4/4; required=3/3
+2018/19,ALL,all_teams_enriched,PASS,237
+2019/20,Albania,league_team_count_plausible,PASS,10
+2019/20,Albania,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Andorra,league_team_count_plausible,PASS,8
+2019/20,Andorra,participant_position_coverage,PASS,all=3/3; required=2/2
+2019/20,Armenia,league_team_count_plausible,PASS,9
+2019/20,Armenia,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Austria,league_team_count_plausible,PASS,12
+2019/20,Austria,participant_position_coverage,PASS,all=5/5; required=5/5
+2019/20,Azerbaijan,league_team_count_plausible,PASS,8
+2019/20,Azerbaijan,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Belarus,league_team_count_plausible,PASS,16
+2019/20,Belarus,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Belgium,league_team_count_plausible,PASS,16
+2019/20,Belgium,participant_position_coverage,PASS,all=5/5; required=5/5
+2019/20,Bosnia-Herzegovina,league_team_count_plausible,PASS,12
+2019/20,Bosnia-Herzegovina,participant_position_coverage,PASS,all=4/4; required=4/4
+2019/20,Bulgaria,league_team_count_plausible,PASS,14
+2019/20,Bulgaria,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Croatia,league_team_count_plausible,PASS,10
+2019/20,Croatia,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Cyprus,league_team_count_plausible,PASS,12
+2019/20,Cyprus,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Czechia,league_team_count_plausible,PASS,16
+2019/20,Czechia,participant_position_coverage,PASS,all=5/5; required=5/5
+2019/20,Denmark,league_team_count_plausible,PASS,14
+2019/20,Denmark,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,England,league_team_count_plausible,PASS,20
+2019/20,England,participant_position_coverage,PASS,all=7/7; required=7/7
+2019/20,Estonia,league_team_count_plausible,PASS,10
+2019/20,Estonia,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Faroe Islands,league_team_count_plausible,PASS,10
+2019/20,Faroe Islands,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Finland,league_team_count_plausible,PASS,12
+2019/20,Finland,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,France,league_team_count_plausible,PASS,20
+2019/20,France,participant_position_coverage,PASS,all=6/6; required=5/5
+2019/20,Georgia,league_team_count_plausible,PASS,10
+2019/20,Georgia,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Germany,league_team_count_plausible,PASS,18
+2019/20,Germany,participant_position_coverage,PASS,all=7/7; required=7/7
+2019/20,Gibraltar,league_team_count_plausible,PASS,10
+2019/20,Gibraltar,participant_position_coverage,PASS,all=3/3; required=2/2
+2019/20,Greece,league_team_count_plausible,PASS,16
+2019/20,Greece,participant_position_coverage,PASS,all=5/5; required=5/5
+2019/20,Hungary,league_team_count_plausible,PASS,12
+2019/20,Hungary,participant_position_coverage,PASS,all=3/4; required=3/3
+2019/20,Iceland,league_team_count_plausible,PASS,12
+2019/20,Iceland,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Ireland,league_team_count_plausible,PASS,10
+2019/20,Ireland,participant_position_coverage,PASS,all=4/4; required=4/4
+2019/20,Israel,league_team_count_plausible,PASS,14
+2019/20,Israel,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Italy,league_team_count_plausible,PASS,20
+2019/20,Italy,participant_position_coverage,PASS,all=7/7; required=6/6
+2019/20,Kazakhstan,league_team_count_plausible,PASS,12
+2019/20,Kazakhstan,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Kosovo,league_team_count_plausible,PASS,12
+2019/20,Kosovo,participant_position_coverage,PASS,all=2/2; required=2/2
+2019/20,Latvia,league_team_count_plausible,PASS,8
+2019/20,Latvia,participant_position_coverage,PASS,all=4/4; required=4/4
+2019/20,Liechtenstein,league_table_read,PASS,not_applicable
+2019/20,Liechtenstein,participant_position_coverage,PASS,not_applicable=1
+2019/20,Lithuania,league_team_count_plausible,PASS,8
+2019/20,Lithuania,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Luxembourg,league_team_count_plausible,PASS,14
+2019/20,Luxembourg,participant_position_coverage,PASS,all=4/4; required=4/4
+2019/20,Malta,league_team_count_plausible,PASS,14
+2019/20,Malta,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Moldova,league_team_count_plausible,PASS,9
+2019/20,Moldova,participant_position_coverage,PASS,all=4/4; required=4/4
+2019/20,Montenegro,league_team_count_plausible,PASS,10
+2019/20,Montenegro,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Netherlands,league_team_count_plausible,PASS,18
+2019/20,Netherlands,participant_position_coverage,PASS,all=5/5; required=5/5
+2019/20,North Macedonia,league_team_count_plausible,PASS,10
+2019/20,North Macedonia,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Northern Ireland,league_team_count_plausible,PASS,12
+2019/20,Northern Ireland,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Norway,league_team_count_plausible,PASS,16
+2019/20,Norway,participant_position_coverage,PASS,all=4/4; required=4/4
+2019/20,Poland,league_team_count_plausible,PASS,16
+2019/20,Poland,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Portugal,league_team_count_plausible,PASS,18
+2019/20,Portugal,participant_position_coverage,PASS,all=5/5; required=4/4
+2019/20,Romania,league_team_count_plausible,PASS,14
+2019/20,Romania,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Russia,league_team_count_plausible,PASS,16
+2019/20,Russia,participant_position_coverage,PASS,all=6/6; required=6/6
+2019/20,San Marino,league_team_count_plausible,PASS,8
+2019/20,San Marino,participant_position_coverage,PASS,all=3/3; required=2/2
+2019/20,Scotland,league_team_count_plausible,PASS,12
+2019/20,Scotland,participant_position_coverage,PASS,all=4/4; required=4/4
+2019/20,Serbia,league_team_count_plausible,PASS,16
+2019/20,Serbia,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Slovakia,league_team_count_plausible,PASS,12
+2019/20,Slovakia,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Slovenia,league_team_count_plausible,PASS,10
+2019/20,Slovenia,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Spain,league_team_count_plausible,PASS,20
+2019/20,Spain,participant_position_coverage,PASS,all=7/7; required=7/7
+2019/20,Sweden,league_team_count_plausible,PASS,16
+2019/20,Sweden,participant_position_coverage,PASS,all=4/4; required=3/3
+2019/20,Switzerland,league_team_count_plausible,PASS,10
+2019/20,Switzerland,participant_position_coverage,PASS,all=5/5; required=5/5
+2019/20,Türkiye,league_team_count_plausible,PASS,18
+2019/20,Türkiye,participant_position_coverage,PASS,all=5/5; required=5/5
+2019/20,Ukraine,league_team_count_plausible,PASS,12
+2019/20,Ukraine,participant_position_coverage,PASS,all=5/5; required=5/5
+2019/20,Wales,league_team_count_plausible,PASS,12
+2019/20,Wales,participant_position_coverage,PASS,all=4/4; required=4/4
+2019/20,ALL,all_teams_enriched,PASS,237
+2020/21,Albania,league_team_count_plausible,PASS,10
+2020/21,Albania,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Andorra,league_team_count_plausible,PASS,8
+2020/21,Andorra,participant_position_coverage,PASS,all=3/3; required=2/2
+2020/21,Armenia,league_team_count_plausible,PASS,10
+2020/21,Armenia,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Austria,league_team_count_plausible,PASS,12
+2020/21,Austria,participant_position_coverage,PASS,all=5/5; required=4/4
+2020/21,Azerbaijan,league_team_count_plausible,PASS,8
+2020/21,Azerbaijan,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Belarus,league_team_count_plausible,PASS,16
+2020/21,Belarus,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Belgium,league_team_count_plausible,PASS,16
+2020/21,Belgium,participant_position_coverage,PASS,all=5/5; required=4/4
+2020/21,Bosnia-Herzegovina,league_team_count_plausible,PASS,12
+2020/21,Bosnia-Herzegovina,participant_position_coverage,PASS,all=4/4; required=4/4
+2020/21,Bulgaria,league_team_count_plausible,PASS,14
+2020/21,Bulgaria,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Croatia,league_team_count_plausible,PASS,10
+2020/21,Croatia,participant_position_coverage,PASS,all=5/5; required=4/4
+2020/21,Cyprus,league_team_count_plausible,PASS,12
+2020/21,Cyprus,participant_position_coverage,PASS,all=4/4; required=4/4
+2020/21,Czechia,league_team_count_plausible,PASS,16
+2020/21,Czechia,participant_position_coverage,PASS,all=5/5; required=4/4
+2020/21,Denmark,league_team_count_plausible,PASS,14
+2020/21,Denmark,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,England,league_team_count_plausible,PASS,20
+2020/21,England,participant_position_coverage,PASS,all=7/7; required=6/6
+2020/21,Estonia,league_team_count_plausible,PASS,10
+2020/21,Estonia,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Faroe Islands,league_team_count_plausible,PASS,10
+2020/21,Faroe Islands,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Finland,league_team_count_plausible,PASS,12
+2020/21,Finland,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,France,league_team_count_plausible,PASS,20
+2020/21,France,participant_position_coverage,PASS,all=6/6; required=5/5
+2020/21,Georgia,league_team_count_plausible,PASS,10
+2020/21,Georgia,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Germany,league_team_count_plausible,PASS,18
+2020/21,Germany,participant_position_coverage,PASS,all=7/7; required=6/6
+2020/21,Gibraltar,league_team_count_plausible,PASS,17
+2020/21,Gibraltar,participant_position_coverage,PASS,all=3/3; required=3/3
+2020/21,Greece,league_team_count_plausible,PASS,14
+2020/21,Greece,participant_position_coverage,PASS,all=5/5; required=5/5
+2020/21,Hungary,league_team_count_plausible,PASS,12
+2020/21,Hungary,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Iceland,league_team_count_plausible,PASS,12
+2020/21,Iceland,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Ireland,league_team_count_plausible,PASS,10
+2020/21,Ireland,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Israel,league_team_count_plausible,PASS,14
+2020/21,Israel,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Italy,league_team_count_plausible,PASS,20
+2020/21,Italy,participant_position_coverage,PASS,all=7/7; required=6/6
+2020/21,Kazakhstan,league_team_count_plausible,PASS,12
+2020/21,Kazakhstan,participant_position_coverage,PASS,all=3/4; required=3/3
+2020/21,Kosovo,league_team_count_plausible,PASS,12
+2020/21,Kosovo,participant_position_coverage,PASS,all=3/3; required=2/2
+2020/21,Latvia,league_team_count_plausible,PASS,9
+2020/21,Latvia,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Liechtenstein,league_table_read,PASS,not_applicable
+2020/21,Liechtenstein,participant_position_coverage,PASS,not_applicable=1
+2020/21,Lithuania,league_team_count_plausible,PASS,8
+2020/21,Lithuania,participant_position_coverage,PASS,all=4/4; required=4/4
+2020/21,Luxembourg,league_team_count_plausible,PASS,14
+2020/21,Luxembourg,participant_position_coverage,PASS,all=4/4; required=4/4
+2020/21,Malta,league_team_count_plausible,PASS,14
+2020/21,Malta,participant_position_coverage,PASS,all=4/4; required=4/4
+2020/21,Moldova,league_team_count_plausible,PASS,8
+2020/21,Moldova,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Montenegro,league_team_count_plausible,PASS,10
+2020/21,Montenegro,participant_position_coverage,PASS,all=4/4; required=4/4
+2020/21,Netherlands,league_team_count_plausible,PASS,18
+2020/21,Netherlands,participant_position_coverage,PASS,all=5/5; required=5/5
+2020/21,North Macedonia,league_team_count_plausible,PASS,10
+2020/21,North Macedonia,participant_position_coverage,PASS,all=4/4; required=4/4
+2020/21,Northern Ireland,league_team_count_plausible,PASS,12
+2020/21,Northern Ireland,participant_position_coverage,PASS,all=3/3; required=2/2
+2020/21,Norway,league_team_count_plausible,PASS,16
+2020/21,Norway,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Poland,league_team_count_plausible,PASS,16
+2020/21,Poland,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Portugal,league_team_count_plausible,PASS,18
+2020/21,Portugal,participant_position_coverage,PASS,all=5/5; required=4/4
+2020/21,Romania,league_team_count_plausible,PASS,14
+2020/21,Romania,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Russia,league_team_count_plausible,PASS,16
+2020/21,Russia,participant_position_coverage,PASS,all=6/6; required=5/5
+2020/21,San Marino,league_team_count_plausible,PASS,8
+2020/21,San Marino,participant_position_coverage,PASS,all=3/3; required=3/3
+2020/21,Scotland,league_team_count_plausible,PASS,12
+2020/21,Scotland,participant_position_coverage,PASS,all=4/4; required=4/4
+2020/21,Serbia,league_team_count_plausible,PASS,16
+2020/21,Serbia,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Slovakia,league_team_count_plausible,PASS,12
+2020/21,Slovakia,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Slovenia,league_team_count_plausible,PASS,10
+2020/21,Slovenia,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Spain,league_team_count_plausible,PASS,20
+2020/21,Spain,participant_position_coverage,PASS,all=7/7; required=7/7
+2020/21,Sweden,league_team_count_plausible,PASS,16
+2020/21,Sweden,participant_position_coverage,PASS,all=4/4; required=3/3
+2020/21,Switzerland,league_team_count_plausible,PASS,10
+2020/21,Switzerland,participant_position_coverage,PASS,all=4/4; required=4/4
+2020/21,Türkiye,league_team_count_plausible,PASS,18
+2020/21,Türkiye,participant_position_coverage,PASS,all=5/5; required=5/5
+2020/21,Ukraine,league_team_count_plausible,PASS,12
+2020/21,Ukraine,participant_position_coverage,PASS,all=5/5; required=4/4
+2020/21,Wales,league_team_count_plausible,PASS,12
+2020/21,Wales,participant_position_coverage,PASS,all=4/4; required=4/4
+2020/21,ALL,all_teams_enriched,PASS,237
+2021/22,Albania,league_team_count_plausible,PASS,10
+2021/22,Albania,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Andorra,league_team_count_plausible,PASS,8
+2021/22,Andorra,participant_position_coverage,PASS,all=3/3; required=2/2
+2021/22,Armenia,league_team_count_plausible,PASS,10
+2021/22,Armenia,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Austria,league_team_count_plausible,PASS,12
+2021/22,Austria,participant_position_coverage,PASS,all=5/5; required=4/4
+2021/22,Azerbaijan,league_team_count_plausible,PASS,8
+2021/22,Azerbaijan,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Belarus,league_team_count_plausible,PASS,16
+2021/22,Belarus,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Belgium,league_team_count_plausible,PASS,18
+2021/22,Belgium,participant_position_coverage,PASS,all=5/5; required=4/4
+2021/22,Bosnia-Herzegovina,league_team_count_plausible,PASS,12
+2021/22,Bosnia-Herzegovina,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Bulgaria,league_team_count_plausible,PASS,14
+2021/22,Bulgaria,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Croatia,league_team_count_plausible,PASS,10
+2021/22,Croatia,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Cyprus,league_team_count_plausible,PASS,14
+2021/22,Cyprus,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Czechia,league_team_count_plausible,PASS,18
+2021/22,Czechia,participant_position_coverage,PASS,all=5/5; required=4/4
+2021/22,Denmark,league_team_count_plausible,PASS,12
+2021/22,Denmark,participant_position_coverage,PASS,all=5/5; required=4/4
+2021/22,England,league_team_count_plausible,PASS,20
+2021/22,England,participant_position_coverage,PASS,all=7/7; required=5/5
+2021/22,Estonia,league_team_count_plausible,PASS,10
+2021/22,Estonia,participant_position_coverage,PASS,all=3/3; required=2/2
+2021/22,Faroe Islands,league_team_count_plausible,PASS,10
+2021/22,Faroe Islands,participant_position_coverage,PASS,all=3/3; required=3/3
+2021/22,Finland,league_team_count_plausible,PASS,12
+2021/22,Finland,participant_position_coverage,PASS,all=4/4; required=4/4
+2021/22,France,league_team_count_plausible,PASS,20
+2021/22,France,participant_position_coverage,PASS,all=6/6; required=5/5
+2021/22,Georgia,league_team_count_plausible,PASS,10
+2021/22,Georgia,participant_position_coverage,PASS,all=3/4; required=3/3
+2021/22,Germany,league_team_count_plausible,PASS,18
+2021/22,Germany,participant_position_coverage,PASS,all=7/7; required=6/6
+2021/22,Gibraltar,league_team_count_plausible,PASS,12
+2021/22,Gibraltar,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Greece,league_team_count_plausible,PASS,14
+2021/22,Greece,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Hungary,league_team_count_plausible,PASS,12
+2021/22,Hungary,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Iceland,league_team_count_plausible,PASS,12
+2021/22,Iceland,participant_position_coverage,PASS,all=4/4; required=4/4
+2021/22,Ireland,league_team_count_plausible,PASS,10
+2021/22,Ireland,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Israel,league_team_count_plausible,PASS,14
+2021/22,Israel,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Italy,league_team_count_plausible,PASS,20
+2021/22,Italy,participant_position_coverage,PASS,all=7/7; required=6/6
+2021/22,Kazakhstan,league_team_count_plausible,PASS,12
+2021/22,Kazakhstan,participant_position_coverage,PASS,all=4/4; required=4/4
+2021/22,Kosovo,league_team_count_plausible,PASS,10
+2021/22,Kosovo,participant_position_coverage,PASS,all=3/3; required=2/2
+2021/22,Latvia,league_team_count_plausible,PASS,10
+2021/22,Latvia,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Liechtenstein,league_table_read,PASS,not_applicable
+2021/22,Liechtenstein,participant_position_coverage,PASS,not_applicable=1
+2021/22,Lithuania,league_team_count_plausible,PASS,6
+2021/22,Lithuania,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Luxembourg,league_team_count_plausible,PASS,16
+2021/22,Luxembourg,participant_position_coverage,PASS,all=4/4; required=4/4
+2021/22,Malta,league_team_count_plausible,PASS,16
+2021/22,Malta,participant_position_coverage,PASS,all=4/4; required=4/4
+2021/22,Moldova,league_team_count_plausible,PASS,10
+2021/22,Moldova,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Montenegro,league_team_count_plausible,PASS,10
+2021/22,Montenegro,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Netherlands,league_team_count_plausible,PASS,18
+2021/22,Netherlands,participant_position_coverage,PASS,all=5/5; required=4/4
+2021/22,North Macedonia,league_team_count_plausible,PASS,12
+2021/22,North Macedonia,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Northern Ireland,league_team_count_plausible,PASS,12
+2021/22,Northern Ireland,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Norway,league_team_count_plausible,PASS,16
+2021/22,Norway,participant_position_coverage,PASS,all=4/4; required=4/4
+2021/22,Poland,league_team_count_plausible,PASS,16
+2021/22,Poland,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Portugal,league_team_count_plausible,PASS,18
+2021/22,Portugal,participant_position_coverage,PASS,all=6/6; required=5/5
+2021/22,Romania,league_team_count_plausible,PASS,16
+2021/22,Romania,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Russia,league_team_count_plausible,PASS,16
+2021/22,Russia,participant_position_coverage,PASS,all=5/5; required=4/4
+2021/22,San Marino,league_team_count_plausible,PASS,15
+2021/22,San Marino,participant_position_coverage,PASS,all=3/3; required=2/2
+2021/22,Scotland,league_team_count_plausible,PASS,12
+2021/22,Scotland,participant_position_coverage,PASS,all=5/5; required=4/4
+2021/22,Serbia,league_team_count_plausible,PASS,20
+2021/22,Serbia,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Slovakia,league_team_count_plausible,PASS,13
+2021/22,Slovakia,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Slovenia,league_team_count_plausible,PASS,10
+2021/22,Slovenia,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Spain,league_team_count_plausible,PASS,20
+2021/22,Spain,participant_position_coverage,PASS,all=7/7; required=6/6
+2021/22,Sweden,league_team_count_plausible,PASS,16
+2021/22,Sweden,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Switzerland,league_team_count_plausible,PASS,10
+2021/22,Switzerland,participant_position_coverage,PASS,all=4/4; required=3/3
+2021/22,Türkiye,league_team_count_plausible,PASS,21
+2021/22,Türkiye,participant_position_coverage,PASS,all=5/5; required=4/4
+2021/22,Ukraine,league_team_count_plausible,PASS,14
+2021/22,Ukraine,participant_position_coverage,PASS,all=5/5; required=4/4
+2021/22,Wales,league_team_count_plausible,PASS,12
+2021/22,Wales,participant_position_coverage,PASS,all=4/4; required=4/4
+2021/22,ALL,all_teams_enriched,PASS,237
+2022/23,Albania,league_team_count_plausible,PASS,10
+2022/23,Albania,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Andorra,league_team_count_plausible,PASS,8
+2022/23,Andorra,participant_position_coverage,PASS,all=3/3; required=2/2
+2022/23,Armenia,league_team_count_plausible,PASS,10
+2022/23,Armenia,participant_position_coverage,PASS,all=4/4; required=4/4
+2022/23,Austria,league_team_count_plausible,PASS,12
+2022/23,Austria,participant_position_coverage,PASS,all=5/5; required=4/4
+2022/23,Azerbaijan,league_team_count_plausible,PASS,8
+2022/23,Azerbaijan,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Belarus,league_team_count_plausible,PASS,16
+2022/23,Belarus,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Belgium,league_team_count_plausible,PASS,18
+2022/23,Belgium,participant_position_coverage,PASS,all=5/5; required=4/4
+2022/23,Bosnia-Herzegovina,league_team_count_plausible,PASS,12
+2022/23,Bosnia-Herzegovina,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Bulgaria,league_team_count_plausible,PASS,14
+2022/23,Bulgaria,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Croatia,league_team_count_plausible,PASS,10
+2022/23,Croatia,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Cyprus,league_team_count_plausible,PASS,12
+2022/23,Cyprus,participant_position_coverage,PASS,all=5/5; required=4/4
+2022/23,Czechia,league_team_count_plausible,PASS,16
+2022/23,Czechia,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Denmark,league_team_count_plausible,PASS,12
+2022/23,Denmark,participant_position_coverage,PASS,all=5/5; required=4/4
+2022/23,England,league_team_count_plausible,PASS,20
+2022/23,England,participant_position_coverage,PASS,all=7/7; required=6/6
+2022/23,Estonia,league_team_count_plausible,PASS,10
+2022/23,Estonia,participant_position_coverage,PASS,all=3/3; required=2/2
+2022/23,Faroe Islands,league_team_count_plausible,PASS,10
+2022/23,Faroe Islands,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Finland,league_team_count_plausible,PASS,12
+2022/23,Finland,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,France,league_team_count_plausible,PASS,20
+2022/23,France,participant_position_coverage,PASS,all=6/6; required=5/5
+2022/23,Georgia,league_team_count_plausible,PASS,10
+2022/23,Georgia,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Germany,league_team_count_plausible,PASS,18
+2022/23,Germany,participant_position_coverage,PASS,all=8/8; required=7/7
+2022/23,Gibraltar,league_team_count_plausible,PASS,11
+2022/23,Gibraltar,participant_position_coverage,PASS,all=4/4; required=4/4
+2022/23,Greece,league_team_count_plausible,PASS,14
+2022/23,Greece,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Hungary,league_team_count_plausible,PASS,12
+2022/23,Hungary,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Iceland,league_team_count_plausible,PASS,12
+2022/23,Iceland,participant_position_coverage,PASS,all=3/3; required=2/2
+2022/23,Ireland,league_team_count_plausible,PASS,10
+2022/23,Ireland,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Israel,league_team_count_plausible,PASS,14
+2022/23,Israel,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Italy,league_team_count_plausible,PASS,20
+2022/23,Italy,participant_position_coverage,PASS,all=7/7; required=6/6
+2022/23,Kazakhstan,league_team_count_plausible,PASS,14
+2022/23,Kazakhstan,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Kosovo,league_team_count_plausible,PASS,10
+2022/23,Kosovo,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Latvia,league_team_count_plausible,PASS,9
+2022/23,Latvia,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Liechtenstein,league_table_read,PASS,not_applicable
+2022/23,Liechtenstein,participant_position_coverage,PASS,not_applicable=1
+2022/23,Lithuania,league_team_count_plausible,PASS,10
+2022/23,Lithuania,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Luxembourg,league_team_count_plausible,PASS,16
+2022/23,Luxembourg,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Malta,league_team_count_plausible,PASS,12
+2022/23,Malta,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Moldova,league_team_count_plausible,PASS,8
+2022/23,Moldova,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Montenegro,league_team_count_plausible,PASS,10
+2022/23,Montenegro,participant_position_coverage,PASS,all=3/4; required=3/3
+2022/23,Netherlands,league_team_count_plausible,PASS,18
+2022/23,Netherlands,participant_position_coverage,PASS,all=5/5; required=4/4
+2022/23,North Macedonia,league_team_count_plausible,PASS,12
+2022/23,North Macedonia,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Northern Ireland,league_team_count_plausible,PASS,12
+2022/23,Northern Ireland,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Norway,league_team_count_plausible,PASS,16
+2022/23,Norway,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Poland,league_team_count_plausible,PASS,18
+2022/23,Poland,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Portugal,league_team_count_plausible,PASS,18
+2022/23,Portugal,participant_position_coverage,PASS,all=6/6; required=5/5
+2022/23,Romania,league_team_count_plausible,PASS,16
+2022/23,Romania,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,San Marino,league_team_count_plausible,PASS,15
+2022/23,San Marino,participant_position_coverage,PASS,all=3/3; required=2/2
+2022/23,Scotland,league_team_count_plausible,PASS,12
+2022/23,Scotland,participant_position_coverage,PASS,all=5/5; required=4/4
+2022/23,Serbia,league_team_count_plausible,PASS,16
+2022/23,Serbia,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Slovakia,league_team_count_plausible,PASS,12
+2022/23,Slovakia,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Slovenia,league_team_count_plausible,PASS,10
+2022/23,Slovenia,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Spain,league_team_count_plausible,PASS,20
+2022/23,Spain,participant_position_coverage,PASS,all=7/7; required=6/6
+2022/23,Sweden,league_team_count_plausible,PASS,16
+2022/23,Sweden,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Switzerland,league_team_count_plausible,PASS,10
+2022/23,Switzerland,participant_position_coverage,PASS,all=4/4; required=3/3
+2022/23,Türkiye,league_team_count_plausible,PASS,20
+2022/23,Türkiye,participant_position_coverage,PASS,all=5/5; required=4/4
+2022/23,Ukraine,league_team_count_plausible,PASS,16
+2022/23,Ukraine,participant_position_coverage,PASS,all=5/5; required=5/5
+2022/23,Wales,league_team_count_plausible,PASS,12
+2022/23,Wales,participant_position_coverage,PASS,all=3/3; required=2/2
+2022/23,ALL,all_teams_enriched,PASS,233
+2023/24,Albania,league_team_count_plausible,PASS,10
+2023/24,Albania,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Andorra,league_team_count_plausible,PASS,10
+2023/24,Andorra,participant_position_coverage,PASS,all=3/3; required=2/2
+2023/24,Armenia,league_team_count_plausible,PASS,10
+2023/24,Armenia,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Austria,league_team_count_plausible,PASS,12
+2023/24,Austria,participant_position_coverage,PASS,all=5/5; required=4/4
+2023/24,Azerbaijan,league_team_count_plausible,PASS,10
+2023/24,Azerbaijan,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Belarus,league_team_count_plausible,PASS,16
+2023/24,Belarus,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Belgium,league_team_count_plausible,PASS,18
+2023/24,Belgium,participant_position_coverage,PASS,all=5/5; required=4/4
+2023/24,Bosnia-Herzegovina,league_team_count_plausible,PASS,12
+2023/24,Bosnia-Herzegovina,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Bulgaria,league_team_count_plausible,PASS,16
+2023/24,Bulgaria,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Croatia,league_team_count_plausible,PASS,10
+2023/24,Croatia,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Cyprus,league_team_count_plausible,PASS,14
+2023/24,Cyprus,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Czechia,league_team_count_plausible,PASS,16
+2023/24,Czechia,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Denmark,league_team_count_plausible,PASS,12
+2023/24,Denmark,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,England,league_team_count_plausible,PASS,20
+2023/24,England,participant_position_coverage,PASS,all=8/8; required=6/6
+2023/24,Estonia,league_team_count_plausible,PASS,10
+2023/24,Estonia,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Faroe Islands,league_team_count_plausible,PASS,10
+2023/24,Faroe Islands,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Finland,league_team_count_plausible,PASS,12
+2023/24,Finland,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,France,league_team_count_plausible,PASS,20
+2023/24,France,participant_position_coverage,PASS,all=6/6; required=5/5
+2023/24,Georgia,league_team_count_plausible,PASS,10
+2023/24,Georgia,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Germany,league_team_count_plausible,PASS,18
+2023/24,Germany,participant_position_coverage,PASS,all=7/7; required=6/6
+2023/24,Gibraltar,league_team_count_plausible,PASS,11
+2023/24,Gibraltar,participant_position_coverage,PASS,all=3/3; required=2/2
+2023/24,Greece,league_team_count_plausible,PASS,14
+2023/24,Greece,participant_position_coverage,PASS,all=5/5; required=4/4
+2023/24,Hungary,league_team_count_plausible,PASS,12
+2023/24,Hungary,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Iceland,league_team_count_plausible,PASS,12
+2023/24,Iceland,participant_position_coverage,PASS,all=3/3; required=2/2
+2023/24,Ireland,league_team_count_plausible,PASS,10
+2023/24,Ireland,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Israel,league_team_count_plausible,PASS,14
+2023/24,Israel,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Italy,league_team_count_plausible,PASS,20
+2023/24,Italy,participant_position_coverage,PASS,all=7/7; required=6/6
+2023/24,Kazakhstan,league_team_count_plausible,PASS,14
+2023/24,Kazakhstan,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Kosovo,league_team_count_plausible,PASS,10
+2023/24,Kosovo,participant_position_coverage,PASS,all=4/4; required=4/4
+2023/24,Latvia,league_team_count_plausible,PASS,10
+2023/24,Latvia,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Liechtenstein,league_table_read,PASS,not_applicable
+2023/24,Liechtenstein,participant_position_coverage,PASS,not_applicable=1
+2023/24,Lithuania,league_team_count_plausible,PASS,10
+2023/24,Lithuania,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Luxembourg,league_team_count_plausible,PASS,16
+2023/24,Luxembourg,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Malta,league_team_count_plausible,PASS,14
+2023/24,Malta,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Moldova,league_team_count_plausible,PASS,9
+2023/24,Moldova,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Montenegro,league_team_count_plausible,PASS,10
+2023/24,Montenegro,participant_position_coverage,PASS,all=3/3; required=2/2
+2023/24,Netherlands,league_team_count_plausible,PASS,18
+2023/24,Netherlands,participant_position_coverage,PASS,all=5/5; required=4/4
+2023/24,North Macedonia,league_team_count_plausible,PASS,11
+2023/24,North Macedonia,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Northern Ireland,league_team_count_plausible,PASS,12
+2023/24,Northern Ireland,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Norway,league_team_count_plausible,PASS,16
+2023/24,Norway,participant_position_coverage,PASS,all=3/4; required=3/3
+2023/24,Poland,league_team_count_plausible,PASS,18
+2023/24,Poland,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Portugal,league_team_count_plausible,PASS,18
+2023/24,Portugal,participant_position_coverage,PASS,all=6/6; required=5/5
+2023/24,Romania,league_team_count_plausible,PASS,16
+2023/24,Romania,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,San Marino,league_team_count_plausible,PASS,15
+2023/24,San Marino,participant_position_coverage,PASS,all=3/3; required=3/3
+2023/24,Scotland,league_team_count_plausible,PASS,12
+2023/24,Scotland,participant_position_coverage,PASS,all=5/5; required=5/5
+2023/24,Serbia,league_team_count_plausible,PASS,16
+2023/24,Serbia,participant_position_coverage,PASS,all=5/5; required=4/4
+2023/24,Slovakia,league_team_count_plausible,PASS,12
+2023/24,Slovakia,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Slovenia,league_team_count_plausible,PASS,10
+2023/24,Slovenia,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Spain,league_team_count_plausible,PASS,20
+2023/24,Spain,participant_position_coverage,PASS,all=8/8; required=7/7
+2023/24,Sweden,league_team_count_plausible,PASS,16
+2023/24,Sweden,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Switzerland,league_team_count_plausible,PASS,10
+2023/24,Switzerland,participant_position_coverage,PASS,all=5/5; required=4/4
+2023/24,Türkiye,league_team_count_plausible,PASS,19
+2023/24,Türkiye,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,Ukraine,league_team_count_plausible,PASS,16
+2023/24,Ukraine,participant_position_coverage,PASS,all=5/5; required=5/5
+2023/24,Wales,league_team_count_plausible,PASS,12
+2023/24,Wales,participant_position_coverage,PASS,all=4/4; required=3/3
+2023/24,ALL,all_teams_enriched,PASS,234
+2024/25,Albania,league_team_count_plausible,PASS,10
+2024/25,Albania,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Andorra,league_team_count_plausible,PASS,10
+2024/25,Andorra,participant_position_coverage,PASS,all=3/3; required=2/2
+2024/25,Armenia,league_team_count_plausible,PASS,10
+2024/25,Armenia,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Austria,league_team_count_plausible,PASS,12
+2024/25,Austria,participant_position_coverage,PASS,all=5/5; required=4/4
+2024/25,Azerbaijan,league_team_count_plausible,PASS,10
+2024/25,Azerbaijan,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Belarus,league_team_count_plausible,PASS,15
+2024/25,Belarus,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Belgium,league_team_count_plausible,PASS,16
+2024/25,Belgium,participant_position_coverage,PASS,all=5/5; required=4/4
+2024/25,Bosnia-Herzegovina,league_team_count_plausible,PASS,12
+2024/25,Bosnia-Herzegovina,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Bulgaria,league_team_count_plausible,PASS,16
+2024/25,Bulgaria,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Croatia,league_team_count_plausible,PASS,10
+2024/25,Croatia,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Cyprus,league_team_count_plausible,PASS,14
+2024/25,Cyprus,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Czechia,league_team_count_plausible,PASS,16
+2024/25,Czechia,participant_position_coverage,PASS,all=5/5; required=4/4
+2024/25,Denmark,league_team_count_plausible,PASS,12
+2024/25,Denmark,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,England,league_team_count_plausible,PASS,20
+2024/25,England,participant_position_coverage,PASS,all=7/7; required=5/5
+2024/25,Estonia,league_team_count_plausible,PASS,10
+2024/25,Estonia,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Faroe Islands,league_team_count_plausible,PASS,10
+2024/25,Faroe Islands,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Finland,league_team_count_plausible,PASS,12
+2024/25,Finland,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,France,league_team_count_plausible,PASS,18
+2024/25,France,participant_position_coverage,PASS,all=7/7; required=6/6
+2024/25,Georgia,league_team_count_plausible,PASS,10
+2024/25,Georgia,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Germany,league_team_count_plausible,PASS,18
+2024/25,Germany,participant_position_coverage,PASS,all=8/8; required=7/7
+2024/25,Gibraltar,league_team_count_plausible,PASS,11
+2024/25,Gibraltar,participant_position_coverage,PASS,all=3/3; required=2/2
+2024/25,Greece,league_team_count_plausible,PASS,14
+2024/25,Greece,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Hungary,league_team_count_plausible,PASS,12
+2024/25,Hungary,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Iceland,league_team_count_plausible,PASS,12
+2024/25,Iceland,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Ireland,league_team_count_plausible,PASS,10
+2024/25,Ireland,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Israel,league_team_count_plausible,PASS,14
+2024/25,Israel,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Italy,league_team_count_plausible,PASS,20
+2024/25,Italy,participant_position_coverage,PASS,all=8/8; required=7/7
+2024/25,Kazakhstan,league_team_count_plausible,PASS,14
+2024/25,Kazakhstan,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Kosovo,league_team_count_plausible,PASS,10
+2024/25,Kosovo,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Latvia,league_team_count_plausible,PASS,10
+2024/25,Latvia,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Liechtenstein,league_table_read,PASS,not_applicable
+2024/25,Liechtenstein,participant_position_coverage,PASS,not_applicable=1
+2024/25,Lithuania,league_team_count_plausible,PASS,10
+2024/25,Lithuania,participant_position_coverage,PASS,all=3/4; required=3/3
+2024/25,Luxembourg,league_team_count_plausible,PASS,16
+2024/25,Luxembourg,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Malta,league_team_count_plausible,PASS,14
+2024/25,Malta,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Moldova,league_team_count_plausible,PASS,8
+2024/25,Moldova,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Montenegro,league_team_count_plausible,PASS,10
+2024/25,Montenegro,participant_position_coverage,PASS,all=3/3; required=2/2
+2024/25,Netherlands,league_team_count_plausible,PASS,18
+2024/25,Netherlands,participant_position_coverage,PASS,all=6/6; required=5/5
+2024/25,North Macedonia,league_team_count_plausible,PASS,12
+2024/25,North Macedonia,participant_position_coverage,PASS,all=2/3; required=2/2
+2024/25,Northern Ireland,league_team_count_plausible,PASS,12
+2024/25,Northern Ireland,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Norway,league_team_count_plausible,PASS,16
+2024/25,Norway,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Poland,league_team_count_plausible,PASS,18
+2024/25,Poland,participant_position_coverage,PASS,all=3/4; required=3/3
+2024/25,Portugal,league_team_count_plausible,PASS,18
+2024/25,Portugal,participant_position_coverage,PASS,all=5/5; required=4/4
+2024/25,Romania,league_team_count_plausible,PASS,16
+2024/25,Romania,participant_position_coverage,PASS,all=3/4; required=3/3
+2024/25,San Marino,league_team_count_plausible,PASS,16
+2024/25,San Marino,participant_position_coverage,PASS,all=3/3; required=2/2
+2024/25,Scotland,league_team_count_plausible,PASS,12
+2024/25,Scotland,participant_position_coverage,PASS,all=5/5; required=4/4
+2024/25,Serbia,league_team_count_plausible,PASS,16
+2024/25,Serbia,participant_position_coverage,PASS,all=5/5; required=4/4
+2024/25,Slovakia,league_team_count_plausible,PASS,12
+2024/25,Slovakia,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Slovenia,league_team_count_plausible,PASS,10
+2024/25,Slovenia,participant_position_coverage,PASS,all=4/4; required=4/4
+2024/25,Spain,league_team_count_plausible,PASS,20
+2024/25,Spain,participant_position_coverage,PASS,all=7/7; required=6/6
+2024/25,Sweden,league_team_count_plausible,PASS,16
+2024/25,Sweden,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,Switzerland,league_team_count_plausible,PASS,12
+2024/25,Switzerland,participant_position_coverage,PASS,all=5/5; required=4/4
+2024/25,Türkiye,league_team_count_plausible,PASS,20
+2024/25,Türkiye,participant_position_coverage,PASS,all=5/5; required=4/4
+2024/25,Ukraine,league_team_count_plausible,PASS,16
+2024/25,Ukraine,participant_position_coverage,PASS,all=5/5; required=4/4
+2024/25,Wales,league_team_count_plausible,PASS,12
+2024/25,Wales,participant_position_coverage,PASS,all=4/4; required=3/3
+2024/25,ALL,all_teams_enriched,PASS,236
+2025/26,Albania,league_team_count_plausible,PASS,10
+2025/26,Albania,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Andorra,league_team_count_plausible,PASS,10
+2025/26,Andorra,participant_position_coverage,PASS,all=3/3; required=2/2
+2025/26,Armenia,league_team_count_plausible,PASS,11
+2025/26,Armenia,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Austria,league_team_count_plausible,PASS,12
+2025/26,Austria,participant_position_coverage,PASS,all=5/5; required=4/4
+2025/26,Azerbaijan,league_team_count_plausible,PASS,10
+2025/26,Azerbaijan,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Belarus,league_team_count_plausible,PASS,16
+2025/26,Belarus,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Belgium,league_team_count_plausible,PASS,16
+2025/26,Belgium,participant_position_coverage,PASS,all=5/5; required=4/4
+2025/26,Bosnia-Herzegovina,league_team_count_plausible,PASS,12
+2025/26,Bosnia-Herzegovina,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Bulgaria,league_team_count_plausible,PASS,16
+2025/26,Bulgaria,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Croatia,league_team_count_plausible,PASS,10
+2025/26,Croatia,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Cyprus,league_team_count_plausible,PASS,14
+2025/26,Cyprus,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Czechia,league_team_count_plausible,PASS,16
+2025/26,Czechia,participant_position_coverage,PASS,all=5/5; required=4/4
+2025/26,Denmark,league_team_count_plausible,PASS,12
+2025/26,Denmark,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,England,league_team_count_plausible,PASS,20
+2025/26,England,participant_position_coverage,PASS,all=9/9; required=8/8
+2025/26,Estonia,league_team_count_plausible,PASS,10
+2025/26,Estonia,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Faroe Islands,league_team_count_plausible,PASS,10
+2025/26,Faroe Islands,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Finland,league_team_count_plausible,PASS,13
+2025/26,Finland,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,France,league_team_count_plausible,PASS,18
+2025/26,France,participant_position_coverage,PASS,all=7/7; required=6/6
+2025/26,Georgia,league_team_count_plausible,PASS,10
+2025/26,Georgia,participant_position_coverage,PASS,all=3/4; required=3/3
+2025/26,Germany,league_team_count_plausible,PASS,18
+2025/26,Germany,participant_position_coverage,PASS,all=7/7; required=6/6
+2025/26,Gibraltar,league_team_count_plausible,PASS,11
+2025/26,Gibraltar,participant_position_coverage,PASS,all=3/3; required=2/2
+2025/26,Greece,league_team_count_plausible,PASS,14
+2025/26,Greece,participant_position_coverage,PASS,all=5/5; required=4/4
+2025/26,Hungary,league_team_count_plausible,PASS,12
+2025/26,Hungary,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Iceland,league_team_count_plausible,PASS,12
+2025/26,Iceland,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Ireland,league_team_count_plausible,PASS,10
+2025/26,Ireland,participant_position_coverage,PASS,all=3/3; required=3/3
+2025/26,Israel,league_team_count_plausible,PASS,14
+2025/26,Israel,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Italy,league_team_count_plausible,PASS,20
+2025/26,Italy,participant_position_coverage,PASS,all=7/7; required=6/6
+2025/26,Kazakhstan,league_team_count_plausible,PASS,13
+2025/26,Kazakhstan,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Kosovo,league_team_count_plausible,PASS,10
+2025/26,Kosovo,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Latvia,league_team_count_plausible,PASS,10
+2025/26,Latvia,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Liechtenstein,league_table_read,PASS,not_applicable
+2025/26,Liechtenstein,participant_position_coverage,PASS,not_applicable=1
+2025/26,Lithuania,league_team_count_plausible,PASS,10
+2025/26,Lithuania,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Luxembourg,league_team_count_plausible,PASS,16
+2025/26,Luxembourg,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Malta,league_team_count_plausible,PASS,12
+2025/26,Malta,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Moldova,league_team_count_plausible,PASS,8
+2025/26,Moldova,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Montenegro,league_team_count_plausible,PASS,10
+2025/26,Montenegro,participant_position_coverage,PASS,all=3/3; required=2/2
+2025/26,Netherlands,league_team_count_plausible,PASS,18
+2025/26,Netherlands,participant_position_coverage,PASS,all=6/6; required=5/5
+2025/26,North Macedonia,league_team_count_plausible,PASS,12
+2025/26,North Macedonia,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Northern Ireland,league_team_count_plausible,PASS,12
+2025/26,Northern Ireland,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Norway,league_team_count_plausible,PASS,16
+2025/26,Norway,participant_position_coverage,PASS,all=5/5; required=4/4
+2025/26,Poland,league_team_count_plausible,PASS,18
+2025/26,Poland,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Portugal,league_team_count_plausible,PASS,18
+2025/26,Portugal,participant_position_coverage,PASS,all=5/5; required=4/4
+2025/26,Romania,league_team_count_plausible,PASS,16
+2025/26,Romania,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,San Marino,league_team_count_plausible,PASS,16
+2025/26,San Marino,participant_position_coverage,PASS,all=3/3; required=2/2
+2025/26,Scotland,league_team_count_plausible,PASS,12
+2025/26,Scotland,participant_position_coverage,PASS,all=5/5; required=4/4
+2025/26,Serbia,league_team_count_plausible,PASS,16
+2025/26,Serbia,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Slovakia,league_team_count_plausible,PASS,12
+2025/26,Slovakia,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Slovenia,league_team_count_plausible,PASS,10
+2025/26,Slovenia,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Spain,league_team_count_plausible,PASS,20
+2025/26,Spain,participant_position_coverage,PASS,all=8/8; required=7/7
+2025/26,Sweden,league_team_count_plausible,PASS,16
+2025/26,Sweden,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Switzerland,league_team_count_plausible,PASS,12
+2025/26,Switzerland,participant_position_coverage,PASS,all=5/5; required=4/4
+2025/26,Türkiye,league_team_count_plausible,PASS,19
+2025/26,Türkiye,participant_position_coverage,PASS,all=5/5; required=4/4
+2025/26,Ukraine,league_team_count_plausible,PASS,17
+2025/26,Ukraine,participant_position_coverage,PASS,all=4/4; required=3/3
+2025/26,Wales,league_team_count_plausible,PASS,12
+2025/26,Wales,participant_position_coverage,PASS,all=3/3; required=2/2
+2025/26,ALL,all_teams_enriched,PASS,236

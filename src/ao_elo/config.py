@@ -24,7 +24,7 @@ DEFAULT_SEASON_WEIGHTS: dict[str, float] = {
 
 @dataclass(frozen=True)
 class AOEuropeanEloConfig:
-    """Parameters for the pre-calibration AO European Elo model."""
+    """Parameters for AO European Elo; defaults retain the validated v1.1 model."""
 
     country_strength_benchmark: float | None
     european_history_benchmark: float | None
@@ -51,7 +51,36 @@ class AOEuropeanEloConfig:
     european_prior_max_boost: float = 420.0
     exposure_season_weight: float = 0.60
     exposure_match_weight: float = 0.40
+    max_european_exposure: float = 0.85
     rating_source_evidence_threshold: float = 0.75
+
+    @classmethod
+    def v1_1(
+        cls,
+        country_strength_benchmark: float = 25.0,
+        european_history_benchmark: float = 20.0,
+    ) -> AOEuropeanEloConfig:
+        """Return the frozen v1.1 configuration for reproducible comparisons."""
+        return cls(
+            country_strength_benchmark=country_strength_benchmark,
+            european_history_benchmark=european_history_benchmark,
+            gamma=0.80,
+            domestic_league_component=140.0,
+        )
+
+    @classmethod
+    def experimental_country_candidate(
+        cls,
+        country_strength_benchmark: float = 20.0,
+        european_history_benchmark: float = 20.0,
+    ) -> AOEuropeanEloConfig:
+        """Return the rejected 20/2.0/360 candidate for diagnostic backtests."""
+        return cls(
+            country_strength_benchmark=country_strength_benchmark,
+            european_history_benchmark=european_history_benchmark,
+            gamma=2.0,
+            domestic_league_component=360.0,
+        )
 
     def validate(self) -> None:
         """Fail loudly when model parameters cannot produce bounded ratings."""
@@ -105,6 +134,10 @@ class AOEuropeanEloConfig:
         _require_between_zero_and_one(
             "exposure_match_weight",
             self.exposure_match_weight,
+        )
+        _require_between_zero_and_one(
+            "max_european_exposure",
+            self.max_european_exposure,
         )
         _require_between_zero_and_one(
             "rating_source_evidence_threshold",

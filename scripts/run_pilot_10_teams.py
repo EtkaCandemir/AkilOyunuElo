@@ -23,19 +23,16 @@ EXPECTED_AO_FIRST_ELO = {
     "Smallia Kings": 706.4507259676069,
     "Cupmark Rangers": 679.8501411222367,
     "Few Match Wanderers": 763.010604894901,
-    "Continental Giants": 901.1654490536773,
-    "Low Score Veterans": 555.9349943673824,
+    "Continental Giants": 880.9688245507772,
+    "Low Score Veterans": 591.9629284432316,
     "Last Season Sparks": 712.4945092732662,
     "Distant History FC": 685.0553451963483,
-    "Double Crown Athletic": 791.3687425343417,
+    "Double Crown Athletic": 787.9590538799184,
 }
 
 
 def main() -> None:
-    config = AOEuropeanEloConfig(
-        country_strength_benchmark=25,
-        european_history_benchmark=20,
-    )
+    config = AOEuropeanEloConfig.v1_1()
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     output = compute_ao_first_elo_from_csv(
@@ -54,6 +51,8 @@ def main() -> None:
 
 def run_smoke_checks(output: pd.DataFrame) -> None:
     assert len(output) == 10, "pilot output must contain exactly 10 teams"
+    assert output["ao_first_elo"].is_monotonic_decreasing
+    assert output["ao_first_elo_rank"].tolist() == list(range(1, 11))
 
     expected_sources = {
         "Pure Domestic Projection",
@@ -74,6 +73,7 @@ def run_smoke_checks(output: pd.DataFrame) -> None:
 
     full_exposure = output.loc[output["team_name"] == "Continental Giants"].iloc[0]
     assert full_exposure["european_exposure"] == 1.0
+    assert full_exposure["effective_european_exposure"] == 0.85
 
     unknown_cup = output.loc[output["team_name"] == "Cupmark Rangers"].iloc[0]
     assert unknown_cup["league_finish_score"] == 0.10

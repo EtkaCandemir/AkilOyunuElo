@@ -1,0 +1,507 @@
+country_code,ao_team_name,ao_normalized_name,clubelo_club,clubelo_normalized_name,resolution_method,resolution_status,similarity,runner_up_similarity
+ALB,Dinamo Tirana,dinamotirana,,,unresolved,UNMATCHED,,0.0
+ALB,Egnatia Rrogozhinë,egnatiarrogozhine,,,unresolved,UNMATCHED,,0.0
+ALB,FK Kukësi,fkkukesi,,,unresolved,UNMATCHED,,0.0
+ALB,KF Laçi,kflaci,,,unresolved,UNMATCHED,,0.0
+ALB,KF Tirana,kftirana,,,unresolved,UNMATCHED,,0.0
+ALB,Luftëtari Gjirokastër,luftetarigjirokaster,,,unresolved,UNMATCHED,,0.0
+ALB,Partizani Tirana,partizanitirana,,,unresolved,UNMATCHED,,0.0
+ALB,Teuta Durrës,teutadurres,,,unresolved,UNMATCHED,,0.0
+ALB,Vllaznia Shkodër,vllazniashkoder,,,unresolved,UNMATCHED,,0.0
+AND,Atlètic Club d'Escaldes,atleticclubdescaldes,,,unresolved,UNMATCHED,,0.0
+AND,FC Santa Coloma,fcsantacoloma,,,unresolved,UNMATCHED,,0.0
+AND,Inter Club d'Escaldes,interclubdescaldes,,,unresolved,UNMATCHED,,0.0
+AND,Sant Julià,santjulia,,,unresolved,UNMATCHED,,0.0
+AND,UE Engordany,ueengordany,,,unresolved,UNMATCHED,,0.0
+AND,UE Santa Coloma,uesantacoloma,,,unresolved,UNMATCHED,,0.0
+ARM,Alashkert FC,alashkertfc,,,unresolved,UNMATCHED,,0.0
+ARM,Ararat-Armenia,araratarmenia,,,unresolved,UNMATCHED,,0.0
+ARM,Ararat Yerevan,araratyerevan,,,unresolved,UNMATCHED,,0.0
+ARM,FC Noah,fcnoah,,,unresolved,UNMATCHED,,0.0
+ARM,Gandzasar Kapan,gandzasarkapan,,,unresolved,UNMATCHED,,0.0
+ARM,Pyunik Yerevan,pyunikyerevan,,,unresolved,UNMATCHED,,0.0
+ARM,Shirak Gyumri,shirakgyumri,,,unresolved,UNMATCHED,,0.0
+ARM,Banants Yerevan,urartufc,,,unresolved,UNMATCHED,,0.0
+AUT,Admira Wacker,admirawacker,,,unresolved,UNMATCHED,0.6666666666666666,0.4444444444444444
+AUT,Austria Wien,austriawien,Austria Wien,austriawien,exact_name_country,MATCHED,1.0,
+AUT,FC Salzburg,fcsalzburg,Salzburg,salzburg,high_confidence_fuzzy_country,MATCHED,0.8888888888888888,0.5263157894736842
+AUT,LASK Linz,lask,LASK,lask,exact_name_country,MATCHED,1.0,
+AUT,Rapid Wien,rapidwien,Rapid Wien,rapidwien,exact_name_country,MATCHED,1.0,
+AUT,Sturm Graz,sturmgraz,Sturm Graz,sturmgraz,exact_name_country,MATCHED,1.0,
+AUT,TSV Hartberg,tsvhartberg,,,unresolved,UNMATCHED,0.8421052631578947,0.5263157894736842
+AUT,Wolfsberger AC,wolfsbergerac,,,unresolved,UNMATCHED,0.8181818181818182,0.45454545454545453
+AZE,Araz Nakhchivan,araznakhchivan,,,unresolved,UNMATCHED,,0.0
+AZE,Gabala FK,gabalafk,,,unresolved,UNMATCHED,,0.0
+AZE,Kesla FK,keslafk,,,unresolved,UNMATCHED,,0.0
+AZE,Neftchi Baku,neftchibaku,,,unresolved,UNMATCHED,,0.0
+AZE,Qarabag FK,qarabagfk,,,unresolved,UNMATCHED,,0.0
+AZE,Sabah FK,sabahfk,,,unresolved,UNMATCHED,,0.0
+AZE,Sabail FK,sabailfk,,,unresolved,UNMATCHED,,0.0
+AZE,Sumgayit FK,sumgayitfk,,,unresolved,UNMATCHED,,0.0
+AZE,Zira FK,zirafk,,,unresolved,UNMATCHED,,0.0
+BEL,AA Gent,aagent,,,unresolved,UNMATCHED,0.8,0.6
+BEL,Anderlecht,anderlecht,Anderlecht,anderlecht,exact_name_country,MATCHED,1.0,
+BEL,Cercle Brugge,cerclebrugge,Cercle Brugge,cerclebrugge,exact_name_country,MATCHED,1.0,
+BEL,Charleroi,charleroi,Charleroi,charleroi,exact_name_country,MATCHED,1.0,
+BEL,Club Brugge,clubbrugge,Club Brugge,clubbrugge,exact_name_country,MATCHED,1.0,
+BEL,Racing Genk,racinggenk,,,unresolved,UNMATCHED,0.5882352941176471,0.5714285714285714
+BEL,Royal Antwerp,royalantwerp,,,unresolved,UNMATCHED,0.7368421052631579,0.47619047619047616
+BEL,Standard Liège,standardliege,,,unresolved,UNMATCHED,0.7619047619047619,0.5217391304347826
+BEL,Union Saint-Gilloise,unionsaintgilloise,,,unresolved,UNMATCHED,0.7142857142857143,0.41379310344827586
+BIH,Borac Banja Luka,boracbanjaluka,,,unresolved,UNMATCHED,,0.0
+BIH,FK Sarajevo,fksarajevo,,,unresolved,UNMATCHED,,0.0
+BIH,Radnik Bijeljina,radnikbijeljina,,,unresolved,UNMATCHED,,0.0
+BIH,Siroki Brijeg,sirokibrijeg,,,unresolved,UNMATCHED,,0.0
+BIH,Tuzla City,tuzlacity,,,unresolved,UNMATCHED,,0.0
+BIH,Velez Mostar,velezmostar,,,unresolved,UNMATCHED,,0.0
+BIH,Zeljeznicar Sarajevo,zeljeznicarsarajevo,,,unresolved,UNMATCHED,,0.0
+BIH,Zrinjski Mostar,zrinjskimostar,,,unresolved,UNMATCHED,,0.0
+BLR,BATE Borisov,bateborisov,,,unresolved,UNMATCHED,,0.0
+BLR,Dinamo Minsk,dinamominsk,,,unresolved,UNMATCHED,,0.0
+BLR,Dynamo Brest,dynamobrest,,,unresolved,UNMATCHED,,0.0
+BLR,FC Gomel,fcgomel,,,unresolved,UNMATCHED,,0.0
+BLR,FC Vitebsk,fcvitebsk,,,unresolved,UNMATCHED,,0.0
+BLR,Isloch Minsk Raion,islochminskraion,,,unresolved,UNMATCHED,,0.0
+BLR,Neman Grodno,nemangrodno,,,unresolved,UNMATCHED,,0.0
+BLR,Shakhtior Saligorsk,shakhtiorsaligorsk,,,unresolved,UNMATCHED,,0.0
+BLR,Torpedo Zhodino,torpedozhodino,,,unresolved,UNMATCHED,,0.0
+BUL,Arda Kardzhali,ardakardzhali,,,unresolved,UNMATCHED,,0.0
+BUL,Botev Plovdiv,botevplovdiv,,,unresolved,UNMATCHED,,0.0
+BUL,Cherno More Varna,chernomorevarna,,,unresolved,UNMATCHED,,0.0
+BUL,CSKA 1948 Sofia,cska1948sofia,,,unresolved,UNMATCHED,,0.0
+BUL,CSKA Sofia,cskasofia,,,unresolved,UNMATCHED,,0.0
+BUL,Levski Sofia,levskisofia,,,unresolved,UNMATCHED,,0.0
+BUL,Lokomotiv Plovdiv,lokomotivplovdiv,,,unresolved,UNMATCHED,,0.0
+BUL,Ludogorets Razgrad,ludogoretsrazgrad,,,unresolved,UNMATCHED,,0.0
+BUL,Slavia Sofia,slaviasofia,,,unresolved,UNMATCHED,,0.0
+CRO,Dinamo Zagreb,dinamozagreb,,,unresolved,UNMATCHED,,0.0
+CRO,Hajduk Split,hajduksplit,,,unresolved,UNMATCHED,,0.0
+CRO,Lokomotiva Zagreb,lokomotivazagreb,,,unresolved,UNMATCHED,,0.0
+CRO,NK Osijek,nkosijek,,,unresolved,UNMATCHED,,0.0
+CRO,NK Rijeka,nkrijeka,,,unresolved,UNMATCHED,,0.0
+CRO,NK Varazdin,nkvarazdin,,,unresolved,UNMATCHED,,0.0
+CYP,AEK Larnaca,aeklarnaca,,,unresolved,UNMATCHED,,0.0
+CYP,AEL Limassol,aellimassol,,,unresolved,UNMATCHED,,0.0
+CYP,Anorthosis Famagusta,anorthosisfamagusta,,,unresolved,UNMATCHED,,0.0
+CYP,APOEL Nicosia,apoelnicosia,,,unresolved,UNMATCHED,,0.0
+CYP,Apollon Limassol,apollonlimassol,,,unresolved,UNMATCHED,,0.0
+CYP,Aris Limassol,arislimassol,,,unresolved,UNMATCHED,,0.0
+CYP,Omonia Nicosia,omonianicosia,,,unresolved,UNMATCHED,,0.0
+CYP,Pafos FC,pafosfc,,,unresolved,UNMATCHED,,0.0
+CZE,1.FC Slovácko,1fcslovacko,,,unresolved,UNMATCHED,,0.0
+CZE,Baník Ostrava,banikostrava,,,unresolved,UNMATCHED,,0.0
+CZE,Bohemians Praha,bohemianspraha,,,unresolved,UNMATCHED,,0.0
+CZE,FK Jablonec,fkjablonec,,,unresolved,UNMATCHED,,0.0
+CZE,Mladá Boleslav,mladaboleslav,,,unresolved,UNMATCHED,,0.0
+CZE,Sigma Olomouc,sigmaolomouc,,,unresolved,UNMATCHED,,0.0
+CZE,Slavia Praha,slaviapraha,,,unresolved,UNMATCHED,,0.0
+CZE,Slovan Liberec,slovanliberec,,,unresolved,UNMATCHED,,0.0
+CZE,Sparta Praha,spartapraha,,,unresolved,UNMATCHED,,0.0
+CZE,Viktoria Plzen,viktoriaplzen,,,unresolved,UNMATCHED,,0.0
+DEN,AGF Aarhus,agfaarhus,,,unresolved,UNMATCHED,0.8,0.375
+DEN,Brøndby IF,brndbyif,,,unresolved,UNMATCHED,0.8,0.42857142857142855
+DEN,Esbjerg fB,esbjergfb,Esbjerg,esbjerg,high_confidence_fuzzy_country,MATCHED,0.875,0.4444444444444444
+DEN,FC København,fckbenhavn,FC Kobenhavn,fckobenhavn,high_confidence_fuzzy_country,MATCHED,0.9523809523809523,0.2857142857142857
+DEN,FC Midtjylland,fcmidtjylland,Midtjylland,midtjylland,high_confidence_fuzzy_country,MATCHED,0.9166666666666666,0.5384615384615384
+DEN,FC Nordsjælland,fcnordsjlland,,,unresolved,UNMATCHED,0.8461538461538461,0.5833333333333334
+DEN,Randers FC,randersfc,Randers,randers,high_confidence_fuzzy_country,MATCHED,0.875,0.5
+DEN,Silkeborg IF,silkeborgif,Silkeborg,silkeborg,high_confidence_fuzzy_country,MATCHED,0.9,0.5882352941176471
+DEN,SønderjyskE,snderjyske,SonderjyskE,sonderjyske,high_confidence_fuzzy_country,MATCHED,0.9523809523809523,0.5882352941176471
+DEN,Viborg FF,viborgff,,,unresolved,UNMATCHED,0.8571428571428571,0.5882352941176471
+ENG,Arsenal,arsenal,Arsenal,arsenal,exact_name_country,MATCHED,1.0,
+ENG,Aston Villa,astonvilla,Aston Villa,astonvilla,exact_name_country,MATCHED,1.0,
+ENG,Brighton & Hove Albion,brightonandhovealbion,,,unresolved,UNMATCHED,0.5517241379310345,0.4375
+ENG,Burnley FC,burnleyfc,Burnley,burnley,high_confidence_fuzzy_country,MATCHED,0.875,0.7058823529411765
+ENG,Chelsea,chelsea,Chelsea,chelsea,exact_name_country,MATCHED,1.0,
+ENG,Crystal Palace,crystalpalace,Crystal Palace,crystalpalace,exact_name_country,MATCHED,1.0,
+ENG,Leicester City,leicestercity,,,unresolved,UNMATCHED,0.8181818181818182,0.6086956521739131
+ENG,Liverpool,liverpool,Liverpool,liverpool,exact_name_country,MATCHED,1.0,
+ENG,Manchester City,manchestercity,,,unresolved,UNMATCHED,0.6666666666666666,0.5833333333333334
+ENG,Manchester United,manchesterunited,,,unresolved,UNMATCHED,0.72,0.5806451612903226
+ENG,Newcastle United,newcastleunited,,,unresolved,UNMATCHED,0.75,0.5833333333333334
+ENG,Nottingham Forest,nottinghamforest,,,unresolved,UNMATCHED,0.8148148148148148,0.8148148148148148
+ENG,Tottenham Hotspur,tottenhamhotspur,,,unresolved,UNMATCHED,0.72,0.48
+ENG,West Ham United,westhamunited,,,unresolved,UNMATCHED,0.7,0.6363636363636364
+ENG,Wolverhampton Wanderers,wolverhamptonwanderers,,,unresolved,UNMATCHED,0.48484848484848486,0.42857142857142855
+ESP,Athletic Bilbao,athleticbilbao,,,unresolved,UNMATCHED,0.782608695652174,0.75
+ESP,Atlético Madrid,atleticomadrid,,,unresolved,UNMATCHED,0.6956521739130435,0.6956521739130435
+ESP,Celta de Vigo,celtadevigo,,,unresolved,UNMATCHED,0.625,0.5
+ESP,Espanyol,espanyol,Espanol,espanol,high_confidence_fuzzy_country,MATCHED,0.9333333333333333,0.47058823529411764
+ESP,FC Barcelona,fcbarcelona,,,unresolved,UNMATCHED,0.9,0.8571428571428571
+ESP,Getafe,getafe,Getafe,getafe,exact_name_country,MATCHED,1.0,
+ESP,Girona FC,gironafc,,,unresolved,UNMATCHED,0.8571428571428571,0.5333333333333333
+ESP,Granada CF,granadacf,Granada,granada,high_confidence_fuzzy_country,MATCHED,0.875,0.7777777777777778
+ESP,Osasuna,osasuna,Osasuna,osasuna,exact_name_country,MATCHED,1.0,
+ESP,Rayo Vallecano,rayovallecano,,,unresolved,UNMATCHED,0.8181818181818182,0.5714285714285714
+ESP,Real Betis,realbetis,,,unresolved,UNMATCHED,0.7142857142857143,0.5882352941176471
+ESP,Real Madrid,realmadrid,Real Madrid,realmadrid,exact_name_country,MATCHED,1.0,
+ESP,Real Sociedad,realsociedad,,,unresolved,UNMATCHED,0.8,0.7619047619047619
+ESP,Sevilla,sevilla,Sevilla,sevilla,exact_name_country,MATCHED,1.0,
+ESP,Valencia,valencia,Valencia,valencia,exact_name_country,MATCHED,1.0,
+ESP,Villarreal,villarreal,Villarreal,villarreal,exact_name_country,MATCHED,1.0,
+EST,Flora Tallinn,floratallinn,,,unresolved,UNMATCHED,,0.0
+EST,Kalev Tallinn,kalevtallinn,,,unresolved,UNMATCHED,,0.0
+EST,Kalju Nomme,kaljunomme,,,unresolved,UNMATCHED,,0.0
+EST,Levadia Tallinn,levadiatallinn,,,unresolved,UNMATCHED,,0.0
+EST,Paide Linnameeskond,paidelinnameeskond,,,unresolved,UNMATCHED,,0.0
+EST,Trans Narva,transnarva,,,unresolved,UNMATCHED,,0.0
+FIN,FC Lahti,fclahti,,,unresolved,UNMATCHED,0.8333333333333334,0.375
+FIN,Haka Valkeakoski,hakavalkeakoski,,,unresolved,UNMATCHED,0.46153846153846156,0.42105263157894735
+FIN,HJK Helsinki,hjkhelsinki,HJK Helsinki,hjkhelsinki,exact_name_country,MATCHED,1.0,
+FIN,Honka Espoo,honkaespoo,Honka Espoo,honkaespoo,exact_name_country,MATCHED,1.0,
+FIN,Ilves Tampere,ilvestampere,Ilves Tampere,ilvestampere,exact_name_country,MATCHED,1.0,
+FIN,Inter Turku,interturku,Inter Turku,interturku,exact_name_country,MATCHED,1.0,
+FIN,KuPS Kuopio,kupskuopio,,,unresolved,UNMATCHED,0.75,0.4
+FIN,RoPS Rovaniemi,ropsrovaniemi,,,unresolved,UNMATCHED,0.8181818181818182,0.36363636363636365
+FIN,SJK Seinäjoki,sjkseinajoki,,,unresolved,UNMATCHED,0.8571428571428571,0.6086956521739131
+FIN,VPS Vaasa,vpsvaasa,,,unresolved,UNMATCHED,0.7692307692307693,0.3333333333333333
+FRA,AS Monaco,asmonaco,,,unresolved,UNMATCHED,0.8571428571428571,0.5333333333333333
+FRA,AS Saint-Étienne,assaintetienne,,,unresolved,UNMATCHED,0.782608695652174,0.5384615384615384
+FRA,FC Nantes,fcnantes,,,unresolved,UNMATCHED,0.8571428571428571,0.7142857142857143
+FRA,Girondins Bordeaux,girondinsbordeaux,,,unresolved,UNMATCHED,0.64,0.4444444444444444
+FRA,Lille OSC,lilleosc,,,unresolved,UNMATCHED,0.7692307692307693,0.5
+FRA,OGC Nice,ogcnice,,,unresolved,UNMATCHED,0.7272727272727273,0.5333333333333333
+FRA,Olympique Lyon,olympiquelyon,,,unresolved,UNMATCHED,0.5384615384615384,0.47058823529411764
+FRA,Olympique Marseille,olympiquemarseille,,,unresolved,UNMATCHED,0.6666666666666666,0.45161290322580644
+FRA,Paris Saint-Germain,parissaintgermain,,,unresolved,UNMATCHED,0.5833333333333334,0.43478260869565216
+FRA,RC Lens,rclens,,,unresolved,UNMATCHED,0.8,0.7692307692307693
+FRA,RC Strasbourg,rcstrasbourg,Strasbourg,strasbourg,high_confidence_fuzzy_country,MATCHED,0.9090909090909091,0.47058823529411764
+FRA,Stade Brestois,stadebrestois,,,unresolved,UNMATCHED,0.5555555555555556,0.5263157894736842
+FRA,Stade de Reims,stadedereims,,,unresolved,UNMATCHED,0.5882352941176471,0.5555555555555556
+FRA,Stade Rennais,staderennais,,,unresolved,UNMATCHED,0.5714285714285714,0.5555555555555556
+FRA,Toulouse FC,toulousefc,Toulouse,toulouse,high_confidence_fuzzy_country,MATCHED,0.8888888888888888,0.5555555555555556
+FRO,B36 Torshavn,b36torshavn,,,unresolved,UNMATCHED,,0.0
+FRO,HB Torshavn,hbtorshavn,,,unresolved,UNMATCHED,,0.0
+FRO,KI Klaksvik,kiklaksvik,,,unresolved,UNMATCHED,,0.0
+FRO,NSI Runavik,nsirunavik,,,unresolved,UNMATCHED,,0.0
+FRO,Víkingur,vikingur,,,unresolved,UNMATCHED,,0.0
+GEO,Chikhura Sachkhere,chikhurasachkhere,,,unresolved,UNMATCHED,,0.0
+GEO,Dila Gori,dilagori,,,unresolved,UNMATCHED,,0.0
+GEO,Dinamo Batumi,dinamobatumi,,,unresolved,UNMATCHED,,0.0
+GEO,Dinamo Tbilisi,dinamotbilisi,,,unresolved,UNMATCHED,,0.0
+GEO,Gagra Tbilisi,gagratbilisi,,,unresolved,UNMATCHED,,0.0
+GEO,Iberia 1999,iberia1999,,,unresolved,UNMATCHED,,0.0
+GEO,Lokomotivi Tbilisi,lokomotivitbilisi,,,unresolved,UNMATCHED,,0.0
+GEO,Saburtalo Tbilisi,saburtalotbilisi,,,unresolved,UNMATCHED,,0.0
+GEO,Samtredia,samtredia,,,unresolved,UNMATCHED,,0.0
+GEO,Spaeri Tbilisi,spaeritbilisi,,,unresolved,UNMATCHED,,0.0
+GEO,Torpedo Kutaisi,torpedokutaisi,,,unresolved,UNMATCHED,,0.0
+GER,1899 Hoffenheim,1899hoffenheim,,,unresolved,UNMATCHED,0.8333333333333334,0.5833333333333334
+GER,1.FC Heidenheim,1fcheidenheim,Heidenheim,heidenheim,high_confidence_fuzzy_country,MATCHED,0.8695652173913043,0.6086956521739131
+GER,1.FC Köln,1fckoln,FC Koln,fckoln,high_confidence_fuzzy_country,MATCHED,0.9230769230769231,0.5714285714285714
+GER,Bayer Leverkusen,bayerleverkusen,,,unresolved,UNMATCHED,0.8,0.56
+GER,Bayern München,bayernmunchen,Bayern Munich,bayernmunich,high_confidence_fuzzy_country,MATCHED,0.88,0.56
+GER,Borussia Dortmund,borussiadortmund,,,unresolved,UNMATCHED,0.6666666666666666,0.48484848484848486
+GER,Borussia Mönchengladbach,borussiamonchengladbach,,,unresolved,UNMATCHED,0.5625,0.5625
+GER,Eintracht Frankfurt,eintrachtfrankfurt,,,unresolved,UNMATCHED,0.8,0.6
+GER,FSV Mainz 05,fsvmainz05,,,unresolved,UNMATCHED,0.6666666666666666,0.375
+GER,RB Leipzig,rbleipzig,RB Leipzig,rbleipzig,exact_name_country,MATCHED,1.0,
+GER,SC Freiburg,scfreiburg,Freiburg,freiburg,high_confidence_fuzzy_country,MATCHED,0.8888888888888888,0.6
+GER,Schalke 04,schalke04,Schalke 04,schalke04,exact_name_country,MATCHED,1.0,
+GER,Union Berlin,unionberlin,Union Berlin,unionberlin,exact_name_country,MATCHED,1.0,
+GER,VfB Stuttgart,vfbstuttgart,,,unresolved,UNMATCHED,0.8571428571428571,0.4444444444444444
+GER,VfL Wolfsburg,vflwolfsburg,,,unresolved,UNMATCHED,0.8571428571428571,0.5
+GIB,Europa FC,europafc,,,unresolved,UNMATCHED,,0.0
+GIB,FCB Magpies,fcbmagpies,,,unresolved,UNMATCHED,,0.0
+GIB,Lincoln Red Imps,lincolnredimps,,,unresolved,UNMATCHED,,0.0
+GIB,Mons Calpe,monscalpe,,,unresolved,UNMATCHED,,0.0
+GIB,St Joseph's FC,stjosephsfc,,,unresolved,UNMATCHED,,0.0
+GRE,AEK Athens,aekathens,,,unresolved,UNMATCHED,0.5882352941176471,0.5555555555555556
+GRE,Aris Thessaloniki,aristhessaloniki,,,unresolved,UNMATCHED,0.5,0.48
+GRE,Asteras Tripolis,asterastripolis,Asteras Tripolis,asterastripolis,exact_name_country,MATCHED,1.0,
+GRE,Atromitos FC,atromitosfc,Atromitos,atromitos,high_confidence_fuzzy_country,MATCHED,0.9,0.6
+GRE,OFI Heraklion,ofiheraklion,,,unresolved,UNMATCHED,0.631578947368421,0.5
+GRE,Olympiakos Piraeus,olympiakospiraeus,,,unresolved,UNMATCHED,0.7407407407407407,0.4444444444444444
+GRE,Panathinaikos,panathinaikos,Panathinaikos,panathinaikos,exact_name_country,MATCHED,1.0,
+GRE,PAOK Thessaloniki,paokthessaloniki,,,unresolved,UNMATCHED,0.56,0.5
+HUN,DVSC Debrecen,dvscdebrecen,,,unresolved,UNMATCHED,,0.0
+HUN,ETO Györ,etogyor,,,unresolved,UNMATCHED,,0.0
+HUN,Videoton Fehérvár,fcfehervar,,,unresolved,UNMATCHED,,0.0
+HUN,Ferencváros,ferencvaros,,,unresolved,UNMATCHED,,0.0
+HUN,Honvéd Budapest,honvedbudapest,,,unresolved,UNMATCHED,,0.0
+HUN,Kecskeméti TE,kecskemetite,,,unresolved,UNMATCHED,,0.0
+HUN,Kisvárda FC,kisvardafc,,,unresolved,UNMATCHED,,0.0
+HUN,Paksi FC,paksifc,,,unresolved,UNMATCHED,,0.0
+HUN,Puskás Akadémia,puskasakademia,,,unresolved,UNMATCHED,,0.0
+HUN,Újpest TE,ujpestte,,,unresolved,UNMATCHED,,0.0
+HUN,Zalaegerszegi TE,zalaegerszegite,,,unresolved,UNMATCHED,,0.0
+IRL,Bohemians Dublin,bohemiansdublin,,,unresolved,UNMATCHED,,0.0
+IRL,Cork City,corkcity,,,unresolved,UNMATCHED,,0.0
+IRL,Derry City,derrycity,,,unresolved,UNMATCHED,,0.0
+IRL,Dundalk,dundalk,,,unresolved,UNMATCHED,,0.0
+IRL,Shamrock Rovers,shamrockrovers,,,unresolved,UNMATCHED,,0.0
+IRL,Shelbourne,shelbourne,,,unresolved,UNMATCHED,,0.0
+IRL,Sligo Rovers,sligorovers,,,unresolved,UNMATCHED,,0.0
+IRL,St. Patrick's Athletic,stpatricksathletic,,,unresolved,UNMATCHED,,0.0
+ISL,Breidablik,breidablik,,,unresolved,UNMATCHED,,0.0
+ISL,FH Hafnarfjardar,fhhafnarfjardar,,,unresolved,UNMATCHED,,0.0
+ISL,IBV Vestmannaeyjar,ibvvestmannaeyjar,,,unresolved,UNMATCHED,,0.0
+ISL,KA Akureyri,kaakureyri,,,unresolved,UNMATCHED,,0.0
+ISL,KR Reykjavik,krreykjavik,,,unresolved,UNMATCHED,,0.0
+ISL,Stjarnan FC,stjarnanfc,,,unresolved,UNMATCHED,,0.0
+ISL,Valur Reykjavik,valurreykjavik,,,unresolved,UNMATCHED,,0.0
+ISL,Vikingur Reykjavik,vikingurreykjavik,,,unresolved,UNMATCHED,,0.0
+ISR,Beitar Jerusalem,beitarjerusalem,,,unresolved,UNMATCHED,,0.0
+ISR,Bnei Yehuda,bneiyehuda,,,unresolved,UNMATCHED,,0.0
+ISR,Hapoel Beer-Sheva,hapoelbeersheva,,,unresolved,UNMATCHED,,0.0
+ISR,Hapoel Haifa,hapoelhaifa,,,unresolved,UNMATCHED,,0.0
+ISR,Maccabi Haifa,maccabihaifa,,,unresolved,UNMATCHED,,0.0
+ISR,Maccabi Netanya,maccabinetanya,,,unresolved,UNMATCHED,,0.0
+ISR,Maccabi Petah-Tikva,maccabipetahtikva,,,unresolved,UNMATCHED,,0.0
+ISR,Maccabi Tel-Aviv,maccabitelaviv,,,unresolved,UNMATCHED,,0.0
+ISR,MS Ashdod,msashdod,,,unresolved,UNMATCHED,,0.0
+ITA,AC Milan,acmilan,,,unresolved,UNMATCHED,0.8333333333333334,0.6153846153846154
+ITA,AS Roma,asroma,,,unresolved,UNMATCHED,0.8,0.7272727272727273
+ITA,Atalanta,atalanta,Atalanta,atalanta,exact_name_country,MATCHED,1.0,
+ITA,Bologna,bologna,Bologna,bologna,exact_name_country,MATCHED,1.0,
+ITA,Fiorentina,fiorentina,Fiorentina,fiorentina,exact_name_country,MATCHED,1.0,
+ITA,Internazionale,internazionale,,,unresolved,UNMATCHED,0.6666666666666666,0.5263157894736842
+ITA,Juventus,juventus,Juventus,juventus,exact_name_country,MATCHED,1.0,
+ITA,Lazio,lazio,Lazio,lazio,exact_name_country,MATCHED,1.0,
+ITA,Napoli,napoli,Napoli,napoli,exact_name_country,MATCHED,1.0,
+ITA,Torino,torino,Torino,torino,exact_name_country,MATCHED,1.0,
+KAZ,FK Aktobe,fkaktobe,,,unresolved,UNMATCHED,,0.0
+KAZ,FK Astana,fkastana,,,unresolved,UNMATCHED,,0.0
+KAZ,FK Kyzylzhar,fkkyzylzhar,,,unresolved,UNMATCHED,,0.0
+KAZ,Irtysh Pavlodar,irtyshpavlodar,,,unresolved,UNMATCHED,,0.0
+KAZ,Kairat Almaty,kairatalmaty,,,unresolved,UNMATCHED,,0.0
+KAZ,Kaysar Kyzylorda,kaysarkyzylorda,,,unresolved,UNMATCHED,,0.0
+KAZ,Ordabasy Shymkent,ordabasyshymkent,,,unresolved,UNMATCHED,,0.0
+KAZ,Shakhtyor Karaganda,shakhtyorkaraganda,,,unresolved,UNMATCHED,,0.0
+KAZ,Tobol Kustanai,tobolkustanai,,,unresolved,UNMATCHED,,0.0
+KOS,FC Ballkani,fcballkani,,,unresolved,UNMATCHED,,0.0
+KOS,FC Drita,fcdrita,,,unresolved,UNMATCHED,,0.0
+KOS,FC Prishtina,fcprishtina,,,unresolved,UNMATCHED,,0.0
+KOS,Feronikeli,feronikeli,,,unresolved,UNMATCHED,,0.0
+KOS,KF Dukagjini,kfdukagjini,,,unresolved,UNMATCHED,,0.0
+KOS,KF Llapi,kfllapi,,,unresolved,UNMATCHED,,0.0
+KOS,KF Malisheva,kfmalisheva,,,unresolved,UNMATCHED,,0.0
+KOS,SC Gjilani,scgjilani,,,unresolved,UNMATCHED,,0.0
+LIE,FC Vaduz,fcvaduz,,,unresolved,UNMATCHED,,0.0
+LTU,Banga Gargzdai,bangagargzdai,,,unresolved,UNMATCHED,,0.0
+LTU,FA Siauliai,fasiauliai,,,unresolved,UNMATCHED,,0.0
+LTU,FC Hegelmann,fchegelmann,,,unresolved,UNMATCHED,,0.0
+LTU,FK Panevezys,fkpanevezys,,,unresolved,UNMATCHED,,0.0
+LTU,FK Riteriai,fkriteriai,,,unresolved,UNMATCHED,,0.0
+LTU,FK Trakai,fktrakai,,,unresolved,UNMATCHED,,0.0
+LTU,Kauno Zalgiris,kaunozalgiris,,,unresolved,UNMATCHED,,0.0
+LTU,Stumbras Kaunas,stumbraskaunas,,,unresolved,UNMATCHED,,0.0
+LTU,Suduva Marijampole,suduvamarijampole,,,unresolved,UNMATCHED,,0.0
+LTU,Transinvest Vilnius,transinvestvilnius,,,unresolved,UNMATCHED,,0.0
+LTU,Zalgiris Vilnius,zalgirisvilnius,,,unresolved,UNMATCHED,,0.0
+LUX,CS Fola Esch,csfolaesch,,,unresolved,UNMATCHED,,0.0
+LUX,Differdange 03,differdange03,,,unresolved,UNMATCHED,,0.0
+LUX,F91 Dudelange,f91dudelange,,,unresolved,UNMATCHED,,0.0
+LUX,Jeunesse d'Esch,jeunessedesch,,,unresolved,UNMATCHED,,0.0
+LUX,Progrès Niederkorn,progresniederkorn,,,unresolved,UNMATCHED,,0.0
+LUX,Racing Union Luxembourg,racingunionluxembourg,,,unresolved,UNMATCHED,,0.0
+LUX,Swift Hesperange,swifthesperange,,,unresolved,UNMATCHED,,0.0
+LUX,UNA Strassen,unastrassen,,,unresolved,UNMATCHED,,0.0
+LUX,Union Titus Pétange,uniontituspetange,,,unresolved,UNMATCHED,,0.0
+LVA,BFC Daugavpils,bfcdaugavpils,,,unresolved,UNMATCHED,,0.0
+LVA,FK Auda,fkauda,,,unresolved,UNMATCHED,,0.0
+LVA,FK Liepaja,fkliepaja,,,unresolved,UNMATCHED,,0.0
+LVA,FK Ventspils,fkventspils,,,unresolved,UNMATCHED,,0.0
+LVA,RFS Riga,rfsriga,,,unresolved,UNMATCHED,,0.0
+LVA,Riga FC,rigafc,,,unresolved,UNMATCHED,,0.0
+LVA,Spartaks Jurmala,spartaksjurmala,,,unresolved,UNMATCHED,,0.0
+LVA,Valmieras FK,valmierasfk,,,unresolved,UNMATCHED,,0.0
+MDA,Dinamo-Auto Tiraspol,dinamoautotiraspol,,,unresolved,UNMATCHED,,0.0
+MDA,Milsami Orhei,milsamiorhei,,,unresolved,UNMATCHED,,0.0
+MDA,Petrocub Hîncesti,petrocubhincesti,,,unresolved,UNMATCHED,,0.0
+MDA,Sfântul Gheorghe,sfantulgheorghe,,,unresolved,UNMATCHED,,0.0
+MDA,Sheriff Tiraspol,sherifftiraspol,,,unresolved,UNMATCHED,,0.0
+MDA,Speranta Nisporeni,sperantanisporeni,,,unresolved,UNMATCHED,,0.0
+MDA,Zaria Balti,zariabalti,,,unresolved,UNMATCHED,,0.0
+MDA,Zimbru Chisinau,zimbruchisinau,,,unresolved,UNMATCHED,,0.0
+MKD,Akademija Pandev,akademijapandev,,,unresolved,UNMATCHED,,0.0
+MKD,FC Struga,fcstruga,,,unresolved,UNMATCHED,,0.0
+MKD,FK Shkupi,fkshkupi,,,unresolved,UNMATCHED,,0.0
+MKD,Makedonija GjP,makedonijagjp,,,unresolved,UNMATCHED,,0.0
+MKD,Rabotnicki Skopje,rabotnickiskopje,,,unresolved,UNMATCHED,,0.0
+MKD,Renova Dzepciste,renovadzepciste,,,unresolved,UNMATCHED,,0.0
+MKD,Shkendija Tetovo,shkendijatetovo,,,unresolved,UNMATCHED,,0.0
+MKD,Sileks Kratovo,silekskratovo,,,unresolved,UNMATCHED,,0.0
+MKD,Tikves Kavadarci,tikveskavadarci,,,unresolved,UNMATCHED,,0.0
+MKD,Vardar Skopje,vardarskopje,,,unresolved,UNMATCHED,,0.0
+MLT,Balzan FC,balzanfc,,,unresolved,UNMATCHED,,0.0
+MLT,Birkirkara,birkirkara,,,unresolved,UNMATCHED,,0.0
+MLT,Floriana,floriana,,,unresolved,UNMATCHED,,0.0
+MLT,Gzira United,gziraunited,,,unresolved,UNMATCHED,,0.0
+MLT,Hamrun Spartans,hamrunspartans,,,unresolved,UNMATCHED,,0.0
+MLT,Hibernians FC,hiberniansfc,,,unresolved,UNMATCHED,,0.0
+MLT,Marsaxlokk,marsaxlokk,,,unresolved,UNMATCHED,,0.0
+MLT,Mosta FC,mostafc,,,unresolved,UNMATCHED,,0.0
+MLT,Sirens FC,sirensfc,,,unresolved,UNMATCHED,,0.0
+MLT,Sliema Wanderers,sliemawanderers,,,unresolved,UNMATCHED,,0.0
+MLT,Valletta FC,vallettafc,,,unresolved,UNMATCHED,,0.0
+MNE,Arsenal Tivat,arsenaltivat,,,unresolved,UNMATCHED,,0.0
+MNE,Buducnost Podgorica,buducnostpodgorica,,,unresolved,UNMATCHED,,0.0
+MNE,Decic Tuzi,decictuzi,,,unresolved,UNMATCHED,,0.0
+MNE,FK Podgorica,fkpodgorica,,,unresolved,UNMATCHED,,0.0
+MNE,Iskra Danilovgrad,iskradanilovgrad,,,unresolved,UNMATCHED,,0.0
+MNE,Mornar Bar,mornarbar,,,unresolved,UNMATCHED,,0.0
+MNE,OFK Titograd,ofktitograd,,,unresolved,UNMATCHED,,0.0
+MNE,Rudar Pljevlja,rudarpljevlja,,,unresolved,UNMATCHED,,0.0
+MNE,Sutjeska Niksic,sutjeskaniksic,,,unresolved,UNMATCHED,,0.0
+MNE,Zeta Golubovci,zetagolubovci,,,unresolved,UNMATCHED,,0.0
+NED,Ajax,ajax,Ajax,ajax,exact_name_country,MATCHED,1.0,
+NED,AZ Alkmaar,azalkmaar,AZ Alkmaar,azalkmaar,exact_name_country,MATCHED,1.0,
+NED,FC Twente Enschede,fctwenteenschede,,,unresolved,UNMATCHED,0.5454545454545454,0.4166666666666667
+NED,FC Utrecht,fcutrecht,Utrecht,utrecht,high_confidence_fuzzy_country,MATCHED,0.875,0.5555555555555556
+NED,Feyenoord,feyenoord,Feyenoord,feyenoord,exact_name_country,MATCHED,1.0,
+NED,Go Ahead Eagles,goaheadeagles,Go Ahead Eagles,goaheadeagles,exact_name_country,MATCHED,1.0,
+NED,PSV Eindhoven,psveindhoven,PSV Eindhoven,psveindhoven,exact_name_country,MATCHED,1.0,
+NED,Vitesse Arnhem,vitessearnhem,,,unresolved,UNMATCHED,0.7,0.38095238095238093
+NED,Willem II Tilburg,willemiitilburg,,,unresolved,UNMATCHED,0.6956521739130435,0.38095238095238093
+NIR,Ballymena United,ballymenaunited,,,unresolved,UNMATCHED,,0.0
+NIR,Cliftonville,cliftonville,,,unresolved,UNMATCHED,,0.0
+NIR,Coleraine,coleraine,,,unresolved,UNMATCHED,,0.0
+NIR,Crusaders Belfast,crusadersbelfast,,,unresolved,UNMATCHED,,0.0
+NIR,Dungannon Swifts,dungannonswifts,,,unresolved,UNMATCHED,,0.0
+NIR,Glenavon,glenavon,,,unresolved,UNMATCHED,,0.0
+NIR,Glentoran,glentoran,,,unresolved,UNMATCHED,,0.0
+NIR,Larne FC,larnefc,,,unresolved,UNMATCHED,,0.0
+NIR,Linfield Belfast,linfieldbelfast,,,unresolved,UNMATCHED,,0.0
+NOR,Bodø/Glimt,bodglimt,Bodoe Glimt,bodoeglimt,high_confidence_fuzzy_country,MATCHED,0.8888888888888888,0.42105263157894735
+NOR,FK Haugesund,fkhaugesund,Haugesund,haugesund,high_confidence_fuzzy_country,MATCHED,0.9,0.631578947368421
+NOR,Fredrikstad FK,fredrikstadfk,Fredrikstad,fredrikstad,high_confidence_fuzzy_country,MATCHED,0.9166666666666666,0.48
+NOR,Lillestrøm SK,lillestrmsk,,,unresolved,UNMATCHED,0.8571428571428571,0.47058823529411764
+NOR,Molde FK,moldefk,,,unresolved,UNMATCHED,0.8333333333333334,0.5
+NOR,Rosenborg BK,rosenborgbk,Rosenborg,rosenborg,high_confidence_fuzzy_country,MATCHED,0.9,0.6
+NOR,Sarpsborg 08,sarpsborg08,Sarpsborg,sarpsborg,high_confidence_fuzzy_country,MATCHED,0.9,0.5
+NOR,SK Brann Bergen,skbrannbergen,,,unresolved,UNMATCHED,0.5555555555555556,0.5
+NOR,Tromsø IL,tromsil,,,unresolved,UNMATCHED,0.7692307692307693,0.5263157894736842
+NOR,Vålerengens IF,valerengensif,,,unresolved,UNMATCHED,0.7272727272727273,0.38095238095238093
+NOR,Viking Stavanger,vikingstavanger,,,unresolved,UNMATCHED,0.6923076923076923,0.5714285714285714
+POL,Cracovia Kraków,cracoviakrakow,,,unresolved,UNMATCHED,0.7272727272727273,0.5454545454545454
+POL,Górnik Zabrze,gornikzabrze,,,unresolved,UNMATCHED,0.6666666666666666,0.6666666666666666
+POL,Jagiellonia Bialystok,jagielloniabialystok,,,unresolved,UNMATCHED,0.7096774193548387,0.4
+POL,Lechia Gdansk,lechiagdansk,,,unresolved,UNMATCHED,0.6666666666666666,0.5
+POL,Lech Poznan,lechpoznan,,,unresolved,UNMATCHED,0.625,0.5714285714285714
+POL,Legia Warsaw,legiawarsaw,,,unresolved,UNMATCHED,0.6923076923076923,0.625
+POL,Piast Gliwice,piastgliwice,Piast Gliwice,piastgliwice,exact_name_country,MATCHED,1.0,
+POL,Pogon Szczecin,pogonszczecin,,,unresolved,UNMATCHED,0.5555555555555556,0.48
+POL,Raków Czestochowa,rakowczestochowa,,,unresolved,UNMATCHED,0.47619047619047616,0.4166666666666667
+POL,Slask Wroclaw,slaskwroclaw,,,unresolved,UNMATCHED,0.5882352941176471,0.4444444444444444
+POL,Wisla Kraków,wislakrakow,,,unresolved,UNMATCHED,0.625,0.625
+POR,Benfica,benfica,Benfica,benfica,exact_name_country,MATCHED,1.0,
+POR,CD Santa Clara,cdsantaclara,Santa Clara,santaclara,high_confidence_fuzzy_country,MATCHED,0.9090909090909091,0.5454545454545454
+POR,FC Arouca,fcarouca,,,unresolved,UNMATCHED,0.8571428571428571,0.47058823529411764
+POR,FC Porto,fcporto,,,unresolved,UNMATCHED,0.8333333333333334,0.5263157894736842
+POR,Gil Vicente,gilvicente,Gil Vicente,gilvicente,exact_name_country,MATCHED,1.0,
+POR,Paços de Ferreira,pacosdeferreira,Pacos Ferreira,pacosferreira,high_confidence_fuzzy_country,MATCHED,0.9285714285714286,0.5185185185185185
+POR,Rio Ave,rioave,Rio Ave,rioave,exact_name_country,MATCHED,1.0,
+POR,Sporting Braga,sportingbraga,,,unresolved,UNMATCHED,0.7,0.48
+POR,Sporting CP Lisbon,sportingcplisbon,,,unresolved,UNMATCHED,0.6666666666666666,0.5
+POR,Vitória Guimarães,vitoriaguimaraes,,,unresolved,UNMATCHED,0.72,0.5
+ROU,CFR Cluj,cfrcluj,CFR Cluj,cfrcluj,exact_name_country,MATCHED,1.0,
+ROU,Corvinul Hunedoara,corvinulhunedoara,Corvinul Hunedoara,corvinulhunedoara,exact_name_country,MATCHED,1.0,
+ROU,Viitorul Constanta,farulconstanta,,,unresolved,UNMATCHED,0.5263157894736842,0.46153846153846156
+ROU,FC Botosani,fcbotosani,Botosani,botosani,high_confidence_fuzzy_country,MATCHED,0.8888888888888888,0.5882352941176471
+ROU,FCSB,fcsb,,,unresolved,UNMATCHED,0.36363636363636365,0.26666666666666666
+ROU,Sepsi OSK,sepsiosk,,,unresolved,UNMATCHED,0.7692307692307693,0.42857142857142855
+ROU,Universitatea Cluj,universitateacluj,Universitatea Cluj,universitateacluj,exact_name_country,MATCHED,1.0,
+ROU,Universitatea Craiova,universitateacraiova,,,unresolved,UNMATCHED,0.7567567567567568,0.5714285714285714
+RUS,Arsenal Tula,arsenaltula,,,unresolved,UNMATCHED,0.5333333333333333,0.4444444444444444
+RUS,CSKA Moscow,cskamoscow,,,unresolved,UNMATCHED,0.7,0.46153846153846156
+RUS,Dinamo Moscow,dinamomoscow,,,unresolved,UNMATCHED,0.6666666666666666,0.4827586206896552
+RUS,FC Sochi,fcsochi,,,unresolved,UNMATCHED,0.8333333333333334,0.5333333333333333
+RUS,FC Ufa,fcufa,,,unresolved,UNMATCHED,0.75,0.46153846153846156
+RUS,FK Krasnodar,fkkrasnodar,FC Krasnodar,fckrasnodar,high_confidence_fuzzy_country,MATCHED,0.9090909090909091,0.4
+RUS,FK Rostov,fkrostov,,,unresolved,UNMATCHED,0.8571428571428571,0.5454545454545454
+RUS,Lokomotiv Moscow,lokomotivmoscow,,,unresolved,UNMATCHED,0.5,0.4
+RUS,Rubin Kazan,rubinkazan,Rubin Kazan,rubinkazan,exact_name_country,MATCHED,1.0,
+RUS,Spartak Moscow,spartakmoscow,,,unresolved,UNMATCHED,0.7692307692307693,0.5925925925925926
+RUS,Zenit St. Petersburg,zenitstpetersburg,,,unresolved,UNMATCHED,0.48,0.45454545454545453
+SCO,Aberdeen,aberdeen,Aberdeen,aberdeen,exact_name_country,MATCHED,1.0,
+SCO,Celtic,celtic,Celtic,celtic,exact_name_country,MATCHED,1.0,
+SCO,Dundee United,dundeeunited,Dundee United,dundeeunited,exact_name_country,MATCHED,1.0,
+SCO,Glasgow Rangers,glasgowrangers,,,unresolved,UNMATCHED,0.6666666666666666,0.34782608695652173
+SCO,Hearts FC,heartsfc,,,unresolved,UNMATCHED,0.8571428571428571,0.5333333333333333
+SCO,Hibernian,hibernian,Hibernian,hibernian,exact_name_country,MATCHED,1.0,
+SCO,Kilmarnock,kilmarnock,Kilmarnock,kilmarnock,exact_name_country,MATCHED,1.0,
+SCO,Motherwell,motherwell,Motherwell,motherwell,exact_name_country,MATCHED,1.0,
+SCO,St. Johnstone,stjohnstone,St Johnstone,stjohnstone,exact_name_country,MATCHED,1.0,
+SCO,St. Mirren,stmirren,St Mirren,stmirren,exact_name_country,MATCHED,1.0,
+SMR,AC Virtus,acvirtus,,,unresolved,UNMATCHED,,0.0
+SMR,Cosmos,cosmos,,,unresolved,UNMATCHED,,0.0
+SMR,Folgore,folgore,,,unresolved,UNMATCHED,,0.0
+SMR,La Fiorita,lafiorita,,,unresolved,UNMATCHED,,0.0
+SMR,Tre Fiori,trefiori,,,unresolved,UNMATCHED,,0.0
+SMR,Tre Penne,trepenne,,,unresolved,UNMATCHED,,0.0
+SRB,Cukaricki Belgrade,cukarickibelgrade,,,unresolved,UNMATCHED,,0.0
+SRB,Novi Pazar,novipazar,,,unresolved,UNMATCHED,,0.0
+SRB,Partizan Belgrade,partizanbelgrade,,,unresolved,UNMATCHED,,0.0
+SRB,Radnicki 1923,radnicki1923,,,unresolved,UNMATCHED,,0.0
+SRB,Radnicki Nis,radnickinis,,,unresolved,UNMATCHED,,0.0
+SRB,Red Star Belgrade,redstarbelgrade,,,unresolved,UNMATCHED,,0.0
+SRB,Spartak Subotica,spartaksubotica,,,unresolved,UNMATCHED,,0.0
+SRB,TSC Backa Topola,tscbackatopola,,,unresolved,UNMATCHED,,0.0
+SRB,Vojvodina Novi Sad,vojvodinanovisad,,,unresolved,UNMATCHED,,0.0
+SUI,FC Basel,fcbasel,,,unresolved,UNMATCHED,,0.0
+SUI,FC Lugano,fclugano,,,unresolved,UNMATCHED,,0.0
+SUI,FC Luzern,fcluzern,,,unresolved,UNMATCHED,,0.0
+SUI,FC Sankt Gallen,fcsanktgallen,,,unresolved,UNMATCHED,,0.0
+SUI,FC Thun,fcthun,,,unresolved,UNMATCHED,,0.0
+SUI,FC Zürich,fczurich,,,unresolved,UNMATCHED,,0.0
+SUI,Lausanne Sports,lausannesports,,,unresolved,UNMATCHED,,0.0
+SUI,Servette FC Genève,servettefcgeneve,,,unresolved,UNMATCHED,,0.0
+SUI,Young Boys,youngboys,,,unresolved,UNMATCHED,,0.0
+SVK,AS Trencín,astrencin,,,unresolved,UNMATCHED,,0.0
+SVK,DAC Dunajska Streda,dacdunajskastreda,,,unresolved,UNMATCHED,,0.0
+SVK,FC Kosice,fckosice,,,unresolved,UNMATCHED,,0.0
+SVK,MFK Ruzomberok,mfkruzomberok,,,unresolved,UNMATCHED,,0.0
+SVK,MSK Zilina,mskzilina,,,unresolved,UNMATCHED,,0.0
+SVK,Slovan Bratislava,slovanbratislava,,,unresolved,UNMATCHED,,0.0
+SVK,Spartak Trnava,spartaktrnava,,,unresolved,UNMATCHED,,0.0
+SVN,Mura Murska Sobota,muramurskasobota,,,unresolved,UNMATCHED,,0.0
+SVN,NK Bravo,nkbravo,,,unresolved,UNMATCHED,,0.0
+SVN,NK Celje,nkcelje,,,unresolved,UNMATCHED,,0.0
+SVN,NK Domzale,nkdomzale,,,unresolved,UNMATCHED,,0.0
+SVN,NK Koper,nkkoper,,,unresolved,UNMATCHED,,0.0
+SVN,NK Maribor,nkmaribor,,,unresolved,UNMATCHED,,0.0
+SVN,Olimpija Ljubljana,olimpijaljubljana,,,unresolved,UNMATCHED,,0.0
+SVN,Rudar Velenje,rudarvelenje,,,unresolved,UNMATCHED,,0.0
+SWE,AIK Stockholm,aikstockholm,,,unresolved,UNMATCHED,0.4,0.375
+SWE,BK Häcken,bkhacken,,,unresolved,UNMATCHED,0.8,0.42105263157894735
+SWE,Djurgårdens IF,djurgardensif,Djurgarden,djurgarden,high_confidence_fuzzy_country,MATCHED,0.8695652173913043,0.4
+SWE,Hammarby IF,hammarbyif,Hammarby,hammarby,high_confidence_fuzzy_country,MATCHED,0.8888888888888888,0.5
+SWE,IF Elfsborg,ifelfsborg,Elfsborg,elfsborg,high_confidence_fuzzy_country,MATCHED,0.8888888888888888,0.6666666666666666
+SWE,IFK Göteborg,ifkgoteborg,,,unresolved,UNMATCHED,0.8,0.5714285714285714
+SWE,IFK Norrköping,ifknorrkoping,,,unresolved,UNMATCHED,0.8333333333333334,0.6363636363636364
+SWE,Kalmar FF,kalmarff,,,unresolved,UNMATCHED,0.8571428571428571,0.5
+SWE,Malmö FF,malmoff,,,unresolved,UNMATCHED,0.7692307692307693,0.46153846153846156
+TUR,Adana Demirspor,adanademirspor,Ad. Demirspor,addemirspor,high_confidence_fuzzy_country,MATCHED,0.88,0.782608695652174
+TUR,Akhisarspor,akhisarspor,,,unresolved,UNMATCHED,0.7619047619047619,0.7619047619047619
+TUR,Alanyaspor,alanyaspor,Alanyaspor,alanyaspor,exact_name_country,MATCHED,1.0,
+TUR,Besiktas,besiktas,Besiktas,besiktas,exact_name_country,MATCHED,1.0,
+TUR,Fenerbahçe,fenerbahce,Fenerbahce,fenerbahce,exact_name_country,MATCHED,1.0,
+TUR,Galatasaray,galatasaray,Galatasaray,galatasaray,exact_name_country,MATCHED,1.0,
+TUR,Istanbul Basaksehir,istanbulbasaksehir,,,unresolved,UNMATCHED,0.6666666666666666,0.5
+TUR,Konyaspor,konyaspor,Konyaspor,konyaspor,exact_name_country,MATCHED,1.0,
+TUR,Samsunspor,samsunspor,Samsunspor,samsunspor,exact_name_country,MATCHED,1.0,
+TUR,Sivasspor,sivasspor,Sivasspor,sivasspor,exact_name_country,MATCHED,1.0,
+TUR,Trabzonspor,trabzonspor,Trabzonspor,trabzonspor,exact_name_country,MATCHED,1.0,
+TUR,Yeni Malatyaspor,yenimalatyaspor,,,unresolved,UNMATCHED,0.8461538461538461,0.72
+UKR,Desna Chernihiv,desnachernihiv,,,unresolved,UNMATCHED,,0.0
+UKR,Dinamo Kiev,dynamokyiv,,,unresolved,UNMATCHED,,0.0
+UKR,FC Mariupol,fcmariupol,,,unresolved,UNMATCHED,,0.0
+UKR,FC Oleksandriya,fcoleksandriya,,,unresolved,UNMATCHED,,0.0
+UKR,Kolos Kovalivka,koloskovalivka,,,unresolved,UNMATCHED,,0.0
+UKR,Kryvbas Kryviy Rih,kryvbaskryviyrih,,,unresolved,UNMATCHED,,0.0
+UKR,Polissya Zhytomyr,polissyazhytomyr,,,unresolved,UNMATCHED,,0.0
+UKR,SC Dnipro-1,scdnipro1,,,unresolved,UNMATCHED,,0.0
+UKR,Shakhtar Donetsk,shakhtardonetsk,,,unresolved,UNMATCHED,,0.0
+UKR,Vorskla Poltava,vorsklapoltava,,,unresolved,UNMATCHED,,0.0
+UKR,Zorya Luhansk,zoryaluhansk,,,unresolved,UNMATCHED,,0.0
+WAL,Bala Town,balatown,,,unresolved,UNMATCHED,,0.0
+WAL,Barry Town,barrytown,,,unresolved,UNMATCHED,,0.0
+WAL,Caernarfon Town,caernarfontown,,,unresolved,UNMATCHED,,0.0
+WAL,Cardiff MU,cardiffmu,,,unresolved,UNMATCHED,,0.0
+WAL,Cefn Druids,cefndruids,,,unresolved,UNMATCHED,,0.0
+WAL,Connah's Quay,connahsquay,,,unresolved,UNMATCHED,,0.0
+WAL,Haverfordwest County,haverfordwestcounty,,,unresolved,UNMATCHED,,0.0
+WAL,Newtown,newtown,,,unresolved,UNMATCHED,,0.0
+WAL,Penybont,penybont,,,unresolved,UNMATCHED,,0.0
+WAL,The New Saints,thenewsaints,,,unresolved,UNMATCHED,,0.0

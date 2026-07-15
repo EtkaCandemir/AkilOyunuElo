@@ -1,0 +1,11 @@
+season,team_id,team_name_source,country_code,club_points_t_minus_4,club_points_t_minus_3,club_points_t_minus_2,club_points_t_minus_1,club_points_t,played_t_minus_4,played_t_minus_3,played_t_minus_2,played_t_minus_1,played_t,matches_t_minus_4,matches_t_minus_3,matches_t_minus_2,matches_t_minus_1,matches_t,match_cap_t_minus_4,match_cap_t_minus_3,match_cap_t_minus_2,match_cap_t_minus_1,match_cap_t,official_club_coefficient,country_part
+2026/27,1,Arsenal,ENG,0,17,22,36,44,0,1,1,1,1,0,6,6,8,8,6,6,6,8,8,119,23.9038
+2026/27,2,Como,ITA,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,6,8,8,19.9892,19.9892
+2026/27,3,Galatasaray,TUR,15,0,8,12.75,17.75,1,0,1,1,1,6,0,6,8,8,6,6,6,8,8,53.5,10.375
+2026/27,4,Sporting CP,POR,16,14,12,14.5,27.5,1,1,1,1,1,6,6,6,8,8,6,6,6,8,8,84,14.6332
+2026/27,5,Shakhtar Donetsk,UKR,6,11,10,11,18.25,1,1,1,1,1,6,6,6,8,8,6,6,6,8,8,56.25,5.1824
+2026/27,6,Slavia Praha,CZE,10,6,15,4,9,1,1,1,1,1,6,6,6,8,8,6,6,6,8,8,44,9.705
+2026/27,7,Benfica,POR,20,25,14,18.75,12.25,1,1,1,1,1,6,6,6,8,8,6,6,6,8,8,90,14.6332
+2026/27,8,AZ Alkmaar,NED,13,19,4,12.5,14.375,1,1,1,1,1,6,6,6,8,8,6,6,6,8,8,62.875,13.5858
+2026/27,9,Omonia Nicosia,CYP,4,3,2,5.375,6.875,1,1,1,1,1,6,6,4,8,8,6,6,6,8,8,21.25,7.1386
+2026/27,10,Pafos,CYP,0,0,0,11.125,13,0,0,0,1,1,0,0,0,8,8,6,6,6,8,8,24.125,7.1386

@@ -1,0 +1,73 @@
+season,check,status,detail
+2018/19,row_count_preserved,PASS,735/735
+2018/19,score_rows_preserved,PASS,exact multiset match
+2018/19,match_id_unique,PASS,735
+2018/19,event_order_unique,PASS,735
+2018/19,group_matchday_team_uniqueness,PASS,one match per team per matchday
+2018/19,penalty_rows_matched,PASS,6/6
+2018/19,knockout_winner_complete,PASS,250/250
+2018/19,finals_neutral,PASS,2
+2018/19,actual_score_valid,PASS,"[np.float64(0.0), np.float64(0.5), np.float64(1.0)]"
+2019/20,row_count_preserved,PASS,721/721
+2019/20,score_rows_preserved,PASS,exact multiset match
+2019/20,match_id_unique,PASS,721
+2019/20,event_order_unique,PASS,721
+2019/20,group_matchday_team_uniqueness,PASS,one match per team per matchday
+2019/20,penalty_rows_matched,PASS,7/7
+2019/20,knockout_winner_complete,PASS,250/250
+2019/20,finals_neutral,PASS,2
+2019/20,actual_score_valid,PASS,"[np.float64(0.0), np.float64(0.5), np.float64(1.0)]"
+2020/21,row_count_preserved,PASS,540/540
+2020/21,score_rows_preserved,PASS,exact multiset match
+2020/21,match_id_unique,PASS,540
+2020/21,event_order_unique,PASS,540
+2020/21,group_matchday_team_uniqueness,PASS,one match per team per matchday
+2020/21,penalty_rows_matched,PASS,21/21
+2020/21,knockout_winner_complete,PASS,250/250
+2020/21,finals_neutral,PASS,2
+2020/21,actual_score_valid,PASS,"[np.float64(0.0), np.float64(0.5), np.float64(1.0)]"
+2021/22,row_count_preserved,PASS,816/816
+2021/22,score_rows_preserved,PASS,exact multiset match
+2021/22,match_id_unique,PASS,816
+2021/22,event_order_unique,PASS,816
+2021/22,group_matchday_team_uniqueness,PASS,one match per team per matchday
+2021/22,penalty_rows_matched,PASS,19/19
+2021/22,knockout_winner_complete,PASS,267/267
+2021/22,finals_neutral,PASS,3
+2021/22,actual_score_valid,PASS,"[np.float64(0.0), np.float64(0.5), np.float64(1.0)]"
+2022/23,row_count_preserved,PASS,804/804
+2022/23,score_rows_preserved,PASS,exact multiset match
+2022/23,match_id_unique,PASS,804
+2022/23,event_order_unique,PASS,804
+2022/23,group_matchday_team_uniqueness,PASS,one match per team per matchday
+2022/23,penalty_rows_matched,PASS,31/31
+2022/23,knockout_winner_complete,PASS,261/261
+2022/23,finals_neutral,PASS,3
+2022/23,actual_score_valid,PASS,"[np.float64(0.0), np.float64(0.5), np.float64(1.0)]"
+2023/24,row_count_preserved,PASS,806/806
+2023/24,score_rows_preserved,PASS,exact multiset match
+2023/24,match_id_unique,PASS,806
+2023/24,event_order_unique,PASS,806
+2023/24,group_matchday_team_uniqueness,PASS,one match per team per matchday
+2023/24,penalty_rows_matched,PASS,25/25
+2023/24,knockout_winner_complete,PASS,262/262
+2023/24,finals_neutral,PASS,3
+2023/24,actual_score_valid,PASS,"[np.float64(0.0), np.float64(0.5), np.float64(1.0)]"
+2024/25,row_count_preserved,PASS,957/957
+2024/25,score_rows_preserved,PASS,exact multiset match
+2024/25,match_id_unique,PASS,957
+2024/25,event_order_unique,PASS,957
+2024/25,group_matchday_team_uniqueness,PASS,one match per team per matchday
+2024/25,penalty_rows_matched,PASS,29/29
+2024/25,knockout_winner_complete,PASS,282/282
+2024/25,finals_neutral,PASS,3
+2024/25,actual_score_valid,PASS,"[np.float64(0.0), np.float64(0.5), np.float64(1.0)]"
+2025/26,row_count_preserved,PASS,961/961
+2025/26,score_rows_preserved,PASS,exact multiset match
+2025/26,match_id_unique,PASS,961
+2025/26,event_order_unique,PASS,961
+2025/26,group_matchday_team_uniqueness,PASS,one match per team per matchday
+2025/26,penalty_rows_matched,PASS,17/17
+2025/26,knockout_winner_complete,PASS,284/284
+2025/26,finals_neutral,PASS,3
+2025/26,actual_score_valid,PASS,"[np.float64(0.0), np.float64(0.5), np.float64(1.0)]"

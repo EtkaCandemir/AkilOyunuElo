@@ -1,0 +1,722 @@
+season,competition,round,home_team_id,away_team_id,home_team_name,away_team_name,home_goals,away_goals
+2019/20,UCL,Preliminary Round,127,92,Feronikeli,Lincoln Red Imps,1,0
+2019/20,UCL,Preliminary Round,191,5,Tre Penne,FC Santa Coloma,0,1
+2019/20,UCL,Preliminary Round,127,5,Feronikeli,FC Santa Coloma,2,1
+2019/20,UCL,1st Qualifying Round,63,161,Kalju Nomme,Shkendija Tetovo,0,1
+2019/20,UCL,1st Qualifying Round,161,63,Shkendija Tetovo,Kalju Nomme,1,2
+2019/20,UCL,1st Qualifying Round,135,199,Suduva Marijampole,Red Star Belgrade,0,0
+2019/20,UCL,1st Qualifying Round,199,135,Red Star Belgrade,Suduva Marijampole,2,1
+2019/20,UCL,1st Qualifying Round,9,215,Ararat-Armenia,AIK Stockholm,2,1
+2019/20,UCL,1st Qualifying Round,215,9,AIK Stockholm,Ararat-Armenia,3,1
+2019/20,UCL,1st Qualifying Round,122,179,FK Astana,CFR Cluj,1,0
+2019/20,UCL,1st Qualifying Round,179,122,CFR Cluj,FK Astana,3,1
+2019/20,UCL,1st Qualifying Round,101,37,Ferencváros,Ludogorets Razgrad,2,1
+2019/20,UCL,1st Qualifying Round,37,101,Ludogorets Razgrad,Ferencváros,2,3
+2019/20,UCL,1st Qualifying Round,30,193,FK Sarajevo,Celtic,1,3
+2019/20,UCL,1st Qualifying Round,193,30,Celtic,FK Sarajevo,2,1
+2019/20,UCL,1st Qualifying Round,147,82,Sheriff Tiraspol,Saburtalo Tbilisi,0,3
+2019/20,UCL,1st Qualifying Round,82,147,Saburtalo Tbilisi,Sheriff Tiraspol,1,3
+2019/20,UCL,1st Qualifying Round,138,144,F91 Dudelange,Valletta FC,2,2
+2019/20,UCL,1st Qualifying Round,144,138,Valletta FC,F91 Dudelange,1,1
+2019/20,UCL,1st Qualifying Round,3,19,Partizani Tirana,Qarabag FK,0,0
+2019/20,UCL,1st Qualifying Round,19,3,Qarabag FK,Partizani Tirana,2,0
+2019/20,UCL,1st Qualifying Round,202,151,Slovan Bratislava,Sutjeska Niksic,1,1
+2019/20,UCL,1st Qualifying Round,151,202,Sutjeska Niksic,Slovan Bratislava,1,1
+2019/20,UCL,1st Qualifying Round,165,168,Linfield Belfast,Rosenborg BK,0,2
+2019/20,UCL,1st Qualifying Round,168,165,Rosenborg BK,Linfield Belfast,4,0
+2019/20,UCL,1st Qualifying Round,106,206,Valur Reykjavik,NK Maribor,0,3
+2019/20,UCL,1st Qualifying Round,206,106,NK Maribor,Valur Reykjavik,2,0
+2019/20,UCL,1st Qualifying Round,108,131,Dundalk,Riga FC,0,0
+2019/20,UCL,1st Qualifying Round,131,108,Riga FC,Dundalk,0,0
+2019/20,UCL,1st Qualifying Round,237,127,The New Saints,Feronikeli,2,2
+2019/20,UCL,1st Qualifying Round,127,237,Feronikeli,The New Saints,0,1
+2019/20,UCL,1st Qualifying Round,70,67,HJK Helsinki,HB Torshavn,3,0
+2019/20,UCL,1st Qualifying Round,67,70,HB Torshavn,HJK Helsinki,2,2
+2019/20,UCL,1st Qualifying Round,21,173,BATE Borisov,Piast Gliwice,1,1
+2019/20,UCL,1st Qualifying Round,173,21,Piast Gliwice,BATE Borisov,1,2
+2019/20,UCL,2nd Qualifying Round,179,114,CFR Cluj,Maccabi Tel-Aviv,1,0
+2019/20,UCL,2nd Qualifying Round,114,179,Maccabi Tel-Aviv,CFR Cluj,2,2
+2019/20,UCL,2nd Qualifying Round,21,168,BATE Borisov,Rosenborg BK,2,1
+2019/20,UCL,2nd Qualifying Round,168,21,Rosenborg BK,BATE Borisov,2,0
+2019/20,UCL,2nd Qualifying Round,237,53,The New Saints,FC København,0,2
+2019/20,UCL,2nd Qualifying Round,53,237,FC København,The New Saints,1,0
+2019/20,UCL,2nd Qualifying Round,101,144,Ferencváros,Valletta FC,3,1
+2019/20,UCL,2nd Qualifying Round,144,101,Valletta FC,Ferencváros,1,1
+2019/20,UCL,2nd Qualifying Round,108,19,Dundalk,Qarabag FK,1,1
+2019/20,UCL,2nd Qualifying Round,19,108,Qarabag FK,Dundalk,3,0
+2019/20,UCL,2nd Qualifying Round,82,38,Saburtalo Tbilisi,Dinamo Zagreb,0,2
+2019/20,UCL,2nd Qualifying Round,38,82,Dinamo Zagreb,Saburtalo Tbilisi,3,0
+2019/20,UCL,2nd Qualifying Round,193,63,Celtic,Kalju Nomme,5,0
+2019/20,UCL,2nd Qualifying Round,63,193,Kalju Nomme,Celtic,0,2
+2019/20,UCL,2nd Qualifying Round,199,70,Red Star Belgrade,HJK Helsinki,2,0
+2019/20,UCL,2nd Qualifying Round,70,199,HJK Helsinki,Red Star Belgrade,2,1
+2019/20,UCL,2nd Qualifying Round,151,44,Sutjeska Niksic,APOEL Nicosia,0,1
+2019/20,UCL,2nd Qualifying Round,44,151,APOEL Nicosia,Sutjeska Niksic,3,0
+2019/20,UCL,2nd Qualifying Round,206,215,NK Maribor,AIK Stockholm,2,1
+2019/20,UCL,2nd Qualifying Round,215,206,AIK Stockholm,NK Maribor,3,2
+2019/20,UCL,2nd Qualifying Round,50,97,Viktoria Plzen,Olympiakos Piraeus,0,0
+2019/20,UCL,2nd Qualifying Round,97,50,Olympiakos Piraeus,Viktoria Plzen,4,0
+2019/20,UCL,2nd Qualifying Round,157,219,PSV Eindhoven,FC Basel,3,2
+2019/20,UCL,2nd Qualifying Round,219,157,FC Basel,PSV Eindhoven,2,1
+2019/20,UCL,3rd Qualifying Round,179,193,CFR Cluj,Celtic,1,1
+2019/20,UCL,3rd Qualifying Round,193,179,Celtic,CFR Cluj,3,4
+2019/20,UCL,3rd Qualifying Round,44,19,APOEL Nicosia,Qarabag FK,1,2
+2019/20,UCL,3rd Qualifying Round,19,44,Qarabag FK,APOEL Nicosia,0,2
+2019/20,UCL,3rd Qualifying Round,98,154,PAOK Thessaloniki,Ajax,2,2
+2019/20,UCL,3rd Qualifying Round,154,98,Ajax,PAOK Thessaloniki,3,2
+2019/20,UCL,3rd Qualifying Round,38,101,Dinamo Zagreb,Ferencváros,1,1
+2019/20,UCL,3rd Qualifying Round,101,38,Ferencváros,Dinamo Zagreb,0,4
+2019/20,UCL,3rd Qualifying Round,199,53,Red Star Belgrade,FC København,1,1
+2019/20,UCL,3rd Qualifying Round,53,199,FC København,Red Star Belgrade,1,1
+2019/20,UCL,3rd Qualifying Round,206,168,NK Maribor,Rosenborg BK,1,3
+2019/20,UCL,3rd Qualifying Round,168,206,Rosenborg BK,NK Maribor,3,1
+2019/20,UCL,3rd Qualifying Round,226,97,Istanbul Basaksehir,Olympiakos Piraeus,0,1
+2019/20,UCL,3rd Qualifying Round,97,226,Olympiakos Piraeus,Istanbul Basaksehir,2,0
+2019/20,UCL,3rd Qualifying Round,185,175,FK Krasnodar,FC Porto,0,1
+2019/20,UCL,3rd Qualifying Round,175,185,FC Porto,FK Krasnodar,2,3
+2019/20,UCL,3rd Qualifying Round,26,229,Club Brugge,Dinamo Kiev,1,0
+2019/20,UCL,3rd Qualifying Round,229,26,Dinamo Kiev,Club Brugge,3,3
+2019/20,UCL,3rd Qualifying Round,219,14,FC Basel,LASK,1,2
+2019/20,UCL,3rd Qualifying Round,14,219,LASK,FC Basel,3,1
+2019/20,UCL,Qualifying Play-off Round,38,168,Dinamo Zagreb,Rosenborg BK,2,0
+2019/20,UCL,Qualifying Play-off Round,168,38,Rosenborg BK,Dinamo Zagreb,1,1
+2019/20,UCL,Qualifying Play-off Round,179,48,CFR Cluj,Slavia Praha,0,1
+2019/20,UCL,Qualifying Play-off Round,48,179,Slavia Praha,CFR Cluj,1,0
+2019/20,UCL,Qualifying Play-off Round,223,199,Young Boys,Red Star Belgrade,2,2
+2019/20,UCL,Qualifying Play-off Round,199,223,Red Star Belgrade,Young Boys,1,1
+2019/20,UCL,Qualifying Play-off Round,44,154,APOEL Nicosia,Ajax,0,0
+2019/20,UCL,Qualifying Play-off Round,154,44,Ajax,APOEL Nicosia,2,0
+2019/20,UCL,Qualifying Play-off Round,14,26,LASK,Club Brugge,0,1
+2019/20,UCL,Qualifying Play-off Round,26,14,Club Brugge,LASK,2,1
+2019/20,UCL,Qualifying Play-off Round,97,185,Olympiakos Piraeus,FK Krasnodar,4,0
+2019/20,UCL,Qualifying Play-off Round,185,97,FK Krasnodar,Olympiakos Piraeus,1,2
+2019/20,UCL,Group Stage,26,225,Club Brugge,Galatasaray,0,0
+2019/20,UCL,Group Stage,225,26,Galatasaray,Club Brugge,1,1
+2019/20,UCL,Group Stage,77,212,Paris Saint-Germain,Real Madrid,3,0
+2019/20,UCL,Group Stage,212,77,Real Madrid,Paris Saint-Germain,2,2
+2019/20,UCL,Group Stage,212,26,Real Madrid,Club Brugge,2,2
+2019/20,UCL,Group Stage,26,212,Club Brugge,Real Madrid,1,3
+2019/20,UCL,Group Stage,225,77,Galatasaray,Paris Saint-Germain,0,1
+2019/20,UCL,Group Stage,77,225,Paris Saint-Germain,Galatasaray,5,0
+2019/20,UCL,Group Stage,225,212,Galatasaray,Real Madrid,0,1
+2019/20,UCL,Group Stage,212,225,Real Madrid,Galatasaray,6,0
+2019/20,UCL,Group Stage,26,77,Club Brugge,Paris Saint-Germain,0,5
+2019/20,UCL,Group Stage,77,26,Paris Saint-Germain,Club Brugge,1,0
+2019/20,UCL,Group Stage,97,60,Olympiakos Piraeus,Tottenham Hotspur,2,2
+2019/20,UCL,Group Stage,60,97,Tottenham Hotspur,Olympiakos Piraeus,4,2
+2019/20,UCL,Group Stage,85,199,Bayern München,Red Star Belgrade,3,0
+2019/20,UCL,Group Stage,199,85,Red Star Belgrade,Bayern München,0,6
+2019/20,UCL,Group Stage,199,97,Red Star Belgrade,Olympiakos Piraeus,3,1
+2019/20,UCL,Group Stage,97,199,Olympiakos Piraeus,Red Star Belgrade,1,0
+2019/20,UCL,Group Stage,60,85,Tottenham Hotspur,Bayern München,2,7
+2019/20,UCL,Group Stage,85,60,Bayern München,Tottenham Hotspur,3,1
+2019/20,UCL,Group Stage,60,199,Tottenham Hotspur,Red Star Belgrade,5,0
+2019/20,UCL,Group Stage,199,60,Red Star Belgrade,Tottenham Hotspur,0,4
+2019/20,UCL,Group Stage,97,85,Olympiakos Piraeus,Bayern München,2,3
+2019/20,UCL,Group Stage,85,97,Bayern München,Olympiakos Piraeus,2,0
+2019/20,UCL,Group Stage,232,58,Shakhtar Donetsk,Manchester City,0,3
+2019/20,UCL,Group Stage,58,232,Manchester City,Shakhtar Donetsk,1,1
+2019/20,UCL,Group Stage,38,116,Dinamo Zagreb,Atalanta,4,0
+2019/20,UCL,Group Stage,116,38,Atalanta,Dinamo Zagreb,2,0
+2019/20,UCL,Group Stage,116,232,Atalanta,Shakhtar Donetsk,1,2
+2019/20,UCL,Group Stage,232,116,Shakhtar Donetsk,Atalanta,0,3
+2019/20,UCL,Group Stage,58,38,Manchester City,Dinamo Zagreb,2,0
+2019/20,UCL,Group Stage,38,58,Dinamo Zagreb,Manchester City,1,4
+2019/20,UCL,Group Stage,58,116,Manchester City,Atalanta,5,1
+2019/20,UCL,Group Stage,116,58,Atalanta,Manchester City,1,1
+2019/20,UCL,Group Stage,232,38,Shakhtar Donetsk,Dinamo Zagreb,2,2
+2019/20,UCL,Group Stage,38,232,Dinamo Zagreb,Shakhtar Donetsk,3,3
+2019/20,UCL,Group Stage,208,118,Atlético Madrid,Juventus,2,2
+2019/20,UCL,Group Stage,118,208,Juventus,Atlético Madrid,1,0
+2019/20,UCL,Group Stage,84,186,Bayer Leverkusen,Lokomotiv Moscow,1,2
+2019/20,UCL,Group Stage,186,84,Lokomotiv Moscow,Bayer Leverkusen,0,2
+2019/20,UCL,Group Stage,186,208,Lokomotiv Moscow,Atlético Madrid,0,2
+2019/20,UCL,Group Stage,208,186,Atlético Madrid,Lokomotiv Moscow,2,0
+2019/20,UCL,Group Stage,118,84,Juventus,Bayer Leverkusen,3,0
+2019/20,UCL,Group Stage,84,118,Bayer Leverkusen,Juventus,0,2
+2019/20,UCL,Group Stage,118,186,Juventus,Lokomotiv Moscow,2,1
+2019/20,UCL,Group Stage,186,118,Lokomotiv Moscow,Juventus,1,2
+2019/20,UCL,Group Stage,208,84,Atlético Madrid,Bayer Leverkusen,1,0
+2019/20,UCL,Group Stage,84,208,Bayer Leverkusen,Atlético Madrid,2,1
+2019/20,UCL,Group Stage,13,27,FC Salzburg,Racing Genk,6,2
+2019/20,UCL,Group Stage,27,13,Racing Genk,FC Salzburg,1,4
+2019/20,UCL,Group Stage,120,57,Napoli,Liverpool,2,0
+2019/20,UCL,Group Stage,57,120,Liverpool,Napoli,1,1
+2019/20,UCL,Group Stage,57,13,Liverpool,FC Salzburg,4,3
+2019/20,UCL,Group Stage,13,57,FC Salzburg,Liverpool,0,2
+2019/20,UCL,Group Stage,27,120,Racing Genk,Napoli,0,0
+2019/20,UCL,Group Stage,120,27,Napoli,Racing Genk,4,0
+2019/20,UCL,Group Stage,27,57,Racing Genk,Liverpool,1,4
+2019/20,UCL,Group Stage,57,27,Liverpool,Racing Genk,2,1
+2019/20,UCL,Group Stage,13,120,FC Salzburg,Napoli,2,3
+2019/20,UCL,Group Stage,120,13,Napoli,FC Salzburg,1,1
+2019/20,UCL,Group Stage,117,48,Internazionale,Slavia Praha,1,1
+2019/20,UCL,Group Stage,48,117,Slavia Praha,Internazionale,1,3
+2019/20,UCL,Group Stage,86,210,Borussia Dortmund,FC Barcelona,0,0
+2019/20,UCL,Group Stage,210,86,FC Barcelona,Borussia Dortmund,3,1
+2019/20,UCL,Group Stage,210,117,FC Barcelona,Internazionale,2,1
+2019/20,UCL,Group Stage,117,210,Internazionale,FC Barcelona,1,2
+2019/20,UCL,Group Stage,48,86,Slavia Praha,Borussia Dortmund,0,2
+2019/20,UCL,Group Stage,86,48,Borussia Dortmund,Slavia Praha,2,1
+2019/20,UCL,Group Stage,48,210,Slavia Praha,FC Barcelona,1,2
+2019/20,UCL,Group Stage,210,48,FC Barcelona,Slavia Praha,0,0
+2019/20,UCL,Group Stage,117,86,Internazionale,Borussia Dortmund,2,0
+2019/20,UCL,Group Stage,86,117,Borussia Dortmund,Internazionale,3,2
+2019/20,UCL,Group Stage,174,89,Benfica,RB Leipzig,1,2
+2019/20,UCL,Group Stage,89,174,RB Leipzig,Benfica,2,2
+2019/20,UCL,Group Stage,76,188,Olympique Lyon,Zenit St. Petersburg,1,1
+2019/20,UCL,Group Stage,188,76,Zenit St. Petersburg,Olympique Lyon,2,0
+2019/20,UCL,Group Stage,188,174,Zenit St. Petersburg,Benfica,3,1
+2019/20,UCL,Group Stage,174,188,Benfica,Zenit St. Petersburg,3,0
+2019/20,UCL,Group Stage,89,76,RB Leipzig,Olympique Lyon,0,2
+2019/20,UCL,Group Stage,76,89,Olympique Lyon,RB Leipzig,2,2
+2019/20,UCL,Group Stage,89,188,RB Leipzig,Zenit St. Petersburg,2,1
+2019/20,UCL,Group Stage,188,89,Zenit St. Petersburg,RB Leipzig,0,2
+2019/20,UCL,Group Stage,174,76,Benfica,Olympique Lyon,2,1
+2019/20,UCL,Group Stage,76,174,Olympique Lyon,Benfica,3,1
+2019/20,UCL,Group Stage,154,75,Ajax,Lille OSC,3,0
+2019/20,UCL,Group Stage,75,154,Lille OSC,Ajax,0,2
+2019/20,UCL,Group Stage,56,214,Chelsea,Valencia,0,1
+2019/20,UCL,Group Stage,214,56,Valencia,Chelsea,2,2
+2019/20,UCL,Group Stage,214,154,Valencia,Ajax,0,3
+2019/20,UCL,Group Stage,154,214,Ajax,Valencia,0,1
+2019/20,UCL,Group Stage,75,56,Lille OSC,Chelsea,1,2
+2019/20,UCL,Group Stage,56,75,Chelsea,Lille OSC,2,1
+2019/20,UCL,Group Stage,75,214,Lille OSC,Valencia,1,1
+2019/20,UCL,Group Stage,214,75,Valencia,Lille OSC,4,1
+2019/20,UCL,Group Stage,154,56,Ajax,Chelsea,0,1
+2019/20,UCL,Group Stage,56,154,Chelsea,Ajax,4,4
+2019/20,UCL,Round 2,86,77,Borussia Dortmund,Paris Saint-Germain,2,1
+2019/20,UCL,Round 2,77,86,Paris Saint-Germain,Borussia Dortmund,2,0
+2019/20,UCL,Round 2,212,58,Real Madrid,Manchester City,1,2
+2019/20,UCL,Round 2,58,212,Manchester City,Real Madrid,2,1
+2019/20,UCL,Round 2,116,214,Atalanta,Valencia,4,1
+2019/20,UCL,Round 2,214,116,Valencia,Atalanta,3,4
+2019/20,UCL,Round 2,208,57,Atlético Madrid,Liverpool,1,0
+2019/20,UCL,Round 2,57,208,Liverpool,Atlético Madrid,2,3
+2019/20,UCL,Round 2,56,85,Chelsea,Bayern München,0,3
+2019/20,UCL,Round 2,85,56,Bayern München,Chelsea,4,1
+2019/20,UCL,Round 2,76,118,Olympique Lyon,Juventus,1,0
+2019/20,UCL,Round 2,118,76,Juventus,Olympique Lyon,2,1
+2019/20,UCL,Round 2,60,89,Tottenham Hotspur,RB Leipzig,0,1
+2019/20,UCL,Round 2,89,60,RB Leipzig,Tottenham Hotspur,3,0
+2019/20,UCL,Round 2,120,210,Napoli,FC Barcelona,1,1
+2019/20,UCL,Round 2,210,120,FC Barcelona,Napoli,3,1
+2019/20,UCL,Quarter Finals,116,77,Atalanta,Paris Saint-Germain,1,2
+2019/20,UCL,Quarter Finals,89,208,RB Leipzig,Atlético Madrid,2,1
+2019/20,UCL,Quarter Finals,210,85,FC Barcelona,Bayern München,2,8
+2019/20,UCL,Quarter Finals,58,76,Manchester City,Olympique Lyon,1,3
+2019/20,UCL,Semi Finals,89,77,RB Leipzig,Paris Saint-Germain,0,3
+2019/20,UCL,Semi Finals,76,85,Olympique Lyon,Bayern München,0,3
+2019/20,UCL,Final,77,85,Paris Saint-Germain,Bayern München,0,1
+2019/20,UEL,Preliminary Round,140,235,Progrès Niederkorn,Cardiff MU,1,0
+2019/20,UEL,Preliminary Round,235,140,Cardiff MU,Progrès Niederkorn,2,1
+2019/20,UEL,Preliminary Round,189,7,La Fiorita,UE Engordany,0,1
+2019/20,UEL,Preliminary Round,7,189,UE Engordany,La Fiorita,2,1
+2019/20,UEL,Preliminary Round,6,91,Sant Julià,Europa FC,3,2
+2019/20,UEL,Preliminary Round,91,6,Europa FC,Sant Julià,4,0
+2019/20,UEL,Preliminary Round,162,69,Ballymena United,NSI Runavik,2,0
+2019/20,UEL,Preliminary Round,69,162,NSI Runavik,Ballymena United,0,0
+2019/20,UEL,Preliminary Round,126,93,FC Prishtina,St Joseph's FC,1,1
+2019/20,UEL,Preliminary Round,93,126,St Joseph's FC,FC Prishtina,2,0
+2019/20,UEL,Preliminary Round,68,190,KI Klaksvik,Tre Fiori,5,1
+2019/20,UEL,Preliminary Round,190,68,Tre Fiori,KI Klaksvik,0,4
+2019/20,UEL,Preliminary Round,234,163,Barry Town,Cliftonville,0,0
+2019/20,UEL,Preliminary Round,163,234,Cliftonville,Barry Town,4,0
+2019/20,UEL,1st Qualifying Round,218,162,Malmö FF,Ballymena United,7,0
+2019/20,UEL,1st Qualifying Round,162,218,Ballymena United,Malmö FF,0,4
+2019/20,UEL,1st Qualifying Round,236,195,Connah's Quay,Kilmarnock,1,2
+2019/20,UEL,1st Qualifying Round,195,236,Kilmarnock,Connah's Quay,0,2
+2019/20,UEL,1st Qualifying Round,103,132,Breidablik,FC Vaduz,0,0
+2019/20,UEL,1st Qualifying Round,132,103,FC Vaduz,Breidablik,2,1
+2019/20,UEL,1st Qualifying Round,169,109,SK Brann Bergen,Shamrock Rovers,2,2
+2019/20,UEL,1st Qualifying Round,109,169,Shamrock Rovers,SK Brann Bergen,2,1
+2019/20,UEL,1st Qualifying Round,72,23,KuPS Kuopio,FC Vitebsk,2,0
+2019/20,UEL,1st Qualifying Round,23,72,FC Vitebsk,KuPS Kuopio,1,1
+2019/20,UEL,1st Qualifying Round,124,83,Ordabasy Shymkent,Torpedo Kutaisi,1,0
+2019/20,UEL,1st Qualifying Round,83,124,Torpedo Kutaisi,Ordabasy Shymkent,0,2
+2019/20,UEL,1st Qualifying Round,91,172,Europa FC,Legia Warsaw,0,0
+2019/20,UEL,1st Qualifying Round,172,91,Legia Warsaw,Europa FC,3,0
+2019/20,UEL,1st Qualifying Round,142,39,Gzira United,Hajduk Split,0,2
+2019/20,UEL,1st Qualifying Round,39,142,Hajduk Split,Gzira United,1,3
+2019/20,UEL,1st Qualifying Round,62,198,Flora Tallinn,Radnicki Nis,2,0
+2019/20,UEL,1st Qualifying Round,198,62,Radnicki Nis,Flora Tallinn,2,2
+2019/20,UEL,1st Qualifying Round,34,150,CSKA Sofia,OFK Titograd,4,0
+2019/20,UEL,1st Qualifying Round,150,34,OFK Titograd,CSKA Sofia,0,0
+2019/20,UEL,1st Qualifying Round,113,204,Maccabi Haifa,Mura Murska Sobota,2,0
+2019/20,UEL,1st Qualifying Round,204,113,Mura Murska Sobota,Maccabi Haifa,2,3
+2019/20,UEL,1st Qualifying Round,99,1,DVSC Debrecen,FK Kukësi,3,0
+2019/20,UEL,1st Qualifying Round,1,99,FK Kukësi,DVSC Debrecen,1,1
+2019/20,UEL,1st Qualifying Round,139,125,Jeunesse d'Esch,Tobol Kustanai,0,0
+2019/20,UEL,1st Qualifying Round,125,139,Tobol Kustanai,Jeunesse d'Esch,1,1
+2019/20,UEL,1st Qualifying Round,180,145,FCSB,Milsami Orhei,2,0
+2019/20,UEL,1st Qualifying Round,145,180,Milsami Orhei,FCSB,1,2
+2019/20,UEL,1st Qualifying Round,196,11,Cukaricki Belgrade,Banants Yerevan,3,0
+2019/20,UEL,1st Qualifying Round,11,196,Banants Yerevan,Cukaricki Belgrade,0,5
+2019/20,UEL,1st Qualifying Round,164,66,Crusaders Belfast,B36 Torshavn,2,0
+2019/20,UEL,1st Qualifying Round,66,164,B36 Torshavn,Crusaders Belfast,2,3
+2019/20,UEL,1st Qualifying Round,51,71,Brøndby IF,Inter Turku,4,1
+2019/20,UEL,1st Qualifying Round,71,51,Inter Turku,Brøndby IF,2,0
+2019/20,UEL,1st Qualifying Round,93,194,St Joseph's FC,Glasgow Rangers,0,4
+2019/20,UEL,1st Qualifying Round,194,93,Glasgow Rangers,St Joseph's FC,6,0
+2019/20,UEL,1st Qualifying Round,107,140,Cork City,Progrès Niederkorn,0,2
+2019/20,UEL,1st Qualifying Round,140,107,Progrès Niederkorn,Cork City,1,2
+2019/20,UEL,1st Qualifying Round,167,104,Molde FK,KR Reykjavik,7,1
+2019/20,UEL,1st Qualifying Round,104,167,KR Reykjavik,Molde FK,0,0
+2019/20,UEL,1st Qualifying Round,201,35,MFK Ruzomberok,Levski Sofia,0,2
+2019/20,UEL,1st Qualifying Round,35,201,Levski Sofia,MFK Ruzomberok,2,0
+2019/20,UEL,1st Qualifying Round,158,33,Akademija Pandev,Zrinjski Mostar,0,3
+2019/20,UEL,1st Qualifying Round,33,158,Zrinjski Mostar,Akademija Pandev,3,0
+2019/20,UEL,1st Qualifying Round,152,100,Zeta Golubovci,FC Fehérvár,1,5
+2019/20,UEL,1st Qualifying Round,100,152,FC Fehérvár,Zeta Golubovci,0,0
+2019/20,UEL,1st Qualifying Round,24,143,Shakhtior Saligorsk,Hibernians FC,1,0
+2019/20,UEL,1st Qualifying Round,143,24,Hibernians FC,Shakhtior Saligorsk,0,1
+2019/20,UEL,1st Qualifying Round,148,18,Speranta Nisporeni,Neftchi Baku,0,3
+2019/20,UEL,1st Qualifying Round,18,148,Neftchi Baku,Speranta Nisporeni,6,0
+2019/20,UEL,1st Qualifying Round,207,130,Olimpija Ljubljana,RFS Riga,2,3
+2019/20,UEL,1st Qualifying Round,130,207,RFS Riga,Olimpija Ljubljana,0,2
+2019/20,UEL,1st Qualifying Round,102,136,Honvéd Budapest,Zalgiris Vilnius,3,1
+2019/20,UEL,1st Qualifying Round,136,102,Zalgiris Vilnius,Honvéd Budapest,1,1
+2019/20,UEL,1st Qualifying Round,31,203,Radnik Bijeljina,Spartak Trnava,2,0
+2019/20,UEL,1st Qualifying Round,203,31,Spartak Trnava,Radnik Bijeljina,2,0
+2019/20,UEL,1st Qualifying Round,137,80,CS Fola Esch,Chikhura Sachkhere,1,2
+2019/20,UEL,1st Qualifying Round,80,137,Chikhura Sachkhere,CS Fola Esch,2,1
+2019/20,UEL,1st Qualifying Round,8,160,Alashkert FC,Makedonija GjP,3,1
+2019/20,UEL,1st Qualifying Round,160,8,Makedonija GjP,Alashkert FC,0,3
+2019/20,UEL,1st Qualifying Round,81,7,Dinamo Tbilisi,UE Engordany,6,0
+2019/20,UEL,1st Qualifying Round,7,81,UE Engordany,Dinamo Tbilisi,0,1
+2019/20,UEL,1st Qualifying Round,32,123,Siroki Brijeg,Kairat Almaty,1,2
+2019/20,UEL,1st Qualifying Round,123,32,Kairat Almaty,Siroki Brijeg,2,1
+2019/20,UEL,1st Qualifying Round,134,45,Kauno Zalgiris,Apollon Limassol,0,2
+2019/20,UEL,1st Qualifying Round,45,134,Apollon Limassol,Kauno Zalgiris,4,0
+2019/20,UEL,1st Qualifying Round,129,4,FK Ventspils,Teuta Durrës,3,0
+2019/20,UEL,1st Qualifying Round,4,129,Teuta Durrës,FK Ventspils,1,0
+2019/20,UEL,1st Qualifying Round,200,170,DAC Dunajska Streda,Cracovia Kraków,1,1
+2019/20,UEL,1st Qualifying Round,170,200,Cracovia Kraków,DAC Dunajska Streda,2,2
+2019/20,UEL,1st Qualifying Round,105,64,Stjarnan FC,Levadia Tallinn,2,1
+2019/20,UEL,1st Qualifying Round,64,105,Levadia Tallinn,Stjarnan FC,3,2
+2019/20,UEL,1st Qualifying Round,163,166,Cliftonville,FK Haugesund,0,1
+2019/20,UEL,1st Qualifying Round,166,163,FK Haugesund,Cliftonville,5,1
+2019/20,UEL,1st Qualifying Round,133,68,FK Riteriai,KI Klaksvik,1,1
+2019/20,UEL,1st Qualifying Round,68,133,KI Klaksvik,FK Riteriai,0,0
+2019/20,UEL,1st Qualifying Round,128,22,FK Liepaja,Dinamo Minsk,1,1
+2019/20,UEL,1st Qualifying Round,22,128,Dinamo Minsk,FK Liepaja,1,2
+2019/20,UEL,1st Qualifying Round,110,217,St. Patrick's Athletic,IFK Norrköping,0,2
+2019/20,UEL,1st Qualifying Round,217,110,IFK Norrköping,St. Patrick's Athletic,2,1
+2019/20,UEL,1st Qualifying Round,192,73,Aberdeen,RoPS Rovaniemi,2,1
+2019/20,UEL,1st Qualifying Round,73,192,RoPS Rovaniemi,Aberdeen,1,2
+2019/20,UEL,1st Qualifying Round,141,205,Balzan FC,NK Domzale,3,4
+2019/20,UEL,1st Qualifying Round,205,141,NK Domzale,Balzan FC,1,0
+2019/20,UEL,1st Qualifying Round,2,112,KF Laçi,Hapoel Beer-Sheva,1,1
+2019/20,UEL,1st Qualifying Round,112,2,Hapoel Beer-Sheva,KF Laçi,1,0
+2019/20,UEL,1st Qualifying Round,65,149,Trans Narva,Buducnost Podgorica,0,2
+2019/20,UEL,1st Qualifying Round,149,65,Buducnost Podgorica,Trans Narva,4,1
+2019/20,UEL,1st Qualifying Round,20,181,Sabail FK,Universitatea Craiova,2,3
+2019/20,UEL,1st Qualifying Round,181,20,Universitatea Craiova,Sabail FK,3,2
+2019/20,UEL,1st Qualifying Round,10,159,Pyunik Yerevan,FK Shkupi,3,3
+2019/20,UEL,1st Qualifying Round,159,10,FK Shkupi,Pyunik Yerevan,1,2
+2019/20,UEL,1st Qualifying Round,42,146,AEK Larnaca,Petrocub Hîncesti,1,0
+2019/20,UEL,1st Qualifying Round,146,42,Petrocub Hîncesti,AEK Larnaca,0,1
+2019/20,UEL,2nd Qualifying Round,217,128,IFK Norrköping,FK Liepaja,2,0
+2019/20,UEL,2nd Qualifying Round,128,217,FK Liepaja,IFK Norrköping,0,1
+2019/20,UEL,2nd Qualifying Round,112,123,Hapoel Beer-Sheva,Kairat Almaty,2,0
+2019/20,UEL,2nd Qualifying Round,123,112,Kairat Almaty,Hapoel Beer-Sheva,1,1
+2019/20,UEL,2nd Qualifying Round,183,18,Arsenal Tula,Neftchi Baku,0,1
+2019/20,UEL,2nd Qualifying Round,18,183,Neftchi Baku,Arsenal Tula,3,0
+2019/20,UEL,2nd Qualifying Round,209,105,Espanyol,Stjarnan FC,4,0
+2019/20,UEL,2nd Qualifying Round,105,209,Stjarnan FC,Espanyol,1,3
+2019/20,UEL,2nd Qualifying Round,200,96,DAC Dunajska Streda,Atromitos FC,1,2
+2019/20,UEL,2nd Qualifying Round,96,200,Atromitos FC,DAC Dunajska Streda,3,2
+2019/20,UEL,2nd Qualifying Round,166,15,FK Haugesund,Sturm Graz,2,0
+2019/20,UEL,2nd Qualifying Round,15,166,Sturm Graz,FK Haugesund,2,1
+2019/20,UEL,2nd Qualifying Round,42,35,AEK Larnaca,Levski Sofia,3,0
+2019/20,UEL,2nd Qualifying Round,35,42,Levski Sofia,AEK Larnaca,0,4
+2019/20,UEL,2nd Qualifying Round,172,72,Legia Warsaw,KuPS Kuopio,1,0
+2019/20,UEL,2nd Qualifying Round,72,172,KuPS Kuopio,Legia Warsaw,0,0
+2019/20,UEL,2nd Qualifying Round,155,33,FC Utrecht,Zrinjski Mostar,1,1
+2019/20,UEL,2nd Qualifying Round,33,155,Zrinjski Mostar,FC Utrecht,2,1
+2019/20,UEL,2nd Qualifying Round,10,46,Pyunik Yerevan,FK Jablonec,2,1
+2019/20,UEL,2nd Qualifying Round,46,10,FK Jablonec,Pyunik Yerevan,0,0
+2019/20,UEL,2nd Qualifying Round,171,51,Lechia Gdansk,Brøndby IF,2,1
+2019/20,UEL,2nd Qualifying Round,51,171,Brøndby IF,Lechia Gdansk,4,1
+2019/20,UEL,2nd Qualifying Round,100,132,FC Fehérvár,FC Vaduz,1,0
+2019/20,UEL,2nd Qualifying Round,132,100,FC Vaduz,FC Fehérvár,2,0
+2019/20,UEL,2nd Qualifying Round,17,81,Gabala FK,Dinamo Tbilisi,0,2
+2019/20,UEL,2nd Qualifying Round,81,17,Dinamo Tbilisi,Gabala FK,3,0
+2019/20,UEL,2nd Qualifying Round,228,207,Yeni Malatyaspor,Olimpija Ljubljana,2,2
+2019/20,UEL,2nd Qualifying Round,207,228,Olimpija Ljubljana,Yeni Malatyaspor,0,1
+2019/20,UEL,2nd Qualifying Round,62,88,Flora Tallinn,Eintracht Frankfurt,1,2
+2019/20,UEL,2nd Qualifying Round,88,62,Eintracht Frankfurt,Flora Tallinn,2,1
+2019/20,UEL,2nd Qualifying Round,205,218,NK Domzale,Malmö FF,2,2
+2019/20,UEL,2nd Qualifying Round,218,205,Malmö FF,NK Domzale,3,2
+2019/20,UEL,2nd Qualifying Round,167,196,Molde FK,Cukaricki Belgrade,0,0
+2019/20,UEL,2nd Qualifying Round,196,167,Cukaricki Belgrade,Molde FK,1,3
+2019/20,UEL,2nd Qualifying Round,80,192,Chikhura Sachkhere,Aberdeen,1,1
+2019/20,UEL,2nd Qualifying Round,192,80,Aberdeen,Chikhura Sachkhere,5,0
+2019/20,UEL,2nd Qualifying Round,25,182,AA Gent,Viitorul Constanta,6,3
+2019/20,UEL,2nd Qualifying Round,182,25,Viitorul Constanta,AA Gent,2,1
+2019/20,UEL,2nd Qualifying Round,149,233,Buducnost Podgorica,Zorya Luhansk,1,3
+2019/20,UEL,2nd Qualifying Round,233,149,Zorya Luhansk,Buducnost Podgorica,1,0
+2019/20,UEL,2nd Qualifying Round,34,40,CSKA Sofia,NK Osijek,1,0
+2019/20,UEL,2nd Qualifying Round,40,34,NK Osijek,CSKA Sofia,1,0
+2019/20,UEL,2nd Qualifying Round,121,99,Torino,DVSC Debrecen,3,0
+2019/20,UEL,2nd Qualifying Round,99,121,DVSC Debrecen,Torino,1,4
+2019/20,UEL,2nd Qualifying Round,221,68,FC Luzern,KI Klaksvik,1,0
+2019/20,UEL,2nd Qualifying Round,68,221,KI Klaksvik,FC Luzern,0,1
+2019/20,UEL,2nd Qualifying Round,194,140,Glasgow Rangers,Progrès Niederkorn,2,0
+2019/20,UEL,2nd Qualifying Round,140,194,Progrès Niederkorn,Glasgow Rangers,0,0
+2019/20,UEL,2nd Qualifying Round,129,142,FK Ventspils,Gzira United,4,0
+2019/20,UEL,2nd Qualifying Round,142,129,Gzira United,FK Ventspils,2,2
+2019/20,UEL,2nd Qualifying Round,78,113,RC Strasbourg,Maccabi Haifa,3,1
+2019/20,UEL,2nd Qualifying Round,113,78,Maccabi Haifa,RC Strasbourg,2,1
+2019/20,UEL,2nd Qualifying Round,47,124,Mladá Boleslav,Ordabasy Shymkent,1,1
+2019/20,UEL,2nd Qualifying Round,124,47,Ordabasy Shymkent,Mladá Boleslav,2,3
+2019/20,UEL,2nd Qualifying Round,109,45,Shamrock Rovers,Apollon Limassol,2,1
+2019/20,UEL,2nd Qualifying Round,45,109,Apollon Limassol,Shamrock Rovers,3,1
+2019/20,UEL,2nd Qualifying Round,153,216,AZ Alkmaar,BK Häcken,0,0
+2019/20,UEL,2nd Qualifying Round,216,153,BK Häcken,AZ Alkmaar,0,3
+2019/20,UEL,2nd Qualifying Round,8,180,Alashkert FC,FCSB,0,3
+2019/20,UEL,2nd Qualifying Round,180,8,FCSB,Alashkert FC,2,3
+2019/20,UEL,2nd Qualifying Round,36,203,Lokomotiv Plovdiv,Spartak Trnava,2,0
+2019/20,UEL,2nd Qualifying Round,203,36,Spartak Trnava,Lokomotiv Plovdiv,3,1
+2019/20,UEL,2nd Qualifying Round,61,164,Wolverhampton Wanderers,Crusaders Belfast,2,0
+2019/20,UEL,2nd Qualifying Round,164,61,Crusaders Belfast,Wolverhampton Wanderers,1,4
+2019/20,UEL,2nd Qualifying Round,95,43,Aris Thessaloniki,AEL Limassol,0,0
+2019/20,UEL,2nd Qualifying Round,43,95,AEL Limassol,Aris Thessaloniki,0,1
+2019/20,UEL,2nd Qualifying Round,139,178,Jeunesse d'Esch,Vitória Guimarães,0,1
+2019/20,UEL,2nd Qualifying Round,178,139,Vitória Guimarães,Jeunesse d'Esch,4,0
+2019/20,UEL,2nd Qualifying Round,102,181,Honvéd Budapest,Universitatea Craiova,0,0
+2019/20,UEL,2nd Qualifying Round,181,102,Universitatea Craiova,Honvéd Budapest,0,0
+2019/20,UEL,2nd Qualifying Round,24,52,Shakhtior Saligorsk,Esbjerg fB,2,0
+2019/20,UEL,2nd Qualifying Round,52,24,Esbjerg fB,Shakhtior Saligorsk,0,0
+2019/20,UEL,2nd Qualifying Round,236,197,Connah's Quay,Partizan Belgrade,0,1
+2019/20,UEL,2nd Qualifying Round,197,236,Partizan Belgrade,Connah's Quay,3,0
+2019/20,UEL,2nd Qualifying Round,191,135,Tre Penne,Suduva Marijampole,0,5
+2019/20,UEL,2nd Qualifying Round,135,191,Suduva Marijampole,Tre Penne,5,0
+2019/20,UEL,2nd Qualifying Round,173,131,Piast Gliwice,Riga FC,3,2
+2019/20,UEL,2nd Qualifying Round,131,173,Riga FC,Piast Gliwice,2,1
+2019/20,UEL,2nd Qualifying Round,3,147,Partizani Tirana,Sheriff Tiraspol,0,1
+2019/20,UEL,2nd Qualifying Round,147,3,Sheriff Tiraspol,Partizani Tirana,1,1
+2019/20,UEL,2nd Qualifying Round,9,92,Ararat-Armenia,Lincoln Red Imps,2,0
+2019/20,UEL,2nd Qualifying Round,92,9,Lincoln Red Imps,Ararat-Armenia,1,2
+2019/20,UEL,2nd Qualifying Round,106,37,Valur Reykjavik,Ludogorets Razgrad,1,1
+2019/20,UEL,2nd Qualifying Round,37,106,Ludogorets Razgrad,Valur Reykjavik,4,0
+2019/20,UEL,2nd Qualifying Round,202,127,Slovan Bratislava,Feronikeli,2,1
+2019/20,UEL,2nd Qualifying Round,127,202,Feronikeli,Slovan Bratislava,0,2
+2019/20,UEL,2nd Qualifying Round,5,122,FC Santa Coloma,FK Astana,0,0
+2019/20,UEL,2nd Qualifying Round,122,5,FK Astana,FC Santa Coloma,4,1
+2019/20,UEL,2nd Qualifying Round,67,165,HB Torshavn,Linfield Belfast,2,2
+2019/20,UEL,2nd Qualifying Round,165,67,Linfield Belfast,HB Torshavn,1,0
+2019/20,UEL,2nd Qualifying Round,161,138,Shkendija Tetovo,F91 Dudelange,1,2
+2019/20,UEL,2nd Qualifying Round,138,161,F91 Dudelange,Shkendija Tetovo,1,1
+2019/20,UEL,3rd Qualifying Round,217,112,IFK Norrköping,Hapoel Beer-Sheva,1,1
+2019/20,UEL,3rd Qualifying Round,112,217,Hapoel Beer-Sheva,IFK Norrköping,3,1
+2019/20,UEL,3rd Qualifying Round,121,24,Torino,Shakhtior Saligorsk,5,0
+2019/20,UEL,3rd Qualifying Round,24,121,Shakhtior Saligorsk,Torino,1,1
+2019/20,UEL,3rd Qualifying Round,28,50,Royal Antwerp,Viktoria Plzen,1,0
+2019/20,UEL,3rd Qualifying Round,50,28,Viktoria Plzen,Royal Antwerp,2,1
+2019/20,UEL,3rd Qualifying Round,12,45,Austria Wien,Apollon Limassol,1,2
+2019/20,UEL,3rd Qualifying Round,45,12,Apollon Limassol,Austria Wien,3,1
+2019/20,UEL,3rd Qualifying Round,156,81,Feyenoord,Dinamo Tbilisi,4,0
+2019/20,UEL,3rd Qualifying Round,81,156,Dinamo Tbilisi,Feyenoord,1,1
+2019/20,UEL,3rd Qualifying Round,51,176,Brøndby IF,Sporting Braga,2,4
+2019/20,UEL,3rd Qualifying Round,176,51,Sporting Braga,Brøndby IF,3,1
+2019/20,UEL,3rd Qualifying Round,167,95,Molde FK,Aris Thessaloniki,3,0
+2019/20,UEL,3rd Qualifying Round,95,167,Aris Thessaloniki,Molde FK,3,1
+2019/20,UEL,3rd Qualifying Round,36,78,Lokomotiv Plovdiv,RC Strasbourg,0,1
+2019/20,UEL,3rd Qualifying Round,78,36,RC Strasbourg,Lokomotiv Plovdiv,1,0
+2019/20,UEL,3rd Qualifying Round,222,187,FC Thun,Spartak Moscow,2,3
+2019/20,UEL,3rd Qualifying Round,187,222,Spartak Moscow,FC Thun,2,1
+2019/20,UEL,3rd Qualifying Round,180,47,FCSB,Mladá Boleslav,0,0
+2019/20,UEL,3rd Qualifying Round,47,180,Mladá Boleslav,FCSB,0,1
+2019/20,UEL,3rd Qualifying Round,10,61,Pyunik Yerevan,Wolverhampton Wanderers,0,4
+2019/20,UEL,3rd Qualifying Round,61,10,Wolverhampton Wanderers,Pyunik Yerevan,4,0
+2019/20,UEL,3rd Qualifying Round,54,194,FC Midtjylland,Glasgow Rangers,2,4
+2019/20,UEL,3rd Qualifying Round,194,54,Glasgow Rangers,FC Midtjylland,3,1
+2019/20,UEL,3rd Qualifying Round,230,153,FC Mariupol,AZ Alkmaar,0,0
+2019/20,UEL,3rd Qualifying Round,153,230,AZ Alkmaar,FC Mariupol,4,0
+2019/20,UEL,3rd Qualifying Round,42,25,AEK Larnaca,AA Gent,1,1
+2019/20,UEL,3rd Qualifying Round,25,42,AA Gent,AEK Larnaca,3,0
+2019/20,UEL,3rd Qualifying Round,172,96,Legia Warsaw,Atromitos FC,0,0
+2019/20,UEL,3rd Qualifying Round,96,172,Atromitos FC,Legia Warsaw,0,2
+2019/20,UEL,3rd Qualifying Round,166,157,FK Haugesund,PSV Eindhoven,0,1
+2019/20,UEL,3rd Qualifying Round,157,166,PSV Eindhoven,FK Haugesund,0,0
+2019/20,UEL,3rd Qualifying Round,41,192,NK Rijeka,Aberdeen,2,0
+2019/20,UEL,3rd Qualifying Round,192,41,Aberdeen,NK Rijeka,0,2
+2019/20,UEL,3rd Qualifying Round,129,178,FK Ventspils,Vitória Guimarães,0,3
+2019/20,UEL,3rd Qualifying Round,178,129,Vitória Guimarães,FK Ventspils,6,0
+2019/20,UEL,3rd Qualifying Round,132,88,FC Vaduz,Eintracht Frankfurt,0,5
+2019/20,UEL,3rd Qualifying Round,88,132,Eintracht Frankfurt,FC Vaduz,1,0
+2019/20,UEL,3rd Qualifying Round,197,228,Partizan Belgrade,Yeni Malatyaspor,3,1
+2019/20,UEL,3rd Qualifying Round,228,197,Yeni Malatyaspor,Partizan Belgrade,1,0
+2019/20,UEL,3rd Qualifying Round,218,33,Malmö FF,Zrinjski Mostar,3,0
+2019/20,UEL,3rd Qualifying Round,33,218,Zrinjski Mostar,Malmö FF,1,0
+2019/20,UEL,3rd Qualifying Round,34,233,CSKA Sofia,Zorya Luhansk,1,1
+2019/20,UEL,3rd Qualifying Round,233,34,Zorya Luhansk,CSKA Sofia,1,0
+2019/20,UEL,3rd Qualifying Round,18,111,Neftchi Baku,Bnei Yehuda,2,2
+2019/20,UEL,3rd Qualifying Round,111,18,Bnei Yehuda,Neftchi Baku,2,1
+2019/20,UEL,3rd Qualifying Round,221,209,FC Luzern,Espanyol,0,3
+2019/20,UEL,3rd Qualifying Round,209,221,Espanyol,FC Luzern,3,0
+2019/20,UEL,3rd Qualifying Round,49,227,Sparta Praha,Trabzonspor,2,2
+2019/20,UEL,3rd Qualifying Round,227,49,Trabzonspor,Sparta Praha,2,1
+2019/20,UEL,3rd Qualifying Round,181,94,Universitatea Craiova,AEK Athens,0,2
+2019/20,UEL,3rd Qualifying Round,94,181,AEK Athens,Universitatea Craiova,1,1
+2019/20,UEL,3rd Qualifying Round,151,165,Sutjeska Niksic,Linfield Belfast,1,2
+2019/20,UEL,3rd Qualifying Round,165,151,Linfield Belfast,Sutjeska Niksic,3,2
+2019/20,UEL,3rd Qualifying Round,114,135,Maccabi Tel-Aviv,Suduva Marijampole,1,2
+2019/20,UEL,3rd Qualifying Round,135,114,Suduva Marijampole,Maccabi Tel-Aviv,2,1
+2019/20,UEL,3rd Qualifying Round,9,82,Ararat-Armenia,Saburtalo Tbilisi,1,2
+2019/20,UEL,3rd Qualifying Round,82,9,Saburtalo Tbilisi,Ararat-Armenia,0,2
+2019/20,UEL,3rd Qualifying Round,131,70,Riga FC,HJK Helsinki,1,1
+2019/20,UEL,3rd Qualifying Round,70,131,HJK Helsinki,Riga FC,2,2
+2019/20,UEL,3rd Qualifying Round,37,237,Ludogorets Razgrad,The New Saints,5,0
+2019/20,UEL,3rd Qualifying Round,237,37,The New Saints,Ludogorets Razgrad,0,4
+2019/20,UEL,3rd Qualifying Round,30,21,FK Sarajevo,BATE Borisov,1,2
+2019/20,UEL,3rd Qualifying Round,21,30,BATE Borisov,FK Sarajevo,0,0
+2019/20,UEL,3rd Qualifying Round,138,63,F91 Dudelange,Kalju Nomme,3,1
+2019/20,UEL,3rd Qualifying Round,63,138,Kalju Nomme,F91 Dudelange,0,1
+2019/20,UEL,3rd Qualifying Round,122,144,FK Astana,Valletta FC,5,1
+2019/20,UEL,3rd Qualifying Round,144,122,Valletta FC,FK Astana,0,4
+2019/20,UEL,3rd Qualifying Round,147,215,Sheriff Tiraspol,AIK Stockholm,1,2
+2019/20,UEL,3rd Qualifying Round,215,147,AIK Stockholm,Sheriff Tiraspol,1,1
+2019/20,UEL,3rd Qualifying Round,202,108,Slovan Bratislava,Dundalk,1,0
+2019/20,UEL,3rd Qualifying Round,108,202,Dundalk,Slovan Bratislava,1,3
+2019/20,UEL,Qualifying Play-off Round,121,61,Torino,Wolverhampton Wanderers,2,3
+2019/20,UEL,Qualifying Play-off Round,61,121,Wolverhampton Wanderers,Torino,2,1
+2019/20,UEL,Qualifying Play-off Round,172,194,Legia Warsaw,Glasgow Rangers,0,0
+2019/20,UEL,Qualifying Play-off Round,194,172,Glasgow Rangers,Legia Warsaw,1,0
+2019/20,UEL,Qualifying Play-off Round,180,178,FCSB,Vitória Guimarães,0,0
+2019/20,UEL,Qualifying Play-off Round,178,180,Vitória Guimarães,FCSB,1,0
+2019/20,UEL,Qualifying Play-off Round,157,45,PSV Eindhoven,Apollon Limassol,3,0
+2019/20,UEL,Qualifying Play-off Round,45,157,Apollon Limassol,PSV Eindhoven,0,4
+2019/20,UEL,Qualifying Play-off Round,94,227,AEK Athens,Trabzonspor,1,3
+2019/20,UEL,Qualifying Play-off Round,227,94,Trabzonspor,AEK Athens,0,2
+2019/20,UEL,Qualifying Play-off Round,156,112,Feyenoord,Hapoel Beer-Sheva,3,0
+2019/20,UEL,Qualifying Play-off Round,112,156,Hapoel Beer-Sheva,Feyenoord,0,3
+2019/20,UEL,Qualifying Play-off Round,25,41,AA Gent,NK Rijeka,2,1
+2019/20,UEL,Qualifying Play-off Round,41,25,NK Rijeka,AA Gent,1,1
+2019/20,UEL,Qualifying Play-off Round,209,233,Espanyol,Zorya Luhansk,3,1
+2019/20,UEL,Qualifying Play-off Round,233,209,Zorya Luhansk,Espanyol,2,2
+2019/20,UEL,Qualifying Play-off Round,197,167,Partizan Belgrade,Molde FK,2,1
+2019/20,UEL,Qualifying Play-off Round,167,197,Molde FK,Partizan Belgrade,1,1
+2019/20,UEL,Qualifying Play-off Round,176,187,Sporting Braga,Spartak Moscow,1,0
+2019/20,UEL,Qualifying Play-off Round,187,176,Spartak Moscow,Sporting Braga,1,2
+2019/20,UEL,Qualifying Play-off Round,218,111,Malmö FF,Bnei Yehuda,3,0
+2019/20,UEL,Qualifying Play-off Round,111,218,Bnei Yehuda,Malmö FF,0,1
+2019/20,UEL,Qualifying Play-off Round,78,88,RC Strasbourg,Eintracht Frankfurt,1,0
+2019/20,UEL,Qualifying Play-off Round,88,78,Eintracht Frankfurt,RC Strasbourg,3,0
+2019/20,UEL,Qualifying Play-off Round,153,28,AZ Alkmaar,Royal Antwerp,1,1
+2019/20,UEL,Qualifying Play-off Round,28,153,Royal Antwerp,AZ Alkmaar,1,4
+2019/20,UEL,Qualifying Play-off Round,135,101,Suduva Marijampole,Ferencváros,0,0
+2019/20,UEL,Qualifying Play-off Round,101,135,Ferencváros,Suduva Marijampole,4,2
+2019/20,UEL,Qualifying Play-off Round,53,131,FC København,Riga FC,3,1
+2019/20,UEL,Qualifying Play-off Round,131,53,Riga FC,FC København,1,0
+2019/20,UEL,Qualifying Play-off Round,193,215,Celtic,AIK Stockholm,2,0
+2019/20,UEL,Qualifying Play-off Round,215,193,AIK Stockholm,Celtic,1,4
+2019/20,UEL,Qualifying Play-off Round,9,138,Ararat-Armenia,F91 Dudelange,2,1
+2019/20,UEL,Qualifying Play-off Round,138,9,F91 Dudelange,Ararat-Armenia,2,1
+2019/20,UEL,Qualifying Play-off Round,37,206,Ludogorets Razgrad,NK Maribor,0,0
+2019/20,UEL,Qualifying Play-off Round,206,37,NK Maribor,Ludogorets Razgrad,2,2
+2019/20,UEL,Qualifying Play-off Round,165,19,Linfield Belfast,Qarabag FK,3,2
+2019/20,UEL,Qualifying Play-off Round,19,165,Qarabag FK,Linfield Belfast,2,1
+2019/20,UEL,Qualifying Play-off Round,202,98,Slovan Bratislava,PAOK Thessaloniki,1,0
+2019/20,UEL,Qualifying Play-off Round,98,202,PAOK Thessaloniki,Slovan Bratislava,3,2
+2019/20,UEL,Qualifying Play-off Round,122,21,FK Astana,BATE Borisov,3,0
+2019/20,UEL,Qualifying Play-off Round,21,122,BATE Borisov,FK Astana,2,0
+2019/20,UEL,Group Stage,19,213,Qarabag FK,Sevilla,0,3
+2019/20,UEL,Group Stage,213,19,Sevilla,Qarabag FK,2,0
+2019/20,UEL,Group Stage,44,138,APOEL Nicosia,F91 Dudelange,3,4
+2019/20,UEL,Group Stage,138,44,F91 Dudelange,APOEL Nicosia,0,2
+2019/20,UEL,Group Stage,138,19,F91 Dudelange,Qarabag FK,1,4
+2019/20,UEL,Group Stage,19,138,Qarabag FK,F91 Dudelange,1,1
+2019/20,UEL,Group Stage,213,44,Sevilla,APOEL Nicosia,1,0
+2019/20,UEL,Group Stage,44,213,APOEL Nicosia,Sevilla,1,0
+2019/20,UEL,Group Stage,213,138,Sevilla,F91 Dudelange,3,0
+2019/20,UEL,Group Stage,138,213,F91 Dudelange,Sevilla,2,5
+2019/20,UEL,Group Stage,19,44,Qarabag FK,APOEL Nicosia,2,2
+2019/20,UEL,Group Stage,44,19,APOEL Nicosia,Qarabag FK,2,1
+2019/20,UEL,Group Stage,229,218,Dinamo Kiev,Malmö FF,1,0
+2019/20,UEL,Group Stage,218,229,Malmö FF,Dinamo Kiev,4,3
+2019/20,UEL,Group Stage,53,220,FC København,FC Lugano,1,0
+2019/20,UEL,Group Stage,220,53,FC Lugano,FC København,0,1
+2019/20,UEL,Group Stage,220,229,FC Lugano,Dinamo Kiev,0,0
+2019/20,UEL,Group Stage,229,220,Dinamo Kiev,FC Lugano,1,1
+2019/20,UEL,Group Stage,218,53,Malmö FF,FC København,1,1
+2019/20,UEL,Group Stage,53,218,FC København,Malmö FF,0,1
+2019/20,UEL,Group Stage,218,220,Malmö FF,FC Lugano,2,1
+2019/20,UEL,Group Stage,220,218,FC Lugano,Malmö FF,0,0
+2019/20,UEL,Group Stage,229,53,Dinamo Kiev,FC København,1,1
+2019/20,UEL,Group Stage,53,229,FC København,Dinamo Kiev,1,1
+2019/20,UEL,Group Stage,211,227,Getafe,Trabzonspor,1,0
+2019/20,UEL,Group Stage,227,211,Trabzonspor,Getafe,0,1
+2019/20,UEL,Group Stage,219,185,FC Basel,FK Krasnodar,5,0
+2019/20,UEL,Group Stage,185,219,FK Krasnodar,FC Basel,1,0
+2019/20,UEL,Group Stage,185,211,FK Krasnodar,Getafe,1,2
+2019/20,UEL,Group Stage,211,185,Getafe,FK Krasnodar,3,0
+2019/20,UEL,Group Stage,227,219,Trabzonspor,FC Basel,2,2
+2019/20,UEL,Group Stage,219,227,FC Basel,Trabzonspor,2,0
+2019/20,UEL,Group Stage,227,185,Trabzonspor,FK Krasnodar,0,2
+2019/20,UEL,Group Stage,185,227,FK Krasnodar,Trabzonspor,3,1
+2019/20,UEL,Group Stage,211,219,Getafe,FC Basel,0,1
+2019/20,UEL,Group Stage,219,211,FC Basel,Getafe,2,1
+2019/20,UEL,Group Stage,157,177,PSV Eindhoven,Sporting CP Lisbon,3,2
+2019/20,UEL,Group Stage,177,157,Sporting CP Lisbon,PSV Eindhoven,4,0
+2019/20,UEL,Group Stage,14,168,LASK,Rosenborg BK,1,0
+2019/20,UEL,Group Stage,168,14,Rosenborg BK,LASK,1,2
+2019/20,UEL,Group Stage,168,157,Rosenborg BK,PSV Eindhoven,1,4
+2019/20,UEL,Group Stage,157,168,PSV Eindhoven,Rosenborg BK,1,1
+2019/20,UEL,Group Stage,177,14,Sporting CP Lisbon,LASK,2,1
+2019/20,UEL,Group Stage,14,177,LASK,Sporting CP Lisbon,3,0
+2019/20,UEL,Group Stage,177,168,Sporting CP Lisbon,Rosenborg BK,1,0
+2019/20,UEL,Group Stage,168,177,Rosenborg BK,Sporting CP Lisbon,0,2
+2019/20,UEL,Group Stage,157,14,PSV Eindhoven,LASK,0,0
+2019/20,UEL,Group Stage,14,157,LASK,PSV Eindhoven,4,1
+2019/20,UEL,Group Stage,79,193,Stade Rennais,Celtic,1,1
+2019/20,UEL,Group Stage,193,79,Celtic,Stade Rennais,3,1
+2019/20,UEL,Group Stage,179,119,CFR Cluj,Lazio,2,1
+2019/20,UEL,Group Stage,119,179,Lazio,CFR Cluj,1,0
+2019/20,UEL,Group Stage,119,79,Lazio,Stade Rennais,2,1
+2019/20,UEL,Group Stage,79,119,Stade Rennais,Lazio,2,0
+2019/20,UEL,Group Stage,193,179,Celtic,CFR Cluj,2,0
+2019/20,UEL,Group Stage,179,193,CFR Cluj,Celtic,2,0
+2019/20,UEL,Group Stage,193,119,Celtic,Lazio,2,1
+2019/20,UEL,Group Stage,119,193,Lazio,Celtic,1,2
+2019/20,UEL,Group Stage,79,179,Stade Rennais,CFR Cluj,0,1
+2019/20,UEL,Group Stage,179,79,CFR Cluj,Stade Rennais,1,0
+2019/20,UEL,Group Stage,88,55,Eintracht Frankfurt,Arsenal,0,3
+2019/20,UEL,Group Stage,55,88,Arsenal,Eintracht Frankfurt,1,2
+2019/20,UEL,Group Stage,29,178,Standard Liège,Vitória Guimarães,2,0
+2019/20,UEL,Group Stage,178,29,Vitória Guimarães,Standard Liège,1,1
+2019/20,UEL,Group Stage,178,88,Vitória Guimarães,Eintracht Frankfurt,0,1
+2019/20,UEL,Group Stage,88,178,Eintracht Frankfurt,Vitória Guimarães,2,3
+2019/20,UEL,Group Stage,55,29,Arsenal,Standard Liège,4,0
+2019/20,UEL,Group Stage,29,55,Standard Liège,Arsenal,2,2
+2019/20,UEL,Group Stage,55,178,Arsenal,Vitória Guimarães,3,2
+2019/20,UEL,Group Stage,178,55,Vitória Guimarães,Arsenal,1,1
+2019/20,UEL,Group Stage,88,29,Eintracht Frankfurt,Standard Liège,2,1
+2019/20,UEL,Group Stage,29,88,Standard Liège,Eintracht Frankfurt,2,1
+2019/20,UEL,Group Stage,175,223,FC Porto,Young Boys,2,1
+2019/20,UEL,Group Stage,223,175,Young Boys,FC Porto,1,2
+2019/20,UEL,Group Stage,194,156,Glasgow Rangers,Feyenoord,1,0
+2019/20,UEL,Group Stage,156,194,Feyenoord,Glasgow Rangers,2,2
+2019/20,UEL,Group Stage,156,175,Feyenoord,FC Porto,2,0
+2019/20,UEL,Group Stage,175,156,FC Porto,Feyenoord,3,2
+2019/20,UEL,Group Stage,223,194,Young Boys,Glasgow Rangers,2,1
+2019/20,UEL,Group Stage,194,223,Glasgow Rangers,Young Boys,1,1
+2019/20,UEL,Group Stage,223,156,Young Boys,Feyenoord,2,0
+2019/20,UEL,Group Stage,156,223,Feyenoord,Young Boys,1,1
+2019/20,UEL,Group Stage,175,194,FC Porto,Glasgow Rangers,1,1
+2019/20,UEL,Group Stage,194,175,Glasgow Rangers,FC Porto,2,0
+2019/20,UEL,Group Stage,37,184,Ludogorets Razgrad,CSKA Moscow,5,1
+2019/20,UEL,Group Stage,184,37,CSKA Moscow,Ludogorets Razgrad,1,1
+2019/20,UEL,Group Stage,209,101,Espanyol,Ferencváros,1,1
+2019/20,UEL,Group Stage,101,209,Ferencváros,Espanyol,2,2
+2019/20,UEL,Group Stage,101,37,Ferencváros,Ludogorets Razgrad,0,3
+2019/20,UEL,Group Stage,37,101,Ludogorets Razgrad,Ferencváros,1,1
+2019/20,UEL,Group Stage,184,209,CSKA Moscow,Espanyol,0,2
+2019/20,UEL,Group Stage,209,184,Espanyol,CSKA Moscow,0,1
+2019/20,UEL,Group Stage,184,101,CSKA Moscow,Ferencváros,0,1
+2019/20,UEL,Group Stage,101,184,Ferencváros,CSKA Moscow,0,0
+2019/20,UEL,Group Stage,37,209,Ludogorets Razgrad,Espanyol,0,1
+2019/20,UEL,Group Stage,209,37,Espanyol,Ludogorets Razgrad,6,0
+2019/20,UEL,Group Stage,25,74,AA Gent,AS Saint-Étienne,3,2
+2019/20,UEL,Group Stage,74,25,AS Saint-Étienne,AA Gent,0,0
+2019/20,UEL,Group Stage,90,231,VfL Wolfsburg,FC Oleksandriya,3,1
+2019/20,UEL,Group Stage,231,90,FC Oleksandriya,VfL Wolfsburg,0,1
+2019/20,UEL,Group Stage,231,25,FC Oleksandriya,AA Gent,1,1
+2019/20,UEL,Group Stage,25,231,AA Gent,FC Oleksandriya,2,1
+2019/20,UEL,Group Stage,74,90,AS Saint-Étienne,VfL Wolfsburg,1,1
+2019/20,UEL,Group Stage,90,74,VfL Wolfsburg,AS Saint-Étienne,1,0
+2019/20,UEL,Group Stage,74,231,AS Saint-Étienne,FC Oleksandriya,1,1
+2019/20,UEL,Group Stage,231,74,FC Oleksandriya,AS Saint-Étienne,2,2
+2019/20,UEL,Group Stage,25,90,AA Gent,VfL Wolfsburg,2,2
+2019/20,UEL,Group Stage,90,25,VfL Wolfsburg,AA Gent,1,3
+2019/20,UEL,Group Stage,115,226,AS Roma,Istanbul Basaksehir,4,0
+2019/20,UEL,Group Stage,226,115,Istanbul Basaksehir,AS Roma,0,3
+2019/20,UEL,Group Stage,87,16,Borussia Mönchengladbach,Wolfsberger AC,0,4
+2019/20,UEL,Group Stage,16,87,Wolfsberger AC,Borussia Mönchengladbach,0,1
+2019/20,UEL,Group Stage,16,115,Wolfsberger AC,AS Roma,1,1
+2019/20,UEL,Group Stage,115,16,AS Roma,Wolfsberger AC,2,2
+2019/20,UEL,Group Stage,226,87,Istanbul Basaksehir,Borussia Mönchengladbach,1,1
+2019/20,UEL,Group Stage,87,226,Borussia Mönchengladbach,Istanbul Basaksehir,1,2
+2019/20,UEL,Group Stage,226,16,Istanbul Basaksehir,Wolfsberger AC,1,0
+2019/20,UEL,Group Stage,16,226,Wolfsberger AC,Istanbul Basaksehir,0,3
+2019/20,UEL,Group Stage,115,87,AS Roma,Borussia Mönchengladbach,1,1
+2019/20,UEL,Group Stage,87,115,Borussia Mönchengladbach,AS Roma,2,1
+2019/20,UEL,Group Stage,202,224,Slovan Bratislava,Besiktas,4,2
+2019/20,UEL,Group Stage,224,202,Besiktas,Slovan Bratislava,2,1
+2019/20,UEL,Group Stage,61,176,Wolverhampton Wanderers,Sporting Braga,0,1
+2019/20,UEL,Group Stage,176,61,Sporting Braga,Wolverhampton Wanderers,3,3
+2019/20,UEL,Group Stage,176,202,Sporting Braga,Slovan Bratislava,2,2
+2019/20,UEL,Group Stage,202,176,Slovan Bratislava,Sporting Braga,2,4
+2019/20,UEL,Group Stage,224,61,Besiktas,Wolverhampton Wanderers,0,1
+2019/20,UEL,Group Stage,61,224,Wolverhampton Wanderers,Besiktas,4,0
+2019/20,UEL,Group Stage,224,176,Besiktas,Sporting Braga,1,2
+2019/20,UEL,Group Stage,176,224,Sporting Braga,Besiktas,3,1
+2019/20,UEL,Group Stage,202,61,Slovan Bratislava,Wolverhampton Wanderers,1,2
+2019/20,UEL,Group Stage,61,202,Wolverhampton Wanderers,Slovan Bratislava,1,0
+2019/20,UEL,Group Stage,197,153,Partizan Belgrade,AZ Alkmaar,2,2
+2019/20,UEL,Group Stage,153,197,AZ Alkmaar,Partizan Belgrade,2,2
+2019/20,UEL,Group Stage,59,122,Manchester United,FK Astana,1,0
+2019/20,UEL,Group Stage,122,59,FK Astana,Manchester United,2,1
+2019/20,UEL,Group Stage,122,197,FK Astana,Partizan Belgrade,1,2
+2019/20,UEL,Group Stage,197,122,Partizan Belgrade,FK Astana,4,1
+2019/20,UEL,Group Stage,153,59,AZ Alkmaar,Manchester United,0,0
+2019/20,UEL,Group Stage,59,153,Manchester United,AZ Alkmaar,4,0
+2019/20,UEL,Group Stage,153,122,AZ Alkmaar,FK Astana,6,0
+2019/20,UEL,Group Stage,122,153,FK Astana,AZ Alkmaar,0,5
+2019/20,UEL,Group Stage,197,59,Partizan Belgrade,Manchester United,0,1
+2019/20,UEL,Group Stage,59,197,Manchester United,Partizan Belgrade,3,0
+2019/20,UEL,Round 2,61,209,Wolverhampton Wanderers,Espanyol,4,0
+2019/20,UEL,Round 2,209,61,Espanyol,Wolverhampton Wanderers,3,2
+2019/20,UEL,Round 2,177,226,Sporting CP Lisbon,Istanbul Basaksehir,3,1
+2019/20,UEL,Round 2,226,177,Istanbul Basaksehir,Sporting CP Lisbon,4,1
+2019/20,UEL,Round 2,211,154,Getafe,Ajax,2,0
+2019/20,UEL,Round 2,154,211,Ajax,Getafe,2,1
+2019/20,UEL,Round 2,84,175,Bayer Leverkusen,FC Porto,2,1
+2019/20,UEL,Round 2,175,84,FC Porto,Bayer Leverkusen,1,3
+2019/20,UEL,Round 2,53,193,FC København,Celtic,1,1
+2019/20,UEL,Round 2,193,53,Celtic,FC København,1,3
+2019/20,UEL,Round 2,44,219,APOEL Nicosia,FC Basel,0,3
+2019/20,UEL,Round 2,219,44,FC Basel,APOEL Nicosia,1,0
+2019/20,UEL,Round 2,179,213,CFR Cluj,Sevilla,1,1
+2019/20,UEL,Round 2,213,179,Sevilla,CFR Cluj,0,0
+2019/20,UEL,Round 2,97,55,Olympiakos Piraeus,Arsenal,0,1
+2019/20,UEL,Round 2,55,97,Arsenal,Olympiakos Piraeus,1,2
+2019/20,UEL,Round 2,153,14,AZ Alkmaar,LASK,1,1
+2019/20,UEL,Round 2,14,153,LASK,AZ Alkmaar,2,0
+2019/20,UEL,Round 2,26,59,Club Brugge,Manchester United,1,1
+2019/20,UEL,Round 2,59,26,Manchester United,Club Brugge,5,0
+2019/20,UEL,Round 2,37,117,Ludogorets Razgrad,Internazionale,0,2
+2019/20,UEL,Round 2,117,37,Internazionale,Ludogorets Razgrad,2,1
+2019/20,UEL,Round 2,88,13,Eintracht Frankfurt,FC Salzburg,4,1
+2019/20,UEL,Round 2,13,88,FC Salzburg,Eintracht Frankfurt,2,2
+2019/20,UEL,Round 2,232,174,Shakhtar Donetsk,Benfica,2,1
+2019/20,UEL,Round 2,174,232,Benfica,Shakhtar Donetsk,3,3
+2019/20,UEL,Round 2,90,218,VfL Wolfsburg,Malmö FF,2,1
+2019/20,UEL,Round 2,218,90,Malmö FF,VfL Wolfsburg,0,3
+2019/20,UEL,Round 2,115,25,AS Roma,AA Gent,1,0
+2019/20,UEL,Round 2,25,115,AA Gent,AS Roma,1,1
+2019/20,UEL,Round 2,194,176,Glasgow Rangers,Sporting Braga,3,2
+2019/20,UEL,Round 2,176,194,Sporting Braga,Glasgow Rangers,0,1
+2019/20,UEL,Round 3,226,53,Istanbul Basaksehir,FC København,1,0
+2019/20,UEL,Round 3,53,226,FC København,Istanbul Basaksehir,3,0
+2019/20,UEL,Round 3,97,61,Olympiakos Piraeus,Wolverhampton Wanderers,1,1
+2019/20,UEL,Round 3,61,97,Wolverhampton Wanderers,Olympiakos Piraeus,1,0
+2019/20,UEL,Round 3,194,84,Glasgow Rangers,Bayer Leverkusen,1,3
+2019/20,UEL,Round 3,84,194,Bayer Leverkusen,Glasgow Rangers,1,0
+2019/20,UEL,Round 3,90,232,VfL Wolfsburg,Shakhtar Donetsk,1,2
+2019/20,UEL,Round 3,232,90,Shakhtar Donetsk,VfL Wolfsburg,3,0
+2019/20,UEL,Round 3,117,211,Internazionale,Getafe,2,0
+2019/20,UEL,Round 3,213,115,Sevilla,AS Roma,2,0
+2019/20,UEL,Round 3,88,219,Eintracht Frankfurt,FC Basel,0,3
+2019/20,UEL,Round 3,219,88,FC Basel,Eintracht Frankfurt,1,0
+2019/20,UEL,Round 3,14,59,LASK,Manchester United,0,5
+2019/20,UEL,Round 3,59,14,Manchester United,LASK,2,1
+2019/20,UEL,Quarter Finals,59,53,Manchester United,FC København,1,0
+2019/20,UEL,Quarter Finals,117,84,Internazionale,Bayer Leverkusen,2,1
+2019/20,UEL,Quarter Finals,232,219,Shakhtar Donetsk,FC Basel,4,1
+2019/20,UEL,Quarter Finals,61,213,Wolverhampton Wanderers,Sevilla,0,1
+2019/20,UEL,Semi Finals,213,59,Sevilla,Manchester United,2,1
+2019/20,UEL,Semi Finals,117,232,Internazionale,Shakhtar Donetsk,5,0
+2019/20,UEL,Final,213,117,Sevilla,Internazionale,3,2

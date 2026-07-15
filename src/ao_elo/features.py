@@ -78,7 +78,10 @@ def compute_domestic_achievement(
 
     percentile: float | None = None
     if not position_known:
-        league_finish_score = config.unknown_league_finish_score
+        league_finish_score = max(
+            config.unknown_league_finish_score,
+            config.champion_base_score if champion else 0.0,
+        )
     else:
         position = float(domestic_position)
         team_count = float(league_team_count)
@@ -96,7 +99,7 @@ def compute_domestic_achievement(
     cup_base_score = config.cup_base_score if cup_winner else 0.0
     cup_double_bonus = (
         config.cup_double_bonus_multiplier * league_finish_score
-        if cup_winner and position_known
+        if cup_winner and champion
         else 0.0
     )
     achievement_score = min(

@@ -1,0 +1,807 @@
+season,competition,round,home_team_id,away_team_id,home_team_name,away_team_name,home_goals,away_goals
+2023/24,UCL,Preliminary Round,5,151,Atlètic Club d'Escaldes,Buducnost Podgorica,0,3
+2023/24,UCL,Preliminary Round,186,103,Tre Penne,Breidablik,1,7
+2023/24,UCL,Preliminary Round,151,103,Buducnost Podgorica,Breidablik,0,5
+2023/24,UCL,1st Qualifying Round,213,234,BK Häcken,The New Saints,3,1
+2023/24,UCL,1st Qualifying Round,234,213,The New Saints,BK Häcken,0,2
+2023/24,UCL,1st Qualifying Round,125,37,FC Ballkani,Ludogorets Razgrad,2,0
+2023/24,UCL,1st Qualifying Round,37,125,Ludogorets Razgrad,FC Ballkani,4,0
+2023/24,UCL,1st Qualifying Round,108,103,Shamrock Rovers,Breidablik,0,1
+2023/24,UCL,1st Qualifying Round,103,108,Breidablik,Shamrock Rovers,2,1
+2023/24,UCL,1st Qualifying Round,137,158,Zalgiris Vilnius,FC Struga,0,0
+2023/24,UCL,1st Qualifying Round,158,137,FC Struga,Zalgiris Vilnius,1,2
+2023/24,UCL,1st Qualifying Round,68,100,KI Klaksvik,Ferencváros,0,0
+2023/24,UCL,1st Qualifying Round,100,68,Ferencváros,KI Klaksvik,0,3
+2023/24,UCL,1st Qualifying Round,204,132,Olimpija Ljubljana,Valmieras FK,2,1
+2023/24,UCL,1st Qualifying Round,132,204,Valmieras FK,Olimpija Ljubljana,1,2
+2023/24,UCL,1st Qualifying Round,70,164,HJK Helsinki,Larne FC,1,0
+2023/24,UCL,1st Qualifying Round,164,70,Larne FC,HJK Helsinki,2,2
+2023/24,UCL,1st Qualifying Round,93,19,Lincoln Red Imps,Qarabag FK,1,2
+2023/24,UCL,1st Qualifying Round,19,93,Qarabag FK,Lincoln Red Imps,4,0
+2023/24,UCL,1st Qualifying Round,173,62,Raków Czestochowa,Flora Tallinn,1,0
+2023/24,UCL,1st Qualifying Round,62,173,Flora Tallinn,Raków Czestochowa,0,3
+2023/24,UCL,1st Qualifying Round,199,141,Slovan Bratislava,Swift Hesperange,1,1
+2023/24,UCL,1st Qualifying Round,141,199,Swift Hesperange,Slovan Bratislava,0,2
+2023/24,UCL,1st Qualifying Round,182,148,Farul Constanta,Sheriff Tiraspol,1,0
+2023/24,UCL,1st Qualifying Round,148,182,Sheriff Tiraspol,Farul Constanta,3,0
+2023/24,UCL,1st Qualifying Round,145,112,Hamrun Spartans,Maccabi Haifa,0,4
+2023/24,UCL,1st Qualifying Round,112,145,Maccabi Haifa,Hamrun Spartans,2,1
+2023/24,UCL,1st Qualifying Round,11,33,Urartu FC,Zrinjski Mostar,0,1
+2023/24,UCL,1st Qualifying Round,33,11,Zrinjski Mostar,Urartu FC,2,3
+2023/24,UCL,1st Qualifying Round,3,21,Partizani Tirana,BATE Borisov,1,1
+2023/24,UCL,1st Qualifying Round,21,3,BATE Borisov,Partizani Tirana,2,0
+2023/24,UCL,1st Qualifying Round,122,82,FK Astana,Dinamo Tbilisi,1,1
+2023/24,UCL,1st Qualifying Round,82,122,Dinamo Tbilisi,FK Astana,1,2
+2023/24,UCL,2nd Qualifying Round,137,225,Zalgiris Vilnius,Galatasaray,2,2
+2023/24,UCL,2nd Qualifying Round,225,137,Galatasaray,Zalgiris Vilnius,1,0
+2023/24,UCL,2nd Qualifying Round,37,204,Ludogorets Razgrad,Olimpija Ljubljana,1,1
+2023/24,UCL,2nd Qualifying Round,204,37,Olimpija Ljubljana,Ludogorets Razgrad,2,1
+2023/24,UCL,2nd Qualifying Round,173,19,Raków Czestochowa,Qarabag FK,3,2
+2023/24,UCL,2nd Qualifying Round,19,173,Qarabag FK,Raków Czestochowa,1,1
+2023/24,UCL,2nd Qualifying Round,68,213,KI Klaksvik,BK Häcken,0,0
+2023/24,UCL,2nd Qualifying Round,213,68,BK Häcken,KI Klaksvik,3,3
+2023/24,UCL,2nd Qualifying Round,70,167,HJK Helsinki,Molde FK,1,0
+2023/24,UCL,2nd Qualifying Round,167,70,Molde FK,HJK Helsinki,2,0
+2023/24,UCL,2nd Qualifying Round,103,51,Breidablik,FC København,0,2
+2023/24,UCL,2nd Qualifying Round,51,103,FC København,Breidablik,6,3
+2023/24,UCL,2nd Qualifying Round,148,112,Sheriff Tiraspol,Maccabi Haifa,1,0
+2023/24,UCL,2nd Qualifying Round,112,148,Maccabi Haifa,Sheriff Tiraspol,4,1
+2023/24,UCL,2nd Qualifying Round,44,21,Aris Limassol,BATE Borisov,6,2
+2023/24,UCL,2nd Qualifying Round,21,44,BATE Borisov,Aris Limassol,3,5
+2023/24,UCL,2nd Qualifying Round,33,199,Zrinjski Mostar,Slovan Bratislava,0,1
+2023/24,UCL,2nd Qualifying Round,199,33,Slovan Bratislava,Zrinjski Mostar,2,2
+2023/24,UCL,2nd Qualifying Round,38,122,Dinamo Zagreb,FK Astana,4,0
+2023/24,UCL,2nd Qualifying Round,122,38,FK Astana,Dinamo Zagreb,0,2
+2023/24,UCL,2nd Qualifying Round,227,98,SC Dnipro-1,Panathinaikos,1,3
+2023/24,UCL,2nd Qualifying Round,98,227,Panathinaikos,SC Dnipro-1,2,2
+2023/24,UCL,2nd Qualifying Round,220,27,Servette FC Genève,Racing Genk,1,1
+2023/24,UCL,2nd Qualifying Round,27,220,Racing Genk,Servette FC Genève,2,2
+2023/24,UCL,3rd Qualifying Round,173,44,Raków Czestochowa,Aris Limassol,2,1
+2023/24,UCL,3rd Qualifying Round,44,173,Aris Limassol,Raków Czestochowa,0,1
+2023/24,UCL,3rd Qualifying Round,199,112,Slovan Bratislava,Maccabi Haifa,1,2
+2023/24,UCL,3rd Qualifying Round,112,199,Maccabi Haifa,Slovan Bratislava,3,1
+2023/24,UCL,3rd Qualifying Round,94,38,AEK Athens,Dinamo Zagreb,2,2
+2023/24,UCL,3rd Qualifying Round,38,94,Dinamo Zagreb,AEK Athens,1,2
+2023/24,UCL,3rd Qualifying Round,204,225,Olimpija Ljubljana,Galatasaray,0,3
+2023/24,UCL,3rd Qualifying Round,225,204,Galatasaray,Olimpija Ljubljana,1,0
+2023/24,UCL,3rd Qualifying Round,51,48,FC København,Sparta Praha,0,0
+2023/24,UCL,3rd Qualifying Round,48,51,Sparta Praha,FC København,3,3
+2023/24,UCL,3rd Qualifying Round,68,167,KI Klaksvik,Molde FK,2,1
+2023/24,UCL,3rd Qualifying Round,167,68,Molde FK,KI Klaksvik,2,0
+2023/24,UCL,3rd Qualifying Round,177,195,Sporting Braga,TSC Backa Topola,3,0
+2023/24,UCL,3rd Qualifying Round,195,177,TSC Backa Topola,Sporting Braga,1,4
+2023/24,UCL,3rd Qualifying Round,189,220,Glasgow Rangers,Servette FC Genève,2,1
+2023/24,UCL,3rd Qualifying Round,220,189,Servette FC Genève,Glasgow Rangers,1,1
+2023/24,UCL,3rd Qualifying Round,98,75,Panathinaikos,Olympique Marseille,1,0
+2023/24,UCL,3rd Qualifying Round,75,98,Olympique Marseille,Panathinaikos,2,1
+2023/24,UCL,3rd Qualifying Round,157,16,PSV Eindhoven,Sturm Graz,4,1
+2023/24,UCL,3rd Qualifying Round,16,157,Sturm Graz,PSV Eindhoven,1,3
+2023/24,UCL,Qualifying Play-off Round,112,221,Maccabi Haifa,Young Boys,0,0
+2023/24,UCL,Qualifying Play-off Round,221,112,Young Boys,Maccabi Haifa,3,0
+2023/24,UCL,Qualifying Play-off Round,28,94,Royal Antwerp,AEK Athens,1,0
+2023/24,UCL,Qualifying Play-off Round,94,28,AEK Athens,Royal Antwerp,1,2
+2023/24,UCL,Qualifying Play-off Round,173,51,Raków Czestochowa,FC København,0,1
+2023/24,UCL,Qualifying Play-off Round,51,173,FC København,Raków Czestochowa,1,1
+2023/24,UCL,Qualifying Play-off Round,167,225,Molde FK,Galatasaray,2,3
+2023/24,UCL,Qualifying Play-off Round,225,167,Galatasaray,Molde FK,2,1
+2023/24,UCL,Qualifying Play-off Round,189,157,Glasgow Rangers,PSV Eindhoven,2,2
+2023/24,UCL,Qualifying Play-off Round,157,189,PSV Eindhoven,Glasgow Rangers,5,1
+2023/24,UCL,Qualifying Play-off Round,177,98,Sporting Braga,Panathinaikos,2,1
+2023/24,UCL,Qualifying Play-off Round,98,177,Panathinaikos,Sporting Braga,0,1
+2023/24,UCL,Group Stage,85,59,Bayern München,Manchester United,4,3
+2023/24,UCL,Group Stage,59,85,Manchester United,Bayern München,0,1
+2023/24,UCL,Group Stage,225,51,Galatasaray,FC København,2,2
+2023/24,UCL,Group Stage,51,225,FC København,Galatasaray,1,0
+2023/24,UCL,Group Stage,51,85,FC København,Bayern München,1,2
+2023/24,UCL,Group Stage,85,51,Bayern München,FC København,0,0
+2023/24,UCL,Group Stage,59,225,Manchester United,Galatasaray,2,3
+2023/24,UCL,Group Stage,225,59,Galatasaray,Manchester United,3,3
+2023/24,UCL,Group Stage,59,51,Manchester United,FC København,1,0
+2023/24,UCL,Group Stage,51,59,FC København,Manchester United,4,3
+2023/24,UCL,Group Stage,225,85,Galatasaray,Bayern München,1,3
+2023/24,UCL,Group Stage,85,225,Bayern München,Galatasaray,2,1
+2023/24,UCL,Group Stage,211,77,Sevilla,RC Lens,1,1
+2023/24,UCL,Group Stage,77,211,RC Lens,Sevilla,2,1
+2023/24,UCL,Group Stage,54,157,Arsenal,PSV Eindhoven,4,0
+2023/24,UCL,Group Stage,157,54,PSV Eindhoven,Arsenal,1,1
+2023/24,UCL,Group Stage,157,211,PSV Eindhoven,Sevilla,2,2
+2023/24,UCL,Group Stage,211,157,Sevilla,PSV Eindhoven,2,3
+2023/24,UCL,Group Stage,77,54,RC Lens,Arsenal,2,1
+2023/24,UCL,Group Stage,54,77,Arsenal,RC Lens,6,0
+2023/24,UCL,Group Stage,77,157,RC Lens,PSV Eindhoven,1,1
+2023/24,UCL,Group Stage,157,77,PSV Eindhoven,RC Lens,1,0
+2023/24,UCL,Group Stage,211,54,Sevilla,Arsenal,1,2
+2023/24,UCL,Group Stage,54,211,Arsenal,Sevilla,2,0
+2023/24,UCL,Group Stage,209,90,Real Madrid,Union Berlin,1,0
+2023/24,UCL,Group Stage,90,209,Union Berlin,Real Madrid,2,3
+2023/24,UCL,Group Stage,177,120,Sporting Braga,Napoli,1,2
+2023/24,UCL,Group Stage,120,177,Napoli,Sporting Braga,2,0
+2023/24,UCL,Group Stage,120,209,Napoli,Real Madrid,2,3
+2023/24,UCL,Group Stage,209,120,Real Madrid,Napoli,4,2
+2023/24,UCL,Group Stage,90,177,Union Berlin,Sporting Braga,2,3
+2023/24,UCL,Group Stage,177,90,Sporting Braga,Union Berlin,1,1
+2023/24,UCL,Group Stage,90,120,Union Berlin,Napoli,0,1
+2023/24,UCL,Group Stage,120,90,Napoli,Union Berlin,1,1
+2023/24,UCL,Group Stage,177,209,Sporting Braga,Real Madrid,1,2
+2023/24,UCL,Group Stage,209,177,Real Madrid,Sporting Braga,3,0
+2023/24,UCL,Group Stage,210,118,Real Sociedad,Internazionale,1,1
+2023/24,UCL,Group Stage,118,210,Internazionale,Real Sociedad,0,0
+2023/24,UCL,Group Stage,174,13,Benfica,FC Salzburg,0,2
+2023/24,UCL,Group Stage,13,174,FC Salzburg,Benfica,1,3
+2023/24,UCL,Group Stage,13,210,FC Salzburg,Real Sociedad,0,2
+2023/24,UCL,Group Stage,210,13,Real Sociedad,FC Salzburg,0,0
+2023/24,UCL,Group Stage,118,174,Internazionale,Benfica,1,0
+2023/24,UCL,Group Stage,174,118,Benfica,Internazionale,3,3
+2023/24,UCL,Group Stage,118,13,Internazionale,FC Salzburg,2,1
+2023/24,UCL,Group Stage,13,118,FC Salzburg,Internazionale,0,1
+2023/24,UCL,Group Stage,174,210,Benfica,Real Sociedad,0,1
+2023/24,UCL,Group Stage,210,174,Real Sociedad,Benfica,3,1
+2023/24,UCL,Group Stage,156,188,Feyenoord,Celtic,2,0
+2023/24,UCL,Group Stage,188,156,Celtic,Feyenoord,2,1
+2023/24,UCL,Group Stage,119,205,Lazio,Atlético Madrid,1,1
+2023/24,UCL,Group Stage,205,119,Atlético Madrid,Lazio,2,0
+2023/24,UCL,Group Stage,205,156,Atlético Madrid,Feyenoord,3,2
+2023/24,UCL,Group Stage,156,205,Feyenoord,Atlético Madrid,1,3
+2023/24,UCL,Group Stage,188,119,Celtic,Lazio,1,2
+2023/24,UCL,Group Stage,119,188,Lazio,Celtic,2,0
+2023/24,UCL,Group Stage,188,205,Celtic,Atlético Madrid,2,2
+2023/24,UCL,Group Stage,205,188,Atlético Madrid,Celtic,6,0
+2023/24,UCL,Group Stage,156,119,Feyenoord,Lazio,3,1
+2023/24,UCL,Group Stage,119,156,Lazio,Feyenoord,1,0
+2023/24,UCL,Group Stage,114,60,AC Milan,Newcastle United,0,0
+2023/24,UCL,Group Stage,60,114,Newcastle United,AC Milan,1,2
+2023/24,UCL,Group Stage,76,86,Paris Saint-Germain,Borussia Dortmund,2,0
+2023/24,UCL,Group Stage,86,76,Borussia Dortmund,Paris Saint-Germain,1,1
+2023/24,UCL,Group Stage,86,114,Borussia Dortmund,AC Milan,0,0
+2023/24,UCL,Group Stage,114,86,AC Milan,Borussia Dortmund,1,3
+2023/24,UCL,Group Stage,60,76,Newcastle United,Paris Saint-Germain,4,1
+2023/24,UCL,Group Stage,76,60,Paris Saint-Germain,Newcastle United,1,1
+2023/24,UCL,Group Stage,60,86,Newcastle United,Borussia Dortmund,0,1
+2023/24,UCL,Group Stage,86,60,Borussia Dortmund,Newcastle United,2,0
+2023/24,UCL,Group Stage,76,114,Paris Saint-Germain,AC Milan,3,0
+2023/24,UCL,Group Stage,114,76,AC Milan,Paris Saint-Germain,2,1
+2023/24,UCL,Group Stage,221,88,Young Boys,RB Leipzig,1,3
+2023/24,UCL,Group Stage,88,221,RB Leipzig,Young Boys,2,1
+2023/24,UCL,Group Stage,58,194,Manchester City,Red Star Belgrade,3,1
+2023/24,UCL,Group Stage,194,58,Red Star Belgrade,Manchester City,2,3
+2023/24,UCL,Group Stage,194,221,Red Star Belgrade,Young Boys,2,2
+2023/24,UCL,Group Stage,221,194,Young Boys,Red Star Belgrade,2,0
+2023/24,UCL,Group Stage,88,58,RB Leipzig,Manchester City,1,3
+2023/24,UCL,Group Stage,58,88,Manchester City,RB Leipzig,3,2
+2023/24,UCL,Group Stage,88,194,RB Leipzig,Red Star Belgrade,3,1
+2023/24,UCL,Group Stage,194,88,Red Star Belgrade,RB Leipzig,1,2
+2023/24,UCL,Group Stage,221,58,Young Boys,Manchester City,1,3
+2023/24,UCL,Group Stage,58,221,Manchester City,Young Boys,3,0
+2023/24,UCL,Group Stage,206,28,FC Barcelona,Royal Antwerp,5,0
+2023/24,UCL,Group Stage,28,206,Royal Antwerp,FC Barcelona,3,2
+2023/24,UCL,Group Stage,228,176,Shakhtar Donetsk,FC Porto,1,3
+2023/24,UCL,Group Stage,176,228,FC Porto,Shakhtar Donetsk,5,3
+2023/24,UCL,Group Stage,176,206,FC Porto,FC Barcelona,0,1
+2023/24,UCL,Group Stage,206,176,FC Barcelona,FC Porto,2,1
+2023/24,UCL,Group Stage,28,228,Royal Antwerp,Shakhtar Donetsk,2,3
+2023/24,UCL,Group Stage,228,28,Shakhtar Donetsk,Royal Antwerp,1,0
+2023/24,UCL,Group Stage,28,176,Royal Antwerp,FC Porto,1,4
+2023/24,UCL,Group Stage,176,28,FC Porto,Royal Antwerp,2,0
+2023/24,UCL,Group Stage,206,228,FC Barcelona,Shakhtar Donetsk,2,1
+2023/24,UCL,Group Stage,228,206,Shakhtar Donetsk,FC Barcelona,1,0
+2023/24,UCL,Round of 16,176,54,FC Porto,Arsenal,1,0
+2023/24,UCL,Round of 16,54,176,Arsenal,FC Porto,1,0
+2023/24,UCL,Round of 16,120,206,Napoli,FC Barcelona,1,1
+2023/24,UCL,Round of 16,206,120,FC Barcelona,Napoli,3,1
+2023/24,UCL,Round of 16,76,210,Paris Saint-Germain,Real Sociedad,2,0
+2023/24,UCL,Round of 16,210,76,Real Sociedad,Paris Saint-Germain,1,2
+2023/24,UCL,Round of 16,118,205,Internazionale,Atlético Madrid,1,0
+2023/24,UCL,Round of 16,205,118,Atlético Madrid,Internazionale,2,1
+2023/24,UCL,Round of 16,157,86,PSV Eindhoven,Borussia Dortmund,1,1
+2023/24,UCL,Round of 16,86,157,Borussia Dortmund,PSV Eindhoven,2,0
+2023/24,UCL,Round of 16,119,85,Lazio,Bayern München,1,0
+2023/24,UCL,Round of 16,85,119,Bayern München,Lazio,3,0
+2023/24,UCL,Round of 16,51,58,FC København,Manchester City,1,3
+2023/24,UCL,Round of 16,58,51,Manchester City,FC København,3,1
+2023/24,UCL,Round of 16,88,209,RB Leipzig,Real Madrid,0,1
+2023/24,UCL,Round of 16,209,88,Real Madrid,RB Leipzig,1,1
+2023/24,UCL,Quarter Finals,54,85,Arsenal,Bayern München,2,2
+2023/24,UCL,Quarter Finals,85,54,Bayern München,Arsenal,1,0
+2023/24,UCL,Quarter Finals,205,86,Atlético Madrid,Borussia Dortmund,2,1
+2023/24,UCL,Quarter Finals,86,205,Borussia Dortmund,Atlético Madrid,4,2
+2023/24,UCL,Quarter Finals,209,58,Real Madrid,Manchester City,3,3
+2023/24,UCL,Quarter Finals,58,209,Manchester City,Real Madrid,1,1
+2023/24,UCL,Quarter Finals,76,206,Paris Saint-Germain,FC Barcelona,2,3
+2023/24,UCL,Quarter Finals,206,76,FC Barcelona,Paris Saint-Germain,1,4
+2023/24,UCL,Semi Finals,86,76,Borussia Dortmund,Paris Saint-Germain,1,0
+2023/24,UCL,Semi Finals,76,86,Paris Saint-Germain,Borussia Dortmund,0,1
+2023/24,UCL,Semi Finals,85,209,Bayern München,Real Madrid,2,2
+2023/24,UCL,Semi Finals,209,85,Real Madrid,Bayern München,2,1
+2023/24,UCL,Final,86,209,Borussia Dortmund,Real Madrid,0,2
+2023/24,UEL,3rd Qualifying Round,96,27,Olympiakos Piraeus,Racing Genk,1,0
+2023/24,UEL,3rd Qualifying Round,27,96,Racing Genk,Olympiakos Piraeus,1,1
+2023/24,UEL,3rd Qualifying Round,47,227,Slavia Praha,SC Dnipro-1,3,0
+2023/24,UEL,3rd Qualifying Round,227,47,SC Dnipro-1,Slavia Praha,1,1
+2023/24,UEL,3rd Qualifying Round,137,213,Zalgiris Vilnius,BK Häcken,1,3
+2023/24,UEL,3rd Qualifying Round,213,137,BK Häcken,Zalgiris Vilnius,5,0
+2023/24,UEL,3rd Qualifying Round,19,70,Qarabag FK,HJK Helsinki,2,1
+2023/24,UEL,3rd Qualifying Round,70,19,HJK Helsinki,Qarabag FK,1,2
+2023/24,UEL,3rd Qualifying Round,33,103,Zrinjski Mostar,Breidablik,6,2
+2023/24,UEL,3rd Qualifying Round,103,33,Breidablik,Zrinjski Mostar,1,0
+2023/24,UEL,3rd Qualifying Round,148,21,Sheriff Tiraspol,BATE Borisov,5,1
+2023/24,UEL,3rd Qualifying Round,21,148,BATE Borisov,Sheriff Tiraspol,2,2
+2023/24,UEL,3rd Qualifying Round,122,37,FK Astana,Ludogorets Razgrad,2,1
+2023/24,UEL,3rd Qualifying Round,37,122,Ludogorets Razgrad,FK Astana,5,1
+2023/24,UEL,Qualifying Play-off Round,47,230,Slavia Praha,Zorya Luhansk,2,0
+2023/24,UEL,Qualifying Play-off Round,230,47,Zorya Luhansk,Slavia Praha,2,1
+2023/24,UEL,Qualifying Play-off Round,96,192,Olympiakos Piraeus,Cukaricki Belgrade,3,1
+2023/24,UEL,Qualifying Play-off Round,192,96,Cukaricki Belgrade,Olympiakos Piraeus,0,3
+2023/24,UEL,Qualifying Play-off Round,29,218,Union Saint-Gilloise,FC Lugano,2,0
+2023/24,UEL,Qualifying Play-off Round,218,29,FC Lugano,Union Saint-Gilloise,0,1
+2023/24,UEL,Qualifying Play-off Round,37,154,Ludogorets Razgrad,Ajax,1,4
+2023/24,UEL,Qualifying Play-off Round,154,37,Ajax,Ludogorets Razgrad,0,1
+2023/24,UEL,Qualifying Play-off Round,213,187,BK Häcken,Aberdeen,2,2
+2023/24,UEL,Qualifying Play-off Round,187,213,Aberdeen,BK Häcken,1,3
+2023/24,UEL,Qualifying Play-off Round,14,33,LASK,Zrinjski Mostar,2,1
+2023/24,UEL,Qualifying Play-off Round,33,14,Zrinjski Mostar,LASK,1,1
+2023/24,UEL,Qualifying Play-off Round,68,148,KI Klaksvik,Sheriff Tiraspol,1,1
+2023/24,UEL,Qualifying Play-off Round,148,68,Sheriff Tiraspol,KI Klaksvik,2,1
+2023/24,UEL,Qualifying Play-off Round,204,19,Olimpija Ljubljana,Qarabag FK,0,2
+2023/24,UEL,Qualifying Play-off Round,19,204,Qarabag FK,Olimpija Ljubljana,1,1
+2023/24,UEL,Qualifying Play-off Round,199,44,Slovan Bratislava,Aris Limassol,2,1
+2023/24,UEL,Qualifying Play-off Round,44,199,Aris Limassol,Slovan Bratislava,6,2
+2023/24,UEL,Qualifying Play-off Round,38,48,Dinamo Zagreb,Sparta Praha,3,1
+2023/24,UEL,Qualifying Play-off Round,48,38,Sparta Praha,Dinamo Zagreb,4,1
+2023/24,UEL,Group Stage,61,195,West Ham United,TSC Backa Topola,3,1
+2023/24,UEL,Group Stage,195,61,TSC Backa Topola,West Ham United,0,1
+2023/24,UEL,Group Stage,96,89,Olympiakos Piraeus,SC Freiburg,2,3
+2023/24,UEL,Group Stage,89,96,SC Freiburg,Olympiakos Piraeus,5,0
+2023/24,UEL,Group Stage,89,61,SC Freiburg,West Ham United,1,2
+2023/24,UEL,Group Stage,61,89,West Ham United,SC Freiburg,2,0
+2023/24,UEL,Group Stage,195,96,TSC Backa Topola,Olympiakos Piraeus,2,2
+2023/24,UEL,Group Stage,96,195,Olympiakos Piraeus,TSC Backa Topola,5,2
+2023/24,UEL,Group Stage,195,89,TSC Backa Topola,SC Freiburg,1,3
+2023/24,UEL,Group Stage,89,195,SC Freiburg,TSC Backa Topola,5,0
+2023/24,UEL,Group Stage,96,61,Olympiakos Piraeus,West Ham United,2,1
+2023/24,UEL,Group Stage,61,96,West Ham United,Olympiakos Piraeus,1,0
+2023/24,UEL,Group Stage,154,75,Ajax,Olympique Marseille,3,3
+2023/24,UEL,Group Stage,75,154,Olympique Marseille,Ajax,4,3
+2023/24,UEL,Group Stage,56,94,Brighton & Hove Albion,AEK Athens,2,3
+2023/24,UEL,Group Stage,94,56,AEK Athens,Brighton & Hove Albion,0,1
+2023/24,UEL,Group Stage,94,154,AEK Athens,Ajax,1,1
+2023/24,UEL,Group Stage,154,94,Ajax,AEK Athens,3,1
+2023/24,UEL,Group Stage,75,56,Olympique Marseille,Brighton & Hove Albion,2,2
+2023/24,UEL,Group Stage,56,75,Brighton & Hove Albion,Olympique Marseille,1,0
+2023/24,UEL,Group Stage,75,94,Olympique Marseille,AEK Athens,3,1
+2023/24,UEL,Group Stage,94,75,AEK Athens,Olympique Marseille,0,2
+2023/24,UEL,Group Stage,56,154,Brighton & Hove Albion,Ajax,2,0
+2023/24,UEL,Group Stage,154,56,Ajax,Brighton & Hove Albion,0,2
+2023/24,UEL,Group Stage,48,44,Sparta Praha,Aris Limassol,3,2
+2023/24,UEL,Group Stage,44,48,Aris Limassol,Sparta Praha,1,3
+2023/24,UEL,Group Stage,189,208,Glasgow Rangers,Real Betis,1,0
+2023/24,UEL,Group Stage,208,189,Real Betis,Glasgow Rangers,2,3
+2023/24,UEL,Group Stage,208,48,Real Betis,Sparta Praha,2,1
+2023/24,UEL,Group Stage,48,208,Sparta Praha,Real Betis,1,0
+2023/24,UEL,Group Stage,44,189,Aris Limassol,Glasgow Rangers,2,1
+2023/24,UEL,Group Stage,189,44,Glasgow Rangers,Aris Limassol,1,1
+2023/24,UEL,Group Stage,44,208,Aris Limassol,Real Betis,0,1
+2023/24,UEL,Group Stage,208,44,Real Betis,Aris Limassol,4,1
+2023/24,UEL,Group Stage,48,189,Sparta Praha,Glasgow Rangers,0,0
+2023/24,UEL,Group Stage,189,48,Glasgow Rangers,Sparta Praha,2,1
+2023/24,UEL,Group Stage,116,173,Atalanta,Raków Czestochowa,2,0
+2023/24,UEL,Group Stage,173,116,Raków Czestochowa,Atalanta,0,4
+2023/24,UEL,Group Stage,16,178,Sturm Graz,Sporting CP Lisbon,1,2
+2023/24,UEL,Group Stage,178,16,Sporting CP Lisbon,Sturm Graz,3,0
+2023/24,UEL,Group Stage,178,116,Sporting CP Lisbon,Atalanta,1,2
+2023/24,UEL,Group Stage,116,178,Atalanta,Sporting CP Lisbon,1,1
+2023/24,UEL,Group Stage,173,16,Raków Czestochowa,Sturm Graz,0,1
+2023/24,UEL,Group Stage,16,173,Sturm Graz,Raków Czestochowa,0,1
+2023/24,UEL,Group Stage,173,178,Raków Czestochowa,Sporting CP Lisbon,1,1
+2023/24,UEL,Group Stage,178,173,Sporting CP Lisbon,Raków Czestochowa,2,1
+2023/24,UEL,Group Stage,16,116,Sturm Graz,Atalanta,2,2
+2023/24,UEL,Group Stage,116,16,Atalanta,Sturm Graz,1,0
+2023/24,UEL,Group Stage,14,57,LASK,Liverpool,1,3
+2023/24,UEL,Group Stage,57,14,Liverpool,LASK,4,0
+2023/24,UEL,Group Stage,29,79,Union Saint-Gilloise,Toulouse FC,1,1
+2023/24,UEL,Group Stage,79,29,Toulouse FC,Union Saint-Gilloise,0,0
+2023/24,UEL,Group Stage,79,14,Toulouse FC,LASK,1,0
+2023/24,UEL,Group Stage,14,79,LASK,Toulouse FC,1,2
+2023/24,UEL,Group Stage,57,29,Liverpool,Union Saint-Gilloise,2,0
+2023/24,UEL,Group Stage,29,57,Union Saint-Gilloise,Liverpool,2,1
+2023/24,UEL,Group Stage,57,79,Liverpool,Toulouse FC,5,1
+2023/24,UEL,Group Stage,79,57,Toulouse FC,Liverpool,3,2
+2023/24,UEL,Group Stage,29,14,Union Saint-Gilloise,LASK,2,1
+2023/24,UEL,Group Stage,14,29,LASK,Union Saint-Gilloise,3,0
+2023/24,UEL,Group Stage,98,212,Panathinaikos,Villarreal,2,0
+2023/24,UEL,Group Stage,212,98,Villarreal,Panathinaikos,3,2
+2023/24,UEL,Group Stage,78,112,Stade Rennais,Maccabi Haifa,3,0
+2023/24,UEL,Group Stage,112,78,Maccabi Haifa,Stade Rennais,0,3
+2023/24,UEL,Group Stage,112,98,Maccabi Haifa,Panathinaikos,0,0
+2023/24,UEL,Group Stage,98,112,Panathinaikos,Maccabi Haifa,1,2
+2023/24,UEL,Group Stage,212,78,Villarreal,Stade Rennais,1,0
+2023/24,UEL,Group Stage,78,212,Stade Rennais,Villarreal,2,3
+2023/24,UEL,Group Stage,212,112,Villarreal,Maccabi Haifa,0,0
+2023/24,UEL,Group Stage,112,212,Maccabi Haifa,Villarreal,1,2
+2023/24,UEL,Group Stage,98,78,Panathinaikos,Stade Rennais,1,2
+2023/24,UEL,Group Stage,78,98,Stade Rennais,Panathinaikos,3,1
+2023/24,UEL,Group Stage,148,115,Sheriff Tiraspol,AS Roma,1,2
+2023/24,UEL,Group Stage,115,148,AS Roma,Sheriff Tiraspol,3,0
+2023/24,UEL,Group Stage,220,47,Servette FC Genève,Slavia Praha,0,2
+2023/24,UEL,Group Stage,47,220,Slavia Praha,Servette FC Genève,4,0
+2023/24,UEL,Group Stage,47,148,Slavia Praha,Sheriff Tiraspol,6,0
+2023/24,UEL,Group Stage,148,47,Sheriff Tiraspol,Slavia Praha,2,3
+2023/24,UEL,Group Stage,115,220,AS Roma,Servette FC Genève,4,0
+2023/24,UEL,Group Stage,220,115,Servette FC Genève,AS Roma,1,1
+2023/24,UEL,Group Stage,115,47,AS Roma,Slavia Praha,2,0
+2023/24,UEL,Group Stage,47,115,Slavia Praha,AS Roma,2,0
+2023/24,UEL,Group Stage,148,220,Sheriff Tiraspol,Servette FC Genève,1,1
+2023/24,UEL,Group Stage,220,148,Servette FC Genève,Sheriff Tiraspol,2,1
+2023/24,UEL,Group Stage,19,167,Qarabag FK,Molde FK,1,0
+2023/24,UEL,Group Stage,167,19,Molde FK,Qarabag FK,2,2
+2023/24,UEL,Group Stage,84,213,Bayer Leverkusen,BK Häcken,4,0
+2023/24,UEL,Group Stage,213,84,BK Häcken,Bayer Leverkusen,0,2
+2023/24,UEL,Group Stage,213,19,BK Häcken,Qarabag FK,0,1
+2023/24,UEL,Group Stage,19,213,Qarabag FK,BK Häcken,2,1
+2023/24,UEL,Group Stage,167,84,Molde FK,Bayer Leverkusen,1,2
+2023/24,UEL,Group Stage,84,167,Bayer Leverkusen,Molde FK,5,1
+2023/24,UEL,Group Stage,167,213,Molde FK,BK Häcken,5,1
+2023/24,UEL,Group Stage,213,167,BK Häcken,Molde FK,1,3
+2023/24,UEL,Group Stage,84,19,Bayer Leverkusen,Qarabag FK,5,1
+2023/24,UEL,Group Stage,19,84,Qarabag FK,Bayer Leverkusen,0,1
+2023/24,UEL,Knockout round play-offs,156,115,Feyenoord,AS Roma,1,1
+2023/24,UEL,Knockout round play-offs,115,156,AS Roma,Feyenoord,1,1
+2023/24,UEL,Knockout round play-offs,114,78,AC Milan,Stade Rennais,3,0
+2023/24,UEL,Knockout round play-offs,78,114,Stade Rennais,AC Milan,3,2
+2023/24,UEL,Knockout round play-offs,77,89,RC Lens,SC Freiburg,0,0
+2023/24,UEL,Knockout round play-offs,89,77,SC Freiburg,RC Lens,3,2
+2023/24,UEL,Knockout round play-offs,221,178,Young Boys,Sporting CP Lisbon,1,3
+2023/24,UEL,Knockout round play-offs,178,221,Sporting CP Lisbon,Young Boys,1,1
+2023/24,UEL,Knockout round play-offs,174,79,Benfica,Toulouse FC,2,1
+2023/24,UEL,Knockout round play-offs,79,174,Toulouse FC,Benfica,0,0
+2023/24,UEL,Knockout round play-offs,177,19,Sporting Braga,Qarabag FK,2,4
+2023/24,UEL,Knockout round play-offs,19,177,Qarabag FK,Sporting Braga,2,3
+2023/24,UEL,Knockout round play-offs,225,48,Galatasaray,Sparta Praha,3,2
+2023/24,UEL,Knockout round play-offs,48,225,Sparta Praha,Galatasaray,4,1
+2023/24,UEL,Knockout round play-offs,228,75,Shakhtar Donetsk,Olympique Marseille,2,2
+2023/24,UEL,Knockout round play-offs,75,228,Olympique Marseille,Shakhtar Donetsk,3,1
+2023/24,UEL,Round of 16,48,57,Sparta Praha,Liverpool,1,5
+2023/24,UEL,Round of 16,57,48,Liverpool,Sparta Praha,6,1
+2023/24,UEL,Round of 16,75,212,Olympique Marseille,Villarreal,4,0
+2023/24,UEL,Round of 16,212,75,Villarreal,Olympique Marseille,3,1
+2023/24,UEL,Round of 16,115,56,AS Roma,Brighton & Hove Albion,4,0
+2023/24,UEL,Round of 16,56,115,Brighton & Hove Albion,AS Roma,1,0
+2023/24,UEL,Round of 16,174,189,Benfica,Glasgow Rangers,2,2
+2023/24,UEL,Round of 16,189,174,Glasgow Rangers,Benfica,0,1
+2023/24,UEL,Round of 16,89,61,SC Freiburg,West Ham United,1,0
+2023/24,UEL,Round of 16,61,89,West Ham United,SC Freiburg,5,0
+2023/24,UEL,Round of 16,178,116,Sporting CP Lisbon,Atalanta,1,1
+2023/24,UEL,Round of 16,116,178,Atalanta,Sporting CP Lisbon,2,1
+2023/24,UEL,Round of 16,114,47,AC Milan,Slavia Praha,4,2
+2023/24,UEL,Round of 16,47,114,Slavia Praha,AC Milan,1,3
+2023/24,UEL,Round of 16,19,84,Qarabag FK,Bayer Leverkusen,2,2
+2023/24,UEL,Round of 16,84,19,Bayer Leverkusen,Qarabag FK,3,2
+2023/24,UEL,Quarter Finals,114,115,AC Milan,AS Roma,0,1
+2023/24,UEL,Quarter Finals,115,114,AS Roma,AC Milan,2,1
+2023/24,UEL,Quarter Finals,57,116,Liverpool,Atalanta,0,3
+2023/24,UEL,Quarter Finals,116,57,Atalanta,Liverpool,0,1
+2023/24,UEL,Quarter Finals,84,61,Bayer Leverkusen,West Ham United,2,0
+2023/24,UEL,Quarter Finals,61,84,West Ham United,Bayer Leverkusen,1,1
+2023/24,UEL,Quarter Finals,174,75,Benfica,Olympique Marseille,2,1
+2023/24,UEL,Quarter Finals,75,174,Olympique Marseille,Benfica,1,0
+2023/24,UEL,Semi Finals,75,116,Olympique Marseille,Atalanta,1,1
+2023/24,UEL,Semi Finals,116,75,Atalanta,Olympique Marseille,3,0
+2023/24,UEL,Semi Finals,115,84,AS Roma,Bayer Leverkusen,0,2
+2023/24,UEL,Semi Finals,84,115,Bayer Leverkusen,AS Roma,2,2
+2023/24,UEL,Final,116,84,Atalanta,Bayer Leverkusen,3,0
+2023/24,UECL,1st Qualifying Round,152,184,Sutjeska Niksic,Cosmos,1,0
+2023/24,UECL,1st Qualifying Round,184,152,Cosmos,Sutjeska Niksic,1,1
+2023/24,UECL,1st Qualifying Round,202,142,NK Domzale,Balzan FC,1,4
+2023/24,UECL,1st Qualifying Round,142,202,Balzan FC,NK Domzale,1,3
+2023/24,UECL,1st Qualifying Round,133,23,FC Vaduz,Neman Grodno,1,2
+2023/24,UECL,1st Qualifying Round,23,133,Neman Grodno,FC Vaduz,1,1
+2023/24,UECL,1st Qualifying Round,9,1,Ararat-Armenia,Egnatia Rrogozhinë,1,1
+2023/24,UECL,1st Qualifying Round,1,9,Egnatia Rrogozhinë,Ararat-Armenia,4,4
+2023/24,UECL,1st Qualifying Round,83,31,Torpedo Kutaisi,FK Sarajevo,2,2
+2023/24,UECL,1st Qualifying Round,31,83,FK Sarajevo,Torpedo Kutaisi,1,1
+2023/24,UECL,1st Qualifying Round,8,150,Alashkert FC,Arsenal Tivat,1,1
+2023/24,UECL,1st Qualifying Round,150,8,Arsenal Tivat,Alashkert FC,1,6
+2023/24,UECL,1st Qualifying Round,32,22,Zeljeznicar Sarajevo,Dinamo Minsk,2,2
+2023/24,UECL,1st Qualifying Round,22,32,Dinamo Minsk,Zeljeznicar Sarajevo,1,2
+2023/24,UECL,1st Qualifying Round,185,149,La Fiorita,Zimbru Chisinau,1,1
+2023/24,UECL,1st Qualifying Round,149,185,Zimbru Chisinau,La Fiorita,1,0
+2023/24,UECL,1st Qualifying Round,203,143,NK Maribor,Birkirkara,1,1
+2023/24,UECL,1st Qualifying Round,143,203,Birkirkara,NK Maribor,1,2
+2023/24,UECL,1st Qualifying Round,2,81,KF Tirana,Dinamo Batumi,1,1
+2023/24,UECL,1st Qualifying Round,81,2,Dinamo Batumi,KF Tirana,1,2
+2023/24,UECL,1st Qualifying Round,92,107,FCB Magpies,Dundalk,0,0
+2023/24,UECL,1st Qualifying Round,107,92,Dundalk,FCB Magpies,3,1
+2023/24,UECL,1st Qualifying Round,7,69,Inter Club d'Escaldes,Víkingur,2,1
+2023/24,UECL,1st Qualifying Round,69,7,Víkingur,Inter Club d'Escaldes,1,1
+2023/24,UECL,1st Qualifying Round,140,128,Progrès Niederkorn,SC Gjilani,2,2
+2023/24,UECL,1st Qualifying Round,128,140,SC Gjilani,Progrès Niederkorn,0,2
+2023/24,UECL,1st Qualifying Round,165,4,Linfield Belfast,Vllaznia Shkodër,3,1
+2023/24,UECL,1st Qualifying Round,4,165,Vllaznia Shkodër,Linfield Belfast,1,0
+2023/24,UECL,1st Qualifying Round,104,231,KA Akureyri,Connah's Quay,2,0
+2023/24,UECL,1st Qualifying Round,231,104,Connah's Quay,KA Akureyri,0,2
+2023/24,UECL,1st Qualifying Round,161,232,Shkendija Tetovo,Haverfordwest County,1,0
+2023/24,UECL,1st Qualifying Round,232,161,Haverfordwest County,Shkendija Tetovo,1,0
+2023/24,UECL,1st Qualifying Round,71,162,Haka Valkeakoski,Crusaders Belfast,2,2
+2023/24,UECL,1st Qualifying Round,162,71,Crusaders Belfast,Haka Valkeakoski,1,0
+2023/24,UECL,1st Qualifying Round,67,106,HB Torshavn,Derry City,0,0
+2023/24,UECL,1st Qualifying Round,106,67,Derry City,HB Torshavn,1,0
+2023/24,UECL,1st Qualifying Round,131,105,Riga FC,Vikingur Reykjavik,2,0
+2023/24,UECL,1st Qualifying Round,105,131,Vikingur Reykjavik,Riga FC,1,0
+2023/24,UECL,1st Qualifying Round,198,63,MSK Zilina,Levadia Tallinn,2,1
+2023/24,UECL,1st Qualifying Round,63,198,Levadia Tallinn,MSK Zilina,1,2
+2023/24,UECL,1st Qualifying Round,10,65,Pyunik Yerevan,Trans Narva,2,0
+2023/24,UECL,1st Qualifying Round,65,10,Trans Narva,Pyunik Yerevan,0,3
+2023/24,UECL,1st Qualifying Round,135,146,FK Panevezys,Milsami Orhei,2,2
+2023/24,UECL,1st Qualifying Round,146,135,Milsami Orhei,FK Panevezys,0,1
+2023/24,UECL,1st Qualifying Round,124,72,Tobol Kustanai,Honka Espoo,2,1
+2023/24,UECL,1st Qualifying Round,72,124,Honka Espoo,Tobol Kustanai,0,0
+2023/24,UECL,1st Qualifying Round,197,80,DAC Dunajska Streda,Dila Gori,2,1
+2023/24,UECL,1st Qualifying Round,80,197,Dila Gori,DAC Dunajska Streda,2,0
+2023/24,UECL,1st Qualifying Round,160,130,Makedonija GjP,RFS Riga,0,1
+2023/24,UECL,1st Qualifying Round,130,160,RFS Riga,Makedonija GjP,4,1
+2023/24,UECL,1st Qualifying Round,127,91,KF Dukagjini,Europa FC,2,1
+2023/24,UECL,1st Qualifying Round,91,127,Europa FC,KF Dukagjini,2,3
+2023/24,UECL,1st Qualifying Round,233,6,Penybont,FC Santa Coloma,1,1
+2023/24,UECL,1st Qualifying Round,6,233,FC Santa Coloma,Penybont,2,0
+2023/24,UECL,1st Qualifying Round,134,159,FC Hegelmann,FK Shkupi,0,5
+2023/24,UECL,1st Qualifying Round,159,134,FK Shkupi,FC Hegelmann,0,0
+2023/24,UECL,1st Qualifying Round,139,109,F91 Dudelange,St. Patrick's Athletic,2,1
+2023/24,UECL,1st Qualifying Round,109,139,St. Patrick's Athletic,F91 Dudelange,2,3
+2023/24,UECL,1st Qualifying Round,66,64,B36 Torshavn,Paide Linnameeskond,0,0
+2023/24,UECL,1st Qualifying Round,64,66,Paide Linnameeskond,B36 Torshavn,0,2
+2023/24,UECL,1st Qualifying Round,144,163,Gzira United,Glentoran,2,2
+2023/24,UECL,1st Qualifying Round,163,144,Glentoran,Gzira United,1,1
+2023/24,UECL,2nd Qualifying Round,127,41,KF Dukagjini,NK Rijeka,0,1
+2023/24,UECL,2nd Qualifying Round,41,127,NK Rijeka,KF Dukagjini,6,1
+2023/24,UECL,2nd Qualifying Round,144,139,Gzira United,F91 Dudelange,2,0
+2023/24,UECL,2nd Qualifying Round,139,144,F91 Dudelange,Gzira United,2,1
+2023/24,UECL,2nd Qualifying Round,214,219,Djurgårdens IF,FC Luzern,1,2
+2023/24,UECL,2nd Qualifying Round,219,214,FC Luzern,Djurgårdens IF,1,1
+2023/24,UECL,2nd Qualifying Round,201,179,NK Celje,Vitória Guimarães,3,4
+2023/24,UECL,2nd Qualifying Round,179,201,Vitória Guimarães,NK Celje,0,1
+2023/24,UECL,2nd Qualifying Round,152,6,Sutjeska Niksic,FC Santa Coloma,2,0
+2023/24,UECL,2nd Qualifying Round,6,152,FC Santa Coloma,Sutjeska Niksic,3,0
+2023/24,UECL,2nd Qualifying Round,111,135,Hapoel Beer-Sheva,FK Panevezys,1,0
+2023/24,UECL,2nd Qualifying Round,135,111,FK Panevezys,Hapoel Beer-Sheva,1,1
+2023/24,UECL,2nd Qualifying Round,229,80,Vorskla Poltava,Dila Gori,2,1
+2023/24,UECL,2nd Qualifying Round,80,229,Dila Gori,Vorskla Poltava,3,1
+2023/24,UECL,2nd Qualifying Round,180,222,CFR Cluj,Adana Demirspor,1,1
+2023/24,UECL,2nd Qualifying Round,222,180,Adana Demirspor,CFR Cluj,2,1
+2023/24,UECL,2nd Qualifying Round,123,171,Ordabasy Shymkent,Legia Warsaw,2,2
+2023/24,UECL,2nd Qualifying Round,171,123,Legia Warsaw,Ordabasy Shymkent,3,2
+2023/24,UECL,2nd Qualifying Round,130,20,RFS Riga,Sabah FK,0,2
+2023/24,UECL,2nd Qualifying Round,20,130,Sabah FK,RFS Riga,2,1
+2023/24,UECL,2nd Qualifying Round,223,2,Besiktas,KF Tirana,3,1
+2023/24,UECL,2nd Qualifying Round,2,223,KF Tirana,Besiktas,0,2
+2023/24,UECL,2nd Qualifying Round,32,18,Zeljeznicar Sarajevo,Neftchi Baku,2,2
+2023/24,UECL,2nd Qualifying Round,18,32,Neftchi Baku,Zeljeznicar Sarajevo,2,0
+2023/24,UECL,2nd Qualifying Round,43,196,APOEL Nicosia,Vojvodina Novi Sad,2,1
+2023/24,UECL,2nd Qualifying Round,196,43,Vojvodina Novi Sad,APOEL Nicosia,1,2
+2023/24,UECL,2nd Qualifying Round,34,181,CSKA 1948 Sofia,FCSB,0,1
+2023/24,UECL,2nd Qualifying Round,181,34,FCSB,CSKA 1948 Sofia,3,2
+2023/24,UECL,2nd Qualifying Round,8,99,Alashkert FC,DVSC Debrecen,0,1
+2023/24,UECL,2nd Qualifying Round,99,8,DVSC Debrecen,Alashkert FC,1,2
+2023/24,UECL,2nd Qualifying Round,170,136,Lech Poznan,Kauno Zalgiris,3,1
+2023/24,UECL,2nd Qualifying Round,136,170,Kauno Zalgiris,Lech Poznan,1,2
+2023/24,UECL,2nd Qualifying Round,216,10,Kalmar FF,Pyunik Yerevan,1,2
+2023/24,UECL,2nd Qualifying Round,10,216,Pyunik Yerevan,Kalmar FF,2,1
+2023/24,UECL,2nd Qualifying Round,166,46,Bodø/Glimt,Bohemians Praha,3,0
+2023/24,UECL,2nd Qualifying Round,46,166,Bohemians Praha,Bodø/Glimt,2,4
+2023/24,UECL,2nd Qualifying Round,129,200,FK Auda,Spartak Trnava,1,1
+2023/24,UECL,2nd Qualifying Round,200,129,Spartak Trnava,FK Auda,4,1
+2023/24,UECL,2nd Qualifying Round,40,102,NK Osijek,Zalaegerszegi TE,1,0
+2023/24,UECL,2nd Qualifying Round,102,40,Zalaegerszegi TE,NK Osijek,1,2
+2023/24,UECL,2nd Qualifying Round,155,215,FC Twente Enschede,Hammarby IF,1,0
+2023/24,UECL,2nd Qualifying Round,215,155,Hammarby IF,FC Twente Enschede,1,1
+2023/24,UECL,2nd Qualifying Round,104,107,KA Akureyri,Dundalk,3,1
+2023/24,UECL,2nd Qualifying Round,107,104,Dundalk,KA Akureyri,2,2
+2023/24,UECL,2nd Qualifying Round,26,50,Club Brugge,AGF Aarhus,3,0
+2023/24,UECL,2nd Qualifying Round,50,26,AGF Aarhus,Club Brugge,1,0
+2023/24,UECL,2nd Qualifying Round,162,168,Crusaders Belfast,Rosenborg BK,2,2
+2023/24,UECL,2nd Qualifying Round,168,162,Rosenborg BK,Crusaders Belfast,3,2
+2023/24,UECL,2nd Qualifying Round,7,191,Inter Club d'Escaldes,Hibernian,2,1
+2023/24,UECL,2nd Qualifying Round,191,7,Hibernian,Inter Club d'Escaldes,6,1
+2023/24,UECL,2nd Qualifying Round,49,126,Viktoria Plzen,FC Drita,0,0
+2023/24,UECL,2nd Qualifying Round,126,49,FC Drita,Viktoria Plzen,1,2
+2023/24,UECL,2nd Qualifying Round,66,232,B36 Torshavn,Haverfordwest County,2,1
+2023/24,UECL,2nd Qualifying Round,232,66,Haverfordwest County,B36 Torshavn,1,1
+2023/24,UECL,2nd Qualifying Round,217,124,FC Basel,Tobol Kustanai,1,3
+2023/24,UECL,2nd Qualifying Round,124,217,Tobol Kustanai,FC Basel,1,2
+2023/24,UECL,2nd Qualifying Round,138,203,Differdange 03,NK Maribor,1,1
+2023/24,UECL,2nd Qualifying Round,203,138,NK Maribor,Differdange 03,4,3
+2023/24,UECL,2nd Qualifying Round,12,30,Austria Wien,Borac Banja Luka,1,0
+2023/24,UECL,2nd Qualifying Round,30,12,Borac Banja Luka,Austria Wien,1,2
+2023/24,UECL,2nd Qualifying Round,35,183,CSKA Sofia,Sepsi OSK,0,2
+2023/24,UECL,2nd Qualifying Round,183,35,Sepsi OSK,CSKA Sofia,4,0
+2023/24,UECL,2nd Qualifying Round,9,95,Ararat-Armenia,Aris Thessaloniki,1,1
+2023/24,UECL,2nd Qualifying Round,95,9,Aris Thessaloniki,Ararat-Armenia,1,0
+2023/24,UECL,2nd Qualifying Round,113,147,Maccabi Tel-Aviv,Petrocub Hîncesti,3,0
+2023/24,UECL,2nd Qualifying Round,147,113,Petrocub Hîncesti,Maccabi Tel-Aviv,0,2
+2023/24,UECL,2nd Qualifying Round,24,42,Torpedo Zhodino,AEK Larnaca,2,3
+2023/24,UECL,2nd Qualifying Round,42,24,AEK Larnaca,Torpedo Zhodino,1,1
+2023/24,UECL,2nd Qualifying Round,83,121,Torpedo Kutaisi,FK Aktobe,1,4
+2023/24,UECL,2nd Qualifying Round,121,83,FK Aktobe,Torpedo Kutaisi,1,2
+2023/24,UECL,2nd Qualifying Round,52,140,FC Midtjylland,Progrès Niederkorn,2,0
+2023/24,UECL,2nd Qualifying Round,140,52,Progrès Niederkorn,FC Midtjylland,2,1
+2023/24,UECL,2nd Qualifying Round,106,73,Derry City,KuPS Kuopio,2,1
+2023/24,UECL,2nd Qualifying Round,73,106,KuPS Kuopio,Derry City,3,3
+2023/24,UECL,2nd Qualifying Round,25,198,AA Gent,MSK Zilina,5,1
+2023/24,UECL,2nd Qualifying Round,198,25,MSK Zilina,AA Gent,2,5
+2023/24,UECL,2nd Qualifying Round,101,131,Kecskeméti TE,Riga FC,2,1
+2023/24,UECL,2nd Qualifying Round,131,101,Riga FC,Kecskeméti TE,3,1
+2023/24,UECL,2nd Qualifying Round,165,172,Linfield Belfast,Pogon Szczecin,2,5
+2023/24,UECL,2nd Qualifying Round,172,165,Pogon Szczecin,Linfield Belfast,3,2
+2023/24,UECL,2nd Qualifying Round,97,110,PAOK Thessaloniki,Beitar Jerusalem,0,0
+2023/24,UECL,2nd Qualifying Round,110,97,Beitar Jerusalem,PAOK Thessaloniki,1,4
+2023/24,UECL,2nd Qualifying Round,23,142,Neman Grodno,Balzan FC,2,0
+2023/24,UECL,2nd Qualifying Round,142,23,Balzan FC,Neman Grodno,0,0
+2023/24,UECL,2nd Qualifying Round,224,149,Fenerbahçe,Zimbru Chisinau,5,0
+2023/24,UECL,2nd Qualifying Round,149,224,Zimbru Chisinau,Fenerbahçe,0,4
+2023/24,UECL,2nd Qualifying Round,17,45,Gabala FK,Omonia Nicosia,2,3
+2023/24,UECL,2nd Qualifying Round,45,17,Omonia Nicosia,Gabala FK,4,1
+2023/24,UECL,2nd Qualifying Round,159,36,FK Shkupi,Levski Sofia,0,2
+2023/24,UECL,2nd Qualifying Round,36,159,Levski Sofia,FK Shkupi,1,0
+2023/24,UECL,2nd Qualifying Round,186,132,Tre Penne,Valmieras FK,0,3
+2023/24,UECL,2nd Qualifying Round,132,186,Valmieras FK,Tre Penne,7,0
+2023/24,UECL,2nd Qualifying Round,100,108,Ferencváros,Shamrock Rovers,4,0
+2023/24,UECL,2nd Qualifying Round,108,100,Shamrock Rovers,Ferencváros,0,2
+2023/24,UECL,2nd Qualifying Round,234,141,The New Saints,Swift Hesperange,1,1
+2023/24,UECL,2nd Qualifying Round,141,234,Swift Hesperange,The New Saints,3,2
+2023/24,UECL,2nd Qualifying Round,5,3,Atlètic Club d'Escaldes,Partizani Tirana,0,1
+2023/24,UECL,2nd Qualifying Round,3,5,Partizani Tirana,Atlètic Club d'Escaldes,4,1
+2023/24,UECL,2nd Qualifying Round,145,82,Hamrun Spartans,Dinamo Tbilisi,2,1
+2023/24,UECL,2nd Qualifying Round,82,145,Dinamo Tbilisi,Hamrun Spartans,0,1
+2023/24,UECL,2nd Qualifying Round,182,11,Farul Constanta,Urartu FC,3,2
+2023/24,UECL,2nd Qualifying Round,11,182,Urartu FC,Farul Constanta,2,3
+2023/24,UECL,2nd Qualifying Round,158,151,FC Struga,Buducnost Podgorica,1,0
+2023/24,UECL,2nd Qualifying Round,151,158,Buducnost Podgorica,FC Struga,3,4
+2023/24,UECL,2nd Qualifying Round,125,164,FC Ballkani,Larne FC,3,0
+2023/24,UECL,2nd Qualifying Round,164,125,Larne FC,FC Ballkani,1,4
+2023/24,UECL,3rd Qualifying Round,42,113,AEK Larnaca,Maccabi Tel-Aviv,1,1
+2023/24,UECL,3rd Qualifying Round,113,42,Maccabi Tel-Aviv,AEK Larnaca,1,0
+2023/24,UECL,3rd Qualifying Round,20,193,Sabah FK,Partizan Belgrade,2,0
+2023/24,UECL,3rd Qualifying Round,193,20,Partizan Belgrade,Sabah FK,2,0
+2023/24,UECL,3rd Qualifying Round,183,121,Sepsi OSK,FK Aktobe,1,1
+2023/24,UECL,3rd Qualifying Round,121,183,FK Aktobe,Sepsi OSK,0,1
+2023/24,UECL,3rd Qualifying Round,15,99,Rapid Wien,DVSC Debrecen,0,0
+2023/24,UECL,3rd Qualifying Round,99,15,DVSC Debrecen,Rapid Wien,0,5
+2023/24,UECL,3rd Qualifying Round,39,97,Hajduk Split,PAOK Thessaloniki,0,0
+2023/24,UECL,3rd Qualifying Round,97,39,PAOK Thessaloniki,Hajduk Split,3,0
+2023/24,UECL,3rd Qualifying Round,6,153,FC Santa Coloma,AZ Alkmaar,0,1
+2023/24,UECL,3rd Qualifying Round,153,6,AZ Alkmaar,FC Santa Coloma,2,0
+2023/24,UECL,3rd Qualifying Round,201,23,NK Celje,Neman Grodno,1,0
+2023/24,UECL,3rd Qualifying Round,23,201,Neman Grodno,NK Celje,1,4
+2023/24,UECL,3rd Qualifying Round,18,223,Neftchi Baku,Besiktas,1,3
+2023/24,UECL,3rd Qualifying Round,223,18,Besiktas,Neftchi Baku,2,1
+2023/24,UECL,3rd Qualifying Round,45,52,Omonia Nicosia,FC Midtjylland,1,0
+2023/24,UECL,3rd Qualifying Round,52,45,FC Midtjylland,Omonia Nicosia,5,1
+2023/24,UECL,3rd Qualifying Round,95,226,Aris Thessaloniki,Dynamo Kyiv,1,0
+2023/24,UECL,3rd Qualifying Round,226,95,Dynamo Kyiv,Aris Thessaloniki,2,1
+2023/24,UECL,3rd Qualifying Round,171,12,Legia Warsaw,Austria Wien,1,2
+2023/24,UECL,3rd Qualifying Round,12,171,Austria Wien,Legia Warsaw,3,5
+2023/24,UECL,3rd Qualifying Round,111,36,Hapoel Beer-Sheva,Levski Sofia,0,0
+2023/24,UECL,3rd Qualifying Round,36,111,Levski Sofia,Hapoel Beer-Sheva,2,1
+2023/24,UECL,3rd Qualifying Round,191,219,Hibernian,FC Luzern,3,1
+2023/24,UECL,3rd Qualifying Round,219,191,FC Luzern,Hibernian,2,2
+2023/24,UECL,3rd Qualifying Round,49,144,Viktoria Plzen,Gzira United,4,0
+2023/24,UECL,3rd Qualifying Round,144,49,Gzira United,Viktoria Plzen,0,2
+2023/24,UECL,3rd Qualifying Round,175,169,FC Arouca,SK Brann Bergen,2,1
+2023/24,UECL,3rd Qualifying Round,169,175,SK Brann Bergen,FC Arouca,3,1
+2023/24,UECL,3rd Qualifying Round,25,172,AA Gent,Pogon Szczecin,5,0
+2023/24,UECL,3rd Qualifying Round,172,25,Pogon Szczecin,AA Gent,2,1
+2023/24,UECL,3rd Qualifying Round,222,40,Adana Demirspor,NK Osijek,5,1
+2023/24,UECL,3rd Qualifying Round,40,222,NK Osijek,Adana Demirspor,3,2
+2023/24,UECL,3rd Qualifying Round,66,41,B36 Torshavn,NK Rijeka,1,3
+2023/24,UECL,3rd Qualifying Round,41,66,NK Rijeka,B36 Torshavn,2,0
+2023/24,UECL,3rd Qualifying Round,155,131,FC Twente Enschede,Riga FC,2,0
+2023/24,UECL,3rd Qualifying Round,131,155,Riga FC,FC Twente Enschede,0,3
+2023/24,UECL,3rd Qualifying Round,168,190,Rosenborg BK,Hearts FC,2,1
+2023/24,UECL,3rd Qualifying Round,190,168,Hearts FC,Rosenborg BK,3,1
+2023/24,UECL,3rd Qualifying Round,224,203,Fenerbahçe,NK Maribor,3,1
+2023/24,UECL,3rd Qualifying Round,203,224,NK Maribor,Fenerbahçe,0,3
+2023/24,UECL,3rd Qualifying Round,26,104,Club Brugge,KA Akureyri,5,1
+2023/24,UECL,3rd Qualifying Round,104,26,KA Akureyri,Club Brugge,1,5
+2023/24,UECL,3rd Qualifying Round,80,43,Dila Gori,APOEL Nicosia,0,2
+2023/24,UECL,3rd Qualifying Round,43,80,APOEL Nicosia,Dila Gori,1,0
+2023/24,UECL,3rd Qualifying Round,170,200,Lech Poznan,Spartak Trnava,2,1
+2023/24,UECL,3rd Qualifying Round,200,170,Spartak Trnava,Lech Poznan,3,1
+2023/24,UECL,3rd Qualifying Round,181,53,FCSB,FC Nordsjælland,0,0
+2023/24,UECL,3rd Qualifying Round,53,181,FC Nordsjælland,FCSB,2,0
+2023/24,UECL,3rd Qualifying Round,124,106,Tobol Kustanai,Derry City,1,0
+2023/24,UECL,3rd Qualifying Round,106,124,Derry City,Tobol Kustanai,1,0
+2023/24,UECL,3rd Qualifying Round,166,10,Bodø/Glimt,Pyunik Yerevan,3,0
+2023/24,UECL,3rd Qualifying Round,10,166,Pyunik Yerevan,Bodø/Glimt,0,3
+2023/24,UECL,3rd Qualifying Round,145,100,Hamrun Spartans,Ferencváros,1,6
+2023/24,UECL,3rd Qualifying Round,100,145,Ferencváros,Hamrun Spartans,2,1
+2023/24,UECL,3rd Qualifying Round,182,62,Farul Constanta,Flora Tallinn,3,0
+2023/24,UECL,3rd Qualifying Round,62,182,Flora Tallinn,Farul Constanta,0,2
+2023/24,UECL,3rd Qualifying Round,132,3,Valmieras FK,Partizani Tirana,1,2
+2023/24,UECL,3rd Qualifying Round,3,132,Partizani Tirana,Valmieras FK,1,0
+2023/24,UECL,3rd Qualifying Round,125,93,FC Ballkani,Lincoln Red Imps,2,0
+2023/24,UECL,3rd Qualifying Round,93,125,Lincoln Red Imps,FC Ballkani,1,3
+2023/24,UECL,3rd Qualifying Round,158,141,FC Struga,Swift Hesperange,3,1
+2023/24,UECL,3rd Qualifying Round,141,158,Swift Hesperange,FC Struga,2,1
+2023/24,UECL,Qualifying Play-off Round,36,87,Levski Sofia,Eintracht Frankfurt,1,1
+2023/24,UECL,Qualifying Play-off Round,87,36,Eintracht Frankfurt,Levski Sofia,2,0
+2023/24,UECL,Qualifying Play-off Round,183,166,Sepsi OSK,Bodø/Glimt,2,2
+2023/24,UECL,Qualifying Play-off Round,166,183,Bodø/Glimt,Sepsi OSK,3,2
+2023/24,UECL,Qualifying Play-off Round,52,171,FC Midtjylland,Legia Warsaw,3,3
+2023/24,UECL,Qualifying Play-off Round,171,52,Legia Warsaw,FC Midtjylland,1,1
+2023/24,UECL,Qualifying Play-off Round,224,155,Fenerbahçe,FC Twente Enschede,5,1
+2023/24,UECL,Qualifying Play-off Round,155,224,FC Twente Enschede,Fenerbahçe,0,1
+2023/24,UECL,Qualifying Play-off Round,25,43,AA Gent,APOEL Nicosia,2,0
+2023/24,UECL,Qualifying Play-off Round,43,25,APOEL Nicosia,AA Gent,1,2
+2023/24,UECL,Qualifying Play-off Round,124,49,Tobol Kustanai,Viktoria Plzen,1,2
+2023/24,UECL,Qualifying Play-off Round,49,124,Viktoria Plzen,Tobol Kustanai,3,0
+2023/24,UECL,Qualifying Play-off Round,74,41,Lille OSC,NK Rijeka,2,1
+2023/24,UECL,Qualifying Play-off Round,41,74,NK Rijeka,Lille OSC,1,1
+2023/24,UECL,Qualifying Play-off Round,226,223,Dynamo Kyiv,Besiktas,2,3
+2023/24,UECL,Qualifying Play-off Round,223,226,Besiktas,Dynamo Kyiv,1,0
+2023/24,UECL,Qualifying Play-off Round,200,227,Spartak Trnava,SC Dnipro-1,1,1
+2023/24,UECL,Qualifying Play-off Round,227,200,SC Dnipro-1,Spartak Trnava,1,2
+2023/24,UECL,Qualifying Play-off Round,191,55,Hibernian,Aston Villa,0,5
+2023/24,UECL,Qualifying Play-off Round,55,191,Aston Villa,Hibernian,3,0
+2023/24,UECL,Qualifying Play-off Round,27,222,Racing Genk,Adana Demirspor,2,1
+2023/24,UECL,Qualifying Play-off Round,222,27,Adana Demirspor,Racing Genk,1,0
+2023/24,UECL,Qualifying Play-off Round,153,169,AZ Alkmaar,SK Brann Bergen,1,1
+2023/24,UECL,Qualifying Play-off Round,169,153,SK Brann Bergen,AZ Alkmaar,3,3
+2023/24,UECL,Qualifying Play-off Round,15,117,Rapid Wien,Fiorentina,1,0
+2023/24,UECL,Qualifying Play-off Round,117,15,Fiorentina,Rapid Wien,2,0
+2023/24,UECL,Qualifying Play-off Round,190,97,Hearts FC,PAOK Thessaloniki,1,2
+2023/24,UECL,Qualifying Play-off Round,97,190,PAOK Thessaloniki,Hearts FC,4,0
+2023/24,UECL,Qualifying Play-off Round,53,193,FC Nordsjælland,Partizan Belgrade,5,0
+2023/24,UECL,Qualifying Play-off Round,193,53,Partizan Belgrade,FC Nordsjælland,0,1
+2023/24,UECL,Qualifying Play-off Round,207,26,Osasuna,Club Brugge,1,2
+2023/24,UECL,Qualifying Play-off Round,26,207,Club Brugge,Osasuna,2,2
+2023/24,UECL,Qualifying Play-off Round,113,201,Maccabi Tel-Aviv,NK Celje,4,1
+2023/24,UECL,Qualifying Play-off Round,201,113,NK Celje,Maccabi Tel-Aviv,1,1
+2023/24,UECL,Qualifying Play-off Round,125,21,FC Ballkani,BATE Borisov,4,1
+2023/24,UECL,Qualifying Play-off Round,21,125,BATE Borisov,FC Ballkani,1,0
+2023/24,UECL,Qualifying Play-off Round,137,100,Zalgiris Vilnius,Ferencváros,0,4
+2023/24,UECL,Qualifying Play-off Round,100,137,Ferencváros,Zalgiris Vilnius,3,0
+2023/24,UECL,Qualifying Play-off Round,158,103,FC Struga,Breidablik,0,1
+2023/24,UECL,Qualifying Play-off Round,103,158,Breidablik,FC Struga,1,0
+2023/24,UECL,Qualifying Play-off Round,182,70,Farul Constanta,HJK Helsinki,2,1
+2023/24,UECL,Qualifying Play-off Round,70,182,HJK Helsinki,Farul Constanta,2,0
+2023/24,UECL,Qualifying Play-off Round,122,3,FK Astana,Partizani Tirana,1,0
+2023/24,UECL,Qualifying Play-off Round,3,122,Partizani Tirana,FK Astana,1,1
+2023/24,UECL,Group Stage,199,68,Slovan Bratislava,KI Klaksvik,2,1
+2023/24,UECL,Group Stage,68,199,KI Klaksvik,Slovan Bratislava,1,2
+2023/24,UECL,Group Stage,74,204,Lille OSC,Olimpija Ljubljana,2,0
+2023/24,UECL,Group Stage,204,74,Olimpija Ljubljana,Lille OSC,0,2
+2023/24,UECL,Group Stage,204,199,Olimpija Ljubljana,Slovan Bratislava,0,1
+2023/24,UECL,Group Stage,199,204,Slovan Bratislava,Olimpija Ljubljana,1,2
+2023/24,UECL,Group Stage,68,74,KI Klaksvik,Lille OSC,0,0
+2023/24,UECL,Group Stage,74,68,Lille OSC,KI Klaksvik,3,0
+2023/24,UECL,Group Stage,68,204,KI Klaksvik,Olimpija Ljubljana,3,0
+2023/24,UECL,Group Stage,204,68,Olimpija Ljubljana,KI Klaksvik,2,0
+2023/24,UECL,Group Stage,74,199,Lille OSC,Slovan Bratislava,2,1
+2023/24,UECL,Group Stage,199,74,Slovan Bratislava,Lille OSC,1,1
+2023/24,UECL,Group Stage,230,25,Zorya Luhansk,AA Gent,1,1
+2023/24,UECL,Group Stage,25,230,AA Gent,Zorya Luhansk,4,1
+2023/24,UECL,Group Stage,113,103,Maccabi Tel-Aviv,Breidablik,3,2
+2023/24,UECL,Group Stage,103,113,Breidablik,Maccabi Tel-Aviv,1,2
+2023/24,UECL,Group Stage,103,230,Breidablik,Zorya Luhansk,0,1
+2023/24,UECL,Group Stage,230,103,Zorya Luhansk,Breidablik,4,0
+2023/24,UECL,Group Stage,25,113,AA Gent,Maccabi Tel-Aviv,2,0
+2023/24,UECL,Group Stage,113,25,Maccabi Tel-Aviv,AA Gent,3,1
+2023/24,UECL,Group Stage,25,103,AA Gent,Breidablik,5,0
+2023/24,UECL,Group Stage,103,25,Breidablik,AA Gent,2,3
+2023/24,UECL,Group Stage,113,230,Maccabi Tel-Aviv,Zorya Luhansk,3,2
+2023/24,UECL,Group Stage,230,113,Zorya Luhansk,Maccabi Tel-Aviv,1,3
+2023/24,UECL,Group Stage,49,125,Viktoria Plzen,FC Ballkani,1,0
+2023/24,UECL,Group Stage,125,49,FC Ballkani,Viktoria Plzen,0,1
+2023/24,UECL,Group Stage,38,122,Dinamo Zagreb,FK Astana,5,1
+2023/24,UECL,Group Stage,122,38,FK Astana,Dinamo Zagreb,0,2
+2023/24,UECL,Group Stage,122,49,FK Astana,Viktoria Plzen,1,2
+2023/24,UECL,Group Stage,49,122,Viktoria Plzen,FK Astana,3,0
+2023/24,UECL,Group Stage,125,38,FC Ballkani,Dinamo Zagreb,2,0
+2023/24,UECL,Group Stage,38,125,Dinamo Zagreb,FC Ballkani,3,0
+2023/24,UECL,Group Stage,125,122,FC Ballkani,FK Astana,1,2
+2023/24,UECL,Group Stage,122,125,FK Astana,FC Ballkani,0,0
+2023/24,UECL,Group Stage,38,49,Dinamo Zagreb,Viktoria Plzen,0,1
+2023/24,UECL,Group Stage,49,38,Viktoria Plzen,Dinamo Zagreb,1,0
+2023/24,UECL,Group Stage,218,166,FC Lugano,Bodø/Glimt,0,0
+2023/24,UECL,Group Stage,166,218,Bodø/Glimt,FC Lugano,5,2
+2023/24,UECL,Group Stage,26,223,Club Brugge,Besiktas,1,1
+2023/24,UECL,Group Stage,223,26,Besiktas,Club Brugge,0,5
+2023/24,UECL,Group Stage,223,218,Besiktas,FC Lugano,2,3
+2023/24,UECL,Group Stage,218,223,FC Lugano,Besiktas,0,2
+2023/24,UECL,Group Stage,166,26,Bodø/Glimt,Club Brugge,0,1
+2023/24,UECL,Group Stage,26,166,Club Brugge,Bodø/Glimt,3,1
+2023/24,UECL,Group Stage,166,223,Bodø/Glimt,Besiktas,3,1
+2023/24,UECL,Group Stage,223,166,Besiktas,Bodø/Glimt,1,2
+2023/24,UECL,Group Stage,218,26,FC Lugano,Club Brugge,1,3
+2023/24,UECL,Group Stage,26,218,Club Brugge,FC Lugano,2,0
+2023/24,UECL,Group Stage,33,153,Zrinjski Mostar,AZ Alkmaar,4,3
+2023/24,UECL,Group Stage,153,33,AZ Alkmaar,Zrinjski Mostar,1,0
+2023/24,UECL,Group Stage,171,55,Legia Warsaw,Aston Villa,3,2
+2023/24,UECL,Group Stage,55,171,Aston Villa,Legia Warsaw,2,1
+2023/24,UECL,Group Stage,55,33,Aston Villa,Zrinjski Mostar,1,0
+2023/24,UECL,Group Stage,33,55,Zrinjski Mostar,Aston Villa,1,1
+2023/24,UECL,Group Stage,153,171,AZ Alkmaar,Legia Warsaw,1,0
+2023/24,UECL,Group Stage,171,153,Legia Warsaw,AZ Alkmaar,2,0
+2023/24,UECL,Group Stage,153,55,AZ Alkmaar,Aston Villa,1,4
+2023/24,UECL,Group Stage,55,153,Aston Villa,AZ Alkmaar,2,1
+2023/24,UECL,Group Stage,33,171,Zrinjski Mostar,Legia Warsaw,1,2
+2023/24,UECL,Group Stage,171,33,Legia Warsaw,Zrinjski Mostar,2,0
+2023/24,UECL,Group Stage,27,117,Racing Genk,Fiorentina,2,2
+2023/24,UECL,Group Stage,117,27,Fiorentina,Racing Genk,2,1
+2023/24,UECL,Group Stage,100,192,Ferencváros,Cukaricki Belgrade,3,1
+2023/24,UECL,Group Stage,192,100,Cukaricki Belgrade,Ferencváros,1,2
+2023/24,UECL,Group Stage,192,27,Cukaricki Belgrade,Racing Genk,0,2
+2023/24,UECL,Group Stage,27,192,Racing Genk,Cukaricki Belgrade,2,0
+2023/24,UECL,Group Stage,117,100,Fiorentina,Ferencváros,2,2
+2023/24,UECL,Group Stage,100,117,Ferencváros,Fiorentina,1,1
+2023/24,UECL,Group Stage,117,192,Fiorentina,Cukaricki Belgrade,6,0
+2023/24,UECL,Group Stage,192,117,Cukaricki Belgrade,Fiorentina,0,1
+2023/24,UECL,Group Stage,27,100,Racing Genk,Ferencváros,0,0
+2023/24,UECL,Group Stage,100,27,Ferencváros,Racing Genk,1,1
+2023/24,UECL,Group Stage,87,187,Eintracht Frankfurt,Aberdeen,2,1
+2023/24,UECL,Group Stage,187,87,Aberdeen,Eintracht Frankfurt,2,0
+2023/24,UECL,Group Stage,70,97,HJK Helsinki,PAOK Thessaloniki,2,3
+2023/24,UECL,Group Stage,97,70,PAOK Thessaloniki,HJK Helsinki,4,2
+2023/24,UECL,Group Stage,97,87,PAOK Thessaloniki,Eintracht Frankfurt,2,1
+2023/24,UECL,Group Stage,87,97,Eintracht Frankfurt,PAOK Thessaloniki,1,2
+2023/24,UECL,Group Stage,187,70,Aberdeen,HJK Helsinki,1,1
+2023/24,UECL,Group Stage,70,187,HJK Helsinki,Aberdeen,2,2
+2023/24,UECL,Group Stage,187,97,Aberdeen,PAOK Thessaloniki,2,3
+2023/24,UECL,Group Stage,97,187,PAOK Thessaloniki,Aberdeen,2,2
+2023/24,UECL,Group Stage,87,70,Eintracht Frankfurt,HJK Helsinki,6,0
+2023/24,UECL,Group Stage,70,87,HJK Helsinki,Eintracht Frankfurt,0,1
+2023/24,UECL,Group Stage,37,200,Ludogorets Razgrad,Spartak Trnava,4,0
+2023/24,UECL,Group Stage,200,37,Spartak Trnava,Ludogorets Razgrad,1,2
+2023/24,UECL,Group Stage,224,53,Fenerbahçe,FC Nordsjælland,3,1
+2023/24,UECL,Group Stage,53,224,FC Nordsjælland,Fenerbahçe,6,1
+2023/24,UECL,Group Stage,53,37,FC Nordsjælland,Ludogorets Razgrad,7,1
+2023/24,UECL,Group Stage,37,53,Ludogorets Razgrad,FC Nordsjælland,1,0
+2023/24,UECL,Group Stage,200,224,Spartak Trnava,Fenerbahçe,1,2
+2023/24,UECL,Group Stage,224,200,Fenerbahçe,Spartak Trnava,4,0
+2023/24,UECL,Group Stage,200,53,Spartak Trnava,FC Nordsjælland,0,2
+2023/24,UECL,Group Stage,53,200,FC Nordsjælland,Spartak Trnava,1,1
+2023/24,UECL,Group Stage,224,37,Fenerbahçe,Ludogorets Razgrad,3,1
+2023/24,UECL,Group Stage,37,224,Ludogorets Razgrad,Fenerbahçe,2,0
+2023/24,UECL,Knockout round play-offs,16,199,Sturm Graz,Slovan Bratislava,4,1
+2023/24,UECL,Knockout round play-offs,199,16,Slovan Bratislava,Sturm Graz,0,1
+2023/24,UECL,Knockout round play-offs,220,37,Servette FC Genève,Ludogorets Razgrad,0,0
+2023/24,UECL,Knockout round play-offs,37,220,Ludogorets Razgrad,Servette FC Genève,0,1
+2023/24,UECL,Knockout round play-offs,29,87,Union Saint-Gilloise,Eintracht Frankfurt,2,2
+2023/24,UECL,Knockout round play-offs,87,29,Eintracht Frankfurt,Union Saint-Gilloise,1,2
+2023/24,UECL,Knockout round play-offs,208,38,Real Betis,Dinamo Zagreb,0,1
+2023/24,UECL,Knockout round play-offs,38,208,Dinamo Zagreb,Real Betis,1,1
+2023/24,UECL,Knockout round play-offs,96,100,Olympiakos Piraeus,Ferencváros,1,0
+2023/24,UECL,Knockout round play-offs,100,96,Ferencváros,Olympiakos Piraeus,0,1
+2023/24,UECL,Knockout round play-offs,154,166,Ajax,Bodø/Glimt,2,2
+2023/24,UECL,Knockout round play-offs,166,154,Bodø/Glimt,Ajax,1,2
+2023/24,UECL,Knockout round play-offs,167,171,Molde FK,Legia Warsaw,3,2
+2023/24,UECL,Knockout round play-offs,171,167,Legia Warsaw,Molde FK,0,3
+2023/24,UECL,Knockout round play-offs,112,25,Maccabi Haifa,AA Gent,1,0
+2023/24,UECL,Knockout round play-offs,25,112,AA Gent,Maccabi Haifa,1,1
+2023/24,UECL,Round of 16,220,49,Servette FC Genève,Viktoria Plzen,0,0
+2023/24,UECL,Round of 16,49,220,Viktoria Plzen,Servette FC Genève,0,0
+2023/24,UECL,Round of 16,154,55,Ajax,Aston Villa,0,0
+2023/24,UECL,Round of 16,55,154,Aston Villa,Ajax,4,0
+2023/24,UECL,Round of 16,167,26,Molde FK,Club Brugge,2,1
+2023/24,UECL,Round of 16,26,167,Club Brugge,Molde FK,3,0
+2023/24,UECL,Round of 16,29,224,Union Saint-Gilloise,Fenerbahçe,0,3
+2023/24,UECL,Round of 16,224,29,Fenerbahçe,Union Saint-Gilloise,0,1
+2023/24,UECL,Round of 16,38,97,Dinamo Zagreb,PAOK Thessaloniki,2,0
+2023/24,UECL,Round of 16,97,38,PAOK Thessaloniki,Dinamo Zagreb,5,1
+2023/24,UECL,Round of 16,16,74,Sturm Graz,Lille OSC,0,3
+2023/24,UECL,Round of 16,74,16,Lille OSC,Sturm Graz,1,1
+2023/24,UECL,Round of 16,112,117,Maccabi Haifa,Fiorentina,3,4
+2023/24,UECL,Round of 16,117,112,Fiorentina,Maccabi Haifa,1,1
+2023/24,UECL,Round of 16,96,113,Olympiakos Piraeus,Maccabi Tel-Aviv,1,4
+2023/24,UECL,Round of 16,113,96,Maccabi Tel-Aviv,Olympiakos Piraeus,1,6
+2023/24,UECL,Quarter Finals,26,97,Club Brugge,PAOK Thessaloniki,1,0
+2023/24,UECL,Quarter Finals,97,26,PAOK Thessaloniki,Club Brugge,0,2
+2023/24,UECL,Quarter Finals,96,224,Olympiakos Piraeus,Fenerbahçe,3,2
+2023/24,UECL,Quarter Finals,224,96,Fenerbahçe,Olympiakos Piraeus,1,0
+2023/24,UECL,Quarter Finals,55,74,Aston Villa,Lille OSC,2,1
+2023/24,UECL,Quarter Finals,74,55,Lille OSC,Aston Villa,2,1
+2023/24,UECL,Quarter Finals,49,117,Viktoria Plzen,Fiorentina,0,0
+2023/24,UECL,Quarter Finals,117,49,Fiorentina,Viktoria Plzen,2,0
+2023/24,UECL,Semi Finals,55,96,Aston Villa,Olympiakos Piraeus,2,4
+2023/24,UECL,Semi Finals,96,55,Olympiakos Piraeus,Aston Villa,2,0
+2023/24,UECL,Semi Finals,117,26,Fiorentina,Club Brugge,3,2
+2023/24,UECL,Semi Finals,26,117,Club Brugge,Fiorentina,1,1
+2023/24,UECL,Final,96,117,Olympiakos Piraeus,Fiorentina,1,0

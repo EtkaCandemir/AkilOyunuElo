@@ -1,0 +1,962 @@
+season,competition,round,home_team_id,away_team_id,home_team_name,away_team_name,home_goals,away_goals
+2025/26,UCL,1st Qualifying Round,140,147,Zalgiris Vilnius,Hamrun Spartans,2,0
+2025/26,UCL,1st Qualifying Round,147,140,Hamrun Spartans,Zalgiris Vilnius,2,0
+2025/26,UCL,1st Qualifying Round,74,149,KuPS Kuopio,Milsami Orhei,1,0
+2025/26,UCL,1st Qualifying Round,149,74,Milsami Orhei,KuPS Kuopio,0,0
+2025/26,UCL,1st Qualifying Round,236,163,The New Saints,Shkendija Tetovo,0,0
+2025/26,UCL,1st Qualifying Round,163,236,Shkendija Tetovo,The New Saints,2,1
+2025/26,UCL,1st Qualifying Round,84,219,Iberia 1999,Malmö FF,1,3
+2025/26,UCL,1st Qualifying Round,219,84,Malmö FF,Iberia 1999,3,1
+2025/26,UCL,1st Qualifying Round,66,134,Levadia Tallinn,RFS Riga,0,1
+2025/26,UCL,1st Qualifying Round,134,66,RFS Riga,Levadia Tallinn,1,0
+2025/26,UCL,1st Qualifying Round,129,141,FC Drita,Differdange 03,1,0
+2025/26,UCL,1st Qualifying Round,141,129,Differdange 03,FC Drita,2,3
+2025/26,UCL,1st Qualifying Round,71,95,Víkingur,Lincoln Red Imps,2,3
+2025/26,UCL,1st Qualifying Round,95,71,Lincoln Red Imps,Víkingur,1,0
+2025/26,UCL,1st Qualifying Round,2,106,Egnatia Rrogozhinë,Breidablik,1,0
+2025/26,UCL,1st Qualifying Round,106,2,Breidablik,Egnatia Rrogozhinë,5,0
+2025/26,UCL,1st Qualifying Round,111,169,Shelbourne,Linfield Belfast,1,0
+2025/26,UCL,1st Qualifying Round,169,111,Linfield Belfast,Shelbourne,1,1
+2025/26,UCL,1st Qualifying Round,185,7,FCSB,Inter Club d'Escaldes,3,1
+2025/26,UCL,1st Qualifying Round,7,185,Inter Club d'Escaldes,FCSB,2,1
+2025/26,UCL,1st Qualifying Round,188,33,AC Virtus,Zrinjski Mostar,0,2
+2025/26,UCL,1st Qualifying Round,33,188,Zrinjski Mostar,AC Virtus,2,1
+2025/26,UCL,1st Qualifying Round,207,126,Olimpija Ljubljana,Kairat Almaty,1,1
+2025/26,UCL,1st Qualifying Round,126,207,Kairat Almaty,Olimpija Ljubljana,2,0
+2025/26,UCL,1st Qualifying Round,9,153,FC Noah,Buducnost Podgorica,1,0
+2025/26,UCL,1st Qualifying Round,153,9,Buducnost Podgorica,FC Noah,2,2
+2025/26,UCL,1st Qualifying Round,37,21,Ludogorets Razgrad,Dinamo Minsk,1,0
+2025/26,UCL,1st Qualifying Round,21,37,Dinamo Minsk,Ludogorets Razgrad,2,2
+2025/26,UCL,2nd Qualifying Round,134,219,RFS Riga,Malmö FF,1,4
+2025/26,UCL,2nd Qualifying Round,219,134,Malmö FF,RFS Riga,1,0
+2025/26,UCL,2nd Qualifying Round,147,230,Hamrun Spartans,Dynamo Kyiv,0,3
+2025/26,UCL,2nd Qualifying Round,230,147,Dynamo Kyiv,Hamrun Spartans,3,0
+2025/26,UCL,2nd Qualifying Round,45,116,Pafos FC,Maccabi Tel-Aviv,1,1
+2025/26,UCL,2nd Qualifying Round,116,45,Maccabi Tel-Aviv,Pafos FC,0,1
+2025/26,UCL,2nd Qualifying Round,95,199,Lincoln Red Imps,Red Star Belgrade,0,1
+2025/26,UCL,2nd Qualifying Round,199,95,Red Star Belgrade,Lincoln Red Imps,5,1
+2025/26,UCL,2nd Qualifying Round,9,103,FC Noah,Ferencváros,1,2
+2025/26,UCL,2nd Qualifying Round,103,9,Ferencváros,FC Noah,4,3
+2025/26,UCL,2nd Qualifying Round,176,106,Lech Poznan,Breidablik,7,1
+2025/26,UCL,2nd Qualifying Round,106,176,Breidablik,Lech Poznan,0,1
+2025/26,UCL,2nd Qualifying Round,52,129,FC København,FC Drita,2,0
+2025/26,UCL,2nd Qualifying Round,129,52,FC Drita,FC København,0,1
+2025/26,UCL,2nd Qualifying Round,40,37,NK Rijeka,Ludogorets Razgrad,0,0
+2025/26,UCL,2nd Qualifying Round,37,40,Ludogorets Razgrad,NK Rijeka,3,1
+2025/26,UCL,2nd Qualifying Round,163,185,Shkendija Tetovo,FCSB,1,0
+2025/26,UCL,2nd Qualifying Round,185,163,FCSB,Shkendija Tetovo,1,2
+2025/26,UCL,2nd Qualifying Round,202,33,Slovan Bratislava,Zrinjski Mostar,4,0
+2025/26,UCL,2nd Qualifying Round,33,202,Zrinjski Mostar,Slovan Bratislava,2,2
+2025/26,UCL,2nd Qualifying Round,111,18,Shelbourne,Qarabag FK,0,3
+2025/26,UCL,2nd Qualifying Round,18,111,Qarabag FK,Shelbourne,1,0
+2025/26,UCL,2nd Qualifying Round,74,126,KuPS Kuopio,Kairat Almaty,2,0
+2025/26,UCL,2nd Qualifying Round,126,74,Kairat Almaty,KuPS Kuopio,3,0
+2025/26,UCL,2nd Qualifying Round,173,13,SK Brann Bergen,FC Salzburg,1,4
+2025/26,UCL,2nd Qualifying Round,13,173,FC Salzburg,SK Brann Bergen,1,1
+2025/26,UCL,2nd Qualifying Round,50,223,Viktoria Plzen,Servette FC Genève,0,1
+2025/26,UCL,2nd Qualifying Round,223,50,Servette FC Genève,Viktoria Plzen,1,3
+2025/26,UCL,2nd Qualifying Round,194,101,Glasgow Rangers,Panathinaikos,2,0
+2025/26,UCL,2nd Qualifying Round,101,194,Panathinaikos,Glasgow Rangers,1,1
+2025/26,UCL,3rd Qualifying Round,219,52,Malmö FF,FC København,0,0
+2025/26,UCL,3rd Qualifying Round,52,219,FC København,Malmö FF,5,0
+2025/26,UCL,3rd Qualifying Round,126,202,Kairat Almaty,Slovan Bratislava,1,0
+2025/26,UCL,3rd Qualifying Round,202,126,Slovan Bratislava,Kairat Almaty,1,0
+2025/26,UCL,3rd Qualifying Round,176,199,Lech Poznan,Red Star Belgrade,1,3
+2025/26,UCL,3rd Qualifying Round,199,176,Red Star Belgrade,Lech Poznan,1,1
+2025/26,UCL,3rd Qualifying Round,37,103,Ludogorets Razgrad,Ferencváros,0,0
+2025/26,UCL,3rd Qualifying Round,103,37,Ferencváros,Ludogorets Razgrad,3,0
+2025/26,UCL,3rd Qualifying Round,230,45,Dynamo Kyiv,Pafos FC,0,1
+2025/26,UCL,3rd Qualifying Round,45,230,Pafos FC,Dynamo Kyiv,2,0
+2025/26,UCL,3rd Qualifying Round,163,18,Shkendija Tetovo,Qarabag FK,0,1
+2025/26,UCL,3rd Qualifying Round,18,163,Qarabag FK,Shkendija Tetovo,5,1
+2025/26,UCL,3rd Qualifying Round,13,27,FC Salzburg,Club Brugge,0,1
+2025/26,UCL,3rd Qualifying Round,27,13,Club Brugge,FC Salzburg,3,2
+2025/26,UCL,3rd Qualifying Round,194,50,Glasgow Rangers,Viktoria Plzen,3,0
+2025/26,UCL,3rd Qualifying Round,50,194,Viktoria Plzen,Glasgow Rangers,2,1
+2025/26,UCL,3rd Qualifying Round,78,179,OGC Nice,Benfica,0,2
+2025/26,UCL,3rd Qualifying Round,179,78,Benfica,OGC Nice,2,0
+2025/26,UCL,3rd Qualifying Round,159,226,Feyenoord,Fenerbahçe,2,1
+2025/26,UCL,3rd Qualifying Round,226,159,Fenerbahçe,Feyenoord,5,2
+2025/26,UCL,Qualifying Play-off Round,103,18,Ferencváros,Qarabag FK,1,3
+2025/26,UCL,Qualifying Play-off Round,18,103,Qarabag FK,Ferencváros,2,3
+2025/26,UCL,Qualifying Play-off Round,199,45,Red Star Belgrade,Pafos FC,1,2
+2025/26,UCL,Qualifying Play-off Round,45,199,Pafos FC,Red Star Belgrade,1,1
+2025/26,UCL,Qualifying Play-off Round,170,15,Bodø/Glimt,Sturm Graz,5,0
+2025/26,UCL,Qualifying Play-off Round,15,170,Sturm Graz,Bodø/Glimt,2,1
+2025/26,UCL,Qualifying Play-off Round,192,126,Celtic,Kairat Almaty,0,0
+2025/26,UCL,Qualifying Play-off Round,126,192,Kairat Almaty,Celtic,0,0
+2025/26,UCL,Qualifying Play-off Round,220,52,FC Basel,FC København,1,1
+2025/26,UCL,Qualifying Play-off Round,52,220,FC København,FC Basel,2,0
+2025/26,UCL,Qualifying Play-off Round,226,179,Fenerbahçe,Benfica,0,0
+2025/26,UCL,Qualifying Play-off Round,179,226,Benfica,Fenerbahçe,1,0
+2025/26,UCL,Qualifying Play-off Round,194,27,Glasgow Rangers,Club Brugge,1,3
+2025/26,UCL,Qualifying Play-off Round,27,194,Club Brugge,Glasgow Rangers,6,0
+2025/26,UCL,League Stage,208,55,Athletic Bilbao,Arsenal,0,2
+2025/26,UCL,League Stage,161,29,PSV Eindhoven,Union Saint-Gilloise,1,3
+2025/26,UCL,League Stage,122,89,Juventus,Borussia Dortmund,4,4
+2025/26,UCL,League Stage,214,80,Real Madrid,Olympique Marseille,2,1
+2025/26,UCL,League Stage,179,18,Benfica,Qarabag FK,2,3
+2025/26,UCL,League Stage,63,215,Tottenham Hotspur,Villarreal,1,0
+2025/26,UCL,League Stage,99,45,Olympiakos Piraeus,Pafos FC,0,0
+2025/26,UCL,League Stage,48,170,Slavia Praha,Bodø/Glimt,2,2
+2025/26,UCL,League Stage,157,121,Ajax,Internazionale,0,2
+2025/26,UCL,League Stage,88,57,Bayern München,Chelsea,3,1
+2025/26,UCL,League Stage,59,209,Liverpool,Atlético Madrid,3,2
+2025/26,UCL,League Stage,81,118,Paris Saint-Germain,Atalanta,4,0
+2025/26,UCL,League Stage,27,76,Club Brugge,AS Monaco,4,1
+2025/26,UCL,League Stage,52,87,FC København,Bayer Leverkusen,2,2
+2025/26,UCL,League Stage,90,227,Eintracht Frankfurt,Galatasaray,5,1
+2025/26,UCL,League Stage,60,123,Manchester City,Napoli,2,0
+2025/26,UCL,League Stage,61,211,Newcastle United,FC Barcelona,1,2
+2025/26,UCL,League Stage,183,126,Sporting CP Lisbon,Kairat Almaty,4,1
+2025/26,UCL,League Stage,118,27,Atalanta,Club Brugge,2,1
+2025/26,UCL,League Stage,126,214,Kairat Almaty,Real Madrid,0,5
+2025/26,UCL,League Stage,209,90,Atlético Madrid,Eintracht Frankfurt,5,1
+2025/26,UCL,League Stage,57,179,Chelsea,Benfica,1,0
+2025/26,UCL,League Stage,121,48,Internazionale,Slavia Praha,3,0
+2025/26,UCL,League Stage,170,63,Bodø/Glimt,Tottenham Hotspur,2,2
+2025/26,UCL,League Stage,227,59,Galatasaray,Liverpool,1,0
+2025/26,UCL,League Stage,80,157,Olympique Marseille,Ajax,4,0
+2025/26,UCL,League Stage,45,88,Pafos FC,Bayern München,1,5
+2025/26,UCL,League Stage,18,52,Qarabag FK,FC København,2,0
+2025/26,UCL,League Stage,29,61,Union Saint-Gilloise,Newcastle United,0,4
+2025/26,UCL,League Stage,55,99,Arsenal,Olympiakos Piraeus,2,0
+2025/26,UCL,League Stage,76,60,AS Monaco,Manchester City,2,2
+2025/26,UCL,League Stage,87,161,Bayer Leverkusen,PSV Eindhoven,1,1
+2025/26,UCL,League Stage,89,208,Borussia Dortmund,Athletic Bilbao,4,1
+2025/26,UCL,League Stage,211,81,FC Barcelona,Paris Saint-Germain,1,2
+2025/26,UCL,League Stage,123,183,Napoli,Sporting CP Lisbon,2,1
+2025/26,UCL,League Stage,215,122,Villarreal,Juventus,2,2
+2025/26,UCL,League Stage,211,99,FC Barcelona,Olympiakos Piraeus,6,1
+2025/26,UCL,League Stage,126,45,Kairat Almaty,Pafos FC,0,0
+2025/26,UCL,League Stage,55,209,Arsenal,Atlético Madrid,4,0
+2025/26,UCL,League Stage,87,81,Bayer Leverkusen,Paris Saint-Germain,2,7
+2025/26,UCL,League Stage,52,89,FC København,Borussia Dortmund,2,4
+2025/26,UCL,League Stage,61,179,Newcastle United,Benfica,3,0
+2025/26,UCL,League Stage,161,123,PSV Eindhoven,Napoli,6,2
+2025/26,UCL,League Stage,29,121,Union Saint-Gilloise,Internazionale,0,4
+2025/26,UCL,League Stage,215,60,Villarreal,Manchester City,0,2
+2025/26,UCL,League Stage,208,18,Athletic Bilbao,Qarabag FK,3,1
+2025/26,UCL,League Stage,227,170,Galatasaray,Bodø/Glimt,3,1
+2025/26,UCL,League Stage,76,63,AS Monaco,Tottenham Hotspur,0,0
+2025/26,UCL,League Stage,118,48,Atalanta,Slavia Praha,0,0
+2025/26,UCL,League Stage,57,157,Chelsea,Ajax,5,1
+2025/26,UCL,League Stage,90,59,Eintracht Frankfurt,Liverpool,1,5
+2025/26,UCL,League Stage,88,27,Bayern München,Club Brugge,4,0
+2025/26,UCL,League Stage,214,122,Real Madrid,Juventus,1,0
+2025/26,UCL,League Stage,183,80,Sporting CP Lisbon,Olympique Marseille,2,1
+2025/26,UCL,League Stage,48,55,Slavia Praha,Arsenal,0,3
+2025/26,UCL,League Stage,123,90,Napoli,Eintracht Frankfurt,0,0
+2025/26,UCL,League Stage,209,29,Atlético Madrid,Union Saint-Gilloise,3,1
+2025/26,UCL,League Stage,170,76,Bodø/Glimt,AS Monaco,0,1
+2025/26,UCL,League Stage,122,183,Juventus,Sporting CP Lisbon,1,1
+2025/26,UCL,League Stage,59,214,Liverpool,Real Madrid,1,0
+2025/26,UCL,League Stage,99,161,Olympiakos Piraeus,PSV Eindhoven,1,1
+2025/26,UCL,League Stage,81,88,Paris Saint-Germain,Bayern München,1,2
+2025/26,UCL,League Stage,63,52,Tottenham Hotspur,FC København,4,0
+2025/26,UCL,League Stage,45,215,Pafos FC,Villarreal,1,0
+2025/26,UCL,League Stage,18,57,Qarabag FK,Chelsea,2,2
+2025/26,UCL,League Stage,157,227,Ajax,Galatasaray,0,3
+2025/26,UCL,League Stage,27,211,Club Brugge,FC Barcelona,3,3
+2025/26,UCL,League Stage,121,126,Internazionale,Kairat Almaty,2,1
+2025/26,UCL,League Stage,60,89,Manchester City,Borussia Dortmund,4,1
+2025/26,UCL,League Stage,61,208,Newcastle United,Athletic Bilbao,2,0
+2025/26,UCL,League Stage,80,118,Olympique Marseille,Atalanta,0,1
+2025/26,UCL,League Stage,179,87,Benfica,Bayer Leverkusen,0,1
+2025/26,UCL,League Stage,157,179,Ajax,Benfica,0,2
+2025/26,UCL,League Stage,227,29,Galatasaray,Union Saint-Gilloise,0,1
+2025/26,UCL,League Stage,89,215,Borussia Dortmund,Villarreal,4,0
+2025/26,UCL,League Stage,57,211,Chelsea,FC Barcelona,3,0
+2025/26,UCL,League Stage,170,122,Bodø/Glimt,Juventus,2,3
+2025/26,UCL,League Stage,60,87,Manchester City,Bayer Leverkusen,0,2
+2025/26,UCL,League Stage,80,61,Olympique Marseille,Newcastle United,2,1
+2025/26,UCL,League Stage,48,208,Slavia Praha,Athletic Bilbao,0,0
+2025/26,UCL,League Stage,123,18,Napoli,Qarabag FK,2,0
+2025/26,UCL,League Stage,52,126,FC København,Kairat Almaty,3,2
+2025/26,UCL,League Stage,45,76,Pafos FC,AS Monaco,2,2
+2025/26,UCL,League Stage,55,88,Arsenal,Bayern München,3,1
+2025/26,UCL,League Stage,209,121,Atlético Madrid,Internazionale,2,1
+2025/26,UCL,League Stage,90,118,Eintracht Frankfurt,Atalanta,0,3
+2025/26,UCL,League Stage,59,161,Liverpool,PSV Eindhoven,1,4
+2025/26,UCL,League Stage,99,214,Olympiakos Piraeus,Real Madrid,3,4
+2025/26,UCL,League Stage,81,63,Paris Saint-Germain,Tottenham Hotspur,5,3
+2025/26,UCL,League Stage,183,27,Sporting CP Lisbon,Club Brugge,3,0
+2025/26,UCL,League Stage,126,99,Kairat Almaty,Olympiakos Piraeus,0,1
+2025/26,UCL,League Stage,88,183,Bayern München,Sporting CP Lisbon,3,1
+2025/26,UCL,League Stage,76,227,AS Monaco,Galatasaray,1,0
+2025/26,UCL,League Stage,118,57,Atalanta,Chelsea,2,1
+2025/26,UCL,League Stage,211,90,FC Barcelona,Eintracht Frankfurt,2,1
+2025/26,UCL,League Stage,121,59,Internazionale,Liverpool,0,1
+2025/26,UCL,League Stage,161,209,PSV Eindhoven,Atlético Madrid,2,3
+2025/26,UCL,League Stage,29,80,Union Saint-Gilloise,Olympique Marseille,2,3
+2025/26,UCL,League Stage,63,48,Tottenham Hotspur,Slavia Praha,3,0
+2025/26,UCL,League Stage,18,157,Qarabag FK,Ajax,2,4
+2025/26,UCL,League Stage,215,52,Villarreal,FC København,2,3
+2025/26,UCL,League Stage,208,81,Athletic Bilbao,Paris Saint-Germain,0,0
+2025/26,UCL,League Stage,87,61,Bayer Leverkusen,Newcastle United,2,2
+2025/26,UCL,League Stage,89,170,Borussia Dortmund,Bodø/Glimt,2,2
+2025/26,UCL,League Stage,27,55,Club Brugge,Arsenal,0,3
+2025/26,UCL,League Stage,122,45,Juventus,Pafos FC,2,0
+2025/26,UCL,League Stage,214,60,Real Madrid,Manchester City,1,2
+2025/26,UCL,League Stage,179,123,Benfica,Napoli,2,0
+2025/26,UCL,League Stage,126,27,Kairat Almaty,Club Brugge,1,4
+2025/26,UCL,League Stage,170,60,Bodø/Glimt,Manchester City,3,1
+2025/26,UCL,League Stage,52,123,FC København,Napoli,1,1
+2025/26,UCL,League Stage,121,55,Internazionale,Arsenal,1,3
+2025/26,UCL,League Stage,99,87,Olympiakos Piraeus,Bayer Leverkusen,2,0
+2025/26,UCL,League Stage,214,76,Real Madrid,AS Monaco,6,1
+2025/26,UCL,League Stage,183,81,Sporting CP Lisbon,Paris Saint-Germain,2,1
+2025/26,UCL,League Stage,63,89,Tottenham Hotspur,Borussia Dortmund,2,0
+2025/26,UCL,League Stage,215,157,Villarreal,Ajax,1,2
+2025/26,UCL,League Stage,227,209,Galatasaray,Atlético Madrid,1,1
+2025/26,UCL,League Stage,18,90,Qarabag FK,Eintracht Frankfurt,3,2
+2025/26,UCL,League Stage,118,208,Atalanta,Athletic Bilbao,2,3
+2025/26,UCL,League Stage,57,45,Chelsea,Pafos FC,1,0
+2025/26,UCL,League Stage,88,29,Bayern München,Union Saint-Gilloise,2,0
+2025/26,UCL,League Stage,122,179,Juventus,Benfica,2,0
+2025/26,UCL,League Stage,61,161,Newcastle United,PSV Eindhoven,3,0
+2025/26,UCL,League Stage,80,59,Olympique Marseille,Liverpool,0,3
+2025/26,UCL,League Stage,48,211,Slavia Praha,FC Barcelona,2,4
+2025/26,UCL,League Stage,157,99,Ajax,Olympiakos Piraeus,1,2
+2025/26,UCL,League Stage,55,126,Arsenal,Kairat Almaty,3,2
+2025/26,UCL,League Stage,76,122,AS Monaco,Juventus,0,0
+2025/26,UCL,League Stage,208,183,Athletic Bilbao,Sporting CP Lisbon,2,3
+2025/26,UCL,League Stage,209,170,Atlético Madrid,Bodø/Glimt,1,2
+2025/26,UCL,League Stage,87,215,Bayer Leverkusen,Villarreal,3,0
+2025/26,UCL,League Stage,89,121,Borussia Dortmund,Internazionale,0,2
+2025/26,UCL,League Stage,27,80,Club Brugge,Olympique Marseille,3,0
+2025/26,UCL,League Stage,90,63,Eintracht Frankfurt,Tottenham Hotspur,0,2
+2025/26,UCL,League Stage,211,52,FC Barcelona,FC København,4,1
+2025/26,UCL,League Stage,59,18,Liverpool,Qarabag FK,6,0
+2025/26,UCL,League Stage,60,227,Manchester City,Galatasaray,2,0
+2025/26,UCL,League Stage,45,48,Pafos FC,Slavia Praha,4,1
+2025/26,UCL,League Stage,81,61,Paris Saint-Germain,Newcastle United,1,1
+2025/26,UCL,League Stage,161,88,PSV Eindhoven,Bayern München,1,2
+2025/26,UCL,League Stage,29,118,Union Saint-Gilloise,Atalanta,1,0
+2025/26,UCL,League Stage,179,214,Benfica,Real Madrid,4,2
+2025/26,UCL,League Stage,123,57,Napoli,Chelsea,2,3
+2025/26,UCL,Knockout round play-offs,76,81,AS Monaco,Paris Saint-Germain,2,3
+2025/26,UCL,Knockout round play-offs,81,76,Paris Saint-Germain,AS Monaco,2,2
+2025/26,UCL,Knockout round play-offs,227,122,Galatasaray,Juventus,5,2
+2025/26,UCL,Knockout round play-offs,122,227,Juventus,Galatasaray,3,2
+2025/26,UCL,Knockout round play-offs,179,214,Benfica,Real Madrid,0,1
+2025/26,UCL,Knockout round play-offs,214,179,Real Madrid,Benfica,2,1
+2025/26,UCL,Knockout round play-offs,89,118,Borussia Dortmund,Atalanta,2,0
+2025/26,UCL,Knockout round play-offs,118,89,Atalanta,Borussia Dortmund,4,1
+2025/26,UCL,Knockout round play-offs,18,61,Qarabag FK,Newcastle United,1,6
+2025/26,UCL,Knockout round play-offs,61,18,Newcastle United,Qarabag FK,3,2
+2025/26,UCL,Knockout round play-offs,27,209,Club Brugge,Atlético Madrid,3,3
+2025/26,UCL,Knockout round play-offs,209,27,Atlético Madrid,Club Brugge,4,1
+2025/26,UCL,Knockout round play-offs,170,121,Bodø/Glimt,Internazionale,3,1
+2025/26,UCL,Knockout round play-offs,121,170,Internazionale,Bodø/Glimt,1,2
+2025/26,UCL,Knockout round play-offs,99,87,Olympiakos Piraeus,Bayer Leverkusen,0,2
+2025/26,UCL,Knockout round play-offs,87,99,Bayer Leverkusen,Olympiakos Piraeus,0,0
+2025/26,UCL,Round of 16,81,57,Paris Saint-Germain,Chelsea,5,2
+2025/26,UCL,Round of 16,57,81,Chelsea,Paris Saint-Germain,0,3
+2025/26,UCL,Round of 16,227,59,Galatasaray,Liverpool,1,0
+2025/26,UCL,Round of 16,59,227,Liverpool,Galatasaray,4,0
+2025/26,UCL,Round of 16,214,60,Real Madrid,Manchester City,3,0
+2025/26,UCL,Round of 16,60,214,Manchester City,Real Madrid,1,2
+2025/26,UCL,Round of 16,118,88,Atalanta,Bayern München,1,6
+2025/26,UCL,Round of 16,88,118,Bayern München,Atalanta,4,1
+2025/26,UCL,Round of 16,61,211,Newcastle United,FC Barcelona,1,1
+2025/26,UCL,Round of 16,211,61,FC Barcelona,Newcastle United,7,2
+2025/26,UCL,Round of 16,209,63,Atlético Madrid,Tottenham Hotspur,5,2
+2025/26,UCL,Round of 16,63,209,Tottenham Hotspur,Atlético Madrid,3,2
+2025/26,UCL,Round of 16,170,183,Bodø/Glimt,Sporting CP Lisbon,3,0
+2025/26,UCL,Round of 16,183,170,Sporting CP Lisbon,Bodø/Glimt,5,0
+2025/26,UCL,Round of 16,87,55,Bayer Leverkusen,Arsenal,1,1
+2025/26,UCL,Round of 16,55,87,Arsenal,Bayer Leverkusen,2,0
+2025/26,UCL,Quarter Finals,81,59,Paris Saint-Germain,Liverpool,2,0
+2025/26,UCL,Quarter Finals,59,81,Liverpool,Paris Saint-Germain,0,2
+2025/26,UCL,Quarter Finals,214,88,Real Madrid,Bayern München,1,2
+2025/26,UCL,Quarter Finals,88,214,Bayern München,Real Madrid,4,3
+2025/26,UCL,Quarter Finals,211,209,FC Barcelona,Atlético Madrid,0,2
+2025/26,UCL,Quarter Finals,209,211,Atlético Madrid,FC Barcelona,1,2
+2025/26,UCL,Quarter Finals,183,55,Sporting CP Lisbon,Arsenal,0,1
+2025/26,UCL,Quarter Finals,55,183,Arsenal,Sporting CP Lisbon,0,0
+2025/26,UCL,Semi Finals,81,88,Paris Saint-Germain,Bayern München,5,4
+2025/26,UCL,Semi Finals,88,81,Bayern München,Paris Saint-Germain,1,1
+2025/26,UCL,Semi Finals,209,55,Atlético Madrid,Arsenal,1,1
+2025/26,UCL,Semi Finals,55,209,Arsenal,Atlético Madrid,1,0
+2025/26,UCL,Final,81,55,Paris Saint-Germain,Arsenal,1,1
+2025/26,UEL,1st Qualifying Round,233,73,Shakhtar Donetsk,Ilves Tampere,6,0
+2025/26,UEL,1st Qualifying Round,73,233,Ilves Tampere,Shakhtar Donetsk,0,0
+2025/26,UEL,1st Qualifying Round,151,130,Sheriff Tiraspol,FC Prishtina,4,0
+2025/26,UEL,1st Qualifying Round,130,151,FC Prishtina,Sheriff Tiraspol,2,1
+2025/26,UEL,1st Qualifying Round,203,217,Spartak Trnava,BK Häcken,0,1
+2025/26,UEL,1st Qualifying Round,217,203,BK Häcken,Spartak Trnava,2,2
+2025/26,UEL,1st Qualifying Round,19,204,Sabah FK,NK Celje,2,3
+2025/26,UEL,1st Qualifying Round,204,19,NK Celje,Sabah FK,3,3
+2025/26,UEL,1st Qualifying Round,177,124,Legia Warsaw,FK Aktobe,1,0
+2025/26,UEL,1st Qualifying Round,124,177,FK Aktobe,Legia Warsaw,0,1
+2025/26,UEL,1st Qualifying Round,36,114,Levski Sofia,Hapoel Beer-Sheva,0,0
+2025/26,UEL,1st Qualifying Round,114,36,Hapoel Beer-Sheva,Levski Sofia,1,1
+2025/26,UEL,1st Qualifying Round,42,197,AEK Larnaca,Partizan Belgrade,1,0
+2025/26,UEL,1st Qualifying Round,197,42,Partizan Belgrade,AEK Larnaca,2,1
+2025/26,UEL,1st Qualifying Round,104,184,Paksi FC,CFR Cluj,0,0
+2025/26,UEL,1st Qualifying Round,184,104,CFR Cluj,Paksi FC,3,0
+2025/26,UEL,2nd Qualifying Round,221,184,FC Lugano,CFR Cluj,0,0
+2025/26,UEL,2nd Qualifying Round,184,221,CFR Cluj,FC Lugano,1,0
+2025/26,UEL,2nd Qualifying Round,204,42,NK Celje,AEK Larnaca,1,1
+2025/26,UEL,2nd Qualifying Round,42,204,AEK Larnaca,NK Celje,2,1
+2025/26,UEL,2nd Qualifying Round,36,182,Levski Sofia,Sporting Braga,0,0
+2025/26,UEL,2nd Qualifying Round,182,36,Sporting Braga,Levski Sofia,1,0
+2025/26,UEL,2nd Qualifying Round,46,177,Baník Ostrava,Legia Warsaw,2,2
+2025/26,UEL,2nd Qualifying Round,177,46,Legia Warsaw,Baník Ostrava,2,1
+2025/26,UEL,2nd Qualifying Round,25,217,Anderlecht,BK Häcken,1,0
+2025/26,UEL,2nd Qualifying Round,217,25,BK Häcken,Anderlecht,2,1
+2025/26,UEL,2nd Qualifying Round,151,158,Sheriff Tiraspol,FC Utrecht,1,3
+2025/26,UEL,2nd Qualifying Round,158,151,FC Utrecht,Sheriff Tiraspol,4,1
+2025/26,UEL,2nd Qualifying Round,53,195,FC Midtjylland,Hibernian,1,1
+2025/26,UEL,2nd Qualifying Round,195,53,Hibernian,FC Midtjylland,1,2
+2025/26,UEL,2nd Qualifying Round,225,233,Besiktas,Shakhtar Donetsk,2,4
+2025/26,UEL,2nd Qualifying Round,233,225,Shakhtar Donetsk,Besiktas,2,0
+2025/26,UEL,3rd Qualifying Round,42,177,AEK Larnaca,Legia Warsaw,4,1
+2025/26,UEL,3rd Qualifying Round,177,42,Legia Warsaw,AEK Larnaca,2,1
+2025/26,UEL,3rd Qualifying Round,171,53,Fredrikstad FK,FC Midtjylland,1,3
+2025/26,UEL,3rd Qualifying Round,53,171,FC Midtjylland,Fredrikstad FK,2,0
+2025/26,UEL,3rd Qualifying Round,184,182,CFR Cluj,Sporting Braga,1,2
+2025/26,UEL,3rd Qualifying Round,182,184,Sporting Braga,CFR Cluj,2,0
+2025/26,UEL,3rd Qualifying Round,100,16,PAOK Thessaloniki,Wolfsberger AC,0,0
+2025/26,UEL,3rd Qualifying Round,16,100,Wolfsberger AC,PAOK Thessaloniki,0,1
+2025/26,UEL,3rd Qualifying Round,223,158,Servette FC Genève,FC Utrecht,1,3
+2025/26,UEL,3rd Qualifying Round,158,223,FC Utrecht,Servette FC Genève,2,1
+2025/26,UEL,3rd Qualifying Round,217,173,BK Häcken,SK Brann Bergen,0,2
+2025/26,UEL,3rd Qualifying Round,173,217,SK Brann Bergen,BK Häcken,0,1
+2025/26,UEL,3rd Qualifying Round,101,233,Panathinaikos,Shakhtar Donetsk,0,0
+2025/26,UEL,3rd Qualifying Round,233,101,Shakhtar Donetsk,Panathinaikos,0,0
+2025/26,UEL,3rd Qualifying Round,95,9,Lincoln Red Imps,FC Noah,1,1
+2025/26,UEL,3rd Qualifying Round,9,95,FC Noah,Lincoln Red Imps,0,0
+2025/26,UEL,3rd Qualifying Round,40,111,NK Rijeka,Shelbourne,1,2
+2025/26,UEL,3rd Qualifying Round,111,40,Shelbourne,NK Rijeka,1,3
+2025/26,UEL,3rd Qualifying Round,134,74,RFS Riga,KuPS Kuopio,1,2
+2025/26,UEL,3rd Qualifying Round,74,134,KuPS Kuopio,RFS Riga,1,0
+2025/26,UEL,3rd Qualifying Round,147,116,Hamrun Spartans,Maccabi Tel-Aviv,1,2
+2025/26,UEL,3rd Qualifying Round,116,147,Maccabi Tel-Aviv,Hamrun Spartans,3,1
+2025/26,UEL,3rd Qualifying Round,33,106,Zrinjski Mostar,Breidablik,1,1
+2025/26,UEL,3rd Qualifying Round,106,33,Breidablik,Zrinjski Mostar,1,2
+2025/26,UEL,3rd Qualifying Round,185,129,FCSB,FC Drita,3,2
+2025/26,UEL,3rd Qualifying Round,129,185,FC Drita,FCSB,1,3
+2025/26,UEL,Qualifying Play-off Round,116,230,Maccabi Tel-Aviv,Dynamo Kyiv,3,1
+2025/26,UEL,Qualifying Play-off Round,230,116,Dynamo Kyiv,Maccabi Tel-Aviv,1,0
+2025/26,UEL,Qualifying Play-off Round,163,37,Shkendija Tetovo,Ludogorets Razgrad,2,1
+2025/26,UEL,Qualifying Play-off Round,37,163,Ludogorets Razgrad,Shkendija Tetovo,4,1
+2025/26,UEL,Qualifying Play-off Round,202,224,Slovan Bratislava,Young Boys,0,1
+2025/26,UEL,Qualifying Play-off Round,224,202,Young Boys,Slovan Bratislava,3,2
+2025/26,UEL,Qualifying Play-off Round,219,47,Malmö FF,Sigma Olomouc,3,0
+2025/26,UEL,Qualifying Play-off Round,47,219,Sigma Olomouc,Malmö FF,0,2
+2025/26,UEL,Qualifying Play-off Round,101,229,Panathinaikos,Samsunspor,2,1
+2025/26,UEL,Qualifying Play-off Round,229,101,Samsunspor,Panathinaikos,0,0
+2025/26,UEL,Qualifying Play-off Round,191,185,Aberdeen,FCSB,2,2
+2025/26,UEL,Qualifying Play-off Round,185,191,FCSB,Aberdeen,3,0
+2025/26,UEL,Qualifying Play-off Round,176,28,Lech Poznan,Racing Genk,1,5
+2025/26,UEL,Qualifying Play-off Round,28,176,Racing Genk,Lech Poznan,1,2
+2025/26,UEL,Qualifying Play-off Round,53,74,FC Midtjylland,KuPS Kuopio,4,0
+2025/26,UEL,Qualifying Play-off Round,74,53,KuPS Kuopio,FC Midtjylland,0,2
+2025/26,UEL,Qualifying Play-off Round,95,182,Lincoln Red Imps,Sporting Braga,0,4
+2025/26,UEL,Qualifying Play-off Round,182,95,Sporting Braga,Lincoln Red Imps,5,1
+2025/26,UEL,Qualifying Play-off Round,33,158,Zrinjski Mostar,FC Utrecht,0,2
+2025/26,UEL,Qualifying Play-off Round,158,33,FC Utrecht,Zrinjski Mostar,0,0
+2025/26,UEL,Qualifying Play-off Round,173,42,SK Brann Bergen,AEK Larnaca,2,1
+2025/26,UEL,Qualifying Play-off Round,42,173,AEK Larnaca,SK Brann Bergen,0,4
+2025/26,UEL,Qualifying Play-off Round,40,100,NK Rijeka,PAOK Thessaloniki,1,0
+2025/26,UEL,Qualifying Play-off Round,100,40,PAOK Thessaloniki,NK Rijeka,5,0
+2025/26,UEL,League Stage,53,15,FC Midtjylland,Sturm Graz,2,0
+2025/26,UEL,League Stage,100,116,PAOK Thessaloniki,Maccabi Tel-Aviv,0,0
+2025/26,UEL,League Stage,199,192,Red Star Belgrade,Celtic,1,1
+2025/26,UEL,League Stage,38,226,Dinamo Zagreb,Fenerbahçe,3,1
+2025/26,UEL,League Stage,219,37,Malmö FF,Ludogorets Razgrad,1,2
+2025/26,UEL,League Stage,78,117,OGC Nice,AS Roma,1,2
+2025/26,UEL,League Stage,213,62,Real Betis,Nottingham Forest,2,2
+2025/26,UEL,League Stage,182,159,Sporting Braga,Feyenoord,1,0
+2025/26,UEL,League Stage,92,220,SC Freiburg,FC Basel,2,1
+2025/26,UEL,League Stage,160,185,Go Ahead Eagles,FCSB,0,1
+2025/26,UEL,League Stage,77,173,Lille OSC,SK Brann Bergen,2,1
+2025/26,UEL,League Stage,56,119,Aston Villa,Bologna,1,0
+2025/26,UEL,League Stage,224,101,Young Boys,Panathinaikos,1,4
+2025/26,UEL,League Stage,13,181,FC Salzburg,FC Porto,0,1
+2025/26,UEL,League Stage,158,79,FC Utrecht,Olympique Lyon,0,1
+2025/26,UEL,League Stage,103,50,Ferencváros,Viktoria Plzen,1,1
+2025/26,UEL,League Stage,194,28,Glasgow Rangers,Racing Genk,0,1
+2025/26,UEL,League Stage,93,210,VfB Stuttgart,Celta de Vigo,2,1
+2025/26,UEL,League Stage,117,77,AS Roma,Lille OSC,0,1
+2025/26,UEL,League Stage,119,92,Bologna,SC Freiburg,1,1
+2025/26,UEL,League Stage,192,182,Celtic,Sporting Braga,0,2
+2025/26,UEL,League Stage,50,219,Viktoria Plzen,Malmö FF,3,0
+2025/26,UEL,League Stage,226,78,Fenerbahçe,OGC Nice,2,1
+2025/26,UEL,League Stage,185,224,FCSB,Young Boys,0,2
+2025/26,UEL,League Stage,101,160,Panathinaikos,Go Ahead Eagles,1,2
+2025/26,UEL,League Stage,37,213,Ludogorets Razgrad,Real Betis,0,2
+2025/26,UEL,League Stage,173,158,SK Brann Bergen,FC Utrecht,1,0
+2025/26,UEL,League Stage,220,93,FC Basel,VfB Stuttgart,2,0
+2025/26,UEL,League Stage,181,199,FC Porto,Red Star Belgrade,2,1
+2025/26,UEL,League Stage,159,56,Feyenoord,Aston Villa,0,2
+2025/26,UEL,League Stage,28,103,Racing Genk,Ferencváros,0,1
+2025/26,UEL,League Stage,116,38,Maccabi Tel-Aviv,Dinamo Zagreb,1,3
+2025/26,UEL,League Stage,62,53,Nottingham Forest,FC Midtjylland,2,3
+2025/26,UEL,League Stage,79,13,Olympique Lyon,FC Salzburg,2,0
+2025/26,UEL,League Stage,210,100,Celta de Vigo,PAOK Thessaloniki,3,1
+2025/26,UEL,League Stage,15,194,Sturm Graz,Glasgow Rangers,2,1
+2025/26,UEL,League Stage,13,103,FC Salzburg,Ferencváros,2,3
+2025/26,UEL,League Stage,226,93,Fenerbahçe,VfB Stuttgart,1,0
+2025/26,UEL,League Stage,159,101,Feyenoord,Panathinaikos,3,1
+2025/26,UEL,League Stage,185,119,FCSB,Bologna,1,2
+2025/26,UEL,League Stage,160,56,Go Ahead Eagles,Aston Villa,2,1
+2025/26,UEL,League Stage,28,213,Racing Genk,Real Betis,0,0
+2025/26,UEL,League Stage,79,220,Olympique Lyon,FC Basel,2,0
+2025/26,UEL,League Stage,182,199,Sporting Braga,Red Star Belgrade,2,0
+2025/26,UEL,League Stage,173,194,SK Brann Bergen,Glasgow Rangers,3,0
+2025/26,UEL,League Stage,117,50,AS Roma,Viktoria Plzen,1,2
+2025/26,UEL,League Stage,224,37,Young Boys,Ludogorets Razgrad,3,2
+2025/26,UEL,League Stage,192,15,Celtic,Sturm Graz,2,1
+2025/26,UEL,League Stage,77,100,Lille OSC,PAOK Thessaloniki,3,4
+2025/26,UEL,League Stage,116,53,Maccabi Tel-Aviv,FC Midtjylland,0,3
+2025/26,UEL,League Stage,219,38,Malmö FF,Dinamo Zagreb,1,1
+2025/26,UEL,League Stage,62,181,Nottingham Forest,FC Porto,2,0
+2025/26,UEL,League Stage,210,78,Celta de Vigo,OGC Nice,2,1
+2025/26,UEL,League Stage,92,158,SC Freiburg,FC Utrecht,2,0
+2025/26,UEL,League Stage,13,160,FC Salzburg,Go Ahead Eagles,2,0
+2025/26,UEL,League Stage,220,185,FC Basel,FCSB,3,1
+2025/26,UEL,League Stage,53,192,FC Midtjylland,Celtic,3,1
+2025/26,UEL,League Stage,158,181,FC Utrecht,FC Porto,1,1
+2025/26,UEL,League Stage,199,77,Red Star Belgrade,Lille OSC,1,0
+2025/26,UEL,League Stage,38,210,Dinamo Zagreb,Celta de Vigo,0,3
+2025/26,UEL,League Stage,219,101,Malmö FF,Panathinaikos,0,1
+2025/26,UEL,League Stage,78,92,OGC Nice,SC Freiburg,1,3
+2025/26,UEL,League Stage,15,62,Sturm Graz,Nottingham Forest,0,0
+2025/26,UEL,League Stage,56,116,Aston Villa,Maccabi Tel-Aviv,2,0
+2025/26,UEL,League Stage,119,173,Bologna,SK Brann Bergen,0,0
+2025/26,UEL,League Stage,50,226,Viktoria Plzen,Fenerbahçe,0,0
+2025/26,UEL,League Stage,103,37,Ferencváros,Ludogorets Razgrad,3,1
+2025/26,UEL,League Stage,100,224,PAOK Thessaloniki,Young Boys,4,0
+2025/26,UEL,League Stage,194,117,Glasgow Rangers,AS Roma,0,2
+2025/26,UEL,League Stage,213,79,Real Betis,Olympique Lyon,2,0
+2025/26,UEL,League Stage,182,28,Sporting Braga,Racing Genk,3,4
+2025/26,UEL,League Stage,93,159,VfB Stuttgart,Feyenoord,2,0
+2025/26,UEL,League Stage,117,53,AS Roma,FC Midtjylland,2,1
+2025/26,UEL,League Stage,56,224,Aston Villa,Young Boys,2,1
+2025/26,UEL,League Stage,181,78,FC Porto,OGC Nice,3,0
+2025/26,UEL,League Stage,50,92,Viktoria Plzen,SC Freiburg,0,0
+2025/26,UEL,League Stage,226,103,Fenerbahçe,Ferencváros,1,1
+2025/26,UEL,League Stage,159,192,Feyenoord,Celtic,1,3
+2025/26,UEL,League Stage,77,38,Lille OSC,Dinamo Zagreb,4,0
+2025/26,UEL,League Stage,100,173,PAOK Thessaloniki,SK Brann Bergen,1,1
+2025/26,UEL,League Stage,37,210,Ludogorets Razgrad,Celta de Vigo,3,2
+2025/26,UEL,League Stage,119,13,Bologna,FC Salzburg,4,1
+2025/26,UEL,League Stage,199,185,Red Star Belgrade,FCSB,1,0
+2025/26,UEL,League Stage,160,93,Go Ahead Eagles,VfB Stuttgart,0,4
+2025/26,UEL,League Stage,28,220,Racing Genk,FC Basel,2,1
+2025/26,UEL,League Stage,116,79,Maccabi Tel-Aviv,Olympique Lyon,0,6
+2025/26,UEL,League Stage,62,219,Nottingham Forest,Malmö FF,3,0
+2025/26,UEL,League Stage,101,15,Panathinaikos,Sturm Graz,2,1
+2025/26,UEL,League Stage,194,182,Glasgow Rangers,Sporting Braga,1,1
+2025/26,UEL,League Stage,213,158,Real Betis,FC Utrecht,2,1
+2025/26,UEL,League Stage,224,77,Young Boys,Lille OSC,1,0
+2025/26,UEL,League Stage,53,28,FC Midtjylland,Racing Genk,1,0
+2025/26,UEL,League Stage,158,62,FC Utrecht,Nottingham Forest,1,2
+2025/26,UEL,League Stage,103,194,Ferencváros,Glasgow Rangers,2,1
+2025/26,UEL,League Stage,38,213,Dinamo Zagreb,Real Betis,1,3
+2025/26,UEL,League Stage,78,182,OGC Nice,Sporting Braga,0,1
+2025/26,UEL,League Stage,37,100,Ludogorets Razgrad,PAOK Thessaloniki,3,3
+2025/26,UEL,League Stage,15,199,Sturm Graz,Red Star Belgrade,0,1
+2025/26,UEL,League Stage,93,116,VfB Stuttgart,Maccabi Tel-Aviv,4,1
+2025/26,UEL,League Stage,192,117,Celtic,AS Roma,0,3
+2025/26,UEL,League Stage,181,219,FC Porto,Malmö FF,2,1
+2025/26,UEL,League Stage,220,56,FC Basel,Aston Villa,1,2
+2025/26,UEL,League Stage,185,159,FCSB,Feyenoord,4,3
+2025/26,UEL,League Stage,79,160,Olympique Lyon,Go Ahead Eagles,2,1
+2025/26,UEL,League Stage,101,50,Panathinaikos,Viktoria Plzen,0,0
+2025/26,UEL,League Stage,210,119,Celta de Vigo,Bologna,1,2
+2025/26,UEL,League Stage,92,13,SC Freiburg,FC Salzburg,1,0
+2025/26,UEL,League Stage,173,226,SK Brann Bergen,Fenerbahçe,0,4
+2025/26,UEL,League Stage,119,192,Bologna,Celtic,2,2
+2025/26,UEL,League Stage,224,79,Young Boys,Olympique Lyon,0,1
+2025/26,UEL,League Stage,50,181,Viktoria Plzen,FC Porto,1,1
+2025/26,UEL,League Stage,226,56,Fenerbahçe,Aston Villa,0,1
+2025/26,UEL,League Stage,159,15,Feyenoord,Sturm Graz,3,0
+2025/26,UEL,League Stage,219,199,Malmö FF,Red Star Belgrade,0,1
+2025/26,UEL,League Stage,100,213,PAOK Thessaloniki,Real Betis,2,0
+2025/26,UEL,League Stage,92,116,SC Freiburg,Maccabi Tel-Aviv,1,0
+2025/26,UEL,League Stage,173,53,SK Brann Bergen,FC Midtjylland,3,3
+2025/26,UEL,League Stage,117,93,AS Roma,VfB Stuttgart,2,0
+2025/26,UEL,League Stage,158,28,FC Utrecht,Racing Genk,0,2
+2025/26,UEL,League Stage,13,220,FC Salzburg,FC Basel,3,1
+2025/26,UEL,League Stage,103,101,Ferencváros,Panathinaikos,1,1
+2025/26,UEL,League Stage,38,185,Dinamo Zagreb,FCSB,4,1
+2025/26,UEL,League Stage,78,160,OGC Nice,Go Ahead Eagles,3,1
+2025/26,UEL,League Stage,194,37,Glasgow Rangers,Ludogorets Razgrad,1,0
+2025/26,UEL,League Stage,210,77,Celta de Vigo,Lille OSC,2,1
+2025/26,UEL,League Stage,182,62,Sporting Braga,Nottingham Forest,1,0
+2025/26,UEL,League Stage,56,13,Aston Villa,FC Salzburg,3,2
+2025/26,UEL,League Stage,192,158,Celtic,FC Utrecht,4,2
+2025/26,UEL,League Stage,181,194,FC Porto,Glasgow Rangers,3,1
+2025/26,UEL,League Stage,220,50,FC Basel,Viktoria Plzen,0,1
+2025/26,UEL,League Stage,53,38,FC Midtjylland,Dinamo Zagreb,2,0
+2025/26,UEL,League Stage,199,210,Red Star Belgrade,Celta de Vigo,1,1
+2025/26,UEL,League Stage,185,226,FCSB,Fenerbahçe,1,1
+2025/26,UEL,League Stage,160,182,Go Ahead Eagles,Sporting Braga,0,0
+2025/26,UEL,League Stage,28,219,Racing Genk,Malmö FF,2,1
+2025/26,UEL,League Stage,77,92,Lille OSC,SC Freiburg,1,0
+2025/26,UEL,League Stage,116,119,Maccabi Tel-Aviv,Bologna,0,3
+2025/26,UEL,League Stage,62,103,Nottingham Forest,Ferencváros,4,0
+2025/26,UEL,League Stage,79,100,Olympique Lyon,PAOK Thessaloniki,4,2
+2025/26,UEL,League Stage,101,117,Panathinaikos,AS Roma,1,1
+2025/26,UEL,League Stage,37,78,Ludogorets Razgrad,OGC Nice,1,0
+2025/26,UEL,League Stage,213,159,Real Betis,Feyenoord,2,1
+2025/26,UEL,League Stage,15,173,Sturm Graz,SK Brann Bergen,1,0
+2025/26,UEL,League Stage,93,224,VfB Stuttgart,Young Boys,3,2
+2025/26,UEL,Knockout round play-offs,37,103,Ludogorets Razgrad,Ferencváros,2,1
+2025/26,UEL,Knockout round play-offs,103,37,Ferencváros,Ludogorets Razgrad,2,0
+2025/26,UEL,Knockout round play-offs,101,50,Panathinaikos,Viktoria Plzen,2,2
+2025/26,UEL,Knockout round play-offs,50,101,Viktoria Plzen,Panathinaikos,1,1
+2025/26,UEL,Knockout round play-offs,38,28,Dinamo Zagreb,Racing Genk,1,3
+2025/26,UEL,Knockout round play-offs,28,38,Racing Genk,Dinamo Zagreb,3,3
+2025/26,UEL,Knockout round play-offs,100,210,PAOK Thessaloniki,Celta de Vigo,1,2
+2025/26,UEL,Knockout round play-offs,210,100,Celta de Vigo,PAOK Thessaloniki,1,0
+2025/26,UEL,Knockout round play-offs,192,93,Celtic,VfB Stuttgart,1,4
+2025/26,UEL,Knockout round play-offs,93,192,VfB Stuttgart,Celtic,0,1
+2025/26,UEL,Knockout round play-offs,226,62,Fenerbahçe,Nottingham Forest,0,3
+2025/26,UEL,Knockout round play-offs,62,226,Nottingham Forest,Fenerbahçe,1,2
+2025/26,UEL,Knockout round play-offs,173,119,SK Brann Bergen,Bologna,0,1
+2025/26,UEL,Knockout round play-offs,119,173,Bologna,SK Brann Bergen,1,0
+2025/26,UEL,Knockout round play-offs,77,199,Lille OSC,Red Star Belgrade,0,1
+2025/26,UEL,Knockout round play-offs,199,77,Red Star Belgrade,Lille OSC,0,2
+2025/26,UEL,Round of 16,103,182,Ferencváros,Sporting Braga,2,0
+2025/26,UEL,Round of 16,182,103,Sporting Braga,Ferencváros,4,0
+2025/26,UEL,Round of 16,101,213,Panathinaikos,Real Betis,1,0
+2025/26,UEL,Round of 16,213,101,Real Betis,Panathinaikos,4,0
+2025/26,UEL,Round of 16,28,92,Racing Genk,SC Freiburg,1,0
+2025/26,UEL,Round of 16,92,28,SC Freiburg,Racing Genk,5,1
+2025/26,UEL,Round of 16,210,79,Celta de Vigo,Olympique Lyon,1,1
+2025/26,UEL,Round of 16,79,210,Olympique Lyon,Celta de Vigo,0,2
+2025/26,UEL,Round of 16,93,181,VfB Stuttgart,FC Porto,1,2
+2025/26,UEL,Round of 16,181,93,FC Porto,VfB Stuttgart,2,0
+2025/26,UEL,Round of 16,62,53,Nottingham Forest,FC Midtjylland,0,1
+2025/26,UEL,Round of 16,53,62,FC Midtjylland,Nottingham Forest,1,2
+2025/26,UEL,Round of 16,119,117,Bologna,AS Roma,1,1
+2025/26,UEL,Round of 16,117,119,AS Roma,Bologna,3,4
+2025/26,UEL,Round of 16,77,56,Lille OSC,Aston Villa,0,1
+2025/26,UEL,Round of 16,56,77,Aston Villa,Lille OSC,2,0
+2025/26,UEL,Quarter Finals,182,213,Sporting Braga,Real Betis,1,1
+2025/26,UEL,Quarter Finals,213,182,Real Betis,Sporting Braga,2,4
+2025/26,UEL,Quarter Finals,92,210,SC Freiburg,Celta de Vigo,3,0
+2025/26,UEL,Quarter Finals,210,92,Celta de Vigo,SC Freiburg,1,3
+2025/26,UEL,Quarter Finals,181,62,FC Porto,Nottingham Forest,1,1
+2025/26,UEL,Quarter Finals,62,181,Nottingham Forest,FC Porto,1,0
+2025/26,UEL,Quarter Finals,119,56,Bologna,Aston Villa,1,3
+2025/26,UEL,Quarter Finals,56,119,Aston Villa,Bologna,4,0
+2025/26,UEL,Semi Finals,182,92,Sporting Braga,SC Freiburg,2,1
+2025/26,UEL,Semi Finals,92,182,SC Freiburg,Sporting Braga,3,1
+2025/26,UEL,Semi Finals,62,56,Nottingham Forest,Aston Villa,1,0
+2025/26,UEL,Semi Finals,56,62,Aston Villa,Nottingham Forest,4,0
+2025/26,UEL,Final,92,56,SC Freiburg,Aston Villa,0,3
+2025/26,UECL,1st Qualifying Round,70,72,NSI Runavik,HJK Helsinki,4,0
+2025/26,UECL,1st Qualifying Round,72,70,HJK Helsinki,NSI Runavik,5,0
+2025/26,UECL,1st Qualifying Round,112,138,St. Patrick's Athletic,FC Hegelmann,1,0
+2025/26,UECL,1st Qualifying Round,138,112,FC Hegelmann,St. Patrick's Athletic,0,2
+2025/26,UECL,1st Qualifying Round,94,67,FCB Magpies,Paide Linnameeskond,2,3
+2025/26,UECL,1st Qualifying Round,67,94,Paide Linnameeskond,FCB Magpies,4,1
+2025/26,UECL,1st Qualifying Round,4,132,Vllaznia Shkodër,BFC Daugavpils,0,1
+2025/26,UECL,1st Qualifying Round,132,4,BFC Daugavpils,Vllaznia Shkodër,2,4
+2025/26,UECL,1st Qualifying Round,86,127,Torpedo Kutaisi,Ordabasy Shymkent,4,3
+2025/26,UECL,1st Qualifying Round,127,86,Ordabasy Shymkent,Torpedo Kutaisi,1,1
+2025/26,UECL,1st Qualifying Round,154,164,Decic Tuzi,Sileks Kratovo,2,0
+2025/26,UECL,1st Qualifying Round,164,154,Sileks Kratovo,Decic Tuzi,2,1
+2025/26,UECL,1st Qualifying Round,145,150,Birkirkara,Petrocub Hîncesti,1,0
+2025/26,UECL,1st Qualifying Round,150,145,Petrocub Hîncesti,Birkirkara,3,0
+2025/26,UECL,1st Qualifying Round,11,23,Urartu FC,Neman Grodno,1,2
+2025/26,UECL,1st Qualifying Round,23,11,Neman Grodno,Urartu FC,4,0
+2025/26,UECL,1st Qualifying Round,32,205,Zeljeznicar Sarajevo,NK Koper,1,1
+2025/26,UECL,1st Qualifying Round,205,32,NK Koper,Zeljeznicar Sarajevo,3,1
+2025/26,UECL,1st Qualifying Round,155,22,Sutjeska Niksic,Dynamo Brest,1,2
+2025/26,UECL,1st Qualifying Round,22,155,Dynamo Brest,Sutjeska Niksic,0,2
+2025/26,UECL,1st Qualifying Round,5,142,Atlètic Club d'Escaldes,F91 Dudelange,2,0
+2025/26,UECL,1st Qualifying Round,142,5,F91 Dudelange,Atlètic Club d'Escaldes,2,3
+2025/26,UECL,1st Qualifying Round,165,189,Vardar Skopje,La Fiorita,3,0
+2025/26,UECL,1st Qualifying Round,189,165,La Fiorita,Vardar Skopje,2,2
+2025/26,UECL,1st Qualifying Round,75,69,SJK Seinäjoki,KI Klaksvik,1,2
+2025/26,UECL,1st Qualifying Round,69,75,KI Klaksvik,SJK Seinäjoki,2,0
+2025/26,UECL,1st Qualifying Round,168,133,Larne FC,FK Auda,0,0
+2025/26,UECL,1st Qualifying Round,133,168,FK Auda,Larne FC,2,2
+2025/26,UECL,1st Qualifying Round,108,64,Valur Reykjavik,Flora Tallinn,3,0
+2025/26,UECL,1st Qualifying Round,64,108,Flora Tallinn,Valur Reykjavik,1,2
+2025/26,UECL,1st Qualifying Round,139,235,Kauno Zalgiris,Penybont,3,0
+2025/26,UECL,1st Qualifying Round,235,139,Penybont,Kauno Zalgiris,1,1
+2025/26,UECL,1st Qualifying Round,65,3,Kalju Nomme,Partizani Tirana,1,1
+2025/26,UECL,1st Qualifying Round,3,65,Partizani Tirana,Kalju Nomme,0,1
+2025/26,UECL,1st Qualifying Round,146,234,Floriana,Haverfordwest County,2,1
+2025/26,UECL,1st Qualifying Round,234,146,Haverfordwest County,Floriana,2,3
+2025/26,UECL,1st Qualifying Round,131,109,KF Malisheva,Vikingur Reykjavik,0,1
+2025/26,UECL,1st Qualifying Round,109,131,Vikingur Reykjavik,KF Malisheva,8,0
+2025/26,UECL,1st Qualifying Round,96,166,St Joseph's FC,Cliftonville,2,2
+2025/26,UECL,1st Qualifying Round,166,96,Cliftonville,St Joseph's FC,2,3
+2025/26,UECL,1st Qualifying Round,190,10,Tre Fiori,Pyunik Yerevan,1,0
+2025/26,UECL,1st Qualifying Round,10,190,Pyunik Yerevan,Tre Fiori,5,0
+2025/26,UECL,1st Qualifying Round,24,162,Torpedo Zhodino,Rabotnicki Skopje,3,0
+2025/26,UECL,1st Qualifying Round,162,24,Rabotnicki Skopje,Torpedo Zhodino,0,1
+2025/26,UECL,1st Qualifying Round,143,83,Racing Union Luxembourg,Dila Gori,1,2
+2025/26,UECL,1st Qualifying Round,83,143,Dila Gori,Racing Union Luxembourg,1,0
+2025/26,UECL,1st Qualifying Round,30,6,Borac Banja Luka,FC Santa Coloma,1,4
+2025/26,UECL,1st Qualifying Round,6,30,FC Santa Coloma,Borac Banja Luka,0,2
+2025/26,UECL,2nd Qualifying Round,193,144,Dundee United,UNA Strassen,1,0
+2025/26,UECL,2nd Qualifying Round,144,193,UNA Strassen,Dundee United,0,1
+2025/26,UECL,2nd Qualifying Round,128,146,FC Ballkani,Floriana,4,2
+2025/26,UECL,2nd Qualifying Round,146,128,Floriana,FC Ballkani,1,1
+2025/26,UECL,2nd Qualifying Round,41,180,NK Varazdin,CD Santa Clara,2,1
+2025/26,UECL,2nd Qualifying Round,180,41,CD Santa Clara,NK Varazdin,2,0
+2025/26,UECL,2nd Qualifying Round,165,222,Vardar Skopje,Lausanne Sports,2,1
+2025/26,UECL,2nd Qualifying Round,222,165,Lausanne Sports,Vardar Skopje,5,0
+2025/26,UECL,2nd Qualifying Round,96,110,St Joseph's FC,Shamrock Rovers,0,4
+2025/26,UECL,2nd Qualifying Round,110,96,Shamrock Rovers,St Joseph's FC,0,0
+2025/26,UECL,2nd Qualifying Round,168,130,Larne FC,FC Prishtina,0,0
+2025/26,UECL,2nd Qualifying Round,130,168,FC Prishtina,Larne FC,1,1
+2025/26,UECL,2nd Qualifying Round,174,205,Viking Stavanger,NK Koper,7,0
+2025/26,UECL,2nd Qualifying Round,205,174,NK Koper,Viking Stavanger,3,5
+2025/26,UECL,2nd Qualifying Round,139,108,Kauno Zalgiris,Valur Reykjavik,1,1
+2025/26,UECL,2nd Qualifying Round,108,139,Valur Reykjavik,Kauno Zalgiris,1,2
+2025/26,UECL,2nd Qualifying Round,68,51,HB Torshavn,Brøndby IF,1,1
+2025/26,UECL,2nd Qualifying Round,51,68,Brøndby IF,HB Torshavn,1,0
+2025/26,UECL,2nd Qualifying Round,73,156,Ilves Tampere,AZ Alkmaar,4,3
+2025/26,UECL,2nd Qualifying Round,156,73,AZ Alkmaar,Ilves Tampere,5,0
+2025/26,UECL,2nd Qualifying Round,200,23,FC Kosice,Neman Grodno,2,3
+2025/26,UECL,2nd Qualifying Round,23,200,Neman Grodno,FC Kosice,1,1
+2025/26,UECL,2nd Qualifying Round,97,114,AEK Athens,Hapoel Beer-Sheva,1,0
+2025/26,UECL,2nd Qualifying Round,114,97,Hapoel Beer-Sheva,AEK Athens,0,0
+2025/26,UECL,2nd Qualifying Round,104,206,Paksi FC,NK Maribor,1,0
+2025/26,UECL,2nd Qualifying Round,206,104,NK Maribor,Paksi FC,1,1
+2025/26,UECL,2nd Qualifying Round,231,197,FC Oleksandriya,Partizan Belgrade,0,2
+2025/26,UECL,2nd Qualifying Round,197,231,Partizan Belgrade,FC Oleksandriya,4,0
+2025/26,UECL,2nd Qualifying Round,20,39,Zira FK,Hajduk Split,1,1
+2025/26,UECL,2nd Qualifying Round,39,20,Hajduk Split,Zira FK,2,1
+2025/26,UECL,2nd Qualifying Round,136,167,FC Vaduz,Dungannon Swifts,0,1
+2025/26,UECL,2nd Qualifying Round,167,136,Dungannon Swifts,FC Vaduz,0,3
+2025/26,UECL,2nd Qualifying Round,10,102,Pyunik Yerevan,ETO Györ,2,1
+2025/26,UECL,2nd Qualifying Round,102,10,ETO Györ,Pyunik Yerevan,3,1
+2025/26,UECL,2nd Qualifying Round,4,109,Vllaznia Shkodër,Vikingur Reykjavik,2,1
+2025/26,UECL,2nd Qualifying Round,109,4,Vikingur Reykjavik,Vllaznia Shkodër,4,2
+2025/26,UECL,2nd Qualifying Round,148,203,Hibernians FC,Spartak Trnava,1,2
+2025/26,UECL,2nd Qualifying Round,203,148,Spartak Trnava,Hibernians FC,5,1
+2025/26,UECL,2nd Qualifying Round,34,72,Arda Kardzhali,HJK Helsinki,0,0
+2025/26,UECL,2nd Qualifying Round,72,34,HJK Helsinki,Arda Kardzhali,2,2
+2025/26,UECL,2nd Qualifying Round,54,107,Silkeborg IF,KA Akureyri,1,1
+2025/26,UECL,2nd Qualifying Round,107,54,KA Akureyri,Silkeborg IF,2,3
+2025/26,UECL,2nd Qualifying Round,135,83,Riga FC,Dila Gori,2,1
+2025/26,UECL,2nd Qualifying Round,83,135,Dila Gori,Riga FC,3,3
+2025/26,UECL,2nd Qualifying Round,218,26,Hammarby IF,Charleroi,0,0
+2025/26,UECL,2nd Qualifying Round,26,218,Charleroi,Hammarby IF,1,2
+2025/26,UECL,2nd Qualifying Round,112,65,St. Patrick's Athletic,Kalju Nomme,1,0
+2025/26,UECL,2nd Qualifying Round,65,112,Kalju Nomme,St. Patrick's Athletic,2,2
+2025/26,UECL,2nd Qualifying Round,124,49,FK Aktobe,Sparta Praha,2,1
+2025/26,UECL,2nd Qualifying Round,49,124,Sparta Praha,FK Aktobe,4,0
+2025/26,UECL,2nd Qualifying Round,172,137,Rosenborg BK,Banga Gargzdai,5,0
+2025/26,UECL,2nd Qualifying Round,137,172,Banga Gargzdai,Rosenborg BK,0,2
+2025/26,UECL,2nd Qualifying Round,178,201,Raków Czestochowa,MSK Zilina,3,0
+2025/26,UECL,2nd Qualifying Round,201,178,MSK Zilina,Raków Czestochowa,1,3
+2025/26,UECL,2nd Qualifying Round,198,69,Radnicki 1923,KI Klaksvik,0,0
+2025/26,UECL,2nd Qualifying Round,69,198,KI Klaksvik,Radnicki 1923,1,0
+2025/26,UECL,2nd Qualifying Round,67,216,Paide Linnameeskond,AIK Stockholm,0,2
+2025/26,UECL,2nd Qualifying Round,216,67,AIK Stockholm,Paide Linnameeskond,6,0
+2025/26,UECL,2nd Qualifying Round,125,152,FK Astana,Zimbru Chisinau,1,1
+2025/26,UECL,2nd Qualifying Round,152,125,Zimbru Chisinau,FK Astana,0,2
+2025/26,UECL,2nd Qualifying Round,5,1,Atlètic Club d'Escaldes,Dinamo Tirana,1,2
+2025/26,UECL,2nd Qualifying Round,1,5,Dinamo Tirana,Atlètic Club d'Escaldes,1,1
+2025/26,UECL,2nd Qualifying Round,150,19,Petrocub Hîncesti,Sabah FK,0,2
+2025/26,UECL,2nd Qualifying Round,19,150,Sabah FK,Petrocub Hîncesti,4,1
+2025/26,UECL,2nd Qualifying Round,196,175,Novi Pazar,Jagiellonia Bialystok,1,2
+2025/26,UECL,2nd Qualifying Round,175,196,Jagiellonia Bialystok,Novi Pazar,3,1
+2025/26,UECL,2nd Qualifying Round,31,187,FK Sarajevo,Universitatea Craiova,2,1
+2025/26,UECL,2nd Qualifying Round,187,31,Universitatea Craiova,FK Sarajevo,4,0
+2025/26,UECL,2nd Qualifying Round,154,14,Decic Tuzi,Rapid Wien,0,2
+2025/26,UECL,2nd Qualifying Round,14,154,Rapid Wien,Decic Tuzi,4,2
+2025/26,UECL,2nd Qualifying Round,12,85,Austria Wien,Spaeri Tbilisi,2,0
+2025/26,UECL,2nd Qualifying Round,85,12,Spaeri Tbilisi,Austria Wien,0,5
+2025/26,UECL,2nd Qualifying Round,8,186,Ararat-Armenia,Universitatea Cluj,0,0
+2025/26,UECL,2nd Qualifying Round,186,8,Universitatea Cluj,Ararat-Armenia,1,2
+2025/26,UECL,2nd Qualifying Round,232,6,Polissya Zhytomyr,FC Santa Coloma,1,2
+2025/26,UECL,2nd Qualifying Round,6,232,FC Santa Coloma,Polissya Zhytomyr,1,4
+2025/26,UECL,2nd Qualifying Round,43,105,Aris Limassol,Puskás Akadémia,3,2
+2025/26,UECL,2nd Qualifying Round,105,43,Puskás Akadémia,Aris Limassol,0,2
+2025/26,UECL,2nd Qualifying Round,24,115,Torpedo Zhodino,Maccabi Haifa,1,1
+2025/26,UECL,2nd Qualifying Round,115,24,Maccabi Haifa,Torpedo Zhodino,3,0
+2025/26,UECL,2nd Qualifying Round,17,98,Araz Nakhchivan,Aris Thessaloniki,2,1
+2025/26,UECL,2nd Qualifying Round,98,17,Aris Thessaloniki,Araz Nakhchivan,2,2
+2025/26,UECL,2nd Qualifying Round,44,86,Omonia Nicosia,Torpedo Kutaisi,1,0
+2025/26,UECL,2nd Qualifying Round,86,44,Torpedo Kutaisi,Omonia Nicosia,0,4
+2025/26,UECL,2nd Qualifying Round,35,228,Cherno More Varna,Istanbul Basaksehir,0,1
+2025/26,UECL,2nd Qualifying Round,228,35,Istanbul Basaksehir,Cherno More Varna,4,0
+2025/26,UECL,2nd Qualifying Round,155,113,Sutjeska Niksic,Beitar Jerusalem,1,2
+2025/26,UECL,2nd Qualifying Round,113,155,Beitar Jerusalem,Sutjeska Niksic,5,2
+2025/26,UECL,2nd Qualifying Round,66,84,Levadia Tallinn,Iberia 1999,1,0
+2025/26,UECL,2nd Qualifying Round,84,66,Iberia 1999,Levadia Tallinn,2,2
+2025/26,UECL,2nd Qualifying Round,140,169,Zalgiris Vilnius,Linfield Belfast,0,0
+2025/26,UECL,2nd Qualifying Round,169,140,Linfield Belfast,Zalgiris Vilnius,2,0
+2025/26,UECL,2nd Qualifying Round,236,141,The New Saints,Differdange 03,0,1
+2025/26,UECL,2nd Qualifying Round,141,236,Differdange 03,The New Saints,1,0
+2025/26,UECL,2nd Qualifying Round,207,7,Olimpija Ljubljana,Inter Club d'Escaldes,4,2
+2025/26,UECL,2nd Qualifying Round,7,207,Inter Club d'Escaldes,Olimpija Ljubljana,1,1
+2025/26,UECL,2nd Qualifying Round,153,149,Buducnost Podgorica,Milsami Orhei,0,0
+2025/26,UECL,2nd Qualifying Round,149,153,Milsami Orhei,Buducnost Podgorica,2,1
+2025/26,UECL,2nd Qualifying Round,21,2,Dinamo Minsk,Egnatia Rrogozhinë,0,2
+2025/26,UECL,2nd Qualifying Round,2,21,Egnatia Rrogozhinë,Dinamo Minsk,1,0
+2025/26,UECL,3rd Qualifying Round,14,193,Rapid Wien,Dundee United,2,2
+2025/26,UECL,3rd Qualifying Round,193,14,Dundee United,Rapid Wien,2,2
+2025/26,UECL,3rd Qualifying Round,69,23,KI Klaksvik,Neman Grodno,2,0
+2025/26,UECL,3rd Qualifying Round,23,69,Neman Grodno,KI Klaksvik,2,0
+2025/26,UECL,3rd Qualifying Round,25,151,Anderlecht,Sheriff Tiraspol,3,0
+2025/26,UECL,3rd Qualifying Round,151,25,Sheriff Tiraspol,Anderlecht,1,1
+2025/26,UECL,3rd Qualifying Round,174,228,Viking Stavanger,Istanbul Basaksehir,1,3
+2025/26,UECL,3rd Qualifying Round,228,174,Istanbul Basaksehir,Viking Stavanger,1,1
+2025/26,UECL,3rd Qualifying Round,216,102,AIK Stockholm,ETO Györ,2,1
+2025/26,UECL,3rd Qualifying Round,102,216,ETO Györ,AIK Stockholm,2,0
+2025/26,UECL,3rd Qualifying Round,49,8,Sparta Praha,Ararat-Armenia,4,1
+2025/26,UECL,3rd Qualifying Round,8,49,Ararat-Armenia,Sparta Praha,1,2
+2025/26,UECL,3rd Qualifying Round,135,113,Riga FC,Beitar Jerusalem,3,0
+2025/26,UECL,3rd Qualifying Round,113,135,Beitar Jerusalem,Riga FC,3,1
+2025/26,UECL,3rd Qualifying Round,222,125,Lausanne Sports,FK Astana,3,1
+2025/26,UECL,3rd Qualifying Round,125,222,FK Astana,Lausanne Sports,0,2
+2025/26,UECL,3rd Qualifying Round,17,44,Araz Nakhchivan,Omonia Nicosia,0,4
+2025/26,UECL,3rd Qualifying Round,44,17,Omonia Nicosia,Araz Nakhchivan,5,0
+2025/26,UECL,3rd Qualifying Round,187,203,Universitatea Craiova,Spartak Trnava,3,0
+2025/26,UECL,3rd Qualifying Round,203,187,Spartak Trnava,Universitatea Craiova,4,3
+2025/26,UECL,3rd Qualifying Round,156,136,AZ Alkmaar,FC Vaduz,3,0
+2025/26,UECL,3rd Qualifying Round,136,156,FC Vaduz,AZ Alkmaar,0,1
+2025/26,UECL,3rd Qualifying Round,109,51,Vikingur Reykjavik,Brøndby IF,3,0
+2025/26,UECL,3rd Qualifying Round,51,109,Brøndby IF,Vikingur Reykjavik,4,0
+2025/26,UECL,3rd Qualifying Round,168,180,Larne FC,CD Santa Clara,0,3
+2025/26,UECL,3rd Qualifying Round,180,168,CD Santa Clara,Larne FC,0,0
+2025/26,UECL,3rd Qualifying Round,128,110,FC Ballkani,Shamrock Rovers,1,0
+2025/26,UECL,3rd Qualifying Round,110,128,Shamrock Rovers,FC Ballkani,4,0
+2025/26,UECL,3rd Qualifying Round,232,104,Polissya Zhytomyr,Paksi FC,3,0
+2025/26,UECL,3rd Qualifying Round,104,232,Paksi FC,Polissya Zhytomyr,2,1
+2025/26,UECL,3rd Qualifying Round,221,204,FC Lugano,NK Celje,0,5
+2025/26,UECL,3rd Qualifying Round,204,221,NK Celje,FC Lugano,2,4
+2025/26,UECL,3rd Qualifying Round,39,1,Hajduk Split,Dinamo Tirana,2,1
+2025/26,UECL,3rd Qualifying Round,1,39,Dinamo Tirana,Hajduk Split,3,1
+2025/26,UECL,3rd Qualifying Round,43,97,Aris Limassol,AEK Athens,2,2
+2025/26,UECL,3rd Qualifying Round,97,43,AEK Athens,Aris Limassol,3,1
+2025/26,UECL,3rd Qualifying Round,178,115,Raków Czestochowa,Maccabi Haifa,0,1
+2025/26,UECL,3rd Qualifying Round,115,178,Maccabi Haifa,Raków Czestochowa,0,2
+2025/26,UECL,3rd Qualifying Round,36,19,Levski Sofia,Sabah FK,1,0
+2025/26,UECL,3rd Qualifying Round,19,36,Sabah FK,Levski Sofia,0,2
+2025/26,UECL,3rd Qualifying Round,54,175,Silkeborg IF,Jagiellonia Bialystok,0,1
+2025/26,UECL,3rd Qualifying Round,175,54,Jagiellonia Bialystok,Silkeborg IF,2,2
+2025/26,UECL,3rd Qualifying Round,197,195,Partizan Belgrade,Hibernian,0,2
+2025/26,UECL,3rd Qualifying Round,195,197,Hibernian,Partizan Belgrade,2,3
+2025/26,UECL,3rd Qualifying Round,46,12,Baník Ostrava,Austria Wien,4,3
+2025/26,UECL,3rd Qualifying Round,12,46,Austria Wien,Baník Ostrava,1,1
+2025/26,UECL,3rd Qualifying Round,172,218,Rosenborg BK,Hammarby IF,0,0
+2025/26,UECL,3rd Qualifying Round,218,172,Hammarby IF,Rosenborg BK,0,1
+2025/26,UECL,3rd Qualifying Round,112,225,St. Patrick's Athletic,Besiktas,1,4
+2025/26,UECL,3rd Qualifying Round,225,112,Besiktas,St. Patrick's Athletic,3,2
+2025/26,UECL,3rd Qualifying Round,139,34,Kauno Zalgiris,Arda Kardzhali,0,1
+2025/26,UECL,3rd Qualifying Round,34,139,Arda Kardzhali,Kauno Zalgiris,2,0
+2025/26,UECL,3rd Qualifying Round,207,2,Olimpija Ljubljana,Egnatia Rrogozhinë,0,0
+2025/26,UECL,3rd Qualifying Round,2,207,Egnatia Rrogozhinë,Olimpija Ljubljana,2,4
+2025/26,UECL,3rd Qualifying Round,149,188,Milsami Orhei,AC Virtus,3,2
+2025/26,UECL,3rd Qualifying Round,188,149,AC Virtus,Milsami Orhei,3,0
+2025/26,UECL,3rd Qualifying Round,141,66,Differdange 03,Levadia Tallinn,2,3
+2025/26,UECL,3rd Qualifying Round,66,141,Levadia Tallinn,Differdange 03,1,3
+2025/26,UECL,3rd Qualifying Round,71,169,Víkingur,Linfield Belfast,2,1
+2025/26,UECL,3rd Qualifying Round,169,71,Linfield Belfast,Víkingur,2,0
+2025/26,UECL,Qualifying Play-off Round,82,51,RC Strasbourg,Brøndby IF,0,0
+2025/26,UECL,Qualifying Play-off Round,51,82,Brøndby IF,RC Strasbourg,2,3
+2025/26,UECL,Qualifying Play-off Round,25,97,Anderlecht,AEK Athens,1,1
+2025/26,UECL,Qualifying Play-off Round,97,25,AEK Athens,Anderlecht,2,0
+2025/26,UECL,Qualifying Play-off Round,204,46,NK Celje,Baník Ostrava,1,0
+2025/26,UECL,Qualifying Play-off Round,46,204,Baník Ostrava,NK Celje,0,2
+2025/26,UECL,Qualifying Play-off Round,36,156,Levski Sofia,AZ Alkmaar,0,2
+2025/26,UECL,Qualifying Play-off Round,156,36,AZ Alkmaar,Levski Sofia,4,1
+2025/26,UECL,Qualifying Play-off Round,23,212,Neman Grodno,Rayo Vallecano,0,1
+2025/26,UECL,Qualifying Play-off Round,212,23,Rayo Vallecano,Neman Grodno,4,0
+2025/26,UECL,Qualifying Play-off Round,175,1,Jagiellonia Bialystok,Dinamo Tirana,3,0
+2025/26,UECL,Qualifying Play-off Round,1,175,Dinamo Tirana,Jagiellonia Bialystok,1,1
+2025/26,UECL,Qualifying Play-off Round,228,187,Istanbul Basaksehir,Universitatea Craiova,1,2
+2025/26,UECL,Qualifying Play-off Round,187,228,Universitatea Craiova,Istanbul Basaksehir,3,1
+2025/26,UECL,Qualifying Play-off Round,178,34,Raków Czestochowa,Arda Kardzhali,1,0
+2025/26,UECL,Qualifying Play-off Round,34,178,Arda Kardzhali,Raków Czestochowa,1,2
+2025/26,UECL,Qualifying Play-off Round,232,120,Polissya Zhytomyr,Fiorentina,0,3
+2025/26,UECL,Qualifying Play-off Round,120,232,Fiorentina,Polissya Zhytomyr,3,2
+2025/26,UECL,Qualifying Play-off Round,222,225,Lausanne Sports,Besiktas,1,1
+2025/26,UECL,Qualifying Play-off Round,225,222,Besiktas,Lausanne Sports,0,1
+2025/26,UECL,Qualifying Play-off Round,233,223,Shakhtar Donetsk,Servette FC Genève,1,1
+2025/26,UECL,Qualifying Play-off Round,223,233,Servette FC Genève,Shakhtar Donetsk,1,2
+2025/26,UECL,Qualifying Play-off Round,58,171,Crystal Palace,Fredrikstad FK,1,0
+2025/26,UECL,Qualifying Play-off Round,171,58,Fredrikstad FK,Crystal Palace,0,0
+2025/26,UECL,Qualifying Play-off Round,195,177,Hibernian,Legia Warsaw,1,2
+2025/26,UECL,Qualifying Play-off Round,177,195,Legia Warsaw,Hibernian,3,3
+2025/26,UECL,Qualifying Play-off Round,102,14,ETO Györ,Rapid Wien,2,1
+2025/26,UECL,Qualifying Play-off Round,14,102,Rapid Wien,ETO Györ,2,0
+2025/26,UECL,Qualifying Play-off Round,180,110,CD Santa Clara,Shamrock Rovers,1,2
+2025/26,UECL,Qualifying Play-off Round,110,180,Shamrock Rovers,CD Santa Clara,0,0
+2025/26,UECL,Qualifying Play-off Round,172,91,Rosenborg BK,FSV Mainz 05,2,1
+2025/26,UECL,Qualifying Play-off Round,91,172,FSV Mainz 05,Rosenborg BK,4,1
+2025/26,UECL,Qualifying Play-off Round,49,135,Sparta Praha,Riga FC,2,0
+2025/26,UECL,Qualifying Play-off Round,135,49,Riga FC,Sparta Praha,1,0
+2025/26,UECL,Qualifying Play-off Round,217,184,BK Häcken,CFR Cluj,7,2
+2025/26,UECL,Qualifying Play-off Round,184,217,CFR Cluj,BK Häcken,1,0
+2025/26,UECL,Qualifying Play-off Round,16,44,Wolfsberger AC,Omonia Nicosia,2,1
+2025/26,UECL,Qualifying Play-off Round,44,16,Omonia Nicosia,Wolfsberger AC,1,0
+2025/26,UECL,Qualifying Play-off Round,147,134,Hamrun Spartans,RFS Riga,1,0
+2025/26,UECL,Qualifying Play-off Round,134,147,RFS Riga,Hamrun Spartans,2,2
+2025/26,UECL,Qualifying Play-off Round,111,169,Shelbourne,Linfield Belfast,3,1
+2025/26,UECL,Qualifying Play-off Round,169,111,Linfield Belfast,Shelbourne,0,2
+2025/26,UECL,Qualifying Play-off Round,106,188,Breidablik,AC Virtus,2,1
+2025/26,UECL,Qualifying Play-off Round,188,106,AC Virtus,Breidablik,1,3
+2025/26,UECL,Qualifying Play-off Round,129,141,FC Drita,Differdange 03,2,1
+2025/26,UECL,Qualifying Play-off Round,141,129,Differdange 03,FC Drita,0,1
+2025/26,UECL,Qualifying Play-off Round,207,9,Olimpija Ljubljana,FC Noah,1,4
+2025/26,UECL,Qualifying Play-off Round,9,207,FC Noah,Olimpija Ljubljana,3,2
+2025/26,UECL,League Stage,230,58,Dynamo Kyiv,Crystal Palace,0,2
+2025/26,UECL,League Stage,222,106,Lausanne Sports,Breidablik,3,0
+2025/26,UECL,League Stage,9,40,FC Noah,NK Rijeka,1,0
+2025/26,UECL,League Stage,33,95,Zrinjski Mostar,Lincoln Red Imps,5,0
+2025/26,UECL,League Stage,175,147,Jagiellonia Bialystok,Hamrun Spartans,1,0
+2025/26,UECL,League Stage,176,14,Lech Poznan,Rapid Wien,4,1
+2025/26,UECL,League Stage,74,129,KuPS Kuopio,FC Drita,1,1
+2025/26,UECL,League Stage,44,91,Omonia Nicosia,FSV Mainz 05,0,1
+2025/26,UECL,League Stage,212,163,Rayo Vallecano,Shkendija Tetovo,2,0
+2025/26,UECL,League Stage,191,233,Aberdeen,Shakhtar Donetsk,2,3
+2025/26,UECL,League Stage,49,110,Sparta Praha,Shamrock Rovers,4,1
+2025/26,UECL,League Stage,120,47,Fiorentina,Sigma Olomouc,2,0
+2025/26,UECL,League Stage,42,156,AEK Larnaca,AZ Alkmaar,4,0
+2025/26,UECL,League Stage,177,229,Legia Warsaw,Samsunspor,0,1
+2025/26,UECL,League Stage,204,97,NK Celje,AEK Athens,3,1
+2025/26,UECL,League Stage,178,187,Raków Czestochowa,Universitatea Craiova,2,0
+2025/26,UECL,League Stage,111,217,Shelbourne,BK Häcken,0,0
+2025/26,UECL,League Stage,202,82,Slovan Bratislava,RC Strasbourg,1,2
+2025/26,UECL,League Stage,97,191,AEK Athens,Aberdeen,6,0
+2025/26,UECL,League Stage,217,212,BK Häcken,Rayo Vallecano,2,2
+2025/26,UECL,League Stage,106,74,Breidablik,KuPS Kuopio,0,0
+2025/26,UECL,League Stage,233,177,Shakhtar Donetsk,Legia Warsaw,1,2
+2025/26,UECL,League Stage,129,44,FC Drita,Omonia Nicosia,1,1
+2025/26,UECL,League Stage,40,49,NK Rijeka,Sparta Praha,1,0
+2025/26,UECL,League Stage,163,111,Shkendija Tetovo,Shelbourne,1,0
+2025/26,UECL,League Stage,82,175,RC Strasbourg,Jagiellonia Bialystok,1,1
+2025/26,UECL,League Stage,14,120,Rapid Wien,Fiorentina,0,3
+2025/26,UECL,League Stage,91,33,FSV Mainz 05,Zrinjski Mostar,1,0
+2025/26,UECL,League Stage,156,202,AZ Alkmaar,Slovan Bratislava,1,0
+2025/26,UECL,League Stage,58,42,Crystal Palace,AEK Larnaca,0,1
+2025/26,UECL,League Stage,147,222,Hamrun Spartans,Lausanne Sports,0,1
+2025/26,UECL,League Stage,95,176,Lincoln Red Imps,Lech Poznan,2,1
+2025/26,UECL,League Stage,229,230,Samsunspor,Dynamo Kyiv,3,0
+2025/26,UECL,League Stage,110,204,Shamrock Rovers,NK Celje,0,2
+2025/26,UECL,League Stage,47,178,Sigma Olomouc,Raków Czestochowa,1,1
+2025/26,UECL,League Stage,187,9,Universitatea Craiova,FC Noah,1,1
+2025/26,UECL,League Stage,91,120,FSV Mainz 05,Fiorentina,2,1
+2025/26,UECL,League Stage,49,178,Sparta Praha,Raków Czestochowa,0,0
+2025/26,UECL,League Stage,97,110,AEK Athens,Shamrock Rovers,1,1
+2025/26,UECL,League Stage,42,191,AEK Larnaca,Aberdeen,0,0
+2025/26,UECL,League Stage,233,106,Shakhtar Donetsk,Breidablik,2,0
+2025/26,UECL,League Stage,9,47,FC Noah,Sigma Olomouc,1,2
+2025/26,UECL,League Stage,74,202,KuPS Kuopio,Slovan Bratislava,3,1
+2025/26,UECL,League Stage,204,177,NK Celje,Legia Warsaw,2,1
+2025/26,UECL,League Stage,229,147,Samsunspor,Hamrun Spartans,3,0
+2025/26,UECL,League Stage,217,82,BK Häcken,RC Strasbourg,1,2
+2025/26,UECL,League Stage,58,156,Crystal Palace,AZ Alkmaar,3,1
+2025/26,UECL,League Stage,222,44,Lausanne Sports,Omonia Nicosia,1,1
+2025/26,UECL,League Stage,230,33,Dynamo Kyiv,Zrinjski Mostar,6,0
+2025/26,UECL,League Stage,163,175,Shkendija Tetovo,Jagiellonia Bialystok,1,1
+2025/26,UECL,League Stage,95,40,Lincoln Red Imps,NK Rijeka,1,1
+2025/26,UECL,League Stage,212,176,Rayo Vallecano,Lech Poznan,3,2
+2025/26,UECL,League Stage,111,129,Shelbourne,FC Drita,0,1
+2025/26,UECL,League Stage,14,187,Rapid Wien,Universitatea Craiova,0,1
+2025/26,UECL,League Stage,156,111,AZ Alkmaar,Shelbourne,2,0
+2025/26,UECL,League Stage,147,95,Hamrun Spartans,Lincoln Red Imps,3,1
+2025/26,UECL,League Stage,33,217,Zrinjski Mostar,BK Häcken,2,1
+2025/26,UECL,League Stage,176,222,Lech Poznan,Lausanne Sports,2,0
+2025/26,UECL,League Stage,44,230,Omonia Nicosia,Dynamo Kyiv,2,0
+2025/26,UECL,League Stage,178,14,Raków Czestochowa,Rapid Wien,4,1
+2025/26,UECL,League Stage,47,204,Sigma Olomouc,NK Celje,2,1
+2025/26,UECL,League Stage,187,91,Universitatea Craiova,FSV Mainz 05,1,0
+2025/26,UECL,League Stage,202,212,Slovan Bratislava,Rayo Vallecano,2,1
+2025/26,UECL,League Stage,191,9,Aberdeen,FC Noah,1,1
+2025/26,UECL,League Stage,120,97,Fiorentina,AEK Athens,0,1
+2025/26,UECL,League Stage,106,229,Breidablik,Samsunspor,2,2
+2025/26,UECL,League Stage,129,163,FC Drita,Shkendija Tetovo,1,0
+2025/26,UECL,League Stage,40,42,NK Rijeka,AEK Larnaca,0,0
+2025/26,UECL,League Stage,175,74,Jagiellonia Bialystok,KuPS Kuopio,1,0
+2025/26,UECL,League Stage,177,49,Legia Warsaw,Sparta Praha,0,1
+2025/26,UECL,League Stage,82,58,RC Strasbourg,Crystal Palace,2,1
+2025/26,UECL,League Stage,110,233,Shamrock Rovers,Shakhtar Donetsk,1,2
+2025/26,UECL,League Stage,120,230,Fiorentina,Dynamo Kyiv,2,1
+2025/26,UECL,League Stage,217,42,BK Häcken,AEK Larnaca,1,1
+2025/26,UECL,League Stage,106,110,Breidablik,Shamrock Rovers,3,1
+2025/26,UECL,League Stage,129,156,FC Drita,AZ Alkmaar,0,3
+2025/26,UECL,League Stage,9,177,FC Noah,Legia Warsaw,2,1
+2025/26,UECL,League Stage,175,212,Jagiellonia Bialystok,Rayo Vallecano,1,2
+2025/26,UECL,League Stage,163,202,Shkendija Tetovo,Slovan Bratislava,2,0
+2025/26,UECL,League Stage,229,97,Samsunspor,AEK Athens,1,2
+2025/26,UECL,League Stage,187,49,Universitatea Craiova,Sparta Praha,1,2
+2025/26,UECL,League Stage,191,82,Aberdeen,RC Strasbourg,0,1
+2025/26,UECL,League Stage,147,233,Hamrun Spartans,Shakhtar Donetsk,0,2
+2025/26,UECL,League Stage,40,204,NK Rijeka,NK Celje,3,0
+2025/26,UECL,League Stage,176,91,Lech Poznan,FSV Mainz 05,1,1
+2025/26,UECL,League Stage,74,222,KuPS Kuopio,Lausanne Sports,0,0
+2025/26,UECL,League Stage,95,47,Lincoln Red Imps,Sigma Olomouc,2,1
+2025/26,UECL,League Stage,178,33,Raków Czestochowa,Zrinjski Mostar,1,0
+2025/26,UECL,League Stage,111,58,Shelbourne,Crystal Palace,0,3
+2025/26,UECL,League Stage,14,44,Rapid Wien,Omonia Nicosia,0,1
+2025/26,UECL,League Stage,91,229,FSV Mainz 05,Samsunspor,2,0
+2025/26,UECL,League Stage,49,191,Sparta Praha,Aberdeen,3,0
+2025/26,UECL,League Stage,97,187,AEK Athens,Universitatea Craiova,3,2
+2025/26,UECL,League Stage,42,163,AEK Larnaca,Shkendija Tetovo,1,0
+2025/26,UECL,League Stage,156,175,AZ Alkmaar,Jagiellonia Bialystok,0,0
+2025/26,UECL,League Stage,58,74,Crystal Palace,KuPS Kuopio,2,2
+2025/26,UECL,League Stage,233,40,Shakhtar Donetsk,NK Rijeka,0,0
+2025/26,UECL,League Stage,230,9,Dynamo Kyiv,FC Noah,2,0
+2025/26,UECL,League Stage,222,120,Lausanne Sports,Fiorentina,1,0
+2025/26,UECL,League Stage,33,14,Zrinjski Mostar,Rapid Wien,1,1
+2025/26,UECL,League Stage,177,95,Legia Warsaw,Lincoln Red Imps,4,1
+2025/26,UECL,League Stage,204,111,NK Celje,Shelbourne,0,0
+2025/26,UECL,League Stage,44,178,Omonia Nicosia,Raków Czestochowa,0,1
+2025/26,UECL,League Stage,82,106,RC Strasbourg,Breidablik,3,1
+2025/26,UECL,League Stage,212,129,Rayo Vallecano,FC Drita,3,0
+2025/26,UECL,League Stage,110,147,Shamrock Rovers,Hamrun Spartans,3,1
+2025/26,UECL,League Stage,47,176,Sigma Olomouc,Lech Poznan,1,2
+2025/26,UECL,League Stage,202,217,Slovan Bratislava,BK Häcken,1,0
+2025/26,UECL,Knockout round play-offs,74,176,KuPS Kuopio,Lech Poznan,0,2
+2025/26,UECL,Knockout round play-offs,176,74,Lech Poznan,KuPS Kuopio,1,0
+2025/26,UECL,Knockout round play-offs,9,156,FC Noah,AZ Alkmaar,1,0
+2025/26,UECL,Knockout round play-offs,156,9,AZ Alkmaar,FC Noah,4,0
+2025/26,UECL,Knockout round play-offs,33,58,Zrinjski Mostar,Crystal Palace,1,1
+2025/26,UECL,Knockout round play-offs,58,33,Crystal Palace,Zrinjski Mostar,2,0
+2025/26,UECL,Knockout round play-offs,175,120,Jagiellonia Bialystok,Fiorentina,0,3
+2025/26,UECL,Knockout round play-offs,120,175,Fiorentina,Jagiellonia Bialystok,2,4
+2025/26,UECL,Knockout round play-offs,163,229,Shkendija Tetovo,Samsunspor,0,1
+2025/26,UECL,Knockout round play-offs,229,163,Samsunspor,Shkendija Tetovo,4,0
+2025/26,UECL,Knockout round play-offs,129,204,FC Drita,NK Celje,2,3
+2025/26,UECL,Knockout round play-offs,204,129,NK Celje,FC Drita,3,2
+2025/26,UECL,Knockout round play-offs,47,222,Sigma Olomouc,Lausanne Sports,1,1
+2025/26,UECL,Knockout round play-offs,222,47,Lausanne Sports,Sigma Olomouc,1,2
+2025/26,UECL,Knockout round play-offs,44,40,Omonia Nicosia,NK Rijeka,0,1
+2025/26,UECL,Knockout round play-offs,40,44,NK Rijeka,Omonia Nicosia,3,1
+2025/26,UECL,Round of 16,176,233,Lech Poznan,Shakhtar Donetsk,1,3
+2025/26,UECL,Round of 16,233,176,Shakhtar Donetsk,Lech Poznan,1,2
+2025/26,UECL,Round of 16,156,49,AZ Alkmaar,Sparta Praha,2,1
+2025/26,UECL,Round of 16,49,156,Sparta Praha,AZ Alkmaar,0,4
+2025/26,UECL,Round of 16,58,42,Crystal Palace,AEK Larnaca,0,0
+2025/26,UECL,Round of 16,42,58,AEK Larnaca,Crystal Palace,1,2
+2025/26,UECL,Round of 16,120,178,Fiorentina,Raków Czestochowa,2,1
+2025/26,UECL,Round of 16,178,120,Raków Czestochowa,Fiorentina,1,2
+2025/26,UECL,Round of 16,229,212,Samsunspor,Rayo Vallecano,1,3
+2025/26,UECL,Round of 16,212,229,Rayo Vallecano,Samsunspor,0,1
+2025/26,UECL,Round of 16,204,97,NK Celje,AEK Athens,0,4
+2025/26,UECL,Round of 16,97,204,AEK Athens,NK Celje,0,2
+2025/26,UECL,Round of 16,47,91,Sigma Olomouc,FSV Mainz 05,0,0
+2025/26,UECL,Round of 16,91,47,FSV Mainz 05,Sigma Olomouc,2,0
+2025/26,UECL,Round of 16,40,82,NK Rijeka,RC Strasbourg,1,2
+2025/26,UECL,Round of 16,82,40,RC Strasbourg,NK Rijeka,1,1
+2025/26,UECL,Quarter Finals,233,156,Shakhtar Donetsk,AZ Alkmaar,3,0
+2025/26,UECL,Quarter Finals,156,233,AZ Alkmaar,Shakhtar Donetsk,2,2
+2025/26,UECL,Quarter Finals,58,120,Crystal Palace,Fiorentina,3,0
+2025/26,UECL,Quarter Finals,120,58,Fiorentina,Crystal Palace,2,1
+2025/26,UECL,Quarter Finals,212,97,Rayo Vallecano,AEK Athens,3,0
+2025/26,UECL,Quarter Finals,97,212,AEK Athens,Rayo Vallecano,3,1
+2025/26,UECL,Quarter Finals,91,82,FSV Mainz 05,RC Strasbourg,2,0
+2025/26,UECL,Quarter Finals,82,91,RC Strasbourg,FSV Mainz 05,4,0
+2025/26,UECL,Semi Finals,233,58,Shakhtar Donetsk,Crystal Palace,1,3
+2025/26,UECL,Semi Finals,58,233,Crystal Palace,Shakhtar Donetsk,2,1
+2025/26,UECL,Semi Finals,212,82,Rayo Vallecano,RC Strasbourg,1,0
+2025/26,UECL,Semi Finals,82,212,RC Strasbourg,Rayo Vallecano,0,1
+2025/26,UECL,Final,58,212,Crystal Palace,Rayo Vallecano,1,0

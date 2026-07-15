@@ -1,0 +1,817 @@
+season,competition,round,home_team_id,away_team_id,home_team_name,away_team_name,home_goals,away_goals
+2021/22,UCL,Preliminary Round,189,126,Folgore,FC Prishtina,0,2
+2021/22,UCL,Preliminary Round,66,6,HB Torshavn,Inter Club d'Escaldes,0,1
+2021/22,UCL,Preliminary Round,126,6,FC Prishtina,Inter Club d'Escaldes,2,0
+2021/22,UCL,1st Qualifying Round,137,91,CS Fola Esch,Lincoln Red Imps,2,2
+2021/22,UCL,1st Qualifying Round,91,137,Lincoln Red Imps,CS Fola Esch,5,0
+2021/22,UCL,1st Qualifying Round,203,108,Slovan Bratislava,Shamrock Rovers,2,0
+2021/22,UCL,1st Qualifying Round,108,203,Shamrock Rovers,Slovan Bratislava,2,1
+2021/22,UCL,1st Qualifying Round,219,130,Malmö FF,Riga FC,1,0
+2021/22,UCL,1st Qualifying Round,130,219,Riga FC,Malmö FF,1,1
+2021/22,UCL,1st Qualifying Round,166,170,Bodø/Glimt,Legia Warsaw,2,3
+2021/22,UCL,1st Qualifying Round,170,166,Legia Warsaw,Bodø/Glimt,2,0
+2021/22,UCL,1st Qualifying Round,235,8,Connah's Quay,Alashkert FC,2,2
+2021/22,UCL,1st Qualifying Round,8,235,Alashkert FC,Connah's Quay,1,0
+2021/22,UCL,1st Qualifying Round,69,149,HJK Helsinki,Buducnost Podgorica,3,1
+2021/22,UCL,1st Qualifying Round,149,69,Buducnost Podgorica,HJK Helsinki,0,4
+2021/22,UCL,1st Qualifying Round,180,30,CFR Cluj,Borac Banja Luka,3,1
+2021/22,UCL,1st Qualifying Round,30,180,Borac Banja Luka,CFR Cluj,2,1
+2021/22,UCL,1st Qualifying Round,160,205,Shkendija Tetovo,Mura Murska Sobota,0,1
+2021/22,UCL,1st Qualifying Round,205,160,Mura Murska Sobota,Shkendija Tetovo,5,0
+2021/22,UCL,1st Qualifying Round,3,148,Teuta Durrës,Sheriff Tiraspol,0,4
+2021/22,UCL,1st Qualifying Round,148,3,Sheriff Tiraspol,Teuta Durrës,1,0
+2021/22,UCL,1st Qualifying Round,81,18,Dinamo Tbilisi,Neftchi Baku,1,2
+2021/22,UCL,1st Qualifying Round,18,81,Neftchi Baku,Dinamo Tbilisi,2,1
+2021/22,UCL,1st Qualifying Round,112,122,Maccabi Haifa,Kairat Almaty,1,1
+2021/22,UCL,1st Qualifying Round,122,112,Kairat Almaty,Maccabi Haifa,2,0
+2021/22,UCL,1st Qualifying Round,37,23,Ludogorets Razgrad,Shakhtior Saligorsk,1,0
+2021/22,UCL,1st Qualifying Round,23,37,Shakhtior Saligorsk,Ludogorets Razgrad,0,1
+2021/22,UCL,1st Qualifying Round,99,126,Ferencváros,FC Prishtina,3,0
+2021/22,UCL,1st Qualifying Round,126,99,FC Prishtina,Ferencváros,1,3
+2021/22,UCL,1st Qualifying Round,136,165,Zalgiris Vilnius,Linfield Belfast,3,1
+2021/22,UCL,1st Qualifying Round,165,136,Linfield Belfast,Zalgiris Vilnius,1,2
+2021/22,UCL,1st Qualifying Round,63,143,Flora Tallinn,Hibernians FC,2,0
+2021/22,UCL,1st Qualifying Round,143,63,Hibernians FC,Flora Tallinn,0,3
+2021/22,UCL,1st Qualifying Round,38,105,Dinamo Zagreb,Valur Reykjavik,3,2
+2021/22,UCL,1st Qualifying Round,105,38,Valur Reykjavik,Dinamo Zagreb,0,2
+2021/22,UCL,2nd Qualifying Round,38,45,Dinamo Zagreb,Omonia Nicosia,2,0
+2021/22,UCL,2nd Qualifying Round,45,38,Omonia Nicosia,Dinamo Zagreb,0,1
+2021/22,UCL,2nd Qualifying Round,203,223,Slovan Bratislava,Young Boys,0,0
+2021/22,UCL,2nd Qualifying Round,223,203,Young Boys,Slovan Bratislava,3,2
+2021/22,UCL,2nd Qualifying Round,170,63,Legia Warsaw,Flora Tallinn,2,1
+2021/22,UCL,2nd Qualifying Round,63,170,Flora Tallinn,Legia Warsaw,0,1
+2021/22,UCL,2nd Qualifying Round,8,148,Alashkert FC,Sheriff Tiraspol,0,1
+2021/22,UCL,2nd Qualifying Round,148,8,Sheriff Tiraspol,Alashkert FC,3,1
+2021/22,UCL,2nd Qualifying Round,96,18,Olympiakos Piraeus,Neftchi Baku,1,0
+2021/22,UCL,2nd Qualifying Round,18,96,Neftchi Baku,Olympiakos Piraeus,0,1
+2021/22,UCL,2nd Qualifying Round,122,199,Kairat Almaty,Red Star Belgrade,2,1
+2021/22,UCL,2nd Qualifying Round,199,122,Red Star Belgrade,Kairat Almaty,5,0
+2021/22,UCL,2nd Qualifying Round,91,180,Lincoln Red Imps,CFR Cluj,1,2
+2021/22,UCL,2nd Qualifying Round,180,91,CFR Cluj,Lincoln Red Imps,2,0
+2021/22,UCL,2nd Qualifying Round,219,69,Malmö FF,HJK Helsinki,2,1
+2021/22,UCL,2nd Qualifying Round,69,219,HJK Helsinki,Malmö FF,2,2
+2021/22,UCL,2nd Qualifying Round,99,136,Ferencváros,Zalgiris Vilnius,2,0
+2021/22,UCL,2nd Qualifying Round,136,99,Zalgiris Vilnius,Ferencváros,1,3
+2021/22,UCL,2nd Qualifying Round,205,37,Mura Murska Sobota,Ludogorets Razgrad,0,0
+2021/22,UCL,2nd Qualifying Round,37,205,Ludogorets Razgrad,Mura Murska Sobota,3,1
+2021/22,UCL,2nd Qualifying Round,15,49,Rapid Wien,Sparta Praha,2,1
+2021/22,UCL,2nd Qualifying Round,49,15,Sparta Praha,Rapid Wien,2,0
+2021/22,UCL,2nd Qualifying Round,193,54,Celtic,FC Midtjylland,1,1
+2021/22,UCL,2nd Qualifying Round,54,193,FC Midtjylland,Celtic,2,1
+2021/22,UCL,2nd Qualifying Round,156,226,PSV Eindhoven,Galatasaray,5,1
+2021/22,UCL,2nd Qualifying Round,226,156,Galatasaray,PSV Eindhoven,1,2
+2021/22,UCL,3rd Qualifying Round,96,37,Olympiakos Piraeus,Ludogorets Razgrad,1,1
+2021/22,UCL,3rd Qualifying Round,37,96,Ludogorets Razgrad,Olympiakos Piraeus,2,2
+2021/22,UCL,3rd Qualifying Round,219,194,Malmö FF,Glasgow Rangers,2,1
+2021/22,UCL,3rd Qualifying Round,194,219,Glasgow Rangers,Malmö FF,1,2
+2021/22,UCL,3rd Qualifying Round,38,170,Dinamo Zagreb,Legia Warsaw,1,1
+2021/22,UCL,3rd Qualifying Round,170,38,Legia Warsaw,Dinamo Zagreb,0,1
+2021/22,UCL,3rd Qualifying Round,180,223,CFR Cluj,Young Boys,1,1
+2021/22,UCL,3rd Qualifying Round,223,180,Young Boys,CFR Cluj,3,1
+2021/22,UCL,3rd Qualifying Round,199,148,Red Star Belgrade,Sheriff Tiraspol,1,1
+2021/22,UCL,3rd Qualifying Round,148,199,Sheriff Tiraspol,Red Star Belgrade,1,0
+2021/22,UCL,3rd Qualifying Round,99,48,Ferencváros,Slavia Praha,2,0
+2021/22,UCL,3rd Qualifying Round,48,99,Slavia Praha,Ferencváros,1,0
+2021/22,UCL,3rd Qualifying Round,156,54,PSV Eindhoven,FC Midtjylland,3,0
+2021/22,UCL,3rd Qualifying Round,54,156,FC Midtjylland,PSV Eindhoven,0,1
+2021/22,UCL,3rd Qualifying Round,187,174,Spartak Moscow,Benfica,0,2
+2021/22,UCL,3rd Qualifying Round,174,187,Benfica,Spartak Moscow,2,0
+2021/22,UCL,3rd Qualifying Round,28,231,Racing Genk,Shakhtar Donetsk,1,2
+2021/22,UCL,3rd Qualifying Round,231,28,Shakhtar Donetsk,Racing Genk,2,1
+2021/22,UCL,3rd Qualifying Round,49,73,Sparta Praha,AS Monaco,0,2
+2021/22,UCL,3rd Qualifying Round,73,49,AS Monaco,Sparta Praha,3,1
+2021/22,UCL,Qualifying Play-off Round,13,52,FC Salzburg,Brøndby IF,2,1
+2021/22,UCL,Qualifying Play-off Round,52,13,Brøndby IF,FC Salzburg,1,2
+2021/22,UCL,Qualifying Play-off Round,223,99,Young Boys,Ferencváros,3,2
+2021/22,UCL,Qualifying Play-off Round,99,223,Ferencváros,Young Boys,2,3
+2021/22,UCL,Qualifying Play-off Round,219,37,Malmö FF,Ludogorets Razgrad,2,0
+2021/22,UCL,Qualifying Play-off Round,37,219,Ludogorets Razgrad,Malmö FF,2,1
+2021/22,UCL,Qualifying Play-off Round,148,38,Sheriff Tiraspol,Dinamo Zagreb,3,0
+2021/22,UCL,Qualifying Play-off Round,38,148,Dinamo Zagreb,Sheriff Tiraspol,0,0
+2021/22,UCL,Qualifying Play-off Round,73,231,AS Monaco,Shakhtar Donetsk,0,1
+2021/22,UCL,Qualifying Play-off Round,231,73,Shakhtar Donetsk,AS Monaco,2,2
+2021/22,UCL,Qualifying Play-off Round,174,156,Benfica,PSV Eindhoven,2,1
+2021/22,UCL,Qualifying Play-off Round,156,174,PSV Eindhoven,Benfica,0,0
+2021/22,UCL,Group Stage,27,77,Club Brugge,Paris Saint-Germain,1,1
+2021/22,UCL,Group Stage,77,27,Paris Saint-Germain,Club Brugge,4,1
+2021/22,UCL,Group Stage,59,87,Manchester City,RB Leipzig,6,3
+2021/22,UCL,Group Stage,87,59,RB Leipzig,Manchester City,2,1
+2021/22,UCL,Group Stage,77,59,Paris Saint-Germain,Manchester City,2,0
+2021/22,UCL,Group Stage,59,77,Manchester City,Paris Saint-Germain,2,1
+2021/22,UCL,Group Stage,87,27,RB Leipzig,Club Brugge,1,2
+2021/22,UCL,Group Stage,27,87,Club Brugge,RB Leipzig,0,5
+2021/22,UCL,Group Stage,77,87,Paris Saint-Germain,RB Leipzig,3,2
+2021/22,UCL,Group Stage,87,77,RB Leipzig,Paris Saint-Germain,2,2
+2021/22,UCL,Group Stage,27,59,Club Brugge,Manchester City,1,5
+2021/22,UCL,Group Stage,59,27,Manchester City,Club Brugge,4,1
+2021/22,UCL,Group Stage,209,176,Atlético Madrid,FC Porto,0,0
+2021/22,UCL,Group Stage,176,209,FC Porto,Atlético Madrid,1,3
+2021/22,UCL,Group Stage,58,114,Liverpool,AC Milan,3,2
+2021/22,UCL,Group Stage,114,58,AC Milan,Liverpool,1,2
+2021/22,UCL,Group Stage,176,58,FC Porto,Liverpool,1,5
+2021/22,UCL,Group Stage,58,176,Liverpool,FC Porto,2,0
+2021/22,UCL,Group Stage,114,209,AC Milan,Atlético Madrid,1,2
+2021/22,UCL,Group Stage,209,114,Atlético Madrid,AC Milan,0,1
+2021/22,UCL,Group Stage,176,114,FC Porto,AC Milan,1,0
+2021/22,UCL,Group Stage,114,176,AC Milan,FC Porto,1,1
+2021/22,UCL,Group Stage,209,58,Atlético Madrid,Liverpool,2,3
+2021/22,UCL,Group Stage,58,209,Liverpool,Atlético Madrid,2,0
+2021/22,UCL,Group Stage,179,154,Sporting CP Lisbon,Ajax,1,5
+2021/22,UCL,Group Stage,154,179,Ajax,Sporting CP Lisbon,4,2
+2021/22,UCL,Group Stage,224,85,Besiktas,Borussia Dortmund,1,2
+2021/22,UCL,Group Stage,85,224,Borussia Dortmund,Besiktas,5,0
+2021/22,UCL,Group Stage,154,224,Ajax,Besiktas,2,0
+2021/22,UCL,Group Stage,224,154,Besiktas,Ajax,1,2
+2021/22,UCL,Group Stage,85,179,Borussia Dortmund,Sporting CP Lisbon,1,0
+2021/22,UCL,Group Stage,179,85,Sporting CP Lisbon,Borussia Dortmund,3,1
+2021/22,UCL,Group Stage,154,85,Ajax,Borussia Dortmund,4,0
+2021/22,UCL,Group Stage,85,154,Borussia Dortmund,Ajax,1,3
+2021/22,UCL,Group Stage,224,179,Besiktas,Sporting CP Lisbon,1,4
+2021/22,UCL,Group Stage,179,224,Sporting CP Lisbon,Besiktas,4,0
+2021/22,UCL,Group Stage,148,231,Sheriff Tiraspol,Shakhtar Donetsk,2,0
+2021/22,UCL,Group Stage,231,148,Shakhtar Donetsk,Sheriff Tiraspol,1,1
+2021/22,UCL,Group Stage,117,212,Internazionale,Real Madrid,0,1
+2021/22,UCL,Group Stage,212,117,Real Madrid,Internazionale,2,0
+2021/22,UCL,Group Stage,231,117,Shakhtar Donetsk,Internazionale,0,0
+2021/22,UCL,Group Stage,117,231,Internazionale,Shakhtar Donetsk,2,0
+2021/22,UCL,Group Stage,212,148,Real Madrid,Sheriff Tiraspol,1,2
+2021/22,UCL,Group Stage,148,212,Sheriff Tiraspol,Real Madrid,0,3
+2021/22,UCL,Group Stage,231,212,Shakhtar Donetsk,Real Madrid,0,5
+2021/22,UCL,Group Stage,212,231,Real Madrid,Shakhtar Donetsk,2,1
+2021/22,UCL,Group Stage,117,148,Internazionale,Sheriff Tiraspol,3,1
+2021/22,UCL,Group Stage,148,117,Sheriff Tiraspol,Internazionale,1,3
+2021/22,UCL,Group Stage,229,174,Dinamo Kiev,Benfica,0,0
+2021/22,UCL,Group Stage,174,229,Benfica,Dinamo Kiev,2,0
+2021/22,UCL,Group Stage,210,84,FC Barcelona,Bayern München,0,3
+2021/22,UCL,Group Stage,84,210,Bayern München,FC Barcelona,3,0
+2021/22,UCL,Group Stage,174,210,Benfica,FC Barcelona,3,0
+2021/22,UCL,Group Stage,210,174,FC Barcelona,Benfica,0,0
+2021/22,UCL,Group Stage,84,229,Bayern München,Dinamo Kiev,5,0
+2021/22,UCL,Group Stage,229,84,Dinamo Kiev,Bayern München,1,2
+2021/22,UCL,Group Stage,174,84,Benfica,Bayern München,0,4
+2021/22,UCL,Group Stage,84,174,Bayern München,Benfica,5,2
+2021/22,UCL,Group Stage,210,229,FC Barcelona,Dinamo Kiev,1,0
+2021/22,UCL,Group Stage,229,210,Dinamo Kiev,FC Barcelona,0,1
+2021/22,UCL,Group Stage,223,60,Young Boys,Manchester United,2,1
+2021/22,UCL,Group Stage,60,223,Manchester United,Young Boys,1,1
+2021/22,UCL,Group Stage,215,116,Villarreal,Atalanta,2,2
+2021/22,UCL,Group Stage,116,215,Atalanta,Villarreal,2,3
+2021/22,UCL,Group Stage,60,215,Manchester United,Villarreal,2,1
+2021/22,UCL,Group Stage,215,60,Villarreal,Manchester United,0,2
+2021/22,UCL,Group Stage,116,223,Atalanta,Young Boys,1,0
+2021/22,UCL,Group Stage,223,116,Young Boys,Atalanta,3,3
+2021/22,UCL,Group Stage,60,116,Manchester United,Atalanta,3,2
+2021/22,UCL,Group Stage,116,60,Atalanta,Manchester United,2,2
+2021/22,UCL,Group Stage,223,215,Young Boys,Villarreal,1,4
+2021/22,UCL,Group Stage,215,223,Villarreal,Young Boys,2,0
+2021/22,UCL,Group Stage,214,13,Sevilla,FC Salzburg,1,1
+2021/22,UCL,Group Stage,13,214,FC Salzburg,Sevilla,1,0
+2021/22,UCL,Group Stage,74,89,Lille OSC,VfL Wolfsburg,0,0
+2021/22,UCL,Group Stage,89,74,VfL Wolfsburg,Lille OSC,1,3
+2021/22,UCL,Group Stage,13,74,FC Salzburg,Lille OSC,2,1
+2021/22,UCL,Group Stage,74,13,Lille OSC,FC Salzburg,1,0
+2021/22,UCL,Group Stage,89,214,VfL Wolfsburg,Sevilla,1,1
+2021/22,UCL,Group Stage,214,89,Sevilla,VfL Wolfsburg,2,0
+2021/22,UCL,Group Stage,13,89,FC Salzburg,VfL Wolfsburg,3,1
+2021/22,UCL,Group Stage,89,13,VfL Wolfsburg,FC Salzburg,2,1
+2021/22,UCL,Group Stage,74,214,Lille OSC,Sevilla,0,0
+2021/22,UCL,Group Stage,214,74,Sevilla,Lille OSC,1,2
+2021/22,UCL,Group Stage,56,188,Chelsea,Zenit St. Petersburg,1,0
+2021/22,UCL,Group Stage,188,56,Zenit St. Petersburg,Chelsea,3,3
+2021/22,UCL,Group Stage,219,118,Malmö FF,Juventus,0,3
+2021/22,UCL,Group Stage,118,219,Juventus,Malmö FF,1,0
+2021/22,UCL,Group Stage,188,219,Zenit St. Petersburg,Malmö FF,4,0
+2021/22,UCL,Group Stage,219,188,Malmö FF,Zenit St. Petersburg,1,1
+2021/22,UCL,Group Stage,118,56,Juventus,Chelsea,1,0
+2021/22,UCL,Group Stage,56,118,Chelsea,Juventus,4,0
+2021/22,UCL,Group Stage,188,118,Zenit St. Petersburg,Juventus,0,1
+2021/22,UCL,Group Stage,118,188,Juventus,Zenit St. Petersburg,4,2
+2021/22,UCL,Group Stage,56,219,Chelsea,Malmö FF,4,0
+2021/22,UCL,Group Stage,219,56,Malmö FF,Chelsea,0,1
+2021/22,UCL,Round of 16,179,59,Sporting CP Lisbon,Manchester City,0,5
+2021/22,UCL,Round of 16,59,179,Manchester City,Sporting CP Lisbon,0,0
+2021/22,UCL,Round of 16,77,212,Paris Saint-Germain,Real Madrid,1,0
+2021/22,UCL,Round of 16,212,77,Real Madrid,Paris Saint-Germain,3,1
+2021/22,UCL,Round of 16,13,84,FC Salzburg,Bayern München,1,1
+2021/22,UCL,Round of 16,84,13,Bayern München,FC Salzburg,7,1
+2021/22,UCL,Round of 16,117,58,Internazionale,Liverpool,0,2
+2021/22,UCL,Round of 16,58,117,Liverpool,Internazionale,0,1
+2021/22,UCL,Round of 16,56,74,Chelsea,Lille OSC,2,0
+2021/22,UCL,Round of 16,74,56,Lille OSC,Chelsea,1,2
+2021/22,UCL,Round of 16,215,118,Villarreal,Juventus,1,1
+2021/22,UCL,Round of 16,118,215,Juventus,Villarreal,0,3
+2021/22,UCL,Round of 16,174,154,Benfica,Ajax,2,2
+2021/22,UCL,Round of 16,154,174,Ajax,Benfica,0,1
+2021/22,UCL,Round of 16,209,60,Atlético Madrid,Manchester United,1,1
+2021/22,UCL,Round of 16,60,209,Manchester United,Atlético Madrid,0,1
+2021/22,UCL,Quarter Finals,56,212,Chelsea,Real Madrid,1,3
+2021/22,UCL,Quarter Finals,212,56,Real Madrid,Chelsea,2,3
+2021/22,UCL,Quarter Finals,59,209,Manchester City,Atlético Madrid,1,0
+2021/22,UCL,Quarter Finals,209,59,Atlético Madrid,Manchester City,0,0
+2021/22,UCL,Quarter Finals,215,84,Villarreal,Bayern München,1,0
+2021/22,UCL,Quarter Finals,84,215,Bayern München,Villarreal,1,1
+2021/22,UCL,Quarter Finals,174,58,Benfica,Liverpool,1,3
+2021/22,UCL,Quarter Finals,58,174,Liverpool,Benfica,3,3
+2021/22,UCL,Semi Finals,59,212,Manchester City,Real Madrid,4,3
+2021/22,UCL,Semi Finals,212,59,Real Madrid,Manchester City,3,1
+2021/22,UCL,Semi Finals,58,215,Liverpool,Villarreal,2,0
+2021/22,UCL,Semi Finals,215,58,Villarreal,Liverpool,2,3
+2021/22,UCL,Final,58,212,Liverpool,Real Madrid,0,1
+2021/22,UEL,3rd Qualifying Round,47,193,FK Jablonec,Celtic,2,4
+2021/22,UEL,3rd Qualifying Round,193,47,Celtic,FK Jablonec,3,0
+2021/22,UEL,3rd Qualifying Round,15,43,Rapid Wien,Anorthosis Famagusta,3,0
+2021/22,UEL,3rd Qualifying Round,43,15,Anorthosis Famagusta,Rapid Wien,2,1
+2021/22,UEL,3rd Qualifying Round,226,196,Galatasaray,St. Johnstone,1,1
+2021/22,UEL,3rd Qualifying Round,196,226,St. Johnstone,Galatasaray,2,4
+2021/22,UEL,3rd Qualifying Round,45,63,Omonia Nicosia,Flora Tallinn,1,0
+2021/22,UEL,3rd Qualifying Round,63,45,Flora Tallinn,Omonia Nicosia,2,1
+2021/22,UEL,3rd Qualifying Round,205,136,Mura Murska Sobota,Zalgiris Vilnius,0,0
+2021/22,UEL,3rd Qualifying Round,136,205,Zalgiris Vilnius,Mura Murska Sobota,0,1
+2021/22,UEL,3rd Qualifying Round,122,8,Kairat Almaty,Alashkert FC,0,0
+2021/22,UEL,3rd Qualifying Round,8,122,Alashkert FC,Kairat Almaty,3,2
+2021/22,UEL,3rd Qualifying Round,91,203,Lincoln Red Imps,Slovan Bratislava,1,3
+2021/22,UEL,3rd Qualifying Round,203,91,Slovan Bratislava,Lincoln Red Imps,1,1
+2021/22,UEL,3rd Qualifying Round,18,69,Neftchi Baku,HJK Helsinki,2,2
+2021/22,UEL,3rd Qualifying Round,69,18,HJK Helsinki,Neftchi Baku,3,0
+2021/22,UEL,Qualifying Play-off Round,55,226,Randers FC,Galatasaray,1,1
+2021/22,UEL,Qualifying Play-off Round,226,55,Galatasaray,Randers FC,2,1
+2021/22,UEL,Qualifying Play-off Round,15,233,Rapid Wien,Zorya Luhansk,3,0
+2021/22,UEL,Qualifying Play-off Round,233,15,Zorya Luhansk,Rapid Wien,2,3
+2021/22,UEL,Qualifying Play-off Round,193,153,Celtic,AZ Alkmaar,2,0
+2021/22,UEL,Qualifying Play-off Round,153,193,AZ Alkmaar,Celtic,2,1
+2021/22,UEL,Qualifying Play-off Round,225,69,Fenerbahçe,HJK Helsinki,1,0
+2021/22,UEL,Qualifying Play-off Round,69,225,HJK Helsinki,Fenerbahçe,2,5
+2021/22,UEL,Qualifying Play-off Round,205,16,Mura Murska Sobota,Sturm Graz,1,3
+2021/22,UEL,Qualifying Play-off Round,16,205,Sturm Graz,Mura Murska Sobota,2,0
+2021/22,UEL,Qualifying Play-off Round,45,29,Omonia Nicosia,Royal Antwerp,4,2
+2021/22,UEL,Qualifying Play-off Round,29,45,Royal Antwerp,Omonia Nicosia,2,0
+2021/22,UEL,Qualifying Play-off Round,96,203,Olympiakos Piraeus,Slovan Bratislava,3,0
+2021/22,UEL,Qualifying Play-off Round,203,96,Slovan Bratislava,Olympiakos Piraeus,2,2
+2021/22,UEL,Qualifying Play-off Round,194,8,Glasgow Rangers,Alashkert FC,1,0
+2021/22,UEL,Qualifying Play-off Round,8,194,Alashkert FC,Glasgow Rangers,0,0
+2021/22,UEL,Qualifying Play-off Round,48,170,Slavia Praha,Legia Warsaw,2,2
+2021/22,UEL,Qualifying Play-off Round,170,48,Legia Warsaw,Slavia Praha,2,1
+2021/22,UEL,Qualifying Play-off Round,199,180,Red Star Belgrade,CFR Cluj,4,0
+2021/22,UEL,Qualifying Play-off Round,180,199,CFR Cluj,Red Star Belgrade,1,2
+2021/22,UEL,Group Stage,52,49,Brøndby IF,Sparta Praha,0,0
+2021/22,UEL,Group Stage,49,52,Sparta Praha,Brøndby IF,2,0
+2021/22,UEL,Group Stage,194,75,Glasgow Rangers,Olympique Lyon,0,2
+2021/22,UEL,Group Stage,75,194,Olympique Lyon,Glasgow Rangers,1,1
+2021/22,UEL,Group Stage,49,194,Sparta Praha,Glasgow Rangers,1,0
+2021/22,UEL,Group Stage,194,49,Glasgow Rangers,Sparta Praha,2,0
+2021/22,UEL,Group Stage,75,52,Olympique Lyon,Brøndby IF,3,0
+2021/22,UEL,Group Stage,52,75,Brøndby IF,Olympique Lyon,1,3
+2021/22,UEL,Group Stage,49,75,Sparta Praha,Olympique Lyon,3,4
+2021/22,UEL,Group Stage,75,49,Olympique Lyon,Sparta Praha,3,0
+2021/22,UEL,Group Stage,194,52,Glasgow Rangers,Brøndby IF,2,0
+2021/22,UEL,Group Stage,52,194,Brøndby IF,Glasgow Rangers,1,1
+2021/22,UEL,Group Stage,73,16,AS Monaco,Sturm Graz,1,0
+2021/22,UEL,Group Stage,16,73,Sturm Graz,AS Monaco,1,1
+2021/22,UEL,Group Stage,156,213,PSV Eindhoven,Real Sociedad,2,2
+2021/22,UEL,Group Stage,213,156,Real Sociedad,PSV Eindhoven,3,0
+2021/22,UEL,Group Stage,16,156,Sturm Graz,PSV Eindhoven,1,4
+2021/22,UEL,Group Stage,156,16,PSV Eindhoven,Sturm Graz,2,0
+2021/22,UEL,Group Stage,213,73,Real Sociedad,AS Monaco,1,1
+2021/22,UEL,Group Stage,73,213,AS Monaco,Real Sociedad,2,1
+2021/22,UEL,Group Stage,16,213,Sturm Graz,Real Sociedad,0,1
+2021/22,UEL,Group Stage,213,16,Real Sociedad,Sturm Graz,1,1
+2021/22,UEL,Group Stage,156,73,PSV Eindhoven,AS Monaco,1,2
+2021/22,UEL,Group Stage,73,156,AS Monaco,PSV Eindhoven,0,0
+2021/22,UEL,Group Stage,57,120,Leicester City,Napoli,2,2
+2021/22,UEL,Group Stage,120,57,Napoli,Leicester City,3,2
+2021/22,UEL,Group Stage,187,170,Spartak Moscow,Legia Warsaw,0,1
+2021/22,UEL,Group Stage,170,187,Legia Warsaw,Spartak Moscow,0,1
+2021/22,UEL,Group Stage,120,187,Napoli,Spartak Moscow,2,3
+2021/22,UEL,Group Stage,187,120,Spartak Moscow,Napoli,2,1
+2021/22,UEL,Group Stage,170,57,Legia Warsaw,Leicester City,1,0
+2021/22,UEL,Group Stage,57,170,Leicester City,Legia Warsaw,3,1
+2021/22,UEL,Group Stage,120,170,Napoli,Legia Warsaw,3,0
+2021/22,UEL,Group Stage,170,120,Legia Warsaw,Napoli,1,4
+2021/22,UEL,Group Stage,187,57,Spartak Moscow,Leicester City,3,4
+2021/22,UEL,Group Stage,57,187,Leicester City,Spartak Moscow,1,1
+2021/22,UEL,Group Stage,96,29,Olympiakos Piraeus,Royal Antwerp,2,1
+2021/22,UEL,Group Stage,29,96,Royal Antwerp,Olympiakos Piraeus,1,0
+2021/22,UEL,Group Stage,86,225,Eintracht Frankfurt,Fenerbahçe,1,1
+2021/22,UEL,Group Stage,225,86,Fenerbahçe,Eintracht Frankfurt,1,1
+2021/22,UEL,Group Stage,29,86,Royal Antwerp,Eintracht Frankfurt,0,1
+2021/22,UEL,Group Stage,86,29,Eintracht Frankfurt,Royal Antwerp,2,2
+2021/22,UEL,Group Stage,225,96,Fenerbahçe,Olympiakos Piraeus,0,3
+2021/22,UEL,Group Stage,96,225,Olympiakos Piraeus,Fenerbahçe,1,0
+2021/22,UEL,Group Stage,225,29,Fenerbahçe,Royal Antwerp,2,2
+2021/22,UEL,Group Stage,29,225,Royal Antwerp,Fenerbahçe,0,3
+2021/22,UEL,Group Stage,86,96,Eintracht Frankfurt,Olympiakos Piraeus,3,1
+2021/22,UEL,Group Stage,96,86,Olympiakos Piraeus,Eintracht Frankfurt,1,2
+2021/22,UEL,Group Stage,226,119,Galatasaray,Lazio,1,0
+2021/22,UEL,Group Stage,119,226,Lazio,Galatasaray,0,0
+2021/22,UEL,Group Stage,185,76,Lokomotiv Moscow,Olympique Marseille,1,1
+2021/22,UEL,Group Stage,76,185,Olympique Marseille,Lokomotiv Moscow,1,0
+2021/22,UEL,Group Stage,119,185,Lazio,Lokomotiv Moscow,2,0
+2021/22,UEL,Group Stage,185,119,Lokomotiv Moscow,Lazio,0,3
+2021/22,UEL,Group Stage,76,226,Olympique Marseille,Galatasaray,0,0
+2021/22,UEL,Group Stage,226,76,Galatasaray,Olympique Marseille,4,2
+2021/22,UEL,Group Stage,119,76,Lazio,Olympique Marseille,0,0
+2021/22,UEL,Group Stage,76,119,Olympique Marseille,Lazio,2,2
+2021/22,UEL,Group Stage,185,226,Lokomotiv Moscow,Galatasaray,0,1
+2021/22,UEL,Group Stage,226,185,Galatasaray,Lokomotiv Moscow,1,1
+2021/22,UEL,Group Stage,199,178,Red Star Belgrade,Sporting Braga,2,1
+2021/22,UEL,Group Stage,178,199,Sporting Braga,Red Star Belgrade,1,1
+2021/22,UEL,Group Stage,54,37,FC Midtjylland,Ludogorets Razgrad,1,1
+2021/22,UEL,Group Stage,37,54,Ludogorets Razgrad,FC Midtjylland,0,0
+2021/22,UEL,Group Stage,178,54,Sporting Braga,FC Midtjylland,3,1
+2021/22,UEL,Group Stage,54,178,FC Midtjylland,Sporting Braga,3,2
+2021/22,UEL,Group Stage,37,199,Ludogorets Razgrad,Red Star Belgrade,0,1
+2021/22,UEL,Group Stage,199,37,Red Star Belgrade,Ludogorets Razgrad,1,0
+2021/22,UEL,Group Stage,37,178,Ludogorets Razgrad,Sporting Braga,0,1
+2021/22,UEL,Group Stage,178,37,Sporting Braga,Ludogorets Razgrad,4,2
+2021/22,UEL,Group Stage,54,199,FC Midtjylland,Red Star Belgrade,1,1
+2021/22,UEL,Group Stage,199,54,Red Star Belgrade,FC Midtjylland,0,1
+2021/22,UEL,Group Stage,83,99,Bayer Leverkusen,Ferencváros,2,1
+2021/22,UEL,Group Stage,99,83,Ferencváros,Bayer Leverkusen,1,0
+2021/22,UEL,Group Stage,211,193,Real Betis,Celtic,4,3
+2021/22,UEL,Group Stage,193,211,Celtic,Real Betis,3,2
+2021/22,UEL,Group Stage,99,211,Ferencváros,Real Betis,1,3
+2021/22,UEL,Group Stage,211,99,Real Betis,Ferencváros,2,0
+2021/22,UEL,Group Stage,193,83,Celtic,Bayer Leverkusen,0,4
+2021/22,UEL,Group Stage,83,193,Bayer Leverkusen,Celtic,3,2
+2021/22,UEL,Group Stage,193,99,Celtic,Ferencváros,2,0
+2021/22,UEL,Group Stage,99,193,Ferencváros,Celtic,2,3
+2021/22,UEL,Group Stage,211,83,Real Betis,Bayer Leverkusen,1,1
+2021/22,UEL,Group Stage,83,211,Bayer Leverkusen,Real Betis,4,0
+2021/22,UEL,Group Stage,38,62,Dinamo Zagreb,West Ham United,0,2
+2021/22,UEL,Group Stage,62,38,West Ham United,Dinamo Zagreb,0,1
+2021/22,UEL,Group Stage,15,28,Rapid Wien,Racing Genk,0,1
+2021/22,UEL,Group Stage,28,15,Racing Genk,Rapid Wien,0,1
+2021/22,UEL,Group Stage,62,15,West Ham United,Rapid Wien,2,0
+2021/22,UEL,Group Stage,15,62,Rapid Wien,West Ham United,0,2
+2021/22,UEL,Group Stage,28,38,Racing Genk,Dinamo Zagreb,0,3
+2021/22,UEL,Group Stage,38,28,Dinamo Zagreb,Racing Genk,1,1
+2021/22,UEL,Group Stage,62,28,West Ham United,Racing Genk,3,0
+2021/22,UEL,Group Stage,28,62,Racing Genk,West Ham United,2,2
+2021/22,UEL,Group Stage,15,38,Rapid Wien,Dinamo Zagreb,2,1
+2021/22,UEL,Group Stage,38,15,Dinamo Zagreb,Rapid Wien,3,1
+2021/22,UEL,Knockout round play-offs,210,120,FC Barcelona,Napoli,1,1
+2021/22,UEL,Knockout round play-offs,120,210,Napoli,FC Barcelona,2,4
+2021/22,UEL,Knockout round play-offs,188,211,Zenit St. Petersburg,Real Betis,2,3
+2021/22,UEL,Knockout round play-offs,211,188,Real Betis,Zenit St. Petersburg,0,0
+2021/22,UEL,Knockout round play-offs,85,194,Borussia Dortmund,Glasgow Rangers,2,4
+2021/22,UEL,Knockout round play-offs,194,85,Glasgow Rangers,Borussia Dortmund,2,2
+2021/22,UEL,Knockout round play-offs,148,178,Sheriff Tiraspol,Sporting Braga,2,0
+2021/22,UEL,Knockout round play-offs,178,148,Sporting Braga,Sheriff Tiraspol,2,0
+2021/22,UEL,Knockout round play-offs,214,38,Sevilla,Dinamo Zagreb,3,1
+2021/22,UEL,Knockout round play-offs,38,214,Dinamo Zagreb,Sevilla,1,0
+2021/22,UEL,Knockout round play-offs,116,96,Atalanta,Olympiakos Piraeus,2,1
+2021/22,UEL,Knockout round play-offs,96,116,Olympiakos Piraeus,Atalanta,0,3
+2021/22,UEL,Knockout round play-offs,87,213,RB Leipzig,Real Sociedad,2,2
+2021/22,UEL,Knockout round play-offs,213,87,Real Sociedad,RB Leipzig,1,3
+2021/22,UEL,Knockout round play-offs,176,119,FC Porto,Lazio,2,1
+2021/22,UEL,Knockout round play-offs,119,176,Lazio,FC Porto,2,2
+2021/22,UEL,Round of 16,194,199,Glasgow Rangers,Red Star Belgrade,3,0
+2021/22,UEL,Round of 16,199,194,Red Star Belgrade,Glasgow Rangers,2,1
+2021/22,UEL,Round of 16,178,73,Sporting Braga,AS Monaco,2,0
+2021/22,UEL,Round of 16,73,178,AS Monaco,Sporting Braga,1,1
+2021/22,UEL,Round of 16,176,75,FC Porto,Olympique Lyon,0,1
+2021/22,UEL,Round of 16,75,176,Olympique Lyon,FC Porto,1,1
+2021/22,UEL,Round of 16,116,83,Atalanta,Bayer Leverkusen,3,2
+2021/22,UEL,Round of 16,83,116,Bayer Leverkusen,Atalanta,0,1
+2021/22,UEL,Round of 16,214,62,Sevilla,West Ham United,1,0
+2021/22,UEL,Round of 16,62,214,West Ham United,Sevilla,2,0
+2021/22,UEL,Round of 16,210,226,FC Barcelona,Galatasaray,0,0
+2021/22,UEL,Round of 16,226,210,Galatasaray,FC Barcelona,1,2
+2021/22,UEL,Round of 16,211,86,Real Betis,Eintracht Frankfurt,1,2
+2021/22,UEL,Round of 16,86,211,Eintracht Frankfurt,Real Betis,1,1
+2021/22,UEL,Quarter Finals,87,116,RB Leipzig,Atalanta,1,1
+2021/22,UEL,Quarter Finals,116,87,Atalanta,RB Leipzig,0,2
+2021/22,UEL,Quarter Finals,86,210,Eintracht Frankfurt,FC Barcelona,1,1
+2021/22,UEL,Quarter Finals,210,86,FC Barcelona,Eintracht Frankfurt,2,3
+2021/22,UEL,Quarter Finals,62,75,West Ham United,Olympique Lyon,1,1
+2021/22,UEL,Quarter Finals,75,62,Olympique Lyon,West Ham United,0,3
+2021/22,UEL,Quarter Finals,178,194,Sporting Braga,Glasgow Rangers,1,0
+2021/22,UEL,Quarter Finals,194,178,Glasgow Rangers,Sporting Braga,3,1
+2021/22,UEL,Semi Finals,87,194,RB Leipzig,Glasgow Rangers,1,0
+2021/22,UEL,Semi Finals,194,87,Glasgow Rangers,RB Leipzig,3,1
+2021/22,UEL,Semi Finals,62,86,West Ham United,Eintracht Frankfurt,1,2
+2021/22,UEL,Semi Finals,86,62,Eintracht Frankfurt,West Ham United,1,0
+2021/22,UEL,Final,86,194,Eintracht Frankfurt,Glasgow Rangers,1,1
+2021/22,UECL,1st Qualifying Round,64,93,Levadia Tallinn,St Joseph's FC,3,1
+2021/22,UECL,1st Qualifying Round,93,64,St Joseph's FC,Levadia Tallinn,1,1
+2021/22,UECL,1st Qualifying Round,71,100,Inter Turku,Puskás Akadémia,1,1
+2021/22,UECL,1st Qualifying Round,100,71,Puskás Akadémia,Inter Turku,2,0
+2021/22,UECL,1st Qualifying Round,125,150,FC Drita,Decic Tuzi,2,1
+2021/22,UECL,1st Qualifying Round,150,125,Decic Tuzi,FC Drita,0,1
+2021/22,UECL,1st Qualifying Round,135,131,Suduva Marijampole,Valmieras FK,2,1
+2021/22,UECL,1st Qualifying Round,131,135,Valmieras FK,Suduva Marijampole,0,0
+2021/22,UECL,1st Qualifying Round,141,190,Birkirkara,La Fiorita,1,0
+2021/22,UECL,1st Qualifying Round,190,141,La Fiorita,Birkirkara,1,1
+2021/22,UECL,1st Qualifying Round,92,5,Mons Calpe,FC Santa Coloma,1,1
+2021/22,UECL,1st Qualifying Round,5,92,FC Santa Coloma,Mons Calpe,4,0
+2021/22,UECL,1st Qualifying Round,33,162,Velez Mostar,Coleraine,2,1
+2021/22,UECL,1st Qualifying Round,162,33,Coleraine,Velez Mostar,1,2
+2021/22,UECL,1st Qualifying Round,206,140,NK Domzale,Swift Hesperange,1,0
+2021/22,UECL,1st Qualifying Round,140,206,Swift Hesperange,NK Domzale,1,1
+2021/22,UECL,1st Qualifying Round,159,127,FK Shkupi,KF Llapi,2,0
+2021/22,UECL,1st Qualifying Round,127,159,KF Llapi,FK Shkupi,1,1
+2021/22,UECL,1st Qualifying Round,191,80,Tre Penne,Dinamo Batumi,0,4
+2021/22,UECL,1st Qualifying Round,80,191,Dinamo Batumi,Tre Penne,3,0
+2021/22,UECL,1st Qualifying Round,2,147,Partizani Tirana,Sfântul Gheorghe,5,2
+2021/22,UECL,1st Qualifying Round,147,2,Sfântul Gheorghe,Partizani Tirana,2,3
+2021/22,UECL,1st Qualifying Round,207,11,NK Maribor,Urartu FC,1,0
+2021/22,UECL,1st Qualifying Round,11,207,Urartu FC,NK Maribor,0,1
+2021/22,UECL,1st Qualifying Round,151,1,FK Podgorica,KF Laçi,1,0
+2021/22,UECL,1st Qualifying Round,1,151,KF Laçi,FK Podgorica,3,0
+2021/22,UECL,1st Qualifying Round,145,31,Milsami Orhei,FK Sarajevo,0,0
+2021/22,UECL,1st Qualifying Round,31,145,FK Sarajevo,Milsami Orhei,0,1
+2021/22,UECL,1st Qualifying Round,10,72,FC Noah,KuPS Kuopio,1,0
+2021/22,UECL,1st Qualifying Round,72,10,KuPS Kuopio,FC Noah,5,0
+2021/22,UECL,1st Qualifying Round,202,79,MSK Zilina,Dila Gori,5,1
+2021/22,UECL,1st Qualifying Round,79,202,Dila Gori,MSK Zilina,2,1
+2021/22,UECL,1st Qualifying Round,103,109,FH Hafnarfjardar,Sligo Rovers,1,0
+2021/22,UECL,1st Qualifying Round,109,103,Sligo Rovers,FH Hafnarfjardar,1,2
+2021/22,UECL,1st Qualifying Round,65,173,Paide Linnameeskond,Slask Wroclaw,1,2
+2021/22,UECL,1st Qualifying Round,173,65,Slask Wroclaw,Paide Linnameeskond,2,0
+2021/22,UECL,1st Qualifying Round,129,67,RFS Riga,KI Klaksvik,2,3
+2021/22,UECL,1st Qualifying Round,67,129,KI Klaksvik,RFS Riga,2,4
+2021/22,UECL,1st Qualifying Round,234,164,Bala Town,Larne FC,0,1
+2021/22,UECL,1st Qualifying Round,164,234,Larne FC,Bala Town,1,0
+2021/22,UECL,1st Qualifying Round,98,9,FC Fehérvár,Ararat Yerevan,1,1
+2021/22,UECL,1st Qualifying Round,9,98,Ararat Yerevan,FC Fehérvár,2,0
+2021/22,UECL,1st Qualifying Round,152,82,Sutjeska Niksic,Gagra Tbilisi,1,0
+2021/22,UECL,1st Qualifying Round,82,152,Gagra Tbilisi,Sutjeska Niksic,1,1
+2021/22,UECL,1st Qualifying Round,161,146,Sileks Kratovo,Petrocub Hîncesti,1,1
+2021/22,UECL,1st Qualifying Round,146,161,Petrocub Hîncesti,Sileks Kratovo,1,0
+2021/22,UECL,1st Qualifying Round,32,4,Siroki Brijeg,Vllaznia Shkodër,3,1
+2021/22,UECL,1st Qualifying Round,4,32,Vllaznia Shkodër,Siroki Brijeg,3,0
+2021/22,UECL,1st Qualifying Round,104,106,Stjarnan FC,Bohemians Dublin,1,1
+2021/22,UECL,1st Qualifying Round,106,104,Bohemians Dublin,Stjarnan FC,3,0
+2021/22,UECL,1st Qualifying Round,163,237,Glentoran,The New Saints,1,1
+2021/22,UECL,1st Qualifying Round,237,163,The New Saints,Glentoran,2,0
+2021/22,UECL,1st Qualifying Round,7,142,Sant Julià,Gzira United,0,0
+2021/22,UECL,1st Qualifying Round,142,7,Gzira United,Sant Julià,1,1
+2021/22,UECL,1st Qualifying Round,90,134,Europa FC,Kauno Zalgiris,0,0
+2021/22,UECL,1st Qualifying Round,134,90,Kauno Zalgiris,Europa FC,2,0
+2021/22,UECL,1st Qualifying Round,107,236,Dundalk,Newtown,4,0
+2021/22,UECL,1st Qualifying Round,236,107,Newtown,Dundalk,0,1
+2021/22,UECL,1st Qualifying Round,144,204,Mosta FC,Spartak Trnava,3,2
+2021/22,UECL,1st Qualifying Round,204,144,Spartak Trnava,Mosta FC,2,0
+2021/22,UECL,1st Qualifying Round,128,158,FK Liepaja,FC Struga,1,1
+2021/22,UECL,1st Qualifying Round,158,128,FC Struga,FK Liepaja,1,4
+2021/22,UECL,1st Qualifying Round,139,102,Racing Union Luxembourg,Breidablik,2,3
+2021/22,UECL,1st Qualifying Round,102,139,Breidablik,Racing Union Luxembourg,2,0
+2021/22,UECL,1st Qualifying Round,70,68,Honka Espoo,NSI Runavik,0,0
+2021/22,UECL,1st Qualifying Round,68,70,NSI Runavik,Honka Espoo,1,3
+2021/22,UECL,2nd Qualifying Round,72,232,KuPS Kuopio,Vorskla Poltava,2,2
+2021/22,UECL,2nd Qualifying Round,232,72,Vorskla Poltava,KuPS Kuopio,2,3
+2021/22,UECL,2nd Qualifying Round,181,123,FCSB,Shakhtyor Karaganda,1,0
+2021/22,UECL,2nd Qualifying Round,123,181,Shakhtyor Karaganda,FCSB,2,1
+2021/22,UECL,2nd Qualifying Round,34,110,Arda Kardzhali,Hapoel Beer-Sheva,0,2
+2021/22,UECL,2nd Qualifying Round,110,34,Hapoel Beer-Sheva,Arda Kardzhali,4,0
+2021/22,UECL,2nd Qualifying Round,44,202,Apollon Limassol,MSK Zilina,1,3
+2021/22,UECL,2nd Qualifying Round,202,44,MSK Zilina,Apollon Limassol,2,2
+2021/22,UECL,2nd Qualifying Round,197,20,Cukaricki Belgrade,Sumgayit FK,0,0
+2021/22,UECL,2nd Qualifying Round,20,197,Sumgayit FK,Cukaricki Belgrade,0,2
+2021/22,UECL,2nd Qualifying Round,152,113,Sutjeska Niksic,Maccabi Tel-Aviv,0,0
+2021/22,UECL,2nd Qualifying Round,113,152,Maccabi Tel-Aviv,Sutjeska Niksic,3,1
+2021/22,UECL,2nd Qualifying Round,121,95,FK Astana,Aris Thessaloniki,2,0
+2021/22,UECL,2nd Qualifying Round,95,121,Aris Thessaloniki,FK Astana,2,1
+2021/22,UECL,2nd Qualifying Round,146,227,Petrocub Hîncesti,Sivasspor,0,1
+2021/22,UECL,2nd Qualifying Round,227,146,Sivasspor,Petrocub Hîncesti,1,0
+2021/22,UECL,2nd Qualifying Round,42,4,AEL Limassol,Vllaznia Shkodër,1,0
+2021/22,UECL,2nd Qualifying Round,4,42,Vllaznia Shkodër,AEL Limassol,0,1
+2021/22,UECL,2nd Qualifying Round,184,17,FC Sochi,Kesla FK,3,0
+2021/22,UECL,2nd Qualifying Round,17,184,Kesla FK,FC Sochi,2,4
+2021/22,UECL,2nd Qualifying Round,218,145,IF Elfsborg,Milsami Orhei,4,0
+2021/22,UECL,2nd Qualifying Round,145,218,Milsami Orhei,IF Elfsborg,0,5
+2021/22,UECL,2nd Qualifying Round,129,100,RFS Riga,Puskás Akadémia,3,0
+2021/22,UECL,2nd Qualifying Round,100,129,Puskás Akadémia,RFS Riga,0,2
+2021/22,UECL,2nd Qualifying Round,80,21,Dinamo Batumi,BATE Borisov,0,1
+2021/22,UECL,2nd Qualifying Round,21,80,BATE Borisov,Dinamo Batumi,1,4
+2021/22,UECL,2nd Qualifying Round,198,201,Partizan Belgrade,DAC Dunajska Streda,1,0
+2021/22,UECL,2nd Qualifying Round,201,198,DAC Dunajska Streda,Partizan Belgrade,0,2
+2021/22,UECL,2nd Qualifying Round,107,64,Dundalk,Levadia Tallinn,2,2
+2021/22,UECL,2nd Qualifying Round,64,107,Levadia Tallinn,Dundalk,1,2
+2021/22,UECL,2nd Qualifying Round,142,41,Gzira United,NK Rijeka,0,2
+2021/22,UECL,2nd Qualifying Round,41,142,NK Rijeka,Gzira United,1,0
+2021/22,UECL,2nd Qualifying Round,50,22,Viktoria Plzen,Dynamo Brest,2,1
+2021/22,UECL,2nd Qualifying Round,22,50,Dynamo Brest,Viktoria Plzen,1,2
+2021/22,UECL,2nd Qualifying Round,134,237,Kauno Zalgiris,The New Saints,0,5
+2021/22,UECL,2nd Qualifying Round,237,134,The New Saints,Kauno Zalgiris,5,1
+2021/22,UECL,2nd Qualifying Round,206,70,NK Domzale,Honka Espoo,1,1
+2021/22,UECL,2nd Qualifying Round,70,206,Honka Espoo,NK Domzale,0,1
+2021/22,UECL,2nd Qualifying Round,35,128,CSKA Sofia,FK Liepaja,0,0
+2021/22,UECL,2nd Qualifying Round,128,35,FK Liepaja,CSKA Sofia,0,0
+2021/22,UECL,2nd Qualifying Round,159,175,FK Shkupi,CD Santa Clara,0,3
+2021/22,UECL,2nd Qualifying Round,175,159,CD Santa Clara,FK Shkupi,2,0
+2021/22,UECL,2nd Qualifying Round,195,5,Hibernian,FC Santa Coloma,3,0
+2021/22,UECL,2nd Qualifying Round,5,195,FC Santa Coloma,Hibernian,1,2
+2021/22,UECL,2nd Qualifying Round,164,51,Larne FC,AGF Aarhus,2,1
+2021/22,UECL,2nd Qualifying Round,51,164,AGF Aarhus,Larne FC,1,1
+2021/22,UECL,2nd Qualifying Round,25,169,AA Gent,Vålerengens IF,4,0
+2021/22,UECL,2nd Qualifying Round,169,25,Vålerengens IF,AA Gent,2,0
+2021/22,UECL,2nd Qualifying Round,138,106,F91 Dudelange,Bohemians Dublin,0,1
+2021/22,UECL,2nd Qualifying Round,106,138,Bohemians Dublin,F91 Dudelange,3,0
+2021/22,UECL,2nd Qualifying Round,33,94,Velez Mostar,AEK Athens,2,1
+2021/22,UECL,2nd Qualifying Round,94,33,AEK Athens,Velez Mostar,1,0
+2021/22,UECL,2nd Qualifying Round,19,111,Qarabag FK,MS Ashdod,0,0
+2021/22,UECL,2nd Qualifying Round,111,19,MS Ashdod,Qarabag FK,0,1
+2021/22,UECL,2nd Qualifying Round,36,46,Lokomotiv Plovdiv,1.FC Slovácko,1,0
+2021/22,UECL,2nd Qualifying Round,46,36,1.FC Slovácko,Lokomotiv Plovdiv,1,0
+2021/22,UECL,2nd Qualifying Round,9,173,Ararat Yerevan,Slask Wroclaw,2,4
+2021/22,UECL,2nd Qualifying Round,173,9,Slask Wroclaw,Ararat Yerevan,3,3
+2021/22,UECL,2nd Qualifying Round,1,183,KF Laçi,Universitatea Craiova,1,0
+2021/22,UECL,2nd Qualifying Round,183,1,Universitatea Craiova,KF Laçi,0,0
+2021/22,UECL,2nd Qualifying Round,125,155,FC Drita,Feyenoord,0,0
+2021/22,UECL,2nd Qualifying Round,155,125,Feyenoord,FC Drita,3,2
+2021/22,UECL,2nd Qualifying Round,220,2,FC Basel,Partizani Tirana,3,0
+2021/22,UECL,2nd Qualifying Round,2,220,Partizani Tirana,FC Basel,0,2
+2021/22,UECL,2nd Qualifying Round,171,40,Pogon Szczecin,NK Osijek,0,0
+2021/22,UECL,2nd Qualifying Round,40,171,NK Osijek,Pogon Szczecin,1,0
+2021/22,UECL,2nd Qualifying Round,12,102,Austria Wien,Breidablik,1,1
+2021/22,UECL,2nd Qualifying Round,102,12,Breidablik,Austria Wien,2,1
+2021/22,UECL,2nd Qualifying Round,208,141,Olimpija Ljubljana,Birkirkara,1,0
+2021/22,UECL,2nd Qualifying Round,141,208,Birkirkara,Olimpija Ljubljana,1,0
+2021/22,UECL,2nd Qualifying Round,217,207,Hammarby IF,NK Maribor,3,1
+2021/22,UECL,2nd Qualifying Round,207,217,NK Maribor,Hammarby IF,0,1
+2021/22,UECL,2nd Qualifying Round,167,222,Molde FK,Servette FC Genève,3,0
+2021/22,UECL,2nd Qualifying Round,222,167,Servette FC Genève,Molde FK,2,0
+2021/22,UECL,2nd Qualifying Round,101,132,Újpest TE,FC Vaduz,2,1
+2021/22,UECL,2nd Qualifying Round,132,101,FC Vaduz,Újpest TE,1,3
+2021/22,UECL,2nd Qualifying Round,135,172,Suduva Marijampole,Raków Czestochowa,0,0
+2021/22,UECL,2nd Qualifying Round,172,135,Raków Czestochowa,Suduva Marijampole,0,0
+2021/22,UECL,2nd Qualifying Round,204,182,Spartak Trnava,Sepsi OSK,0,0
+2021/22,UECL,2nd Qualifying Round,182,204,Sepsi OSK,Spartak Trnava,1,1
+2021/22,UECL,2nd Qualifying Round,103,168,FH Hafnarfjardar,Rosenborg BK,0,2
+2021/22,UECL,2nd Qualifying Round,168,103,Rosenborg BK,FH Hafnarfjardar,4,1
+2021/22,UECL,2nd Qualifying Round,53,24,FC København,Torpedo Zhodino,4,1
+2021/22,UECL,2nd Qualifying Round,24,53,Torpedo Zhodino,FC København,0,5
+2021/22,UECL,2nd Qualifying Round,133,200,FK Panevezys,Vojvodina Novi Sad,0,1
+2021/22,UECL,2nd Qualifying Round,200,133,Vojvodina Novi Sad,FK Panevezys,1,0
+2021/22,UECL,2nd Qualifying Round,39,124,Hajduk Split,Tobol Kustanai,2,0
+2021/22,UECL,2nd Qualifying Round,124,39,Tobol Kustanai,Hajduk Split,4,1
+2021/22,UECL,2nd Qualifying Round,192,216,Aberdeen,BK Häcken,5,1
+2021/22,UECL,2nd Qualifying Round,216,192,BK Häcken,Aberdeen,2,0
+2021/22,UECL,2nd Qualifying Round,3,6,Teuta Durrës,Inter Club d'Escaldes,0,2
+2021/22,UECL,2nd Qualifying Round,6,3,Inter Club d'Escaldes,Teuta Durrës,0,3
+2021/22,UECL,2nd Qualifying Round,130,160,Riga FC,Shkendija Tetovo,2,0
+2021/22,UECL,2nd Qualifying Round,160,130,Shkendija Tetovo,Riga FC,0,1
+2021/22,UECL,2nd Qualifying Round,81,112,Dinamo Tbilisi,Maccabi Haifa,1,2
+2021/22,UECL,2nd Qualifying Round,112,81,Maccabi Haifa,Dinamo Tbilisi,5,1
+2021/22,UECL,2nd Qualifying Round,66,149,HB Torshavn,Buducnost Podgorica,4,0
+2021/22,UECL,2nd Qualifying Round,149,66,Buducnost Podgorica,HB Torshavn,0,2
+2021/22,UECL,2nd Qualifying Round,165,30,Linfield Belfast,Borac Banja Luka,4,0
+2021/22,UECL,2nd Qualifying Round,30,165,Borac Banja Luka,Linfield Belfast,0,0
+2021/22,UECL,2nd Qualifying Round,23,137,Shakhtior Saligorsk,CS Fola Esch,1,2
+2021/22,UECL,2nd Qualifying Round,137,23,CS Fola Esch,Shakhtior Saligorsk,1,0
+2021/22,UECL,2nd Qualifying Round,189,143,Folgore,Hibernians FC,1,3
+2021/22,UECL,2nd Qualifying Round,143,189,Hibernians FC,Folgore,4,2
+2021/22,UECL,2nd Qualifying Round,126,235,FC Prishtina,Connah's Quay,4,1
+2021/22,UECL,2nd Qualifying Round,235,126,Connah's Quay,FC Prishtina,4,2
+2021/22,UECL,2nd Qualifying Round,105,166,Valur Reykjavik,Bodø/Glimt,0,3
+2021/22,UECL,2nd Qualifying Round,166,105,Bodø/Glimt,Valur Reykjavik,3,0
+2021/22,UECL,3rd Qualifying Round,80,227,Dinamo Batumi,Sivasspor,1,2
+2021/22,UECL,3rd Qualifying Round,227,80,Sivasspor,Dinamo Batumi,1,1
+2021/22,UECL,3rd Qualifying Round,72,121,KuPS Kuopio,FK Astana,1,1
+2021/22,UECL,3rd Qualifying Round,121,72,FK Astana,KuPS Kuopio,3,4
+2021/22,UECL,3rd Qualifying Round,184,198,FC Sochi,Partizan Belgrade,1,1
+2021/22,UECL,3rd Qualifying Round,198,184,Partizan Belgrade,FC Sochi,2,2
+2021/22,UECL,3rd Qualifying Round,173,110,Slask Wroclaw,Hapoel Beer-Sheva,2,1
+2021/22,UECL,3rd Qualifying Round,110,173,Hapoel Beer-Sheva,Slask Wroclaw,4,0
+2021/22,UECL,3rd Qualifying Round,175,208,CD Santa Clara,Olimpija Ljubljana,2,0
+2021/22,UECL,3rd Qualifying Round,208,175,Olimpija Ljubljana,CD Santa Clara,0,1
+2021/22,UECL,3rd Qualifying Round,101,220,Újpest TE,FC Basel,1,2
+2021/22,UECL,3rd Qualifying Round,220,101,FC Basel,Újpest TE,4,0
+2021/22,UECL,3rd Qualifying Round,230,123,Kolos Kovalivka,Shakhtyor Karaganda,0,0
+2021/22,UECL,3rd Qualifying Round,123,230,Shakhtyor Karaganda,Kolos Kovalivka,0,0
+2021/22,UECL,3rd Qualifying Round,218,33,IF Elfsborg,Velez Mostar,1,1
+2021/22,UECL,3rd Qualifying Round,33,218,Velez Mostar,IF Elfsborg,1,4
+2021/22,UECL,3rd Qualifying Round,177,164,Paços de Ferreira,Larne FC,4,0
+2021/22,UECL,3rd Qualifying Round,164,177,Larne FC,Paços de Ferreira,1,0
+2021/22,UECL,3rd Qualifying Round,221,155,FC Luzern,Feyenoord,0,3
+2021/22,UECL,3rd Qualifying Round,155,221,Feyenoord,FC Luzern,3,0
+2021/22,UECL,3rd Qualifying Round,25,129,AA Gent,RFS Riga,2,2
+2021/22,UECL,3rd Qualifying Round,129,25,RFS Riga,AA Gent,0,1
+2021/22,UECL,3rd Qualifying Round,195,41,Hibernian,NK Rijeka,1,1
+2021/22,UECL,3rd Qualifying Round,41,195,NK Rijeka,Hibernian,4,1
+2021/22,UECL,3rd Qualifying Round,102,192,Breidablik,Aberdeen,2,3
+2021/22,UECL,3rd Qualifying Round,192,102,Aberdeen,Breidablik,2,1
+2021/22,UECL,3rd Qualifying Round,228,167,Trabzonspor,Molde FK,3,3
+2021/22,UECL,3rd Qualifying Round,167,228,Molde FK,Trabzonspor,1,1
+2021/22,UECL,3rd Qualifying Round,106,97,Bohemians Dublin,PAOK Thessaloniki,2,1
+2021/22,UECL,3rd Qualifying Round,97,106,PAOK Thessaloniki,Bohemians Dublin,2,0
+2021/22,UECL,3rd Qualifying Round,237,50,The New Saints,Viktoria Plzen,4,2
+2021/22,UECL,3rd Qualifying Round,50,237,Viktoria Plzen,The New Saints,3,1
+2021/22,UECL,3rd Qualifying Round,172,186,Raków Czestochowa,Rubin Kazan,0,0
+2021/22,UECL,3rd Qualifying Round,186,172,Rubin Kazan,Raków Czestochowa,0,1
+2021/22,UECL,3rd Qualifying Round,36,53,Lokomotiv Plovdiv,FC København,1,1
+2021/22,UECL,3rd Qualifying Round,53,36,FC København,Lokomotiv Plovdiv,4,2
+2021/22,UECL,3rd Qualifying Round,197,217,Cukaricki Belgrade,Hammarby IF,3,1
+2021/22,UECL,3rd Qualifying Round,217,197,Hammarby IF,Cukaricki Belgrade,5,1
+2021/22,UECL,3rd Qualifying Round,124,202,Tobol Kustanai,MSK Zilina,0,1
+2021/22,UECL,3rd Qualifying Round,202,124,MSK Zilina,Tobol Kustanai,5,0
+2021/22,UECL,3rd Qualifying Round,35,40,CSKA Sofia,NK Osijek,4,2
+2021/22,UECL,3rd Qualifying Round,40,35,NK Osijek,CSKA Sofia,1,1
+2021/22,UECL,3rd Qualifying Round,200,14,Vojvodina Novi Sad,LASK,0,1
+2021/22,UECL,3rd Qualifying Round,14,200,LASK,Vojvodina Novi Sad,6,1
+2021/22,UECL,3rd Qualifying Round,42,19,AEL Limassol,Qarabag FK,1,1
+2021/22,UECL,3rd Qualifying Round,19,42,Qarabag FK,AEL Limassol,1,0
+2021/22,UECL,3rd Qualifying Round,204,113,Spartak Trnava,Maccabi Tel-Aviv,0,0
+2021/22,UECL,3rd Qualifying Round,113,204,Maccabi Tel-Aviv,Spartak Trnava,1,0
+2021/22,UECL,3rd Qualifying Round,168,206,Rosenborg BK,NK Domzale,6,1
+2021/22,UECL,3rd Qualifying Round,206,168,NK Domzale,Rosenborg BK,1,2
+2021/22,UECL,3rd Qualifying Round,1,26,KF Laçi,Anderlecht,0,3
+2021/22,UECL,3rd Qualifying Round,26,1,Anderlecht,KF Laçi,2,1
+2021/22,UECL,3rd Qualifying Round,157,107,Vitesse Arnhem,Dundalk,2,2
+2021/22,UECL,3rd Qualifying Round,107,157,Dundalk,Vitesse Arnhem,1,2
+2021/22,UECL,3rd Qualifying Round,112,66,Maccabi Haifa,HB Torshavn,7,2
+2021/22,UECL,3rd Qualifying Round,66,112,HB Torshavn,Maccabi Haifa,1,0
+2021/22,UECL,3rd Qualifying Round,165,137,Linfield Belfast,CS Fola Esch,1,2
+2021/22,UECL,3rd Qualifying Round,137,165,CS Fola Esch,Linfield Belfast,2,1
+2021/22,UECL,3rd Qualifying Round,108,3,Shamrock Rovers,Teuta Durrës,1,0
+2021/22,UECL,3rd Qualifying Round,3,108,Teuta Durrës,Shamrock Rovers,0,2
+2021/22,UECL,3rd Qualifying Round,130,143,Riga FC,Hibernians FC,0,1
+2021/22,UECL,3rd Qualifying Round,143,130,Hibernians FC,Riga FC,1,4
+2021/22,UECL,3rd Qualifying Round,126,166,FC Prishtina,Bodø/Glimt,2,1
+2021/22,UECL,3rd Qualifying Round,166,126,Bodø/Glimt,FC Prishtina,2,0
+2021/22,UECL,Qualifying Play-off Round,19,192,Qarabag FK,Aberdeen,1,0
+2021/22,UECL,Qualifying Play-off Round,192,19,Aberdeen,Qarabag FK,1,3
+2021/22,UECL,Qualifying Play-off Round,220,217,FC Basel,Hammarby IF,3,1
+2021/22,UECL,Qualifying Play-off Round,217,220,Hammarby IF,FC Basel,3,1
+2021/22,UECL,Qualifying Play-off Round,50,35,Viktoria Plzen,CSKA Sofia,2,0
+2021/22,UECL,Qualifying Play-off Round,35,50,CSKA Sofia,Viktoria Plzen,3,0
+2021/22,UECL,Qualifying Play-off Round,177,61,Paços de Ferreira,Tottenham Hotspur,1,0
+2021/22,UECL,Qualifying Play-off Round,61,177,Tottenham Hotspur,Paços de Ferreira,3,0
+2021/22,UECL,Qualifying Play-off Round,78,168,Stade Rennais,Rosenborg BK,2,0
+2021/22,UECL,Qualifying Play-off Round,168,78,Rosenborg BK,Stade Rennais,1,3
+2021/22,UECL,Qualifying Play-off Round,26,157,Anderlecht,Vitesse Arnhem,3,3
+2021/22,UECL,Qualifying Play-off Round,157,26,Vitesse Arnhem,Anderlecht,2,1
+2021/22,UECL,Qualifying Play-off Round,14,196,LASK,St. Johnstone,1,1
+2021/22,UECL,Qualifying Play-off Round,196,14,St. Johnstone,LASK,0,2
+2021/22,UECL,Qualifying Play-off Round,123,113,Shakhtyor Karaganda,Maccabi Tel-Aviv,1,2
+2021/22,UECL,Qualifying Play-off Round,113,123,Maccabi Tel-Aviv,Shakhtyor Karaganda,2,0
+2021/22,UECL,Qualifying Play-off Round,97,41,PAOK Thessaloniki,NK Rijeka,1,1
+2021/22,UECL,Qualifying Play-off Round,41,97,NK Rijeka,PAOK Thessaloniki,0,2
+2021/22,UECL,Qualifying Play-off Round,72,88,KuPS Kuopio,Union Berlin,0,4
+2021/22,UECL,Qualifying Play-off Round,88,72,Union Berlin,KuPS Kuopio,0,0
+2021/22,UECL,Qualifying Play-off Round,155,218,Feyenoord,IF Elfsborg,5,0
+2021/22,UECL,Qualifying Play-off Round,218,155,IF Elfsborg,Feyenoord,3,1
+2021/22,UECL,Qualifying Play-off Round,172,25,Raków Czestochowa,AA Gent,1,0
+2021/22,UECL,Qualifying Play-off Round,25,172,AA Gent,Raków Czestochowa,3,0
+2021/22,UECL,Qualifying Play-off Round,227,53,Sivasspor,FC København,1,2
+2021/22,UECL,Qualifying Play-off Round,53,227,FC København,Sivasspor,5,0
+2021/22,UECL,Qualifying Play-off Round,175,198,CD Santa Clara,Partizan Belgrade,2,1
+2021/22,UECL,Qualifying Play-off Round,198,175,Partizan Belgrade,CD Santa Clara,2,0
+2021/22,UECL,Qualifying Play-off Round,228,115,Trabzonspor,AS Roma,1,2
+2021/22,UECL,Qualifying Play-off Round,115,228,AS Roma,Trabzonspor,3,0
+2021/22,UECL,Qualifying Play-off Round,110,43,Hapoel Beer-Sheva,Anorthosis Famagusta,0,0
+2021/22,UECL,Qualifying Play-off Round,43,110,Anorthosis Famagusta,Hapoel Beer-Sheva,3,1
+2021/22,UECL,Qualifying Play-off Round,47,202,FK Jablonec,MSK Zilina,5,1
+2021/22,UECL,Qualifying Play-off Round,202,47,MSK Zilina,FK Jablonec,0,3
+2021/22,UECL,Qualifying Play-off Round,130,91,Riga FC,Lincoln Red Imps,1,1
+2021/22,UECL,Qualifying Play-off Round,91,130,Lincoln Red Imps,Riga FC,3,1
+2021/22,UECL,Qualifying Play-off Round,137,122,CS Fola Esch,Kairat Almaty,1,4
+2021/22,UECL,Qualifying Play-off Round,122,137,Kairat Almaty,CS Fola Esch,3,1
+2021/22,UECL,Qualifying Play-off Round,18,112,Neftchi Baku,Maccabi Haifa,3,3
+2021/22,UECL,Qualifying Play-off Round,112,18,Maccabi Haifa,Neftchi Baku,4,0
+2021/22,UECL,Qualifying Play-off Round,63,108,Flora Tallinn,Shamrock Rovers,4,2
+2021/22,UECL,Qualifying Play-off Round,108,63,Shamrock Rovers,Flora Tallinn,0,1
+2021/22,UECL,Qualifying Play-off Round,136,166,Zalgiris Vilnius,Bodø/Glimt,2,2
+2021/22,UECL,Qualifying Play-off Round,166,136,Bodø/Glimt,Zalgiris Vilnius,1,0
+2021/22,UECL,Group Stage,113,8,Maccabi Tel-Aviv,Alashkert FC,4,1
+2021/22,UECL,Group Stage,8,113,Alashkert FC,Maccabi Tel-Aviv,1,1
+2021/22,UECL,Group Stage,69,14,HJK Helsinki,LASK,0,2
+2021/22,UECL,Group Stage,14,69,LASK,HJK Helsinki,3,0
+2021/22,UECL,Group Stage,8,69,Alashkert FC,HJK Helsinki,2,4
+2021/22,UECL,Group Stage,69,8,HJK Helsinki,Alashkert FC,1,0
+2021/22,UECL,Group Stage,14,113,LASK,Maccabi Tel-Aviv,1,1
+2021/22,UECL,Group Stage,113,14,Maccabi Tel-Aviv,LASK,0,1
+2021/22,UECL,Group Stage,8,14,Alashkert FC,LASK,0,3
+2021/22,UECL,Group Stage,14,8,LASK,Alashkert FC,2,0
+2021/22,UECL,Group Stage,69,113,HJK Helsinki,Maccabi Tel-Aviv,0,5
+2021/22,UECL,Group Stage,113,69,Maccabi Tel-Aviv,HJK Helsinki,3,0
+2021/22,UECL,Group Stage,43,198,Anorthosis Famagusta,Partizan Belgrade,0,2
+2021/22,UECL,Group Stage,198,43,Partizan Belgrade,Anorthosis Famagusta,1,1
+2021/22,UECL,Group Stage,63,25,Flora Tallinn,AA Gent,0,1
+2021/22,UECL,Group Stage,25,63,AA Gent,Flora Tallinn,1,0
+2021/22,UECL,Group Stage,198,63,Partizan Belgrade,Flora Tallinn,2,0
+2021/22,UECL,Group Stage,63,198,Flora Tallinn,Partizan Belgrade,1,0
+2021/22,UECL,Group Stage,25,43,AA Gent,Anorthosis Famagusta,2,0
+2021/22,UECL,Group Stage,43,25,Anorthosis Famagusta,AA Gent,1,0
+2021/22,UECL,Group Stage,198,25,Partizan Belgrade,AA Gent,0,1
+2021/22,UECL,Group Stage,25,198,AA Gent,Partizan Belgrade,1,1
+2021/22,UECL,Group Stage,43,63,Anorthosis Famagusta,Flora Tallinn,2,2
+2021/22,UECL,Group Stage,63,43,Flora Tallinn,Anorthosis Famagusta,2,2
+2021/22,UECL,Group Stage,115,35,AS Roma,CSKA Sofia,5,1
+2021/22,UECL,Group Stage,35,115,CSKA Sofia,AS Roma,2,3
+2021/22,UECL,Group Stage,166,233,Bodø/Glimt,Zorya Luhansk,3,1
+2021/22,UECL,Group Stage,233,166,Zorya Luhansk,Bodø/Glimt,1,1
+2021/22,UECL,Group Stage,35,166,CSKA Sofia,Bodø/Glimt,0,0
+2021/22,UECL,Group Stage,166,35,Bodø/Glimt,CSKA Sofia,2,0
+2021/22,UECL,Group Stage,233,115,Zorya Luhansk,AS Roma,0,3
+2021/22,UECL,Group Stage,115,233,AS Roma,Zorya Luhansk,4,0
+2021/22,UECL,Group Stage,35,233,CSKA Sofia,Zorya Luhansk,0,1
+2021/22,UECL,Group Stage,233,35,Zorya Luhansk,CSKA Sofia,2,0
+2021/22,UECL,Group Stage,166,115,Bodø/Glimt,AS Roma,6,1
+2021/22,UECL,Group Stage,115,166,AS Roma,Bodø/Glimt,2,2
+2021/22,UECL,Group Stage,47,180,FK Jablonec,CFR Cluj,1,0
+2021/22,UECL,Group Stage,180,47,CFR Cluj,FK Jablonec,2,0
+2021/22,UECL,Group Stage,55,153,Randers FC,AZ Alkmaar,2,2
+2021/22,UECL,Group Stage,153,55,AZ Alkmaar,Randers FC,1,0
+2021/22,UECL,Group Stage,180,55,CFR Cluj,Randers FC,1,1
+2021/22,UECL,Group Stage,55,180,Randers FC,CFR Cluj,2,1
+2021/22,UECL,Group Stage,153,47,AZ Alkmaar,FK Jablonec,1,0
+2021/22,UECL,Group Stage,47,153,FK Jablonec,AZ Alkmaar,1,1
+2021/22,UECL,Group Stage,180,153,CFR Cluj,AZ Alkmaar,0,1
+2021/22,UECL,Group Stage,153,180,AZ Alkmaar,CFR Cluj,2,0
+2021/22,UECL,Group Stage,47,55,FK Jablonec,Randers FC,2,2
+2021/22,UECL,Group Stage,55,47,Randers FC,FK Jablonec,2,2
+2021/22,UECL,Group Stage,112,155,Maccabi Haifa,Feyenoord,0,0
+2021/22,UECL,Group Stage,155,112,Feyenoord,Maccabi Haifa,2,1
+2021/22,UECL,Group Stage,48,88,Slavia Praha,Union Berlin,3,1
+2021/22,UECL,Group Stage,88,48,Union Berlin,Slavia Praha,1,1
+2021/22,UECL,Group Stage,155,48,Feyenoord,Slavia Praha,2,1
+2021/22,UECL,Group Stage,48,155,Slavia Praha,Feyenoord,2,2
+2021/22,UECL,Group Stage,88,112,Union Berlin,Maccabi Haifa,3,0
+2021/22,UECL,Group Stage,112,88,Maccabi Haifa,Union Berlin,0,1
+2021/22,UECL,Group Stage,155,88,Feyenoord,Union Berlin,3,1
+2021/22,UECL,Group Stage,88,155,Union Berlin,Feyenoord,1,2
+2021/22,UECL,Group Stage,112,48,Maccabi Haifa,Slavia Praha,1,0
+2021/22,UECL,Group Stage,48,112,Slavia Praha,Maccabi Haifa,1,0
+2021/22,UECL,Group Stage,203,53,Slovan Bratislava,FC København,1,3
+2021/22,UECL,Group Stage,53,203,FC København,Slovan Bratislava,2,0
+2021/22,UECL,Group Stage,91,97,Lincoln Red Imps,PAOK Thessaloniki,0,2
+2021/22,UECL,Group Stage,97,91,PAOK Thessaloniki,Lincoln Red Imps,2,0
+2021/22,UECL,Group Stage,53,91,FC København,Lincoln Red Imps,3,1
+2021/22,UECL,Group Stage,91,53,Lincoln Red Imps,FC København,0,4
+2021/22,UECL,Group Stage,97,203,PAOK Thessaloniki,Slovan Bratislava,1,1
+2021/22,UECL,Group Stage,203,97,Slovan Bratislava,PAOK Thessaloniki,0,0
+2021/22,UECL,Group Stage,53,97,FC København,PAOK Thessaloniki,1,2
+2021/22,UECL,Group Stage,97,53,PAOK Thessaloniki,FC København,1,2
+2021/22,UECL,Group Stage,203,91,Slovan Bratislava,Lincoln Red Imps,2,0
+2021/22,UECL,Group Stage,91,203,Lincoln Red Imps,Slovan Bratislava,1,4
+2021/22,UECL,Group Stage,205,157,Mura Murska Sobota,Vitesse Arnhem,0,2
+2021/22,UECL,Group Stage,157,205,Vitesse Arnhem,Mura Murska Sobota,3,1
+2021/22,UECL,Group Stage,78,61,Stade Rennais,Tottenham Hotspur,2,2
+2021/22,UECL,Group Stage,61,78,Tottenham Hotspur,Stade Rennais,0,3
+2021/22,UECL,Group Stage,157,78,Vitesse Arnhem,Stade Rennais,1,2
+2021/22,UECL,Group Stage,78,157,Stade Rennais,Vitesse Arnhem,3,3
+2021/22,UECL,Group Stage,61,205,Tottenham Hotspur,Mura Murska Sobota,5,1
+2021/22,UECL,Group Stage,205,61,Mura Murska Sobota,Tottenham Hotspur,2,1
+2021/22,UECL,Group Stage,157,61,Vitesse Arnhem,Tottenham Hotspur,1,0
+2021/22,UECL,Group Stage,61,157,Tottenham Hotspur,Vitesse Arnhem,3,2
+2021/22,UECL,Group Stage,205,78,Mura Murska Sobota,Stade Rennais,1,2
+2021/22,UECL,Group Stage,78,205,Stade Rennais,Mura Murska Sobota,1,0
+2021/22,UECL,Group Stage,19,220,Qarabag FK,FC Basel,0,0
+2021/22,UECL,Group Stage,220,19,FC Basel,Qarabag FK,3,0
+2021/22,UECL,Group Stage,122,45,Kairat Almaty,Omonia Nicosia,0,0
+2021/22,UECL,Group Stage,45,122,Omonia Nicosia,Kairat Almaty,0,0
+2021/22,UECL,Group Stage,220,122,FC Basel,Kairat Almaty,4,2
+2021/22,UECL,Group Stage,122,220,Kairat Almaty,FC Basel,2,3
+2021/22,UECL,Group Stage,45,19,Omonia Nicosia,Qarabag FK,1,4
+2021/22,UECL,Group Stage,19,45,Qarabag FK,Omonia Nicosia,2,2
+2021/22,UECL,Group Stage,220,45,FC Basel,Omonia Nicosia,3,1
+2021/22,UECL,Group Stage,45,220,Omonia Nicosia,FC Basel,1,1
+2021/22,UECL,Group Stage,19,122,Qarabag FK,Kairat Almaty,2,1
+2021/22,UECL,Group Stage,122,19,Kairat Almaty,Qarabag FK,1,2
+2021/22,UECL,Knockout round play-offs,225,48,Fenerbahçe,Slavia Praha,2,3
+2021/22,UECL,Knockout round play-offs,48,225,Slavia Praha,Fenerbahçe,3,2
+2021/22,UECL,Knockout round play-offs,54,97,FC Midtjylland,PAOK Thessaloniki,1,0
+2021/22,UECL,Knockout round play-offs,97,54,PAOK Thessaloniki,FC Midtjylland,2,1
+2021/22,UECL,Knockout round play-offs,15,157,Rapid Wien,Vitesse Arnhem,2,1
+2021/22,UECL,Knockout round play-offs,157,15,Vitesse Arnhem,Rapid Wien,2,0
+2021/22,UECL,Knockout round play-offs,76,19,Olympique Marseille,Qarabag FK,3,1
+2021/22,UECL,Knockout round play-offs,19,76,Qarabag FK,Olympique Marseille,0,3
+2021/22,UECL,Knockout round play-offs,156,113,PSV Eindhoven,Maccabi Tel-Aviv,1,0
+2021/22,UECL,Knockout round play-offs,113,156,Maccabi Tel-Aviv,PSV Eindhoven,1,1
+2021/22,UECL,Knockout round play-offs,57,55,Leicester City,Randers FC,4,1
+2021/22,UECL,Knockout round play-offs,55,57,Randers FC,Leicester City,1,3
+2021/22,UECL,Knockout round play-offs,193,166,Celtic,Bodø/Glimt,1,3
+2021/22,UECL,Knockout round play-offs,166,193,Bodø/Glimt,Celtic,2,0
+2021/22,UECL,Knockout round play-offs,49,198,Sparta Praha,Partizan Belgrade,0,1
+2021/22,UECL,Knockout round play-offs,198,49,Partizan Belgrade,Sparta Praha,2,1
+2021/22,UECL,Round of 16,76,220,Olympique Marseille,FC Basel,2,1
+2021/22,UECL,Round of 16,220,76,FC Basel,Olympique Marseille,1,2
+2021/22,UECL,Round of 16,57,78,Leicester City,Stade Rennais,2,0
+2021/22,UECL,Round of 16,78,57,Stade Rennais,Leicester City,2,1
+2021/22,UECL,Round of 16,97,25,PAOK Thessaloniki,AA Gent,1,0
+2021/22,UECL,Round of 16,25,97,AA Gent,PAOK Thessaloniki,1,2
+2021/22,UECL,Round of 16,157,115,Vitesse Arnhem,AS Roma,0,1
+2021/22,UECL,Round of 16,115,157,AS Roma,Vitesse Arnhem,1,1
+2021/22,UECL,Round of 16,156,53,PSV Eindhoven,FC København,4,4
+2021/22,UECL,Round of 16,53,156,FC København,PSV Eindhoven,0,4
+2021/22,UECL,Round of 16,48,14,Slavia Praha,LASK,4,1
+2021/22,UECL,Round of 16,14,48,LASK,Slavia Praha,4,3
+2021/22,UECL,Round of 16,166,153,Bodø/Glimt,AZ Alkmaar,2,1
+2021/22,UECL,Round of 16,153,166,AZ Alkmaar,Bodø/Glimt,2,2
+2021/22,UECL,Round of 16,198,155,Partizan Belgrade,Feyenoord,2,5
+2021/22,UECL,Round of 16,155,198,Feyenoord,Partizan Belgrade,3,1
+2021/22,UECL,Quarter Finals,166,115,Bodø/Glimt,AS Roma,2,1
+2021/22,UECL,Quarter Finals,115,166,AS Roma,Bodø/Glimt,4,0
+2021/22,UECL,Quarter Finals,155,48,Feyenoord,Slavia Praha,3,3
+2021/22,UECL,Quarter Finals,48,155,Slavia Praha,Feyenoord,1,3
+2021/22,UECL,Quarter Finals,76,97,Olympique Marseille,PAOK Thessaloniki,2,1
+2021/22,UECL,Quarter Finals,97,76,PAOK Thessaloniki,Olympique Marseille,0,1
+2021/22,UECL,Quarter Finals,57,156,Leicester City,PSV Eindhoven,0,0
+2021/22,UECL,Quarter Finals,156,57,PSV Eindhoven,Leicester City,1,2
+2021/22,UECL,Semi Finals,57,115,Leicester City,AS Roma,1,1
+2021/22,UECL,Semi Finals,115,57,AS Roma,Leicester City,1,0
+2021/22,UECL,Semi Finals,155,76,Feyenoord,Olympique Marseille,3,2
+2021/22,UECL,Semi Finals,76,155,Olympique Marseille,Feyenoord,0,0
+2021/22,UECL,Final,115,155,AS Roma,Feyenoord,1,0

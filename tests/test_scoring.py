@@ -5,7 +5,10 @@ import pytest
 
 from ao_elo.config import AOEuropeanEloConfig, SEASON_KEYS
 from ao_elo.pipeline import compute_ao_first_elo
-from ao_elo.scoring import compute_ao_first_elo as final_formula
+from ao_elo.scoring import (
+    compute_ao_first_elo as final_formula,
+    compute_effective_european_exposure,
+)
 
 
 def test_final_rating_shrinks_between_domestic_and_european_prior() -> None:
@@ -13,6 +16,13 @@ def test_final_rating_shrinks_between_domestic_and_european_prior() -> None:
     assert final_formula(700, 820, 0.25) == pytest.approx(730)
     assert final_formula(700, 820, 1.00) == pytest.approx(820)
     assert final_formula(700, 600, 0.75) == pytest.approx(625)
+
+
+def test_effective_exposure_caps_rating_influence() -> None:
+    effective_exposure = compute_effective_european_exposure(1.0, 0.85)
+
+    assert effective_exposure == pytest.approx(0.85)
+    assert final_formula(700, 900, effective_exposure) == pytest.approx(870)
 
 
 def test_invalid_benchmarks_raise() -> None:
@@ -76,6 +86,7 @@ def test_pipeline_no_european_history_equals_domestic_prior() -> None:
 
     row = output.iloc[0]
     assert row["european_exposure"] == pytest.approx(0.0)
+    assert row["effective_european_exposure"] == pytest.approx(0.0)
     assert row["ao_first_elo"] == pytest.approx(row["domestic_prior"])
     assert row["rating_source_type"] == "Pure Domestic Projection"
     assert row["season"] == "2025/26"

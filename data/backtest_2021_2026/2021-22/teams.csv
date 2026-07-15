@@ -1,0 +1,238 @@
+team_id,team_name,country,country_code,domestic_league
+1,KF Laçi,Albania,ALB,Historical domestic league
+2,Partizani Tirana,Albania,ALB,Historical domestic league
+3,Teuta Durrës,Albania,ALB,Historical domestic league
+4,Vllaznia Shkodër,Albania,ALB,Historical domestic league
+5,FC Santa Coloma,Andorra,AND,Historical domestic league
+6,Inter Club d'Escaldes,Andorra,AND,Historical domestic league
+7,Sant Julià,Andorra,AND,Historical domestic league
+8,Alashkert FC,Armenia,ARM,Historical domestic league
+9,Ararat Yerevan,Armenia,ARM,Historical domestic league
+10,FC Noah,Armenia,ARM,Historical domestic league
+11,Urartu FC,Armenia,ARM,Historical domestic league
+12,Austria Wien,Austria,AUT,Historical domestic league
+13,FC Salzburg,Austria,AUT,Historical domestic league
+14,LASK,Austria,AUT,Historical domestic league
+15,Rapid Wien,Austria,AUT,Historical domestic league
+16,Sturm Graz,Austria,AUT,Historical domestic league
+17,Kesla FK,Azerbaijan,AZB,Historical domestic league
+18,Neftchi Baku,Azerbaijan,AZB,Historical domestic league
+19,Qarabag FK,Azerbaijan,AZB,Historical domestic league
+20,Sumgayit FK,Azerbaijan,AZB,Historical domestic league
+21,BATE Borisov,Belarus,BLS,Historical domestic league
+22,Dynamo Brest,Belarus,BLS,Historical domestic league
+23,Shakhtior Saligorsk,Belarus,BLS,Historical domestic league
+24,Torpedo Zhodino,Belarus,BLS,Historical domestic league
+25,AA Gent,Belgium,BEL,Historical domestic league
+26,Anderlecht,Belgium,BEL,Historical domestic league
+27,Club Brugge,Belgium,BEL,Historical domestic league
+28,Racing Genk,Belgium,BEL,Historical domestic league
+29,Royal Antwerp,Belgium,BEL,Historical domestic league
+30,Borac Banja Luka,Bosnia-Herzegovina,BOS,Historical domestic league
+31,FK Sarajevo,Bosnia-Herzegovina,BOS,Historical domestic league
+32,Siroki Brijeg,Bosnia-Herzegovina,BOS,Historical domestic league
+33,Velez Mostar,Bosnia-Herzegovina,BOS,Historical domestic league
+34,Arda Kardzhali,Bulgaria,BUL,Historical domestic league
+35,CSKA Sofia,Bulgaria,BUL,Historical domestic league
+36,Lokomotiv Plovdiv,Bulgaria,BUL,Historical domestic league
+37,Ludogorets Razgrad,Bulgaria,BUL,Historical domestic league
+38,Dinamo Zagreb,Croatia,CRO,Historical domestic league
+39,Hajduk Split,Croatia,CRO,Historical domestic league
+40,NK Osijek,Croatia,CRO,Historical domestic league
+41,NK Rijeka,Croatia,CRO,Historical domestic league
+42,AEL Limassol,Cyprus,CYP,Historical domestic league
+43,Anorthosis Famagusta,Cyprus,CYP,Historical domestic league
+44,Apollon Limassol,Cyprus,CYP,Historical domestic league
+45,Omonia Nicosia,Cyprus,CYP,Historical domestic league
+46,1.FC Slovácko,Czechia,CZE,Historical domestic league
+47,FK Jablonec,Czechia,CZE,Historical domestic league
+48,Slavia Praha,Czechia,CZE,Historical domestic league
+49,Sparta Praha,Czechia,CZE,Historical domestic league
+50,Viktoria Plzen,Czechia,CZE,Historical domestic league
+51,AGF Aarhus,Denmark,DEN,Historical domestic league
+52,Brøndby IF,Denmark,DEN,Historical domestic league
+53,FC København,Denmark,DEN,Historical domestic league
+54,FC Midtjylland,Denmark,DEN,Historical domestic league
+55,Randers FC,Denmark,DEN,Historical domestic league
+56,Chelsea,England,ENG,Historical domestic league
+57,Leicester City,England,ENG,Historical domestic league
+58,Liverpool,England,ENG,Historical domestic league
+59,Manchester City,England,ENG,Historical domestic league
+60,Manchester United,England,ENG,Historical domestic league
+61,Tottenham Hotspur,England,ENG,Historical domestic league
+62,West Ham United,England,ENG,Historical domestic league
+63,Flora Tallinn,Estonia,EST,Historical domestic league
+64,Levadia Tallinn,Estonia,EST,Historical domestic league
+65,Paide Linnameeskond,Estonia,EST,Historical domestic league
+66,HB Torshavn,Faroe Islands,FAR,Historical domestic league
+67,KI Klaksvik,Faroe Islands,FAR,Historical domestic league
+68,NSI Runavik,Faroe Islands,FAR,Historical domestic league
+69,HJK Helsinki,Finland,FIN,Historical domestic league
+70,Honka Espoo,Finland,FIN,Historical domestic league
+71,Inter Turku,Finland,FIN,Historical domestic league
+72,KuPS Kuopio,Finland,FIN,Historical domestic league
+73,AS Monaco,France,FRA,Historical domestic league
+74,Lille OSC,France,FRA,Historical domestic league
+75,Olympique Lyon,France,FRA,Historical domestic league
+76,Olympique Marseille,France,FRA,Historical domestic league
+77,Paris Saint-Germain,France,FRA,Historical domestic league
+78,Stade Rennais,France,FRA,Historical domestic league
+79,Dila Gori,Georgia,GEO,Historical domestic league
+80,Dinamo Batumi,Georgia,GEO,Historical domestic league
+81,Dinamo Tbilisi,Georgia,GEO,Historical domestic league
+82,Gagra Tbilisi,Georgia,GEO,Historical domestic league
+83,Bayer Leverkusen,Germany,GER,Historical domestic league
+84,Bayern München,Germany,GER,Historical domestic league
+85,Borussia Dortmund,Germany,GER,Historical domestic league
+86,Eintracht Frankfurt,Germany,GER,Historical domestic league
+87,RB Leipzig,Germany,GER,Historical domestic league
+88,Union Berlin,Germany,GER,Historical domestic league
+89,VfL Wolfsburg,Germany,GER,Historical domestic league
+90,Europa FC,Gibraltar,GIB,Historical domestic league
+91,Lincoln Red Imps,Gibraltar,GIB,Historical domestic league
+92,Mons Calpe,Gibraltar,GIB,Historical domestic league
+93,St Joseph's FC,Gibraltar,GIB,Historical domestic league
+94,AEK Athens,Greece,GRE,Historical domestic league
+95,Aris Thessaloniki,Greece,GRE,Historical domestic league
+96,Olympiakos Piraeus,Greece,GRE,Historical domestic league
+97,PAOK Thessaloniki,Greece,GRE,Historical domestic league
+98,FC Fehérvár,Hungary,HUN,Historical domestic league
+99,Ferencváros,Hungary,HUN,Historical domestic league
+100,Puskás Akadémia,Hungary,HUN,Historical domestic league
+101,Újpest TE,Hungary,HUN,Historical domestic league
+102,Breidablik,Iceland,ISL,Historical domestic league
+103,FH Hafnarfjardar,Iceland,ISL,Historical domestic league
+104,Stjarnan FC,Iceland,ISL,Historical domestic league
+105,Valur Reykjavik,Iceland,ISL,Historical domestic league
+106,Bohemians Dublin,Ireland,IRL,Historical domestic league
+107,Dundalk,Ireland,IRL,Historical domestic league
+108,Shamrock Rovers,Ireland,IRL,Historical domestic league
+109,Sligo Rovers,Ireland,IRL,Historical domestic league
+110,Hapoel Beer-Sheva,Israel,ISR,Historical domestic league
+111,MS Ashdod,Israel,ISR,Historical domestic league
+112,Maccabi Haifa,Israel,ISR,Historical domestic league
+113,Maccabi Tel-Aviv,Israel,ISR,Historical domestic league
+114,AC Milan,Italy,ITA,Historical domestic league
+115,AS Roma,Italy,ITA,Historical domestic league
+116,Atalanta,Italy,ITA,Historical domestic league
+117,Internazionale,Italy,ITA,Historical domestic league
+118,Juventus,Italy,ITA,Historical domestic league
+119,Lazio,Italy,ITA,Historical domestic league
+120,Napoli,Italy,ITA,Historical domestic league
+121,FK Astana,Kazakhstan,KAZ,Historical domestic league
+122,Kairat Almaty,Kazakhstan,KAZ,Historical domestic league
+123,Shakhtyor Karaganda,Kazakhstan,KAZ,Historical domestic league
+124,Tobol Kustanai,Kazakhstan,KAZ,Historical domestic league
+125,FC Drita,Kosovo,KOS,Historical domestic league
+126,FC Prishtina,Kosovo,KOS,Historical domestic league
+127,KF Llapi,Kosovo,KOS,Historical domestic league
+128,FK Liepaja,Latvia,LAT,Historical domestic league
+129,RFS Riga,Latvia,LAT,Historical domestic league
+130,Riga FC,Latvia,LAT,Historical domestic league
+131,Valmieras FK,Latvia,LAT,Historical domestic league
+132,FC Vaduz,Liechtenstein,LIE,Historical domestic league
+133,FK Panevezys,Lithuania,LIT,Historical domestic league
+134,Kauno Zalgiris,Lithuania,LIT,Historical domestic league
+135,Suduva Marijampole,Lithuania,LIT,Historical domestic league
+136,Zalgiris Vilnius,Lithuania,LIT,Historical domestic league
+137,CS Fola Esch,Luxembourg,LUX,Historical domestic league
+138,F91 Dudelange,Luxembourg,LUX,Historical domestic league
+139,Racing Union Luxembourg,Luxembourg,LUX,Historical domestic league
+140,Swift Hesperange,Luxembourg,LUX,Historical domestic league
+141,Birkirkara,Malta,MLT,Historical domestic league
+142,Gzira United,Malta,MLT,Historical domestic league
+143,Hibernians FC,Malta,MLT,Historical domestic league
+144,Mosta FC,Malta,MLT,Historical domestic league
+145,Milsami Orhei,Moldova,MOL,Historical domestic league
+146,Petrocub Hîncesti,Moldova,MOL,Historical domestic league
+147,Sfântul Gheorghe,Moldova,MOL,Historical domestic league
+148,Sheriff Tiraspol,Moldova,MOL,Historical domestic league
+149,Buducnost Podgorica,Montenegro,MON,Historical domestic league
+150,Decic Tuzi,Montenegro,MON,Historical domestic league
+151,FK Podgorica,Montenegro,MON,Historical domestic league
+152,Sutjeska Niksic,Montenegro,MON,Historical domestic league
+153,AZ Alkmaar,Netherlands,NED,Historical domestic league
+154,Ajax,Netherlands,NED,Historical domestic league
+155,Feyenoord,Netherlands,NED,Historical domestic league
+156,PSV Eindhoven,Netherlands,NED,Historical domestic league
+157,Vitesse Arnhem,Netherlands,NED,Historical domestic league
+158,FC Struga,North Macedonia,MAC,Historical domestic league
+159,FK Shkupi,North Macedonia,MAC,Historical domestic league
+160,Shkendija Tetovo,North Macedonia,MAC,Historical domestic league
+161,Sileks Kratovo,North Macedonia,MAC,Historical domestic league
+162,Coleraine,Northern Ireland,NIR,Historical domestic league
+163,Glentoran,Northern Ireland,NIR,Historical domestic league
+164,Larne FC,Northern Ireland,NIR,Historical domestic league
+165,Linfield Belfast,Northern Ireland,NIR,Historical domestic league
+166,Bodø/Glimt,Norway,NOR,Historical domestic league
+167,Molde FK,Norway,NOR,Historical domestic league
+168,Rosenborg BK,Norway,NOR,Historical domestic league
+169,Vålerengens IF,Norway,NOR,Historical domestic league
+170,Legia Warsaw,Poland,POL,Historical domestic league
+171,Pogon Szczecin,Poland,POL,Historical domestic league
+172,Raków Czestochowa,Poland,POL,Historical domestic league
+173,Slask Wroclaw,Poland,POL,Historical domestic league
+174,Benfica,Portugal,POR,Historical domestic league
+175,CD Santa Clara,Portugal,POR,Historical domestic league
+176,FC Porto,Portugal,POR,Historical domestic league
+177,Paços de Ferreira,Portugal,POR,Historical domestic league
+178,Sporting Braga,Portugal,POR,Historical domestic league
+179,Sporting CP Lisbon,Portugal,POR,Historical domestic league
+180,CFR Cluj,Romania,ROM,Historical domestic league
+181,FCSB,Romania,ROM,Historical domestic league
+182,Sepsi OSK,Romania,ROM,Historical domestic league
+183,Universitatea Craiova,Romania,ROM,Historical domestic league
+184,FC Sochi,Russia,RUS,Historical domestic league
+185,Lokomotiv Moscow,Russia,RUS,Historical domestic league
+186,Rubin Kazan,Russia,RUS,Historical domestic league
+187,Spartak Moscow,Russia,RUS,Historical domestic league
+188,Zenit St. Petersburg,Russia,RUS,Historical domestic league
+189,Folgore,San Marino,SMA,Historical domestic league
+190,La Fiorita,San Marino,SMA,Historical domestic league
+191,Tre Penne,San Marino,SMA,Historical domestic league
+192,Aberdeen,Scotland,SCO,Historical domestic league
+193,Celtic,Scotland,SCO,Historical domestic league
+194,Glasgow Rangers,Scotland,SCO,Historical domestic league
+195,Hibernian,Scotland,SCO,Historical domestic league
+196,St. Johnstone,Scotland,SCO,Historical domestic league
+197,Cukaricki Belgrade,Serbia,SRB,Historical domestic league
+198,Partizan Belgrade,Serbia,SRB,Historical domestic league
+199,Red Star Belgrade,Serbia,SRB,Historical domestic league
+200,Vojvodina Novi Sad,Serbia,SRB,Historical domestic league
+201,DAC Dunajska Streda,Slovakia,SVK,Historical domestic league
+202,MSK Zilina,Slovakia,SVK,Historical domestic league
+203,Slovan Bratislava,Slovakia,SVK,Historical domestic league
+204,Spartak Trnava,Slovakia,SVK,Historical domestic league
+205,Mura Murska Sobota,Slovenia,SLO,Historical domestic league
+206,NK Domzale,Slovenia,SLO,Historical domestic league
+207,NK Maribor,Slovenia,SLO,Historical domestic league
+208,Olimpija Ljubljana,Slovenia,SLO,Historical domestic league
+209,Atlético Madrid,Spain,ESP,Historical domestic league
+210,FC Barcelona,Spain,ESP,Historical domestic league
+211,Real Betis,Spain,ESP,Historical domestic league
+212,Real Madrid,Spain,ESP,Historical domestic league
+213,Real Sociedad,Spain,ESP,Historical domestic league
+214,Sevilla,Spain,ESP,Historical domestic league
+215,Villarreal,Spain,ESP,Historical domestic league
+216,BK Häcken,Sweden,SWE,Historical domestic league
+217,Hammarby IF,Sweden,SWE,Historical domestic league
+218,IF Elfsborg,Sweden,SWE,Historical domestic league
+219,Malmö FF,Sweden,SWE,Historical domestic league
+220,FC Basel,Switzerland,SUI,Historical domestic league
+221,FC Luzern,Switzerland,SUI,Historical domestic league
+222,Servette FC Genève,Switzerland,SUI,Historical domestic league
+223,Young Boys,Switzerland,SUI,Historical domestic league
+224,Besiktas,Türkiye,TUR,Historical domestic league
+225,Fenerbahçe,Türkiye,TUR,Historical domestic league
+226,Galatasaray,Türkiye,TUR,Historical domestic league
+227,Sivasspor,Türkiye,TUR,Historical domestic league
+228,Trabzonspor,Türkiye,TUR,Historical domestic league
+229,Dinamo Kiev,Ukraine,UKR,Historical domestic league
+230,Kolos Kovalivka,Ukraine,UKR,Historical domestic league
+231,Shakhtar Donetsk,Ukraine,UKR,Historical domestic league
+232,Vorskla Poltava,Ukraine,UKR,Historical domestic league
+233,Zorya Luhansk,Ukraine,UKR,Historical domestic league
+234,Bala Town,Wales,WAL,Historical domestic league
+235,Connah's Quay,Wales,WAL,Historical domestic league
+236,Newtown,Wales,WAL,Historical domestic league
+237,The New Saints,Wales,WAL,Historical domestic league

@@ -12,7 +12,9 @@ def test_explicit_zero_history_row_and_output_contract() -> None:
     row = output.iloc[0]
 
     assert list(output.columns) == OUTPUT_COLUMNS
+    assert row["effective_european_exposure"] == pytest.approx(0.0)
     assert row["ao_first_elo"] == pytest.approx(row["domestic_prior"])
+    assert row["ao_first_elo_rank"] == 1
     assert min(row["domestic_prior"], row["european_prior"]) <= row["ao_first_elo"]
     assert row["ao_first_elo"] <= max(row["domestic_prior"], row["european_prior"])
 
@@ -150,6 +152,7 @@ def test_match_cap_must_be_positive_even_without_european_history() -> None:
         AOEuropeanEloConfig(float("inf"), 20),
         AOEuropeanEloConfig(25, 20, gamma=0),
         AOEuropeanEloConfig(25, 20, rating_source_evidence_threshold=1.1),
+        AOEuropeanEloConfig(25, 20, max_european_exposure=1.1),
         AOEuropeanEloConfig(25, 20, domestic_league_component=-1),
         AOEuropeanEloConfig(
             25,
@@ -171,6 +174,24 @@ def test_match_cap_must_be_positive_even_without_european_history() -> None:
 def test_invalid_config_ranges_are_rejected(config: AOEuropeanEloConfig) -> None:
     with pytest.raises(ValueError):
         config.validate()
+
+
+def test_frozen_config_and_experimental_candidate_are_explicit() -> None:
+    v1_1 = AOEuropeanEloConfig.v1_1()
+    candidate = AOEuropeanEloConfig.experimental_country_candidate()
+
+    assert (
+        v1_1.country_strength_benchmark,
+        v1_1.gamma,
+        v1_1.domestic_league_component,
+    ) == (25, 0.8, 140)
+    assert (
+        candidate.country_strength_benchmark,
+        candidate.gamma,
+        candidate.domestic_league_component,
+    ) == (20, 2.0, 360)
+    assert candidate.domestic_achievement_component == 160
+    assert candidate.achievement_alpha == 0.40
 
 
 def test_optional_audit_columns_are_accepted_when_present() -> None:

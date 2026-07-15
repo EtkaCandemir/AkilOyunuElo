@@ -34,26 +34,35 @@ def test_unknown_finish_plus_cup_gets_no_double_bonus(
     assert result.domestic_achievement_score == pytest.approx(0.62)
 
 
-def test_champion_position_mismatch_returns_warning() -> None:
+def test_champion_position_mismatch_is_rejected() -> None:
     import pandas as pd
 
-    warnings = validate_domestic_context(
-        pd.DataFrame(
-            [
-                {
-                    "season": "2025/26",
-                    "team_id": 1,
-                    "domestic_position": 2,
-                    "league_team_count": 20,
-                    "is_league_champion": True,
-                    "is_cup_winner": False,
-                    "european_entry_type": "League Champion",
-                }
-            ]
+    with pytest.raises(ValueError, match="requires domestic_position=1"):
+        validate_domestic_context(
+            pd.DataFrame(
+                [
+                    {
+                        "season": "2025/26",
+                        "team_id": 1,
+                        "domestic_position": 2,
+                        "league_team_count": 20,
+                        "is_league_champion": True,
+                        "is_cup_winner": False,
+                        "european_entry_type": "League Champion",
+                    }
+                ]
+            )
         )
-    )
 
-    assert "domestic_position is not 1" in warnings[0][0]
+
+def test_champion_without_position_keeps_champion_base(
+    config: AOEuropeanEloConfig,
+) -> None:
+    result = compute_domestic_achievement(None, None, True, False, config)
+
+    assert result.domestic_position_percentile is None
+    assert result.league_finish_score == pytest.approx(1.0)
+    assert result.domestic_achievement_score == pytest.approx(1.0)
 
 
 @pytest.mark.parametrize(
@@ -70,12 +79,14 @@ def test_champion_position_mismatch_returns_warning() -> None:
         (1, 20, True, False, 1.0, 0.0, 1.0),
         (1, 20, True, True, 1.0, 0.08, 1.08),
         (2, 20, False, False, 0.8131578947, 0.0, 0.8131578947),
-        (2, 20, False, True, 0.8131578947, 0.0650526316, 0.8782105263),
+        (2, 20, False, True, 0.8131578947, 0.0, 0.8131578947),
         (2, 6, False, False, 0.71, 0.0, 0.71),
         (6, 6, False, False, 0.15, 0.0, 0.15),
-        (15, 20, False, True, 0.3342105263, 0.0267368421, 0.6467368421),
+        (15, 20, False, True, 0.3342105263, 0.0, 0.62),
         (None, None, False, False, 0.10, 0.0, 0.10),
         (None, None, False, True, 0.10, 0.0, 0.62),
+        (None, None, True, False, 1.0, 0.0, 1.0),
+        (None, None, True, True, 1.0, 0.08, 1.08),
     ],
 )
 def test_domestic_achievement_reference_table(

@@ -1,0 +1,20 @@
+{
+  "built_at_utc": "2026-07-15T15:50:03.812649+00:00",
+  "uefa": {
+    "endpoint": "https://match.uefa.com/v5/matches",
+    "competition_ids": {
+      "UCL": 1,
+      "UEL": 14,
+      "UECL": 2019
+    },
+    "cache_files": 23,
+    "exact_matches": 6340
+  },
+  "clubelo": {
+    "archive_url": "https://raw.githubusercontent.com/xgabora/Club-Football-Match-Data-2000-2025/main/data/EloRatings.csv",
+    "local_sha256": "29f02206a928dc04d2e46e8e56c2458d42fc591b93a767c9ce2098d9a66bca11",
+    "snapshot_rule": "latest snapshot strictly before match date",
+    "maximum_snapshot_age_days": 31,
+    "archive_note": "ClubElo-derived snapshots published on the 1st and 15th"
+  }
+}

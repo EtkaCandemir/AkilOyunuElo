@@ -1,0 +1,11 @@
+rank,team_name,country_code,competition,domestic_prior,european_prior,european_exposure,effective_european_exposure,country_candidate_ao_first_elo,candidate_delta,candidate_rank,european_adjustment,ao_first_elo,rating_source_type
+1,Arsenal,ENG,UCL,800.0,920.0,0.93,0.85,935.0,33.0,2,102.0,902.0,European Evidence-Based Rating
+2,Sporting CP,POR,UCL,746.008,908.569,1.0,0.85,911.619,27.434,3,138.176,884.185,European Evidence-Based Rating
+3,Benfica,POR,UEL,739.845,895.281,1.0,0.85,899.418,27.452,4,132.12,871.966,European Evidence-Based Rating
+4,Shakhtar Donetsk,UKR,UCL,716.17,862.504,1.0,0.85,843.88,3.326,7,124.384,840.554,European Evidence-Based Rating
+5,Galatasaray,TUR,UCL,753.187,853.31,0.87,0.85,854.984,16.693,6,85.104,838.292,European Evidence-Based Rating
+6,AZ Alkmaar,NED,UEL,706.423,856.976,1.0,0.85,855.395,21.002,5,127.97,834.393,European Evidence-Based Rating
+7,Slavia Praha,CZE,UCL,751.585,811.007,1.0,0.85,818.078,15.985,8,50.509,802.093,European Evidence-Based Rating
+8,Pafos,CYP,UEL,697.766,791.839,0.6,0.6,786.487,32.278,9,56.444,754.21,Mixed Domestic-European Estimate
+9,Como,ITA,UCL,748.124,500.0,0.0,0.0,978.316,230.191,1,0.0,748.124,Pure Domestic Projection
+10,Omonia Nicosia,CYP,UCL,740.01,742.263,0.973,0.85,753.151,11.226,10,1.915,741.925,European Evidence-Based Rating

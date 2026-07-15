@@ -87,7 +87,7 @@ def story() -> list:
     flowables.extend(
         [
             Paragraph("AO European Elo", styles["Title"]),
-            Paragraph("Veri İhtiyaçları ve Alan Sözlüğü", styles["Subtitle"]),
+            Paragraph("Veri İhtiyaçları ve Alan Sözlüğü - v1.1", styles["Subtitle"]),
             Spacer(1, 0.35 * cm),
             Paragraph(
                 "Bu doküman, UEFA kulüp turnuvaları için geliştirilen AO European "
@@ -103,7 +103,8 @@ def story() -> list:
                 "Ülke puanları lig/ülke gücünü ölçmek için kullanılır. Kulüp "
                 "puanları ise takımın kendi Avrupa geçmişini ölçmek için kullanılır. "
                 "played ve matches alanları performansı değil, bu Avrupa sinyaline "
-                "ne kadar güvenileceğini yani exposure'i temsil eder.",
+                "ne kadar güvenileceğini yani ham European Exposure'i temsil eder. "
+                "Final rating hesabında bunun en fazla 0.85'i kullanılır.",
                 styles,
             ),
             Spacer(1, 0.28 * cm),
@@ -129,7 +130,7 @@ def story() -> list:
                     [
                         "club_european_points.csv",
                         "Kulübün son 5 sezon Avrupa puanı, oynama ve maç bilgisi",
-                        "European Prior ve European Exposure",
+                        "European Prior, ham ve effective European Exposure",
                     ],
                 ],
                 styles,
@@ -230,9 +231,10 @@ def story() -> list:
             note_box(
                 "Modeldeki anlam",
                 "domestic_position ve league_team_count birlikte percentile üretir. "
-                "is_league_champion şampiyonluk tabanını, is_cup_winner kupa tabanını "
-                "etkiler. Lig pozisyonu bilinmiyor ama kupa kazanıldıysa double bonus "
-                "verilmez.",
+                "is_league_champion=true ise pozisyon eksik olsa bile League Finish "
+                "Score 1.00 olur; pozisyon verilmişse 1 olmak zorundadır. Kupa tabanı "
+                "is_cup_winner ile, duble bonusu ise yalnızca takım hem lig hem kupa "
+                "şampiyonuysa uygulanır.",
                 styles,
             ),
             Paragraph("6. club_european_points.csv", styles["H1"]),
@@ -311,16 +313,46 @@ def story() -> list:
                     "played = 1 ise matches en az 1 olmalıdır.",
                     "match_cap tüm sezonlarda sonlu ve 0'dan büyük olmalıdır.",
                     "Lig pozisyonu biliniyorsa league_team_count > 1 ve domestic_position bu aralıkta olmalıdır.",
-                    "is_league_champion = true ise domestic_position normalde 1 olmalıdır; değilse manuel kontrol gerekir.",
+                    "is_league_champion = true ve domestic_position verilmişse pozisyon 1 olmalıdır; çelişkili kayıt reddedilir.",
+                    "max_european_exposure config değeri [0,1] aralığında olmalıdır; v1.1 varsayılanı 0.85'tir.",
                     "Avrupa geçmişi olmayan takımlar için club_points, played ve matches alanları beş sezon boyunca 0 yazılmalıdır.",
                     "Official club coefficient, kulübün kendi sezon puanlarıyla karıştırılmamalıdır.",
                 ],
                 styles,
             ),
+            Paragraph("10. Output Exposure Alanları", styles["H1"]),
+            simple_table(
+                [
+                    ["Output alanı", "Tanım", "Modeldeki rol"],
+                    [
+                        "european_exposure",
+                        "Oynanan sezon ve maçlardan türetilen [0,1] ham kanıt miktarı",
+                        "Rating source sınıflandırmasını belirler",
+                    ],
+                    [
+                        "effective_european_exposure",
+                        "min(european_exposure, 0.85)",
+                        "Final rating karışımında kullanılan exposure",
+                    ],
+                    [
+                        "ao_first_elo",
+                        "Domestic Prior + Effective Exposure x (European Prior - Domestic Prior)",
+                        "Kalıcı başlangıç rating kolonu",
+                    ],
+                    [
+                        "ao_first_elo_rank",
+                        "ao_first_elo azalan; eşitlikte team_id artan",
+                        "Deterministik takım sıralaması",
+                    ],
+                ],
+                styles,
+                col_widths=[4.6 * cm, 6.7 * cm, 5.2 * cm],
+            ),
             note_box(
                 "Sonuc",
                 "Bu veri setleri tamamlandığında model her takım için Domestic Prior, "
-                "European Prior, European Exposure ve final AO First Elo puanını "
+                "European Prior, ham European Exposure, Effective European Exposure "
+                "ve final AO First Elo puanı ile deterministik sırasını "
                 "üretebilir. Output ayrıca hedef sezon, yerel lig, lig pozisyonu ve "
                 "ligdeki takım sayısını denetim alanı olarak taşır. Final rating "
                 "kolonunun adı ao_first_elo olarak sabittir. Bu doküman veri toplama "

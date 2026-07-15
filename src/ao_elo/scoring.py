@@ -46,6 +46,14 @@ def compute_ao_first_elo(
     return domestic_prior + european_exposure * (european_prior - domestic_prior)
 
 
+def compute_effective_european_exposure(
+    european_exposure: float,
+    maximum: float,
+) -> float:
+    """Cap rating influence while preserving the raw evidence measure."""
+    return min(float(european_exposure), float(maximum))
+
+
 def rating_source_type(exposure: float, threshold: float) -> str:
     """Human-readable evidence category for the output rating."""
     if exposure == 0:
@@ -53,4 +61,3 @@ def rating_source_type(exposure: float, threshold: float) -> str:
     if exposure < threshold:
         return "Mixed Domestic-European Estimate"
     return "European Evidence-Based Rating"
-

@@ -34,6 +34,7 @@ INSPECTION_COLUMNS = [
     "domestic_prior",
     "european_prior",
     "european_exposure",
+    "effective_european_exposure",
     "ao_first_elo",
     "rating_source_type",
     "weighted_match_exposure",
@@ -109,6 +110,20 @@ def build_markdown_report(output: pd.DataFrame, inspection: pd.DataFrame) -> str
             metric_value(output, "Continental Giants", "european_exposure"),
         ),
         acceptance_check(
+            "Effective exposure is capped at 0.85",
+            value_close(
+                output,
+                "Continental Giants",
+                "effective_european_exposure",
+                0.85,
+            ),
+            metric_value(
+                output,
+                "Continental Giants",
+                "effective_european_exposure",
+            ),
+        ),
+        acceptance_check(
             "Unknown finish plus cup gets no double bonus",
             value_close(output, "Cupmark Rangers", "cup_double_bonus", 0.0),
             metric_value(output, "Cupmark Rangers", "cup_double_bonus"),
@@ -145,8 +160,8 @@ def build_markdown_report(output: pd.DataFrame, inspection: pd.DataFrame) -> str
             "",
             f"- Highest AO First Elo: {highest['team_name']} ({highest['ao_first_elo']:.3f})",
             f"- Lowest AO First Elo: {lowest['team_name']} ({lowest['ao_first_elo']:.3f})",
-            "- `Low Score Veterans` shows the intended downward pull: full exposure "
-            "plus weak European points moves the final rating down to its European Prior.",
+            "- `Low Score Veterans` shows the intended downward pull while the "
+            "effective exposure cap retains a 15% Domestic Prior contribution.",
             "- `Few Match Wanderers` shows limited trust in a five-season but low-match sample.",
             "- `Double Crown Athletic` confirms the cup double bonus path.",
             "",

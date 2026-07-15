@@ -1,0 +1,33 @@
+season,check,status,detail
+2018/19,all_target_clubs_have_match_codes,PASS,237
+2018/19,match_team_join_coverage,PASS,735/735
+2018/19,source_match_appearance_reconciliation,PASS,source=1470; parsed=1470
+2018/19,history_points_have_match_evidence,PASS,0
+2019/20,all_target_clubs_have_match_codes,PASS,237
+2019/20,match_team_join_coverage,PASS,721/721
+2019/20,source_match_appearance_reconciliation,PASS,source=1442; parsed=1442
+2019/20,history_points_have_match_evidence,PASS,0
+2020/21,all_target_clubs_have_match_codes,PASS,237
+2020/21,match_team_join_coverage,PASS,540/540
+2020/21,source_match_appearance_reconciliation,PASS,source=1080; parsed=1080
+2020/21,history_points_have_match_evidence,PASS,0
+2021/22,all_target_clubs_have_match_codes,PASS,237
+2021/22,match_team_join_coverage,PASS,816/816
+2021/22,source_match_appearance_reconciliation,PASS,source=1632; parsed=1632
+2021/22,history_points_have_match_evidence,PASS,0
+2022/23,all_target_clubs_have_match_codes,PASS,233
+2022/23,match_team_join_coverage,PASS,804/804
+2022/23,source_match_appearance_reconciliation,PASS,source=1608; parsed=1608
+2022/23,history_points_have_match_evidence,PASS,0
+2023/24,all_target_clubs_have_match_codes,PASS,234
+2023/24,match_team_join_coverage,PASS,806/806
+2023/24,source_match_appearance_reconciliation,PASS,source=1612; parsed=1612
+2023/24,history_points_have_match_evidence,PASS,0
+2024/25,all_target_clubs_have_match_codes,PASS,236
+2024/25,match_team_join_coverage,PASS,957/957
+2024/25,source_match_appearance_reconciliation,PASS,source=1914; parsed=1914
+2024/25,history_points_have_match_evidence,PASS,0
+2025/26,all_target_clubs_have_match_codes,PASS,236
+2025/26,match_team_join_coverage,PASS,961/961
+2025/26,source_match_appearance_reconciliation,PASS,source=1922; parsed=1922
+2025/26,history_points_have_match_evidence,PASS,0

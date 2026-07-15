@@ -1,0 +1,805 @@
+season,competition,round,home_team_id,away_team_id,home_team_name,away_team_name,home_goals,away_goals
+2022/23,UCL,Preliminary Round,64,106,Levadia Tallinn,Vikingur Reykjavik,1,6
+2022/23,UCL,Preliminary Round,186,6,La Fiorita,Inter Club d'Escaldes,1,2
+2022/23,UCL,Preliminary Round,6,106,Inter Club d'Escaldes,Vikingur Reykjavik,0,1
+2022/23,UCL,1st Qualifying Round,11,182,Pyunik Yerevan,CFR Cluj,0,0
+2022/23,UCL,1st Qualifying Round,182,11,CFR Cluj,Pyunik Yerevan,2,2
+2022/23,UCL,1st Qualifying Round,204,24,NK Maribor,Shakhtior Saligorsk,0,0
+2022/23,UCL,1st Qualifying Round,24,204,Shakhtior Saligorsk,NK Maribor,0,2
+2022/23,UCL,1st Qualifying Round,37,154,Ludogorets Razgrad,Sutjeska Niksic,2,0
+2022/23,UCL,1st Qualifying Round,154,37,Sutjeska Niksic,Ludogorets Razgrad,0,1
+2022/23,UCL,1st Qualifying Round,141,2,F91 Dudelange,KF Tirana,1,0
+2022/23,UCL,1st Qualifying Round,2,141,KF Tirana,F91 Dudelange,1,2
+2022/23,UCL,1st Qualifying Round,125,101,Tobol Kustanai,Ferencváros,0,0
+2022/23,UCL,1st Qualifying Round,101,125,Ferencváros,Tobol Kustanai,5,1
+2022/23,UCL,1st Qualifying Round,216,106,Malmö FF,Vikingur Reykjavik,3,2
+2022/23,UCL,1st Qualifying Round,106,216,Vikingur Reykjavik,Malmö FF,3,3
+2022/23,UCL,1st Qualifying Round,126,138,FC Ballkani,Zalgiris Vilnius,1,1
+2022/23,UCL,1st Qualifying Round,138,126,Zalgiris Vilnius,FC Ballkani,1,0
+2022/23,UCL,1st Qualifying Round,70,131,HJK Helsinki,RFS Riga,1,0
+2022/23,UCL,1st Qualifying Round,131,70,RFS Riga,HJK Helsinki,2,1
+2022/23,UCL,1st Qualifying Round,168,68,Bodø/Glimt,KI Klaksvik,3,0
+2022/23,UCL,1st Qualifying Round,68,168,KI Klaksvik,Bodø/Glimt,3,1
+2022/23,UCL,1st Qualifying Round,233,167,The New Saints,Linfield Belfast,1,0
+2022/23,UCL,1st Qualifying Round,167,233,Linfield Belfast,The New Saints,2,0
+2022/23,UCL,1st Qualifying Round,108,146,Shamrock Rovers,Hibernians FC,3,0
+2022/23,UCL,1st Qualifying Round,146,108,Hibernians FC,Shamrock Rovers,0,0
+2022/23,UCL,1st Qualifying Round,172,19,Lech Poznan,Qarabag FK,1,0
+2022/23,UCL,1st Qualifying Round,19,172,Qarabag FK,Lech Poznan,5,1
+2022/23,UCL,1st Qualifying Round,161,94,FK Shkupi,Lincoln Red Imps,3,0
+2022/23,UCL,1st Qualifying Round,94,161,Lincoln Red Imps,FK Shkupi,2,0
+2022/23,UCL,1st Qualifying Round,33,150,Zrinjski Mostar,Sheriff Tiraspol,0,0
+2022/23,UCL,1st Qualifying Round,150,33,Sheriff Tiraspol,Zrinjski Mostar,1,0
+2022/23,UCL,1st Qualifying Round,200,81,Slovan Bratislava,Dinamo Batumi,0,0
+2022/23,UCL,1st Qualifying Round,81,200,Dinamo Batumi,Slovan Bratislava,1,2
+2022/23,UCL,2nd Qualifying Round,101,200,Ferencváros,Slovan Bratislava,1,2
+2022/23,UCL,2nd Qualifying Round,200,101,Slovan Bratislava,Ferencváros,1,4
+2022/23,UCL,2nd Qualifying Round,38,161,Dinamo Zagreb,FK Shkupi,2,2
+2022/23,UCL,2nd Qualifying Round,161,38,FK Shkupi,Dinamo Zagreb,0,1
+2022/23,UCL,2nd Qualifying Round,19,219,Qarabag FK,FC Zürich,3,2
+2022/23,UCL,2nd Qualifying Round,219,19,FC Zürich,Qarabag FK,2,2
+2022/23,UCL,2nd Qualifying Round,70,50,HJK Helsinki,Viktoria Plzen,1,2
+2022/23,UCL,2nd Qualifying Round,50,70,Viktoria Plzen,HJK Helsinki,5,0
+2022/23,UCL,2nd Qualifying Round,167,168,Linfield Belfast,Bodø/Glimt,1,0
+2022/23,UCL,2nd Qualifying Round,168,167,Bodø/Glimt,Linfield Belfast,8,0
+2022/23,UCL,2nd Qualifying Round,138,216,Zalgiris Vilnius,Malmö FF,1,0
+2022/23,UCL,2nd Qualifying Round,216,138,Malmö FF,Zalgiris Vilnius,0,2
+2022/23,UCL,2nd Qualifying Round,37,108,Ludogorets Razgrad,Shamrock Rovers,3,0
+2022/23,UCL,2nd Qualifying Round,108,37,Shamrock Rovers,Ludogorets Razgrad,2,1
+2022/23,UCL,2nd Qualifying Round,204,150,NK Maribor,Sheriff Tiraspol,0,0
+2022/23,UCL,2nd Qualifying Round,150,204,Sheriff Tiraspol,NK Maribor,1,0
+2022/23,UCL,2nd Qualifying Round,112,97,Maccabi Haifa,Olympiakos Piraeus,1,1
+2022/23,UCL,2nd Qualifying Round,97,112,Olympiakos Piraeus,Maccabi Haifa,0,4
+2022/23,UCL,2nd Qualifying Round,11,141,Pyunik Yerevan,F91 Dudelange,0,1
+2022/23,UCL,2nd Qualifying Round,141,11,F91 Dudelange,Pyunik Yerevan,1,4
+2022/23,UCL,2nd Qualifying Round,53,42,FC Midtjylland,AEK Larnaca,1,1
+2022/23,UCL,2nd Qualifying Round,42,53,AEK Larnaca,FC Midtjylland,1,1
+2022/23,UCL,2nd Qualifying Round,226,221,Dynamo Kyiv,Fenerbahçe,0,0
+2022/23,UCL,2nd Qualifying Round,221,226,Fenerbahçe,Dynamo Kyiv,1,2
+2022/23,UCL,3rd Qualifying Round,112,44,Maccabi Haifa,Apollon Limassol,4,0
+2022/23,UCL,3rd Qualifying Round,44,112,Apollon Limassol,Maccabi Haifa,2,0
+2022/23,UCL,3rd Qualifying Round,19,101,Qarabag FK,Ferencváros,1,1
+2022/23,UCL,3rd Qualifying Round,101,19,Ferencváros,Qarabag FK,1,3
+2022/23,UCL,3rd Qualifying Round,37,38,Ludogorets Razgrad,Dinamo Zagreb,1,2
+2022/23,UCL,3rd Qualifying Round,38,37,Dinamo Zagreb,Ludogorets Razgrad,4,2
+2022/23,UCL,3rd Qualifying Round,150,50,Sheriff Tiraspol,Viktoria Plzen,1,2
+2022/23,UCL,3rd Qualifying Round,50,150,Viktoria Plzen,Sheriff Tiraspol,2,1
+2022/23,UCL,3rd Qualifying Round,168,138,Bodø/Glimt,Zalgiris Vilnius,5,0
+2022/23,UCL,3rd Qualifying Round,138,168,Zalgiris Vilnius,Bodø/Glimt,1,1
+2022/23,UCL,3rd Qualifying Round,197,11,Red Star Belgrade,Pyunik Yerevan,5,0
+2022/23,UCL,3rd Qualifying Round,11,197,Pyunik Yerevan,Red Star Belgrade,0,2
+2022/23,UCL,3rd Qualifying Round,74,159,AS Monaco,PSV Eindhoven,1,1
+2022/23,UCL,3rd Qualifying Round,159,74,PSV Eindhoven,AS Monaco,3,2
+2022/23,UCL,3rd Qualifying Round,226,15,Dynamo Kyiv,Sturm Graz,1,0
+2022/23,UCL,3rd Qualifying Round,15,226,Sturm Graz,Dynamo Kyiv,1,2
+2022/23,UCL,3rd Qualifying Round,29,191,Union Saint-Gilloise,Glasgow Rangers,2,0
+2022/23,UCL,3rd Qualifying Round,191,29,Glasgow Rangers,Union Saint-Gilloise,3,0
+2022/23,UCL,3rd Qualifying Round,176,53,Benfica,FC Midtjylland,4,1
+2022/23,UCL,3rd Qualifying Round,53,176,FC Midtjylland,Benfica,1,3
+2022/23,UCL,Qualifying Play-off Round,19,50,Qarabag FK,Viktoria Plzen,0,0
+2022/23,UCL,Qualifying Play-off Round,50,19,Viktoria Plzen,Qarabag FK,2,1
+2022/23,UCL,Qualifying Play-off Round,168,38,Bodø/Glimt,Dinamo Zagreb,1,0
+2022/23,UCL,Qualifying Play-off Round,38,168,Dinamo Zagreb,Bodø/Glimt,4,1
+2022/23,UCL,Qualifying Play-off Round,112,197,Maccabi Haifa,Red Star Belgrade,3,2
+2022/23,UCL,Qualifying Play-off Round,197,112,Red Star Belgrade,Maccabi Haifa,2,2
+2022/23,UCL,Qualifying Play-off Round,52,225,FC København,Trabzonspor,2,1
+2022/23,UCL,Qualifying Play-off Round,225,52,Trabzonspor,FC København,0,0
+2022/23,UCL,Qualifying Play-off Round,226,176,Dynamo Kyiv,Benfica,0,2
+2022/23,UCL,Qualifying Play-off Round,176,226,Benfica,Dynamo Kyiv,3,0
+2022/23,UCL,Qualifying Play-off Round,191,159,Glasgow Rangers,PSV Eindhoven,2,2
+2022/23,UCL,Qualifying Play-off Round,159,191,PSV Eindhoven,Glasgow Rangers,0,1
+2022/23,UCL,Group Stage,156,191,Ajax,Glasgow Rangers,4,0
+2022/23,UCL,Group Stage,191,156,Glasgow Rangers,Ajax,1,3
+2022/23,UCL,Group Stage,121,58,Napoli,Liverpool,4,1
+2022/23,UCL,Group Stage,58,121,Liverpool,Napoli,2,0
+2022/23,UCL,Group Stage,191,121,Glasgow Rangers,Napoli,0,3
+2022/23,UCL,Group Stage,121,191,Napoli,Glasgow Rangers,3,0
+2022/23,UCL,Group Stage,58,156,Liverpool,Ajax,2,1
+2022/23,UCL,Group Stage,156,58,Ajax,Liverpool,0,3
+2022/23,UCL,Group Stage,58,191,Liverpool,Glasgow Rangers,2,0
+2022/23,UCL,Group Stage,191,58,Glasgow Rangers,Liverpool,1,7
+2022/23,UCL,Group Stage,156,121,Ajax,Napoli,1,6
+2022/23,UCL,Group Stage,121,156,Napoli,Ajax,4,2
+2022/23,UCL,Group Stage,206,177,Atlético Madrid,FC Porto,2,1
+2022/23,UCL,Group Stage,177,206,FC Porto,Atlético Madrid,2,1
+2022/23,UCL,Group Stage,27,85,Club Brugge,Bayer Leverkusen,1,0
+2022/23,UCL,Group Stage,85,27,Bayer Leverkusen,Club Brugge,0,0
+2022/23,UCL,Group Stage,177,27,FC Porto,Club Brugge,0,4
+2022/23,UCL,Group Stage,27,177,Club Brugge,FC Porto,0,4
+2022/23,UCL,Group Stage,85,206,Bayer Leverkusen,Atlético Madrid,2,0
+2022/23,UCL,Group Stage,206,85,Atlético Madrid,Bayer Leverkusen,2,2
+2022/23,UCL,Group Stage,177,85,FC Porto,Bayer Leverkusen,2,0
+2022/23,UCL,Group Stage,85,177,Bayer Leverkusen,FC Porto,0,3
+2022/23,UCL,Group Stage,27,206,Club Brugge,Atlético Madrid,2,0
+2022/23,UCL,Group Stage,206,27,Atlético Madrid,Club Brugge,0,0
+2022/23,UCL,Group Stage,207,50,FC Barcelona,Viktoria Plzen,5,1
+2022/23,UCL,Group Stage,50,207,Viktoria Plzen,FC Barcelona,2,4
+2022/23,UCL,Group Stage,118,86,Internazionale,Bayern München,0,2
+2022/23,UCL,Group Stage,86,118,Bayern München,Internazionale,2,0
+2022/23,UCL,Group Stage,50,118,Viktoria Plzen,Internazionale,0,2
+2022/23,UCL,Group Stage,118,50,Internazionale,Viktoria Plzen,4,0
+2022/23,UCL,Group Stage,86,207,Bayern München,FC Barcelona,2,0
+2022/23,UCL,Group Stage,207,86,FC Barcelona,Bayern München,0,3
+2022/23,UCL,Group Stage,86,50,Bayern München,Viktoria Plzen,5,0
+2022/23,UCL,Group Stage,50,86,Viktoria Plzen,Bayern München,2,4
+2022/23,UCL,Group Stage,118,207,Internazionale,FC Barcelona,1,0
+2022/23,UCL,Group Stage,207,118,FC Barcelona,Internazionale,3,3
+2022/23,UCL,Group Stage,88,180,Eintracht Frankfurt,Sporting CP Lisbon,0,3
+2022/23,UCL,Group Stage,180,88,Sporting CP Lisbon,Eintracht Frankfurt,1,2
+2022/23,UCL,Group Stage,61,77,Tottenham Hotspur,Olympique Marseille,2,0
+2022/23,UCL,Group Stage,77,61,Olympique Marseille,Tottenham Hotspur,1,2
+2022/23,UCL,Group Stage,180,61,Sporting CP Lisbon,Tottenham Hotspur,2,0
+2022/23,UCL,Group Stage,61,180,Tottenham Hotspur,Sporting CP Lisbon,1,1
+2022/23,UCL,Group Stage,77,88,Olympique Marseille,Eintracht Frankfurt,0,1
+2022/23,UCL,Group Stage,88,77,Eintracht Frankfurt,Olympique Marseille,2,1
+2022/23,UCL,Group Stage,77,180,Olympique Marseille,Sporting CP Lisbon,4,1
+2022/23,UCL,Group Stage,180,77,Sporting CP Lisbon,Olympique Marseille,0,2
+2022/23,UCL,Group Stage,88,61,Eintracht Frankfurt,Tottenham Hotspur,0,0
+2022/23,UCL,Group Stage,61,88,Tottenham Hotspur,Eintracht Frankfurt,3,2
+2022/23,UCL,Group Stage,38,57,Dinamo Zagreb,Chelsea,1,0
+2022/23,UCL,Group Stage,57,38,Chelsea,Dinamo Zagreb,2,1
+2022/23,UCL,Group Stage,13,115,FC Salzburg,AC Milan,1,1
+2022/23,UCL,Group Stage,115,13,AC Milan,FC Salzburg,4,0
+2022/23,UCL,Group Stage,57,13,Chelsea,FC Salzburg,1,1
+2022/23,UCL,Group Stage,13,57,FC Salzburg,Chelsea,1,2
+2022/23,UCL,Group Stage,115,38,AC Milan,Dinamo Zagreb,3,1
+2022/23,UCL,Group Stage,38,115,Dinamo Zagreb,AC Milan,0,4
+2022/23,UCL,Group Stage,57,115,Chelsea,AC Milan,3,0
+2022/23,UCL,Group Stage,115,57,AC Milan,Chelsea,0,2
+2022/23,UCL,Group Stage,13,38,FC Salzburg,Dinamo Zagreb,1,0
+2022/23,UCL,Group Stage,38,13,Dinamo Zagreb,FC Salzburg,1,1
+2022/23,UCL,Group Stage,189,209,Celtic,Real Madrid,0,3
+2022/23,UCL,Group Stage,209,189,Real Madrid,Celtic,5,1
+2022/23,UCL,Group Stage,89,228,RB Leipzig,Shakhtar Donetsk,1,4
+2022/23,UCL,Group Stage,228,89,Shakhtar Donetsk,RB Leipzig,0,4
+2022/23,UCL,Group Stage,209,89,Real Madrid,RB Leipzig,2,0
+2022/23,UCL,Group Stage,89,209,RB Leipzig,Real Madrid,3,2
+2022/23,UCL,Group Stage,228,189,Shakhtar Donetsk,Celtic,1,1
+2022/23,UCL,Group Stage,189,228,Celtic,Shakhtar Donetsk,1,1
+2022/23,UCL,Group Stage,209,228,Real Madrid,Shakhtar Donetsk,2,1
+2022/23,UCL,Group Stage,228,209,Shakhtar Donetsk,Real Madrid,1,1
+2022/23,UCL,Group Stage,89,189,RB Leipzig,Celtic,3,1
+2022/23,UCL,Group Stage,189,89,Celtic,RB Leipzig,0,2
+2022/23,UCL,Group Stage,87,52,Borussia Dortmund,FC København,3,0
+2022/23,UCL,Group Stage,52,87,FC København,Borussia Dortmund,1,1
+2022/23,UCL,Group Stage,211,59,Sevilla,Manchester City,0,4
+2022/23,UCL,Group Stage,59,211,Manchester City,Sevilla,3,1
+2022/23,UCL,Group Stage,52,211,FC København,Sevilla,0,0
+2022/23,UCL,Group Stage,211,52,Sevilla,FC København,3,0
+2022/23,UCL,Group Stage,59,87,Manchester City,Borussia Dortmund,2,1
+2022/23,UCL,Group Stage,87,59,Borussia Dortmund,Manchester City,0,0
+2022/23,UCL,Group Stage,59,52,Manchester City,FC København,5,0
+2022/23,UCL,Group Stage,52,59,FC København,Manchester City,0,0
+2022/23,UCL,Group Stage,211,87,Sevilla,Borussia Dortmund,1,4
+2022/23,UCL,Group Stage,87,211,Borussia Dortmund,Sevilla,1,1
+2022/23,UCL,Group Stage,78,119,Paris Saint-Germain,Juventus,2,1
+2022/23,UCL,Group Stage,119,78,Juventus,Paris Saint-Germain,1,2
+2022/23,UCL,Group Stage,176,112,Benfica,Maccabi Haifa,2,0
+2022/23,UCL,Group Stage,112,176,Maccabi Haifa,Benfica,1,6
+2022/23,UCL,Group Stage,119,176,Juventus,Benfica,1,2
+2022/23,UCL,Group Stage,176,119,Benfica,Juventus,4,3
+2022/23,UCL,Group Stage,112,78,Maccabi Haifa,Paris Saint-Germain,1,3
+2022/23,UCL,Group Stage,78,112,Paris Saint-Germain,Maccabi Haifa,7,2
+2022/23,UCL,Group Stage,119,112,Juventus,Maccabi Haifa,3,1
+2022/23,UCL,Group Stage,112,119,Maccabi Haifa,Juventus,2,0
+2022/23,UCL,Group Stage,176,78,Benfica,Paris Saint-Germain,1,1
+2022/23,UCL,Group Stage,78,176,Paris Saint-Germain,Benfica,1,1
+2022/23,UCL,Round of 16,89,59,RB Leipzig,Manchester City,1,1
+2022/23,UCL,Round of 16,59,89,Manchester City,RB Leipzig,7,0
+2022/23,UCL,Round of 16,27,176,Club Brugge,Benfica,0,2
+2022/23,UCL,Round of 16,176,27,Benfica,Club Brugge,5,1
+2022/23,UCL,Round of 16,58,209,Liverpool,Real Madrid,2,5
+2022/23,UCL,Round of 16,209,58,Real Madrid,Liverpool,1,0
+2022/23,UCL,Round of 16,115,61,AC Milan,Tottenham Hotspur,1,0
+2022/23,UCL,Round of 16,61,115,Tottenham Hotspur,AC Milan,0,0
+2022/23,UCL,Round of 16,88,121,Eintracht Frankfurt,Napoli,0,2
+2022/23,UCL,Round of 16,121,88,Napoli,Eintracht Frankfurt,3,0
+2022/23,UCL,Round of 16,87,57,Borussia Dortmund,Chelsea,1,0
+2022/23,UCL,Round of 16,57,87,Chelsea,Borussia Dortmund,2,0
+2022/23,UCL,Round of 16,118,177,Internazionale,FC Porto,1,0
+2022/23,UCL,Round of 16,177,118,FC Porto,Internazionale,0,0
+2022/23,UCL,Round of 16,78,86,Paris Saint-Germain,Bayern München,0,1
+2022/23,UCL,Round of 16,86,78,Bayern München,Paris Saint-Germain,2,0
+2022/23,UCL,Quarter Finals,209,57,Real Madrid,Chelsea,2,0
+2022/23,UCL,Quarter Finals,57,209,Chelsea,Real Madrid,0,2
+2022/23,UCL,Quarter Finals,176,118,Benfica,Internazionale,0,2
+2022/23,UCL,Quarter Finals,118,176,Internazionale,Benfica,3,3
+2022/23,UCL,Quarter Finals,59,86,Manchester City,Bayern München,3,0
+2022/23,UCL,Quarter Finals,86,59,Bayern München,Manchester City,1,1
+2022/23,UCL,Quarter Finals,115,121,AC Milan,Napoli,1,0
+2022/23,UCL,Quarter Finals,121,115,Napoli,AC Milan,1,1
+2022/23,UCL,Semi Finals,115,118,AC Milan,Internazionale,0,2
+2022/23,UCL,Semi Finals,118,115,Internazionale,AC Milan,1,0
+2022/23,UCL,Semi Finals,209,59,Real Madrid,Manchester City,1,1
+2022/23,UCL,Semi Finals,59,209,Manchester City,Real Madrid,4,0
+2022/23,UCL,Final,59,118,Manchester City,Internazionale,1,0
+2022/23,UEL,3rd Qualifying Round,42,195,AEK Larnaca,Partizan Belgrade,2,1
+2022/23,UEL,3rd Qualifying Round,195,42,Partizan Belgrade,AEK Larnaca,2,2
+2022/23,UEL,3rd Qualifying Round,221,47,Fenerbahçe,1.FC Slovácko,3,0
+2022/23,UEL,3rd Qualifying Round,47,221,1.FC Slovácko,Fenerbahçe,1,1
+2022/23,UEL,3rd Qualifying Round,216,141,Malmö FF,F91 Dudelange,3,0
+2022/23,UEL,3rd Qualifying Round,141,216,F91 Dudelange,Malmö FF,2,2
+2022/23,UEL,3rd Qualifying Round,108,161,Shamrock Rovers,FK Shkupi,3,1
+2022/23,UEL,3rd Qualifying Round,161,108,FK Shkupi,Shamrock Rovers,1,2
+2022/23,UEL,3rd Qualifying Round,167,219,Linfield Belfast,FC Zürich,0,2
+2022/23,UEL,3rd Qualifying Round,219,167,FC Zürich,Linfield Belfast,3,0
+2022/23,UEL,3rd Qualifying Round,97,200,Olympiakos Piraeus,Slovan Bratislava,1,1
+2022/23,UEL,3rd Qualifying Round,200,97,Slovan Bratislava,Olympiakos Piraeus,2,2
+2022/23,UEL,3rd Qualifying Round,204,70,NK Maribor,HJK Helsinki,0,2
+2022/23,UEL,3rd Qualifying Round,70,204,HJK Helsinki,NK Maribor,1,0
+2022/23,UEL,Qualifying Play-off Round,227,42,SC Dnipro-1,AEK Larnaca,1,2
+2022/23,UEL,Qualifying Play-off Round,42,227,AEK Larnaca,SC Dnipro-1,3,0
+2022/23,UEL,Qualifying Play-off Round,25,46,AA Gent,Omonia Nicosia,0,2
+2022/23,UEL,Qualifying Play-off Round,46,25,Omonia Nicosia,AA Gent,2,0
+2022/23,UEL,Qualifying Play-off Round,12,221,Austria Wien,Fenerbahçe,0,2
+2022/23,UEL,Qualifying Play-off Round,221,12,Fenerbahçe,Austria Wien,4,1
+2022/23,UEL,Qualifying Play-off Round,219,192,FC Zürich,Hearts FC,2,1
+2022/23,UEL,Qualifying Play-off Round,192,219,Hearts FC,FC Zürich,0,1
+2022/23,UEL,Qualifying Play-off Round,70,54,HJK Helsinki,Silkeborg IF,1,0
+2022/23,UEL,Qualifying Play-off Round,54,70,Silkeborg IF,HJK Helsinki,1,1
+2022/23,UEL,Qualifying Play-off Round,216,224,Malmö FF,Sivasspor,3,1
+2022/23,UEL,Qualifying Play-off Round,224,216,Sivasspor,Malmö FF,0,2
+2022/23,UEL,Qualifying Play-off Round,101,108,Ferencváros,Shamrock Rovers,4,0
+2022/23,UEL,Qualifying Play-off Round,108,101,Shamrock Rovers,Ferencváros,1,0
+2022/23,UEL,Qualifying Play-off Round,44,97,Apollon Limassol,Olympiakos Piraeus,1,1
+2022/23,UEL,Qualifying Play-off Round,97,44,Olympiakos Piraeus,Apollon Limassol,1,1
+2022/23,UEL,Qualifying Play-off Round,11,150,Pyunik Yerevan,Sheriff Tiraspol,0,0
+2022/23,UEL,Qualifying Play-off Round,150,11,Sheriff Tiraspol,Pyunik Yerevan,0,0
+2022/23,UEL,Qualifying Play-off Round,37,138,Ludogorets Razgrad,Zalgiris Vilnius,1,0
+2022/23,UEL,Qualifying Play-off Round,138,37,Zalgiris Vilnius,Ludogorets Razgrad,3,3
+2022/23,UEL,Group Stage,219,56,FC Zürich,Arsenal,1,2
+2022/23,UEL,Group Stage,56,219,Arsenal,FC Zürich,1,0
+2022/23,UEL,Group Stage,159,168,PSV Eindhoven,Bodø/Glimt,1,1
+2022/23,UEL,Group Stage,168,159,Bodø/Glimt,PSV Eindhoven,1,2
+2022/23,UEL,Group Stage,56,159,Arsenal,PSV Eindhoven,1,0
+2022/23,UEL,Group Stage,159,56,PSV Eindhoven,Arsenal,2,0
+2022/23,UEL,Group Stage,168,219,Bodø/Glimt,FC Zürich,2,1
+2022/23,UEL,Group Stage,219,168,FC Zürich,Bodø/Glimt,2,1
+2022/23,UEL,Group Stage,56,168,Arsenal,Bodø/Glimt,3,0
+2022/23,UEL,Group Stage,168,56,Bodø/Glimt,Arsenal,0,1
+2022/23,UEL,Group Stage,219,159,FC Zürich,PSV Eindhoven,1,5
+2022/23,UEL,Group Stage,159,219,PSV Eindhoven,FC Zürich,5,0
+2022/23,UEL,Group Stage,42,79,AEK Larnaca,Stade Rennais,1,2
+2022/23,UEL,Group Stage,79,42,Stade Rennais,AEK Larnaca,1,1
+2022/23,UEL,Group Stage,221,226,Fenerbahçe,Dynamo Kyiv,2,1
+2022/23,UEL,Group Stage,226,221,Dynamo Kyiv,Fenerbahçe,0,2
+2022/23,UEL,Group Stage,79,221,Stade Rennais,Fenerbahçe,2,2
+2022/23,UEL,Group Stage,221,79,Fenerbahçe,Stade Rennais,3,3
+2022/23,UEL,Group Stage,226,42,Dynamo Kyiv,AEK Larnaca,0,1
+2022/23,UEL,Group Stage,42,226,AEK Larnaca,Dynamo Kyiv,3,3
+2022/23,UEL,Group Stage,79,226,Stade Rennais,Dynamo Kyiv,2,1
+2022/23,UEL,Group Stage,226,79,Dynamo Kyiv,Stade Rennais,0,1
+2022/23,UEL,Group Stage,221,42,Fenerbahçe,AEK Larnaca,2,0
+2022/23,UEL,Group Stage,42,221,AEK Larnaca,Fenerbahçe,1,2
+2022/23,UEL,Group Stage,37,116,Ludogorets Razgrad,AS Roma,2,1
+2022/23,UEL,Group Stage,116,37,AS Roma,Ludogorets Razgrad,3,1
+2022/23,UEL,Group Stage,70,208,HJK Helsinki,Real Betis,0,2
+2022/23,UEL,Group Stage,208,70,Real Betis,HJK Helsinki,3,0
+2022/23,UEL,Group Stage,116,70,AS Roma,HJK Helsinki,3,0
+2022/23,UEL,Group Stage,70,116,HJK Helsinki,AS Roma,1,2
+2022/23,UEL,Group Stage,208,37,Real Betis,Ludogorets Razgrad,3,2
+2022/23,UEL,Group Stage,37,208,Ludogorets Razgrad,Real Betis,0,1
+2022/23,UEL,Group Stage,116,208,AS Roma,Real Betis,1,2
+2022/23,UEL,Group Stage,208,116,Real Betis,AS Roma,1,1
+2022/23,UEL,Group Stage,70,37,HJK Helsinki,Ludogorets Razgrad,1,1
+2022/23,UEL,Group Stage,37,70,Ludogorets Razgrad,HJK Helsinki,2,0
+2022/23,UEL,Group Stage,216,179,Malmö FF,Sporting Braga,0,2
+2022/23,UEL,Group Stage,179,216,Sporting Braga,Malmö FF,2,1
+2022/23,UEL,Group Stage,91,29,Union Berlin,Union Saint-Gilloise,0,1
+2022/23,UEL,Group Stage,29,91,Union Saint-Gilloise,Union Berlin,0,1
+2022/23,UEL,Group Stage,179,91,Sporting Braga,Union Berlin,1,0
+2022/23,UEL,Group Stage,91,179,Union Berlin,Sporting Braga,1,0
+2022/23,UEL,Group Stage,29,216,Union Saint-Gilloise,Malmö FF,3,2
+2022/23,UEL,Group Stage,216,29,Malmö FF,Union Saint-Gilloise,0,2
+2022/23,UEL,Group Stage,179,29,Sporting Braga,Union Saint-Gilloise,1,2
+2022/23,UEL,Group Stage,29,179,Union Saint-Gilloise,Sporting Braga,3,3
+2022/23,UEL,Group Stage,216,91,Malmö FF,Union Berlin,0,1
+2022/23,UEL,Group Stage,91,216,Union Berlin,Malmö FF,1,0
+2022/23,UEL,Group Stage,60,210,Manchester United,Real Sociedad,0,1
+2022/23,UEL,Group Stage,210,60,Real Sociedad,Manchester United,0,1
+2022/23,UEL,Group Stage,46,150,Omonia Nicosia,Sheriff Tiraspol,0,3
+2022/23,UEL,Group Stage,150,46,Sheriff Tiraspol,Omonia Nicosia,1,0
+2022/23,UEL,Group Stage,210,46,Real Sociedad,Omonia Nicosia,2,1
+2022/23,UEL,Group Stage,46,210,Omonia Nicosia,Real Sociedad,0,2
+2022/23,UEL,Group Stage,150,60,Sheriff Tiraspol,Manchester United,0,2
+2022/23,UEL,Group Stage,60,150,Manchester United,Sheriff Tiraspol,3,0
+2022/23,UEL,Group Stage,150,210,Sheriff Tiraspol,Real Sociedad,0,2
+2022/23,UEL,Group Stage,210,150,Real Sociedad,Sheriff Tiraspol,3,0
+2022/23,UEL,Group Stage,46,60,Omonia Nicosia,Manchester United,2,3
+2022/23,UEL,Group Stage,60,46,Manchester United,Omonia Nicosia,1,0
+2022/23,UEL,Group Stage,120,158,Lazio,Feyenoord,4,2
+2022/23,UEL,Group Stage,158,120,Feyenoord,Lazio,1,0
+2022/23,UEL,Group Stage,15,53,Sturm Graz,FC Midtjylland,1,0
+2022/23,UEL,Group Stage,53,15,FC Midtjylland,Sturm Graz,2,0
+2022/23,UEL,Group Stage,158,15,Feyenoord,Sturm Graz,6,0
+2022/23,UEL,Group Stage,15,158,Sturm Graz,Feyenoord,1,0
+2022/23,UEL,Group Stage,53,120,FC Midtjylland,Lazio,5,1
+2022/23,UEL,Group Stage,120,53,Lazio,FC Midtjylland,2,1
+2022/23,UEL,Group Stage,53,158,FC Midtjylland,Feyenoord,2,2
+2022/23,UEL,Group Stage,158,53,Feyenoord,FC Midtjylland,2,2
+2022/23,UEL,Group Stage,15,120,Sturm Graz,Lazio,0,0
+2022/23,UEL,Group Stage,120,15,Lazio,Sturm Graz,2,2
+2022/23,UEL,Group Stage,90,19,SC Freiburg,Qarabag FK,2,1
+2022/23,UEL,Group Stage,19,90,Qarabag FK,SC Freiburg,1,1
+2022/23,UEL,Group Stage,75,97,FC Nantes,Olympiakos Piraeus,2,1
+2022/23,UEL,Group Stage,97,75,Olympiakos Piraeus,FC Nantes,0,2
+2022/23,UEL,Group Stage,19,75,Qarabag FK,FC Nantes,3,0
+2022/23,UEL,Group Stage,75,19,FC Nantes,Qarabag FK,2,1
+2022/23,UEL,Group Stage,97,90,Olympiakos Piraeus,SC Freiburg,0,3
+2022/23,UEL,Group Stage,90,97,SC Freiburg,Olympiakos Piraeus,1,1
+2022/23,UEL,Group Stage,97,19,Olympiakos Piraeus,Qarabag FK,0,3
+2022/23,UEL,Group Stage,19,97,Qarabag FK,Olympiakos Piraeus,0,0
+2022/23,UEL,Group Stage,90,75,SC Freiburg,FC Nantes,2,0
+2022/23,UEL,Group Stage,75,90,FC Nantes,SC Freiburg,0,4
+2022/23,UEL,Group Stage,197,74,Red Star Belgrade,AS Monaco,0,1
+2022/23,UEL,Group Stage,74,197,AS Monaco,Red Star Belgrade,4,1
+2022/23,UEL,Group Stage,101,225,Ferencváros,Trabzonspor,3,2
+2022/23,UEL,Group Stage,225,101,Trabzonspor,Ferencváros,1,0
+2022/23,UEL,Group Stage,74,101,AS Monaco,Ferencváros,0,1
+2022/23,UEL,Group Stage,101,74,Ferencváros,AS Monaco,1,1
+2022/23,UEL,Group Stage,225,197,Trabzonspor,Red Star Belgrade,2,1
+2022/23,UEL,Group Stage,197,225,Red Star Belgrade,Trabzonspor,2,1
+2022/23,UEL,Group Stage,74,225,AS Monaco,Trabzonspor,3,1
+2022/23,UEL,Group Stage,225,74,Trabzonspor,AS Monaco,4,0
+2022/23,UEL,Group Stage,197,101,Red Star Belgrade,Ferencváros,4,1
+2022/23,UEL,Group Stage,101,197,Ferencváros,Red Star Belgrade,2,1
+2022/23,UEL,Knockout round play-offs,207,60,FC Barcelona,Manchester United,2,2
+2022/23,UEL,Knockout round play-offs,60,207,Manchester United,FC Barcelona,2,1
+2022/23,UEL,Knockout round play-offs,119,75,Juventus,FC Nantes,1,1
+2022/23,UEL,Knockout round play-offs,75,119,FC Nantes,Juventus,0,3
+2022/23,UEL,Knockout round play-offs,180,53,Sporting CP Lisbon,FC Midtjylland,1,1
+2022/23,UEL,Knockout round play-offs,53,180,FC Midtjylland,Sporting CP Lisbon,0,4
+2022/23,UEL,Knockout round play-offs,228,79,Shakhtar Donetsk,Stade Rennais,2,1
+2022/23,UEL,Knockout round play-offs,79,228,Stade Rennais,Shakhtar Donetsk,2,1
+2022/23,UEL,Knockout round play-offs,156,91,Ajax,Union Berlin,0,0
+2022/23,UEL,Knockout round play-offs,91,156,Union Berlin,Ajax,3,1
+2022/23,UEL,Knockout round play-offs,85,74,Bayer Leverkusen,AS Monaco,2,3
+2022/23,UEL,Knockout round play-offs,74,85,AS Monaco,Bayer Leverkusen,2,3
+2022/23,UEL,Knockout round play-offs,211,159,Sevilla,PSV Eindhoven,3,0
+2022/23,UEL,Knockout round play-offs,159,211,PSV Eindhoven,Sevilla,2,0
+2022/23,UEL,Knockout round play-offs,13,116,FC Salzburg,AS Roma,1,0
+2022/23,UEL,Knockout round play-offs,116,13,AS Roma,FC Salzburg,2,0
+2022/23,UEL,Round of 16,91,29,Union Berlin,Union Saint-Gilloise,3,3
+2022/23,UEL,Round of 16,29,91,Union Saint-Gilloise,Union Berlin,3,0
+2022/23,UEL,Round of 16,211,221,Sevilla,Fenerbahçe,2,0
+2022/23,UEL,Round of 16,221,211,Fenerbahçe,Sevilla,1,0
+2022/23,UEL,Round of 16,119,90,Juventus,SC Freiburg,1,0
+2022/23,UEL,Round of 16,90,119,SC Freiburg,Juventus,0,2
+2022/23,UEL,Round of 16,85,101,Bayer Leverkusen,Ferencváros,2,0
+2022/23,UEL,Round of 16,101,85,Ferencváros,Bayer Leverkusen,0,2
+2022/23,UEL,Round of 16,180,56,Sporting CP Lisbon,Arsenal,2,2
+2022/23,UEL,Round of 16,56,180,Arsenal,Sporting CP Lisbon,1,1
+2022/23,UEL,Round of 16,60,208,Manchester United,Real Betis,4,1
+2022/23,UEL,Round of 16,208,60,Real Betis,Manchester United,0,1
+2022/23,UEL,Round of 16,116,210,AS Roma,Real Sociedad,2,0
+2022/23,UEL,Round of 16,210,116,Real Sociedad,AS Roma,0,0
+2022/23,UEL,Round of 16,228,158,Shakhtar Donetsk,Feyenoord,1,1
+2022/23,UEL,Round of 16,158,228,Feyenoord,Shakhtar Donetsk,7,1
+2022/23,UEL,Quarter Finals,60,211,Manchester United,Sevilla,2,2
+2022/23,UEL,Quarter Finals,211,60,Sevilla,Manchester United,3,0
+2022/23,UEL,Quarter Finals,119,180,Juventus,Sporting CP Lisbon,1,0
+2022/23,UEL,Quarter Finals,180,119,Sporting CP Lisbon,Juventus,1,1
+2022/23,UEL,Quarter Finals,85,29,Bayer Leverkusen,Union Saint-Gilloise,1,1
+2022/23,UEL,Quarter Finals,29,85,Union Saint-Gilloise,Bayer Leverkusen,1,4
+2022/23,UEL,Quarter Finals,158,116,Feyenoord,AS Roma,1,0
+2022/23,UEL,Quarter Finals,116,158,AS Roma,Feyenoord,4,1
+2022/23,UEL,Semi Finals,119,211,Juventus,Sevilla,1,1
+2022/23,UEL,Semi Finals,211,119,Sevilla,Juventus,2,1
+2022/23,UEL,Semi Finals,116,85,AS Roma,Bayer Leverkusen,1,0
+2022/23,UEL,Semi Finals,85,116,Bayer Leverkusen,AS Roma,0,0
+2022/23,UEL,Final,211,116,Sevilla,AS Roma,1,1
+2022/23,UECL,1st Qualifying Round,8,145,Alashkert FC,Hamrun Spartans,1,0
+2022/23,UECL,1st Qualifying Round,145,8,Hamrun Spartans,Alashkert FC,4,1
+2022/23,UECL,1st Qualifying Round,173,160,Lechia Gdansk,Akademija Pandev,4,1
+2022/23,UECL,1st Qualifying Round,160,173,Akademija Pandev,Lechia Gdansk,1,2
+2022/23,UECL,1st Qualifying Round,71,127,Inter Turku,FC Drita,1,0
+2022/23,UECL,1st Qualifying Round,127,71,FC Drita,Inter Turku,3,0
+2022/23,UECL,1st Qualifying Round,82,65,Dinamo Tbilisi,Paide Linnameeskond,2,3
+2022/23,UECL,1st Qualifying Round,65,82,Paide Linnameeskond,Dinamo Tbilisi,1,2
+2022/23,UECL,1st Qualifying Round,135,147,FK Panevezys,Milsami Orhei,0,0
+2022/23,UECL,1st Qualifying Round,147,135,Milsami Orhei,FK Panevezys,2,0
+2022/23,UECL,1st Qualifying Round,1,153,KF Laçi,Iskra Danilovgrad,0,0
+2022/23,UECL,1st Qualifying Round,153,1,Iskra Danilovgrad,KF Laçi,0,1
+2022/23,UECL,1st Qualifying Round,129,130,SC Gjilani,FK Liepaja,1,0
+2022/23,UECL,1st Qualifying Round,130,129,FK Liepaja,SC Gjilani,3,1
+2022/23,UECL,1st Qualifying Round,149,202,Sfântul Gheorghe,Mura Murska Sobota,1,2
+2022/23,UECL,1st Qualifying Round,202,149,Mura Murska Sobota,Sfântul Gheorghe,2,1
+2022/23,UECL,1st Qualifying Round,72,80,KuPS Kuopio,Dila Gori,2,0
+2022/23,UECL,1st Qualifying Round,80,72,Dila Gori,KuPS Kuopio,0,0
+2022/23,UECL,1st Qualifying Round,199,136,MFK Ruzomberok,Kauno Zalgiris,2,0
+2022/23,UECL,1st Qualifying Round,136,199,Kauno Zalgiris,MFK Ruzomberok,0,0
+2022/23,UECL,1st Qualifying Round,151,128,Buducnost Podgorica,KF Llapi,2,0
+2022/23,UECL,1st Qualifying Round,128,151,KF Llapi,Buducnost Podgorica,2,2
+2022/23,UECL,1st Qualifying Round,144,5,Gzira United,Atlètic Club d'Escaldes,1,1
+2022/23,UECL,1st Qualifying Round,5,144,Atlètic Club d'Escaldes,Gzira United,0,1
+2022/23,UECL,1st Qualifying Round,30,66,Borac Banja Luka,B36 Torshavn,2,0
+2022/23,UECL,1st Qualifying Round,66,30,B36 Torshavn,Borac Banja Luka,3,1
+2022/23,UECL,1st Qualifying Round,205,140,Olimpija Ljubljana,Differdange 03,1,1
+2022/23,UECL,1st Qualifying Round,140,205,Differdange 03,Olimpija Ljubljana,1,2
+2022/23,UECL,1st Qualifying Round,95,166,St Joseph's FC,Larne FC,0,0
+2022/23,UECL,1st Qualifying Round,166,95,Larne FC,St Joseph's FC,0,1
+2022/23,UECL,1st Qualifying Round,7,104,UE Santa Coloma,Breidablik,0,1
+2022/23,UECL,1st Qualifying Round,104,7,Breidablik,UE Santa Coloma,4,1
+2022/23,UECL,1st Qualifying Round,198,164,DAC Dunajska Streda,Cliftonville,2,1
+2022/23,UECL,1st Qualifying Round,164,198,Cliftonville,DAC Dunajska Streda,0,3
+2022/23,UECL,1st Qualifying Round,69,92,Víkingur,Europa FC,1,0
+2022/23,UECL,1st Qualifying Round,92,69,Europa FC,Víkingur,1,2
+2022/23,UECL,1st Qualifying Round,231,109,Bala Town,Sligo Rovers,1,2
+2022/23,UECL,1st Qualifying Round,109,231,Sligo Rovers,Bala Town,0,1
+2022/23,UECL,1st Qualifying Round,139,187,CS Fola Esch,Tre Fiori,0,1
+2022/23,UECL,1st Qualifying Round,187,139,Tre Fiori,CS Fola Esch,3,1
+2022/23,UECL,1st Qualifying Round,22,152,Dinamo Minsk,Decic Tuzi,1,1
+2022/23,UECL,1st Qualifying Round,152,22,Decic Tuzi,Dinamo Minsk,1,2
+2022/23,UECL,1st Qualifying Round,188,31,Tre Penne,Tuzla City,0,2
+2022/23,UECL,1st Qualifying Round,31,188,Tuzla City,Tre Penne,6,0
+2022/23,UECL,1st Qualifying Round,83,3,Saburtalo Tbilisi,Partizani Tirana,0,1
+2022/23,UECL,1st Qualifying Round,3,83,Partizani Tirana,Saburtalo Tbilisi,0,1
+2022/23,UECL,1st Qualifying Round,163,9,Shkendija Tetovo,Ararat Yerevan,2,0
+2022/23,UECL,1st Qualifying Round,9,163,Ararat Yerevan,Shkendija Tetovo,2,2
+2022/23,UECL,1st Qualifying Round,143,148,Floriana,Petrocub Hîncesti,0,0
+2022/23,UECL,1st Qualifying Round,148,143,Petrocub Hîncesti,Floriana,1,0
+2022/23,UECL,1st Qualifying Round,174,105,Pogon Szczecin,KR Reykjavik,4,1
+2022/23,UECL,1st Qualifying Round,105,174,KR Reykjavik,Pogon Szczecin,1,0
+2022/23,UECL,1st Qualifying Round,67,232,HB Torshavn,Newtown,1,0
+2022/23,UECL,1st Qualifying Round,232,67,Newtown,HB Torshavn,2,1
+2022/23,UECL,1st Qualifying Round,93,165,FCB Magpies,Crusaders Belfast,2,1
+2022/23,UECL,1st Qualifying Round,165,93,Crusaders Belfast,FCB Magpies,3,1
+2022/23,UECL,1st Qualifying Round,63,73,Flora Tallinn,SJK Seinäjoki,1,0
+2022/23,UECL,1st Qualifying Round,73,63,SJK Seinäjoki,Flora Tallinn,4,2
+2022/23,UECL,1st Qualifying Round,107,132,Derry City,Riga FC,0,2
+2022/23,UECL,1st Qualifying Round,132,107,Riga FC,Derry City,2,0
+2022/23,UECL,2nd Qualifying Round,144,196,Gzira United,Radnicki Nis,2,2
+2022/23,UECL,2nd Qualifying Round,196,144,Radnicki Nis,Gzira United,3,3
+2022/23,UECL,2nd Qualifying Round,96,23,Aris Thessaloniki,FC Gomel,5,1
+2022/23,UECL,2nd Qualifying Round,23,96,FC Gomel,Aris Thessaloniki,1,2
+2022/23,UECL,2nd Qualifying Round,34,43,Botev Plovdiv,APOEL Nicosia,0,0
+2022/23,UECL,2nd Qualifying Round,43,34,APOEL Nicosia,Botev Plovdiv,2,0
+2022/23,UECL,2nd Qualifying Round,100,17,FC Fehérvár,Gabala FK,4,1
+2022/23,UECL,2nd Qualifying Round,17,100,Gabala FK,FC Fehérvár,2,1
+2022/23,UECL,2nd Qualifying Round,222,113,Istanbul Basaksehir,Maccabi Netanya,1,1
+2022/23,UECL,2nd Qualifying Round,113,222,Maccabi Netanya,Istanbul Basaksehir,0,1
+2022/23,UECL,2nd Qualifying Round,45,18,Aris Limassol,Neftchi Baku,2,0
+2022/23,UECL,2nd Qualifying Round,18,45,Neftchi Baku,Aris Limassol,3,0
+2022/23,UECL,2nd Qualifying Round,32,145,Velez Mostar,Hamrun Spartans,0,1
+2022/23,UECL,2nd Qualifying Round,145,32,Hamrun Spartans,Velez Mostar,1,0
+2022/23,UECL,2nd Qualifying Round,83,183,Saburtalo Tbilisi,FCSB,1,0
+2022/23,UECL,2nd Qualifying Round,183,83,FCSB,Saburtalo Tbilisi,4,2
+2022/23,UECL,2nd Qualifying Round,162,35,Makedonija GjP,CSKA Sofia,0,0
+2022/23,UECL,2nd Qualifying Round,35,162,CSKA Sofia,Makedonija GjP,4,0
+2022/23,UECL,2nd Qualifying Round,111,22,Hapoel Beer-Sheva,Dinamo Minsk,2,1
+2022/23,UECL,2nd Qualifying Round,22,111,Dinamo Minsk,Hapoel Beer-Sheva,0,1
+2022/23,UECL,2nd Qualifying Round,20,114,Zira FK,Maccabi Tel-Aviv,0,3
+2022/23,UECL,2nd Qualifying Round,114,20,Maccabi Tel-Aviv,Zira FK,0,0
+2022/23,UECL,2nd Qualifying Round,4,185,Vllaznia Shkodër,Universitatea Craiova,1,1
+2022/23,UECL,2nd Qualifying Round,185,4,Universitatea Craiova,Vllaznia Shkodër,3,0
+2022/23,UECL,2nd Qualifying Round,10,65,Ararat-Armenia,Paide Linnameeskond,0,0
+2022/23,UECL,2nd Qualifying Round,65,10,Paide Linnameeskond,Ararat-Armenia,0,0
+2022/23,UECL,2nd Qualifying Round,124,102,Kairat Almaty,Kisvárda FC,0,1
+2022/23,UECL,2nd Qualifying Round,102,124,Kisvárda FC,Kairat Almaty,1,0
+2022/23,UECL,2nd Qualifying Round,21,223,BATE Borisov,Konyaspor,0,3
+2022/23,UECL,2nd Qualifying Round,223,21,Konyaspor,BATE Borisov,2,0
+2022/23,UECL,2nd Qualifying Round,184,205,Sepsi OSK,Olimpija Ljubljana,3,1
+2022/23,UECL,2nd Qualifying Round,205,184,Olimpija Ljubljana,Sepsi OSK,2,0
+2022/23,UECL,2nd Qualifying Round,123,40,FK Kyzylzhar,NK Osijek,1,2
+2022/23,UECL,2nd Qualifying Round,40,123,NK Osijek,FK Kyzylzhar,0,2
+2022/23,UECL,2nd Qualifying Round,130,220,FK Liepaja,Young Boys,0,1
+2022/23,UECL,2nd Qualifying Round,220,130,Young Boys,FK Liepaja,3,0
+2022/23,UECL,2nd Qualifying Round,14,173,Rapid Wien,Lechia Gdansk,0,0
+2022/23,UECL,2nd Qualifying Round,173,14,Lechia Gdansk,Rapid Wien,1,2
+2022/23,UECL,2nd Qualifying Round,73,169,SJK Seinäjoki,Lillestrøm SK,0,1
+2022/23,UECL,2nd Qualifying Round,169,73,Lillestrøm SK,SJK Seinäjoki,5,2
+2022/23,UECL,2nd Qualifying Round,104,151,Breidablik,Buducnost Podgorica,2,0
+2022/23,UECL,2nd Qualifying Round,151,104,Buducnost Podgorica,Breidablik,2,1
+2022/23,UECL,2nd Qualifying Round,110,202,St. Patrick's Athletic,Mura Murska Sobota,1,1
+2022/23,UECL,2nd Qualifying Round,202,110,Mura Murska Sobota,St. Patrick's Athletic,0,0
+2022/23,UECL,2nd Qualifying Round,95,48,St Joseph's FC,Slavia Praha,0,4
+2022/23,UECL,2nd Qualifying Round,48,95,Slavia Praha,St Joseph's FC,7,0
+2022/23,UECL,2nd Qualifying Round,201,232,Spartak Trnava,Newtown,4,1
+2022/23,UECL,2nd Qualifying Round,232,201,Newtown,Spartak Trnava,1,2
+2022/23,UECL,2nd Qualifying Round,137,55,Suduva Marijampole,Viborg FF,0,1
+2022/23,UECL,2nd Qualifying Round,55,137,Viborg FF,Suduva Marijampole,1,0
+2022/23,UECL,2nd Qualifying Round,69,198,Víkingur,DAC Dunajska Streda,0,2
+2022/23,UECL,2nd Qualifying Round,198,69,DAC Dunajska Streda,Víkingur,2,0
+2022/23,UECL,2nd Qualifying Round,174,51,Pogon Szczecin,Brøndby IF,1,1
+2022/23,UECL,2nd Qualifying Round,51,174,Brøndby IF,Pogon Szczecin,4,0
+2022/23,UECL,2nd Qualifying Round,155,31,AZ Alkmaar,Tuzla City,1,0
+2022/23,UECL,2nd Qualifying Round,31,155,Tuzla City,AZ Alkmaar,0,4
+2022/23,UECL,2nd Qualifying Round,193,109,Motherwell,Sligo Rovers,0,1
+2022/23,UECL,2nd Qualifying Round,109,193,Sligo Rovers,Motherwell,2,0
+2022/23,UECL,2nd Qualifying Round,170,215,Molde FK,IF Elfsborg,4,1
+2022/23,UECL,2nd Qualifying Round,215,170,IF Elfsborg,Molde FK,1,2
+2022/23,UECL,2nd Qualifying Round,203,134,NK Koper,FC Vaduz,0,1
+2022/23,UECL,2nd Qualifying Round,134,203,FC Vaduz,NK Koper,1,1
+2022/23,UECL,2nd Qualifying Round,66,187,B36 Torshavn,Tre Fiori,1,0
+2022/23,UECL,2nd Qualifying Round,187,66,Tre Fiori,B36 Torshavn,0,0
+2022/23,UECL,2nd Qualifying Round,199,132,MFK Ruzomberok,Riga FC,0,3
+2022/23,UECL,2nd Qualifying Round,132,199,Riga FC,MFK Ruzomberok,2,1
+2022/23,UECL,2nd Qualifying Round,217,165,FC Basel,Crusaders Belfast,2,0
+2022/23,UECL,2nd Qualifying Round,165,217,Crusaders Belfast,FC Basel,1,1
+2022/23,UECL,2nd Qualifying Round,28,127,Royal Antwerp,FC Drita,0,0
+2022/23,UECL,2nd Qualifying Round,127,28,FC Drita,Royal Antwerp,0,2
+2022/23,UECL,2nd Qualifying Round,148,1,Petrocub Hîncesti,KF Laçi,0,0
+2022/23,UECL,2nd Qualifying Round,1,148,KF Laçi,Petrocub Hîncesti,1,4
+2022/23,UECL,2nd Qualifying Round,142,194,Racing Union Luxembourg,Cukaricki Belgrade,1,4
+2022/23,UECL,2nd Qualifying Round,194,142,Cukaricki Belgrade,Racing Union Luxembourg,4,0
+2022/23,UECL,2nd Qualifying Round,36,98,Levski Sofia,PAOK Thessaloniki,2,0
+2022/23,UECL,2nd Qualifying Round,98,36,PAOK Thessaloniki,Levski Sofia,1,1
+2022/23,UECL,2nd Qualifying Round,181,103,Vitória Guimarães,Puskás Akadémia,3,0
+2022/23,UECL,2nd Qualifying Round,103,181,Puskás Akadémia,Vitória Guimarães,0,0
+2022/23,UECL,2nd Qualifying Round,41,214,NK Rijeka,Djurgårdens IF,1,2
+2022/23,UECL,2nd Qualifying Round,214,41,Djurgårdens IF,NK Rijeka,2,0
+2022/23,UECL,2nd Qualifying Round,229,213,Vorskla Poltava,AIK Stockholm,3,2
+2022/23,UECL,2nd Qualifying Round,213,229,AIK Stockholm,Vorskla Poltava,2,0
+2022/23,UECL,2nd Qualifying Round,133,163,Valmieras FK,Shkendija Tetovo,1,2
+2022/23,UECL,2nd Qualifying Round,163,133,Shkendija Tetovo,Valmieras FK,3,1
+2022/23,UECL,2nd Qualifying Round,175,122,Raków Czestochowa,FK Astana,5,0
+2022/23,UECL,2nd Qualifying Round,122,175,FK Astana,Raków Czestochowa,0,1
+2022/23,UECL,2nd Qualifying Round,72,147,KuPS Kuopio,Milsami Orhei,2,2
+2022/23,UECL,2nd Qualifying Round,147,72,Milsami Orhei,KuPS Kuopio,1,4
+2022/23,UECL,2nd Qualifying Round,49,171,Sparta Praha,Viking Stavanger,0,0
+2022/23,UECL,2nd Qualifying Round,171,49,Viking Stavanger,Sparta Praha,2,1
+2022/23,UECL,2nd Qualifying Round,186,126,La Fiorita,FC Ballkani,0,4
+2022/23,UECL,2nd Qualifying Round,126,186,FC Ballkani,La Fiorita,6,0
+2022/23,UECL,2nd Qualifying Round,106,233,Vikingur Reykjavik,The New Saints,2,0
+2022/23,UECL,2nd Qualifying Round,233,106,The New Saints,Vikingur Reykjavik,0,0
+2022/23,UECL,2nd Qualifying Round,154,68,Sutjeska Niksic,KI Klaksvik,0,0
+2022/23,UECL,2nd Qualifying Round,68,154,KI Klaksvik,Sutjeska Niksic,1,0
+2022/23,UECL,2nd Qualifying Round,146,64,Hibernians FC,Levadia Tallinn,3,2
+2022/23,UECL,2nd Qualifying Round,64,146,Levadia Tallinn,Hibernians FC,1,1
+2022/23,UECL,2nd Qualifying Round,2,33,KF Tirana,Zrinjski Mostar,0,1
+2022/23,UECL,2nd Qualifying Round,33,2,Zrinjski Mostar,KF Tirana,3,2
+2022/23,UECL,2nd Qualifying Round,172,81,Lech Poznan,Dinamo Batumi,5,0
+2022/23,UECL,2nd Qualifying Round,81,172,Dinamo Batumi,Lech Poznan,1,1
+2022/23,UECL,2nd Qualifying Round,182,6,CFR Cluj,Inter Club d'Escaldes,3,0
+2022/23,UECL,2nd Qualifying Round,6,182,Inter Club d'Escaldes,CFR Cluj,1,1
+2022/23,UECL,2nd Qualifying Round,125,94,Tobol Kustanai,Lincoln Red Imps,2,0
+2022/23,UECL,2nd Qualifying Round,94,125,Lincoln Red Imps,Tobol Kustanai,0,1
+2022/23,UECL,3rd Qualifying Round,201,175,Spartak Trnava,Raków Czestochowa,0,2
+2022/23,UECL,3rd Qualifying Round,175,201,Raków Czestochowa,Spartak Trnava,1,0
+2022/23,UECL,3rd Qualifying Round,213,163,AIK Stockholm,Shkendija Tetovo,1,1
+2022/23,UECL,3rd Qualifying Round,163,213,Shkendija Tetovo,AIK Stockholm,1,1
+2022/23,UECL,3rd Qualifying Round,171,109,Viking Stavanger,Sligo Rovers,5,1
+2022/23,UECL,3rd Qualifying Round,109,171,Sligo Rovers,Viking Stavanger,1,0
+2022/23,UECL,3rd Qualifying Round,104,222,Breidablik,Istanbul Basaksehir,1,3
+2022/23,UECL,3rd Qualifying Round,222,104,Istanbul Basaksehir,Breidablik,3,0
+2022/23,UECL,3rd Qualifying Round,72,220,KuPS Kuopio,Young Boys,0,2
+2022/23,UECL,3rd Qualifying Round,220,72,Young Boys,KuPS Kuopio,3,0
+2022/23,UECL,3rd Qualifying Round,65,26,Paide Linnameeskond,Anderlecht,0,2
+2022/23,UECL,3rd Qualifying Round,26,65,Anderlecht,Paide Linnameeskond,3,0
+2022/23,UECL,3rd Qualifying Round,55,66,Viborg FF,B36 Torshavn,3,0
+2022/23,UECL,3rd Qualifying Round,66,55,B36 Torshavn,Viborg FF,1,2
+2022/23,UECL,3rd Qualifying Round,39,181,Hajduk Split,Vitória Guimarães,3,1
+2022/23,UECL,3rd Qualifying Round,181,39,Vitória Guimarães,Hajduk Split,1,0
+2022/23,UECL,3rd Qualifying Round,51,217,Brøndby IF,FC Basel,1,0
+2022/23,UECL,3rd Qualifying Round,217,51,FC Basel,Brøndby IF,2,1
+2022/23,UECL,3rd Qualifying Round,169,28,Lillestrøm SK,Royal Antwerp,1,3
+2022/23,UECL,3rd Qualifying Round,28,169,Royal Antwerp,Lillestrøm SK,2,0
+2022/23,UECL,3rd Qualifying Round,35,110,CSKA Sofia,St. Patrick's Athletic,0,1
+2022/23,UECL,3rd Qualifying Round,110,35,St. Patrick's Athletic,CSKA Sofia,0,2
+2022/23,UECL,3rd Qualifying Round,190,155,Dundee United,AZ Alkmaar,1,0
+2022/23,UECL,3rd Qualifying Round,155,190,AZ Alkmaar,Dundee United,7,0
+2022/23,UECL,3rd Qualifying Round,43,123,APOEL Nicosia,FK Kyzylzhar,1,0
+2022/23,UECL,3rd Qualifying Round,123,43,FK Kyzylzhar,APOEL Nicosia,0,0
+2022/23,UECL,3rd Qualifying Round,198,183,DAC Dunajska Streda,FCSB,0,1
+2022/23,UECL,3rd Qualifying Round,183,198,FCSB,DAC Dunajska Streda,1,0
+2022/23,UECL,3rd Qualifying Round,132,178,Riga FC,Gil Vicente,1,1
+2022/23,UECL,3rd Qualifying Round,178,132,Gil Vicente,Riga FC,4,0
+2022/23,UECL,3rd Qualifying Round,16,144,Wolfsberger AC,Gzira United,0,0
+2022/23,UECL,3rd Qualifying Round,144,16,Gzira United,Wolfsberger AC,0,4
+2022/23,UECL,3rd Qualifying Round,114,96,Maccabi Tel-Aviv,Aris Thessaloniki,2,0
+2022/23,UECL,3rd Qualifying Round,96,114,Aris Thessaloniki,Maccabi Tel-Aviv,2,1
+2022/23,UECL,3rd Qualifying Round,170,102,Molde FK,Kisvárda FC,3,0
+2022/23,UECL,3rd Qualifying Round,102,170,Kisvárda FC,Molde FK,2,1
+2022/23,UECL,3rd Qualifying Round,18,14,Neftchi Baku,Rapid Wien,2,1
+2022/23,UECL,3rd Qualifying Round,14,18,Rapid Wien,Neftchi Baku,2,0
+2022/23,UECL,3rd Qualifying Round,218,111,FC Lugano,Hapoel Beer-Sheva,0,2
+2022/23,UECL,3rd Qualifying Round,111,218,Hapoel Beer-Sheva,FC Lugano,3,1
+2022/23,UECL,3rd Qualifying Round,145,36,Hamrun Spartans,Levski Sofia,0,1
+2022/23,UECL,3rd Qualifying Round,36,145,Levski Sofia,Hamrun Spartans,1,2
+2022/23,UECL,3rd Qualifying Round,194,157,Cukaricki Belgrade,FC Twente Enschede,1,3
+2022/23,UECL,3rd Qualifying Round,157,194,FC Twente Enschede,Cukaricki Belgrade,4,1
+2022/23,UECL,3rd Qualifying Round,230,185,Zorya Luhansk,Universitatea Craiova,1,0
+2022/23,UECL,3rd Qualifying Round,185,230,Universitatea Craiova,Zorya Luhansk,3,0
+2022/23,UECL,3rd Qualifying Round,134,223,FC Vaduz,Konyaspor,1,1
+2022/23,UECL,3rd Qualifying Round,223,134,Konyaspor,FC Vaduz,2,4
+2022/23,UECL,3rd Qualifying Round,184,214,Sepsi OSK,Djurgårdens IF,1,3
+2022/23,UECL,3rd Qualifying Round,214,184,Djurgårdens IF,Sepsi OSK,3,1
+2022/23,UECL,3rd Qualifying Round,100,148,FC Fehérvár,Petrocub Hîncesti,5,0
+2022/23,UECL,3rd Qualifying Round,148,100,Petrocub Hîncesti,FC Fehérvár,1,2
+2022/23,UECL,3rd Qualifying Round,48,99,Slavia Praha,Panathinaikos,2,0
+2022/23,UECL,3rd Qualifying Round,99,48,Panathinaikos,Slavia Praha,1,1
+2022/23,UECL,3rd Qualifying Round,106,172,Vikingur Reykjavik,Lech Poznan,1,0
+2022/23,UECL,3rd Qualifying Round,172,106,Lech Poznan,Vikingur Reykjavik,4,1
+2022/23,UECL,3rd Qualifying Round,131,146,RFS Riga,Hibernians FC,1,1
+2022/23,UECL,3rd Qualifying Round,146,131,Hibernians FC,RFS Riga,1,3
+2022/23,UECL,3rd Qualifying Round,126,68,FC Ballkani,KI Klaksvik,3,2
+2022/23,UECL,3rd Qualifying Round,68,126,KI Klaksvik,FC Ballkani,2,1
+2022/23,UECL,3rd Qualifying Round,33,125,Zrinjski Mostar,Tobol Kustanai,1,0
+2022/23,UECL,3rd Qualifying Round,125,33,Tobol Kustanai,Zrinjski Mostar,1,1
+2022/23,UECL,3rd Qualifying Round,24,182,Shakhtior Saligorsk,CFR Cluj,0,0
+2022/23,UECL,3rd Qualifying Round,182,24,CFR Cluj,Shakhtior Saligorsk,1,0
+2022/23,UECL,Qualifying Play-off Round,35,217,CSKA Sofia,FC Basel,1,0
+2022/23,UECL,Qualifying Play-off Round,217,35,FC Basel,CSKA Sofia,2,0
+2022/23,UECL,Qualifying Play-off Round,214,43,Djurgårdens IF,APOEL Nicosia,3,0
+2022/23,UECL,Qualifying Play-off Round,43,214,APOEL Nicosia,Djurgårdens IF,3,2
+2022/23,UECL,Qualifying Play-off Round,222,28,Istanbul Basaksehir,Royal Antwerp,1,1
+2022/23,UECL,Qualifying Play-off Round,28,222,Royal Antwerp,Istanbul Basaksehir,1,3
+2022/23,UECL,Qualifying Play-off Round,117,157,Fiorentina,FC Twente Enschede,2,1
+2022/23,UECL,Qualifying Play-off Round,157,117,FC Twente Enschede,Fiorentina,0,0
+2022/23,UECL,Qualifying Play-off Round,134,14,FC Vaduz,Rapid Wien,1,1
+2022/23,UECL,Qualifying Play-off Round,14,134,Rapid Wien,FC Vaduz,0,1
+2022/23,UECL,Qualifying Play-off Round,114,76,Maccabi Tel-Aviv,OGC Nice,1,0
+2022/23,UECL,Qualifying Play-off Round,76,114,OGC Nice,Maccabi Tel-Aviv,2,0
+2022/23,UECL,Qualifying Play-off Round,183,171,FCSB,Viking Stavanger,1,2
+2022/23,UECL,Qualifying Play-off Round,171,183,Viking Stavanger,FCSB,1,3
+2022/23,UECL,Qualifying Play-off Round,212,39,Villarreal,Hajduk Split,4,2
+2022/23,UECL,Qualifying Play-off Round,39,212,Hajduk Split,Villarreal,0,2
+2022/23,UECL,Qualifying Play-off Round,175,48,Raków Czestochowa,Slavia Praha,2,1
+2022/23,UECL,Qualifying Play-off Round,48,175,Slavia Praha,Raków Czestochowa,2,0
+2022/23,UECL,Qualifying Play-off Round,185,111,Universitatea Craiova,Hapoel Beer-Sheva,1,1
+2022/23,UECL,Qualifying Play-off Round,111,185,Hapoel Beer-Sheva,Universitatea Craiova,1,1
+2022/23,UECL,Qualifying Play-off Round,195,145,Partizan Belgrade,Hamrun Spartans,4,1
+2022/23,UECL,Qualifying Play-off Round,145,195,Hamrun Spartans,Partizan Belgrade,3,3
+2022/23,UECL,Qualifying Play-off Round,84,100,1.FC Köln,FC Fehérvár,1,2
+2022/23,UECL,Qualifying Play-off Round,100,84,FC Fehérvár,1.FC Köln,0,3
+2022/23,UECL,Qualifying Play-off Round,62,55,West Ham United,Viborg FF,3,1
+2022/23,UECL,Qualifying Play-off Round,55,62,Viborg FF,West Ham United,0,3
+2022/23,UECL,Qualifying Play-off Round,220,26,Young Boys,Anderlecht,0,1
+2022/23,UECL,Qualifying Play-off Round,26,220,Anderlecht,Young Boys,0,1
+2022/23,UECL,Qualifying Play-off Round,47,213,1.FC Slovácko,AIK Stockholm,3,0
+2022/23,UECL,Qualifying Play-off Round,213,47,AIK Stockholm,1.FC Slovácko,0,1
+2022/23,UECL,Qualifying Play-off Round,170,16,Molde FK,Wolfsberger AC,0,1
+2022/23,UECL,Qualifying Play-off Round,16,170,Wolfsberger AC,Molde FK,0,4
+2022/23,UECL,Qualifying Play-off Round,155,178,AZ Alkmaar,Gil Vicente,4,0
+2022/23,UECL,Qualifying Play-off Round,178,155,Gil Vicente,AZ Alkmaar,1,2
+2022/23,UECL,Qualifying Play-off Round,204,182,NK Maribor,CFR Cluj,0,0
+2022/23,UECL,Qualifying Play-off Round,182,204,CFR Cluj,NK Maribor,1,0
+2022/23,UECL,Qualifying Play-off Round,131,167,RFS Riga,Linfield Belfast,2,2
+2022/23,UECL,Qualifying Play-off Round,167,131,Linfield Belfast,RFS Riga,1,1
+2022/23,UECL,Qualifying Play-off Round,172,141,Lech Poznan,F91 Dudelange,2,0
+2022/23,UECL,Qualifying Play-off Round,141,172,F91 Dudelange,Lech Poznan,1,1
+2022/23,UECL,Qualifying Play-off Round,161,126,FK Shkupi,FC Ballkani,1,2
+2022/23,UECL,Qualifying Play-off Round,126,161,FC Ballkani,FK Shkupi,1,0
+2022/23,UECL,Qualifying Play-off Round,33,200,Zrinjski Mostar,Slovan Bratislava,1,0
+2022/23,UECL,Qualifying Play-off Round,200,33,Slovan Bratislava,Zrinjski Mostar,2,1
+2022/23,UECL,Group Stage,192,222,Hearts FC,Istanbul Basaksehir,0,4
+2022/23,UECL,Group Stage,222,192,Istanbul Basaksehir,Hearts FC,3,1
+2022/23,UECL,Group Stage,117,131,Fiorentina,RFS Riga,1,1
+2022/23,UECL,Group Stage,131,117,RFS Riga,Fiorentina,0,3
+2022/23,UECL,Group Stage,222,117,Istanbul Basaksehir,Fiorentina,3,0
+2022/23,UECL,Group Stage,117,222,Fiorentina,Istanbul Basaksehir,2,1
+2022/23,UECL,Group Stage,131,192,RFS Riga,Hearts FC,0,2
+2022/23,UECL,Group Stage,192,131,Hearts FC,RFS Riga,2,1
+2022/23,UECL,Group Stage,131,222,RFS Riga,Istanbul Basaksehir,0,0
+2022/23,UECL,Group Stage,222,131,Istanbul Basaksehir,RFS Riga,3,0
+2022/23,UECL,Group Stage,192,117,Hearts FC,Fiorentina,0,3
+2022/23,UECL,Group Stage,117,192,Fiorentina,Hearts FC,5,1
+2022/23,UECL,Group Stage,26,54,Anderlecht,Silkeborg IF,1,0
+2022/23,UECL,Group Stage,54,26,Silkeborg IF,Anderlecht,0,2
+2022/23,UECL,Group Stage,62,183,West Ham United,FCSB,3,1
+2022/23,UECL,Group Stage,183,62,FCSB,West Ham United,0,3
+2022/23,UECL,Group Stage,54,62,Silkeborg IF,West Ham United,2,3
+2022/23,UECL,Group Stage,62,54,West Ham United,Silkeborg IF,1,0
+2022/23,UECL,Group Stage,183,26,FCSB,Anderlecht,0,0
+2022/23,UECL,Group Stage,26,183,Anderlecht,FCSB,2,2
+2022/23,UECL,Group Stage,54,183,Silkeborg IF,FCSB,5,0
+2022/23,UECL,Group Stage,183,54,FCSB,Silkeborg IF,0,5
+2022/23,UECL,Group Stage,26,62,Anderlecht,West Ham United,0,1
+2022/23,UECL,Group Stage,62,26,West Ham United,Anderlecht,2,1
+2022/23,UECL,Group Stage,212,172,Villarreal,Lech Poznan,4,3
+2022/23,UECL,Group Stage,172,212,Lech Poznan,Villarreal,3,0
+2022/23,UECL,Group Stage,12,111,Austria Wien,Hapoel Beer-Sheva,0,0
+2022/23,UECL,Group Stage,111,12,Hapoel Beer-Sheva,Austria Wien,4,0
+2022/23,UECL,Group Stage,172,12,Lech Poznan,Austria Wien,4,1
+2022/23,UECL,Group Stage,12,172,Austria Wien,Lech Poznan,1,1
+2022/23,UECL,Group Stage,111,212,Hapoel Beer-Sheva,Villarreal,1,2
+2022/23,UECL,Group Stage,212,111,Villarreal,Hapoel Beer-Sheva,2,2
+2022/23,UECL,Group Stage,172,111,Lech Poznan,Hapoel Beer-Sheva,0,0
+2022/23,UECL,Group Stage,111,172,Hapoel Beer-Sheva,Lech Poznan,1,1
+2022/23,UECL,Group Stage,212,12,Villarreal,Austria Wien,5,0
+2022/23,UECL,Group Stage,12,212,Austria Wien,Villarreal,0,1
+2022/23,UECL,Group Stage,47,195,1.FC Slovácko,Partizan Belgrade,3,3
+2022/23,UECL,Group Stage,195,47,Partizan Belgrade,1.FC Slovácko,1,1
+2022/23,UECL,Group Stage,76,84,OGC Nice,1.FC Köln,1,1
+2022/23,UECL,Group Stage,84,76,1.FC Köln,OGC Nice,2,2
+2022/23,UECL,Group Stage,195,76,Partizan Belgrade,OGC Nice,1,1
+2022/23,UECL,Group Stage,76,195,OGC Nice,Partizan Belgrade,2,1
+2022/23,UECL,Group Stage,84,47,1.FC Köln,1.FC Slovácko,4,2
+2022/23,UECL,Group Stage,47,84,1.FC Slovácko,1.FC Köln,0,1
+2022/23,UECL,Group Stage,84,195,1.FC Köln,Partizan Belgrade,0,1
+2022/23,UECL,Group Stage,195,84,Partizan Belgrade,1.FC Köln,2,0
+2022/23,UECL,Group Stage,47,76,1.FC Slovácko,OGC Nice,0,1
+2022/23,UECL,Group Stage,76,47,OGC Nice,1.FC Slovácko,1,2
+2022/23,UECL,Group Stage,134,44,FC Vaduz,Apollon Limassol,0,0
+2022/23,UECL,Group Stage,44,134,Apollon Limassol,FC Vaduz,1,0
+2022/23,UECL,Group Stage,227,155,SC Dnipro-1,AZ Alkmaar,0,1
+2022/23,UECL,Group Stage,155,227,AZ Alkmaar,SC Dnipro-1,2,1
+2022/23,UECL,Group Stage,44,227,Apollon Limassol,SC Dnipro-1,1,3
+2022/23,UECL,Group Stage,227,44,SC Dnipro-1,Apollon Limassol,1,0
+2022/23,UECL,Group Stage,155,134,AZ Alkmaar,FC Vaduz,4,1
+2022/23,UECL,Group Stage,134,155,FC Vaduz,AZ Alkmaar,1,2
+2022/23,UECL,Group Stage,155,44,AZ Alkmaar,Apollon Limassol,3,2
+2022/23,UECL,Group Stage,44,155,Apollon Limassol,AZ Alkmaar,1,0
+2022/23,UECL,Group Stage,227,134,SC Dnipro-1,FC Vaduz,2,2
+2022/23,UECL,Group Stage,134,227,FC Vaduz,SC Dnipro-1,1,2
+2022/23,UECL,Group Stage,170,25,Molde FK,AA Gent,0,0
+2022/23,UECL,Group Stage,25,170,AA Gent,Molde FK,4,0
+2022/23,UECL,Group Stage,108,214,Shamrock Rovers,Djurgårdens IF,0,0
+2022/23,UECL,Group Stage,214,108,Djurgårdens IF,Shamrock Rovers,1,0
+2022/23,UECL,Group Stage,25,108,AA Gent,Shamrock Rovers,3,0
+2022/23,UECL,Group Stage,108,25,Shamrock Rovers,AA Gent,1,1
+2022/23,UECL,Group Stage,214,170,Djurgårdens IF,Molde FK,3,2
+2022/23,UECL,Group Stage,170,214,Molde FK,Djurgårdens IF,2,3
+2022/23,UECL,Group Stage,25,214,AA Gent,Djurgårdens IF,0,1
+2022/23,UECL,Group Stage,214,25,Djurgårdens IF,AA Gent,4,2
+2022/23,UECL,Group Stage,170,108,Molde FK,Shamrock Rovers,3,0
+2022/23,UECL,Group Stage,108,170,Shamrock Rovers,Molde FK,0,2
+2022/23,UECL,Group Stage,126,182,FC Ballkani,CFR Cluj,1,1
+2022/23,UECL,Group Stage,182,126,CFR Cluj,FC Ballkani,1,0
+2022/23,UECL,Group Stage,224,48,Sivasspor,Slavia Praha,1,1
+2022/23,UECL,Group Stage,48,224,Slavia Praha,Sivasspor,1,1
+2022/23,UECL,Group Stage,182,224,CFR Cluj,Sivasspor,0,1
+2022/23,UECL,Group Stage,224,182,Sivasspor,CFR Cluj,3,0
+2022/23,UECL,Group Stage,48,126,Slavia Praha,FC Ballkani,3,2
+2022/23,UECL,Group Stage,126,48,FC Ballkani,Slavia Praha,0,1
+2022/23,UECL,Group Stage,48,182,Slavia Praha,CFR Cluj,0,1
+2022/23,UECL,Group Stage,182,48,CFR Cluj,Slavia Praha,2,0
+2022/23,UECL,Group Stage,224,126,Sivasspor,FC Ballkani,3,4
+2022/23,UECL,Group Stage,126,224,FC Ballkani,Sivasspor,1,2
+2022/23,UECL,Group Stage,217,11,FC Basel,Pyunik Yerevan,3,1
+2022/23,UECL,Group Stage,11,217,Pyunik Yerevan,FC Basel,1,2
+2022/23,UECL,Group Stage,200,138,Slovan Bratislava,Zalgiris Vilnius,0,0
+2022/23,UECL,Group Stage,138,200,Zalgiris Vilnius,Slovan Bratislava,1,2
+2022/23,UECL,Group Stage,11,200,Pyunik Yerevan,Slovan Bratislava,2,0
+2022/23,UECL,Group Stage,200,11,Slovan Bratislava,Pyunik Yerevan,2,1
+2022/23,UECL,Group Stage,138,217,Zalgiris Vilnius,FC Basel,0,1
+2022/23,UECL,Group Stage,217,138,FC Basel,Zalgiris Vilnius,2,2
+2022/23,UECL,Group Stage,11,138,Pyunik Yerevan,Zalgiris Vilnius,2,0
+2022/23,UECL,Group Stage,138,11,Zalgiris Vilnius,Pyunik Yerevan,2,1
+2022/23,UECL,Group Stage,217,200,FC Basel,Slovan Bratislava,0,2
+2022/23,UECL,Group Stage,200,217,Slovan Bratislava,FC Basel,3,3
+2022/23,UECL,Knockout round play-offs,19,25,Qarabag FK,AA Gent,1,0
+2022/23,UECL,Knockout round play-offs,25,19,AA Gent,Qarabag FK,1,0
+2022/23,UECL,Knockout round play-offs,225,217,Trabzonspor,FC Basel,1,0
+2022/23,UECL,Knockout round play-offs,217,225,FC Basel,Trabzonspor,2,0
+2022/23,UECL,Knockout round play-offs,120,182,Lazio,CFR Cluj,1,0
+2022/23,UECL,Knockout round play-offs,182,120,CFR Cluj,Lazio,0,0
+2022/23,UECL,Knockout round play-offs,168,172,Bodø/Glimt,Lech Poznan,0,0
+2022/23,UECL,Knockout round play-offs,172,168,Lech Poznan,Bodø/Glimt,1,0
+2022/23,UECL,Knockout round play-offs,179,117,Sporting Braga,Fiorentina,0,4
+2022/23,UECL,Knockout round play-offs,117,179,Fiorentina,Sporting Braga,3,2
+2022/23,UECL,Knockout round play-offs,42,227,AEK Larnaca,SC Dnipro-1,1,0
+2022/23,UECL,Knockout round play-offs,227,42,SC Dnipro-1,AEK Larnaca,0,0
+2022/23,UECL,Knockout round play-offs,150,195,Sheriff Tiraspol,Partizan Belgrade,0,1
+2022/23,UECL,Knockout round play-offs,195,150,Partizan Belgrade,Sheriff Tiraspol,1,3
+2022/23,UECL,Knockout round play-offs,37,26,Ludogorets Razgrad,Anderlecht,1,0
+2022/23,UECL,Knockout round play-offs,26,37,Anderlecht,Ludogorets Razgrad,2,1
+2022/23,UECL,Round of 16,42,62,AEK Larnaca,West Ham United,0,2
+2022/23,UECL,Round of 16,62,42,West Ham United,AEK Larnaca,4,0
+2022/23,UECL,Round of 16,117,224,Fiorentina,Sivasspor,1,0
+2022/23,UECL,Round of 16,224,117,Sivasspor,Fiorentina,1,4
+2022/23,UECL,Round of 16,120,155,Lazio,AZ Alkmaar,1,2
+2022/23,UECL,Round of 16,155,120,AZ Alkmaar,Lazio,2,1
+2022/23,UECL,Round of 16,172,214,Lech Poznan,Djurgårdens IF,2,0
+2022/23,UECL,Round of 16,214,172,Djurgårdens IF,Lech Poznan,0,3
+2022/23,UECL,Round of 16,217,200,FC Basel,Slovan Bratislava,2,2
+2022/23,UECL,Round of 16,200,217,Slovan Bratislava,FC Basel,2,2
+2022/23,UECL,Round of 16,150,76,Sheriff Tiraspol,OGC Nice,0,1
+2022/23,UECL,Round of 16,76,150,OGC Nice,Sheriff Tiraspol,3,1
+2022/23,UECL,Round of 16,26,212,Anderlecht,Villarreal,1,1
+2022/23,UECL,Round of 16,212,26,Villarreal,Anderlecht,0,1
+2022/23,UECL,Round of 16,25,222,AA Gent,Istanbul Basaksehir,1,1
+2022/23,UECL,Round of 16,222,25,Istanbul Basaksehir,AA Gent,1,4
+2022/23,UECL,Quarter Finals,172,117,Lech Poznan,Fiorentina,1,4
+2022/23,UECL,Quarter Finals,117,172,Fiorentina,Lech Poznan,2,3
+2022/23,UECL,Quarter Finals,25,62,AA Gent,West Ham United,1,1
+2022/23,UECL,Quarter Finals,62,25,West Ham United,AA Gent,4,1
+2022/23,UECL,Quarter Finals,26,155,Anderlecht,AZ Alkmaar,2,0
+2022/23,UECL,Quarter Finals,155,26,AZ Alkmaar,Anderlecht,2,0
+2022/23,UECL,Quarter Finals,217,76,FC Basel,OGC Nice,2,2
+2022/23,UECL,Quarter Finals,76,217,OGC Nice,FC Basel,1,2
+2022/23,UECL,Semi Finals,117,217,Fiorentina,FC Basel,1,2
+2022/23,UECL,Semi Finals,217,117,FC Basel,Fiorentina,1,3
+2022/23,UECL,Semi Finals,62,155,West Ham United,AZ Alkmaar,2,1
+2022/23,UECL,Semi Finals,155,62,AZ Alkmaar,West Ham United,0,1
+2022/23,UECL,Final,117,62,Fiorentina,West Ham United,1,2

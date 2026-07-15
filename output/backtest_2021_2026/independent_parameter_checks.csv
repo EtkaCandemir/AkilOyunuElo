@@ -1,0 +1,6 @@
+candidate,dev_log_loss_delta,holdout_log_loss_delta,seasons_improved,decision,reason
+season_weights_decay_0.85,-3.224358695885776e-05,0.0020139417174970253,2,KEEP_CURRENT,Holdout log loss worsened.
+european_history_benchmark_28,-0.0017449608303505837,-0.004090402189900533,5,STAGE_A_CANDIDATE,Improved log loss in all five seasons.
+max_european_exposure_0.80,-0.0004161906815337568,-0.0009462694479019929,3,KEEP_CURRENT,Improvement is too small for promotion.
+exposure_blend_0.70_0.30,-8.096486952013926e-05,-3.181469290847172e-05,5,KEEP_CURRENT,Difference is practically neutral.
+country_b15_g1.2_c180,-0.0069991764779042676,-0.008998000984665744,5,BLOCKED,Domestic positions and league sizes are incomplete.

@@ -1,0 +1,4 @@
+fold,train_seasons,test_season,country_candidate,country_train_log_loss,domestic_candidate,combined_train_log_loss,country_strength_benchmark,gamma,domestic_league_component,domestic_achievement_component,achievement_alpha
+1,2021/22|2022/23,2023/24,country_b20_g2.0_c400,0.6256658732554836,domestic_c240_a0.0,0.6248487744417109,20.0,2.0,400.0,240.0,0.0
+2,2021/22|2022/23|2023/24,2024/25,country_b17.5_g2.2_c360,0.6213814685028063,domestic_c240_a0.0,0.620649535649275,17.5,2.2,360.0,240.0,0.0
+3,2021/22|2022/23|2023/24|2024/25,2025/26,country_b20_g2.0_c360,0.6222734603906455,domestic_c200_a0.0,0.6212102581224079,20.0,2.0,360.0,200.0,0.0

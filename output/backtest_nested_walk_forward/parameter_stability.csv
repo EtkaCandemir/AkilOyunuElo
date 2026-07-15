@@ -1,0 +1,10 @@
+parameter,value,folds_selected,selection_rate
+country_strength_benchmark,20.0,2,0.6666666666666666
+country_strength_benchmark,17.5,1,0.3333333333333333
+gamma,2.0,2,0.6666666666666666
+gamma,2.2,1,0.3333333333333333
+domestic_league_component,360.0,2,0.6666666666666666
+domestic_league_component,400.0,1,0.3333333333333333
+domestic_achievement_component,240.0,2,0.6666666666666666
+domestic_achievement_component,200.0,1,0.3333333333333333
+achievement_alpha,0.0,3,1.0
