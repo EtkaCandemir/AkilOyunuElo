@@ -1,0 +1,1888 @@
+candidate,season,team_id,team_name,ao_first_elo,european_exposure,saturation_count,country_strength_saturated,achievement_saturated,european_history_saturated,exposure_saturated
+c0_e0_x0,2018/19,209,FC Barcelona,1987.4008341504707,1.0,2,False,False,True,True
+c0_e0_x0,2018/19,59,Manchester City,1979.8194671940494,1.0,2,False,False,True,True
+c0_e0_x0,2018/19,119,Juventus,1977.6273503818768,1.0,2,False,False,True,True
+c0_e0_x0,2018/19,86,Bayern München,1973.80343415024,1.0,2,False,False,True,True
+c0_e0_x0,2018/19,208,Atlético Madrid,1971.1639067348597,1.0,2,False,False,True,True
+c0_e0_x0,2018/19,78,Paris Saint-Germain,1969.7591852242754,1.0,2,False,False,True,True
+c0_e0_x0,2018/19,211,Real Madrid,1967.9622590754434,1.0,2,False,False,True,True
+c0_e0_x0,2018/19,212,Sevilla,1955.1556684377783,1.0,2,False,False,True,True
+c0_e0_x0,2018/19,55,Arsenal,1928.815314710886,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,60,Manchester United,1916.6630158306868,0.8700000000000001,1,False,False,False,True
+c0_e0_x0,2018/19,231,Shakhtar Donetsk,1890.6716288343237,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,175,FC Porto,1889.4476067865558,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,87,Borussia Dortmund,1872.650393372478,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,116,AS Roma,1870.125127774105,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2018/19,188,Zenit St. Petersburg,1836.5675686961367,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,121,Napoli,1829.0490765914358,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,61,Tottenham Hotspur,1821.749440004494,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,225,Besiktas,1802.6375723256206,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2018/19,174,Benfica,1782.6213119256852,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,76,Olympique Lyon,1781.693441485871,0.9826666666666667,1,False,False,False,True
+c0_e0_x0,2018/19,219,FC Basel,1771.978738749646,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,74,AS Monaco,1761.1719137362663,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2018/19,58,Liverpool,1749.6235113025705,0.66,0,False,False,False,False
+c0_e0_x0,2018/19,57,Chelsea,1745.7028386569166,0.73,0,False,False,False,False
+c0_e0_x0,2018/19,229,Dinamo Kiev,1744.5996216147012,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,214,Villarreal,1726.1378164847447,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2018/19,13,FC Salzburg,1716.929794015635,0.9733333333333334,1,False,False,False,True
+c0_e0_x0,2018/19,183,CSKA Moscow,1684.031054673067,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,26,Anderlecht,1664.7775972351742,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,178,Sporting CP Lisbon,1660.0080088964642,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2018/19,154,Ajax,1658.2704400164544,0.956,1,False,False,False,True
+c0_e0_x0,2018/19,90,Schalke 04,1626.4951677421968,0.67,0,False,False,False,False
+c0_e0_x0,2018/19,85,Bayer Leverkusen,1625.7041033952432,0.67,0,False,False,False,False
+c0_e0_x0,2018/19,97,Olympiakos Piraeus,1607.7255098828955,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,120,Lazio,1550.3610730454575,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2018/19,177,Sporting Braga,1543.4994704105056,0.8513333333333335,1,False,False,False,True
+c0_e0_x0,2018/19,52,FC København,1542.0451606238025,0.9733333333333334,1,False,False,False,True
+c0_e0_x0,2018/19,50,Viktoria Plzen,1534.8396091832965,0.9653333333333334,1,False,False,False,True
+c0_e0_x0,2018/19,77,Olympique Marseille,1515.7285812607524,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2018/19,156,PSV Eindhoven,1509.2191870936442,0.912,1,False,False,False,True
+c0_e0_x0,2018/19,49,Sparta Praha,1509.1657186993234,0.8933333333333333,1,False,False,False,True
+c0_e0_x0,2018/19,36,Ludogorets Razgrad,1488.296722746524,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2018/19,193,Celtic,1484.3578820572968,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,186,Lokomotiv Moscow,1474.2382871533073,0.6253333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,43,APOEL Nicosia,1465.2118306039238,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,25,AA Gent,1441.8048689009788,0.712,0,False,False,False,False
+c0_e0_x0,2018/19,226,Fenerbahçe,1429.9868853439395,0.8166666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,122,FK Astana,1425.5977269197952,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2018/19,180,FCSB,1425.09043901451,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,213,Valencia,1408.2012117380475,0.27,0,False,False,False,False
+c0_e0_x0,2018/19,185,FK Krasnodar,1406.278543314609,0.8860000000000001,1,False,False,False,True
+c0_e0_x0,2018/19,27,Club Brugge,1403.2155608526557,0.9373333333333334,1,False,False,False,True
+c0_e0_x0,2018/19,98,PAOK Thessaloniki,1396.505881123636,0.956,1,False,False,False,True
+c0_e0_x0,2018/19,223,Young Boys,1372.4456898720582,0.9033333333333333,1,False,False,False,True
+c0_e0_x0,2018/19,173,Legia Warsaw,1367.4278872673856,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,115,AC Milan,1366.5028218692662,0.4,0,False,False,False,False
+c0_e0_x0,2018/19,20,Qarabag FK,1358.0429072770974,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,89,RB Leipzig,1351.2072492275527,0.33,0,False,False,False,False
+c0_e0_x0,2018/19,210,Real Betis,1343.9852766896195,0.07,0,False,False,False,False
+c0_e0_x0,2018/19,155,Feyenoord,1338.9088161223242,0.7813333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,21,BATE Borisov,1324.2962134474367,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2018/19,187,Spartak Moscow,1320.5568786306587,0.5793333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,56,Burnley FC,1319.7402130561115,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,227,Galatasaray,1315.106184481125,0.642,0,False,False,False,False
+c0_e0_x0,2018/19,205,NK Maribor,1309.7379875832246,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2018/19,79,Stade Rennais,1301.9582223909924,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,196,Partizan Belgrade,1300.8888147100322,0.928,1,False,False,False,True
+c0_e0_x0,2018/19,117,Atalanta,1300.005897198744,0.33,0,False,False,False,False
+c0_e0_x0,2018/19,114,Maccabi Tel-Aviv,1295.566476678146,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,118,Internazionale,1285.8155640049843,0.4,0,False,False,False,False
+c0_e0_x0,2018/19,28,Racing Genk,1273.9668801749426,0.34,0,False,False,False,False
+c0_e0_x0,2018/19,15,Rapid Wien,1273.0123209080698,0.6353333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,94,AEK Athens,1269.5186965790942,0.528,0,False,False,False,False
+c0_e0_x0,2018/19,38,Dinamo Zagreb,1266.7997217448265,0.956,1,False,False,False,True
+c0_e0_x0,2018/19,88,Eintracht Frankfurt,1248.0417939983724,0.07,0,False,False,False,False
+c0_e0_x0,2018/19,184,FC Ufa,1241.0148055166806,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,198,Red Star Belgrade,1234.3608312841081,0.8073333333333335,0,False,False,False,False
+c0_e0_x0,2018/19,153,AZ Alkmaar,1228.359640277534,0.54,0,False,False,False,False
+c0_e0_x0,2018/19,84,1899 Hoffenheim,1219.0965078532079,0.33,0,False,False,False,False
+c0_e0_x0,2018/19,147,Sheriff Tiraspol,1211.100698108661,0.8746666666666667,1,False,False,False,True
+c0_e0_x0,2018/19,41,NK Rijeka,1200.6018526467633,0.8746666666666667,1,False,False,False,True
+c0_e0_x0,2018/19,112,Hapoel Beer-Sheva,1194.490489323049,0.8420000000000001,0,False,False,False,False
+c0_e0_x0,2018/19,29,Standard Liège,1180.8761212202694,0.6433333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,228,Istanbul Basaksehir,1175.3183901474752,0.7106666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,47,Sigma Olomouc,1175.1968274874914,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,224,Akhisarspor,1175.1280732419714,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,218,Malmö FF,1167.5345579881705,0.642,0,False,False,False,False
+c0_e0_x0,2018/19,53,FC Midtjylland,1166.3986133067358,0.8953333333333335,1,False,False,False,True
+c0_e0_x0,2018/19,14,LASK Linz,1164.3273676496037,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,48,Slavia Praha,1162.4780335940193,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2018/19,54,FC Nordsjælland,1150.062676524856,0.060666666666666674,0,False,False,False,False
+c0_e0_x0,2018/19,217,Djurgårdens IF,1137.6239026124185,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,179,CFR Cluj,1134.2543944082956,0.11266666666666666,0,False,False,False,False
+c0_e0_x0,2018/19,44,Anorthosis Famagusta,1130.1377184821515,0.051333333333333335,0,False,False,False,False
+c0_e0_x0,2018/19,113,Hapoel Haifa,1127.4677865179945,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,168,Rosenborg BK,1125.967264552738,0.9906666666666667,1,False,False,False,True
+c0_e0_x0,2018/19,167,Molde FK,1119.6419696337077,0.3826666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,197,Radnicki Nis,1119.5996828286957,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,222,FC Zürich,1116.6687520374196,0.5980000000000001,0,False,False,False,False
+c0_e0_x0,2018/19,169,Sarpsborg 08,1110.7442491142074,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,233,Zorya Luhansk,1103.7332111000233,0.9033333333333333,1,False,False,False,True
+c0_e0_x0,2018/19,199,Spartak Subotica,1098.8051530999971,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,75,Girondins Bordeaux,1096.8268325932818,0.512,0,False,False,False,False
+c0_e0_x0,2018/19,176,Rio Ave,1088.2534909093945,0.328,0,False,False,False,False
+c0_e0_x0,2018/19,170,Górnik Zabrze,1084.9331652366934,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,46,FK Jablonec,1074.809157231061,0.23399999999999999,0,False,False,False,False
+c0_e0_x0,2018/19,45,Apollon Limassol,1071.315725769126,0.928,1,False,False,False,True
+c0_e0_x0,2018/19,34,CSKA Sofia,1071.2380725575724,0.09533333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,95,Asteras Tripolis,1063.5176826851693,0.38133333333333336,0,False,False,False,False
+c0_e0_x0,2018/19,157,Vitesse Arnhem,1060.678744809583,0.528,0,False,False,False,False
+c0_e0_x0,2018/19,221,FC Sankt Gallen,1060.2861850673826,0.07,0,False,False,False,False
+c0_e0_x0,2018/19,166,Lillestrøm SK,1051.6754018415927,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,125,Tobol Kustanai,1046.3565885379564,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,230,FC Mariupol,1039.8902837867572,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,201,DAC Dunajska Streda,1027.9507836219348,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,96,Atromitos FC,1023.7627404965176,0.32,0,False,False,False,False
+c0_e0_x0,2018/19,12,Admira Wacker,1018.0201611994503,0.27,0,False,False,False,False
+c0_e0_x0,2018/19,172,Lech Poznan,1002.6267170525898,0.7033333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,232,Vorskla Poltava,997.8471848362495,0.3446666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,16,Sturm Graz,992.9536271919611,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2018/19,39,Hajduk Split,989.8899184604996,0.9906666666666667,1,False,False,False,True
+c0_e0_x0,2018/19,22,Dinamo Minsk,987.6194059285988,1.0,1,False,False,False,True
+c0_e0_x0,2018/19,181,Universitatea Craiova,987.4353605504423,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2018/19,216,BK Häcken,982.0308655597969,0.2586666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,40,NK Osijek,977.3118594582417,0.33,0,False,False,False,False
+c0_e0_x0,2018/19,146,Petrocub Hîncesti,975.2401309176648,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,207,Rudar Velenje,973.7925221758682,0.09533333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,102,Újpest TE,972.8344464571448,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,23,Dynamo Brest,971.4391169459393,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2018/19,194,Glasgow Rangers,970.1547023067301,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2018/19,73,KuPS Kuopio,969.9457862138017,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,3,Luftëtari Gjirokastër,968.8310740593836,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,17,Gabala FK,957.8212279959471,0.8513333333333335,1,False,False,False,True
+c0_e0_x0,2018/19,109,Dundalk,955.7735142126988,0.7713333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,195,Hibernian,955.0356453255611,0.24933333333333335,0,False,False,False,False
+c0_e0_x0,2018/19,71,HJK Helsinki,949.5524921449836,0.9373333333333334,1,False,False,False,True
+c0_e0_x0,2018/19,37,Slavia Sofia,949.23505308905,0.198,0,False,False,False,False
+c0_e0_x0,2018/19,51,Brøndby IF,947.2670638337117,0.8513333333333335,1,False,False,False,True
+c0_e0_x0,2018/19,72,Ilves Tampere,946.7969093270453,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,42,AEK Larnaca,945.5763514434418,0.7466666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,158,FK Shkupi,944.948863994153,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,161,Vardar Skopje,931.4270339863947,0.726,0,False,False,False,False
+c0_e0_x0,2018/19,206,Olimpija Ljubljana,929.5797148033155,0.49133333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,182,Viitorul Constanta,924.811091011968,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2018/19,220,FC Luzern,920.7218379374123,0.5353333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,203,Spartak Trnava,912.3628980011057,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2018/19,143,Gzira United,909.5484515793507,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,123,Irtysh Pavlodar,907.4095079307258,0.3466666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,101,Videoton Fehérvár,905.9886733697888,0.8513333333333335,1,False,False,False,True
+c0_e0_x0,2018/19,171,Jagiellonia Bialystok,904.804242157244,0.45933333333333337,0,False,False,False,False
+c0_e0_x0,2018/19,103,FH Hafnarfjardar,889.0801167255704,0.9013333333333333,1,False,False,False,True
+c0_e0_x0,2018/19,160,Shkendija Tetovo,888.6100995534199,0.8420000000000001,0,False,False,False,False
+c0_e0_x0,2018/19,134,Stumbras Kaunas,887.8165589341645,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,215,AIK Stockholm,885.0754750805365,0.9126666666666667,1,False,False,False,True
+c0_e0_x0,2018/19,130,Riga FC,883.4075333220596,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,192,Aberdeen,881.5898659515578,0.8860000000000001,1,False,False,False,True
+c0_e0_x0,2018/19,136,Zalgiris Vilnius,881.2904171984834,0.752,0,False,False,False,False
+c0_e0_x0,2018/19,104,IBV Vestmannaeyjar,879.5661011013472,0.060666666666666674,0,False,False,False,False
+c0_e0_x0,2018/19,200,AS Trencín,878.2743433246492,0.876,1,False,False,False,True
+c0_e0_x0,2018/19,111,Beitar Jerusalem,874.6711928702875,0.7293333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,237,The New Saints,872.0441436188978,0.84,0,False,False,False,False
+c0_e0_x0,2018/19,19,Neftchi Baku,863.9730055004122,0.562,0,False,False,False,False
+c0_e0_x0,2018/19,100,Honvéd Budapest,861.297565291969,0.30266666666666664,0,False,False,False,False
+c0_e0_x0,2018/19,33,Zrinjski Mostar,861.1453548380479,0.7426666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,204,NK Domzale,859.6321850896359,0.798,0,False,False,False,False
+c0_e0_x0,2018/19,35,Levski Sofia,856.6315818972256,0.5353333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,135,Suduva Marijampole,855.389576322539,0.5793333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,1,FK Kukësi,846.695890339763,0.8413333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,202,Slovan Bratislava,846.1735338510825,0.8833333333333333,1,False,False,False,True
+c0_e0_x0,2018/19,70,FC Lahti,845.4252562196198,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,145,Milsami Orhei,844.3195291473871,0.512,0,False,False,False,False
+c0_e0_x0,2018/19,138,F91 Dudelange,843.5698651932782,0.7333333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,8,Alashkert FC,837.5784204043506,0.6933333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,140,Racing Union Luxembourg,837.2233122000227,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,83,Torpedo Kutaisi,835.2758382285048,0.29333333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,106,Valur Reykjavik,830.4673169365926,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2018/19,235,Cefn Druids,828.0979819380194,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,105,Stjarnan FC,826.5506053884616,0.5186666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,18,Kesla FK,824.3426796952749,0.6593333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,124,Kairat Almaty,822.7926810321787,0.8326666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,2,KF Laçi,822.6758268282912,0.31066666666666665,0,False,False,False,False
+c0_e0_x0,2018/19,65,Trans Narva,822.5359725036192,0.051333333333333335,0,False,False,False,False
+c0_e0_x0,2018/19,131,Spartaks Jurmala,821.9879301336686,0.6133333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,81,Dinamo Tbilisi,815.285445694375,0.5820000000000001,0,False,False,False,False
+c0_e0_x0,2018/19,159,Rabotnicki Skopje,807.6823375115573,0.7793333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,107,Cork City,807.3764598879702,0.7026666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,152,Sutjeska Niksic,806.7212155626025,0.5353333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,128,FK Liepaja,805.2571188155505,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2018/19,163,Coleraine,802.390784793381,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2018/19,99,Ferencváros,799.6544024460886,0.77,0,False,False,False,False
+c0_e0_x0,2018/19,144,Valletta FC,799.3820880644945,0.8226666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,92,Lincoln Red Imps,798.9213185430641,0.7446666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,164,Crusaders Belfast,797.2531695836169,0.7773333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,9,Banants Yerevan,792.8550649971278,0.29333333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,30,FK Sarajevo,791.7548749348392,0.5793333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,32,Zeljeznicar Sarajevo,791.3299132421453,0.65,0,False,False,False,False
+c0_e0_x0,2018/19,63,Kalju Nomme,791.2864143999986,0.912,1,False,False,False,True
+c0_e0_x0,2018/19,137,CS Fola Esch,790.7133576423442,0.8213333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,24,Shakhtior Saligorsk,790.3395019974249,0.8306666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,108,Derry City,790.2962416651685,0.406,0,False,False,False,False
+c0_e0_x0,2018/19,4,Partizani Tirana,785.0665255768163,0.6586666666666666,0,False,False,False,False
+c0_e0_x0,2018/19,149,Buducnost Podgorica,781.6480275608377,0.7353333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,69,Víkingur,778.9675109861436,0.8213333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,93,St Joseph's FC,777.3522336142761,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2018/19,142,Birkirkara,777.2914287576959,0.5900000000000001,0,False,False,False,False
+c0_e0_x0,2018/19,132,FC Vaduz,775.8093788614434,0.8839999999999999,1,False,False,False,True
+c0_e0_x0,2018/19,150,OFK Titograd,774.7914166355122,0.7273333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,82,Samtredia,774.0444029278544,0.44000000000000006,0,False,False,False,False
+c0_e0_x0,2018/19,129,FK Ventspils,768.0709403025891,0.788,0,False,False,False,False
+c0_e0_x0,2018/19,139,Progrès Niederkorn,767.3664414010348,0.4326666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,10,Gandzasar Kapan,766.9338281615815,0.29333333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,148,Zaria Balti,766.4148250630491,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2018/19,133,FK Trakai,764.0761049134741,0.7013333333333334,0,False,False,False,False
+c0_e0_x0,2018/19,7,UE Engordany,762.6192082933921,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,62,Flora Tallinn,762.2052095308852,0.638,0,False,False,False,False
+c0_e0_x0,2018/19,162,Cliftonville,756.8011958524736,0.3806666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,151,Rudar Pljevlja,753.2707497138822,0.4053333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,110,Shamrock Rovers,752.0176404854042,0.6573333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,31,Siroki Brijeg,750.7292805491793,0.6573333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,5,FC Santa Coloma,750.5939403986231,0.7506666666666666,0,False,False,False,False
+c0_e0_x0,2018/19,67,KI Klaksvik,747.9245973792397,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2018/19,64,Levadia Tallinn,746.1717707471266,0.796,0,False,False,False,False
+c0_e0_x0,2018/19,236,Connah's Quay,741.8230480263034,0.47600000000000003,0,False,False,False,False
+c0_e0_x0,2018/19,126,FC Drita,737.6708259061201,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,165,Glenavon,736.0153333254881,0.44000000000000006,0,False,False,False,False
+c0_e0_x0,2018/19,141,Balzan FC,731.7242767422945,0.5866666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,91,Europa FC,725.793260866746,0.7180000000000001,0,False,False,False,False
+c0_e0_x0,2018/19,66,B36 Torshavn,712.6164986140749,0.682,0,False,False,False,False
+c0_e0_x0,2018/19,80,Chikhura Sachkhere,710.5009831377807,0.6306666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,11,Pyunik Yerevan,694.1793127023082,0.7693333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,190,La Fiorita,691.737310836299,0.7333333333333333,0,False,False,False,False
+c0_e0_x0,2018/19,191,Tre Fiori,691.3470900960369,0.0,0,False,False,False,False
+c0_e0_x0,2018/19,234,Bala Town,690.6629484184084,0.638,0,False,False,False,False
+c0_e0_x0,2018/19,68,NSI Runavik,685.0683050743149,0.5866666666666667,0,False,False,False,False
+c0_e0_x0,2018/19,189,Folgore,664.0083527343639,0.682,0,False,False,False,False
+c0_e0_x0,2018/19,6,Sant Julià,659.1442223422728,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2018/19,127,FC Prishtina,651.4949936787367,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2019/20,210,FC Barcelona,1986.4473413208755,1.0,2,False,False,True,True
+c0_e0_x0,2019/20,58,Manchester City,1983.7991710191657,1.0,2,False,False,True,True
+c0_e0_x0,2019/20,118,Juventus,1975.94726319504,1.0,2,False,False,True,True
+c0_e0_x0,2019/20,85,Bayern München,1974.4374261476778,1.0,2,False,False,True,True
+c0_e0_x0,2019/20,208,Atlético Madrid,1970.2828827626074,1.0,2,False,False,True,True
+c0_e0_x0,2019/20,77,Paris Saint-Germain,1968.9360440149026,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,212,Real Madrid,1967.0955247370334,1.0,2,False,False,True,True
+c0_e0_x0,2019/20,55,Arsenal,1958.3929701352122,1.0,2,False,False,True,True
+c0_e0_x0,2019/20,57,Liverpool,1937.2097121345514,0.8,1,False,False,True,False
+c0_e0_x0,2019/20,213,Sevilla,1929.9271023176154,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,60,Tottenham Hotspur,1927.927898695536,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,59,Manchester United,1924.3122986402332,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2019/20,175,FC Porto,1922.4502528570101,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,56,Chelsea,1904.1088821831731,0.8,0,False,False,False,False
+c0_e0_x0,2019/20,115,AS Roma,1896.0814464406753,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,86,Borussia Dortmund,1879.6875806803805,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,120,Napoli,1849.4525186429514,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,154,Ajax,1845.7711263394888,0.9640000000000001,1,False,False,False,True
+c0_e0_x0,2019/20,232,Shakhtar Donetsk,1835.684655375961,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,76,Olympique Lyon,1827.6110397277673,0.9906666666666667,1,False,False,False,True
+c0_e0_x0,2019/20,174,Benfica,1802.7442817871024,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,188,Zenit St. Petersburg,1791.7863273202834,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,13,FC Salzburg,1773.699070218056,0.9826666666666667,1,False,False,False,True
+c0_e0_x0,2019/20,224,Besiktas,1742.017578872055,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,229,Dinamo Kiev,1726.7474425111898,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,177,Sporting CP Lisbon,1691.0583488161096,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,184,CSKA Moscow,1676.6929677945604,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,219,FC Basel,1636.6408402619813,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,84,Bayer Leverkusen,1634.5932101555177,0.73,0,False,False,False,False
+c0_e0_x0,2019/20,50,Viktoria Plzen,1593.3823965815316,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2019/20,97,Olympiakos Piraeus,1565.2136028786513,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,119,Lazio,1551.6708746356683,0.73,0,False,False,False,False
+c0_e0_x0,2019/20,214,Valencia,1549.4359916455078,0.4600000000000001,0,False,False,False,False
+c0_e0_x0,2019/20,185,FK Krasnodar,1533.2898415707298,0.9640000000000001,1,False,False,False,True
+c0_e0_x0,2019/20,38,Dinamo Zagreb,1518.5163009460327,0.9640000000000001,1,False,False,False,True
+c0_e0_x0,2019/20,53,FC København,1512.5020749866933,0.9826666666666667,1,False,False,False,True
+c0_e0_x0,2019/20,26,Club Brugge,1502.7179193361544,0.9640000000000001,1,False,False,False,True
+c0_e0_x0,2019/20,48,Slavia Praha,1491.220044796659,0.8,0,False,False,False,False
+c0_e0_x0,2019/20,193,Celtic,1488.9571037455846,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,186,Lokomotiv Moscow,1485.618240943631,0.7813333333333334,0,False,False,False,False
+c0_e0_x0,2019/20,157,PSV Eindhoven,1472.1029882787077,0.928,1,False,False,False,True
+c0_e0_x0,2019/20,117,Internazionale,1466.3786114901345,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2019/20,176,Sporting Braga,1464.9055718474888,0.8420000000000001,0,False,False,False,False
+c0_e0_x0,2019/20,122,FK Astana,1462.5749803570925,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,89,RB Leipzig,1454.4001591634737,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2019/20,223,Young Boys,1440.3020023551207,0.9826666666666667,1,False,False,False,True
+c0_e0_x0,2019/20,27,Racing Genk,1439.6930993557007,0.53,0,False,False,False,False
+c0_e0_x0,2019/20,21,BATE Borisov,1425.4770789035172,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,37,Ludogorets Razgrad,1418.3126064194596,0.9653333333333334,1,False,False,False,True
+c0_e0_x0,2019/20,44,APOEL Nicosia,1404.9626379615474,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,49,Sparta Praha,1401.8358744651912,0.84,0,False,False,False,False
+c0_e0_x0,2019/20,211,Getafe,1399.7548861887306,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,88,Eintracht Frankfurt,1389.285119158148,0.33,0,False,False,False,False
+c0_e0_x0,2019/20,25,AA Gent,1388.6152666786897,0.8140000000000001,0,False,False,False,False
+c0_e0_x0,2019/20,199,Red Star Belgrade,1382.9179535291482,0.8953333333333335,1,False,False,False,True
+c0_e0_x0,2019/20,209,Espanyol,1357.2567791810775,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,180,FCSB,1353.6222722095704,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,225,Galatasaray,1351.6593916608442,0.728,0,False,False,False,False
+c0_e0_x0,2019/20,61,Wolverhampton Wanderers,1342.2670171045543,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,187,Spartak Moscow,1340.9019556949136,0.7466666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,116,Atalanta,1333.2913777966755,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2019/20,98,PAOK Thessaloniki,1330.8140588847332,0.9640000000000001,1,False,False,False,True
+c0_e0_x0,2019/20,19,Qarabag FK,1328.18085593195,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,87,Borussia Mönchengladbach,1324.6196505658381,0.4,0,False,False,False,False
+c0_e0_x0,2019/20,90,VfL Wolfsburg,1307.7322390998472,0.2,0,False,False,False,False
+c0_e0_x0,2019/20,156,Feyenoord,1295.7582369777717,0.782,0,False,False,False,False
+c0_e0_x0,2019/20,29,Standard Liège,1294.4799187167614,0.7126666666666668,0,False,False,False,False
+c0_e0_x0,2019/20,74,AS Saint-Étienne,1290.573497322659,0.4,0,False,False,False,False
+c0_e0_x0,2019/20,94,AEK Athens,1284.525221704367,0.7466666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,197,Partizan Belgrade,1277.633641825791,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2019/20,172,Legia Warsaw,1271.5216755711062,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,121,Torino,1265.18022806697,0.07,0,False,False,False,False
+c0_e0_x0,2019/20,79,Stade Rennais,1264.654647393737,0.33,0,False,False,False,False
+c0_e0_x0,2019/20,218,Malmö FF,1257.5453818564017,0.728,0,False,False,False,False
+c0_e0_x0,2019/20,206,NK Maribor,1255.373476621722,0.9653333333333334,1,False,False,False,True
+c0_e0_x0,2019/20,114,Maccabi Tel-Aviv,1242.4287871873569,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,183,Arsenal Tula,1223.9492203679176,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,75,Lille OSC,1214.7627510568047,0.21666666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,45,Apollon Limassol,1201.7265587122126,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2019/20,147,Sheriff Tiraspol,1193.854725030015,0.912,1,False,False,False,True
+c0_e0_x0,2019/20,228,Yeni Malatyaspor,1193.0662664794177,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,226,Istanbul Basaksehir,1189.483544003214,0.7806666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,168,Rosenborg BK,1181.7831678986422,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,78,RC Strasbourg,1181.2286354932858,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,28,Royal Antwerp,1172.9727662073178,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,112,Hapoel Beer-Sheva,1168.5207092658463,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2019/20,41,NK Rijeka,1165.0231139751577,0.8240000000000001,0,False,False,False,False
+c0_e0_x0,2019/20,54,FC Midtjylland,1161.3632031568538,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2019/20,233,Zorya Luhansk,1161.2617929949627,0.9386666666666666,1,False,False,False,True
+c0_e0_x0,2019/20,195,Kilmarnock,1148.341708435078,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,95,Aris Thessaloniki,1138.491750427075,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,171,Lechia Gdansk,1136.9445879630666,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,153,AZ Alkmaar,1132.3451669738668,0.5720000000000001,0,False,False,False,False
+c0_e0_x0,2019/20,178,Vitória Guimarães,1129.2850711540564,0.36533333333333334,0,False,False,False,False
+c0_e0_x0,2019/20,227,Trabzonspor,1127.9346256258505,0.18266666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,167,Molde FK,1125.9981387131033,0.5206666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,23,FC Vitebsk,1116.1118851030387,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,16,Wolfsberger AC,1112.2912378821063,0.11266666666666666,0,False,False,False,False
+c0_e0_x0,2019/20,100,FC Fehérvár,1110.5963967686725,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2019/20,14,LASK,1105.414750242292,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2019/20,173,Piast Gliwice,1105.226400925113,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,220,FC Lugano,1102.8624921021665,0.27,0,False,False,False,False
+c0_e0_x0,2019/20,12,Austria Wien,1099.816514840246,0.4700000000000001,0,False,False,False,False
+c0_e0_x0,2019/20,52,Esbjerg fB,1097.862433683172,0.060666666666666674,0,False,False,False,False
+c0_e0_x0,2019/20,42,AEK Larnaca,1097.1346979771001,0.8953333333333335,1,False,False,False,True
+c0_e0_x0,2019/20,194,Glasgow Rangers,1090.1367412789698,0.528,0,False,False,False,False
+c0_e0_x0,2019/20,46,FK Jablonec,1087.6195799840334,0.4426666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,203,Spartak Trnava,1066.306518485084,0.73,0,False,False,False,False
+c0_e0_x0,2019/20,20,Sabail FK,1065.953281982888,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,113,Maccabi Haifa,1063.4884117936656,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,36,Lokomotiv Plovdiv,1054.783775028614,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,198,Radnicki Nis,1052.6230702496266,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2019/20,222,FC Thun,1040.450085976996,0.13,0,False,False,False,False
+c0_e0_x0,2019/20,179,CFR Cluj,1037.4969071489809,0.3906666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,231,FC Oleksandriya,1036.2059939307665,0.3806666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,204,Mura Murska Sobota,1027.3794690531467,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,169,SK Brann Bergen,1025.1766719916764,0.198,0,False,False,False,False
+c0_e0_x0,2019/20,51,Brøndby IF,1024.9392954705681,0.9013333333333333,1,False,False,False,True
+c0_e0_x0,2019/20,230,FC Mariupol,1019.5951670990416,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2019/20,39,Hajduk Split,1019.439129603267,0.956,1,False,False,False,True
+c0_e0_x0,2019/20,22,Dinamo Minsk,1011.6085262309529,1.0,1,False,False,False,True
+c0_e0_x0,2019/20,96,Atromitos FC,1009.7167796581344,0.406,0,False,False,False,False
+c0_e0_x0,2019/20,9,Ararat-Armenia,1009.5648139244256,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,43,AEL Limassol,1005.8432849205622,0.33066666666666666,0,False,False,False,False
+c0_e0_x0,2019/20,15,Sturm Graz,1002.0910155173057,0.6153333333333333,0,False,False,False,False
+c0_e0_x0,2019/20,161,Shkendija Tetovo,999.1586834685857,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2019/20,170,Cracovia Kraków,996.2889842464567,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,125,Tobol Kustanai,995.3795891208865,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2019/20,34,CSKA Sofia,993.5787515394206,0.3813333333333333,0,False,False,False,False
+c0_e0_x0,2019/20,138,F91 Dudelange,992.8116697877399,0.8213333333333334,0,False,False,False,False
+c0_e0_x0,2019/20,82,Saburtalo Tbilisi,986.3878944629753,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,108,Dundalk,986.2855656737958,0.84,0,False,False,False,False
+c0_e0_x0,2019/20,200,DAC Dunajska Streda,973.5433525192009,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2019/20,111,Bnei Yehuda,973.2376856664282,0.23399999999999999,0,False,False,False,False
+c0_e0_x0,2019/20,70,HJK Helsinki,973.0678816070503,0.9640000000000001,1,False,False,False,True
+c0_e0_x0,2019/20,40,NK Osijek,972.9723958400708,0.556,0,False,False,False,False
+c0_e0_x0,2019/20,130,RFS Riga,971.6375363283707,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,217,IFK Norrköping,965.5889866647501,0.3806666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,181,Universitatea Craiova,964.8157597410082,0.44000000000000006,0,False,False,False,False
+c0_e0_x0,2019/20,127,Feronikeli,964.5378893658877,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,135,Suduva Marijampole,962.3251740457017,0.7466666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,158,Akademija Pandev,961.5449330032961,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,155,FC Utrecht,961.1246449676056,0.27,0,False,False,False,False
+c0_e0_x0,2019/20,166,FK Haugesund,959.6366133067684,0.2946666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,196,Cukaricki Belgrade,956.1476796437885,0.3466666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,215,AIK Stockholm,948.6122688294911,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2019/20,207,Olimpija Ljubljana,948.0912394029455,0.6746666666666666,0,False,False,False,False
+c0_e0_x0,2019/20,216,BK Häcken,942.9895976729847,0.4326666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,136,Zalgiris Vilnius,942.7891976464412,0.8213333333333334,0,False,False,False,False
+c0_e0_x0,2019/20,17,Gabala FK,941.3601933814339,0.8573333333333333,1,False,False,False,True
+c0_e0_x0,2019/20,202,Slovan Bratislava,941.1445587928101,0.924,1,False,False,False,True
+c0_e0_x0,2019/20,237,The New Saints,939.0875611185859,0.9013333333333333,1,False,False,False,True
+c0_e0_x0,2019/20,221,FC Luzern,938.413671556059,0.638,0,False,False,False,False
+c0_e0_x0,2019/20,201,MFK Ruzomberok,937.2261382969131,0.27,0,False,False,False,False
+c0_e0_x0,2019/20,131,Riga FC,933.1604330438795,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2019/20,192,Aberdeen,929.2524516253166,0.876,1,False,False,False,True
+c0_e0_x0,2019/20,182,Viitorul Constanta,926.9748428808053,0.6666666666666666,0,False,False,False,False
+c0_e0_x0,2019/20,123,Kairat Almaty,924.1206170437705,0.928,1,False,False,False,True
+c0_e0_x0,2019/20,33,Zrinjski Mostar,922.206064542246,0.8213333333333334,0,False,False,False,False
+c0_e0_x0,2019/20,47,Mladá Boleslav,914.0300738072822,0.5366666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,205,NK Domzale,913.7900320632893,0.8513333333333335,1,False,False,False,True
+c0_e0_x0,2019/20,148,Speranta Nisporeni,910.6791480847397,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,1,FK Kukësi,910.3912074988581,0.8826666666666667,1,False,False,False,True
+c0_e0_x0,2019/20,160,Makedonija GjP,903.1497067273592,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,8,Alashkert FC,898.9314402843767,0.8500000000000001,1,False,False,False,True
+c0_e0_x0,2019/20,103,Breidablik,894.379910164062,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,102,Honvéd Budapest,894.2579744387233,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2019/20,71,Inter Turku,893.4837887052468,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,18,Neftchi Baku,889.1836190771078,0.5806666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,30,FK Sarajevo,887.784848996633,0.6493333333333333,0,False,False,False,False
+c0_e0_x0,2019/20,4,Teuta Durrës,886.0824347037899,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,107,Cork City,880.2419330955846,0.8153333333333335,0,False,False,False,False
+c0_e0_x0,2019/20,234,Barry Town,879.3665508394193,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,99,DVSC Debrecen,878.762614344644,0.37333333333333335,0,False,False,False,False
+c0_e0_x0,2019/20,106,Valur Reykjavik,877.6180881105872,0.7106666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,134,Kauno Zalgiris,873.0881831241815,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,35,Levski Sofia,872.2269078295644,0.6226666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,146,Petrocub Hîncesti,871.2012020352349,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2019/20,144,Valletta FC,867.4032073953695,0.84,0,False,False,False,False
+c0_e0_x0,2019/20,139,Jeunesse d'Esch,866.7511140785396,0.198,0,False,False,False,False
+c0_e0_x0,2019/20,24,Shakhtior Saligorsk,865.8531076658278,0.84,0,False,False,False,False
+c0_e0_x0,2019/20,73,RoPS Rovaniemi,865.5880646614486,0.22466666666666668,0,False,False,False,False
+c0_e0_x0,2019/20,137,CS Fola Esch,863.9506116172455,0.8493333333333333,0,False,False,False,False
+c0_e0_x0,2019/20,159,FK Shkupi,863.0749189860794,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2019/20,72,KuPS Kuopio,861.3446200539496,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2019/20,92,Lincoln Red Imps,860.7099006806145,0.8213333333333334,0,False,False,False,False
+c0_e0_x0,2019/20,101,Ferencváros,859.3742912535114,0.796,0,False,False,False,False
+c0_e0_x0,2019/20,124,Ordabasy Shymkent,858.175253372684,0.44000000000000006,0,False,False,False,False
+c0_e0_x0,2019/20,3,Partizani Tirana,854.9483149653,0.7353333333333334,0,False,False,False,False
+c0_e0_x0,2019/20,83,Torpedo Kutaisi,853.2549562477652,0.528,0,False,False,False,False
+c0_e0_x0,2019/20,142,Gzira United,850.972606690094,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2019/20,132,FC Vaduz,850.8389044191498,0.8839999999999999,1,False,False,False,True
+c0_e0_x0,2019/20,10,Pyunik Yerevan,850.2544935773217,0.8386666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,140,Progrès Niederkorn,850.00160617618,0.6593333333333333,0,False,False,False,False
+c0_e0_x0,2019/20,105,Stjarnan FC,847.6292132385448,0.6493333333333333,0,False,False,False,False
+c0_e0_x0,2019/20,31,Radnik Bijeljina,846.7896297840163,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,67,HB Torshavn,842.3013137518109,0.30266666666666664,0,False,False,False,False
+c0_e0_x0,2019/20,129,FK Ventspils,841.6562680620514,0.804,0,False,False,False,False
+c0_e0_x0,2019/20,145,Milsami Orhei,840.3211832176879,0.5700000000000001,0,False,False,False,False
+c0_e0_x0,2019/20,133,FK Riteriai,836.5116912649132,0.8593333333333335,1,False,False,False,True
+c0_e0_x0,2019/20,164,Crusaders Belfast,834.426868124587,0.804,0,False,False,False,False
+c0_e0_x0,2019/20,5,FC Santa Coloma,834.1672517013736,0.7646666666666666,0,False,False,False,False
+c0_e0_x0,2019/20,81,Dinamo Tbilisi,834.055640461054,0.5886666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,151,Sutjeska Niksic,833.811017395065,0.6306666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,63,Kalju Nomme,817.6651753284166,0.8493333333333334,0,False,False,False,False
+c0_e0_x0,2019/20,143,Hibernians FC,817.3194669561124,0.5273333333333334,0,False,False,False,False
+c0_e0_x0,2019/20,149,Buducnost Podgorica,812.8963542804913,0.7693333333333333,0,False,False,False,False
+c0_e0_x0,2019/20,2,KF Laçi,803.0542982816625,0.442,0,False,False,False,False
+c0_e0_x0,2019/20,162,Ballymena United,801.5351258261221,0.198,0,False,False,False,False
+c0_e0_x0,2019/20,128,FK Liepaja,800.4690941804008,0.6226666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,11,Urartu FC,800.218293993884,0.44000000000000006,0,False,False,False,False
+c0_e0_x0,2019/20,66,B36 Torshavn,798.4326462929379,0.8213333333333334,0,False,False,False,False
+c0_e0_x0,2019/20,62,Flora Tallinn,796.6591263870499,0.7260000000000001,0,False,False,False,False
+c0_e0_x0,2019/20,32,Siroki Brijeg,795.444593775957,0.6833333333333333,0,False,False,False,False
+c0_e0_x0,2019/20,235,Cardiff MU,794.6406509519431,0.0,0,False,False,False,False
+c0_e0_x0,2019/20,150,OFK Titograd,794.4569276969456,0.7353333333333334,0,False,False,False,False
+c0_e0_x0,2019/20,65,Trans Narva,794.4077758172665,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2019/20,165,Linfield Belfast,793.8449049172871,0.554,0,False,False,False,False
+c0_e0_x0,2019/20,152,Zeta Golubovci,793.6143629406056,0.198,0,False,False,False,False
+c0_e0_x0,2019/20,80,Chikhura Sachkhere,793.4679551536907,0.7006666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,141,Balzan FC,791.9047145654046,0.7260000000000001,0,False,False,False,False
+c0_e0_x0,2019/20,109,Shamrock Rovers,786.711321686387,0.7353333333333334,0,False,False,False,False
+c0_e0_x0,2019/20,126,FC Prishtina,786.3149457282946,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2019/20,189,La Fiorita,786.192492869399,0.7553333333333333,0,False,False,False,False
+c0_e0_x0,2019/20,110,St. Patrick's Athletic,785.8705376390028,0.32,0,False,False,False,False
+c0_e0_x0,2019/20,64,Levadia Tallinn,783.6301656574852,0.7693333333333333,0,False,False,False,False
+c0_e0_x0,2019/20,236,Connah's Quay,781.7563946022566,0.6133333333333333,0,False,False,False,False
+c0_e0_x0,2019/20,104,KR Reykjavik,768.8635402787604,0.5713333333333334,0,False,False,False,False
+c0_e0_x0,2019/20,163,Cliftonville,760.6510541119098,0.46666666666666673,0,False,False,False,False
+c0_e0_x0,2019/20,69,NSI Runavik,759.2909599989133,0.682,0,False,False,False,False
+c0_e0_x0,2019/20,93,St Joseph's FC,755.1751039192569,0.44000000000000006,0,False,False,False,False
+c0_e0_x0,2019/20,68,KI Klaksvik,755.1467450671248,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2019/20,190,Tre Fiori,746.6381318022804,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2019/20,191,Tre Penne,742.3451679097748,0.3446666666666667,0,False,False,False,False
+c0_e0_x0,2019/20,91,Europa FC,740.0608386481442,0.76,0,False,False,False,False
+c0_e0_x0,2019/20,7,UE Engordany,734.4089649511202,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2019/20,6,Sant Julià,714.4852371918719,0.5866666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,212,Real Madrid,1985.5636308678568,1.0,2,False,False,True,True
+c0_e0_x0,2020/21,59,Liverpool,1984.6473760544636,0.8700000000000001,2,False,False,True,True
+c0_e0_x0,2020/21,87,Bayern München,1984.1981925868217,1.0,2,False,False,True,True
+c0_e0_x0,2020/21,120,Juventus,1975.8112082488929,1.0,2,False,False,True,True
+c0_e0_x0,2020/21,78,Paris Saint-Germain,1975.4228892926676,1.0,2,False,False,True,True
+c0_e0_x0,2020/21,210,FC Barcelona,1969.4663374573115,1.0,2,False,False,True,True
+c0_e0_x0,2020/21,60,Manchester City,1968.6197212791558,1.0,2,False,False,True,True
+c0_e0_x0,2020/21,209,Atlético Madrid,1966.292223263683,1.0,2,False,False,True,True
+c0_e0_x0,2020/21,61,Manchester United,1965.4593386474048,1.0,2,False,False,True,True
+c0_e0_x0,2020/21,214,Sevilla,1963.1181090700543,1.0,2,False,False,True,True
+c0_e0_x0,2020/21,57,Chelsea,1931.588524642448,0.8700000000000001,1,False,False,False,True
+c0_e0_x0,2020/21,62,Tottenham Hotspur,1926.8225667581546,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,56,Arsenal,1909.3840651340606,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,88,Borussia Dortmund,1890.9473626959375,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,232,Shakhtar Donetsk,1885.0923131627792,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,122,Napoli,1859.6565340421369,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,117,AS Roma,1856.5284900636266,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,176,FC Porto,1849.529126295626,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,156,Ajax,1841.6158925786644,0.9733333333333334,1,False,False,False,True
+c0_e0_x0,2020/21,90,RB Leipzig,1777.203090520783,0.8,0,False,False,False,False
+c0_e0_x0,2020/21,12,FC Salzburg,1767.949353725431,0.9906666666666667,1,False,False,False,True
+c0_e0_x0,2020/21,175,Benfica,1755.2998047955873,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,189,Zenit St. Petersburg,1732.9197511081095,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,220,FC Basel,1727.116170317431,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,86,Bayer Leverkusen,1726.035820407309,0.8,0,False,False,False,False
+c0_e0_x0,2020/21,119,Internazionale,1724.5718926836603,0.73,0,False,False,False,False
+c0_e0_x0,2020/21,179,Sporting CP Lisbon,1687.418865984999,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,230,Dinamo Kiev,1641.4936003323912,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,118,Atalanta,1638.273801207801,0.8,0,False,False,False,False
+c0_e0_x0,2020/21,225,Besiktas,1622.6961842412868,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,53,FC København,1619.4352122268567,0.9906666666666667,1,False,False,False,True
+c0_e0_x0,2020/21,98,Olympiakos Piraeus,1596.5068813556159,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,184,CSKA Moscow,1592.9140033291699,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,215,Villarreal,1575.0998583345504,0.67,0,False,False,False,False
+c0_e0_x0,2020/21,194,Celtic,1564.7300106163873,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,38,Dinamo Zagreb,1557.1726252216026,0.9733333333333334,1,False,False,False,True
+c0_e0_x0,2020/21,121,Lazio,1551.2272330519645,0.8700000000000001,1,False,False,False,True
+c0_e0_x0,2020/21,178,Sporting Braga,1544.3178220076406,0.928,1,False,False,False,True
+c0_e0_x0,2020/21,48,Slavia Praha,1530.4187436271602,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2020/21,27,Club Brugge,1518.0667117485293,0.9733333333333334,1,False,False,False,True
+c0_e0_x0,2020/21,186,FK Krasnodar,1514.9108567645153,0.9733333333333334,1,False,False,False,True
+c0_e0_x0,2020/21,51,Viktoria Plzen,1513.4502966701002,0.956,1,False,False,False,True
+c0_e0_x0,2020/21,188,Lokomotiv Moscow,1502.159405165762,0.8700000000000001,1,False,False,False,True
+c0_e0_x0,2020/21,25,AA Gent,1497.072322248729,0.9106666666666666,1,False,False,False,True
+c0_e0_x0,2020/21,223,Young Boys,1451.2875462263894,0.9906666666666667,1,False,False,False,True
+c0_e0_x0,2020/21,227,Istanbul Basaksehir,1447.8279918234853,0.8919999999999999,1,False,False,False,True
+c0_e0_x0,2020/21,198,Red Star Belgrade,1447.432049804824,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2020/21,158,PSV Eindhoven,1446.9886568922307,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2020/21,36,Ludogorets Razgrad,1429.1520082521192,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2020/21,43,APOEL Nicosia,1424.8362510559489,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,123,FK Astana,1409.6357234657435,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,77,Olympique Marseille,1400.4911544070862,0.54,0,False,False,False,False
+c0_e0_x0,2020/21,219,Malmö FF,1385.032620272495,0.8166666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,195,Glasgow Rangers,1373.518945050041,0.7466666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,58,Leicester City,1363.563213148811,0.13,0,False,False,False,False
+c0_e0_x0,2020/21,91,VfL Wolfsburg,1363.5052816519767,0.4,0,False,False,False,False
+c0_e0_x0,2020/21,226,Galatasaray,1360.666378179235,0.8166666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,29,Standard Liège,1353.8835105474247,0.7906666666666666,0,False,False,False,False
+c0_e0_x0,2020/21,211,Granada CF,1352.2546048772817,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,197,Partizan Belgrade,1352.0028591899115,0.9653333333333334,1,False,False,False,True
+c0_e0_x0,2020/21,89,Borussia Mönchengladbach,1346.986842708057,0.53,0,False,False,False,False
+c0_e0_x0,2020/21,21,BATE Borisov,1339.8692399120175,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,116,AC Milan,1334.2351401198794,0.4700000000000001,0,False,False,False,False
+c0_e0_x0,2020/21,79,Stade Rennais,1327.013630106174,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2020/21,19,Qarabag FK,1323.471847183282,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,13,LASK,1314.8393203023395,0.5640000000000001,0,False,False,False,False
+c0_e0_x0,2020/21,155,AZ Alkmaar,1312.8213022733041,0.728,0,False,False,False,False
+c0_e0_x0,2020/21,213,Real Sociedad,1304.2275008730508,0.2,0,False,False,False,False
+c0_e0_x0,2020/21,182,FCSB,1293.7546340004653,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,157,Feyenoord,1287.5671559883258,0.8580000000000001,1,False,False,False,True
+c0_e0_x0,2020/21,95,AEK Athens,1286.41265223127,0.8513333333333335,1,False,False,False,True
+c0_e0_x0,2020/21,180,CFR Cluj,1282.4694827218273,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2020/21,80,Stade de Reims,1278.3913233387111,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,231,Kolos Kovalivka,1273.5113505373301,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,50,Sparta Praha,1259.2426098310696,0.7866666666666666,0,False,False,False,False
+c0_e0_x0,2020/21,99,PAOK Thessaloniki,1248.5876486702182,0.9293333333333333,1,False,False,False,True
+c0_e0_x0,2020/21,85,1899 Hoffenheim,1246.5170152537166,0.4700000000000001,0,False,False,False,False
+c0_e0_x0,2020/21,14,Rapid Wien,1239.5777415659657,0.4700000000000001,0,False,False,False,False
+c0_e0_x0,2020/21,159,Willem II Tilburg,1211.00418961053,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,196,Motherwell,1204.4498763161241,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,76,OGC Nice,1203.762102576332,0.33,0,False,False,False,False
+c0_e0_x0,2020/21,45,Apollon Limassol,1197.916844783095,0.9653333333333334,1,False,False,False,True
+c0_e0_x0,2020/21,115,Maccabi Tel-Aviv,1196.4586126571626,0.956,1,False,False,False,True
+c0_e0_x0,2020/21,26,Charleroi,1195.7024476632237,0.060666666666666674,0,False,False,False,False
+c0_e0_x0,2020/21,228,Sivasspor,1194.8641402572891,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,173,Legia Warsaw,1194.0773861275968,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,207,NK Maribor,1192.7975649876078,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2020/21,75,Lille OSC,1192.533169630034,0.42533333333333334,0,False,False,False,False
+c0_e0_x0,2020/21,169,Rosenborg BK,1192.0373654936425,1.0,1,False,False,False,True
+c0_e0_x0,2020/21,185,Dinamo Moscow,1188.6869054354406,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,187,FK Rostov,1182.0181522992827,0.13,0,False,False,False,False
+c0_e0_x0,2020/21,52,AGF Aarhus,1181.5535380618937,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,224,Alanyaspor,1175.2358557710625,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,46,Omonia Nicosia,1170.946460291627,0.18266666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,150,Sheriff Tiraspol,1170.5321182715818,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2020/21,113,Hapoel Beer-Sheva,1166.5330895216052,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2020/21,199,TSC Backa Topola,1166.4186717807222,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,217,Hammarby IF,1160.9480317833354,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,167,Bodø/Glimt,1157.386384138716,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,216,Djurgårdens IF,1153.342926854805,0.198,0,False,False,False,False
+c0_e0_x0,2020/21,101,Ferencváros,1149.8258478357802,0.8573333333333333,1,False,False,False,True
+c0_e0_x0,2020/21,42,NK Rijeka,1145.2605711477668,0.8306666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,168,Molde FK,1144.9902153581938,0.67,0,False,False,False,False
+c0_e0_x0,2020/21,54,FC Midtjylland,1142.8250701450493,0.912,1,False,False,False,True
+c0_e0_x0,2020/21,206,NK Celje,1132.5901374305652,0.051333333333333335,0,False,False,False,False
+c0_e0_x0,2020/21,233,Zorya Luhansk,1130.659090022023,0.9546666666666667,1,False,False,False,True
+c0_e0_x0,2020/21,100,FC Fehérvár,1119.351275036343,0.956,1,False,False,False,True
+c0_e0_x0,2020/21,97,OFI Heraklion,1118.2516735502898,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,222,Servette FC Genève,1118.0682618663545,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,15,TSV Hartberg,1116.0330148046114,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,177,Rio Ave,1102.869521831833,0.29333333333333333,0,False,False,False,False
+c0_e0_x0,2020/21,28,Royal Antwerp,1099.0354825004586,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2020/21,170,Viking Stavanger,1095.2381656853986,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,44,Anorthosis Famagusta,1090.6164489429602,0.198,0,False,False,False,False
+c0_e0_x0,2020/21,221,FC Sankt Gallen,1088.1817986786073,0.198,0,False,False,False,False
+c0_e0_x0,2020/21,16,Wolfsberger AC,1087.2611604123147,0.3906666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,181,FC Botosani,1075.0978628576813,0.060666666666666674,0,False,False,False,False
+c0_e0_x0,2020/21,40,Lokomotiva Zagreb,1067.732344738871,0.19066666666666665,0,False,False,False,False
+c0_e0_x0,2020/21,103,Puskás Akadémia,1066.8107359428395,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,47,FK Jablonec,1064.6279698583503,0.5726666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,125,Kaysar Kyzylorda,1059.9072013253922,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,49,Slovan Liberec,1055.2767329207638,0.2,0,False,False,False,False
+c0_e0_x0,2020/21,55,SønderjyskE,1055.1014689525196,0.13,0,False,False,False,False
+c0_e0_x0,2020/21,204,Slovan Bratislava,1052.6313408767546,0.9473333333333334,1,False,False,False,True
+c0_e0_x0,2020/21,137,Suduva Marijampole,1041.8787236728676,0.8953333333333335,1,False,False,False,True
+c0_e0_x0,2020/21,23,Dynamo Brest,1038.664669990792,0.3806666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,35,Lokomotiv Plovdiv,1031.295873406678,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2020/21,110,Dundalk,1016.2881704574074,0.8919999999999999,1,False,False,False,True
+c0_e0_x0,2020/21,20,Sumgayit FK,1015.9925318477797,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,183,Universitatea Craiova,1009.0265554259735,0.6746666666666666,0,False,False,False,False
+c0_e0_x0,2020/21,218,IFK Göteborg,1007.5754835836545,0.19066666666666665,0,False,False,False,False
+c0_e0_x0,2020/21,203,MSK Zilina,1004.997427868,0.21666666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,200,Vojvodina Novi Sad,1002.9355911278105,0.3466666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,96,Aris Thessaloniki,997.9659984678805,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2020/21,193,Aberdeen,993.932958924715,0.9013333333333333,1,False,False,False,True
+c0_e0_x0,2020/21,162,Shkendija Tetovo,993.5448454255674,0.9373333333333334,1,False,False,False,True
+c0_e0_x0,2020/21,34,CSKA Sofia,988.9738769510448,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2020/21,9,Ararat-Armenia,987.7902929938514,0.33,0,False,False,False,False
+c0_e0_x0,2020/21,142,Union Titus Pétange,986.2142979636176,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,163,Sileks Kratovo,985.8686688628895,0.09533333333333334,0,False,False,False,False
+c0_e0_x0,2020/21,6,Inter Club d'Escaldes,984.2351456313049,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,39,Hajduk Split,979.1687144340277,0.876,1,False,False,False,True
+c0_e0_x0,2020/21,237,The New Saints,977.5867047427375,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2020/21,114,Maccabi Haifa,976.6045544543997,0.38133333333333336,0,False,False,False,False
+c0_e0_x0,2020/21,33,Zrinjski Mostar,974.9447189863458,0.8933333333333333,1,False,False,False,True
+c0_e0_x0,2020/21,208,Olimpija Ljubljana,971.4150721705332,0.798,0,False,False,False,False
+c0_e0_x0,2020/21,41,NK Osijek,969.123243867894,0.6759999999999999,0,False,False,False,False
+c0_e0_x0,2020/21,132,Riga FC,968.4542471234781,0.528,0,False,False,False,False
+c0_e0_x0,2020/21,229,Desna Chernihiv,964.717029504723,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,22,Dinamo Minsk,958.5337908862806,0.912,1,False,False,False,True
+c0_e0_x0,2020/21,124,Kairat Almaty,958.5119936062063,0.912,1,False,False,False,True
+c0_e0_x0,2020/21,3,KF Tirana,958.1523291686452,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,71,Honka Espoo,957.8678906446759,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,8,Alashkert FC,950.4604333260469,0.9026666666666666,1,False,False,False,True
+c0_e0_x0,2020/21,201,DAC Dunajska Streda,949.3511787146346,0.52,0,False,False,False,False
+c0_e0_x0,2020/21,174,Piast Gliwice,948.254457918648,0.38133333333333336,0,False,False,False,False
+c0_e0_x0,2020/21,172,Lech Poznan,945.5385787227783,0.54,0,False,False,False,False
+c0_e0_x0,2020/21,31,FK Sarajevo,943.4786505714055,0.718,0,False,False,False,False
+c0_e0_x0,2020/21,37,Slavia Sofia,943.1124106813451,0.3293333333333333,0,False,False,False,False
+c0_e0_x0,2020/21,149,Sfântul Gheorghe,942.9151041096068,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,143,Floriana,941.3663593543664,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,129,SC Gjilani,940.5094033839082,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,24,Shakhtior Saligorsk,937.6478245684534,0.8839999999999999,1,False,False,False,True
+c0_e0_x0,2020/21,82,Dinamo Tbilisi,934.8789916687768,0.7093333333333334,0,False,False,False,False
+c0_e0_x0,2020/21,138,Zalgiris Vilnius,934.5300670529889,0.8053333333333333,0,False,False,False,False
+c0_e0_x0,2020/21,10,FC Noah,933.5986461426692,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,18,Neftchi Baku,933.3218746304176,0.692,0,False,False,False,False
+c0_e0_x0,2020/21,146,Valletta FC,931.3046133928495,0.9013333333333333,1,False,False,False,True
+c0_e0_x0,2020/21,30,Borac Banja Luka,928.335306099751,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,102,Honvéd Budapest,927.9937081452904,0.6666666666666666,0,False,False,False,False
+c0_e0_x0,2020/21,166,Linfield Belfast,925.7167420505282,0.6593333333333333,0,False,False,False,False
+c0_e0_x0,2020/21,131,RFS Riga,924.0695386460048,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2020/21,127,FC Drita,923.2924788627341,0.27,0,False,False,False,False
+c0_e0_x0,2020/21,108,Bohemians Dublin,922.541792621288,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,205,Mura Murska Sobota,921.7555704968748,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2020/21,130,FK Ventspils,920.2740677881993,0.8746666666666667,1,False,False,False,True
+c0_e0_x0,2020/21,74,KuPS Kuopio,916.6424778339847,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2020/21,141,Progrès Niederkorn,916.4591440807004,0.8246666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,1,FK Kukësi,912.3973613763957,0.8413333333333334,0,False,False,False,False
+c0_e0_x0,2020/21,139,CS Fola Esch,907.612496923543,0.8226666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,83,Lokomotivi Tbilisi,904.7216012723794,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,145,Sirens FC,904.0036054493577,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,134,FC Vaduz,903.6262160015956,0.92,1,False,False,False,True
+c0_e0_x0,2020/21,171,Cracovia Kraków,902.3605681105785,0.3373333333333334,0,False,False,False,False
+c0_e0_x0,2020/21,112,Beitar Jerusalem,901.0244986487755,0.562,0,False,False,False,False
+c0_e0_x0,2020/21,64,Kalju Nomme,896.3026867136931,0.8919999999999999,1,False,False,False,True
+c0_e0_x0,2020/21,17,Kesla FK,894.7073479615877,0.44133333333333336,0,False,False,False,False
+c0_e0_x0,2020/21,93,Lincoln Red Imps,894.2520103045474,0.8180000000000001,0,False,False,False,False
+c0_e0_x0,2020/21,126,Ordabasy Shymkent,892.9481362070073,0.5793333333333334,0,False,False,False,False
+c0_e0_x0,2020/21,153,Sutjeska Niksic,888.8336694567716,0.762,0,False,False,False,False
+c0_e0_x0,2020/21,151,Buducnost Podgorica,887.6339761276454,0.7946666666666666,0,False,False,False,False
+c0_e0_x0,2020/21,63,Flora Tallinn,886.2876385549861,0.8133333333333334,0,False,False,False,False
+c0_e0_x0,2020/21,73,Inter Turku,882.4195116368253,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2020/21,5,FC Santa Coloma,879.3028156542048,0.7953333333333333,0,False,False,False,False
+c0_e0_x0,2020/21,161,Renova Dzepciste,877.8537306092,0.051333333333333335,0,False,False,False,False
+c0_e0_x0,2020/21,81,Dinamo Batumi,876.384481664169,0.198,0,False,False,False,False
+c0_e0_x0,2020/21,84,Saburtalo Tbilisi,875.7144911103886,0.33,0,False,False,False,False
+c0_e0_x0,2020/21,202,MFK Ruzomberok,874.6404118814337,0.442,0,False,False,False,False
+c0_e0_x0,2020/21,147,Dinamo-Auto Tiraspol,871.4115516366076,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,135,FK Riteriai,870.8764645758174,0.868,1,False,False,False,True
+c0_e0_x0,2020/21,140,Differdange 03,870.8457907118272,0.30266666666666664,0,False,False,False,False
+c0_e0_x0,2020/21,152,Iskra Danilovgrad,865.8777552778217,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,165,Glentoran,864.7257978313692,0.051333333333333335,0,False,False,False,False
+c0_e0_x0,2020/21,236,Connah's Quay,864.1163077009185,0.7433333333333334,0,False,False,False,False
+c0_e0_x0,2020/21,32,Zeljeznicar Sarajevo,859.3051741286605,0.47733333333333333,0,False,False,False,False
+c0_e0_x0,2020/21,111,Shamrock Rovers,858.5713733107439,0.8133333333333334,0,False,False,False,False
+c0_e0_x0,2020/21,69,KI Klaksvik,854.919260154061,0.7106666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,72,Ilves Tampere,854.8733332796869,0.198,0,False,False,False,False
+c0_e0_x0,2020/21,105,FH Hafnarfjardar,854.4162269641363,0.5900000000000001,0,False,False,False,False
+c0_e0_x0,2020/21,136,Kauno Zalgiris,852.6145713861912,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2020/21,2,KF Laçi,851.6580265558115,0.5273333333333334,0,False,False,False,False
+c0_e0_x0,2020/21,107,Vikingur Reykjavik,849.2558722829544,0.051333333333333335,0,False,False,False,False
+c0_e0_x0,2020/21,67,B36 Torshavn,839.473727988252,0.8053333333333333,0,False,False,False,False
+c0_e0_x0,2020/21,164,Coleraine,838.9820581256402,0.3446666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,104,Breidablik,834.9891048592631,0.3373333333333334,0,False,False,False,False
+c0_e0_x0,2020/21,66,Paide Linnameeskond,834.1785890026642,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,148,Petrocub Hîncesti,833.956325854026,0.44000000000000006,0,False,False,False,False
+c0_e0_x0,2020/21,106,KR Reykjavik,833.2056537097546,0.5886666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,144,Hibernians FC,826.3098471116725,0.562,0,False,False,False,False
+c0_e0_x0,2020/21,133,Valmieras FK,817.3517552964955,0.0,0,False,False,False,False
+c0_e0_x0,2020/21,4,Teuta Durrës,816.3337310526952,0.3373333333333334,0,False,False,False,False
+c0_e0_x0,2020/21,160,FK Shkupi,813.0975353623184,0.44000000000000006,0,False,False,False,False
+c0_e0_x0,2020/21,65,Levadia Tallinn,811.25712641536,0.7506666666666666,0,False,False,False,False
+c0_e0_x0,2020/21,109,Derry City,807.7173940549098,0.3446666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,92,Europa FC,802.6209416820236,0.7946666666666666,0,False,False,False,False
+c0_e0_x0,2020/21,235,Barry Town,797.2103035495991,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2020/21,68,HB Torshavn,794.6292136163203,0.4326666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,94,St Joseph's FC,788.7749068010091,0.6306666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,11,Shirak Gyumri,777.1995248334808,0.32,0,False,False,False,False
+c0_e0_x0,2020/21,190,La Fiorita,776.925353213201,0.7513333333333333,0,False,False,False,False
+c0_e0_x0,2020/21,128,FC Prishtina,775.5136563822867,0.6226666666666667,0,False,False,False,False
+c0_e0_x0,2020/21,7,UE Engordany,774.3711116720198,0.52,0,False,False,False,False
+c0_e0_x0,2020/21,154,Zeta Golubovci,772.0683402375467,0.38866666666666666,0,False,False,False,False
+c0_e0_x0,2020/21,70,NSI Runavik,760.8041375328861,0.7333333333333333,0,False,False,False,False
+c0_e0_x0,2020/21,191,Tre Fiori,752.8807501840603,0.47600000000000003,0,False,False,False,False
+c0_e0_x0,2020/21,234,Bala Town,750.7811045592116,0.49133333333333334,0,False,False,False,False
+c0_e0_x0,2020/21,192,Tre Penne,732.3264499816411,0.506,0,False,False,False,False
+c0_e0_x0,2021/22,59,Manchester City,1994.760073821,1.0,2,False,False,True,True
+c0_e0_x0,2021/22,209,Atlético Madrid,1985.0322487263552,1.0,2,False,False,True,True
+c0_e0_x0,2021/22,84,Bayern München,1977.8073920911652,1.0,2,False,False,True,True
+c0_e0_x0,2021/22,60,Manchester United,1971.528201846613,1.0,2,False,False,True,True
+c0_e0_x0,2021/22,212,Real Madrid,1968.9753422546646,1.0,2,False,False,True,True
+c0_e0_x0,2021/22,58,Liverpool,1968.320645558236,0.9300000000000002,2,False,False,True,True
+c0_e0_x0,2021/22,210,FC Barcelona,1965.8091916827818,1.0,2,False,False,True,True
+c0_e0_x0,2021/22,56,Chelsea,1965.1130892698593,0.9300000000000002,2,False,False,True,True
+c0_e0_x0,2021/22,214,Sevilla,1961.6050032862722,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,118,Juventus,1955.7569596463163,1.0,2,False,False,True,True
+c0_e0_x0,2021/22,77,Paris Saint-Germain,1950.8827493618298,1.0,2,False,False,True,True
+c0_e0_x0,2021/22,85,Borussia Dortmund,1927.5892256590396,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,115,AS Roma,1913.216004984824,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,61,Tottenham Hotspur,1909.61048203136,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,154,Ajax,1895.3304051183059,0.9826666666666667,1,False,False,False,True
+c0_e0_x0,2021/22,176,FC Porto,1893.657429556598,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,87,RB Leipzig,1872.7324820814956,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2021/22,231,Shakhtar Donetsk,1845.4567905577264,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,120,Napoli,1821.0272286781008,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,117,Internazionale,1800.7674143590086,0.8700000000000001,1,False,False,False,True
+c0_e0_x0,2021/22,116,Atalanta,1780.3749423917598,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2021/22,215,Villarreal,1760.7755552087801,0.73,0,False,False,False,False
+c0_e0_x0,2021/22,83,Bayer Leverkusen,1726.5175857316253,0.8700000000000001,1,False,False,False,True
+c0_e0_x0,2021/22,13,FC Salzburg,1724.824354928792,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,38,Dinamo Zagreb,1708.180510774012,0.9826666666666667,1,False,False,False,True
+c0_e0_x0,2021/22,174,Benfica,1706.4199210969778,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,48,Slavia Praha,1690.9253269165406,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,119,Lazio,1672.0182278020857,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2021/22,75,Olympique Lyon,1667.7353237625143,0.67,0,False,False,False,False
+c0_e0_x0,2021/22,229,Dinamo Kiev,1645.041381341367,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,194,Glasgow Rangers,1630.6422705468244,0.8953333333333335,1,False,False,False,True
+c0_e0_x0,2021/22,220,FC Basel,1620.747771629768,0.934,1,False,False,False,True
+c0_e0_x0,2021/22,96,Olympiakos Piraeus,1618.195040784285,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,188,Zenit St. Petersburg,1616.3012529743376,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,27,Club Brugge,1605.2987998492945,0.9826666666666667,1,False,False,False,True
+c0_e0_x0,2021/22,179,Sporting CP Lisbon,1602.6011707969942,0.912,1,False,False,False,True
+c0_e0_x0,2021/22,223,Young Boys,1562.1931603672106,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,199,Red Star Belgrade,1556.6693968403015,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,178,Sporting Braga,1553.6813303597298,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2021/22,53,FC København,1526.605617544879,0.934,1,False,False,False,True
+c0_e0_x0,2021/22,114,AC Milan,1508.1962783778235,0.66,0,False,False,False,False
+c0_e0_x0,2021/22,156,PSV Eindhoven,1505.5447083322413,0.9653333333333334,1,False,False,False,True
+c0_e0_x0,2021/22,185,Lokomotiv Moscow,1495.8653392711326,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2021/22,224,Besiktas,1490.8716835645837,0.912,1,False,False,False,True
+c0_e0_x0,2021/22,193,Celtic,1486.9537736575344,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,86,Eintracht Frankfurt,1452.4673136890024,0.4700000000000001,0,False,False,False,False
+c0_e0_x0,2021/22,14,LASK,1421.904219759447,0.7733333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,50,Viktoria Plzen,1418.8545771151794,0.898,1,False,False,False,True
+c0_e0_x0,2021/22,57,Leicester City,1406.2218433681248,0.4,0,False,False,False,False
+c0_e0_x0,2021/22,25,AA Gent,1385.3906829615598,0.9386666666666666,1,False,False,False,True
+c0_e0_x0,2021/22,37,Ludogorets Razgrad,1382.2425098963663,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,153,AZ Alkmaar,1380.6649956396518,0.8166666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,167,Molde FK,1380.4504752913297,0.8,0,False,False,False,False
+c0_e0_x0,2021/22,76,Olympique Marseille,1372.7171213218649,0.66,0,False,False,False,False
+c0_e0_x0,2021/22,74,Lille OSC,1365.7271354166028,0.6513333333333333,0,False,False,False,False
+c0_e0_x0,2021/22,78,Stade Rennais,1361.9416535544244,0.8,0,False,False,False,False
+c0_e0_x0,2021/22,219,Malmö FF,1354.6470928257058,0.8513333333333335,1,False,False,False,True
+c0_e0_x0,2021/22,213,Real Sociedad,1351.5382787443532,0.4600000000000001,0,False,False,False,False
+c0_e0_x0,2021/22,180,CFR Cluj,1346.4668377360633,0.8,0,False,False,False,False
+c0_e0_x0,2021/22,89,VfL Wolfsburg,1345.6642889835775,0.534,0,False,False,False,False
+c0_e0_x0,2021/22,113,Maccabi Tel-Aviv,1337.236384723966,0.9640000000000001,1,False,False,False,True
+c0_e0_x0,2021/22,62,West Ham United,1335.605491224226,0.060666666666666674,0,False,False,False,False
+c0_e0_x0,2021/22,226,Galatasaray,1312.0632835403803,0.8293333333333335,0,False,False,False,False
+c0_e0_x0,2021/22,211,Real Betis,1308.8477869697676,0.2,0,False,False,False,False
+c0_e0_x0,2021/22,28,Racing Genk,1305.3421144401482,0.54,0,False,False,False,False
+c0_e0_x0,2021/22,155,Feyenoord,1303.7996287151584,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2021/22,73,AS Monaco,1298.588213177963,0.4,0,False,False,False,False
+c0_e0_x0,2021/22,88,Union Berlin,1293.9610212263233,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,198,Partizan Belgrade,1283.9964956441013,0.9153333333333333,1,False,False,False,True
+c0_e0_x0,2021/22,99,Ferencváros,1272.3979004206803,0.9106666666666666,1,False,False,False,True
+c0_e0_x0,2021/22,94,AEK Athens,1270.5564995641282,0.9453333333333334,1,False,False,False,True
+c0_e0_x0,2021/22,19,Qarabag FK,1270.0738016932537,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,121,FK Astana,1268.5436829216706,0.912,1,False,False,False,True
+c0_e0_x0,2021/22,97,PAOK Thessaloniki,1268.2365331750761,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2021/22,177,Paços de Ferreira,1260.0020283012327,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,15,Rapid Wien,1251.5010050031465,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2021/22,29,Royal Antwerp,1241.2868312836642,0.5640000000000001,0,False,False,False,False
+c0_e0_x0,2021/22,54,FC Midtjylland,1239.6041001279445,0.928,1,False,False,False,True
+c0_e0_x0,2021/22,175,CD Santa Clara,1238.7454889573492,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,181,FCSB,1237.487646175535,0.934,1,False,False,False,True
+c0_e0_x0,2021/22,21,BATE Borisov,1232.58022833212,0.89,1,False,False,False,True
+c0_e0_x0,2021/22,233,Zorya Luhansk,1227.7815975397816,0.9733333333333334,1,False,False,False,True
+c0_e0_x0,2021/22,187,Spartak Moscow,1219.5077067248199,0.6153333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,110,Hapoel Beer-Sheva,1219.3870286902236,1.0,1,False,False,False,True
+c0_e0_x0,2021/22,49,Sparta Praha,1200.2605920396386,0.8400000000000001,0,False,False,False,False
+c0_e0_x0,2021/22,186,Rubin Kazan,1194.7105787187113,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,44,Apollon Limassol,1185.087971082101,0.9153333333333333,1,False,False,False,True
+c0_e0_x0,2021/22,168,Rosenborg BK,1184.5167735208672,0.956,1,False,False,False,True
+c0_e0_x0,2021/22,26,Anderlecht,1183.5121919598876,0.4,0,False,False,False,False
+c0_e0_x0,2021/22,41,NK Rijeka,1177.289360274244,0.8919999999999999,1,False,False,False,True
+c0_e0_x0,2021/22,184,FC Sochi,1172.2995193321185,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,170,Legia Warsaw,1166.2973373855077,0.956,1,False,False,False,True
+c0_e0_x0,2021/22,225,Fenerbahçe,1165.8972981204072,0.3826666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,46,1.FC Slovácko,1164.3040711492672,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,169,Vålerengens IF,1163.6835428582008,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,218,IF Elfsborg,1153.790488824766,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,111,MS Ashdod,1150.7490801573854,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,148,Sheriff Tiraspol,1147.160159256963,0.9153333333333333,1,False,False,False,True
+c0_e0_x0,2021/22,166,Bodø/Glimt,1138.703528107285,0.264,0,False,False,False,False
+c0_e0_x0,2021/22,98,FC Fehérvár,1134.3181652715277,0.92,1,False,False,False,True
+c0_e0_x0,2021/22,157,Vitesse Arnhem,1122.4441931575643,0.30333333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,45,Omonia Nicosia,1122.4232688558272,0.3906666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,207,NK Maribor,1120.150725908054,0.89,1,False,False,False,True
+c0_e0_x0,2021/22,196,St. Johnstone,1116.144727878236,0.09533333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,35,CSKA Sofia,1109.3093294360754,0.8,0,False,False,False,False
+c0_e0_x0,2021/22,55,Randers FC,1106.5054212779914,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,182,Sepsi OSK,1104.3317556259312,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,34,Arda Kardzhali,1101.1698853838789,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,172,Raków Czestochowa,1097.280851719644,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,195,Hibernian,1093.072784273206,0.25133333333333335,0,False,False,False,False
+c0_e0_x0,2021/22,230,Kolos Kovalivka,1086.6190113013804,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2021/22,171,Pogon Szczecin,1077.8049814867898,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,227,Sivasspor,1077.20367385989,0.33,0,False,False,False,False
+c0_e0_x0,2021/22,47,FK Jablonec,1075.508245356857,0.618,0,False,False,False,False
+c0_e0_x0,2021/22,107,Dundalk,1068.6830457521191,0.9386666666666666,1,False,False,False,True
+c0_e0_x0,2021/22,112,Maccabi Haifa,1068.3180612602814,0.5713333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,228,Trabzonspor,1067.680502552628,0.27,0,False,False,False,False
+c0_e0_x0,2021/22,232,Vorskla Poltava,1063.8818142287867,0.25133333333333335,0,False,False,False,False
+c0_e0_x0,2021/22,12,Austria Wien,1063.3042287343183,0.398,0,False,False,False,False
+c0_e0_x0,2021/22,173,Slask Wroclaw,1058.3291112539355,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,135,Suduva Marijampole,1057.2432286882063,0.9153333333333333,1,False,False,False,True
+c0_e0_x0,2021/22,52,Brøndby IF,1055.6180807870223,0.6260000000000001,0,False,False,False,False
+c0_e0_x0,2021/22,203,Slovan Bratislava,1053.2966125845187,0.8806666666666667,1,False,False,False,True
+c0_e0_x0,2021/22,197,Cukaricki Belgrade,1049.712337789286,0.2946666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,222,Servette FC Genève,1044.5096409353466,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2021/22,160,Shkendija Tetovo,1040.0508022317088,0.898,1,False,False,False,True
+c0_e0_x0,2021/22,192,Aberdeen,1037.3146995689517,0.8633333333333333,1,False,False,False,True
+c0_e0_x0,2021/22,200,Vojvodina Novi Sad,1036.2191316412864,0.38533333333333336,0,False,False,False,False
+c0_e0_x0,2021/22,24,Torpedo Zhodino,1034.4812363912515,0.060666666666666674,0,False,False,False,False
+c0_e0_x0,2021/22,16,Sturm Graz,1029.7259288696057,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2021/22,95,Aris Thessaloniki,1028.937505823311,0.45400000000000007,0,False,False,False,False
+c0_e0_x0,2021/22,123,Shakhtyor Karaganda,1028.4825607390103,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,43,Anorthosis Famagusta,1025.532990834446,0.3666666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,51,AGF Aarhus,1023.1740610715259,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2021/22,42,AEL Limassol,1022.6636110531502,0.328,0,False,False,False,False
+c0_e0_x0,2021/22,100,Puskás Akadémia,1018.5626085788294,0.22,0,False,False,False,False
+c0_e0_x0,2021/22,39,Hajduk Split,1017.7392797511035,0.8133333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,40,NK Osijek,1014.2574121885903,0.7213333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,36,Lokomotiv Plovdiv,1013.1847149912098,0.47600000000000003,0,False,False,False,False
+c0_e0_x0,2021/22,205,Mura Murska Sobota,1009.4614821994955,0.4620000000000001,0,False,False,False,False
+c0_e0_x0,2021/22,31,FK Sarajevo,1009.2830219300265,0.7886666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,204,Spartak Trnava,1007.9107672755964,0.504,0,False,False,False,False
+c0_e0_x0,2021/22,130,Riga FC,1004.4809808769153,0.6806666666666666,0,False,False,False,False
+c0_e0_x0,2021/22,138,F91 Dudelange,1000.3085912047991,0.6166666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,140,Swift Hesperange,996.747824563249,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,183,Universitatea Craiova,995.7509616906275,0.7320000000000001,0,False,False,False,False
+c0_e0_x0,2021/22,81,Dinamo Tbilisi,994.4395721707373,0.7506666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,18,Neftchi Baku,994.3499495876307,0.7193333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,221,FC Luzern,989.3226364892159,0.5273333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,63,Flora Tallinn,988.6867745914858,0.84,0,False,False,False,False
+c0_e0_x0,2021/22,33,Velez Mostar,988.3287140230233,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,237,The New Saints,986.6894156133668,0.8853333333333333,1,False,False,False,True
+c0_e0_x0,2021/22,216,BK Häcken,985.4721818587268,0.4226666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,201,DAC Dunajska Streda,985.4148113295466,0.6713333333333333,0,False,False,False,False
+c0_e0_x0,2021/22,217,Hammarby IF,983.9590626973794,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2021/22,165,Linfield Belfast,982.9529177105694,0.72,0,False,False,False,False
+c0_e0_x0,2021/22,122,Kairat Almaty,981.7818812805451,0.8493333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,208,Olimpija Ljubljana,981.0897345892935,0.8226666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,101,Újpest TE,979.3778217119277,0.17333333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,22,Dynamo Brest,979.267010237751,0.5546666666666666,0,False,False,False,False
+c0_e0_x0,2021/22,136,Zalgiris Vilnius,972.8946735664472,0.7866666666666666,0,False,False,False,False
+c0_e0_x0,2021/22,149,Buducnost Podgorica,970.2664742475472,0.8006666666666666,0,False,False,False,False
+c0_e0_x0,2021/22,4,Vllaznia Shkodër,968.2089029256856,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,67,KI Klaksvik,959.447547476183,0.8246666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,23,Shakhtior Saligorsk,958.5693662509188,0.8193333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,8,Alashkert FC,958.1968784777897,0.8273333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,9,Ararat Yerevan,957.855692916914,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,164,Larne FC,957.7276644188198,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,30,Borac Banja Luka,956.9383284988875,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2021/22,20,Sumgayit FK,951.860590896047,0.22,0,False,False,False,False
+c0_e0_x0,2021/22,124,Tobol Kustanai,951.1169335871538,0.37133333333333335,0,False,False,False,False
+c0_e0_x0,2021/22,91,Lincoln Red Imps,949.9279398631215,0.8093333333333333,0,False,False,False,False
+c0_e0_x0,2021/22,72,KuPS Kuopio,949.4247927282853,0.6666666666666666,0,False,False,False,False
+c0_e0_x0,2021/22,133,FK Panevezys,945.7191446099298,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,137,CS Fola Esch,944.3175079004502,0.7946666666666666,0,False,False,False,False
+c0_e0_x0,2021/22,158,FC Struga,944.1584725966002,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,109,Sligo Rovers,941.8862702622758,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,108,Shamrock Rovers,932.6824965200512,0.7866666666666666,0,False,False,False,False
+c0_e0_x0,2021/22,69,HJK Helsinki,931.0586414280266,0.6526666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,79,Dila Gori,930.3680033766614,0.051333333333333335,0,False,False,False,False
+c0_e0_x0,2021/22,3,Teuta Durrës,925.9797164386077,0.49133333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,82,Gagra Tbilisi,925.5178957178055,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,202,MSK Zilina,922.8666244220352,0.31533333333333335,0,False,False,False,False
+c0_e0_x0,2021/22,139,Racing Union Luxembourg,922.4285559565346,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,235,Connah's Quay,920.5780324206652,0.7786666666666666,0,False,False,False,False
+c0_e0_x0,2021/22,132,FC Vaduz,920.4399214306607,0.8366666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,127,KF Llapi,916.8390894206628,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,10,FC Noah,911.9391140371655,0.22,0,False,False,False,False
+c0_e0_x0,2021/22,125,FC Drita,910.5451895755313,0.48600000000000004,0,False,False,False,False
+c0_e0_x0,2021/22,152,Sutjeska Niksic,909.592476585632,0.7586666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,206,NK Domzale,907.722799713451,0.6073333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,6,Inter Club d'Escaldes,901.9215133273341,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2021/22,163,Glentoran,900.6364260210926,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2021/22,106,Bohemians Dublin,899.0329357332866,0.22,0,False,False,False,False
+c0_e0_x0,2021/22,150,Decic Tuzi,898.6446553941469,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,92,Mons Calpe,898.1196618089434,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,66,HB Torshavn,897.5949689394075,0.5053333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,162,Coleraine,891.7122670906148,0.506,0,False,False,False,False
+c0_e0_x0,2021/22,144,Mosta FC,891.1889854184242,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,17,Kesla FK,888.2640571104416,0.47933333333333333,0,False,False,False,False
+c0_e0_x0,2021/22,236,Newtown,887.7454548977342,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,1,KF Laçi,886.913441360808,0.6133333333333333,0,False,False,False,False
+c0_e0_x0,2021/22,105,Valur Reykjavik,885.6578287155072,0.5980000000000001,0,False,False,False,False
+c0_e0_x0,2021/22,131,Valmieras FK,883.8051120485278,0.22,0,False,False,False,False
+c0_e0_x0,2021/22,143,Hibernians FC,881.8321724143221,0.604,0,False,False,False,False
+c0_e0_x0,2021/22,80,Dinamo Batumi,880.0267941824649,0.31533333333333335,0,False,False,False,False
+c0_e0_x0,2021/22,129,RFS Riga,879.8109193985237,0.41800000000000004,0,False,False,False,False
+c0_e0_x0,2021/22,159,FK Shkupi,873.4357842477731,0.5646666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,151,FK Podgorica,871.7195684149606,0.0,0,False,False,False,False
+c0_e0_x0,2021/22,71,Inter Turku,869.2088534884143,0.41800000000000004,0,False,False,False,False
+c0_e0_x0,2021/22,90,Europa FC,867.4870347635908,0.7786666666666666,0,False,False,False,False
+c0_e0_x0,2021/22,146,Petrocub Hîncesti,866.1879036373214,0.5646666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,142,Gzira United,860.0772410008093,0.4073333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,103,FH Hafnarfjardar,859.9431556836881,0.5746666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,11,Urartu FC,857.1045031979867,0.396,0,False,False,False,False
+c0_e0_x0,2021/22,70,Honka Espoo,856.3326125271,0.22,0,False,False,False,False
+c0_e0_x0,2021/22,2,Partizani Tirana,855.0004596596198,0.546,0,False,False,False,False
+c0_e0_x0,2021/22,65,Paide Linnameeskond,851.7207755051857,0.22,0,False,False,False,False
+c0_e0_x0,2021/22,147,Sfântul Gheorghe,850.1575034443696,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2021/22,141,Birkirkara,849.8541653032004,0.21666666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,161,Sileks Kratovo,849.7309185540078,0.29333333333333333,0,False,False,False,False
+c0_e0_x0,2021/22,134,Kauno Zalgiris,848.9623764766256,0.41800000000000004,0,False,False,False,False
+c0_e0_x0,2021/22,5,FC Santa Coloma,847.7494389195356,0.7606666666666666,0,False,False,False,False
+c0_e0_x0,2021/22,128,FK Liepaja,847.2835681717388,0.5446666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,32,Siroki Brijeg,842.5882076857938,0.5086666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,64,Levadia Tallinn,837.6828487798497,0.7206666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,104,Stjarnan FC,832.514211201334,0.5026666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,68,NSI Runavik,830.0418123412747,0.7333333333333333,0,False,False,False,False
+c0_e0_x0,2021/22,145,Milsami Orhei,828.531526383827,0.44000000000000006,0,False,False,False,False
+c0_e0_x0,2021/22,234,Bala Town,826.9339738569228,0.5353333333333333,0,False,False,False,False
+c0_e0_x0,2021/22,126,FC Prishtina,824.5221165271909,0.6866666666666668,0,False,False,False,False
+c0_e0_x0,2021/22,102,Breidablik,807.3348525059783,0.4693333333333334,0,False,False,False,False
+c0_e0_x0,2021/22,93,St Joseph's FC,788.1006711368653,0.6960000000000001,0,False,False,False,False
+c0_e0_x0,2021/22,190,La Fiorita,778.0147709908781,0.7246666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,191,Tre Penne,769.9205541324059,0.5826666666666667,0,False,False,False,False
+c0_e0_x0,2021/22,189,Folgore,768.876648382923,0.29333333333333333,0,False,False,False,False
+c0_e0_x0,2021/22,7,Sant Julià,748.869863150018,0.44000000000000006,0,False,False,False,False
+c0_e0_x0,2022/23,59,Manchester City,1988.2815545608964,1.0,2,False,False,True,True
+c0_e0_x0,2022/23,209,Real Madrid,1984.422279439297,1.0,2,False,False,True,True
+c0_e0_x0,2022/23,86,Bayern München,1978.709161872538,1.0,2,False,False,True,True
+c0_e0_x0,2022/23,58,Liverpool,1971.977689251469,1.0,2,False,False,True,True
+c0_e0_x0,2022/23,78,Paris Saint-Germain,1971.8160980230714,1.0,2,False,False,True,True
+c0_e0_x0,2022/23,57,Chelsea,1968.7628425707367,1.0,2,False,False,True,True
+c0_e0_x0,2022/23,207,FC Barcelona,1968.411732809941,1.0,2,False,False,True,True
+c0_e0_x0,2022/23,60,Manchester United,1959.1183025285402,1.0,2,False,False,True,True
+c0_e0_x0,2022/23,119,Juventus,1956.1971854086464,1.0,2,False,False,True,True
+c0_e0_x0,2022/23,206,Atlético Madrid,1955.8220805499382,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,116,AS Roma,1950.080989584773,1.0,2,False,False,True,True
+c0_e0_x0,2022/23,156,Ajax,1940.0958181003593,0.9906666666666667,1,False,False,False,True
+c0_e0_x0,2022/23,211,Sevilla,1905.7243366932007,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,89,RB Leipzig,1899.2965736212514,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,212,Villarreal,1889.9072050681518,0.8,0,False,False,False,False
+c0_e0_x0,2022/23,87,Borussia Dortmund,1867.6708284828285,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,177,FC Porto,1857.6015245885944,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,118,Internazionale,1852.5212193792213,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2022/23,61,Tottenham Hotspur,1811.7101475089335,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,176,Benfica,1796.3285998070214,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,13,FC Salzburg,1787.8501042364885,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,191,Glasgow Rangers,1770.644371575624,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2022/23,121,Napoli,1767.1787092749312,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,85,Bayer Leverkusen,1762.0742606494841,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2022/23,228,Shakhtar Donetsk,1754.4063005914877,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,56,Arsenal,1707.7702893678968,0.67,0,False,False,False,False
+c0_e0_x0,2022/23,38,Dinamo Zagreb,1705.472305814892,0.9906666666666667,1,False,False,False,True
+c0_e0_x0,2022/23,48,Slavia Praha,1691.6264871967644,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,197,Red Star Belgrade,1690.1542239324247,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,158,Feyenoord,1688.4989867693243,0.9653333333333334,1,False,False,False,True
+c0_e0_x0,2022/23,180,Sporting CP Lisbon,1687.9194852014862,0.928,1,False,False,False,True
+c0_e0_x0,2022/23,179,Sporting Braga,1687.294824801364,0.9653333333333334,1,False,False,False,True
+c0_e0_x0,2022/23,120,Lazio,1684.4325585345796,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,88,Eintracht Frankfurt,1659.768729199522,0.66,0,False,False,False,False
+c0_e0_x0,2022/23,217,FC Basel,1655.072559831616,0.946,1,False,False,False,True
+c0_e0_x0,2022/23,52,FC København,1613.9624498794144,0.946,1,False,False,False,True
+c0_e0_x0,2022/23,97,Olympiakos Piraeus,1613.535932287607,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,77,Olympique Marseille,1602.4922601782355,0.8,0,False,False,False,False
+c0_e0_x0,2022/23,27,Club Brugge,1601.644881416904,0.9906666666666667,1,False,False,False,True
+c0_e0_x0,2022/23,159,PSV Eindhoven,1588.2165872760754,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2022/23,79,Stade Rennais,1581.8659985045156,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2022/23,115,AC Milan,1570.0824430989119,0.8,0,False,False,False,False
+c0_e0_x0,2022/23,220,Young Boys,1561.9587203443984,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,155,AZ Alkmaar,1561.4296409113288,0.8953333333333335,1,False,False,False,True
+c0_e0_x0,2022/23,226,Dynamo Kyiv,1559.7912162474552,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,25,AA Gent,1498.9644712336453,0.9640000000000001,1,False,False,False,True
+c0_e0_x0,2022/23,98,PAOK Thessaloniki,1493.4583797716225,0.9640000000000001,1,False,False,False,True
+c0_e0_x0,2022/23,189,Celtic,1486.9839427463048,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,114,Maccabi Tel-Aviv,1452.512899149317,0.9733333333333334,1,False,False,False,True
+c0_e0_x0,2022/23,210,Real Sociedad,1442.0013747722085,0.67,0,False,False,False,False
+c0_e0_x0,2022/23,62,West Ham United,1431.382131416711,0.33,0,False,False,False,False
+c0_e0_x0,2022/23,74,AS Monaco,1430.31400855629,0.53,0,False,False,False,False
+c0_e0_x0,2022/23,19,Qarabag FK,1418.5005287237088,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,208,Real Betis,1398.9378123477645,0.4600000000000001,0,False,False,False,False
+c0_e0_x0,2022/23,168,Bodø/Glimt,1394.4920551875762,0.546,0,False,False,False,False
+c0_e0_x0,2022/23,216,Malmö FF,1392.138318560431,0.9453333333333334,1,False,False,False,True
+c0_e0_x0,2022/23,195,Partizan Belgrade,1383.5953318379643,0.946,1,False,False,False,True
+c0_e0_x0,2022/23,53,FC Midtjylland,1368.6030782354806,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2022/23,170,Molde FK,1368.520800487359,0.8860000000000001,1,False,False,False,True
+c0_e0_x0,2022/23,150,Sheriff Tiraspol,1362.5438533384518,0.946,1,False,False,False,True
+c0_e0_x0,2022/23,50,Viktoria Plzen,1342.5004853432845,0.9193333333333333,1,False,False,False,True
+c0_e0_x0,2022/23,182,CFR Cluj,1339.943978740128,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2022/23,157,FC Twente Enschede,1316.2223495614066,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,37,Ludogorets Razgrad,1310.7624260418809,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,117,Fiorentina,1308.4354394350694,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,222,Istanbul Basaksehir,1299.1328147134873,0.6353333333333334,0,False,False,False,False
+c0_e0_x0,2022/23,28,Royal Antwerp,1295.463558548063,0.7733333333333334,0,False,False,False,False
+c0_e0_x0,2022/23,230,Zorya Luhansk,1288.0870647179502,0.9826666666666667,1,False,False,False,True
+c0_e0_x0,2022/23,101,Ferencváros,1285.9258643662408,0.9560000000000001,1,False,False,False,True
+c0_e0_x0,2022/23,90,SC Freiburg,1281.4757952491827,0.051333333333333335,0,False,False,False,False
+c0_e0_x0,2022/23,178,Gil Vicente,1278.3138994660758,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,75,FC Nantes,1269.632292985333,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,219,FC Zürich,1260.0671139988717,0.13,0,False,False,False,False
+c0_e0_x0,2022/23,84,1.FC Köln,1251.9243769288755,0.07,0,False,False,False,False
+c0_e0_x0,2022/23,14,Rapid Wien,1250.8971220025858,0.73,0,False,False,False,False
+c0_e0_x0,2022/23,49,Sparta Praha,1248.7763999630358,0.8933333333333333,1,False,False,False,True
+c0_e0_x0,2022/23,29,Union Saint-Gilloise,1242.917542376596,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,192,Hearts FC,1239.3550636582963,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,200,Slovan Bratislava,1236.677146017475,0.9186666666666666,1,False,False,False,True
+c0_e0_x0,2022/23,91,Union Berlin,1230.7556371834676,0.33,0,False,False,False,False
+c0_e0_x0,2022/23,190,Dundee United,1207.6702767458974,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,227,SC Dnipro-1,1201.13511330374,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,111,Hapoel Beer-Sheva,1194.7210022322315,1.0,1,False,False,False,True
+c0_e0_x0,2022/23,221,Fenerbahçe,1193.1545630122007,0.5206666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,122,FK Astana,1191.120219411526,0.8839999999999999,1,False,False,False,True
+c0_e0_x0,2022/23,16,Wolfsberger AC,1188.010529385766,0.4700000000000001,0,False,False,False,False
+c0_e0_x0,2022/23,54,Silkeborg IF,1177.750577922133,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,76,OGC Nice,1176.9428468159385,0.34,0,False,False,False,False
+c0_e0_x0,2022/23,43,APOEL Nicosia,1171.2432195536164,0.6340000000000001,0,False,False,False,False
+c0_e0_x0,2022/23,41,NK Rijeka,1168.4456870012395,0.9386666666666666,1,False,False,False,True
+c0_e0_x0,2022/23,181,Vitória Guimarães,1153.697342204094,0.27,0,False,False,False,False
+c0_e0_x0,2022/23,223,Konyaspor,1149.5562535868225,0.07,0,False,False,False,False
+c0_e0_x0,2022/23,35,CSKA Sofia,1149.2350647327594,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2022/23,113,Maccabi Netanya,1149.2127912347526,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,44,Apollon Limassol,1147.8549397210907,0.858,1,False,False,False,True
+c0_e0_x0,2022/23,21,BATE Borisov,1145.3329878825168,0.8220000000000001,0,False,False,False,False
+c0_e0_x0,2022/23,183,FCSB,1137.633009111713,0.858,1,False,False,False,True
+c0_e0_x0,2022/23,225,Trabzonspor,1126.780140145582,0.48600000000000004,0,False,False,False,False
+c0_e0_x0,2022/23,169,Lillestrøm SK,1124.3893901518475,0.09533333333333334,0,False,False,False,False
+c0_e0_x0,2022/23,63,Flora Tallinn,1122.2894258143542,0.9013333333333333,1,False,False,False,True
+c0_e0_x0,2022/23,112,Maccabi Haifa,1119.0387297032232,0.7373333333333334,0,False,False,False,False
+c0_e0_x0,2022/23,55,Viborg FF,1117.9758473080594,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,102,Kisvárda FC,1117.6404091604925,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,45,Aris Limassol,1115.6985203987886,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,26,Anderlecht,1112.9198804116368,0.48600000000000004,0,False,False,False,False
+c0_e0_x0,2022/23,99,Panathinaikos,1109.3033822490017,0.060666666666666674,0,False,False,False,False
+c0_e0_x0,2022/23,171,Viking Stavanger,1107.551082574053,0.18,0,False,False,False,False
+c0_e0_x0,2022/23,126,FC Ballkani,1094.9192973346649,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,46,Omonia Nicosia,1089.9052423707826,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2022/23,15,Sturm Graz,1089.5991295926328,0.65,0,False,False,False,False
+c0_e0_x0,2022/23,12,Austria Wien,1081.3202715321677,0.4586666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,204,NK Maribor,1079.8654020826564,0.866,1,False,False,False,True
+c0_e0_x0,2022/23,70,HJK Helsinki,1079.7099168358986,0.7206666666666668,0,False,False,False,False
+c0_e0_x0,2022/23,193,Motherwell,1077.752466802924,0.21600000000000003,0,False,False,False,False
+c0_e0_x0,2022/23,34,Botev Plovdiv,1073.88536381803,0.07,0,False,False,False,False
+c0_e0_x0,2022/23,224,Sivasspor,1073.6346028569324,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2022/23,100,FC Fehérvár,1071.4598312973555,0.8493333333333334,0,False,False,False,False
+c0_e0_x0,2022/23,196,Radnicki Nis,1069.8610528526276,0.25933333333333336,0,False,False,False,False
+c0_e0_x0,2022/23,203,NK Koper,1068.5203000930496,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,218,FC Lugano,1066.746066758674,0.27,0,False,False,False,False
+c0_e0_x0,2022/23,51,Brøndby IF,1061.2554314802749,0.7033333333333334,0,False,False,False,False
+c0_e0_x0,2022/23,172,Lech Poznan,1060.172579368343,0.4700000000000001,0,False,False,False,False
+c0_e0_x0,2022/23,47,1.FC Slovácko,1059.2730183334015,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2022/23,123,FK Kyzylzhar,1057.2516180381865,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,194,Cukaricki Belgrade,1054.3449919634852,0.45933333333333337,0,False,False,False,False
+c0_e0_x0,2022/23,72,KuPS Kuopio,1051.928431084081,0.8326666666666668,0,False,False,False,False
+c0_e0_x0,2022/23,137,Suduva Marijampole,1048.9150380964984,0.902,1,False,False,False,True
+c0_e0_x0,2022/23,42,AEK Larnaca,1048.7098448785837,0.4,0,False,False,False,False
+c0_e0_x0,2022/23,132,Riga FC,1042.8751163059394,0.8413333333333335,0,False,False,False,False
+c0_e0_x0,2022/23,39,Hajduk Split,1037.0840085901839,0.7693333333333333,0,False,False,False,False
+c0_e0_x0,2022/23,96,Aris Thessaloniki,1035.836108165472,0.5953333333333333,0,False,False,False,False
+c0_e0_x0,2022/23,124,Kairat Almaty,1035.8131278086448,0.8919999999999999,1,False,False,False,True
+c0_e0_x0,2022/23,138,Zalgiris Vilnius,1035.3251724677814,0.8560000000000001,1,False,False,False,True
+c0_e0_x0,2022/23,40,NK Osijek,1034.3438284511394,0.7953333333333333,0,False,False,False,False
+c0_e0_x0,2022/23,18,Neftchi Baku,1033.8362152342465,0.8233333333333335,0,False,False,False,False
+c0_e0_x0,2022/23,214,Djurgårdens IF,1033.6455696857306,0.31133333333333335,0,False,False,False,False
+c0_e0_x0,2022/23,229,Vorskla Poltava,1033.3992317181194,0.372,0,False,False,False,False
+c0_e0_x0,2022/23,201,Spartak Trnava,1031.3353805370928,0.6333333333333333,0,False,False,False,False
+c0_e0_x0,2022/23,233,The New Saints,1030.9905430267604,0.9186666666666666,1,False,False,False,True
+c0_e0_x0,2022/23,173,Lechia Gdansk,1026.237778760783,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,213,AIK Stockholm,1023.8964239813679,0.3826666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,175,Raków Czestochowa,1023.1477466378485,0.33,0,False,False,False,False
+c0_e0_x0,2022/23,20,Zira FK,1022.4589520019405,0.060666666666666674,0,False,False,False,False
+c0_e0_x0,2022/23,215,IF Elfsborg,1021.3524502207152,0.33,0,False,False,False,False
+c0_e0_x0,2022/23,108,Shamrock Rovers,1021.2820174422459,0.8573333333333333,1,False,False,False,True
+c0_e0_x0,2022/23,94,Lincoln Red Imps,1017.7503460191461,0.87,1,False,False,False,True
+c0_e0_x0,2022/23,23,FC Gomel,1017.4601977297837,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,141,F91 Dudelange,1016.1291418919488,0.6233333333333333,0,False,False,False,False
+c0_e0_x0,2022/23,205,Olimpija Ljubljana,1014.5161946624783,0.8386666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,31,Tuzla City,1014.0703091474375,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,167,Linfield Belfast,1013.7043710112738,0.8246666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,174,Pogon Szczecin,1013.2218714001152,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2022/23,8,Alashkert FC,1006.8241646820891,0.874,1,False,False,False,True
+c0_e0_x0,2022/23,163,Shkendija Tetovo,1004.8494526716166,0.8753333333333333,1,False,False,False,True
+c0_e0_x0,2022/23,139,CS Fola Esch,1004.2749780437155,0.8573333333333333,1,False,False,False,True
+c0_e0_x0,2022/23,125,Tobol Kustanai,1002.7130862505502,0.5453333333333333,0,False,False,False,False
+c0_e0_x0,2022/23,185,Universitatea Craiova,999.3861967583902,0.7686666666666666,0,False,False,False,False
+c0_e0_x0,2022/23,198,DAC Dunajska Streda,993.6971608686196,0.744,0,False,False,False,False
+c0_e0_x0,2022/23,33,Zrinjski Mostar,990.847801388728,0.5973333333333334,0,False,False,False,False
+c0_e0_x0,2022/23,202,Mura Murska Sobota,989.3696246567566,0.6926666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,73,SJK Seinäjoki,982.4178543381574,0.051333333333333335,0,False,False,False,False
+c0_e0_x0,2022/23,2,KF Tirana,982.1596230970276,0.26733333333333337,0,False,False,False,False
+c0_e0_x0,2022/23,82,Dinamo Tbilisi,981.4846298232341,0.7973333333333334,0,False,False,False,False
+c0_e0_x0,2022/23,68,KI Klaksvik,977.6640026752764,0.84,0,False,False,False,False
+c0_e0_x0,2022/23,131,RFS Riga,971.1483611819433,0.6566666666666666,0,False,False,False,False
+c0_e0_x0,2022/23,24,Shakhtior Saligorsk,968.9947992699833,0.83,0,False,False,False,False
+c0_e0_x0,2022/23,146,Hibernians FC,965.3980565249785,0.7353333333333334,0,False,False,False,False
+c0_e0_x0,2022/23,1,KF Laçi,964.2584053443921,0.7873333333333334,0,False,False,False,False
+c0_e0_x0,2022/23,11,Pyunik Yerevan,962.5625997394914,0.38133333333333336,0,False,False,False,False
+c0_e0_x0,2022/23,184,Sepsi OSK,962.0704931269793,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2022/23,151,Buducnost Podgorica,956.4850019890714,0.8220000000000001,0,False,False,False,False
+c0_e0_x0,2022/23,106,Vikingur Reykjavik,955.2683131465618,0.18,0,False,False,False,False
+c0_e0_x0,2022/23,10,Ararat-Armenia,954.6717362062318,0.43400000000000005,0,False,False,False,False
+c0_e0_x0,2022/23,154,Sutjeska Niksic,952.1949880743923,0.83,0,False,False,False,False
+c0_e0_x0,2022/23,103,Puskás Akadémia,950.8587264815849,0.4660000000000001,0,False,False,False,False
+c0_e0_x0,2022/23,145,Hamrun Spartans,950.1286143059339,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,199,MFK Ruzomberok,949.8534641179036,0.39666666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,110,St. Patrick's Athletic,948.6410871939414,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,36,Levski Sofia,944.9890890184626,0.3293333333333333,0,False,False,False,False
+c0_e0_x0,2022/23,127,FC Drita,944.7522985350847,0.65,0,False,False,False,False
+c0_e0_x0,2022/23,81,Dinamo Batumi,937.9269299006679,0.5613333333333334,0,False,False,False,False
+c0_e0_x0,2022/23,64,Levadia Tallinn,933.5413406190551,0.7593333333333333,0,False,False,False,False
+c0_e0_x0,2022/23,134,FC Vaduz,929.2171200385189,0.7953333333333333,0,False,False,False,False
+c0_e0_x0,2022/23,148,Petrocub Hîncesti,929.0856534372558,0.7080000000000001,0,False,False,False,False
+c0_e0_x0,2022/23,17,Gabala FK,920.1117391081028,0.30266666666666664,0,False,False,False,False
+c0_e0_x0,2022/23,6,Inter Club d'Escaldes,919.8591999439938,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2022/23,161,FK Shkupi,917.0857148661759,0.7080000000000001,0,False,False,False,False
+c0_e0_x0,2022/23,67,HB Torshavn,915.6242688071442,0.6613333333333333,0,False,False,False,False
+c0_e0_x0,2022/23,140,Differdange 03,915.2461436088192,0.23133333333333334,0,False,False,False,False
+c0_e0_x0,2022/23,164,Cliftonville,914.7374632190989,0.26866666666666666,0,False,False,False,False
+c0_e0_x0,2022/23,166,Larne FC,913.3424913130361,0.33,0,False,False,False,False
+c0_e0_x0,2022/23,30,Borac Banja Luka,911.8203192709445,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2022/23,129,SC Gjilani,907.5157682005889,0.198,0,False,False,False,False
+c0_e0_x0,2022/23,143,Floriana,907.5083271461988,0.26733333333333337,0,False,False,False,False
+c0_e0_x0,2022/23,104,Breidablik,901.0105961346939,0.6566666666666666,0,False,False,False,False
+c0_e0_x0,2022/23,69,Víkingur,899.7409048908322,0.17333333333333334,0,False,False,False,False
+c0_e0_x0,2022/23,109,Sligo Rovers,899.0735794495874,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2022/23,7,UE Santa Coloma,897.5876673910434,0.051333333333333335,0,False,False,False,False
+c0_e0_x0,2022/23,147,Milsami Orhei,895.9980375356523,0.5793333333333334,0,False,False,False,False
+c0_e0_x0,2022/23,133,Valmieras FK,895.8520504402939,0.42200000000000004,0,False,False,False,False
+c0_e0_x0,2022/23,136,Kauno Zalgiris,895.8124835445428,0.6126666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,93,FCB Magpies,895.5478508453903,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,22,Dinamo Minsk,895.0842702283655,0.5266666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,130,FK Liepaja,894.9898089928981,0.6153333333333333,0,False,False,False,False
+c0_e0_x0,2022/23,32,Velez Mostar,887.3715334262176,0.33,0,False,False,False,False
+c0_e0_x0,2022/23,149,Sfântul Gheorghe,887.1538219641575,0.44000000000000006,0,False,False,False,False
+c0_e0_x0,2022/23,135,FK Panevezys,887.0498747744825,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2022/23,160,Akademija Pandev,885.168882509395,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,92,Europa FC,883.4465154642922,0.76,0,False,False,False,False
+c0_e0_x0,2022/23,3,Partizani Tirana,882.2822001725428,0.6060000000000001,0,False,False,False,False
+c0_e0_x0,2022/23,66,B36 Torshavn,881.1929460556539,0.562,0,False,False,False,False
+c0_e0_x0,2022/23,71,Inter Turku,879.6187353059553,0.5686666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,165,Crusaders Belfast,879.422167124181,0.3373333333333333,0,False,False,False,False
+c0_e0_x0,2022/23,65,Paide Linnameeskond,876.6470595610457,0.42200000000000004,0,False,False,False,False
+c0_e0_x0,2022/23,128,KF Llapi,875.9873936706742,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2022/23,80,Dila Gori,875.318195724416,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2022/23,144,Gzira United,874.6230784439367,0.5720000000000001,0,False,False,False,False
+c0_e0_x0,2022/23,5,Atlètic Club d'Escaldes,873.5734785647452,0.0,0,False,False,False,False
+c0_e0_x0,2022/23,9,Ararat Yerevan,872.4821574254585,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2022/23,231,Bala Town,866.2576960290979,0.5866666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,107,Derry City,861.3750266864192,0.3266666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,83,Saburtalo Tbilisi,860.8564338788735,0.38,0,False,False,False,False
+c0_e0_x0,2022/23,232,Newtown,860.5673185331036,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2022/23,4,Vllaznia Shkodër,858.5341361003614,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2022/23,142,Racing Union Luxembourg,852.0208385986057,0.3373333333333334,0,False,False,False,False
+c0_e0_x0,2022/23,162,Makedonija GjP,847.3369713790387,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2022/23,105,KR Reykjavik,843.6717049290544,0.4053333333333333,0,False,False,False,False
+c0_e0_x0,2022/23,152,Decic Tuzi,830.4602810559845,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2022/23,95,St Joseph's FC,820.6211447848153,0.742,0,False,False,False,False
+c0_e0_x0,2022/23,153,Iskra Danilovgrad,815.1558459682843,0.198,0,False,False,False,False
+c0_e0_x0,2022/23,186,La Fiorita,812.2166177090313,0.724,0,False,False,False,False
+c0_e0_x0,2022/23,188,Tre Penne,793.4288218026043,0.6333333333333333,0,False,False,False,False
+c0_e0_x0,2022/23,187,Tre Fiori,764.2666337328184,0.45733333333333337,0,False,False,False,False
+c0_e0_x0,2023/24,58,Manchester City,1996.0881679884412,1.0,2,False,False,True,True
+c0_e0_x0,2023/24,85,Bayern München,1980.0587576174385,1.0,2,False,False,True,True
+c0_e0_x0,2023/24,76,Paris Saint-Germain,1972.3921549314064,1.0,2,False,False,True,True
+c0_e0_x0,2023/24,59,Manchester United,1969.489847580407,1.0,2,False,False,True,True
+c0_e0_x0,2023/24,209,Real Madrid,1967.0467214995774,1.0,2,False,False,True,True
+c0_e0_x0,2023/24,118,Internazionale,1963.1663152833444,1.0,2,False,False,True,True
+c0_e0_x0,2023/24,57,Liverpool,1963.036182316759,1.0,2,False,False,True,True
+c0_e0_x0,2023/24,115,AS Roma,1953.7985809087481,1.0,2,False,False,True,True
+c0_e0_x0,2023/24,174,Benfica,1928.6211345393463,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,88,RB Leipzig,1912.1390544826095,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,212,Villarreal,1903.8572447625183,0.8700000000000001,1,False,False,False,True
+c0_e0_x0,2023/24,120,Napoli,1900.486419022895,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,211,Sevilla,1898.0344942845659,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,206,FC Barcelona,1897.0336689622666,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,86,Borussia Dortmund,1888.0927909942516,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,154,Ajax,1861.3049686676472,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,176,FC Porto,1855.6157870985633,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,205,Atlético Madrid,1851.7116286382727,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,84,Bayer Leverkusen,1836.1123883137734,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,87,Eintracht Frankfurt,1814.935208376059,0.8,0,False,False,False,False
+c0_e0_x0,2023/24,156,Feyenoord,1813.413308956574,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2023/24,114,AC Milan,1774.048611872724,0.8700000000000001,1,False,False,False,True
+c0_e0_x0,2023/24,54,Arsenal,1760.195137387819,0.73,0,False,False,False,False
+c0_e0_x0,2023/24,153,AZ Alkmaar,1746.3401356421673,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2023/24,228,Shakhtar Donetsk,1724.7977973705629,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,13,FC Salzburg,1722.8751635414542,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,178,Sporting CP Lisbon,1719.2753173190872,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2023/24,26,Club Brugge,1715.2130537905232,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,217,FC Basel,1710.638102636518,0.9600000000000001,1,False,False,False,True
+c0_e0_x0,2023/24,189,Glasgow Rangers,1701.0648086983706,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,38,Dinamo Zagreb,1666.8937113922964,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,177,Sporting Braga,1663.7978988608722,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2023/24,157,PSV Eindhoven,1657.0939487150936,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,78,Stade Rennais,1652.4003574922697,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,61,West Ham United,1645.4503528236003,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2023/24,47,Slavia Praha,1642.3715089942266,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,210,Real Sociedad,1636.2330871276877,0.8,0,False,False,False,False
+c0_e0_x0,2023/24,119,Lazio,1632.182526299351,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,116,Atalanta,1626.7274518345512,0.67,0,False,False,False,False
+c0_e0_x0,2023/24,194,Red Star Belgrade,1618.2994157008197,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,51,FC København,1604.4242681530827,0.9600000000000001,1,False,False,False,True
+c0_e0_x0,2023/24,75,Olympique Marseille,1602.9016289743668,0.8700000000000001,1,False,False,False,True
+c0_e0_x0,2023/24,25,AA Gent,1600.1604611075793,0.9906666666666667,1,False,False,False,True
+c0_e0_x0,2023/24,208,Real Betis,1571.8733766975738,0.67,0,False,False,False,False
+c0_e0_x0,2023/24,221,Young Boys,1508.1849912839573,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,96,Olympiakos Piraeus,1504.7683963832994,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,100,Ferencváros,1497.2039347226275,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2023/24,224,Fenerbahçe,1488.5351637621734,0.67,0,False,False,False,False
+c0_e0_x0,2023/24,199,Slovan Bratislava,1483.6160642923835,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2023/24,188,Celtic,1468.569187869492,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,74,Lille OSC,1459.9264743798583,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2023/24,52,FC Midtjylland,1455.4640157234871,0.9653333333333334,1,False,False,False,True
+c0_e0_x0,2023/24,14,LASK,1452.1914251246199,0.6606666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,193,Partizan Belgrade,1444.9757150041391,0.9600000000000001,1,False,False,False,True
+c0_e0_x0,2023/24,226,Dynamo Kyiv,1441.1762928139235,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,225,Galatasaray,1441.0844724415508,0.6300000000000001,0,False,False,False,False
+c0_e0_x0,2023/24,19,Qarabag FK,1438.2402925561103,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,60,Newcastle United,1436.702927940048,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,180,CFR Cluj,1426.5146134926192,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,90,Union Berlin,1416.498866535662,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2023/24,97,PAOK Thessaloniki,1412.7904038990223,0.8946666666666667,1,False,False,False,True
+c0_e0_x0,2023/24,167,Molde FK,1410.0167565987927,0.9640000000000001,1,False,False,False,True
+c0_e0_x0,2023/24,113,Maccabi Tel-Aviv,1404.132554377959,0.9826666666666667,1,False,False,False,True
+c0_e0_x0,2023/24,117,Fiorentina,1400.8469966367811,0.33,0,False,False,False,False
+c0_e0_x0,2023/24,166,Bodø/Glimt,1400.0170729494284,0.76,0,False,False,False,False
+c0_e0_x0,2023/24,56,Brighton & Hove Albion,1393.6784928490626,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,77,RC Lens,1376.922432889849,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,89,SC Freiburg,1372.7529061359514,0.33,0,False,False,False,False
+c0_e0_x0,2023/24,55,Aston Villa,1372.1662753035698,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,29,Union Saint-Gilloise,1363.1860084425564,0.33,0,False,False,False,False
+c0_e0_x0,2023/24,148,Sheriff Tiraspol,1357.080027159071,0.9600000000000001,1,False,False,False,True
+c0_e0_x0,2023/24,170,Lech Poznan,1338.9700881130425,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2023/24,207,Osasuna,1337.431984882616,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,28,Royal Antwerp,1327.8212119815655,0.9126666666666667,1,False,False,False,True
+c0_e0_x0,2023/24,37,Ludogorets Razgrad,1326.976770716591,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,214,Djurgårdens IF,1303.7507945807258,0.5413333333333334,0,False,False,False,False
+c0_e0_x0,2023/24,111,Hapoel Beer-Sheva,1300.962322416194,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,175,FC Arouca,1288.3664758699256,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,112,Maccabi Haifa,1275.0408383341048,0.8860000000000001,1,False,False,False,True
+c0_e0_x0,2023/24,79,Toulouse FC,1272.8790408483553,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,49,Viktoria Plzen,1263.3965692671,0.9426666666666667,1,False,False,False,True
+c0_e0_x0,2023/24,15,Rapid Wien,1247.0563943495238,0.8700000000000001,1,False,False,False,True
+c0_e0_x0,2023/24,230,Zorya Luhansk,1240.1756155838784,0.9026666666666667,1,False,False,False,True
+c0_e0_x0,2023/24,16,Sturm Graz,1230.4564427662715,0.756,0,False,False,False,False
+c0_e0_x0,2023/24,222,Adana Demirspor,1229.0023775221712,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,48,Sparta Praha,1228.1408896400515,0.8586666666666667,1,False,False,False,True
+c0_e0_x0,2023/24,27,Racing Genk,1220.4585965051442,0.4700000000000001,0,False,False,False,False
+c0_e0_x0,2023/24,227,SC Dnipro-1,1197.6374128242614,0.33,0,False,False,False,False
+c0_e0_x0,2023/24,46,Bohemians Praha,1184.6295005850188,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,155,FC Twente Enschede,1168.4264276281574,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2023/24,53,FC Nordsjælland,1167.9272520771615,0.07,0,False,False,False,False
+c0_e0_x0,2023/24,35,CSKA Sofia,1167.2416820557721,1.0,1,False,False,False,True
+c0_e0_x0,2023/24,101,Kecskeméti TE,1157.068937212881,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,182,Farul Constanta,1156.3982493021472,0.156,0,False,False,False,False
+c0_e0_x0,2023/24,223,Besiktas,1156.1974488274354,0.6166666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,195,TSC Backa Topola,1154.4776965382516,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,45,Omonia Nicosia,1152.0214509171897,0.8,0,False,False,False,False
+c0_e0_x0,2023/24,137,Zalgiris Vilnius,1148.5968337576307,0.912,1,False,False,False,True
+c0_e0_x0,2023/24,216,Kalmar FF,1147.2429748280385,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,43,APOEL Nicosia,1142.440288922125,0.7033333333333334,0,False,False,False,False
+c0_e0_x0,2023/24,70,HJK Helsinki,1137.9235458840305,0.8,0,False,False,False,False
+c0_e0_x0,2023/24,44,Aris Limassol,1132.0303097217325,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2023/24,34,CSKA 1948 Sofia,1129.5632660306233,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,94,AEK Athens,1126.0065197267427,0.5806666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,213,BK Häcken,1124.4373942487214,0.35400000000000004,0,False,False,False,False
+c0_e0_x0,2023/24,20,Sabah FK,1117.3196143814573,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,171,Legia Warsaw,1114.7569281382714,0.6433333333333334,0,False,False,False,False
+c0_e0_x0,2023/24,179,Vitória Guimarães,1113.7618701086315,0.41600000000000004,0,False,False,False,False
+c0_e0_x0,2023/24,41,NK Rijeka,1101.403119929098,0.876,1,False,False,False,True
+c0_e0_x0,2023/24,181,FCSB,1096.6085596380326,0.8879999999999999,1,False,False,False,True
+c0_e0_x0,2023/24,62,Flora Tallinn,1095.7952664954394,0.8586666666666667,1,False,False,False,True
+c0_e0_x0,2023/24,190,Hearts FC,1095.6521478079162,0.33,0,False,False,False,False
+c0_e0_x0,2023/24,173,Raków Czestochowa,1094.64359532694,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2023/24,122,FK Astana,1091.4904378787674,0.8226666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,42,AEK Larnaca,1091.3833534092207,0.53,0,False,False,False,False
+c0_e0_x0,2023/24,168,Rosenborg BK,1088.3103021622217,0.6433333333333334,0,False,False,False,False
+c0_e0_x0,2023/24,169,SK Brann Bergen,1086.186614882888,0.09533333333333334,0,False,False,False,False
+c0_e0_x0,2023/24,108,Shamrock Rovers,1084.5508869933078,0.9106666666666666,1,False,False,False,True
+c0_e0_x0,2023/24,102,Zalaegerszegi TE,1082.6827000855158,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,98,Panathinaikos,1080.3220466787438,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2023/24,220,Servette FC Genève,1078.8253502244795,0.3446666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,131,Riga FC,1077.803001093589,0.9413333333333334,1,False,False,False,True
+c0_e0_x0,2023/24,218,FC Lugano,1077.4193796301286,0.372,0,False,False,False,False
+c0_e0_x0,2023/24,73,KuPS Kuopio,1075.827613869686,0.9373333333333334,1,False,False,False,True
+c0_e0_x0,2023/24,39,Hajduk Split,1072.480241174268,0.7866666666666666,0,False,False,False,False
+c0_e0_x0,2023/24,99,DVSC Debrecen,1068.0736904154,0.11266666666666666,0,False,False,False,False
+c0_e0_x0,2023/24,18,Neftchi Baku,1060.844096967627,0.884,1,False,False,False,True
+c0_e0_x0,2023/24,187,Aberdeen,1054.31910583966,0.6113333333333334,0,False,False,False,False
+c0_e0_x0,2023/24,196,Vojvodina Novi Sad,1052.6206890114518,0.36733333333333335,0,False,False,False,False
+c0_e0_x0,2023/24,165,Linfield Belfast,1052.2277073928421,0.9033333333333333,1,False,False,False,True
+c0_e0_x0,2023/24,149,Zimbru Chisinau,1050.143568346944,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,192,Cukaricki Belgrade,1048.0588231738193,0.6326666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,219,FC Luzern,1046.3681259818406,0.36200000000000004,0,False,False,False,False
+c0_e0_x0,2023/24,21,BATE Borisov,1045.8845033060009,0.7733333333333333,0,False,False,False,False
+c0_e0_x0,2023/24,200,Spartak Trnava,1044.2070353446366,0.7386666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,50,AGF Aarhus,1041.8750509340255,0.3446666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,203,NK Maribor,1040.6384870662287,0.8973333333333333,1,False,False,False,True
+c0_e0_x0,2023/24,197,DAC Dunajska Streda,1040.1421139345905,0.8613333333333333,1,False,False,False,True
+c0_e0_x0,2023/24,125,FC Ballkani,1039.4102644664006,0.33,0,False,False,False,False
+c0_e0_x0,2023/24,110,Beitar Jerusalem,1037.421585436202,0.18466666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,33,Zrinjski Mostar,1037.0962685219397,0.6900000000000001,0,False,False,False,False
+c0_e0_x0,2023/24,12,Austria Wien,1036.7537644291142,0.6233333333333333,0,False,False,False,False
+c0_e0_x0,2023/24,215,Hammarby IF,1035.3091407585653,0.41666666666666674,0,False,False,False,False
+c0_e0_x0,2023/24,204,Olimpija Ljubljana,1034.4242019954936,0.8493333333333333,0,False,False,False,False
+c0_e0_x0,2023/24,121,FK Aktobe,1032.796014790374,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,191,Hibernian,1030.363250996773,0.30400000000000005,0,False,False,False,False
+c0_e0_x0,2023/24,40,NK Osijek,1029.2746570452216,0.7653333333333333,0,False,False,False,False
+c0_e0_x0,2023/24,95,Aris Thessaloniki,1025.3379861619255,0.7300000000000001,0,False,False,False,False
+c0_e0_x0,2023/24,133,FC Vaduz,1023.0220514862573,0.852,1,False,False,False,True
+c0_e0_x0,2023/24,234,The New Saints,1022.0183852291544,0.9026666666666666,1,False,False,False,True
+c0_e0_x0,2023/24,68,KI Klaksvik,1021.4029294608418,0.8919999999999999,1,False,False,False,True
+c0_e0_x0,2023/24,93,Lincoln Red Imps,1020.7673365052909,0.8806666666666667,1,False,False,False,True
+c0_e0_x0,2023/24,161,Shkendija Tetovo,1016.1716540481555,0.9066666666666667,1,False,False,False,True
+c0_e0_x0,2023/24,10,Pyunik Yerevan,1015.6255244599336,0.53,0,False,False,False,False
+c0_e0_x0,2023/24,139,F91 Dudelange,1014.266434651287,0.728,0,False,False,False,False
+c0_e0_x0,2023/24,229,Vorskla Poltava,1013.3532809722361,0.51,0,False,False,False,False
+c0_e0_x0,2023/24,130,RFS Riga,1008.0247272832963,0.8286666666666668,0,False,False,False,False
+c0_e0_x0,2023/24,71,Haka Valkeakoski,1003.2573295480981,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,145,Hamrun Spartans,999.3718659959683,0.33,0,False,False,False,False
+c0_e0_x0,2023/24,172,Pogon Szczecin,998.0867802177665,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2023/24,104,KA Akureyri,996.8580933247155,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,103,Breidablik,992.9368800443914,0.8286666666666668,0,False,False,False,False
+c0_e0_x0,2023/24,201,NK Celje,989.2558336252587,0.16,0,False,False,False,False
+c0_e0_x0,2023/24,107,Dundalk,987.9880074908825,0.6606666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,159,FK Shkupi,986.851903926023,0.8440000000000001,0,False,False,False,False
+c0_e0_x0,2023/24,11,Urartu FC,986.4231243578258,0.3446666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,36,Levski Sofia,985.9322442529406,0.45,0,False,False,False,False
+c0_e0_x0,2023/24,151,Buducnost Podgorica,984.3153936312045,0.844,0,False,False,False,False
+c0_e0_x0,2023/24,198,MSK Zilina,983.1243085700486,0.4033333333333334,0,False,False,False,False
+c0_e0_x0,2023/24,147,Petrocub Hîncesti,981.6524398938673,0.8440000000000001,0,False,False,False,False
+c0_e0_x0,2023/24,183,Sepsi OSK,980.5886476366462,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2023/24,129,FK Auda,979.0757681222092,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,127,KF Dukagjini,978.9437333439607,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,82,Dinamo Tbilisi,978.4922380740715,0.8173333333333334,0,False,False,False,False
+c0_e0_x0,2023/24,8,Alashkert FC,974.297376932924,0.8280000000000001,0,False,False,False,False
+c0_e0_x0,2023/24,124,Tobol Kustanai,971.5653387997922,0.72,0,False,False,False,False
+c0_e0_x0,2023/24,126,FC Drita,971.1691094505563,0.7633333333333333,0,False,False,False,False
+c0_e0_x0,2023/24,141,Swift Hesperange,968.0569973209149,0.198,0,False,False,False,False
+c0_e0_x0,2023/24,132,Valmieras FK,967.2233358161533,0.5733333333333334,0,False,False,False,False
+c0_e0_x0,2023/24,9,Ararat-Armenia,957.3656008519326,0.5453333333333333,0,False,False,False,False
+c0_e0_x0,2023/24,152,Sutjeska Niksic,954.9739581666387,0.844,0,False,False,False,False
+c0_e0_x0,2023/24,134,FC Hegelmann,954.7879918728838,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,17,Gabala FK,949.7355916532208,0.38866666666666666,0,False,False,False,False
+c0_e0_x0,2023/24,144,Gzira United,949.5324940590544,0.7373333333333334,0,False,False,False,False
+c0_e0_x0,2023/24,164,Larne FC,948.5136217408043,0.512,0,False,False,False,False
+c0_e0_x0,2023/24,63,Levadia Tallinn,942.9289366198626,0.778,0,False,False,False,False
+c0_e0_x0,2023/24,158,FC Struga,939.7210757718425,0.198,0,False,False,False,False
+c0_e0_x0,2023/24,66,B36 Torshavn,933.8941514637473,0.6686666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,233,Penybont,931.7746671679203,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,81,Dinamo Batumi,929.4721264643626,0.6893333333333334,0,False,False,False,False
+c0_e0_x0,2023/24,31,FK Sarajevo,925.5586728340193,0.5446666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,32,Zeljeznicar Sarajevo,924.9013166157813,0.194,0,False,False,False,False
+c0_e0_x0,2023/24,146,Milsami Orhei,924.5182796818199,0.6666666666666666,0,False,False,False,False
+c0_e0_x0,2023/24,72,Honka Espoo,923.5884181197508,0.36733333333333335,0,False,False,False,False
+c0_e0_x0,2023/24,30,Borac Banja Luka,922.4356839134927,0.6226666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,1,Egnatia Rrogozhinë,922.2452273791105,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,143,Birkirkara,921.7694973608093,0.2853333333333333,0,False,False,False,False
+c0_e0_x0,2023/24,106,Derry City,920.096353188515,0.42666666666666675,0,False,False,False,False
+c0_e0_x0,2023/24,3,Partizani Tirana,918.5583802012351,0.64,0,False,False,False,False
+c0_e0_x0,2023/24,67,HB Torshavn,917.7688808670828,0.7400000000000001,0,False,False,False,False
+c0_e0_x0,2023/24,109,St. Patrick's Athletic,917.3595522463837,0.38133333333333336,0,False,False,False,False
+c0_e0_x0,2023/24,142,Balzan FC,917.2573835626554,0.156,0,False,False,False,False
+c0_e0_x0,2023/24,69,Víkingur,916.9519291050517,0.3466666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,64,Paide Linnameeskond,915.4462640273664,0.6613333333333333,0,False,False,False,False
+c0_e0_x0,2023/24,105,Vikingur Reykjavik,913.9512904286062,0.4633333333333334,0,False,False,False,False
+c0_e0_x0,2023/24,136,Kauno Zalgiris,913.8304916467815,0.7046666666666668,0,False,False,False,False
+c0_e0_x0,2023/24,202,NK Domzale,909.6499526758319,0.44333333333333336,0,False,False,False,False
+c0_e0_x0,2023/24,5,Atlètic Club d'Escaldes,909.3649050435445,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2023/24,232,Haverfordwest County,909.0640911986236,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,2,KF Tirana,907.1156913832448,0.446,0,False,False,False,False
+c0_e0_x0,2023/24,140,Progrès Niederkorn,901.8182842966753,0.3466666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,128,SC Gjilani,896.3885438069209,0.38866666666666666,0,False,False,False,False
+c0_e0_x0,2023/24,123,Ordabasy Shymkent,896.171574041249,0.246,0,False,False,False,False
+c0_e0_x0,2023/24,231,Connah's Quay,896.1365551917817,0.5446666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,135,FK Panevezys,895.7071395268836,0.44000000000000006,0,False,False,False,False
+c0_e0_x0,2023/24,65,Trans Narva,890.9048839896449,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,7,Inter Club d'Escaldes,890.4751207116946,0.6666666666666666,0,False,False,False,False
+c0_e0_x0,2023/24,150,Arsenal Tivat,889.3200930446221,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,91,Europa FC,887.8216569185024,0.7506666666666666,0,False,False,False,False
+c0_e0_x0,2023/24,163,Glentoran,881.1691242583236,0.3446666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,22,Dinamo Minsk,877.8927094200404,0.5846666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,162,Crusaders Belfast,875.0174347196015,0.45933333333333337,0,False,False,False,False
+c0_e0_x0,2023/24,83,Torpedo Kutaisi,866.933350597987,0.16533333333333333,0,False,False,False,False
+c0_e0_x0,2023/24,4,Vllaznia Shkodër,863.2207048261513,0.47600000000000003,0,False,False,False,False
+c0_e0_x0,2023/24,185,La Fiorita,852.294355608347,0.7466666666666667,0,False,False,False,False
+c0_e0_x0,2023/24,80,Dila Gori,852.2311938980883,0.44000000000000006,0,False,False,False,False
+c0_e0_x0,2023/24,138,Differdange 03,850.4597583424681,0.37533333333333335,0,False,False,False,False
+c0_e0_x0,2023/24,186,Tre Penne,848.6313627638889,0.6773333333333333,0,False,False,False,False
+c0_e0_x0,2023/24,92,FCB Magpies,848.029492789053,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2023/24,24,Torpedo Zhodino,847.8958227015273,0.198,0,False,False,False,False
+c0_e0_x0,2023/24,6,FC Santa Coloma,842.6634315839668,0.536,0,False,False,False,False
+c0_e0_x0,2023/24,23,Neman Grodno,839.9240197509306,0.0,0,False,False,False,False
+c0_e0_x0,2023/24,160,Makedonija GjP,838.6296818752226,0.3373333333333334,0,False,False,False,False
+c0_e0_x0,2023/24,184,Cosmos,832.871429142852,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,87,Bayer Leverkusen,1988.6108160299752,1.0,2,False,False,True,True
+c0_e0_x0,2024/25,59,Manchester City,1986.8656303772198,1.0,2,False,False,True,True
+c0_e0_x0,2024/25,121,Internazionale,1984.7723525827473,1.0,2,False,False,True,True
+c0_e0_x0,2024/25,78,Paris Saint-Germain,1981.9935822408033,1.0,2,False,False,True,True
+c0_e0_x0,2024/25,212,Real Madrid,1968.7704180152443,1.0,2,False,False,True,True
+c0_e0_x0,2024/25,58,Liverpool,1967.4757535937817,1.0,2,False,False,True,True
+c0_e0_x0,2024/25,88,Bayern München,1962.173361519226,1.0,2,False,False,True,True
+c0_e0_x0,2024/25,117,AS Roma,1956.0861767158415,1.0,2,False,False,True,True
+c0_e0_x0,2024/25,89,Borussia Dortmund,1955.2030345295746,1.0,2,False,False,True,True
+c0_e0_x0,2024/25,91,RB Leipzig,1921.9281042091495,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,209,FC Barcelona,1905.7299256882939,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,208,Atlético Madrid,1904.2385036616424,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,177,Benfica,1895.3658544502969,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,178,FC Porto,1873.7002230839403,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,60,Manchester United,1860.8838878308616,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,28,Club Brugge,1846.9959458872586,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,55,Arsenal,1843.1416939890764,0.8,0,False,False,False,False
+c0_e0_x0,2024/25,116,AC Milan,1842.6318921729464,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2024/25,118,Atalanta,1806.640265286536,0.73,0,False,False,False,False
+c0_e0_x0,2024/25,213,Real Sociedad,1779.7455515271058,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2024/25,159,Feyenoord,1774.328295898866,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,161,PSV Eindhoven,1772.696789226017,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,90,Eintracht Frankfurt,1770.778903119514,0.8700000000000001,1,False,False,False,True
+c0_e0_x0,2024/25,57,Chelsea,1766.1960711204538,0.67,0,False,False,False,False
+c0_e0_x0,2024/25,180,Sporting CP Lisbon,1758.7911850541554,0.9653333333333334,1,False,False,False,True
+c0_e0_x0,2024/25,123,Lazio,1739.0369163986816,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,190,Glasgow Rangers,1733.661530374074,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,157,Ajax,1723.481955012347,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,122,Juventus,1709.980241180825,0.67,0,False,False,False,False
+c0_e0_x0,2024/25,48,Slavia Praha,1703.7266773373374,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,232,Shakhtar Donetsk,1699.2334857711921,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,156,AZ Alkmaar,1683.1771098520783,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,52,FC København,1679.335319242772,0.974,1,False,False,False,True
+c0_e0_x0,2024/25,97,Olympiakos Piraeus,1653.3694474086064,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,224,Fenerbahçe,1652.856318020453,0.8,0,False,False,False,False
+c0_e0_x0,2024/25,38,Dinamo Zagreb,1644.4065687300936,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,13,FC Salzburg,1642.8875449966258,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,25,AA Gent,1641.9314281478726,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,75,Lille OSC,1639.1467820091,0.73,0,False,False,False,False
+c0_e0_x0,2024/25,179,Sporting Braga,1635.6178905998697,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,120,Fiorentina,1634.3169969835044,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2024/25,98,PAOK Thessaloniki,1620.1693794110508,0.9186666666666666,1,False,False,False,True
+c0_e0_x0,2024/25,115,Maccabi Tel-Aviv,1597.3464956138246,0.9906666666666667,1,False,False,False,True
+c0_e0_x0,2024/25,211,Real Betis,1588.4579674968927,0.8,0,False,False,False,False
+c0_e0_x0,2024/25,61,Tottenham Hotspur,1585.661513416473,0.67,0,False,False,False,False
+c0_e0_x0,2024/25,101,Ferencváros,1564.8253073000005,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,17,Qarabag FK,1562.071181341238,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,50,Viktoria Plzen,1555.3692059488321,0.9646666666666667,1,False,False,False,True
+c0_e0_x0,2024/25,196,Red Star Belgrade,1551.6458138988678,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,201,Slovan Bratislava,1545.0865511987718,0.9653333333333334,1,False,False,False,True
+c0_e0_x0,2024/25,169,Bodø/Glimt,1516.0847927683399,0.9040000000000001,1,False,False,False,True
+c0_e0_x0,2024/25,29,Union Saint-Gilloise,1504.980136614189,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2024/25,222,Young Boys,1499.5847330051602,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,189,Celtic,1491.3802094584273,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,225,Galatasaray,1489.6020635132775,0.704,0,False,False,False,False
+c0_e0_x0,2024/25,49,Sparta Praha,1446.0064247387918,0.9093333333333333,1,False,False,False,True
+c0_e0_x0,2024/25,37,Ludogorets Razgrad,1441.7010546227561,1.0,1,False,False,False,True
+c0_e0_x0,2024/25,56,Aston Villa,1438.0262767615059,0.33,0,False,False,False,False
+c0_e0_x0,2024/25,170,Molde FK,1436.607482538981,0.9733333333333334,1,False,False,False,True
+c0_e0_x0,2024/25,92,VfB Stuttgart,1432.6729950431718,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,53,FC Midtjylland,1428.6080844093738,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2024/25,74,AS Monaco,1421.5226533514378,0.4700000000000001,0,False,False,False,False
+c0_e0_x0,2024/25,210,Girona FC,1411.9209936674529,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,14,LASK,1401.0703871246,0.73,0,False,False,False,False
+c0_e0_x0,2024/25,119,Bologna,1389.9390437709394,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,194,Partizan Belgrade,1388.2366703023902,0.9299999999999999,1,False,False,False,True
+c0_e0_x0,2024/25,80,Stade Brestois,1370.7522088683916,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,207,Athletic Bilbao,1370.4230389504496,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,77,Olympique Lyon,1351.6878736103074,0.27,0,False,False,False,False
+c0_e0_x0,2024/25,113,Maccabi Haifa,1338.7792782287477,0.9733333333333334,1,False,False,False,True
+c0_e0_x0,2024/25,182,CFR Cluj,1338.5289274098288,0.912,1,False,False,False,True
+c0_e0_x0,2024/25,228,Dynamo Kyiv,1334.972767642736,0.956,1,False,False,False,True
+c0_e0_x0,2024/25,226,Istanbul Basaksehir,1333.1539967135006,0.4700000000000001,0,False,False,False,False
+c0_e0_x0,2024/25,76,OGC Nice,1332.087523373553,0.4,0,False,False,False,False
+c0_e0_x0,2024/25,173,Jagiellonia Bialystok,1316.4082341928865,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,174,Legia Warsaw,1309.8047099468583,0.7126666666666668,0,False,False,False,False
+c0_e0_x0,2024/25,151,Sheriff Tiraspol,1309.6920929556384,0.974,1,False,False,False,True
+c0_e0_x0,2024/25,26,Anderlecht,1309.4939279429657,0.44333333333333336,0,False,False,False,False
+c0_e0_x0,2024/25,16,Sturm Graz,1298.5125491338706,0.8513333333333335,1,False,False,False,True
+c0_e0_x0,2024/25,27,Cercle Brugge,1294.7519274099814,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,85,1.FC Heidenheim,1293.2664552501433,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,160,Go Ahead Eagles,1281.3264308142684,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,86,1899 Hoffenheim,1272.9595465733464,0.13,0,False,False,False,False
+c0_e0_x0,2024/25,79,RC Lens,1269.6465391526594,0.33,0,False,False,False,False
+c0_e0_x0,2024/25,112,Hapoel Beer-Sheva,1261.1695593102438,0.956,1,False,False,False,True
+c0_e0_x0,2024/25,215,Djurgårdens IF,1258.8256653291373,0.616,0,False,False,False,False
+c0_e0_x0,2024/25,46,Baník Ostrava,1247.0882814203803,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,172,Tromsø IL,1226.4906921273723,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,217,Malmö FF,1205.9823607836365,0.6526666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,227,Trabzonspor,1202.2647868291854,0.5133333333333334,0,False,False,False,False
+c0_e0_x0,2024/25,15,Rapid Wien,1197.8004986748108,0.8860000000000001,1,False,False,False,True
+c0_e0_x0,2024/25,231,SC Dnipro-1,1185.8057365717573,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2024/25,47,Mladá Boleslav,1183.7269029347704,0.060666666666666674,0,False,False,False,False
+c0_e0_x0,2024/25,229,Kryvbas Kryviy Rih,1173.5934783743205,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,221,Servette FC Genève,1167.1728621469188,0.5720000000000001,0,False,False,False,False
+c0_e0_x0,2024/25,114,Maccabi Petah-Tikva,1164.718064539574,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,102,Paksi FC,1163.068200651484,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,44,Omonia Nicosia,1160.4365800680057,0.8860000000000001,1,False,False,False,True
+c0_e0_x0,2024/25,36,Cherno More Varna,1155.9556805444856,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,70,HJK Helsinki,1149.6348353605704,0.8700000000000001,1,False,False,False,True
+c0_e0_x0,2024/25,223,Besiktas,1145.3708889296431,0.6953333333333334,0,False,False,False,False
+c0_e0_x0,2024/25,43,APOEL Nicosia,1143.8433449143342,0.7826666666666666,0,False,False,False,False
+c0_e0_x0,2024/25,140,Zalgiris Vilnius,1139.6504741035362,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2024/25,193,St. Mirren,1138.006868177836,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,176,Wisla Kraków,1136.6342497794878,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,192,Kilmarnock,1135.9770928281193,0.051333333333333335,0,False,False,False,False
+c0_e0_x0,2024/25,158,FC Twente Enschede,1134.3041685602154,0.5640000000000001,0,False,False,False,False
+c0_e0_x0,2024/25,230,Polissya Zhytomyr,1130.605503276782,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,195,Radnicki 1923,1124.6509329752807,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,41,NK Rijeka,1121.372415576876,0.9186666666666666,1,False,False,False,True
+c0_e0_x0,2024/25,206,Olimpija Ljubljana,1117.9810264358955,0.8933333333333333,1,False,False,False,True
+c0_e0_x0,2024/25,175,Slask Wroclaw,1115.24680982978,0.2,0,False,False,False,False
+c0_e0_x0,2024/25,191,Hearts FC,1114.1289407949664,0.556,0,False,False,False,False
+c0_e0_x0,2024/25,45,Pafos FC,1112.2669072759131,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,96,AEK Athens,1107.76107143448,0.6673333333333333,0,False,False,False,False
+c0_e0_x0,2024/25,171,SK Brann Bergen,1106.870611202451,0.3373333333333333,0,False,False,False,False
+c0_e0_x0,2024/25,218,FC Lugano,1104.952536318796,0.5980000000000001,0,False,False,False,False
+c0_e0_x0,2024/25,184,FCSB,1099.6681779501498,0.8766666666666667,1,False,False,False,True
+c0_e0_x0,2024/25,219,FC Sankt Gallen,1098.974623467222,0.08666666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,68,KI Klaksvik,1094.972480713087,0.9293333333333333,1,False,False,False,True
+c0_e0_x0,2024/25,181,Vitória Guimarães,1092.1669036877852,0.546,0,False,False,False,False
+c0_e0_x0,2024/25,128,FC Ballkani,1089.9711169891889,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2024/25,125,FK Astana,1088.6263798336463,0.8666666666666667,1,False,False,False,True
+c0_e0_x0,2024/25,42,AEK Larnaca,1086.2120209637847,0.6260000000000001,0,False,False,False,False
+c0_e0_x0,2024/25,54,Silkeborg IF,1083.826791784505,0.27,0,False,False,False,False
+c0_e0_x0,2024/25,62,Flora Tallinn,1081.3577885316463,0.8573333333333333,1,False,False,False,True
+c0_e0_x0,2024/25,51,Brøndby IF,1080.6592659188952,0.504,0,False,False,False,False
+c0_e0_x0,2024/25,99,Panathinaikos,1079.8254607505555,0.528,0,False,False,False,False
+c0_e0_x0,2024/25,39,Hajduk Split,1077.1628179417426,0.7693333333333333,0,False,False,False,False
+c0_e0_x0,2024/25,135,Riga FC,1076.7383674068894,0.974,1,False,False,False,True
+c0_e0_x0,2024/25,220,FC Zürich,1075.0303203416245,0.27,0,False,False,False,False
+c0_e0_x0,2024/25,183,Corvinul Hunedoara,1073.3118821583362,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,109,Shamrock Rovers,1068.7068786838574,0.912,1,False,False,False,True
+c0_e0_x0,2024/25,10,Pyunik Yerevan,1066.4462316905194,0.67,0,False,False,False,False
+c0_e0_x0,2024/25,33,Zrinjski Mostar,1063.134652874017,0.774,0,False,False,False,False
+c0_e0_x0,2024/25,20,Zira FK,1060.0711204450556,0.198,0,False,False,False,False
+c0_e0_x0,2024/25,202,Spartak Trnava,1056.7412800098264,0.8246666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,205,NK Maribor,1056.327287115876,0.9299999999999999,1,False,False,False,True
+c0_e0_x0,2024/25,72,KuPS Kuopio,1055.4027363950477,0.8853333333333333,1,False,False,False,True
+c0_e0_x0,2024/25,197,TSC Backa Topola,1053.8326787699614,0.42533333333333334,0,False,False,False,False
+c0_e0_x0,2024/25,12,Austria Wien,1050.1359351450787,0.754,0,False,False,False,False
+c0_e0_x0,2024/25,104,Breidablik,1049.493451162717,0.938,1,False,False,False,True
+c0_e0_x0,2024/25,204,NK Celje,1044.0670998739283,0.43400000000000005,0,False,False,False,False
+c0_e0_x0,2024/25,168,Linfield Belfast,1042.163979089792,0.9386666666666666,1,False,False,False,True
+c0_e0_x0,2024/25,40,NK Osijek,1039.081059770178,0.7953333333333333,0,False,False,False,False
+c0_e0_x0,2024/25,134,RFS Riga,1036.2307530037956,0.8939999999999999,1,False,False,False,True
+c0_e0_x0,2024/25,214,BK Häcken,1034.3670807344238,0.528,0,False,False,False,False
+c0_e0_x0,2024/25,94,Lincoln Red Imps,1032.0548139919874,0.88,1,False,False,False,True
+c0_e0_x0,2024/25,35,CSKA 1948 Sofia,1031.3884294944505,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2024/25,216,IF Elfsborg,1024.0448177129533,0.398,0,False,False,False,False
+c0_e0_x0,2024/25,127,Tobol Kustanai,1023.9858501154192,0.8246666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,73,VPS Vaasa,1022.0870167724813,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,198,Vojvodina Novi Sad,1019.1719716192611,0.502,0,False,False,False,False
+c0_e0_x0,2024/25,150,Petrocub Hîncesti,1017.8586736528118,0.8233333333333334,0,False,False,False,False
+c0_e0_x0,2024/25,18,Sabah FK,1017.2228077198703,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2024/25,203,NK Bravo,1013.6848565288293,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,199,DAC Dunajska Streda,1009.5742498732023,0.8233333333333334,0,False,False,False,False
+c0_e0_x0,2024/25,185,Universitatea Craiova,1007.9556390406312,0.5733333333333334,0,False,False,False,False
+c0_e0_x0,2024/25,100,FC Fehérvár,1000.7963655109832,0.5900000000000001,0,False,False,False,False
+c0_e0_x0,2024/25,142,F91 Dudelange,999.1718568490124,0.7726666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,236,The New Saints,997.5140972751708,0.8853333333333333,1,False,False,False,True
+c0_e0_x0,2024/25,146,Hamrun Spartans,996.230048633133,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2024/25,131,KF Malisheva,995.6453601444294,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,34,Botev Plovdiv,995.3909921806485,0.198,0,False,False,False,False
+c0_e0_x0,2024/25,126,Ordabasy Shymkent,993.032632472906,0.38933333333333336,0,False,False,False,False
+c0_e0_x0,2024/25,19,Sumgayit FK,991.6095163557451,0.23333333333333334,0,False,False,False,False
+c0_e0_x0,2024/25,148,Sliema Wanderers,990.8528348370667,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,103,Puskás Akadémia,986.3023035069164,0.4580000000000001,0,False,False,False,False
+c0_e0_x0,2024/25,1,Egnatia Rrogozhinë,984.9408725829289,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2024/25,107,Vikingur Reykjavik,984.6611798834814,0.5986666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,136,FC Vaduz,981.7919925281161,0.8153333333333334,0,False,False,False,False
+c0_e0_x0,2024/25,110,Shelbourne,978.7589442402988,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,129,FC Drita,976.8769777135875,0.762,0,False,False,False,False
+c0_e0_x0,2024/25,66,B36 Torshavn,975.3120666132959,0.764,0,False,False,False,False
+c0_e0_x0,2024/25,163,Shkendija Tetovo,973.7600101487274,0.85,1,False,False,False,True
+c0_e0_x0,2024/25,3,Partizani Tirana,971.7402991460154,0.762,0,False,False,False,False
+c0_e0_x0,2024/25,153,Buducnost Podgorica,970.9184332894272,0.858,1,False,False,False,True
+c0_e0_x0,2024/25,147,Marsaxlokk,970.3616276422479,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,106,Valur Reykjavik,969.2694029597504,0.23399999999999999,0,False,False,False,False
+c0_e0_x0,2024/25,7,UE Santa Coloma,965.6314248398008,0.198,0,False,False,False,False
+c0_e0_x0,2024/25,8,Ararat-Armenia,964.5320676033665,0.6666666666666666,0,False,False,False,False
+c0_e0_x0,2024/25,82,Dinamo Tbilisi,961.186765978603,0.8313333333333333,0,False,False,False,False
+c0_e0_x0,2024/25,137,FA Siauliai,960.6568329679054,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,200,MFK Ruzomberok,959.8455603868101,0.372,0,False,False,False,False
+c0_e0_x0,2024/25,30,Borac Banja Luka,956.6471922897233,0.7086666666666668,0,False,False,False,False
+c0_e0_x0,2024/25,162,FC Struga,952.0640390903488,0.4766666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,105,Stjarnan FC,951.3393714564681,0.20733333333333334,0,False,False,False,False
+c0_e0_x0,2024/25,124,FK Aktobe,949.9239835495778,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2024/25,167,Larne FC,948.5070810225053,0.6839999999999999,0,False,False,False,False
+c0_e0_x0,2024/25,81,Dinamo Batumi,947.1722788872789,0.7626666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,138,FK Panevezys,946.7373197602029,0.6306666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,6,Inter Club d'Escaldes,946.2024210467168,0.7886666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,71,Ilves Tampere,944.8968059381903,0.08666666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,141,Differdange 03,942.2530062794308,0.5266666666666666,0,False,False,False,False
+c0_e0_x0,2024/25,152,Zimbru Chisinau,938.307736489301,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2024/25,9,FC Noah,938.16204164552,0.23333333333333334,0,False,False,False,False
+c0_e0_x0,2024/25,108,Derry City,935.9005576668895,0.6146666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,130,KF Llapi,934.2180693919977,0.3446666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,139,Transinvest Vilnius,932.74125717947,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,155,Mornar Bar,932.0603369148778,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,144,UNA Strassen,927.0432503356507,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,132,FK Auda,926.8296351115387,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2024/25,63,Kalev Tallinn,925.909870390738,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,145,Floriana,922.7135199173399,0.302,0,False,False,False,False
+c0_e0_x0,2024/25,32,Velez Mostar,922.5234048304129,0.398,0,False,False,False,False
+c0_e0_x0,2024/25,64,Levadia Tallinn,921.6575275420662,0.7693333333333333,0,False,False,False,False
+c0_e0_x0,2024/25,67,HB Torshavn,921.4149630241795,0.774,0,False,False,False,False
+c0_e0_x0,2024/25,111,St. Patrick's Athletic,919.944150346237,0.5273333333333334,0,False,False,False,False
+c0_e0_x0,2024/25,69,Víkingur,915.3219151312769,0.47600000000000003,0,False,False,False,False
+c0_e0_x0,2024/25,149,Milsami Orhei,913.7620921383966,0.7006666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,22,Isloch Minsk Raion,909.7899900996273,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,31,FK Sarajevo,907.8110661416151,0.562,0,False,False,False,False
+c0_e0_x0,2024/25,21,Dinamo Minsk,906.4003377249232,0.614,0,False,False,False,False
+c0_e0_x0,2024/25,2,KF Tirana,903.3539922320151,0.624,0,False,False,False,False
+c0_e0_x0,2024/25,154,Decic Tuzi,903.2793611885843,0.3446666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,65,Paide Linnameeskond,902.418447922568,0.7453333333333334,0,False,False,False,False
+c0_e0_x0,2024/25,164,Tikves Kavadarci,898.3737123958564,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,166,Crusaders Belfast,890.0502023567301,0.5806666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,143,Progrès Niederkorn,888.6614523180959,0.45133333333333336,0,False,False,False,False
+c0_e0_x0,2024/25,186,AC Virtus,888.0393185876435,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,4,Vllaznia Shkodër,886.2603936541481,0.6133333333333333,0,False,False,False,False
+c0_e0_x0,2024/25,234,Caernarfon Town,886.085533848909,0.0,0,False,False,False,False
+c0_e0_x0,2024/25,23,Neman Grodno,883.7220137010489,0.33,0,False,False,False,False
+c0_e0_x0,2024/25,11,Urartu FC,881.3952231529714,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2024/25,165,Cliftonville,879.9561414126943,0.2586666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,24,Torpedo Zhodino,877.713540184111,0.38866666666666666,0,False,False,False,False
+c0_e0_x0,2024/25,235,Connah's Quay,876.8334046435969,0.5713333333333334,0,False,False,False,False
+c0_e0_x0,2024/25,133,FK Liepaja,874.3915178138396,0.46799999999999997,0,False,False,False,False
+c0_e0_x0,2024/25,188,Tre Penne,873.8189979716769,0.7513333333333333,0,False,False,False,False
+c0_e0_x0,2024/25,84,Torpedo Kutaisi,861.1727447146195,0.3373333333333333,0,False,False,False,False
+c0_e0_x0,2024/25,5,Atlètic Club d'Escaldes,857.2658167534781,0.4620000000000001,0,False,False,False,False
+c0_e0_x0,2024/25,187,La Fiorita,855.0536580689263,0.7426666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,83,Saburtalo Tbilisi,847.8399481025833,0.3906666666666667,0,False,False,False,False
+c0_e0_x0,2024/25,233,Bala Town,843.4602302811355,0.44000000000000006,0,False,False,False,False
+c0_e0_x0,2024/25,95,St Joseph's FC,835.0079233990901,0.528,0,False,False,False,False
+c0_e0_x0,2024/25,93,FCB Magpies,812.7141838896952,0.44000000000000006,0,False,False,False,False
+c0_e0_x0,2025/26,211,FC Barcelona,1991.6802669776503,1.0,2,False,False,True,True
+c0_e0_x0,2025/26,59,Liverpool,1990.881160516943,1.0,2,False,False,True,True
+c0_e0_x0,2025/26,81,Paris Saint-Germain,1985.1735630843284,1.0,2,False,False,True,True
+c0_e0_x0,2025/26,88,Bayern München,1982.4753517302884,1.0,2,False,False,True,True
+c0_e0_x0,2025/26,55,Arsenal,1974.3797158788313,0.8700000000000001,2,False,False,True,True
+c0_e0_x0,2025/26,60,Manchester City,1971.1259098938515,1.0,2,False,False,True,True
+c0_e0_x0,2025/26,121,Internazionale,1970.5753716745544,1.0,2,False,False,True,True
+c0_e0_x0,2025/26,214,Real Madrid,1968.7721594715035,1.0,2,False,False,True,True
+c0_e0_x0,2025/26,87,Bayer Leverkusen,1966.2447983973923,1.0,2,False,False,True,True
+c0_e0_x0,2025/26,209,Atlético Madrid,1965.6093043917592,1.0,2,False,False,True,True
+c0_e0_x0,2025/26,89,Borussia Dortmund,1959.2531754232218,1.0,2,False,False,True,True
+c0_e0_x0,2025/26,117,AS Roma,1951.0363474697933,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,179,Benfica,1919.9331238916789,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,118,Atalanta,1890.377812879638,0.8,0,False,False,False,False
+c0_e0_x0,2025/26,57,Chelsea,1888.29347823537,0.73,0,False,False,False,False
+c0_e0_x0,2025/26,90,Eintracht Frankfurt,1878.8536737681768,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2025/26,161,PSV Eindhoven,1876.718538488957,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,27,Club Brugge,1863.5909854989154,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,120,Fiorentina,1850.0504463785958,0.8,0,False,False,False,False
+c0_e0_x0,2025/26,159,Feyenoord,1833.7690128110698,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,181,FC Porto,1831.7804469693292,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,77,Lille OSC,1812.1558792164083,0.8,0,False,False,False,False
+c0_e0_x0,2025/26,183,Sporting CP Lisbon,1805.3136024921316,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2025/26,194,Glasgow Rangers,1804.4363871921337,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,99,Olympiakos Piraeus,1791.9206800799848,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,213,Real Betis,1767.015480732269,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2025/26,170,Bodø/Glimt,1743.5096150652162,0.986,1,False,False,False,True
+c0_e0_x0,2025/26,63,Tottenham Hotspur,1737.9663481066518,0.73,0,False,False,False,False
+c0_e0_x0,2025/26,157,Ajax,1732.7884195567558,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,122,Juventus,1731.6348609896727,0.73,0,False,False,False,False
+c0_e0_x0,2025/26,226,Fenerbahçe,1725.4561551217992,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2025/26,123,Napoli,1720.0506854336625,0.67,0,False,False,False,False
+c0_e0_x0,2025/26,156,AZ Alkmaar,1708.6775632583876,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,56,Aston Villa,1705.5354623085468,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2025/26,38,Dinamo Zagreb,1678.6669545594632,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,50,Viktoria Plzen,1677.1774687839884,0.986,1,False,False,False,True
+c0_e0_x0,2025/26,215,Villarreal,1672.568519290172,0.67,0,False,False,False,False
+c0_e0_x0,2025/26,52,FC København,1668.8207420353933,0.986,1,False,False,False,True
+c0_e0_x0,2025/26,233,Shakhtar Donetsk,1659.0644985137544,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,192,Celtic,1645.9646801896374,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,48,Slavia Praha,1640.1617681885689,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,29,Union Saint-Gilloise,1636.983450585428,0.8,0,False,False,False,False
+c0_e0_x0,2025/26,13,FC Salzburg,1616.939266876836,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,100,PAOK Thessaloniki,1616.2623520291186,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2025/26,103,Ferencváros,1615.4816453557492,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,227,Galatasaray,1613.075146056388,0.786,0,False,False,False,False
+c0_e0_x0,2025/26,182,Sporting Braga,1596.5408218937246,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,76,AS Monaco,1592.8834873520557,0.66,0,False,False,False,False
+c0_e0_x0,2025/26,80,Olympique Marseille,1589.9968969972915,0.67,0,False,False,False,False
+c0_e0_x0,2025/26,199,Red Star Belgrade,1579.5652633259342,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,14,Rapid Wien,1558.979887733517,0.9640000000000001,1,False,False,False,True
+c0_e0_x0,2025/26,177,Legia Warsaw,1552.2647885654917,0.7906666666666666,0,False,False,False,False
+c0_e0_x0,2025/26,116,Maccabi Tel-Aviv,1545.4344665513756,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,202,Slovan Bratislava,1543.4182151999353,0.9813333333333334,1,False,False,False,True
+c0_e0_x0,2025/26,49,Sparta Praha,1515.547413629504,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2025/26,79,Olympique Lyon,1513.3271330763782,0.4600000000000001,0,False,False,False,False
+c0_e0_x0,2025/26,53,FC Midtjylland,1499.4997477218017,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,208,Athletic Bilbao,1496.8761286566148,0.33,0,False,False,False,False
+c0_e0_x0,2025/26,18,Qarabag FK,1490.7270088227096,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,25,Anderlecht,1489.7935765329535,0.6426666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,185,FCSB,1475.7552998443684,0.9153333333333333,1,False,False,False,True
+c0_e0_x0,2025/26,15,Sturm Graz,1474.1469750633992,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2025/26,224,Young Boys,1464.8091006670068,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,92,SC Freiburg,1444.8056286159674,0.4700000000000001,0,False,False,False,False
+c0_e0_x0,2025/26,220,FC Basel,1428.866962180395,0.5840000000000001,0,False,False,False,False
+c0_e0_x0,2025/26,37,Ludogorets Razgrad,1420.6061441288682,1.0,1,False,False,False,True
+c0_e0_x0,2025/26,221,FC Lugano,1411.4180429779324,0.7466666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,62,Nottingham Forest,1382.3540679757086,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,101,Panathinaikos,1377.6856988360619,0.7466666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,58,Crystal Palace,1377.0860011428842,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,207,Olimpija Ljubljana,1360.4149679651468,0.9373333333333334,1,False,False,False,True
+c0_e0_x0,2025/26,210,Celta de Vigo,1348.0020554347116,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,91,FSV Mainz 05,1343.3598446098345,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,78,OGC Nice,1341.3031710319624,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2025/26,110,Shamrock Rovers,1340.457899102195,0.9453333333333334,1,False,False,False,True
+c0_e0_x0,2025/26,158,FC Utrecht,1338.706942527511,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,93,VfB Stuttgart,1337.5280283616103,0.33,0,False,False,False,False
+c0_e0_x0,2025/26,61,Newcastle United,1334.9377284433695,0.27,0,False,False,False,False
+c0_e0_x0,2025/26,119,Bologna,1331.193392984389,0.33,0,False,False,False,False
+c0_e0_x0,2025/26,228,Istanbul Basaksehir,1329.202733213435,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2025/26,176,Lech Poznan,1328.3761218408695,0.504,0,False,False,False,False
+c0_e0_x0,2025/26,212,Rayo Vallecano,1326.916354903084,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,45,Pafos FC,1315.99504525415,0.33,0,False,False,False,False
+c0_e0_x0,2025/26,197,Partizan Belgrade,1313.1459514782957,0.95,1,False,False,False,True
+c0_e0_x0,2025/26,229,Samsunspor,1307.4315156027476,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,175,Jagiellonia Bialystok,1304.6210609783739,0.33,0,False,False,False,False
+c0_e0_x0,2025/26,82,RC Strasbourg,1297.8925479367413,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,230,Dynamo Kyiv,1279.6101237726969,0.9640000000000001,1,False,False,False,True
+c0_e0_x0,2025/26,44,Omonia Nicosia,1274.6797238988606,0.9640000000000001,1,False,False,False,True
+c0_e0_x0,2025/26,225,Besiktas,1269.7363022283466,0.7813333333333334,0,False,False,False,False
+c0_e0_x0,2025/26,115,Maccabi Haifa,1269.5302741930668,0.9026666666666667,1,False,False,False,True
+c0_e0_x0,2025/26,26,Charleroi,1262.26839810068,0.051333333333333335,0,False,False,False,False
+c0_e0_x0,2025/26,28,Racing Genk,1261.044466744368,0.4,0,False,False,False,False
+c0_e0_x0,2025/26,184,CFR Cluj,1259.8714366372478,0.928,1,False,False,False,True
+c0_e0_x0,2025/26,151,Sheriff Tiraspol,1253.1100602724496,0.986,1,False,False,False,True
+c0_e0_x0,2025/26,30,Borac Banja Luka,1248.5789104102391,0.8386666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,204,NK Celje,1246.401697659288,0.656,0,False,False,False,False
+c0_e0_x0,2025/26,180,CD Santa Clara,1224.3846612694967,0.13,0,False,False,False,False
+c0_e0_x0,2025/26,47,Sigma Olomouc,1223.7703308721348,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,219,Malmö FF,1219.2327186754244,0.7206666666666668,0,False,False,False,False
+c0_e0_x0,2025/26,114,Hapoel Beer-Sheva,1215.9046499274511,0.92,1,False,False,False,True
+c0_e0_x0,2025/26,171,Fredrikstad FK,1201.7681229077325,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,223,Servette FC Genève,1195.3780754046154,0.7026666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,109,Vikingur Reykjavik,1184.7973990533867,0.7746666666666666,0,False,False,False,False
+c0_e0_x0,2025/26,231,FC Oleksandriya,1170.7032892921775,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,125,FK Astana,1165.0206192293217,0.9106666666666666,1,False,False,False,True
+c0_e0_x0,2025/26,72,HJK Helsinki,1158.5066826906263,0.9300000000000002,1,False,False,False,True
+c0_e0_x0,2025/26,134,RFS Riga,1156.290340095123,0.9406666666666668,1,False,False,False,True
+c0_e0_x0,2025/26,186,Universitatea Cluj,1156.2399070184176,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,40,NK Rijeka,1149.5049083818524,0.9466666666666667,1,False,False,False,True
+c0_e0_x0,2025/26,222,Lausanne Sports,1147.675791475834,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,196,Novi Pazar,1142.0630722523404,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,160,Go Ahead Eagles,1141.809991068623,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2025/26,46,Baník Ostrava,1141.2852998108087,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2025/26,174,Viking Stavanger,1140.3866931046905,0.24666666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,102,ETO Györ,1132.4028205286486,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,41,NK Varazdin,1118.0046737747123,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,33,Zrinjski Mostar,1117.6078383129402,0.8560000000000001,1,False,False,False,True
+c0_e0_x0,2025/26,140,Zalgiris Vilnius,1117.4065880431685,0.9373333333333334,1,False,False,False,True
+c0_e0_x0,2025/26,178,Raków Czestochowa,1112.174063464722,0.6000000000000001,0,False,False,False,False
+c0_e0_x0,2025/26,216,AIK Stockholm,1112.0835271870612,0.2,0,False,False,False,False
+c0_e0_x0,2025/26,173,SK Brann Bergen,1111.043073969803,0.5640000000000001,0,False,False,False,False
+c0_e0_x0,2025/26,193,Dundee United,1110.9141657468654,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,17,Araz Nakhchivan,1104.9875155862217,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,191,Aberdeen,1104.744489708356,0.45600000000000007,0,False,False,False,False
+c0_e0_x0,2025/26,69,KI Klaksvik,1103.5642355437394,0.9560000000000001,1,False,False,False,True
+c0_e0_x0,2025/26,206,NK Maribor,1098.4379525309546,0.9593333333333334,1,False,False,False,True
+c0_e0_x0,2025/26,97,AEK Athens,1097.8999255112453,0.7213333333333334,0,False,False,False,False
+c0_e0_x0,2025/26,16,Wolfsberger AC,1093.9288636180192,0.24333333333333335,0,False,False,False,False
+c0_e0_x0,2025/26,42,AEK Larnaca,1089.5586711897176,0.6759999999999999,0,False,False,False,False
+c0_e0_x0,2025/26,43,Aris Limassol,1086.1317808900662,0.41666666666666674,0,False,False,False,False
+c0_e0_x0,2025/26,39,Hajduk Split,1085.5014608445222,0.804,0,False,False,False,False
+c0_e0_x0,2025/26,172,Rosenborg BK,1084.9775451070386,0.42466666666666675,0,False,False,False,False
+c0_e0_x0,2025/26,54,Silkeborg IF,1079.430081369119,0.48600000000000004,0,False,False,False,False
+c0_e0_x0,2025/26,10,Pyunik Yerevan,1076.6601382673787,0.8,0,False,False,False,False
+c0_e0_x0,2025/26,218,Hammarby IF,1074.4705763899356,0.37933333333333336,0,False,False,False,False
+c0_e0_x0,2025/26,203,Spartak Trnava,1074.1665654994918,0.8593333333333334,1,False,False,False,True
+c0_e0_x0,2025/26,195,Hibernian,1072.2398595385503,0.3826666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,128,FC Ballkani,1070.1342073104572,0.8,0,False,False,False,False
+c0_e0_x0,2025/26,106,Breidablik,1069.0926241218676,0.9326666666666666,1,False,False,False,True
+c0_e0_x0,2025/26,217,BK Häcken,1067.9266498742809,0.6953333333333334,0,False,False,False,False
+c0_e0_x0,2025/26,51,Brøndby IF,1067.2318028247134,0.5893333333333334,0,False,False,False,False
+c0_e0_x0,2025/26,205,NK Koper,1067.0589390884716,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,95,Lincoln Red Imps,1065.6050804669965,0.9233333333333333,1,False,False,False,True
+c0_e0_x0,2025/26,9,FC Noah,1061.5285582666208,0.47200000000000003,0,False,False,False,False
+c0_e0_x0,2025/26,111,Shelbourne,1059.618908386918,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2025/26,34,Arda Kardzhali,1058.9978013710563,0.09533333333333334,0,False,False,False,False
+c0_e0_x0,2025/26,129,FC Drita,1054.9322472060267,0.8746666666666667,1,False,False,False,True
+c0_e0_x0,2025/26,12,Austria Wien,1054.7974666392322,0.7713333333333334,0,False,False,False,False
+c0_e0_x0,2025/26,113,Beitar Jerusalem,1053.455223762459,0.2446666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,64,Flora Tallinn,1052.381223928215,0.9013333333333333,1,False,False,False,True
+c0_e0_x0,2025/26,98,Aris Thessaloniki,1050.4312095054024,0.5493333333333333,0,False,False,False,False
+c0_e0_x0,2025/26,135,Riga FC,1048.7007433881843,0.8979999999999999,1,False,False,False,True
+c0_e0_x0,2025/26,236,The New Saints,1048.130802658932,0.9186666666666666,1,False,False,False,True
+c0_e0_x0,2025/26,74,KuPS Kuopio,1047.9511426374202,0.8746666666666667,1,False,False,False,True
+c0_e0_x0,2025/26,104,Paksi FC,1045.126013733549,0.33,0,False,False,False,False
+c0_e0_x0,2025/26,105,Puskás Akadémia,1035.5026967388644,0.636,0,False,False,False,False
+c0_e0_x0,2025/26,150,Petrocub Hîncesti,1034.8445292534368,0.8873333333333333,1,False,False,False,True
+c0_e0_x0,2025/26,232,Polissya Zhytomyr,1028.4527007488712,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2025/26,36,Levski Sofia,1027.2826133333767,0.44333333333333336,0,False,False,False,False
+c0_e0_x0,2025/26,84,Iberia 1999,1027.0173824044423,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,35,Cherno More Varna,1026.513907046266,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2025/26,126,Kairat Almaty,1026.1015392920915,0.328,0,False,False,False,False
+c0_e0_x0,2025/26,187,Universitatea Craiova,1025.9187543842818,0.584,0,False,False,False,False
+c0_e0_x0,2025/26,201,MSK Zilina,1019.8006428850509,0.41066666666666674,0,False,False,False,False
+c0_e0_x0,2025/26,20,Zira FK,1018.6713743679288,0.4766666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,8,Ararat-Armenia,1005.558627939231,0.7273333333333334,0,False,False,False,False
+c0_e0_x0,2025/26,198,Radnicki 1923,1004.9604287315442,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2025/26,168,Larne FC,1001.4851644171843,0.8406666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,112,St. Patrick's Athletic,999.0427752572025,0.7013333333333334,0,False,False,False,False
+c0_e0_x0,2025/26,169,Linfield Belfast,998.6826471953784,0.8666666666666667,1,False,False,False,True
+c0_e0_x0,2025/26,147,Hamrun Spartans,998.6334889835979,0.756,0,False,False,False,False
+c0_e0_x0,2025/26,153,Buducnost Podgorica,989.9225304581183,0.862,1,False,False,False,True
+c0_e0_x0,2025/26,19,Sabah FK,984.6415162690377,0.52,0,False,False,False,False
+c0_e0_x0,2025/26,142,F91 Dudelange,983.9573385889379,0.8153333333333335,0,False,False,False,False
+c0_e0_x0,2025/26,21,Dinamo Minsk,981.4235427021836,0.748,0,False,False,False,False
+c0_e0_x0,2025/26,7,Inter Club d'Escaldes,980.2102011364245,0.8573333333333333,1,False,False,False,True
+c0_e0_x0,2025/26,3,Partizani Tirana,975.5258432731025,0.8153333333333335,0,False,False,False,False
+c0_e0_x0,2025/26,149,Milsami Orhei,974.564239710002,0.77,0,False,False,False,False
+c0_e0_x0,2025/26,132,BFC Daugavpils,971.5217343916884,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,67,Paide Linnameeskond,968.819878845741,0.87,1,False,False,False,True
+c0_e0_x0,2025/26,136,FC Vaduz,965.2057241569962,0.782,0,False,False,False,False
+c0_e0_x0,2025/26,73,Ilves Tampere,959.9023625873956,0.33266666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,108,Valur Reykjavik,958.7444347852093,0.39866666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,141,Differdange 03,956.651055560874,0.6773333333333333,0,False,False,False,False
+c0_e0_x0,2025/26,66,Levadia Tallinn,954.5417574226484,0.8033333333333333,0,False,False,False,False
+c0_e0_x0,2025/26,107,KA Akureyri,954.5066509442693,0.27,0,False,False,False,False
+c0_e0_x0,2025/26,71,Víkingur,953.7487491173908,0.6573333333333333,0,False,False,False,False
+c0_e0_x0,2025/26,163,Shkendija Tetovo,949.5145358246315,0.8086666666666666,0,False,False,False,False
+c0_e0_x0,2025/26,133,FK Auda,948.7787233051696,0.528,0,False,False,False,False
+c0_e0_x0,2025/26,1,Dinamo Tirana,944.43724387979,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,127,Ordabasy Shymkent,942.1828421997665,0.5746666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,200,FC Kosice,941.1239772698148,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,31,FK Sarajevo,939.5681581423001,0.64,0,False,False,False,False
+c0_e0_x0,2025/26,65,Kalju Nomme,939.0936075041287,0.04666666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,75,SJK Seinäjoki,938.8920638657813,0.17333333333333334,0,False,False,False,False
+c0_e0_x0,2025/26,32,Zeljeznicar Sarajevo,938.5661123275129,0.2806666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,68,HB Torshavn,936.0509727741439,0.7546666666666666,0,False,False,False,False
+c0_e0_x0,2025/26,11,Urartu FC,935.2600818814577,0.6153333333333333,0,False,False,False,False
+c0_e0_x0,2025/26,124,FK Aktobe,934.6431345550387,0.47600000000000003,0,False,False,False,False
+c0_e0_x0,2025/26,131,KF Malisheva,930.109004608114,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2025/26,152,Zimbru Chisinau,929.4623340757543,0.47600000000000003,0,False,False,False,False
+c0_e0_x0,2025/26,2,Egnatia Rrogozhinë,928.1397248723996,0.48400000000000004,0,False,False,False,False
+c0_e0_x0,2025/26,130,FC Prishtina,927.4790799504705,0.17666666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,167,Dungannon Swifts,926.231104228735,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,137,Banga Gargzdai,922.7092967603875,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,162,Rabotnicki Skopje,916.2544209773256,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,23,Neman Grodno,914.595559536391,0.512,0,False,False,False,False
+c0_e0_x0,2025/26,138,FC Hegelmann,908.4474859838828,0.198,0,False,False,False,False
+c0_e0_x0,2025/26,70,NSI Runavik,908.0635028943492,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,4,Vllaznia Shkodër,907.1801047261637,0.6993333333333334,0,False,False,False,False
+c0_e0_x0,2025/26,144,UNA Strassen,899.8532698069665,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2025/26,189,La Fiorita,897.7624444771549,0.786,0,False,False,False,False
+c0_e0_x0,2025/26,145,Birkirkara,896.9515212560566,0.31066666666666665,0,False,False,False,False
+c0_e0_x0,2025/26,235,Penybont,895.1491899415835,0.198,0,False,False,False,False
+c0_e0_x0,2025/26,155,Sutjeska Niksic,892.8571172652553,0.5666666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,85,Spaeri Tbilisi,891.9763567759693,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,22,Dynamo Brest,891.5293974802595,0.156,0,False,False,False,False
+c0_e0_x0,2025/26,164,Sileks Kratovo,890.0564185438517,0.14666666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,24,Torpedo Zhodino,889.8397683185844,0.5353333333333333,0,False,False,False,False
+c0_e0_x0,2025/26,146,Floriana,889.245971597979,0.4886666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,86,Torpedo Kutaisi,885.1023945894833,0.52,0,False,False,False,False
+c0_e0_x0,2025/26,139,Kauno Zalgiris,884.9491238912491,0.504,0,False,False,False,False
+c0_e0_x0,2025/26,148,Hibernians FC,883.4418017327588,0.38133333333333336,0,False,False,False,False
+c0_e0_x0,2025/26,154,Decic Tuzi,883.4321079899413,0.5720000000000001,0,False,False,False,False
+c0_e0_x0,2025/26,143,Racing Union Luxembourg,882.9571273000877,0.24200000000000002,0,False,False,False,False
+c0_e0_x0,2025/26,165,Vardar Skopje,880.324061370705,0.0,0,False,False,False,False
+c0_e0_x0,2025/26,166,Cliftonville,879.8378069810858,0.38866666666666666,0,False,False,False,False
+c0_e0_x0,2025/26,234,Haverfordwest County,877.4486776144495,0.23399999999999999,0,False,False,False,False
+c0_e0_x0,2025/26,5,Atlètic Club d'Escaldes,875.9389184166932,0.6046666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,188,AC Virtus,869.3662328687695,0.28600000000000003,0,False,False,False,False
+c0_e0_x0,2025/26,83,Dila Gori,868.3774745478704,0.512,0,False,False,False,False
+c0_e0_x0,2025/26,6,FC Santa Coloma,857.5572824494276,0.42933333333333334,0,False,False,False,False
+c0_e0_x0,2025/26,94,FCB Magpies,854.2474526308653,0.6306666666666667,0,False,False,False,False
+c0_e0_x0,2025/26,96,St Joseph's FC,851.1501642106335,0.5573333333333333,0,False,False,False,False
+c0_e0_x0,2025/26,190,Tre Fiori,799.0793942340656,0.22466666666666668,0,False,False,False,False

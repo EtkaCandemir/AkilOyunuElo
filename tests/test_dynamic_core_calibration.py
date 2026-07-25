@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
 import pytest
 
 
@@ -16,6 +17,7 @@ from scripts.run_dynamic_core_calibration import (  # noqa: E402
     SeasonData,
     expanding_folds,
     expected_home_score,
+    load_calibration_data,
     run_season,
 )
 
@@ -68,3 +70,37 @@ def test_walk_forward_never_uses_test_or_future_season() -> None:
         (("2018/19", "2019/20"), "2020/21"),
         (("2018/19", "2019/20", "2020/21"), "2021/22"),
     )
+
+
+def test_exact_date_loader_rejects_chronology_regression(tmp_path: Path) -> None:
+    events = pd.DataFrame(
+        [
+            {
+                "match_id": "m1",
+                "season": "2024/25",
+                "event_order": 1,
+                "competition": "UCL",
+                "home_team_id": 1,
+                "away_team_id": 2,
+                "actual_home_score": 1.0,
+                "is_neutral": False,
+                "kickoff_utc": "2025-01-02T20:00:00Z",
+            },
+            {
+                "match_id": "m2",
+                "season": "2024/25",
+                "event_order": 2,
+                "competition": "UCL",
+                "home_team_id": 2,
+                "away_team_id": 1,
+                "actual_home_score": 0.0,
+                "is_neutral": False,
+                "kickoff_utc": "2025-01-01T20:00:00Z",
+            },
+        ]
+    )
+    path = tmp_path / "events.csv"
+    events.to_csv(path, index=False)
+
+    with pytest.raises(ValueError, match="exact kickoff_utc chronology"):
+        load_calibration_data(tmp_path, path, require_exact_utc=True)

@@ -19,7 +19,8 @@ from ao_elo.scoring import (
     compute_domestic_prior,
     compute_effective_european_exposure,
     compute_european_prior,
-    normalize_log_score,
+    apply_upper_tail,
+    normalize_log_score_uncapped,
     rating_source_type,
 )
 from ao_elo.validators import (
@@ -34,6 +35,7 @@ from ao_elo.validators import (
 
 OUTPUT_COLUMNS = [
     "season",
+    "model_version",
     "team_id",
     "team_name",
     "country",
@@ -44,21 +46,36 @@ OUTPUT_COLUMNS = [
     "domestic_position",
     "league_team_count",
     "weighted_country_score",
+    "country_strength_uncapped_norm",
     "league_strength_norm",
     "league_strength",
+    "country_strength_saturated",
+    "country_tail_excess",
+    "country_tail_active",
     "domestic_position_percentile",
     "league_finish_score",
     "cup_base_score",
     "cup_double_bonus",
+    "domestic_achievement_uncapped_score",
     "domestic_achievement_score",
+    "achievement_saturated",
+    "achievement_cap_active",
     "domestic_prior",
     "weighted_european_history",
+    "european_history_uncapped_norm",
     "european_history_norm",
     "european_prior",
+    "european_history_saturated",
+    "european_tail_excess",
+    "european_tail_active",
     "weighted_season_exposure",
     "weighted_match_exposure",
     "european_exposure",
     "effective_european_exposure",
+    "exposure_saturated",
+    "exposure_tail_excess",
+    "exposure_tail_active",
+    "saturation_count",
     "ao_first_elo",
     "ao_first_elo_rank",
     "rating_source_type",
@@ -98,8 +115,18 @@ def compute_ao_first_elo(
     strength = country["weighted_country_score"].apply(
         lambda score: compute_league_strength(score, config)
     )
-    country["league_strength_norm"] = strength.apply(lambda values: values[0])
-    country["league_strength"] = strength.apply(lambda values: values[1])
+    country["country_strength_uncapped_norm"] = strength.apply(lambda values: values[0])
+    country["league_strength_norm"] = strength.apply(lambda values: values[1])
+    country["league_strength"] = strength.apply(lambda values: values[2])
+    country["country_tail_excess"] = (
+        country["country_strength_uncapped_norm"] - 1.0
+    ).clip(lower=0.0)
+    country["country_strength_saturated"] = (
+        country["country_strength_uncapped_norm"] >= 1.0 - 1e-12
+    )
+    country["country_tail_active"] = (
+        (country["country_tail_excess"] > 0.0) & (config.country_tail_beta > 0.0)
+    )
 
     data = teams.merge(domestic, on="team_id", how="left", validate="one_to_one")
     if data["season"].isna().any():
@@ -118,8 +145,12 @@ def compute_ao_first_elo(
                     "season",
                     "country_code",
                     "weighted_country_score",
+                    "country_strength_uncapped_norm",
                     "league_strength_norm",
                     "league_strength",
+                    "country_strength_saturated",
+                    "country_tail_excess",
+                    "country_tail_active",
                 ]
             ],
             on=["season", "country_code"],
@@ -160,8 +191,19 @@ def compute_ao_first_elo(
     data["cup_double_bonus"] = domestic_features.apply(
         lambda item: item.cup_double_bonus
     )
+    data["domestic_achievement_uncapped_score"] = domestic_features.apply(
+        lambda item: item.domestic_achievement_uncapped_score
+    )
     data["domestic_achievement_score"] = domestic_features.apply(
         lambda item: item.domestic_achievement_score
+    )
+    data["achievement_saturated"] = (
+        data["domestic_achievement_uncapped_score"]
+        >= config.achievement_cap - 1e-12
+    )
+    data["achievement_cap_active"] = (
+        data["domestic_achievement_uncapped_score"]
+        > config.achievement_cap + 1e-12
     )
 
     data["domestic_prior"] = data.apply(
@@ -178,11 +220,23 @@ def compute_ao_first_elo(
         axis=1,
         config=config,
     )
-    data["european_history_norm"] = data["weighted_european_history"].apply(
-        lambda value: normalize_log_score(
+    data["european_history_uncapped_norm"] = data["weighted_european_history"].apply(
+        lambda value: normalize_log_score_uncapped(
             value,
             float(config.european_history_benchmark),
         )
+    )
+    data["european_history_norm"] = data["european_history_uncapped_norm"].apply(
+        lambda value: apply_upper_tail(value, config.european_tail_beta)
+    )
+    data["european_tail_excess"] = (
+        data["european_history_uncapped_norm"] - 1.0
+    ).clip(lower=0.0)
+    data["european_history_saturated"] = (
+        data["european_history_uncapped_norm"] >= 1.0 - 1e-12
+    )
+    data["european_tail_active"] = (
+        (data["european_tail_excess"] > 0.0) & (config.european_tail_beta > 0.0)
     )
     data["european_prior"] = data["european_history_norm"].apply(
         lambda norm: compute_european_prior(norm, config)
@@ -206,8 +260,26 @@ def compute_ao_first_elo(
         lambda exposure: compute_effective_european_exposure(
             exposure,
             config.max_european_exposure,
+            config.exposure_tail_beta,
         )
     )
+    data["exposure_tail_excess"] = (
+        data["european_exposure"] - config.max_european_exposure
+    ).clip(lower=0.0)
+    data["exposure_saturated"] = (
+        data["european_exposure"] >= config.max_european_exposure - 1e-12
+    )
+    data["exposure_tail_active"] = (
+        (data["exposure_tail_excess"] > 0.0) & (config.exposure_tail_beta > 0.0)
+    )
+    data["saturation_count"] = data[
+        [
+            "country_strength_saturated",
+            "achievement_saturated",
+            "european_history_saturated",
+            "exposure_saturated",
+        ]
+    ].sum(axis=1).astype(int)
 
     data["ao_first_elo"] = data.apply(
         lambda row: compute_final_rating(
@@ -228,6 +300,7 @@ def compute_ao_first_elo(
 
     data["competition"] = data.get("competition", pd.NA)
     data["entry_round"] = data.get("entry_round", data["european_entry_type"])
+    data["model_version"] = config.model_version
     data["ao_first_elo_rank"] = data["ao_first_elo"].rank(
         method="min",
         ascending=False,
@@ -265,23 +338,27 @@ def _validate_output_invariants(
     data: pd.DataFrame,
     config: AOEuropeanEloConfig,
 ) -> None:
-    """Guard the bounded model contract after feature computation."""
+    """Guard the model contract after feature computation."""
     numeric_columns = [
         "weighted_country_score",
+        "country_strength_uncapped_norm",
         "league_strength_norm",
         "league_strength",
         "league_finish_score",
         "cup_base_score",
         "cup_double_bonus",
+        "domestic_achievement_uncapped_score",
         "domestic_achievement_score",
         "domestic_prior",
         "weighted_european_history",
+        "european_history_uncapped_norm",
         "european_history_norm",
         "european_prior",
         "weighted_season_exposure",
         "weighted_match_exposure",
         "european_exposure",
         "effective_european_exposure",
+        "saturation_count",
         "ao_first_elo",
     ]
     for column in numeric_columns:
@@ -289,9 +366,6 @@ def _validate_output_invariants(
         _raise_invariant_error(data, invalid, f"{column} must be finite")
 
     for column in (
-        "league_strength_norm",
-        "league_strength",
-        "european_history_norm",
         "weighted_season_exposure",
         "weighted_match_exposure",
         "european_exposure",
@@ -300,16 +374,23 @@ def _validate_output_invariants(
         outside = (data[column] < -1e-12) | (data[column] > 1.0 + 1e-12)
         _raise_invariant_error(data, outside, f"{column} must be between 0 and 1")
 
+    for column in (
+        "country_strength_uncapped_norm",
+        "league_strength_norm",
+        "league_strength",
+        "european_history_uncapped_norm",
+        "european_history_norm",
+    ):
+        negative = data[column] < -1e-12
+        _raise_invariant_error(data, negative, f"{column} must be non-negative")
+
     effective_exposure_invalid = (
         data["effective_european_exposure"] > data["european_exposure"] + 1e-12
-    ) | (
-        data["effective_european_exposure"]
-        > config.max_european_exposure + 1e-12
     )
     _raise_invariant_error(
         data,
         effective_exposure_invalid,
-        "effective_european_exposure must not exceed raw exposure or config cap",
+        "effective_european_exposure must not exceed raw exposure",
     )
 
     achievement_outside = (data["domestic_achievement_score"] < -1e-12) | (
@@ -319,6 +400,17 @@ def _validate_output_invariants(
         data,
         achievement_outside,
         "domestic_achievement_score must respect achievement_cap",
+    )
+
+    invalid_saturation_count = (
+        (data["saturation_count"] < 0)
+        | (data["saturation_count"] > 4)
+        | (data["saturation_count"] % 1 != 0)
+    )
+    _raise_invariant_error(
+        data,
+        invalid_saturation_count,
+        "saturation_count must be an integer between 0 and 4",
     )
 
     lower_prior = data[["domestic_prior", "european_prior"]].min(axis=1)

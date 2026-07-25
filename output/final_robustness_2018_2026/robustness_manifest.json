@@ -1,0 +1,79 @@
+{
+  "robustness_contract_version": "ao-final-robustness-v1.0",
+  "model_version": "ao-european-elo-v2.0-dev-freeze",
+  "development_window": "2018/19-2025/26",
+  "untouched_holdout": "2026/27",
+  "baseline_contract": {
+    "power_carry": 0.0,
+    "standard_1x2": true,
+    "nested_outer_folds": 6,
+    "ranking_first": true,
+    "dependency_views": [
+      "tie_or_match",
+      "team_season",
+      "calendar_month"
+    ]
+  },
+  "decisions": {
+    "goal_margin": "DISABLE_GOAL_MARGIN",
+    "competition_k": "DISABLE_COMPETITION_K",
+    "achievement_reserve": "DISABLE_ACHIEVEMENT_RESERVE",
+    "external_clubelo": "UCL_CLUBELO_POINT_ESTIMATE_BETTER_INCONCLUSIVE"
+  },
+  "optional_layer_promoted": false,
+  "overall_status": "READY_FOR_HOLDOUT_WITH_CAVEATS",
+  "recommended_production_model": {
+    "model_version": "ao-european-elo-v2.0-dev-freeze",
+    "dynamic_core": {
+      "elo_scale": 835.5614973262034,
+      "home_advantage": 148.54426619132505,
+      "k_factor": 103.98098633392752
+    },
+    "active_power_carry": 0.0,
+    "one_x_two_probability": {
+      "active": true,
+      "draw_at_even": 0.24,
+      "draw_shape": 1.0,
+      "expected_score_identity_preserved": true,
+      "standard_brier": true,
+      "standard_log_loss": true
+    },
+    "goal_margin": {
+      "active": false,
+      "family": "NONE",
+      "goal_weight": 0.0,
+      "goal_cap": 1.0,
+      "favorite_damping": 0.0
+    },
+    "achievement_reserve": {
+      "active": false,
+      "reserve_base": 0.0,
+      "ucl_multiplier": 1.0,
+      "uel_multiplier": 0.65,
+      "uecl_multiplier": 0.45,
+      "stage_profile": "FLAT",
+      "reserve_decay": 0.0,
+      "reserve_cap": 297.0885323826501,
+      "trophy_uses_same_base": true
+    },
+    "decisions": {
+      "dynamic_core": "CONFIRMED_1X2",
+      "season_carry": "DISABLE_CARRY_1X2",
+      "one_x_two_output": "PROMOTE_1X2_OUTPUT",
+      "goal_margin": "DISABLE_GOAL_MARGIN",
+      "achievement_reserve": "DISABLE_ACHIEVEMENT_RESERVE",
+      "competition_k": "DISABLE_COMPETITION_K",
+      "external_clubelo": "UCL_CLUBELO_POINT_ESTIMATE_BETTER_INCONCLUSIVE"
+    },
+    "development_data_through": "2025/26",
+    "untouched_holdout": "2026/27",
+    "competition_k": {
+      "active": false,
+      "profile": "GLOBAL",
+      "ucl_multiplier": 1.0,
+      "uel_multiplier": 1.0,
+      "uecl_multiplier": 1.0,
+      "interpretation": "learning-rate multiplier, not intrinsic competition strength"
+    }
+  }
+}

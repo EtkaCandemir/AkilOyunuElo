@@ -5,10 +5,24 @@ from math import log
 from ao_elo.config import AOEuropeanEloConfig
 
 
-def normalize_log_score(value: float, benchmark: float) -> float:
-    """Benchmark-based log normalization for country and club history scores."""
+def normalize_log_score_uncapped(value: float, benchmark: float) -> float:
+    """Return the non-negative log ratio before any upper-tail treatment."""
     value = max(float(value), 0.0)
-    return min(1.0, log(1.0 + value) / log(1.0 + benchmark))
+    return log(1.0 + value) / log(1.0 + benchmark)
+
+
+def apply_upper_tail(value: float, beta: float) -> float:
+    """Preserve values through one and continue the upper tail with slope beta."""
+    value = float(value)
+    return value if value <= 1.0 else 1.0 + float(beta) * (value - 1.0)
+
+
+def normalize_log_score(value: float, benchmark: float, tail_beta: float = 0.0) -> float:
+    """Benchmark log normalization with a continuous configurable upper tail."""
+    return apply_upper_tail(
+        normalize_log_score_uncapped(value, benchmark),
+        tail_beta,
+    )
 
 
 def compute_domestic_prior(
@@ -49,9 +63,14 @@ def compute_ao_first_elo(
 def compute_effective_european_exposure(
     european_exposure: float,
     maximum: float,
+    tail_beta: float = 0.0,
 ) -> float:
-    """Cap rating influence while preserving the raw evidence measure."""
-    return min(float(european_exposure), float(maximum))
+    """Apply a continuous tail above the domestic-preservation threshold."""
+    exposure = float(european_exposure)
+    maximum = float(maximum)
+    if exposure <= maximum:
+        return exposure
+    return maximum + float(tail_beta) * (exposure - maximum)
 
 
 def rating_source_type(exposure: float, threshold: float) -> str:

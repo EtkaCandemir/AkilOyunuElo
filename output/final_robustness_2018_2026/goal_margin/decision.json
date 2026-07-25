@@ -1,0 +1,29 @@
+{
+  "decision": "DISABLE_GOAL_MARGIN",
+  "full_candidate": {
+    "family": "SQRT",
+    "weight": 1.0,
+    "cap": 2.0,
+    "favorite_damping": 0.0
+  },
+  "active_candidate": {
+    "family": "NONE",
+    "weight": 0.0,
+    "cap": 1.0,
+    "favorite_damping": 0.0
+  },
+  "guardrails": {
+    "full_candidate_active": true,
+    "nonbaseline_fold_share": 0.5,
+    "brier_fold_wins": 3,
+    "ranking_evaluable_folds": 5,
+    "ranking_no_regression_folds": 2,
+    "ranking_both_improved_folds": 0,
+    "overall_reliable_brier_improvement": false,
+    "overall_reliable_brier_harm": false,
+    "no_competition_reliable_harm": true,
+    "all_updates_zero_sum": true,
+    "ranking_floor_safe": true,
+    "movement_safe": true
+  }
+}

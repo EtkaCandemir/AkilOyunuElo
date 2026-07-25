@@ -1,0 +1,73 @@
+{
+  "model_version": "ao-european-elo-v2.0-dev-freeze",
+  "production_revision": "2026-07-23-controlled-goal-difference",
+  "dynamic_core": {
+    "elo_scale": 835.5614973262034,
+    "home_advantage": 148.54426619132505,
+    "k_factor": 103.98098633392752
+  },
+  "active_power_carry": 0.0,
+  "one_x_two_probability": {
+    "active": true,
+    "draw_at_even": 0.24,
+    "draw_shape": 1.0,
+    "expected_score_identity_preserved": true,
+    "standard_brier": true,
+    "standard_log_loss": true
+  },
+  "goal_margin": {
+    "active": true,
+    "family": "CONTROLLED_FAVORITE_DAMPED_LOG",
+    "alpha": 0.1,
+    "tau": 300.0,
+    "goal_difference_cap": 4,
+    "formula": "1 + alpha * ln(min(GD, goal_difference_cap)) * exp(-abs(D) / tau)",
+    "field_score": "90 minutes, or 120 minutes when extra time is played",
+    "penalty_multiplier": 1.0,
+    "draw_multiplier": 1.0
+  },
+  "progression_bonus": {
+    "active": false,
+    "base_bonus": 0.0
+  },
+  "achievement_reserve": {
+    "active": false,
+    "reserve_base": 0.0,
+    "ucl_multiplier": 1.0,
+    "uel_multiplier": 0.65,
+    "uecl_multiplier": 0.45,
+    "stage_profile": "FLAT",
+    "reserve_decay": 0.0,
+    "reserve_cap": 297.0885323826501,
+    "trophy_uses_same_base": true
+  },
+  "competition_k": {
+    "active": false,
+    "profile": "GLOBAL",
+    "ucl_multiplier": 1.0,
+    "uel_multiplier": 1.0,
+    "uecl_multiplier": 1.0
+  },
+  "decisions": {
+    "dynamic_core": "CONFIRMED_1X2",
+    "season_carry": "DISABLE_CARRY_1X2",
+    "one_x_two_output": "PROMOTE_1X2_OUTPUT",
+    "goal_margin": "ACTIVATE_CONTROLLED_GOAL_DIFFERENCE_0_10_300",
+    "progression_bonus": "DISABLED",
+    "achievement_reserve": "DISABLED",
+    "competition_k": "DISABLED"
+  },
+  "evidence": {
+    "source": "output/goal_shadow_parameter_search_2018_2026/parameter_search_report.md",
+    "development_window": "2018/19-2025/26",
+    "matches": 4884,
+    "brier_fold_wins": "6/6",
+    "brier_delta_vs_base": -0.00017377775921301186,
+    "log_loss_delta_vs_base": -0.00024984982162956637,
+    "pooled_spearman_delta_vs_base": 0.0006255255217031963,
+    "pooled_pairwise_delta_vs_base": 0.00009443705331790841,
+    "manual_product_decision": true
+  },
+  "development_data_through": "2025/26",
+  "prospective_monitoring": "2026/27 league phase and later"
+}

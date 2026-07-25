@@ -1,0 +1,30 @@
+{
+  "decision": "DISABLE_COMPETITION_K",
+  "full_candidate": {
+    "profile": "HIERARCHY",
+    "ucl_multiplier": 1.5,
+    "uel_multiplier": 0.75,
+    "uecl_multiplier": 0.675
+  },
+  "active_candidate": {
+    "profile": "GLOBAL",
+    "ucl_multiplier": 1.0,
+    "uel_multiplier": 1.0,
+    "uecl_multiplier": 1.0
+  },
+  "guardrails": {
+    "full_candidate_active": true,
+    "nonbaseline_fold_share": 1.0,
+    "brier_fold_wins": 1,
+    "ranking_evaluable_folds": 5,
+    "ranking_no_regression_folds": 1,
+    "ranking_both_improved_folds": 1,
+    "overall_reliable_brier_improvement": false,
+    "overall_reliable_brier_harm": false,
+    "no_competition_reliable_harm": true,
+    "all_updates_zero_sum": true,
+    "ranking_floor_safe": true,
+    "movement_safe": true,
+    "hierarchy_fold_share": 1.0
+  }
+}

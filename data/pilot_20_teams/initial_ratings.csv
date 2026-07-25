@@ -1,0 +1,21 @@
+season,team_id,team_name,ao_first_elo,competition_track,strength_band,synthetic_profile
+2026/27,T01,Apex City,1940,UCL,ELITE,elite favorite
+2026/27,T02,Royal Union,1840,UCL,ELITE,elite contender
+2026/27,T03,Northbridge FC,1740,UCL,STRONG,strong contender
+2026/27,T04,Capital Athletic,1640,UCL,STRONG,strong balanced
+2026/27,T05,Danube 04,1540,UCL,MID,mid-table champion
+2026/27,T06,Alpine Rovers,1440,UCL,MID,mid-table challenger
+2026/27,T07,Baltic Crown,1340,UCL,LOW,lower seed
+2026/27,T08,Horizon Club,1240,UCL,LOW,lowest UCL seed
+2026/27,T09,Meridian SK,1760,UEL,STRONG,UEL favorite
+2026/27,T10,Forge United,1640,UEL,STRONG,UEL contender
+2026/27,T11,Riverside 21,1520,UEL,MID,balanced UEL side
+2026/27,T12,Amber City,1400,UEL,MID,volatile UEL side
+2026/27,T13,Portside FC,1280,UEL,LOW,underdog candidate
+2026/27,T14,Meadow Athletic,1160,UEL,LOW,lowest UEL seed
+2026/27,T15,Aurora SC,1540,UECL,MID,UECL favorite
+2026/27,T16,Granite Town,1420,UECL,MID,UECL contender
+2026/27,T17,Cedar United,1300,UECL,LOW,balanced lower seed
+2026/27,T18,Island Rovers,1180,UECL,LOW,upset candidate
+2026/27,T19,Valley 1908,1060,UECL,VERY_LOW,developing side
+2026/27,T20,Frontier FC,940,UECL,VERY_LOW,lowest pilot seed

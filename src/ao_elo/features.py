@@ -6,7 +6,7 @@ from typing import Any
 import pandas as pd
 
 from ao_elo.config import AOEuropeanEloConfig, SEASON_KEYS
-from ao_elo.scoring import normalize_log_score
+from ao_elo.scoring import apply_upper_tail, normalize_log_score_uncapped
 
 
 @dataclass(frozen=True)
@@ -15,6 +15,7 @@ class DomesticAchievement:
     league_finish_score: float
     cup_base_score: float
     cup_double_bonus: float
+    domestic_achievement_uncapped_score: float
     domestic_achievement_score: float
 
 
@@ -53,13 +54,14 @@ def compute_weighted_country_score(
 def compute_league_strength(
     weighted_country_score: float,
     config: AOEuropeanEloConfig,
-) -> tuple[float, float]:
+) -> tuple[float, float, float]:
     """League Strength normalization and gamma transform."""
-    norm = normalize_log_score(
+    uncapped_norm = normalize_log_score_uncapped(
         weighted_country_score,
         float(config.country_strength_benchmark),
     )
-    return norm, norm**config.gamma
+    norm = apply_upper_tail(uncapped_norm, config.country_tail_beta)
+    return uncapped_norm, norm, norm**config.gamma
 
 
 def compute_domestic_achievement(
@@ -102,16 +104,17 @@ def compute_domestic_achievement(
         if cup_winner and champion
         else 0.0
     )
-    achievement_score = min(
-        config.achievement_cap,
-        max(league_finish_score, cup_base_score) + cup_double_bonus,
+    uncapped_achievement_score = (
+        max(league_finish_score, cup_base_score) + cup_double_bonus
     )
+    achievement_score = min(config.achievement_cap, uncapped_achievement_score)
 
     return DomesticAchievement(
         domestic_position_percentile=percentile,
         league_finish_score=league_finish_score,
         cup_base_score=cup_base_score,
         cup_double_bonus=cup_double_bonus,
+        domestic_achievement_uncapped_score=uncapped_achievement_score,
         domestic_achievement_score=achievement_score,
     )
 

@@ -15,6 +15,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from scripts.build_backtest_dataset import normalize_name  # noqa: E402
+from ao_elo.config import AOEuropeanEloConfig  # noqa: E402
 from scripts.run_dynamic_core_calibration import (  # noqa: E402
     MAX_RATING_MOVE_GUARDRAIL,
     RANK_CORRELATION_FLOOR,
@@ -360,8 +361,16 @@ def club_key(team_name: str, country_code: str) -> str:
 def load_carry_data(
     static_root: Path,
     events_path: Path,
+    static_config: AOEuropeanEloConfig | None = None,
+    *,
+    require_exact_utc: bool = False,
 ) -> tuple[tuple[CarrySeasonData, ...], pd.DataFrame]:
-    core_datasets = load_calibration_data(static_root, events_path)
+    core_datasets = load_calibration_data(
+        static_root,
+        events_path,
+        static_config,
+        require_exact_utc=require_exact_utc,
+    )
     events = pd.read_csv(events_path).sort_values(["season", "event_order"])
     required = {
         "match_id", "season", "round", "is_tie_decider", "advanced_team_id",

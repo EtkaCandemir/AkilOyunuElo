@@ -1,759 +1,490 @@
 # AO European Elo
 
-AO European Elo, UEFA kulüp turnuvaları için sezon öncesi başlangıç rating'i üreten bir Python/Pandas hesap motorudur. Model; ülke/lig gücü, yerel lig/kupa başarısı ve kulübün son yıllardaki Avrupa performansını tek bir başlangıç puanında birleştirir.
+AO European Elo, UEFA kulüp turnuvaları için sezon öncesi başlangıç rating'i,
+exact-UTC maç olaylarıyla güncellenen canlı Power Elo ve standart H/D/A maç
+olasılıkları üreten açıklanabilir bir Python/Pandas motorudur.
 
-Bu proje aktif v1.1 statik başlangıç modelini ve sıralama öncelikli tarihsel
-kalibrasyon backtestlerini içerir. `20 / 2.0 / 360` ülke adayı aggregate sonucu
-iyileştirse de sıfır-exposure gerçekçilik kontrolünü geçemediği için production'a
-alınmamıştır. Maç sonrası dinamik Elo güncellemesi bu modelden ayrı tutulur.
+Aktif geliştirme sözleşmesi `ao-european-elo-v2.0-dev-freeze` sürümüdür.
+Parametreler 2018/19-2025/26 geliştirme verisinde nested walk-forward ile
+seçilmiştir. 2026/27 elemeleri freeze tarihinden önce başladığı için sezonun
+tamamı untouched sayılamaz. Prospective holdout, yalnızca sonuçsuz fixture ile
+maçtan önce kilitlenen 2026/27 lig aşaması ve sonrası kayıtlarından oluşacaktır.
+Bu nedenle model henüz tamamen kanıtlanmış production modeli olarak tanımlanmaz.
 
-## Ana Formül
+## Model Özeti
+
+Model üç değeri ayrı tutar:
 
 ```text
-AO First Elo =
-Domestic Prior
-+ Effective European Exposure * (European Prior - Domestic Prior)
+AO First Elo            sezon öncesi statik başlangıç gücü
+Power Elo               maçlarla sıfır toplamlı değişen güç
+Achievement Reserve     tur/kupa başarısı için ayrı rezerv
 
-Effective European Exposure = min(European Exposure, 0.85)
+AO Live Elo = Power Elo + Achievement Reserve
 ```
 
-- `Domestic Prior`: Ülke/lig gücü ve yerel başarı sinyali.
-- `European Prior`: Kulübün son 5 sezondaki Avrupa performansı.
-- `European Exposure`: Avrupa performansı sinyalinin kaç sezon/maçlık veriye dayandığını gösteren ham kanıt ölçüsü.
-- `Effective European Exposure`: Final rating karışımında kullanılan ve `0.85` ile sınırlandırılan etki ölçüsü.
+Aktif sürümde Achievement Reserve backtest kapısını geçmediği için sıfırdır;
+AO Live Elo ile Power Elo aynıdır.
 
-Avrupa geçmişi olmayan takımlar cezalandırılmaz. Bu durumda iki exposure değeri de `0` olur ve final puan `Domestic Prior` değerine eşit kalır. Ham exposure `1.0` olsa bile final rating en az `%15` Domestic Prior katkısı taşır.
+### AO First Elo v2
+
+```text
+M = 1500 / (903.92 - 500) = 3.713606654783126
+AO Elo v2 = 500 + M x (AO Elo v1.1 - 500)
+```
+
+`500-2000` bir referans bandıdır ve hesap sonunda clipping uygulanmaz. Bununla
+birlikte aktif beta değerleri `0/0/0` iken bounded statik bileşenlerin ulaşılabilir
+teorik üst sınırı `2000`dir. Yani aktif AO First Elo için 2000 aynı zamanda
+yapısal bir saturation sınırıdır; Dynamic Power/Live Elo ise kırpılmaz ve bu
+değeri aşabilir. Affine dönüşüm v1.1 takım sırasını korur. Dynamic Scale, saha
+avantajı ve K aynı çarpanla ölçeklendiği için görünür puan farkının büyümesi tek
+başına tahmin gücünü yapay biçimde değiştirmez.
+
+```text
+Domestic Prior =
+    500
+    + 519.9049316696 x League Strength
+    + 594.1770647653 x Domestic Achievement x Achievement Scale
+
+European Prior =
+    500 + 1559.7147950089 x European History Norm
+
+AO First Elo =
+    Domestic Prior
+    + Effective European Exposure x (European Prior - Domestic Prior)
+```
+
+Ham exposure oynanan sezon ve maç miktarından hesaplanır. Aktif effective
+exposure tavanı `0.85`tir; tam Avrupa kanıtında Domestic Prior'ın yüzde 15'i
+korunur. Avrupa geçmişi olmayan açık sıfır satırında final rating doğrudan
+Domestic Prior'dır.
+
+### Dynamic Power Elo
+
+```text
+E_home = 1 / (1 + 10 ^ -((Home Live - Away Live + H) / Scale))
+
+Scale = 835.5614973262
+H     = 148.5442661913      nötr sahada 0
+K     = 103.9809863339
+
+Delta = K x (S_home - E_home)
+Home Power New = Home Power Old + Delta
+Away Power New = Away Power Old - Delta
+```
+
+Season carry, standart 1X2 nested walk-forward testinde yalnızca `5/6` unseen
+fold kazandığı için kapalıdır:
+
+```text
+Power Start New = Current AO First Elo
+Power Carry = 0
+```
+
+Skor 90 dakika veya uzatma oynandıysa 120 dakika sonundaki saha skorudur.
+Penaltı atışı golleri skora eklenmez; penaltıyla sonuçlanan saha beraberliği
+normal Power Elo'da `S=0.5` kalır.
+
+### Standart 1X2 Olasılıkları
+
+`E_home` bir galibiyet olasılığı değil, normalize beklenen maç puanıdır. Aktif
+olasılık katmanı bu değeri gerçek üç sınıflı çıktıya çevirir:
+
+```text
+P_draw = 0.24 x (4 x E_home x (1-E_home)) ^ 1.00
+P_home = E_home - 0.5 x P_draw
+P_away = 1 - E_home - 0.5 x P_draw
+```
+
+Bu dönüşümde olasılıklar toplamı `1` ve
+`P_home + 0.5 x P_draw = E_home` eşitliği zorunludur. Standart Brier, H/D/A
+sınıflarındaki üç kare hatanın toplamıdır; standart log-loss gerçekleşen sınıfa
+atanan olasılığın negatif logaritmasıdır.
+
+## Aktif ve Kapalı Katmanlar
+
+| Katman | Karar | Aktif değer |
+| --- | --- | ---: |
+| Country/European/Exposure tail | `NO_PROMOTION` | beta `0/0/0` |
+| Dynamic Scale/H/K | `PROMOTE` | `835.561/148.544/103.981` |
+| Season carry | `DISABLE` | `0.00` |
+| Standart 1X2 çıktı | `PROMOTE` | draw `0.24`, shape `1.00` |
+| Kontrollü gol farkı | `PROMOTE` | `alpha=0.10`, `tau=300`, GD cap `4` |
+| Sıfır-toplamlı tur bonusu | `REJECT` | aktif base bonus `0` |
+| Achievement Reserve | `DISABLE` | base `0` |
+| Normal maç turnuva K çarpanı | `DISABLE` | uygulanmaz |
+
+Final robustness'taki eski LOG/SQRT gol farkı ailesi `3/6` Brier ve `2/5`
+forward-ranking sonucu nedeniyle kapalı kalmıştır. Onun yerine 23 Temmuz
+kontrollü deneyinde `1 + alpha x ln(min(GD,4)) x exp(-abs(D)/tau)` formülü
+test edilmiştir. Önceden belirlenen `0.10/300` adayı Brier'ı `6/6` unseen
+foldda iyileştirmiş, dependency zarfları tamamen negatif ve pooled sıralama
+farkları pozitif gelmiştir. Manuel production kararıyla bu kontrollü katman
+aktif edilmiştir. Tur bonusu, turnuva K ve Achievement Reserve kapalıdır.
+
+Aktif runtime manifesti:
+
+```text
+contracts/ao_european_elo_v2_production.json
+```
 
 ## Proje Yapısı
 
 ```text
 src/ao_elo/
-  config.py        # Model parametreleri
-  features.py      # Feature hesapları
-  scoring.py       # Rating formülleri
-  validators.py    # Input validation kuralları
-  pipeline.py      # CSV/dataframe hesap pipeline'ı
+  config.py           statik v1.1/v2 parametreleri
+  features.py         statik feature hesapları
+  scoring.py          prior, exposure ve final rating formülleri
+  validators.py       statik CSV validation
+  pipeline.py         AO First Elo dataframe/CSV motoru
+  dynamic.py          reusable canlı Elo Python API'si
+  dynamic_csv.py      CSV sözleşmeleri ve batch çekirdeği
+  evaluation.py       adjusted ranking, 1X2 ve belirsizlik metrikleri
+  robustness.py       azalan getirili gol ve joint competition-K adayları
+  controlled_live.py  kontrollü GD ve sıfır-toplamlı progression çekirdeği
+  goal_shadow.py      bağımsız çok-kollu prospective shadow state'i
 
-tests/
-  test_achievement.py
-  test_exposure.py
-  test_scoring.py
+contracts/
+  ao_european_elo_v2.json
 
-data/pilot_10_teams/
-  teams.csv
-  country_coefficients.csv
-  domestic_context.csv
-  club_european_points.csv
+data/
+  pilot_10_teams/                 sentetik statik pilot
+  pilot_20_teams/                 UCL/UEL/UECL kontrollü canlı Elo pilotu
+  real_pilot_10_teams/            kaynaklı gerçek 10 takım pilotu
+  dynamic_pilot/                  sentetik exact-UTC canlı maç akışı
+  backtest_stage_b_2018_2026/     statik geliştirme verisi
+  external_elo_benchmark_2018_2026/
 
 scripts/
-  run_pilot_10_teams.py
-  build_pilot_inspection_report.py
-  build_data_requirements_pdf.py
+  run_v2_ranking_calibration.py
+  run_v2_dynamic_calibration.py
+  run_v2_goal_margin_calibration.py
+  run_v2_achievement_reserve_calibration.py
+  run_v2_evaluation_upgrade.py
+  run_final_robustness.py
+  run_controlled_goal_progression_backtest.py
+  run_goal_shadow_parameter_search.py
+  run_goal_difference_shadow.py
+  run_v2_pilots.py
+  run_pilot_20_teams.py
+  build_pilot_20_teams_pdf.py
+  run_dynamic_elo.py
+  run_dynamic_live.py
 
+tests/
 output/
-  pilot_10_teams/
-  pdf/
+docs/
 ```
 
-## Gerekli CSV Dosyaları
-
-Model dört ana input CSV bekler:
-
-1. `teams.csv`
-   - Takım kimliği, ülke, ülke kodu ve yerel lig bilgisi.
-
-2. `country_coefficients.csv`
-   - Son 5 sezon UEFA ülke katsayı puanları.
-   - Lig/ülke gücü hesabında kullanılır.
-
-3. `domestic_context.csv`
-   - Lig pozisyonu, ligdeki takım sayısı, lig şampiyonluğu, kupa şampiyonluğu ve Avrupa giriş bilgisi.
-   - Yerel başarı skorunu üretir.
-
-4. `club_european_points.csv`
-   - Kulübün son 5 sezon Avrupa puanları, Avrupa oynayıp oynamadığı, maç sayıları ve match cap değerleri.
-   - European Prior ve European Exposure hesabında kullanılır.
-   - Her hedef takım için bir satır zorunludur. Avrupa geçmişi yoksa beş sezonun puan, played ve matches değerleri açıkça `0` yazılır.
-
-### Sezon Tanımı
-
-CSV dosyalarındaki `season`, rating'in üretildiği hedef sezonu gösterir. `t`, hedef sezon başlamadan önce tamamlanmış en güncel sezon; `t_minus_4` ise beş sezonluk pencerenin en eski sezonudur. Bu kural ülke ve kulüp puanlarına aynı şekilde uygulanır ve geleceğe ait veri kullanımını engeller.
-
-### Veri Güvenliği
-
-- `teams.csv`: `team_id` tekil olmalıdır.
-- `country_coefficients.csv`: `season + country_code` tekil olmalıdır.
-- `domestic_context.csv`: tek bir hedef sezon içermeli ve `season + team_id` tekil olmalıdır.
-- `club_european_points.csv`: `season + team_id + country_code` tekil ve tüm hedef takımlar için mevcut olmalıdır.
-- Eksik, negatif, sonsuz veya sayısal olmayan ülke/kulüp puanları reddedilir.
-- Boolean alanlar yalnızca `true/false` veya `0/1` kabul eder.
-- `official_five_year_total`, `official_country_rank`, `official_club_coefficient` ve `country_part` opsiyonel denetim alanlarıdır; ana formülde kullanılmaz.
-
-Output CSV, ara model metriklerine ek olarak hedef `season`, `domestic_league`,
-`domestic_position`, `league_team_count`, ham `european_exposure` ve rating'de
-kullanılan `effective_european_exposure` alanlarını içerir. Final rating kolonunun
-kalıcı adı `ao_first_elo`, sıralama kolonu `ao_first_elo_rank` değeridir. Satırlar
-rating azalan, eşitlikte `team_id` artan sırada yazılır.
-
-Detaylı alan sözlüğü için:
-
-```text
-output/pdf/AkilOyunu_VeriAnlamlandirma.pdf
-```
-
-## Kurulum
+## Kurulum ve Test
 
 ```bash
 python3 -m pip install -r requirements.txt
-```
-
-## Testleri Çalıştırma
-
-```bash
 pytest -q
 ```
 
-Beklenen mevcut sonuç:
+V1.1 sayısal pilotları ve API'si regresyon modeli olarak korunur. Yeni testler
+v2 affine dönüşümünü, tail sürekliliğini, adjusted ranking guardrail'lerini,
+exact-date dinamik çekirdeği, carry, standart 1X2, bağımlılık bootstrap'ı, gol
+farkı, reserve, CSV/API parity ve frozen contract uyumunu kapsar.
+
+## Statik Veri Sözleşmesi
+
+AO First Elo dört CSV bekler:
+
+1. `teams.csv`
+2. `country_coefficients.csv`
+3. `domestic_context.csv`
+4. `club_european_points.csv`
+
+Anahtarlar:
 
 ```text
-153 passed
+teams.csv                    team_id
+country_coefficients.csv     season + country_code
+domestic_context.csv         season + team_id
+club_european_points.csv     season + team_id + country_code
 ```
 
-## Pilot Veri Setini Çalıştırma
+Her hedef takım için kulüp geçmişi satırı zorunludur. Avrupa geçmişi yoksa beş
+sezon puan, played ve matches açıkça `0` yazılır. Duplicate anahtar, eksik veya
+negatif puan, NaN/sonsuz değer, geçersiz boolean, lig pozisyonu çelişkisi ve
+pozitif olmayan match cap açıklayıcı hatayla reddedilir.
 
-10 takımlı sentetik pilot veri seti için:
+Statik output'ta `ao_first_elo`, deterministik `ao_first_elo_rank`, uncapped ve
+tail-adjusted normlar, saturation/tail bayrakları, Domestic/European prior ve
+iki exposure alanı bulunur.
+
+## Pilotları Çalıştırma
+
+V1.1 regresyon pilotları:
 
 ```bash
 python3 scripts/run_pilot_10_teams.py
-```
-
-Bu script şunu üretir:
-
-```text
-output/pilot_10_teams/ao_first_elo_pilot_output.csv
-```
-
-Pilot inspection raporu için:
-
-```bash
-python3 scripts/build_pilot_inspection_report.py
-```
-
-Üretilen dosyalar:
-
-```text
-output/pilot_10_teams/pilot_inspection_report.md
-output/pilot_10_teams/pilot_inspection_table.csv
-```
-
-Gerçek 2026/27 sezon öncesi 10 takımlı pilotu çalıştırmak için:
-
-```bash
 python3 scripts/run_real_pilot_10_teams.py
 ```
 
-Bu çalışma gerçek UEFA ve yerel sezon verilerini kullanır. Aktif ülke gücü
-`25 / 0.8 / 140` v1.1 değerlerini kullanır. Reddedilen `20 / 2.0 / 360`
-adayı karşılaştırma tablosunda ayrıca gösterilir. Veri kaynakları ve dönüşümler:
-
-```text
-data/real_pilot_10_teams/SOURCES.md
-```
-
-Üretilen dosyalar:
-
-```text
-output/real_pilot_10_teams/ao_first_elo_real_pilot_output.csv
-output/real_pilot_10_teams/real_pilot_review_table.csv
-output/real_pilot_10_teams/real_pilot_results.md
-```
-
-## Tarihsel Backtest
-
-`2021/22-2025/26` tarihsel UEFA backtest verisini yeniden üretmek için:
+V2 statik ve canlı uçtan uca pilot:
 
 ```bash
-python3 scripts/build_backtest_dataset.py --refresh
+python3 scripts/run_v2_pilots.py
 ```
 
-Öncelikli parametre taramasını çalıştırmak için:
+20 takımlı kontrollü gol farkı production pilotu:
 
 ```bash
-python3 scripts/run_priority_backtest.py
+python3 scripts/run_pilot_20_teams.py
+python3 scripts/build_pilot_20_teams_pdf.py
 ```
 
-Backtest 1.176 takım-sezon ve 4.344 tamamlanmış UCL, UEL ve UECL maçı
-içerir. `2025/26` seçim sırasında kullanılmayan holdout sezondur. İlk
-katman sonucunda `European_History_Benchmark=28` beş sezonun tamamında
-iyileşen Stage A adayıdır; domestic position ve league size verisi henüz
-tam olmadığı için ana config'e otomatik olarak taşınmamıştır.
+Bu sentetik paket `8 UCL / 6 UEL / 6 UECL` takım ve 33 maç içerir. Başlangıç
+rating'leri `940-1940` aralığında ayrı CSV'dedir. Production replay yanında gol
+farkı kapalı karşı-olgusal replay de üretilir; böylece final Elo üzerindeki net
+gol farkı etkisi takım bazında ölçülür.
 
-Detaylı sonuçlar:
+Ana çıktılar:
 
 ```text
-output/backtest_2021_2026/backtest_report.md
-output/backtest_2021_2026/independent_parameter_checks.csv
+output/pilot_20_teams/team_start_end_summary.csv
+output/pilot_20_teams/match_updates_detailed.csv
+output/pilot_20_teams/scenario_summary.csv
+output/pilot_20_teams/competition_summary.csv
+output/pilot_20_teams/AO_European_Elo_20_Takim_Pilot_Raporu.pdf
 ```
 
-### Stage B: Domestic Verili Backtest
+Üretilen ana dosyalar:
 
-Stage A verisini yerel lig pozisyonu ve lig takım sayısıyla zenginleştirmek için:
+```text
+output/v2_pilots/synthetic_ao_first_elo_v2.csv
+output/v2_pilots/real_ao_first_elo_v2.csv
+output/v2_pilots/dynamic_replay/ratings_state.csv
+output/v2_pilots/dynamic_replay/state_checkpoint.json
+output/v2_pilots/dynamic_replay/match_updates.csv
+output/v2_pilots/dynamic_replay/replay_predictions.csv
+output/v2_pilots/pilot_report.md
+```
+
+Gerçek 10 takım pilotunda sıra:
+
+```text
+1 Arsenal             1992.870
+2 Sporting CP         1926.711
+3 Benfica             1881.335
+4 Shakhtar Donetsk    1764.684
+5 Galatasaray         1756.282
+6 AZ Alkmaar          1741.804
+7 Slavia Praha        1621.856
+8 Pafos               1444.036
+9 Como                1421.436
+10 Omonia Nicosia     1398.415
+```
+
+Bu sıra v1.1 pilotuyla birebir aynıdır. Como sıfır exposure kontrolü olarak
+v2 Domestic Prior'ını korur ve yapay biçimde zirveye çıkmaz.
+
+## Dinamik CSV Motoru
+
+### Retrospective Replay
+
+`matches.csv` çekirdek alanları:
+
+```text
+match_id, season, kickoff_utc, competition, round,
+home_team_id, away_team_id, home_goals, away_goals,
+is_neutral, decided_on_penalties
+```
+
+Eleme turları için `tie_id`, `is_knockout`, `is_tie_decider`, `stage` ve
+`advanced_team_id` metadata'sı kullanılır.
 
 ```bash
-python3 scripts/build_backtest_stage_b.py
+python3 scripts/run_dynamic_elo.py \
+  --initial-ratings output/v2_pilots/dynamic_initial_ratings.csv \
+  --matches data/dynamic_pilot/matches.csv \
+  --output-dir output/replay_run
 ```
 
-İkinci parametre backtestini çalıştırmak için:
+Bu komut tamamlanmış sonuçları geriye dönük oynatır. Ürettiği tahmin satırları
+maç öncesi değerleri gösterse de sonuç dosyası aynı çalıştırmada mevcut olduğu
+için prospective holdout kanıtı değildir.
+
+- `ratings_state.csv`: okunabilir takım snapshot'ı.
+- `state_checkpoint.json`: processed maçlar, açık eşleşmeler, global kronoloji
+  ve ratings checksum'u ile eksiksiz resumable state.
+- `match_updates.csv`: pre/post rating, normalize beklenen puan, H/D/A
+  olasılıkları, skor, delta ve reserve audit.
+- `replay_predictions.csv`: açıkça `RETROSPECTIVE_REPLAY` etiketli tahmin audit'i.
+- `batch_manifest.json`: `prospective_holdout_evidence=false` bildirimi.
+
+### Prospective Canlı Akış
+
+Gerçek maç öncesi kayıt iki aşamalıdır. `fixtures.csv` skor içermez; önce tahmin
+kilitlenir, maç bittikten sonra ayrı `matches.csv` satırıyla settle edilir:
 
 ```bash
-python3 scripts/run_stage_b_backtest.py
+python3 scripts/run_dynamic_live.py initialize \
+  --initial-ratings initial_ratings.csv \
+  --state-dir output/live_state
+
+python3 scripts/run_dynamic_live.py lock \
+  --state-dir output/live_state \
+  --fixture next_fixture.csv
+
+python3 scripts/run_dynamic_live.py settle \
+  --state-dir output/live_state \
+  --result completed_match.csv
 ```
 
-Stage B aynı 1.176 takım-sezon ve 4.344 maçı kullanır. Şampiyon ve lig yolu
-katılımcılarında gerekli domestic position kapsaması tamdır; üst lig dışında
-kupa yoluyla gelen takımlar modelin açık unknown-position davranışında kalır.
-`2025/26` yine kilitli holdout sezondur.
+`pre_match_log.csv` append-only SHA-256 hash zinciri taşır, `generated_at_utc`
+kickoff'tan önce olmak zorundadır ve eski satırlar yeniden yazılmaz. Hash zinciri
+değişikliği görünür kılar; tek başına harici güvenilir zaman damgası değildir.
+Eşzamanlı maçların tamamı kickoff öncesi aynı state'ten kilitlenebilir; sonuçlar
+`kickoff_utc`, ardından `match_id` artan sırasıyla settle edilir. İlgili takımın
+rating'i kilitten sonra değişmişse settlement reddedilir.
 
-Stage B sonucunda ülke/lig gücü ile domestic achievement ölçeği güçlü adaylar
-olarak öne çıkmıştır. Buna karşılık sezon ağırlıkları, exposure, percentile ve
-kupa değerlerini değiştirmek için yeterli bağımsız kanıt oluşmamıştır. Grid
-kazananı doğrudan ana modele alınmamıştır; kesin config değişikliği nested
-walk-forward ve belirsizlik analizi sonrasına bırakılmıştır.
+`expected_home_score`, ev sahibi galibiyet olasılığı değildir. Anlamı normalize
+maç puanıdır: galibiyet `1`, beraberlik `0.5`, mağlubiyet `0`. Canlı ledger ve
+replay çıktıları ayrıca `home_win_probability`, `draw_probability` ve
+`away_win_probability` kolonlarını verir. Eski kalibrasyon raporlarındaki
+`Brier`/`log-loss` adları legacy expected-score tanımlarını ifade eder; yeni
+model seçiminde standart üç sınıflı `brier_1x2` ve `log_loss_1x2` kullanılır.
 
-```text
-output/backtest_stage_b_2021_2026/backtest_report.md
-output/backtest_stage_b_2021_2026/focused_parameter_checks.csv
-output/backtest_stage_b_2021_2026/independent_parameter_checks.csv
-```
+Duplicate maç, kronoloji gerilemesi, eksik takım, geçersiz skor, tie kimliği
+çelişkisi ve config/state uyuşmazlığı reddedilir. Aynı state, config ve input
+deterministik aynı sonucu üretir.
 
-### Nested Walk-Forward ve Turnuva Ayrımı
+## V2 Kalibrasyonlarını Yeniden Çalıştırma
 
-Ülke gücü ve domestic achievement adaylarını yalnızca geçmiş sezonlarla seçip
-bir sonraki görünmeyen sezonda test etmek için:
+Sıra önemlidir; her optional katman seçilmiş bir önceki model üzerinde
+incremental test edilir:
 
 ```bash
-python3 scripts/run_nested_walk_forward.py
+python3 scripts/run_v2_ranking_calibration.py
+python3 scripts/run_v2_dynamic_calibration.py
+python3 scripts/run_v2_goal_margin_calibration.py
+python3 scripts/run_v2_achievement_reserve_calibration.py
+python3 scripts/run_v2_evaluation_upgrade.py
+python3 scripts/run_final_robustness.py
+python3 scripts/run_controlled_goal_progression_backtest.py
+python3 scripts/run_goal_shadow_parameter_search.py
 ```
 
-Üç expanding-window fold kullanılır: `2023/24`, `2024/25` ve `2025/26` sırayla
-test sezonlarıdır. Sonuçlar ayrıca UCL, UEL ve UECL olarak ayrılır ve eşleşmiş
-maç log-loss farkları bootstrap güven aralıklarıyla kontrol edilir.
-
-Bu analizde `benchmark=20`, `gamma=2.0` ve
-`domestic_league_component=360` adayı aggregate metriklerde üç görünmeyen
-fold’un tamamında iyileşmiştir. Ancak sıfır-exposure Como senaryosunda
-gerçek dışı zirve rating ürettiği için production adayı olarak reddedilmiştir.
-Domestic achievement’ın
-ülke modeline ek katkısı güvenilir olmadığı için mevcut
-`domestic_achievement_component=160` ve `achievement_alpha=0.40` değerleri
-korunur.
+Ana sonuçlar:
 
 ```text
-output/backtest_nested_walk_forward/backtest_report.md
-output/backtest_nested_walk_forward/fold_selections.csv
-output/backtest_nested_walk_forward/competition_summary.csv
-output/backtest_nested_walk_forward/paired_uncertainty.csv
+Tail grid                 100 aday, 6 fold, NO_PROMOTION
+Dynamic core              6/6 fold, expected-score MSE delta -0.003955
+Legacy carry 0.85         expected-score MSE ile 6/6
+1X2 carry seçimi          5/6 fold, DISABLE, aktif carry 0
+Standart 1X2 çıktı        PROMOTE, draw 0.24 / shape 1.00
+Goal margin final         3/6 Brier, forward ranking 2/5, DISABLE
+Competition K final       1/6 Brier, forward ranking 1/5, DISABLE
+Achievement Reserve final 2/6 Brier, forward ranking 1/5, DISABLE
+Controlled GD nested       ΔBrier -0.000121, ranking 3/5, SHADOW
+Progression-only nested    ΔBrier -0.000014, ranking 3/5, REJECT
+Controlled full nested     ΔBrier -0.000260, ranking 1/5, SHADOW
+Extended GD nested         ΔBrier -0.000309, SHADOW_EVIDENCE_COLLECTION
 ```
 
-### Ranking-First Kalibrasyon
+Yeni sıralama hedefi aday rating'lerinden bağımsızdır: saha etkisi takım dışı
+maçlardan, rakip gücü doğrudan eşleşmeler dışarıda bırakılarak hesaplanır. Üç
+belirsizlik görünümü tie/match, team-season ve calendar-month bootstrap'tır;
+terfi kararı en geniş güven aralığı zarfını kullanır. Dinamik çekirdek standart
+1X2 ile `6/6` doğrulanmıştır. Carry toplamda yararlı görünse de katı `6/6`
+sözleşmesini geçmediği için üretimde kapalıdır.
 
-Ülke gücü adaylarını maç log loss'undan önce takım sıralamasıyla değerlendirmek için:
+Final robustness seçiminde dinamik sezon sonu rating'i aynı sezon sonuçlarına
+karşı ölçülmez. Rating yalnız takip eden sezonun rakip ve saha etkisinden
+arındırılmış performansına karşı değerlendirilir. Son 2025/26 rating'i için
+2026/27 kullanılmadığından beş forward ranking fold'u vardır.
+
+## Gol Farkı Prospective Shadow Akışı
+
+Kontrollü `0.10/300` gol farkı production'da aktiftir. Dört ön-kayıtlı kol,
+aktif production adayını gol farksız taban ve daha güçlü alternatiflerle
+karşılaştırmak için aynı fixture ve sonuçları bağımsız state'lerde işler:
+
+```text
+BASE              0.000 / 300
+PRE_SPECIFIED     0.100 / 300
+PRIOR_GRID_BEST   0.200 / 400
+EXTENDED_BEST     0.125 / 800
+```
+
+Başlatma ve günlük operasyon:
 
 ```bash
-python3 scripts/build_backtest_dataset.py \
-  --start-end-year 2019 \
-  --last-end-year 2026 \
-  --output-root data/backtest_2018_2026
+python3 scripts/run_goal_difference_shadow.py initialize \
+  --initial-ratings path/to/2026_27_ao_first_elo.csv \
+  --state-dir output/live_shadow_2026_27
 
-python3 scripts/build_backtest_stage_b.py \
-  --stage-a-root data/backtest_2018_2026 \
-  --output-root data/backtest_stage_b_2018_2026
+python3 scripts/run_goal_difference_shadow.py lock \
+  --state-dir output/live_shadow_2026_27 \
+  --fixture path/to/fixture.csv
 
-PYTHONPATH=src python3 scripts/run_ranking_first_calibration.py \
-  --data-root data/backtest_stage_b_2018_2026 \
-  --output-root output/ranking_first_calibration_2018_2026
+python3 scripts/run_goal_difference_shadow.py settle \
+  --state-dir output/live_shadow_2026_27 \
+  --result path/to/result.csv
 ```
 
-Bu aşama UCL, UEL ve UECL içinde Spearman sıralama korelasyonu, ikili takım
-sırası doğruluğu, üst çeyrek isabeti ve percentile sıra hatasını ölçer. Adaylar
-ayrıca tarihsel sıfır-exposure kontrolünü ve
-`data/real_pilot_10_teams/ranking_guardrails.csv` içindeki açık takım sırası
-vetolarını geçmek zorundadır. Log loss yalnızca ranking metriklerinden sonra
-eşitlik bozucu olarak kullanılır.
+Shadow state, ledger ve update dosyaları production checkpoint'inden ayrıdır.
+En az 300 lig-aşaması+ maç ve 75 UCL maçı oluşunca zorunlu izleme incelemesi
+yapılır.
+Pooled forward sıralama farkı negatif olamaz; tek fold için izin verilen azami
+gerileme Spearman'da `0.005`, pairwise'ta `0.0025`tir. Ara sonuçlara bakarak
+alpha, tau veya cap değiştirilemez; güvenilir zarar görülürse geri alma kararı
+yeni config fingerprint ile manuel verilir.
+Repo'da henüz tüm 2026/27 katılımcılarını kapsayan başlangıç rating CSV'si
+bulunmadığından bugün temiz prospective state başlatılamaz.
 
-Uzun doğrulama `2018/19-2025/26` arasındaki 8 sezonu, 1.887 takım-sezonu ve
-6.340 tamamlanmış Avrupa maçını kapsar. Stage B denetiminde 8 sezonun tamamı,
-428 lig tablosu ve 436 ülke-sezon katılım kontrolü geçmiştir.
+## UCL ve ClubElo Riski
 
-245 aday altı expanding-window fold'da değerlendirilmiştir. Fold'larda farklı
-adayların seçilmesi, görünmeyen sezonların yalnızca `4/6`'sında iyileşme ve UCL
-ile UECL sıralama skorlarındaki düşüş nedeniyle nihai karar `KEEP_V1_1` olmuştur.
-Hiçbir deneysel ülke parametresi ana modele taşınmamıştır.
+Final `carry=0` ve standart 1X2 harici benchmarkında UCL sonucu:
 
 ```text
-output/ranking_first_calibration_2018_2026/backtest_report.md
-output/ranking_first_calibration_2018_2026/fold_selections.csv
-output/ranking_first_calibration_2018_2026/competition_ranking_summary.csv
-output/ranking_first_calibration_2018_2026/pilot_guardrail_results.csv
+AO Dynamic 1X2 Brier       0.601615
+AO Static 1X2 Brier        0.606032
+ClubElo 1X2 Brier          0.572126
+AO - ClubElo              +0.029489
+Dependency envelope       [-0.002932, +0.064568]
 ```
 
-### Rating Yayılımı Kalibrasyonu
+AO Dynamic, AO Static'e karşı `-0.004417` iyileşir. ClubElo nokta tahmini daha
+iyi olsa da dependency envelope sıfırı kestiği için fark final değerlendirmede
+güvenilir değildir. Bu sonuç eşitlik veya sorunun çözüldüğü anlamına gelmez;
+paired arşiv yalnız 171 unseen UCL maçı ve ağırlıkla yerleşik kulüpleri kapsar.
+Risk 2026/27 holdout'ta UCL segmenti olarak ayrı raporlanacaktır.
 
-Başlangıç rating'lerinin birbirine fazla yakın olup olmadığını, takım sırasını
-değiştirmeden test etmek için:
+## Frozen Contract ve Holdout
 
-```bash
-PYTHONPATH=src python3 scripts/run_rating_spread_calibration.py
-```
-
-Analiz 8 sezon, 1.887 takım-sezon ve 6.340 maç kullanır. `elo_scale` ile saha
-avantajı yalnızca geçmiş sezonlarda seçilir ve sonraki görünmeyen sezonda test
-edilir. Saf rating yayılımı testi, saha avantajını `70` değerinde sabit tutarak
-altı fold'un tamamında `elo_scale=350` seçmiştir. Bu, standart `400` dönüşümüne
-göre rating farklarının yaklaşık `%14.3` daha güçlü yorumlanması anlamına gelir.
-
-Buna karşılık saf yayılım adayı görünmeyen sezonların yalnızca `4/6`'sında
-iyileşmiş ve UEL aggregate log loss değerini `+0.000226` kötüleştirmiştir. Katı
-turnuva vetosu nedeniyle karar `KEEP_CURRENT_RATING_SPREAD` olmuştur; statik
-`ao_first_elo` değerleri görsel olarak açılmamıştır.
-
-Ortak olasılık kalibrasyonunda her fold `elo_scale=300` ve saha avantajı `50`
-seçmiştir. Bu çift statik rating modelinin parçası değildir; ileride geliştirilecek
-maç olasılığı katmanı için tanısal aday olarak saklanır.
+Makinece doğrulanan parametre ve kolon sözleşmesi:
 
 ```text
-output/rating_spread_calibration_2018_2026/spread_calibration_report.md
-output/rating_spread_calibration_2018_2026/fold_selections.csv
-output/rating_spread_calibration_2018_2026/competition_summary.csv
-output/rating_spread_calibration_2018_2026/paired_uncertainty.csv
+contracts/ao_european_elo_v2.json
 ```
 
-### Dinamik Elo Veri Seti ve İlk Çekirdek Kalibrasyon
+2026/27 qualifying ve play-off maçları prospective holdout kapsamı dışındadır.
+Temiz değerlendirme en erken 8 Eylül 2026'da başlayan lig aşaması maçlarından,
+yalnızca kickoff öncesinde hash-zincirli loga yazılmış tahminlerle oluşur. Replay
+çıktıları holdout'a dahil edilmez. Sonuçlara bakarak parametre ayarlanamaz, kapalı
+katman açılamaz ve eski pre-match kayıtları yeniden yazılamaz. 2027/28 bir sonraki
+tam sezon holdout adayıdır.
 
-Maç sonrası rating araştırması için kronolojik olay veri setini üretmek üzere:
-
-```bash
-python3 scripts/build_dynamic_backtest_dataset.py
-```
-
-Veri seti 8 sezon ve 6.340 maçı tek maç grain'inde tutar. Eleme turları
-eşleşme/bacak sırasıyla, grup aşamaları altı gerçek maç günü düzeniyle, lig
-aşamaları ise doğrulanmış kaynak bloklarıyla sıralanır. Penaltı sonucu maç
-skorundan ayrı tutulur; penaltıya giden beraberlik maç güncellemesinde `0.5`,
-tur atlayan takım ise sonraki progression araştırması için `advanced_team_id`
-olarak saklanır. Takvim tarihi ve 90/120 dakika skor ayrımı kesin olmadığı
-yerlerde uydurulmaz.
+## Dokümantasyon
 
 ```text
-data/dynamic_backtest_2018_2026/matches.csv
-data/dynamic_backtest_2018_2026/build_audit.csv
-```
-
-Yalnızca `Scale`, saha avantajı ve temel `K` değerini kalibre etmek için:
-
-```bash
-python3 scripts/run_dynamic_core_calibration.py
-```
-
-İlk çekirdek çalışma 13 Scale, 9 saha avantajı ve 9 K değeri olmak üzere
-1.053 kombinasyonu altı expanding walk-forward fold'da test eder. Her sezonda
-ratingler donmuş AO First Elo v1.1 değerinden yeniden başlar; turnuva, tur,
-gol farkı, progression ve season carry çarpanları bu koşuda etkisizdir.
-
-Araştırma adayı `Scale=225`, `H=40`, `K=28` olmuştur. Aday, aynı eğitim
-sezonlarında kendi Scale/H değerini seçen `K=0` statik karşılaştırmayı görünmeyen
-sezonların `6/6`'sında ve UCL/UEL/UECL segmentlerinin tamamında geçmiştir.
-Bu değerler production config'e henüz yazılmamıştır; sonraki katman testleri
-tamamlanana kadar araştırma adayıdır.
-
-```text
-output/dynamic_core_calibration_2018_2026/calibration_report.md
-output/dynamic_core_calibration_2018_2026/fold_selections.csv
-output/dynamic_core_calibration_2018_2026/paired_uncertainty.csv
-output/dynamic_core_calibration_2018_2026/competition_summary.csv
-```
-
-#### Gol Farkı Katmanı
-
-Kontrollü gol farkı çarpanını çekirdekten bağımsız test etmek için:
-
-```bash
-python3 scripts/run_goal_margin_calibration.py
-```
-
-Test edilen formül:
-
-```text
-G = min(goal_cap, 1 + goal_weight * ln(goal_difference))
-G = 1 for draws and one-goal results
-```
-
-Nested fold seçimlerinin tamamında `goal_weight=0.50`, `goal_cap=2.00` seçilmiş
-ve katman görünmeyen sezonların `5/6`'sında çekirdeği geçmiştir. Bununla birlikte
-eşleşmiş toplam Brier farkının `%95` güven aralığı sıfırı kestiği için karar
-`KEEP_GOAL_MARGIN_AS_CANDIDATE` olmuştur. İyileşme yalnızca UCL segmentinde
-istatistiksel olarak güvenilirdir; UEL ve UECL yönü olumlu fakat kesin değildir.
-
-Görünmeyen-sezon duyarlılık tablosunda daha temkinli `weight=0.25` adayları
-`6/6` kazanıp sıralamayı daha fazla korumuştur. Bu sonuç outer test verisi
-görüldükten sonra keşfedildiğinden production parametresi olarak seçilmez;
-gelecek holdout için challenger olarak saklanır. Aktif araştırma çekirdeği
-`Scale=225`, `H=40`, `K=28` olarak değişmeden kalır.
-
-```text
-output/goal_margin_calibration_2018_2026/calibration_report.md
-output/goal_margin_calibration_2018_2026/outer_candidate_sensitivity.csv
-output/goal_margin_calibration_2018_2026/paired_uncertainty.csv
-output/goal_margin_calibration_2018_2026/goal_difference_distribution.csv
-```
-
-#### Turnuva K Çarpanları
-
-UCL'yi `1.00` referans alıp UEL ve UECL için farklı effective K değerlerini
-test etmek üzere:
-
-```bash
-python3 scripts/run_competition_multiplier_calibration.py
-```
-
-Grid zorunlu `UCL >= UEL >= UECL` hiyerarşisi altında çalışır. Tam veri adayı
-`UCL=1.00`, `UEL=1.00`, `UECL=0.625` olmuştur. `K=28` çekirdeğiyle bunlar
-sırasıyla `28`, `28` ve `17.5` effective K üretir. Katman yalnızca `2/6`
-görünmeyen fold'da çekirdekten daha iyi sonuç üretmiştir; bu nedenle karar
-`KEEP_COMPETITION_MULTIPLIERS_AS_CANDIDATE` olarak korunmuştur.
-
-Bağımsız ablation, bütün iyileşme yönünün UECL K'sını azaltmaktan geldiğini
-göstermiştir. UCL ve UEL nötr `1.00` değerinde kalır; UECL-only Brier farkı
-UECL'de `-0.000314` olmuştur. UECL parametresi yalnızca son üç fold'da yeterli
-geçmişe dayandığı için henüz production'a alınmaz. Aktif araştırma çekirdeği
-tüm turnuvalar için `K=28` kullanmaya devam eder.
-
-Bu deney turnuva prestijini değil, maç sonucundan öğrenme hızını ölçer. Bu
-nedenle `UEL=1.00` sonucu UEL'in UCL ile aynı sportif değerde olduğu anlamına
-gelmez ve prestij katsayısı olarak kullanılamaz.
-
-```text
-output/competition_multiplier_calibration_2018_2026/calibration_report.md
-output/competition_multiplier_calibration_2018_2026/fold_selections.csv
-output/competition_multiplier_calibration_2018_2026/paired_uncertainty.csv
-output/competition_multiplier_calibration_2018_2026/ablation_summary.csv
-output/competition_multiplier_calibration_2018_2026/effective_k_table.csv
-```
-
-#### Maç Galibiyeti Prestij Bonusu
-
-UCL, UEL ve UECL hiyerarşisini maç galibiyeti üzerine ayrı bir bonus olarak
-eklemeyi test etmek için:
-
-```bash
-python3 scripts/run_competition_prestige_calibration.py
-```
-
-Grid katı biçimde `UCL=1.00 > UEL > UECL` koşulunu ve UEL ile UECL arasında
-en az `0.10` farkı uygular. Referans aday `1.00 / 0.65 / 0.45` grid içinde
-yer alır. Buna rağmen altı fold'un tamamında ek galibiyet bonusu `0`
-seçilmiştir. Normal Elo güncellemesi galibiyet bilgisini zaten kullandığı için
-ikinci `(S-E)` bonusu aynı kanıtı iki kez saymış ve tahmin performansını
-kötüleştirmiştir. Karar `REJECT_WIN_PRESTIGE_BONUS_KEEP_CORE` olmuştur.
-
-```text
-output/competition_prestige_calibration_2018_2026/calibration_report.md
-output/competition_prestige_calibration_2018_2026/fold_selections.csv
-output/competition_prestige_calibration_2018_2026/full_candidate_metrics.csv
-```
-
-#### Tur Atlama Prestij Bonusu
-
-Turnuva hiyerarşisini doğrudan galibiyete değil, eleme eşleşmesini geçme
-başarısına uygulamak için:
-
-```bash
-python3 scripts/run_progression_prestige_calibration.py
-```
-
-```text
-K_progression = K_core * progression_ratio
-Delta = K_progression * competition_prestige * (Advanced - ExpectedToAdvance)
-```
-
-Eşleşme beklentisi ilk maçtan önce ve saha avantajı olmadan dondurulur. Normal
-maç güncellemesinden sonra tur atlama güncellemesi yalnızca bir kez ve sıfır
-toplamlı uygulanır. Tek maçlı ve iki maçlı eşleşmeler, penaltı kararları ve
-finaller dahil 2.106 eşleşme test edilmiştir.
-
-Nested seçim altı fold'un tamamında `progression_ratio=0` bulmuştur. Sıfır
-adayın sonucu gizlememesi için her eğitim penceresindeki en iyi zorunlu pozitif
-aday da ayrıca görülmemiş sezonda çalıştırılmıştır. Bu challenger `0/6` fold
-kazanmış; toplam Brier farkı `+0.000268` ve `%95` güven aralığı
-`+0.000157` ile `+0.000379` olmuştur. UCL, UEL ve UECL'nin üçünde de yön
-zararlıdır. Karar `REJECT_PROGRESSION_PRESTIGE_KEEP_CORE` olmuştur.
-
-Bu nedenle dinamik güç rating'inde aktif turnuva prestij katsayısı yoktur.
-`1.00 / 0.65 / 0.45` geçerli bir domain sıralaması ve test referansıdır, ancak
-etkin progression K sıfır olduğu için kalibre edilmiş model katsayısı değildir.
-
-```text
-output/progression_prestige_calibration_2018_2026/calibration_report.md
-output/progression_prestige_calibration_2018_2026/fold_selections.csv
-output/progression_prestige_calibration_2018_2026/positive_challenger_paired_uncertainty.csv
-output/progression_prestige_calibration_2018_2026/progression_k_table.csv
-```
-
-#### Eleme Aşaması Çarpanları
-
-Flat progression bonusunun erken eleme turları yüzünden başarısız olup
-olmadığını bağımsız test etmek için:
-
-```bash
-python3 scripts/run_stage_progression_calibration.py
-```
-
-Eski ve yeni turnuva formatları altı ortak aşamaya normalize edilir:
-`QUALIFYING`, `KNOCKOUT_PLAYOFF`, `ROUND_OF_16`, `QUARTERFINAL`, `SEMIFINAL`
-ve `FINAL`. Eski formatta UCL `Round 2` son 16; UEL `Round 2` erken eleme ve
-UEL `Round 3` son 16 olarak ele alınır.
-
-Test, turnuva hiyerarşisini kalibre etmez; domain referansı olarak
-`UCL=1.00`, `UEL=0.65`, `UECL=0.45` sabit tutulur. Altı önceden tanımlı,
-azalmayan aşama profili ile `0-1.0` progression oranı nested walk-forward
-seçiminde karşılaştırılır.
-
-Nested seçim yine `6/6` fold'da `progression_ratio=0` bulmuştur. En iyi
-zorunlu pozitif aday erken eleme ve knockout play-off bonusunu kapatıp son
-16'dan itibaren küçük artışlar kullanan profiller olmuştur. Bu aday yalnızca
-`3/6` fold kazanmış; toplam Brier farkı `+0.000001` ve `%95` güven aralığı
-`-0.000004` ile `+0.000005` olmuştur. Sıralama guardrail'leri geçilmiş olsa da
-tahmin faydası güvenilir değildir. Karar `KEEP_STAGE_PROGRESSION_AS_CANDIDATE`;
-katman aktif modele alınmamıştır.
-
-Finalden sonra verilen bir güncellemenin aynı sezonda etkileyeceği başka maç
-yoktur. Sezonlar başlangıç Elo'sundan yeniden başladığı için final/trophy
-çarpanı bu koşuda tanımlanabilir değildir ve `0` sabitlenmiştir. Bu değer ancak
-season carry katmanıyla birlikte kalibre edilebilir.
-
-```text
-output/stage_progression_calibration_2018_2026/calibration_report.md
-output/stage_progression_calibration_2018_2026/fold_selections.csv
-output/stage_progression_calibration_2018_2026/positive_challenger_paired_uncertainty.csv
-output/stage_progression_calibration_2018_2026/stage_multiplier_table.csv
-```
-
-#### Katı Turnuva Maç Katsayıları
-
-Turnuva farkını ek bonus yerine doğrudan normal maç Elo güncellemesinde test
-etmek için:
-
-```bash
-python3 scripts/run_strict_competition_match_calibration.py
-```
-
-```text
-Delta_match = K_core * Competition Multiplier * (S - E)
-```
-
-Nötr `1/1/1` çekirdek yalnızca karşılaştırma modelidir. Test edilen bütün
-adaylar `UCL=1.00 > UEL > UECL` ve en az `0.10` UEL-UECL farkı koşullarını
-sağlar. `1.00 / 0.65 / 0.45` referansı ayrıca her görülmemiş sezonda bağımsız
-challenger olarak çalıştırılır.
-
-Referans aday yalnızca `2/6` fold kazanmış ve toplam Brier farkını `+0.000211`
-kötüleştirmiştir. UEL segmentindeki fark `+0.000894` olmuştur. En iyi zorunlu
-katı aday `1.00 / 0.95 / 0.65` değerlerini bulmuş; `3/6` fold kazanmış ve
-güven aralığı sıfırı kesmiştir. Nested seçim altı fold'un beşinde nötr
-`1/1/1` çekirdeği korumuştur.
-
-Karar `KEEP_STRICT_COMPETITION_MATCH_MULTIPLIERS_AS_CANDIDATE` olmuştur ve
-hiçbir turnuva maç katsayısı aktif modele yazılmamıştır. Bu sonuç turnuvaların
-sportif değerini eşitlemez; `.65/.45` hiyerarşisinin normal Elo öğrenme hızına
-uygulandığında fazla sert olduğunu gösterir. Prestij farkı achievement/trophy
-rezervinde, season carry ile birlikte ayrıca test edilmelidir.
-
-```text
-output/strict_competition_match_calibration_2018_2026/calibration_report.md
-output/strict_competition_match_calibration_2018_2026/fold_selections.csv
-output/strict_competition_match_calibration_2018_2026/reference_065_045_paired_uncertainty.csv
-output/strict_competition_match_calibration_2018_2026/effective_k_table.csv
-```
-
-#### Achievement Reserve ve Season Carry
-
-Final şampiyonluğu bonusunu sonraki sezonda ölçülebilir yapmak ve sezon sonu
-Power Elo bilgisinin ne kadar korunacağını test etmek için:
-
-```bash
-python3 scripts/run_achievement_carry_calibration.py
-```
-
-```text
-Power_start = (1-carry) * AO_First_current + carry * Power_end_previous
-Reserve_start = decay * Reserve_end_previous
-AO_live = Power + Achievement Reserve
-Trophy_bonus = UCL_base * competition_reference
-```
-
-Sezonluk `team_id` değerleri kalıcı olmadığı için carry öncesinde global kulüp
-kimliği oluşturulur. İsim normalizasyonu, alias ve ülke koduyla 1.887 takım-sezon
-satırı 506 kalıcı kulübe eşlenmiş; ülke veya anahtar çakışması bulunmamıştır.
-
-Power carry tek başına görülmemiş sezonların `6/6`'sında çekirdeği geçmiş;
-eşleşmiş Brier farkı `-0.002612` ve `%95` güven aralığı `-0.004017` ile
-`-0.001286` olmuştur. Tam veri adayı `power_carry=0.85` değeridir. Carry-only
-fold seçimleri `0.85-1.00` aralığında kalmış ve `0.85` üç fold ile mod değer
-olmuştur. Karar `PROVISIONAL_ACCEPT_POWER_CARRY_TROPHY_REJECTED` olarak
-kaydedilmiştir; bu değer henüz production config'e yazılmamıştır.
-
-Trophy katkısı carry'den doğrudan ayrıştırılmıştır. En iyi zorunlu achievement
-adayı UCL/UEL/UECL için `20/13/9` bonus ve `0.25` decay kullanmış, fakat
-carry-only karşılaştırmayı yalnızca `1/6` fold geçmiştir. Incremental Brier
-farkı `+0.000070` ve güven aralığı `-0.000015` ile `+0.000155` olmuştur.
-Bu nedenle final/trophy reserve tahmin Elo'suna eklenmemiştir.
-
-Gözlenen katılımcı güçleri turnuva hiyerarşisini bonus olmadan da gösterir:
-
-```text
-Ana aşama ortalaması: UCL 829.6 / UEL 747.3 / UECL 701.0
-Eleme aşaması ortalaması: UCL 894.1 / UEL 805.4 / UECL 748.2
-```
-
-Harici tarihsel Elo karşılaştırması mutlak kalite kontrolünü güçlendirir, ancak
-mevcut paired ablation sonuçlarının yerine geçmez. Bu amaçla kesin UEFA tarihi,
-maç öncesi ClubElo snapshot'ı ve kalıcı sağlayıcı kulüp kimliği aşağıdaki ayrı
-benchmarkta hazırlanmıştır.
-
-```text
-output/achievement_carry_calibration_2018_2026/calibration_report.md
-output/achievement_carry_calibration_2018_2026/club_identity_audit.csv
-output/achievement_carry_calibration_2018_2026/competition_strength_profile.csv
-output/achievement_carry_calibration_2018_2026/trophy_incremental_paired_uncertainty.csv
-output/achievement_carry_calibration_2018_2026/external_elo_benchmark_requirements.md
-```
-
-#### Kesin Tarihli Harici Elo Benchmarkı
-
-Tekrarlanabilir veri setini üretmek ve aynı maçlarda AO ile ClubElo'yu
-karşılaştırmak için:
-
-```bash
-python3 scripts/build_external_elo_benchmark.py --allow-fuzzy-team-matches
-python3 scripts/run_external_elo_benchmark.py
-```
-
-Resmi UEFA maç servisi UCL `1`, UEL `14` ve UECL `2019` kimlikleriyle
-kullanılmış; 2018/19-2025/26 arasındaki `6.340/6.340` maça kesin UTC başlama
-zamanı ve UEFA maç/takım kimliği eklenmiştir. Kulüplerin `1.179` tanesi ad+ülke,
-`708` tanesi ise tekil fikstür grafiği kanıtıyla çözülmüştür. İsim benzerliği
-UEFA kimliği için tek başına kabul edilmemiştir.
-
-Harici rating kaynağı ClubElo'dan türetilen 1 ve 15 tarihli açık snapshot
-arşividir. Her maçta yalnızca maç tarihinden kesin olarak eski son snapshot
-kullanılır; `31` günden eski değerler reddedilir. Bu kurallarla `492` ortak maç
-oluşmuş, ilk iki sezon eğitimde bırakıldıktan sonra `363` görülmemiş maçta
-expanding walk-forward karşılaştırması yapılmıştır.
-
-```text
-AO current Brier       = 0.163249
-ClubElo Brier          = 0.158745
-AO - ClubElo           = +0.004504
-%95 paired bootstrap   = [-0.005398, +0.014634]
-```
-
-Toplam fark ClubElo yönünde olsa da güven aralığı sıfırı kestiği için genel
-üstünlük kesin değildir. UCL'de ClubElo farkı `+0.014327` ve güvenilir;
-UEL'de iki model yaklaşık eşit, UECL'de AO yön olarak daha iyi fakat belirsizdir.
-Arşiv daha çok güçlü ve yerleşik kulüpleri kapsadığı için bu sonuç tüm eleme
-takımlarına genellenmez. Ayrıca AO parametreleri aynı dönemlerle kısmen
-örtüşen veride kalibre edildiğinden bu çalışma nihai untouched holdout değildir.
-
-```text
-data/external_elo_benchmark_2018_2026/matches_with_dates_and_external_elo.csv
-data/external_elo_benchmark_2018_2026/exact_date_events.csv
-data/external_elo_benchmark_2018_2026/build_audit.csv
-output/external_elo_benchmark_2018_2026/benchmark_report.md
-output/external_elo_benchmark_2018_2026/paired_predictions.csv
-output/external_elo_benchmark_2018_2026/paired_uncertainty.csv
-```
-
-#### UCL Harici Fark Teshisi
-
-UCL alt kumesindeki ClubElo farkini katmanlara ayirmak ve olasilik olcegini
-bagimsiz test etmek icin:
-
-```bash
-python3 scripts/run_ucl_external_diagnostics.py
-python3 scripts/run_ucl_probability_scale_calibration.py
-```
-
-Normal dinamik guncelleme static baslangic Brier'ini `0.175531` degerinden
-`0.170063` degerine indirmistir. Mevcut `0.85` carry sonucu `0.171128` olup
-reset modele gore `+0.001066` fark yaratmis, ancak guven araligi sifiri kesmistir.
-Dolayisiyla normal K veya carry katmaninda guvenilir zarar bulunmamistir.
-
-Canli AO rating'lerinin ClubElo ile siralama korelasyonu `0.888094`, current
-modelin minimum sezon basi/sonu siralama korelasyonu `0.907974` ve maksimum
-rating hareketi `136.346657` olmustur. Takim siralamasi guardrail'leri gecmistir.
-
-UCL tahmin olasiligi icin `200-400` scale araligi nested walk-forward ile
-test edilmistir. Secilen adaylar baseline `225` degerini yalnizca `2/5` fold'da
-gecmis ve Brier iyilesmesi guvenilir olmamistir. Elo puanlarina veya siralamaya
-dokunulmadan yapilan bu test sonucunda da `225` korunmustur.
-
-Guncel model karari ve untouched holdout takvimi `MODEL_STATUS.md` dosyasinda
-tek yerde tutulur.
-
-```text
-output/ucl_external_diagnostics_2018_2026/diagnostic_report.md
-output/ucl_external_diagnostics_2018_2026/ucl_club_rank_discrepancies.csv
-output/ucl_probability_scale_calibration_2018_2026/calibration_report.md
+docs/AO_EUROPEAN_ELO_V2_MODEL_CONTRACT.md
+docs/HOLDOUT_PROTOCOL_2026_27.md
 MODEL_STATUS.md
-```
-
-## PDF Dokümanları
-
-Projede üç açıklayıcı PDF bulunur:
-
-```text
-AkilOyunu_Elo_Model_Aciklayici.pdf
-AkilOyunu_Elo_Model_Kisa.pdf
+output/v2_evaluation_upgrade_2018_2026/evaluation_report.md
+output/final_robustness_2018_2026/robustness_report.md
+output/controlled_goal_progression_backtest_2018_2026/backtest_report.md
+output/goal_shadow_parameter_search_2018_2026/parameter_search_report.md
+output/pdf/AkilOyunu_Elo_Model_Aciklayici.pdf
+output/pdf/AkilOyunu_Elo_Model_Kisa.pdf
 output/pdf/AkilOyunu_VeriAnlamlandirma.pdf
 ```
 
-- İlk PDF detaylı model spesifikasyonudur.
-- İkinci PDF kısa model anlatımıdır.
-- Üçüncü PDF veri ihtiyaçları ve alan sözlüğüdür.
-
-## Kalibrasyon Notu
-
-Model iki dış benchmark parametresi ister:
-
-```text
-Country_Strength_Benchmark
-European_History_Benchmark
-```
-
-Aktif v1.1 değerleri Country Strength Benchmark `25`, gamma `0.8`, domestic
-league component `140` ve European History Benchmark `20` olarak dondurulmuştur.
-Bu değerler 8 sezonluk ranking-first backtestte değiştirilmek için yeterince
-tutarlı kanıt oluşmadığından statik başlangıç modelinde korunur.
-
-## Durum
-
-Bu repo şu an v1.1 model davranışıyla:
-
-- Modüler Python hesap motoru içerir.
-- Input validation kurallarını uygular.
-- Sentetik pilot veri seti ve pilot raporu içerir.
-- Gerçek 10 takımlı pilot veri seti ve reddedilen ülke adayı karşılaştırması içerir.
-- Ranking-first nested kalibrasyon ve hard ranking guardrail'leri içerir.
-- 8 sezonluk doğrulama sonucunda aktif production config'i v1.1 olarak dondurur.
-- Unit testlerle statik model, dinamik veri sözleşmesi ve çekirdek güncelleme
-  davranışlarını doğrular.
-
-Maç sonrası Elo'nun olay veri seti ve ilk çekirdek kalibrasyonu araştırma
-kapsamında yer alır. Gol farkı aday olarak tutulmuş; turnuva K, maç prestiji ve
-progression prestiji aktif katman olarak reddedilmiştir. Aşama duyarlı
-progression ve katı turnuva maç katsayıları yalnızca araştırma adayıdır ve aktif
-değildir. Power carry `0.85` geçici kabul edilen araştırma adayıdır; trophy
-reserve reddedilmiştir. Kesin tarihli harici ClubElo benchmarkı tamamlanmış,
-genel fark istatistiksel olarak kesin bulunmamış ve UCL segmenti sonraki
-inceleme önceliği olarak belirlenmiştir. Production dinamik güncelleme motoru,
-untouched gelecek holdout ve kalan cap kontrolleri tamamlanana kadar yazılmaz.
+İlk dosya tam teknik sözleşme, ikinci dosya güncel karar özeti, PDF'ler ise
+detaylı model anlatımı, toplantı için kısa anlatım ve veri alan sözlüğüdür.

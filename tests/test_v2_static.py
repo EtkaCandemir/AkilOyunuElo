@@ -1,0 +1,265 @@
+from __future__ import annotations
+
+import struct
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+import pytest
+
+from ao_elo.config import (
+    AOEuropeanEloConfig,
+    V2_RATING_MULTIPLIER,
+    V2_REFERENCE_MAX_RATING,
+)
+from ao_elo.pipeline import compute_ao_first_elo, compute_ao_first_elo_from_csv
+from ao_elo.scoring import (
+    apply_upper_tail,
+    compute_effective_european_exposure,
+    normalize_log_score,
+    normalize_log_score_uncapped,
+)
+from scripts.run_pilot_10_teams import (
+    EXPECTED_AO_FIRST_ELO as EXPECTED_SYNTHETIC_V1_RATINGS,
+)
+from scripts.run_real_pilot_10_teams import (
+    EXPECTED_AO_FIRST_ELO as EXPECTED_REAL_V1_RATINGS,
+)
+
+
+ROOT = Path(__file__).resolve().parents[1]
+PILOT_ROOT = ROOT / "data" / "pilot_10_teams"
+REAL_PILOT_ROOT = ROOT / "data" / "real_pilot_10_teams"
+
+
+def test_v2_reference_multiplier_and_components() -> None:
+    assert V2_RATING_MULTIPLIER == pytest.approx(
+        1500.0 / (V2_REFERENCE_MAX_RATING - 500.0)
+    )
+    config = AOEuropeanEloConfig.v2()
+    assert config.base_rating == 500.0
+    assert config.domestic_league_component == pytest.approx(519.904930177)
+    assert config.domestic_achievement_component == pytest.approx(594.177064768)
+    assert config.european_prior_max_boost == pytest.approx(1559.714790999)
+
+
+def test_v2_beta_zero_is_exact_affine_transform_of_v1_1() -> None:
+    v1 = run_pilot(AOEuropeanEloConfig.v1_1()).sort_values("team_id")
+    v2 = run_pilot(AOEuropeanEloConfig.v2()).sort_values("team_id")
+    expected = 500.0 + V2_RATING_MULTIPLIER * (v1["ao_first_elo"] - 500.0)
+
+    np.testing.assert_allclose(v2["ao_first_elo"], expected, atol=1e-10, rtol=0)
+    assert v2["ao_first_elo_rank"].tolist() == v1["ao_first_elo_rank"].tolist()
+    assert v1["model_version"].eq("v1.1").all()
+    assert v2["model_version"].eq("ao-european-elo-v2.0-dev-freeze").all()
+
+
+@pytest.mark.parametrize(
+    ("data_root", "expected"),
+    [
+        (PILOT_ROOT, EXPECTED_SYNTHETIC_V1_RATINGS),
+        (REAL_PILOT_ROOT, EXPECTED_REAL_V1_RATINGS),
+    ],
+)
+def test_v1_1_pilot_rating_bytes_are_frozen(
+    data_root: Path,
+    expected: dict[str, float],
+) -> None:
+    output = compute_ao_first_elo_from_csv(
+        teams_csv=data_root / "teams.csv",
+        country_coefficients_csv=data_root / "country_coefficients.csv",
+        domestic_context_csv=data_root / "domestic_context.csv",
+        club_european_points_csv=data_root / "club_european_points.csv",
+        config=AOEuropeanEloConfig.v1_1(),
+    ).set_index("team_name")
+
+    for team_name, expected_rating in expected.items():
+        assert struct.pack("!d", float(output.loc[team_name, "ao_first_elo"])) == (
+            struct.pack("!d", expected_rating)
+        )
+
+
+@pytest.mark.parametrize("beta", [0.0, 0.25, 0.5, 0.75, 1.0])
+def test_upper_tail_is_continuous_at_benchmark(beta: float) -> None:
+    assert apply_upper_tail(1.0, beta) == pytest.approx(1.0)
+    assert apply_upper_tail(1.0 + 1e-9, beta) == pytest.approx(
+        1.0 + beta * 1e-9
+    )
+
+
+def test_tail_beta_zero_reproduces_hard_cap_and_beta_one_keeps_signal() -> None:
+    uncapped = normalize_log_score_uncapped(100.0, 25.0)
+
+    assert uncapped > 1.0
+    assert normalize_log_score(100.0, 25.0, tail_beta=0.0) == 1.0
+    assert normalize_log_score(100.0, 25.0, tail_beta=1.0) == pytest.approx(
+        uncapped
+    )
+    assert apply_upper_tail(uncapped, 0.5) == pytest.approx(
+        1.0 + 0.5 * (uncapped - 1.0)
+    )
+
+
+@pytest.mark.parametrize(
+    ("beta", "expected"),
+    [(0.0, 0.85), (1 / 3, 0.90), (2 / 3, 0.95), (1.0, 1.0)],
+)
+def test_exposure_tail_maps_full_evidence_to_candidate_grid(
+    beta: float,
+    expected: float,
+) -> None:
+    assert compute_effective_european_exposure(1.0, 0.85, beta) == pytest.approx(
+        expected
+    )
+    assert compute_effective_european_exposure(0.70, 0.85, beta) == 0.70
+
+
+def test_v2_zero_exposure_still_equals_scaled_domestic_prior() -> None:
+    output = run_pilot(AOEuropeanEloConfig.v2())
+    row = output.loc[output["team_name"].eq("Metro Albion")].iloc[0]
+
+    assert row["european_exposure"] == 0.0
+    assert row["effective_european_exposure"] == 0.0
+    assert row["ao_first_elo"] == pytest.approx(row["domestic_prior"])
+
+
+def test_tail_output_exposes_uncapped_values_and_activation_flags() -> None:
+    frames = read_pilot_frames()
+    country_columns = [
+        "points_t_minus_4",
+        "points_t_minus_3",
+        "points_t_minus_2",
+        "points_t_minus_1",
+        "points_t",
+    ]
+    frames["country_coefficients"].loc[:, country_columns] = 100.0
+    club = frames["club_european_points"]
+    club.loc[:, [column for column in club if column.startswith("club_points_")]] = 100.0
+    club.loc[:, [column for column in club if column.startswith("played_")]] = 1
+    club.loc[:, [column for column in club if column.startswith("matches_")]] = 8
+    club.loc[:, [column for column in club if column.startswith("match_cap_")]] = 8
+    output = compute_ao_first_elo(
+        **frames,
+        config=AOEuropeanEloConfig.v2(
+            country_tail_beta=0.5,
+            european_tail_beta=0.5,
+            exposure_tail_beta=1.0,
+        ),
+    )
+
+    country_tail = output.loc[output["country_tail_active"]]
+    european_tail = output.loc[output["european_tail_active"]]
+    exposure_tail = output.loc[output["exposure_tail_active"]]
+    assert not country_tail.empty
+    assert not european_tail.empty
+    assert not exposure_tail.empty
+    assert (country_tail["country_strength_uncapped_norm"] > 1.0).all()
+    assert (european_tail["european_history_uncapped_norm"] > 1.0).all()
+    assert (exposure_tail["effective_european_exposure"] <= 1.0).all()
+
+
+def test_achievement_saturation_tracks_safety_cap_not_champion_step() -> None:
+    config = AOEuropeanEloConfig.v2()
+    output = run_pilot(config)
+    expected_saturated = (
+        output["domestic_achievement_uncapped_score"]
+        >= config.achievement_cap - 1e-12
+    )
+    expected_active = (
+        output["domestic_achievement_uncapped_score"]
+        > config.achievement_cap + 1e-12
+    )
+
+    assert output["achievement_saturated"].equals(expected_saturated)
+    assert output["achievement_cap_active"].equals(expected_active)
+
+
+def test_reference_band_is_not_a_hard_cap() -> None:
+    frames = read_pilot_frames()
+    frames["country_coefficients"].loc[:, [
+        "points_t_minus_4",
+        "points_t_minus_3",
+        "points_t_minus_2",
+        "points_t_minus_1",
+        "points_t",
+    ]] = 250.0
+    club_columns = [
+        column
+        for column in frames["club_european_points"].columns
+        if column.startswith("club_points_")
+    ]
+    frames["club_european_points"].loc[:, club_columns] = 250.0
+    played_columns = [
+        column
+        for column in frames["club_european_points"].columns
+        if column.startswith("played_")
+    ]
+    match_columns = [
+        column
+        for column in frames["club_european_points"].columns
+        if column.startswith("matches_")
+    ]
+    cap_columns = [
+        column
+        for column in frames["club_european_points"].columns
+        if column.startswith("match_cap_")
+    ]
+    frames["club_european_points"].loc[:, played_columns] = 1
+    frames["club_european_points"].loc[:, match_columns] = 8
+    frames["club_european_points"].loc[:, cap_columns] = 8
+
+    output = compute_ao_first_elo(
+        config=AOEuropeanEloConfig.v2(
+            country_tail_beta=1.0,
+            european_tail_beta=1.0,
+            exposure_tail_beta=1.0,
+        ),
+        **frames,
+    )
+
+    assert output["ao_first_elo"].max() > 2000.0
+    assert not output["ao_first_elo"].eq(2000.0).any()
+
+
+@pytest.mark.parametrize(
+    "field",
+    ["country_tail_beta", "european_tail_beta", "exposure_tail_beta"],
+)
+@pytest.mark.parametrize("value", [-0.01, 1.01, float("inf")])
+def test_invalid_v2_tail_beta_is_rejected(field: str, value: float) -> None:
+    config = AOEuropeanEloConfig.v2()
+    invalid = AOEuropeanEloConfig(
+        **{
+            **config.__dict__,
+            field: value,
+        }
+    )
+
+    with pytest.raises(ValueError, match=field):
+        invalid.validate()
+
+
+def run_pilot(config: AOEuropeanEloConfig) -> pd.DataFrame:
+    return compute_ao_first_elo_from_csv(config=config, **pilot_csv_paths())
+
+
+def pilot_csv_paths() -> dict[str, Path]:
+    return {
+        "teams_csv": PILOT_ROOT / "teams.csv",
+        "country_coefficients_csv": PILOT_ROOT / "country_coefficients.csv",
+        "domestic_context_csv": PILOT_ROOT / "domestic_context.csv",
+        "club_european_points_csv": PILOT_ROOT / "club_european_points.csv",
+    }
+
+
+def read_pilot_frames() -> dict[str, pd.DataFrame]:
+    return {
+        "teams": pd.read_csv(PILOT_ROOT / "teams.csv"),
+        "country_coefficients": pd.read_csv(
+            PILOT_ROOT / "country_coefficients.csv"
+        ),
+        "domestic_context": pd.read_csv(PILOT_ROOT / "domestic_context.csv"),
+        "club_european_points": pd.read_csv(
+            PILOT_ROOT / "club_european_points.csv"
+        ),
+    }

@@ -216,6 +216,9 @@ def main() -> None:
 def load_calibration_data(
     static_root: Path,
     events_path: Path,
+    static_config: AOEuropeanEloConfig | None = None,
+    *,
+    require_exact_utc: bool = False,
 ) -> tuple[SeasonData, ...]:
     events = pd.read_csv(events_path).sort_values(["season", "event_order"])
     required = {
@@ -229,8 +232,20 @@ def load_calibration_data(
         raise ValueError("Dynamic event match_id must be unique")
     if not events["actual_home_score"].isin((0.0, 0.5, 1.0)).all():
         raise ValueError("actual_home_score must contain only 0, 0.5 or 1")
+    if require_exact_utc:
+        if "kickoff_utc" not in events.columns:
+            raise ValueError("Exact-date calibration requires kickoff_utc")
+        events["kickoff_utc"] = pd.to_datetime(
+            events["kickoff_utc"], utc=True, errors="raise"
+        )
+        for season, season_events in events.groupby("season", sort=True):
+            if not season_events["kickoff_utc"].is_monotonic_increasing:
+                raise ValueError(
+                    f"{season}: event_order must follow exact kickoff_utc chronology"
+                )
 
-    config = AOEuropeanEloConfig.v1_1()
+    config = static_config or AOEuropeanEloConfig.v1_1()
+    config.validate()
     result: list[SeasonData] = []
     for season, season_events in events.groupby("season", sort=True):
         folder = static_root / season.replace("/", "-")

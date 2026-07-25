@@ -1,0 +1,17 @@
+{
+  "config_id": "bff511c9a9be10cb",
+  "last_event_utc": "2027-05-29T19:00:00Z",
+  "last_match_id": "pilot-005",
+  "model_version": "ao-european-elo-v2.0-dev-freeze",
+  "open_ties": [],
+  "processed_match_ids": [
+    "pilot-001",
+    "pilot-002",
+    "pilot-003",
+    "pilot-004",
+    "pilot-005"
+  ],
+  "ratings_state_sha256": "cc3a6dbb5f098934a5f1de59b2bb08e58d5f9cd4347442d794f7c5d6ff6d93d3",
+  "schema_version": "1.0.0",
+  "season": "2026/27"
+}

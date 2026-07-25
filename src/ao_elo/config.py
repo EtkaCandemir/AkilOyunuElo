@@ -21,6 +21,10 @@ DEFAULT_SEASON_WEIGHTS: dict[str, float] = {
     "t": 0.33,
 }
 
+V2_REFERENCE_MAX_RATING = 903.92
+V2_RATING_MULTIPLIER = 1500.0 / (V2_REFERENCE_MAX_RATING - 500.0)
+AO_MODEL_V2_VERSION = "ao-european-elo-v2.0-dev-freeze"
+
 
 @dataclass(frozen=True)
 class AOEuropeanEloConfig:
@@ -29,6 +33,7 @@ class AOEuropeanEloConfig:
     country_strength_benchmark: float | None
     european_history_benchmark: float | None
 
+    model_version: str = "v1.1"
     base_rating: float = 500.0
     season_weights: dict[str, float] = field(
         default_factory=lambda: DEFAULT_SEASON_WEIGHTS.copy()
@@ -52,6 +57,9 @@ class AOEuropeanEloConfig:
     exposure_season_weight: float = 0.60
     exposure_match_weight: float = 0.40
     max_european_exposure: float = 0.85
+    country_tail_beta: float = 0.0
+    european_tail_beta: float = 0.0
+    exposure_tail_beta: float = 0.0
     rating_source_evidence_threshold: float = 0.75
 
     @classmethod
@@ -82,8 +90,38 @@ class AOEuropeanEloConfig:
             domestic_league_component=360.0,
         )
 
+    @classmethod
+    def v2(
+        cls,
+        *,
+        country_tail_beta: float = 0.0,
+        european_tail_beta: float = 0.0,
+        exposure_tail_beta: float = 0.0,
+        country_strength_benchmark: float = 25.0,
+        european_history_benchmark: float = 20.0,
+    ) -> AOEuropeanEloConfig:
+        """Return the development-frozen 500-2000 reference-scale v2 config."""
+        return cls(
+            country_strength_benchmark=country_strength_benchmark,
+            european_history_benchmark=european_history_benchmark,
+            model_version=AO_MODEL_V2_VERSION,
+            domestic_league_component=140.0 * V2_RATING_MULTIPLIER,
+            domestic_achievement_component=160.0 * V2_RATING_MULTIPLIER,
+            european_prior_max_boost=420.0 * V2_RATING_MULTIPLIER,
+            country_tail_beta=country_tail_beta,
+            european_tail_beta=european_tail_beta,
+            exposure_tail_beta=exposure_tail_beta,
+        )
+
+    @classmethod
+    def active(cls) -> AOEuropeanEloConfig:
+        """Return the selected model contract; v1.1 remains available explicitly."""
+        return cls.v2()
+
     def validate(self) -> None:
-        """Fail loudly when model parameters cannot produce bounded ratings."""
+        """Fail loudly when model parameters cannot produce valid ratings."""
+        if not isinstance(self.model_version, str) or not self.model_version.strip():
+            raise ValueError("model_version must be a non-empty string")
         if not _is_positive_finite(self.country_strength_benchmark):
             raise ValueError("Country_Strength_Benchmark must be calibrated and > 0")
 
@@ -139,6 +177,12 @@ class AOEuropeanEloConfig:
             "max_european_exposure",
             self.max_european_exposure,
         )
+        for name in (
+            "country_tail_beta",
+            "european_tail_beta",
+            "exposure_tail_beta",
+        ):
+            _require_between_zero_and_one(name, getattr(self, name))
         _require_between_zero_and_one(
             "rating_source_evidence_threshold",
             self.rating_source_evidence_threshold,
