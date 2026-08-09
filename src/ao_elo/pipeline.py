@@ -6,7 +6,13 @@ from pathlib import Path
 import pandas as pd
 
 from ao_elo.config import AOEuropeanEloConfig
+from ao_elo.domestic_surprise_variance import (
+    DOMESTIC_HISTORY_KEYS,
+    VarianceDomesticSurpriseConfig,
+    calculate_variance_domestic_surprise_adjustment,
+)
 from ao_elo.features import (
+    as_bool,
     compute_domestic_achievement,
     compute_league_strength,
     compute_weighted_country_score,
@@ -61,6 +67,19 @@ OUTPUT_COLUMNS = [
     "achievement_saturated",
     "achievement_cap_active",
     "domestic_prior",
+    "domestic_surprise_enabled",
+    "domestic_surprise_status",
+    "domestic_surprise_current_finish_score",
+    "domestic_surprise_history_seasons",
+    "domestic_surprise_historical_mean",
+    "domestic_surprise_historical_variance",
+    "domestic_surprise_historical_volatility",
+    "domestic_surprise_normalized_volatility",
+    "domestic_surprise_consistency_multiplier",
+    "domestic_surprise_raw_score",
+    "domestic_surprise_effective_score",
+    "domestic_surprise_domestic_adjustment",
+    "adjusted_domestic_prior",
     "weighted_european_history",
     "european_history_uncapped_norm",
     "european_history_norm",
@@ -76,6 +95,8 @@ OUTPUT_COLUMNS = [
     "exposure_tail_excess",
     "exposure_tail_active",
     "saturation_count",
+    "ao_first_elo_before_domestic_surprise",
+    "domestic_surprise_ao_first_elo_adjustment",
     "ao_first_elo",
     "ao_first_elo_rank",
     "rating_source_type",
@@ -281,13 +302,68 @@ def compute_ao_first_elo(
         ]
     ].sum(axis=1).astype(int)
 
-    data["ao_first_elo"] = data.apply(
+    data["ao_first_elo_before_domestic_surprise"] = data.apply(
         lambda row: compute_final_rating(
             row["domestic_prior"],
             row["european_prior"],
             row["effective_european_exposure"],
         ),
         axis=1,
+    )
+    surprise_config = VarianceDomesticSurpriseConfig(
+        coefficient=(
+            config.domestic_surprise_coefficient
+            if config.domestic_surprise_enabled
+            else 0.0
+        ),
+        variance_penalty=config.domestic_surprise_variance_penalty,
+        max_abs_adjustment=config.domestic_surprise_max_abs_adjustment,
+        minimum_history_seasons=config.domestic_surprise_minimum_history_seasons,
+    )
+    surprise_results = data.apply(
+        lambda row: _compute_domestic_surprise(row, config, surprise_config),
+        axis=1,
+    )
+    data["domestic_surprise_enabled"] = config.domestic_surprise_enabled
+    data["domestic_surprise_status"] = surprise_results.apply(lambda item: item[0])
+    data["domestic_surprise_current_finish_score"] = surprise_results.apply(
+        lambda item: item[1]
+    )
+    data["domestic_surprise_history_seasons"] = surprise_results.apply(
+        lambda item: item[2].history_seasons
+    )
+    data["domestic_surprise_historical_mean"] = surprise_results.apply(
+        lambda item: item[2].historical_mean
+    )
+    data["domestic_surprise_historical_variance"] = surprise_results.apply(
+        lambda item: item[2].historical_variance
+    )
+    data["domestic_surprise_historical_volatility"] = surprise_results.apply(
+        lambda item: item[2].historical_volatility
+    )
+    data["domestic_surprise_normalized_volatility"] = surprise_results.apply(
+        lambda item: item[2].normalized_volatility
+    )
+    data["domestic_surprise_consistency_multiplier"] = surprise_results.apply(
+        lambda item: item[2].consistency_multiplier
+    )
+    data["domestic_surprise_raw_score"] = surprise_results.apply(
+        lambda item: item[2].raw_surprise
+    )
+    data["domestic_surprise_effective_score"] = surprise_results.apply(
+        lambda item: item[2].effective_surprise
+    )
+    data["domestic_surprise_domestic_adjustment"] = surprise_results.apply(
+        lambda item: item[2].domestic_prior_adjustment
+    )
+    data["adjusted_domestic_prior"] = surprise_results.apply(
+        lambda item: item[2].adjusted_domestic_prior
+    )
+    data["ao_first_elo"] = surprise_results.apply(
+        lambda item: item[2].adjusted_ao_first_elo
+    )
+    data["domestic_surprise_ao_first_elo_adjustment"] = (
+        data["ao_first_elo"] - data["ao_first_elo_before_domestic_surprise"]
     )
     _validate_output_invariants(data, config)
 
@@ -334,6 +410,58 @@ def compute_ao_first_elo_from_csv(
     return output
 
 
+def _compute_domestic_surprise(
+    row: pd.Series,
+    config: AOEuropeanEloConfig,
+    surprise_config: VarianceDomesticSurpriseConfig,
+):
+    current_finish_score: float | None
+    if pd.notna(row["domestic_position_percentile"]):
+        current_finish_score = float(row["domestic_position_percentile"])
+    elif as_bool(row["is_league_champion"]):
+        current_finish_score = 1.0
+    else:
+        current_finish_score = None
+
+    history = [_historical_finish_score(row, key) for key in DOMESTIC_HISTORY_KEYS]
+    if current_finish_score is None:
+        calculation_current = 0.0
+        calculation_history: list[float | None] = [None] * len(history)
+    else:
+        calculation_current = current_finish_score
+        calculation_history = history
+    achievement_scale = config.achievement_alpha + (
+        (1.0 - config.achievement_alpha) * float(row["league_strength"])
+    )
+    adjustment = calculate_variance_domestic_surprise_adjustment(
+        current_finish_score=calculation_current,
+        historical_finish_scores=calculation_history,
+        domestic_prior=float(row["domestic_prior"]),
+        european_prior=float(row["european_prior"]),
+        effective_european_exposure=float(row["effective_european_exposure"]),
+        domestic_achievement_component=config.domestic_achievement_component,
+        achievement_scale=achievement_scale,
+        config=surprise_config,
+    )
+    if not config.domestic_surprise_enabled:
+        status = "DISABLED"
+    elif current_finish_score is None or adjustment.history_seasons < 5:
+        status = "INSUFFICIENT_HISTORY"
+    elif abs(adjustment.domestic_prior_adjustment) <= 1e-12:
+        status = "NO_CHANGE"
+    else:
+        status = "APPLIED"
+    return status, current_finish_score, adjustment
+
+
+def _historical_finish_score(row: pd.Series, key: str) -> float | None:
+    position = row.get(f"history_position_{key}", pd.NA)
+    team_count = row.get(f"history_team_count_{key}", pd.NA)
+    if pd.isna(position) or pd.isna(team_count):
+        return None
+    return (float(team_count) - float(position)) / (float(team_count) - 1.0)
+
+
 def _validate_output_invariants(
     data: pd.DataFrame,
     config: AOEuropeanEloConfig,
@@ -350,6 +478,11 @@ def _validate_output_invariants(
         "domestic_achievement_uncapped_score",
         "domestic_achievement_score",
         "domestic_prior",
+        "domestic_surprise_consistency_multiplier",
+        "domestic_surprise_raw_score",
+        "domestic_surprise_effective_score",
+        "domestic_surprise_domestic_adjustment",
+        "adjusted_domestic_prior",
         "weighted_european_history",
         "european_history_uncapped_norm",
         "european_history_norm",
@@ -359,6 +492,8 @@ def _validate_output_invariants(
         "european_exposure",
         "effective_european_exposure",
         "saturation_count",
+        "ao_first_elo_before_domestic_surprise",
+        "domestic_surprise_ao_first_elo_adjustment",
         "ao_first_elo",
     ]
     for column in numeric_columns:
@@ -413,15 +548,38 @@ def _validate_output_invariants(
         "saturation_count must be an integer between 0 and 4",
     )
 
-    lower_prior = data[["domestic_prior", "european_prior"]].min(axis=1)
-    upper_prior = data[["domestic_prior", "european_prior"]].max(axis=1)
+    adjustment_outside = (
+        data["domestic_surprise_domestic_adjustment"].abs()
+        > config.domestic_surprise_max_abs_adjustment + 1e-9
+    )
+    _raise_invariant_error(
+        data,
+        adjustment_outside,
+        "domestic surprise adjustment must respect its absolute cap",
+    )
+    expected_first_adjustment = (
+        (1.0 - data["effective_european_exposure"])
+        * data["domestic_surprise_domestic_adjustment"]
+    )
+    adjustment_identity_invalid = (
+        data["domestic_surprise_ao_first_elo_adjustment"]
+        - expected_first_adjustment
+    ).abs() > 1e-9
+    _raise_invariant_error(
+        data,
+        adjustment_identity_invalid,
+        "AO First Elo surprise adjustment must preserve exposure identity",
+    )
+
+    lower_prior = data[["adjusted_domestic_prior", "european_prior"]].min(axis=1)
+    upper_prior = data[["adjusted_domestic_prior", "european_prior"]].max(axis=1)
     outside_priors = (data["ao_first_elo"] < lower_prior - 1e-9) | (
         data["ao_first_elo"] > upper_prior + 1e-9
     )
     _raise_invariant_error(
         data,
         outside_priors,
-        "ao_first_elo must stay between domestic_prior and european_prior",
+        "ao_first_elo must stay between adjusted_domestic_prior and european_prior",
     )
 
 

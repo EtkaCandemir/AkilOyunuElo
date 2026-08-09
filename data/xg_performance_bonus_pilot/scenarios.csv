@@ -1,0 +1,22 @@
+scenario_id,scenario_group,description,home_rating,away_rating,home_goals,away_goals,xg_home,xg_away,is_neutral,decided_on_penalties
+BAL_1_0_EQUAL_XG,balanced,One-goal win with equal xG,1500,1500,1,0,1.2,1.2,true,false
+BAL_1_0_SUPPORTED,balanced,One-goal win supported by xG,1500,1500,1,0,2.5,0.5,true,false
+BAL_1_0_LUCKY,balanced,One-goal win contradicted by xG,1500,1500,1,0,0.2,2.0,true,false
+BAL_1_0_EXTREME_LUCKY,balanced,Extreme xG contradiction activates floor,1500,1500,1,0,0.1,4.5,true,false
+BAL_2_0_EQUAL_XG,goal_margin,Two-goal win with equal xG,1500,1500,2,0,1.5,1.5,true,false
+BAL_2_0_SUPPORTED,goal_margin,Two-goal win supported by xG,1500,1500,2,0,3.5,0.5,true,false
+BAL_2_0_LUCKY,goal_margin,Two-goal win contradicted by xG,1500,1500,2,0,0.5,3.0,true,false
+BAL_4_0_SUPPORTED,goal_margin,Four-goal win supported by xG,1500,1500,4,0,4.0,0.4,true,false
+BAL_4_0_LUCKY,goal_margin,Four-goal win contradicted by xG,1500,1500,4,0,0.6,3.0,true,false
+BAL_3_2_SUPPORTED,scoreline,Three-two win strongly supported by xG,1500,1500,3,2,5.5,1.2,true,false
+BAL_3_2_LUCKY,scoreline,Three-two win strongly contradicted by xG,1500,1500,3,2,1.0,4.5,true,false
+FAV_1_0_SUPPORTED,favorite,Favorite win supported by xG,1800,1400,1,0,2.2,0.5,true,false
+FAV_1_0_LUCKY,favorite,Favorite win contradicted by xG,1800,1400,1,0,0.2,2.0,true,false
+DOG_1_0_SUPPORTED,underdog,Underdog win supported by xG,1400,1800,1,0,2.2,0.5,true,false
+DOG_1_0_LUCKY,underdog,Underdog win contradicted by xG,1400,1800,1,0,0.2,2.0,true,false
+AWAY_0_2_SUPPORTED,away_win,Away win supported by xG,1500,1500,0,2,0.5,3.0,true,false
+AWAY_0_1_LUCKY,away_win,Away win contradicted by xG,1500,1500,0,1,2.0,0.2,true,false
+DRAW_2_2_XG_HOME,draw,Draw ignores asymmetric xG bonus,1500,1500,2,2,4.0,0.5,true,false
+PENALTY_DRAW,penalty,Penalty-decided field draw ignores xG bonus,1500,1500,1,1,2.0,0.5,true,true
+MISSING_XG_3_0,missing_xg,Missing xG falls back to production goal model,1500,1500,3,0,,,true,false
+HOME_ADV_1_0_EQUAL_XG,home_advantage,Normal home match includes production home advantage,1500,1500,1,0,1.2,1.2,false,false

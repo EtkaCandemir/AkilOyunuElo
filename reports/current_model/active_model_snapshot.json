@@ -1,0 +1,168 @@
+{
+  "authority": {
+    "status_file": "/Users/buycell/Desktop/Akil Oyunu Elo/MODEL_STATUS.md",
+    "production_contract": "/Users/buycell/Desktop/Akil Oyunu Elo/contracts/ao_european_elo_v2_production.json",
+    "static_dynamic_manifest": "/Users/buycell/Desktop/Akil Oyunu Elo/output/v2_dynamic_calibration_2018_2026/selected_dynamic_model.json",
+    "precedence": "production_contract_over_final_candidate"
+  },
+  "model_version": "ao-european-elo-v2.0-dev-freeze",
+  "production_revision": "2026-08-06-penalty-field-score-goal-alpha-015-bounded-xg",
+  "static_initial_elo": {
+    "country_strength_benchmark": 25.0,
+    "european_history_benchmark": 20.0,
+    "model_version": "ao-european-elo-v2.0-dev-freeze",
+    "base_rating": 500.0,
+    "season_weights": {
+      "t_minus_4": 0.07,
+      "t_minus_3": 0.13,
+      "t_minus_2": 0.2,
+      "t_minus_1": 0.27,
+      "t": 0.33
+    },
+    "gamma": 0.8,
+    "domestic_league_component": 519.9049316696377,
+    "domestic_achievement_component": 594.1770647653002,
+    "achievement_alpha": 0.4,
+    "percentile_floor": 0.15,
+    "percentile_scale": 0.7,
+    "percentile_delta": 1.0,
+    "champion_base_score": 1.0,
+    "unknown_league_finish_score": 0.1,
+    "cup_base_score": 0.62,
+    "cup_double_bonus_multiplier": 0.08,
+    "achievement_cap": 1.1,
+    "european_prior_max_boost": 1559.714795008913,
+    "exposure_season_weight": 0.6,
+    "exposure_match_weight": 0.4,
+    "max_european_exposure": 0.85,
+    "country_tail_beta": 0.0,
+    "european_tail_beta": 0.0,
+    "exposure_tail_beta": 0.0,
+    "rating_source_evidence_threshold": 0.75
+  },
+  "active_runtime_contract": {
+    "domestic_surprise": {
+      "active": true,
+      "family": "FIVE_SEASON_VARIANCE_CONTROLLED_DIRECT_PERCENTILE",
+      "coefficient": 0.4,
+      "variance_penalty": 0.5,
+      "max_abs_adjustment": 30.0,
+      "minimum_history_seasons": 5,
+      "season_weights_oldest_to_newest": [
+        0.07,
+        0.13,
+        0.2,
+        0.27,
+        0.33
+      ],
+      "volatility_normalization": "min(1, 2 * weighted_volatility)",
+      "consistency_formula": "1 - variance_penalty * normalized_volatility",
+      "exposure_formula": "AO adjustment = (1 - effective European exposure) * domestic adjustment",
+      "insufficient_history_behavior": "NO_ADJUSTMENT"
+    },
+    "dynamic_core": {
+      "elo_scale": 835.5614973262034,
+      "home_advantage": 148.54426619132505,
+      "k_factor": 103.98098633392752
+    },
+    "active_power_carry": 0.0,
+    "one_x_two_probability": {
+      "active": true,
+      "draw_at_even": 0.24,
+      "draw_shape": 1.0,
+      "expected_score_identity_preserved": true,
+      "standard_brier": true,
+      "standard_log_loss": true
+    },
+    "goal_margin": {
+      "active": true,
+      "family": "CONTROLLED_FAVORITE_DAMPED_LOG",
+      "alpha": 0.15,
+      "tau": 300.0,
+      "goal_difference_cap": 4,
+      "formula": "1 + alpha * ln(min(GD, goal_difference_cap)) * exp(-abs(D) / tau)",
+      "field_score": "90 minutes, or 120 minutes when extra time is played",
+      "penalty_multiplier": 1.0,
+      "draw_multiplier": 1.0
+    },
+    "xg_performance": {
+      "active": true,
+      "family": "BOUNDED_TWO_SIDED_PERFORMANCE_ADJUSTMENT",
+      "max_xg_ratio": 0.3,
+      "xg_scale": 1.25,
+      "minimum_winner_gain_ratio": 0.7,
+      "signal_formula": "Q_xG = tanh((xG_home - xG_away) / xg_scale)",
+      "adjustment_formula": "Delta_xG = max_xg_ratio * abs(Delta_base) * Q_xG",
+      "final_formula": "Delta = Delta_base + Delta_GD_bonus + Delta_xG",
+      "missing_xg_behavior": "FALL_BACK_TO_GOAL_MARGIN_ONLY",
+      "requires_both_teams": true,
+      "draw_behavior": "NO_XG_ADJUSTMENT",
+      "penalty_shootout_behavior": "NO_XG_ADJUSTMENT",
+      "shootout_excluded": true,
+      "time_scope": "90 minutes, or matching 120-minute xG when extra time is played",
+      "winner_direction_guard": true,
+      "zero_sum": true
+    },
+    "progression_bonus": {
+      "active": true,
+      "family": "WINNER_ONLY_SEASON_LOCAL_FIXED",
+      "base_bonus": 12.0,
+      "stages_per_competition": 5,
+      "competition_ratios": {
+        "UCL": 1.0,
+        "UEL": 0.6666666666666666,
+        "UECL": 0.3333333333333333
+      },
+      "increments": {
+        "UCL": 12.0,
+        "UEL": 8.0,
+        "UECL": 4.0
+      },
+      "season_caps": {
+        "UCL": 60.0,
+        "UEL": 40.0,
+        "UECL": 20.0
+      },
+      "eligible_stages": [
+        "KNOCKOUT_PLAYOFF",
+        "ROUND_OF_16",
+        "QUARTERFINAL",
+        "SEMIFINAL",
+        "FINAL"
+      ],
+      "winner_only": true,
+      "loser_deduction": false,
+      "season_reset": true,
+      "single_application_per_tie_id": true,
+      "formula": "AO Live Elo = Power Elo + Achievement Reserve + European Progression Bonus"
+    },
+    "achievement_reserve": {
+      "active": false,
+      "reserve_base": 0.0,
+      "ucl_multiplier": 1.0,
+      "uel_multiplier": 0.65,
+      "uecl_multiplier": 0.45,
+      "stage_profile": "FLAT",
+      "reserve_decay": 0.0,
+      "reserve_cap": 297.0885323826501,
+      "trophy_uses_same_base": true
+    },
+    "competition_k": {
+      "active": false,
+      "profile": "GLOBAL",
+      "ucl_multiplier": 1.0,
+      "uel_multiplier": 1.0,
+      "uecl_multiplier": 1.0
+    }
+  },
+  "calculation_order": [
+    "domestic_prior",
+    "european_prior",
+    "effective_european_exposure_blend",
+    "domestic_surprise_exposure_adjustment",
+    "match_expected_score_with_global_home_advantage",
+    "zero_sum_power_update_with_goal_margin_and_optional_xg",
+    "winner_only_season_local_progression_bonus"
+  ],
+  "evaluation_only": true
+}

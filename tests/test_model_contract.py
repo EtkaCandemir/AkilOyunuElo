@@ -148,10 +148,27 @@ def test_calibration_manifests_match_frozen_layer_decisions() -> None:
         0.24
     )
     assert production["goal_margin"]["active"] is True
-    assert production["goal_margin"]["alpha"] == pytest.approx(0.10)
+    assert production["goal_margin"]["alpha"] == pytest.approx(0.15)
     assert production["goal_margin"]["tau"] == pytest.approx(300.0)
     assert production["goal_margin"]["goal_difference_cap"] == 4
-    assert production["progression_bonus"]["active"] is False
+    assert production["xg_performance"]["active"] is True
+    assert production["xg_performance"]["max_xg_ratio"] == pytest.approx(0.30)
+    assert production["domestic_surprise"]["active"] is True
+    assert production["domestic_surprise"]["coefficient"] == pytest.approx(0.40)
+    assert production["domestic_surprise"]["variance_penalty"] == pytest.approx(0.50)
+    assert production["domestic_surprise"]["max_abs_adjustment"] == pytest.approx(30.0)
+    assert production["progression_bonus"]["active"] is True
+    assert production["progression_bonus"]["base_bonus"] == pytest.approx(12.0)
+    assert production["progression_bonus"]["increments"] == {
+        "UCL": 12.0,
+        "UEL": 8.0,
+        "UECL": 4.0,
+    }
+    assert production["progression_bonus"]["season_caps"] == {
+        "UCL": 60.0,
+        "UEL": 40.0,
+        "UECL": 20.0,
+    }
 
 
 def test_historical_robustness_remains_immutable_after_manual_goal_decision() -> None:
@@ -159,7 +176,7 @@ def test_historical_robustness_remains_immutable_after_manual_goal_decision() ->
     robustness = json.loads(ROBUSTNESS_MANIFEST.read_text(encoding="utf-8"))
     recommended = robustness["recommended_production_model"]
 
-    assert contract["contract_version"] == "1.4.0"
+    assert contract["contract_version"] == "1.7.0"
     assert contract["evaluation"]["dynamic_ranking_same_season_reuse_allowed"] is False
     assert contract["evaluation"]["dynamic_forward_ranking_folds"] == 5
     assert robustness["decisions"] == {
@@ -173,4 +190,4 @@ def test_historical_robustness_remains_immutable_after_manual_goal_decision() ->
     assert recommended["competition_k"]["active"] is False
     assert recommended["achievement_reserve"]["active"] is False
     assert contract["dynamic"]["goal_margin"]["active"] is True
-    assert contract["dynamic"]["progression_bonus"]["active"] is False
+    assert contract["dynamic"]["progression_bonus"]["active"] is True

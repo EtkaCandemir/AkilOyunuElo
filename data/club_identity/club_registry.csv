@@ -1,0 +1,505 @@
+club_id,uefa_team_id,canonical_name,country_code,first_season,last_season,seasons_observed,observed_names,name_variant_count,resolution_methods,identity_status
+AO-UEFA-1652,1652,Tottenham,ENG,2018/19,2025/26,7,Tottenham Hotspur,1,exact_name_country,VERIFIED
+AO-UEFA-2600097,2600097,Kalev,EST,2024/25,2024/25,1,Kalev Tallinn,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2600103,2600103,Titograd,MON,2018/19,2019/20,2,OFK Titograd,1,exact_name_country,VERIFIED
+AO-UEFA-2600105,2600105,Dečić,MON,2021/22,2025/26,4,Decic Tuzi,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2600277,2600277,Jagiellonia,POL,2018/19,2025/26,3,Jagiellonia Bialystok,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2600288,2600288,Başakşehir,TUR,2018/19,2025/26,6,Istanbul Basaksehir,1,exact_name_country,VERIFIED
+AO-UEFA-2600293,2600293,Asteras,GRE,2018/19,2018/19,1,Asteras Tripolis,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2600371,2600371,Kalju,EST,2018/19,2025/26,4,Kalju Nomme,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2600431,2600431,Hoffenheim,GER,2018/19,2024/25,3,1899 Hoffenheim,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2600542,2600542,UE Santa Coloma,AND,2022/23,2024/25,2,UE Santa Coloma,1,exact_name_country,VERIFIED
+AO-UEFA-2600544,2600544,Gagra,GEO,2021/22,2021/22,1,Gagra Tbilisi,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2600545,2600545,Piast,POL,2019/20,2020/21,2,Piast Gliwice,1,exact_name_country,VERIFIED
+AO-UEFA-2600598,2600598,Paide,EST,2020/21,2025/26,6,Paide Linnameeskond,1,exact_name_country,VERIFIED
+AO-UEFA-2600605,2600605,Astana,KAZ,2018/19,2025/26,8,FK Astana,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2600714,2600714,Milsami,MOL,2018/19,2025/26,7,Milsami Orhei,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2600716,2600716,FCSG,MOL,2020/21,2022/23,3,Sfântul Gheorghe,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2600717,2600717,Bala,WAL,2018/19,2024/25,5,Bala Town,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2600783,2600783,Lokomotiva Zagreb,CRO,2020/21,2020/21,1,Lokomotiva Zagreb,1,exact_name_country,VERIFIED
+AO-UEFA-2601038,2601038,Krasnodar,RUS,2018/19,2020/21,3,FK Krasnodar,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2601074,2601074,Hartberg,AUT,2020/21,2020/21,1,TSV Hartberg,1,exact_name_country,VERIFIED
+AO-UEFA-2601090,2601090,Novi Pazar,SRB,2025/26,2025/26,1,Novi Pazar,1,exact_name_country,VERIFIED
+AO-UEFA-2601105,2601105,Brighton,ENG,2023/24,2023/24,1,Brighton & Hove Albion,1,exact_name_country,VERIFIED
+AO-UEFA-2601306,2601306,Brest,FRA,2024/25,2024/25,1,Stade Brestois,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2602334,2602334,Žalgiris,LIT,2018/19,2025/26,8,Zalgiris Vilnius,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2602511,2602511,Ilves,FIN,2018/19,2025/26,4,Ilves Tampere,1,exact_name_country,VERIFIED
+AO-UEFA-2602520,2602520,SJK,FIN,2022/23,2025/26,2,SJK Seinäjoki,1,exact_name_country,VERIFIED
+AO-UEFA-2602798,2602798,Girona,ESP,2024/25,2024/25,1,Girona FC,1,exact_name_country,VERIFIED
+AO-UEFA-2602858,2602858,Iskra,MON,2020/21,2022/23,2,Iskra Danilovgrad,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2602893,2602893,Granada,ESP,2020/21,2020/21,1,Granada CF,1,exact_name_country,VERIFIED
+AO-UEFA-2602918,2602918,Spartaks Jūrmala,LAT,2018/19,2018/19,1,Spartaks Jurmala,1,exact_name_country,VERIFIED
+AO-UEFA-2602920,2602920,Valmiera,LAT,2020/21,2023/24,4,Valmieras FK,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2602955,2602955,Arouca,POR,2023/24,2023/24,1,FC Arouca,1,exact_name_country,VERIFIED
+AO-UEFA-2603092,2603092,UNA Strassen,LUX,2024/25,2025/26,2,UNA Strassen,1,exact_name_country,VERIFIED
+AO-UEFA-2603104,2603104,Ludogorets,BUL,2018/19,2025/26,8,Ludogorets Razgrad,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2603729,2603729,Dinamo-Auto,MOL,2020/21,2020/21,1,Dinamo-Auto Tiraspol,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2603790,2603790,Leipzig,GER,2018/19,2024/25,7,RB Leipzig,1,exact_name_country,VERIFIED
+AO-UEFA-2603791,2603791,Heidenheim,GER,2024/25,2024/25,1,1.FC Heidenheim,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2603921,2603921,Sumqayıt,AZB,2020/21,2024/25,3,Sumgayit FK,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2603990,2603990,Wolfsberger,AUT,2019/20,2025/26,4,Wolfsberger AC,1,exact_name_country,VERIFIED
+AO-UEFA-2604186,2604186,Kukës,ALB,2018/19,2020/21,3,FK Kukësi,1,exact_name_country,VERIFIED
+AO-UEFA-2604478,2604478,Adana Demirspor,TUR,2023/24,2023/24,1,Adana Demirspor,1,exact_name_country,VERIFIED
+AO-UEFA-2604479,2604479,Akhisar,TUR,2018/19,2018/19,1,Akhisarspor,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2604486,2604486,Sarpsborg,NOR,2018/19,2018/19,1,Sarpsborg 08,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2604753,2604753,Farul Constanța,ROM,2018/19,2023/24,3,Farul Constanta | Viitorul Constanta,2,exact_name_country,VERIFIED
+AO-UEFA-2605051,2605051,Desna,UKR,2020/21,2020/21,1,Desna Chernihiv,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2605104,2605104,Botoşani,ROM,2020/21,2020/21,1,FC Botosani,1,exact_name_country,VERIFIED
+AO-UEFA-2605268,2605268,Alashkert,ARM,2018/19,2023/24,6,Alashkert FC,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2605472,2605472,Puskás Akadémia,HUN,2020/21,2025/26,5,Puskás Akadémia,1,exact_name_country,VERIFIED
+AO-UEFA-2605572,2605572,L. Red Imps,GIB,2018/19,2025/26,8,Lincoln Red Imps,1,exact_name_country,VERIFIED
+AO-UEFA-2605575,2605575,St Joseph's,GIB,2018/19,2025/26,7,St Joseph's FC,1,exact_name_country,VERIFIED
+AO-UEFA-2605905,2605905,Iberia Tbilisi,GEO,2019/20,2025/26,5,Iberia 1999 | Saburtalo Tbilisi,2,fixture_graph_unique,VERIFIED
+AO-UEFA-2605907,2605907,Kauno Žalgiris,LIT,2019/20,2025/26,6,Kauno Zalgiris,1,exact_name_country,VERIFIED
+AO-UEFA-2605958,2605958,Kisvárda,HUN,2022/23,2022/23,1,Kisvárda FC,1,exact_name_country,VERIFIED
+AO-UEFA-2606168,2606168,Riteriai,LIT,2018/19,2020/21,3,FK Riteriai | FK Trakai,2,exact_name_country | fixture_graph_unique,VERIFIED
+AO-UEFA-2606175,2606175,Sirens,MLT,2020/21,2020/21,1,Sirens FC,1,exact_name_country,VERIFIED
+AO-UEFA-2606279,2606279,Magpies,GIB,2022/23,2025/26,4,FCB Magpies,1,exact_name_country,VERIFIED
+AO-UEFA-2606314,2606314,Penybont,WAL,2023/24,2025/26,2,Penybont,1,exact_name_country,VERIFIED
+AO-UEFA-2606320,2606320,Liepāja,LAT,2018/19,2024/25,5,FK Liepaja,1,exact_name_country,VERIFIED
+AO-UEFA-2606321,2606321,Daugavpils,LAT,2025/26,2025/26,1,BFC Daugavpils,1,exact_name_country,VERIFIED
+AO-UEFA-2606414,2606414,Arsenal Tula,RUS,2019/20,2019/20,1,Arsenal Tula,1,exact_name_country,VERIFIED
+AO-UEFA-2606415,2606415,Ufa,RUS,2018/19,2018/19,1,FC Ufa,1,exact_name_country,VERIFIED
+AO-UEFA-2606416,2606416,Europa,GIB,2018/19,2023/24,6,Europa FC,1,exact_name_country,VERIFIED
+AO-UEFA-2606484,2606484,Araz-Naxçıvan,AZB,2025/26,2025/26,1,Araz Nakhchivan,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2606488,2606488,Zaria Balti,MOL,2018/19,2018/19,1,Zaria Balti,1,exact_name_country,VERIFIED
+AO-UEFA-2606501,2606501,U. Craiova,ROM,2018/19,2025/26,7,Universitatea Craiova,1,exact_name_country,VERIFIED
+AO-UEFA-2606852,2606852,Speranța Nisporeni,MOL,2019/20,2019/20,1,Speranta Nisporeni,1,exact_name_country,VERIFIED
+AO-UEFA-2606993,2606993,Shkupi,MAC,2018/19,2023/24,6,FK Shkupi,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2607108,2607108,Hegelmann,LIT,2023/24,2025/26,2,FC Hegelmann,1,exact_name_country,VERIFIED
+AO-UEFA-2607112,2607112,Petrocub,MOL,2018/19,2025/26,8,Petrocub Hîncesti,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2607117,2607117,Alanyaspor,TUR,2020/21,2020/21,1,Alanyaspor,1,exact_name_country,VERIFIED
+AO-UEFA-2607177,2607177,Stumbras,LIT,2018/19,2018/19,1,Stumbras Kaunas,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2607248,2607248,Bravo,SLO,2024/25,2024/25,1,NK Bravo,1,exact_name_country,VERIFIED
+AO-UEFA-2607480,2607480,Zire,AZB,2022/23,2025/26,3,Zira FK,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2607561,2607561,Mura,SLO,2019/20,2022/23,4,Mura Murska Sobota,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2607630,2607630,Union Titus Petange,LUX,2020/21,2020/21,1,Union Titus Pétange,1,exact_name_country,VERIFIED
+AO-UEFA-2607924,2607924,Riga,LAT,2018/19,2025/26,8,Riga FC,1,exact_name_country,VERIFIED
+AO-UEFA-2607980,2607980,FK Podgorica,MON,2021/22,2021/22,1,FK Podgorica,1,exact_name_country,VERIFIED
+AO-UEFA-2608011,2608011,Mons Calpe,GIB,2021/22,2021/22,1,Mons Calpe,1,exact_name_country,VERIFIED
+AO-UEFA-2608281,2608281,Feronikeli,KOS,2019/20,2019/20,1,Feronikeli,1,exact_name_country,VERIFIED
+AO-UEFA-2608285,2608285,Gjilani,KOS,2020/21,2023/24,3,SC Gjilani,1,exact_name_country,VERIFIED
+AO-UEFA-2608286,2608286,Llapi,KOS,2021/22,2024/25,3,KF Llapi,1,exact_name_country,VERIFIED
+AO-UEFA-2608287,2608287,Prishtina,KOS,2018/19,2025/26,5,FC Prishtina,1,exact_name_country,VERIFIED
+AO-UEFA-2608290,2608290,Drita,KOS,2018/19,2025/26,7,FC Drita,1,exact_name_country,VERIFIED
+AO-UEFA-2608297,2608297,CSKA Sofia,BUL,2018/19,2023/24,6,CSKA Sofia,1,exact_name_country,VERIFIED
+AO-UEFA-2608311,2608311,Dukagjini,KOS,2023/24,2023/24,1,KF Dukagjini,1,exact_name_country,VERIFIED
+AO-UEFA-2608458,2608458,Brera Strumica,MAC,2019/20,2022/23,2,Akademija Pandev,1,exact_name_country,VERIFIED
+AO-UEFA-2608569,2608569,Sabail,AZB,2019/20,2019/20,1,Sabail FK,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2608575,2608575,Sepsi,ROM,2021/22,2023/24,3,Sepsi OSK,1,exact_name_country,VERIFIED
+AO-UEFA-2608927,2608927,Panevėžys,LIT,2021/22,2024/25,4,FK Panevezys,1,exact_name_country,VERIFIED
+AO-UEFA-2609104,2609104,RFS,LAT,2019/20,2025/26,7,RFS Riga,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2609189,2609189,Kolos Kovalivka,UKR,2020/21,2021/22,2,Kolos Kovalivka,1,exact_name_country,VERIFIED
+AO-UEFA-2609193,2609193,Dnipro-1,UKR,2022/23,2024/25,3,SC Dnipro-1,1,exact_name_country,VERIFIED
+AO-UEFA-2609278,2609278,Struga,MAC,2021/22,2024/25,3,FC Struga,1,exact_name_country,VERIFIED
+AO-UEFA-2609279,2609279,Tuzla City,BOS,2022/23,2022/23,1,Tuzla City,1,exact_name_country,VERIFIED
+AO-UEFA-2609356,2609356,Sabah,AZB,2023/24,2025/26,3,Sabah FK,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2609532,2609532,Pafos,CYP,2024/25,2025/26,2,Pafos FC,1,exact_name_country,VERIFIED
+AO-UEFA-2609552,2609552,Ballkani,KOS,2022/23,2025/26,4,FC Ballkani,1,exact_name_country,VERIFIED
+AO-UEFA-2609987,2609987,Noah,ARM,2020/21,2025/26,4,FC Noah,1,exact_name_country,VERIFIED
+AO-UEFA-2610,2610,Olympiacos,GRE,2018/19,2025/26,8,Olympiakos Piraeus,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2610060,2610060,Arda,BUL,2021/22,2025/26,2,Arda Kardzhali,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2610140,2610140,TSC,SRB,2020/21,2024/25,3,TSC Backa Topola,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2610262,2610262,CSKA 1948,BUL,2023/24,2024/25,2,CSKA 1948 Sofia,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2610274,2610274,Košice,SVK,2025/26,2025/26,1,FC Kosice,1,exact_name_country,VERIFIED
+AO-UEFA-2610304,2610304,Ararat-Armenia,ARM,2019/20,2025/26,6,Ararat-Armenia,1,exact_name_country,VERIFIED
+AO-UEFA-2610410,2610410,Sochi,RUS,2021/22,2021/22,1,FC Sochi,1,exact_name_country,VERIFIED
+AO-UEFA-2611621,2611621,Spaeri,GEO,2025/26,2025/26,1,Spaeri Tbilisi,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2611789,2611789,Malisheva,KOS,2024/25,2025/26,2,KF Malisheva,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2612812,2612812,Isloch,BLS,2024/25,2024/25,1,Isloch Minsk Raion,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2613172,2613172,Polissya,UKR,2024/25,2025/26,2,Polissya Zhytomyr,1,fixture_graph_unique,VERIFIED
+AO-UEFA-2613214,2613214,TransINVEST,LIT,2024/25,2024/25,1,Transinvest Vilnius,1,fixture_graph_unique,VERIFIED
+AO-UEFA-4251,4251,Lausanne-Sport,SUI,2025/26,2025/26,1,Lausanne Sports,1,fixture_graph_unique,VERIFIED
+AO-UEFA-4608,4608,Gent,BEL,2018/19,2024/25,7,AA Gent,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50008,50008,Servette,SUI,2020/21,2025/26,5,Servette FC Genève,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50018,50018,Köln,GER,2022/23,2022/23,1,1.FC Köln,1,exact_name_country,VERIFIED
+AO-UEFA-50019,50019,Aarhus,DEN,2020/21,2023/24,3,AGF Aarhus,1,exact_name_country,VERIFIED
+AO-UEFA-50021,50021,Brøndby,DEN,2018/19,2025/26,6,Brøndby IF,1,exact_name_country,VERIFIED
+AO-UEFA-50022,50022,St-Étienne,FRA,2019/20,2019/20,1,AS Saint-Étienne,1,exact_name_country,VERIFIED
+AO-UEFA-50023,50023,Monaco,FRA,2018/19,2025/26,5,AS Monaco,1,exact_name_country,VERIFIED
+AO-UEFA-50029,50029,Torino,ITA,2019/20,2019/20,1,Torino,1,exact_name_country,VERIFIED
+AO-UEFA-50030,50030,Salzburg,AUT,2018/19,2025/26,8,FC Salzburg,1,exact_name_country,VERIFIED
+AO-UEFA-50031,50031,Young Boys,SUI,2018/19,2025/26,8,Young Boys,1,exact_name_country,VERIFIED
+AO-UEFA-50033,50033,Sparta Praha,CZE,2018/19,2025/26,8,Sparta Praha,1,exact_name_country,VERIFIED
+AO-UEFA-50037,50037,Bayern München,GER,2018/19,2025/26,8,Bayern München,1,exact_name_country,VERIFIED
+AO-UEFA-50042,50042,SK Rapid,AUT,2018/19,2025/26,7,Rapid Wien,1,exact_name_country,VERIFIED
+AO-UEFA-50043,50043,Club Brugge,BEL,2018/19,2025/26,8,Club Brugge,1,exact_name_country,VERIFIED
+AO-UEFA-50044,50044,Levski Sofia,BUL,2018/19,2025/26,5,Levski Sofia,1,exact_name_country,VERIFIED
+AO-UEFA-50049,50049,Tirana,ALB,2020/21,2024/25,4,KF Tirana,1,exact_name_country,VERIFIED
+AO-UEFA-50050,50050,Celtic,SCO,2018/19,2025/26,8,Celtic,1,exact_name_country,VERIFIED
+AO-UEFA-50051,50051,Real Madrid,ESP,2018/19,2025/26,8,Real Madrid,1,exact_name_country,VERIFIED
+AO-UEFA-50052,50052,HJK,FIN,2018/19,2025/26,7,HJK Helsinki,1,exact_name_country,VERIFIED
+AO-UEFA-50054,50054,Honvéd,HUN,2018/19,2020/21,3,Honvéd Budapest,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50055,50055,Dundalk,IRL,2018/19,2023/24,5,Dundalk,1,exact_name_country,VERIFIED
+AO-UEFA-50056,50056,Glentoran,NIR,2020/21,2023/24,3,Glentoran,1,exact_name_country,VERIFIED
+AO-UEFA-50057,50057,Valur,ISL,2018/19,2025/26,5,Valur Reykjavik,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50058,50058,Milan,ITA,2018/19,2024/25,6,AC Milan,1,exact_name_country,VERIFIED
+AO-UEFA-50059,50059,Jeunesse Esch,LUX,2019/20,2019/20,1,Jeunesse d'Esch,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50060,50060,Hamrun Spartans ,MLT,2022/23,2025/26,4,Hamrun Spartans,1,exact_name_country,VERIFIED
+AO-UEFA-50062,50062,PSV,NED,2018/19,2025/26,8,PSV Eindhoven,1,exact_name_country,VERIFIED
+AO-UEFA-50063,50063,Górnik Zabrze,POL,2018/19,2018/19,1,Górnik Zabrze,1,exact_name_country,VERIFIED
+AO-UEFA-50064,50064,Porto,POR,2018/19,2025/26,8,FC Porto,1,exact_name_country,VERIFIED
+AO-UEFA-50065,50065,FCSB,ROM,2018/19,2025/26,8,FCSB,1,exact_name_country,VERIFIED
+AO-UEFA-50066,50066,IFK Göteborg,SWE,2020/21,2020/21,1,IFK Göteborg,1,exact_name_country,VERIFIED
+AO-UEFA-50067,50067,Galatasaray,TUR,2018/19,2025/26,7,Galatasaray,1,exact_name_country,VERIFIED
+AO-UEFA-50068,50068,Spartak Moskva,RUS,2018/19,2021/22,3,Spartak Moscow,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50069,50069,Crvena Zvezda,SRB,2018/19,2025/26,8,Red Star Belgrade,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50072,50072,Frankfurt,GER,2018/19,2025/26,7,Eintracht Frankfurt,1,exact_name_country,VERIFIED
+AO-UEFA-50074,50074,Anderlecht,BEL,2018/19,2025/26,5,Anderlecht,1,exact_name_country,VERIFIED
+AO-UEFA-50077,50077,Omonia,CYP,2020/21,2025/26,6,Omonia Nicosia,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50079,50079,Dundee United,SCO,2022/23,2025/26,2,Dundee United,1,exact_name_country,VERIFIED
+AO-UEFA-50080,50080,Barcelona,ESP,2018/19,2025/26,8,FC Barcelona,1,exact_name_country,VERIFIED
+AO-UEFA-50082,50082,Lahti,FIN,2018/19,2018/19,1,FC Lahti,1,exact_name_country,VERIFIED
+AO-UEFA-50084,50084,Panathinaikos,GRE,2022/23,2025/26,4,Panathinaikos,1,exact_name_country,VERIFIED
+AO-UEFA-50086,50086,Derry,IRL,2018/19,2024/25,5,Derry City,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50087,50087,Glenavon,NIR,2018/19,2018/19,1,Glenavon,1,exact_name_country,VERIFIED
+AO-UEFA-50092,50092,Floriana,MLT,2020/21,2025/26,4,Floriana,1,exact_name_country,VERIFIED
+AO-UEFA-50097,50097,Vitória SC,POR,2019/20,2024/25,4,Vitória Guimarães,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50099,50099,Norrköping,SWE,2019/20,2019/20,1,IFK Norrköping,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50104,50104,Borac,BOS,2020/21,2025/26,6,Borac Banja Luka,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50107,50107,Stuttgart,GER,2024/25,2025/26,2,VfB Stuttgart,1,exact_name_country,VERIFIED
+AO-UEFA-50109,50109,Leverkusen,GER,2018/19,2025/26,8,Bayer Leverkusen,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50110,50110,Austria Wien,AUT,2019/20,2025/26,6,Austria Wien,1,exact_name_country,VERIFIED
+AO-UEFA-50111,50111,Sturm Graz,AUT,2018/19,2025/26,7,Sturm Graz,1,exact_name_country,VERIFIED
+AO-UEFA-50113,50113,Antwerp,BEL,2019/20,2023/24,5,Royal Antwerp,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50117,50117,Slavia Sofia,BUL,2018/19,2020/21,2,Slavia Sofia,1,exact_name_country,VERIFIED
+AO-UEFA-50118,50118,APOEL,CYP,2018/19,2024/25,6,APOEL Nicosia,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50120,50120,Hearts,SCO,2022/23,2024/25,3,Hearts FC,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50121,50121,Rangers,SCO,2018/19,2025/26,8,Glasgow Rangers,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50122,50122,Aberdeen,SCO,2018/19,2025/26,6,Aberdeen,1,exact_name_country,VERIFIED
+AO-UEFA-50123,50123,Real Sociedad,ESP,2020/21,2024/25,5,Real Sociedad,1,exact_name_country,VERIFIED
+AO-UEFA-50124,50124,Atleti,ESP,2018/19,2025/26,8,Atlético Madrid,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50125,50125,Athletic Club,ESP,2024/25,2025/26,2,Athletic Bilbao,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50127,50127,Bordeaux,FRA,2018/19,2018/19,1,Girondins Bordeaux,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50129,50129,AEK Athens,GRE,2018/19,2025/26,7,AEK Athens,1,exact_name_country,VERIFIED
+AO-UEFA-50130,50130,PAOK,GRE,2018/19,2025/26,8,PAOK Thessaloniki,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50132,50132,Újpest,HUN,2018/19,2021/22,2,Újpest TE,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50133,50133,St. Patrick's,IRL,2019/20,2025/26,5,St. Patrick's Athletic,1,exact_name_country,VERIFIED
+AO-UEFA-50134,50134,Linfield,NIR,2019/20,2025/26,7,Linfield Belfast,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50136,50136,Napoli,ITA,2018/19,2025/26,7,Napoli,1,exact_name_country,VERIFIED
+AO-UEFA-50137,50137,Roma,ITA,2018/19,2025/26,8,AS Roma,1,exact_name_country,VERIFIED
+AO-UEFA-50138,50138,Inter,ITA,2018/19,2025/26,8,Internazionale,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50139,50139,Juventus,ITA,2018/19,2025/26,7,Juventus,1,exact_name_country,VERIFIED
+AO-UEFA-50141,50141,Sliema,MLT,2024/25,2024/25,1,Sliema Wanderers,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50142,50142,Molde,NOR,2018/19,2024/25,7,Molde FK,1,exact_name_country,VERIFIED
+AO-UEFA-50143,50143,Ajax,NED,2018/19,2025/26,8,Ajax,1,exact_name_country,VERIFIED
+AO-UEFA-50146,50146,Legia Warszawa,POL,2018/19,2025/26,7,Legia Warsaw,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50147,50147,Benfica,POR,2018/19,2025/26,8,Benfica,1,exact_name_country,VERIFIED
+AO-UEFA-50149,50149,Sporting CP,POR,2018/19,2025/26,8,Sporting CP Lisbon,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50152,50152,Malmö,SWE,2018/19,2025/26,7,Malmö FF,1,exact_name_country,VERIFIED
+AO-UEFA-50156,50156,DAC 1904,SVK,2018/19,2024/25,7,DAC Dunajska Streda,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50157,50157,Beşiktaş,TUR,2018/19,2025/26,7,Besiktas,1,exact_name_country,VERIFIED
+AO-UEFA-50161,50161,Dinamo-Minsk,BLS,2018/19,2025/26,7,Dinamo Minsk,1,exact_name_country,VERIFIED
+AO-UEFA-50162,50162,Partizan,SRB,2018/19,2025/26,8,Partizan Belgrade,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50163,50163,Velež,BOS,2021/22,2024/25,3,Velez Mostar,1,fixture_graph_unique,VERIFIED
+AO-UEFA-50164,50164,GNK Dinamo,CRO,2018/19,2025/26,8,Dinamo Zagreb,1,exact_name_country,VERIFIED
+AO-UEFA-51150,51150,Zürich,SUI,2018/19,2024/25,3,FC Zürich,1,exact_name_country,VERIFIED
+AO-UEFA-51151,51151,St. Gallen,SUI,2018/19,2024/25,3,FC Sankt Gallen,1,fixture_graph_unique,VERIFIED
+AO-UEFA-51886,51886,Baník Ostrava,CZE,2024/25,2025/26,2,Baník Ostrava,1,exact_name_country,VERIFIED
+AO-UEFA-52165,52165,Standard Liège,BEL,2018/19,2020/21,3,Standard Liège,1,exact_name_country,VERIFIED
+AO-UEFA-52265,52265,Real Betis,ESP,2018/19,2025/26,6,Real Betis,1,exact_name_country,VERIFIED
+AO-UEFA-52268,52268,Valencia,ESP,2018/19,2019/20,2,Valencia,1,exact_name_country,VERIFIED
+AO-UEFA-52277,52277,Lens,FRA,2023/24,2024/25,2,RC Lens,1,exact_name_country,VERIFIED
+AO-UEFA-52280,52280,Arsenal,ENG,2018/19,2025/26,7,Arsenal,1,exact_name_country,VERIFIED
+AO-UEFA-52287,52287,Győri ETO,HUN,2025/26,2025/26,1,ETO Györ,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52288,52288,Fehérvár,HUN,2018/19,2024/25,6,FC Fehérvár | Videoton Fehérvár,2,fixture_graph_unique,VERIFIED
+AO-UEFA-52298,52298,Ferencváros,HUN,2018/19,2025/26,8,Ferencváros,1,exact_name_country,VERIFIED
+AO-UEFA-52307,52307,KR,ISL,2019/20,2022/23,3,KR Reykjavik,1,exact_name_country,VERIFIED
+AO-UEFA-52308,52308,Stjarnan,ISL,2018/19,2024/25,4,Stjarnan FC,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52309,52309,Differdange,LUX,2020/21,2025/26,5,Differdange 03,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52311,52311,Progrès,LUX,2018/19,2024/25,5,Progrès Niederkorn,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52314,52314,Lillestrøm,NOR,2018/19,2022/23,2,Lillestrøm SK,1,exact_name_country,VERIFIED
+AO-UEFA-52318,52318,Vålerenga,NOR,2021/22,2021/22,1,Vålerengens IF,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52319,52319,Viking,NOR,2020/21,2025/26,3,Viking Stavanger,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52323,52323,Utrecht,NED,2019/20,2025/26,2,FC Utrecht,1,exact_name_country,VERIFIED
+AO-UEFA-52327,52327,AZ Alkmaar,NED,2018/19,2025/26,8,AZ Alkmaar,1,exact_name_country,VERIFIED
+AO-UEFA-52336,52336,Braga,POR,2018/19,2025/26,8,Sporting Braga,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52339,52339,Corvinul,ROM,2024/25,2024/25,1,Corvinul Hunedoara,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52341,52341,AIK,SWE,2018/19,2025/26,4,AIK Stockholm,1,exact_name_country,VERIFIED
+AO-UEFA-52343,52343,Hammarby,SWE,2020/21,2025/26,4,Hammarby IF,1,exact_name_country,VERIFIED
+AO-UEFA-52344,52344,Elfsborg,SWE,2021/22,2024/25,3,IF Elfsborg,1,exact_name_country,VERIFIED
+AO-UEFA-52350,52350,KuPS Kuopio,FIN,2018/19,2025/26,8,KuPS Kuopio,1,exact_name_country,VERIFIED
+AO-UEFA-52355,52355,Nice,FRA,2020/21,2025/26,4,OGC Nice,1,exact_name_country,VERIFIED
+AO-UEFA-52356,52356,Rijeka,CRO,2018/19,2025/26,8,NK Rijeka,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52359,52359,Hajduk Split,CRO,2018/19,2025/26,8,Hajduk Split,1,exact_name_country,VERIFIED
+AO-UEFA-52369,52369,Lokomotiv Plovdiv,BUL,2019/20,2021/22,3,Lokomotiv Plovdiv,1,exact_name_country,VERIFIED
+AO-UEFA-52374,52374,Ballymena,NIR,2019/20,2019/20,1,Ballymena United,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52375,52375,Bohemians,IRL,2020/21,2021/22,2,Bohemians Dublin,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52377,52377,Coleraine,NIR,2018/19,2021/22,3,Coleraine,1,exact_name_country,VERIFIED
+AO-UEFA-52381,52381,Shamrock Rovers,IRL,2018/19,2025/26,8,Shamrock Rovers,1,exact_name_country,VERIFIED
+AO-UEFA-52498,52498,Slavia Praha,CZE,2018/19,2025/26,8,Slavia Praha,1,exact_name_country,VERIFIED
+AO-UEFA-52552,52552,St. Mirren,SCO,2024/25,2024/25,1,St. Mirren,1,exact_name_country,VERIFIED
+AO-UEFA-52640,52640,Hibernians,MLT,2019/20,2025/26,5,Hibernians FC,1,exact_name_country,VERIFIED
+AO-UEFA-52641,52641,Valletta,MLT,2018/19,2020/21,3,Valletta FC,1,exact_name_country,VERIFIED
+AO-UEFA-52651,52651,Wisła Kraków,POL,2024/25,2024/25,1,Wisla Kraków,1,exact_name_country,VERIFIED
+AO-UEFA-52652,52652,Pogoń,POL,2021/22,2023/24,3,Pogon Szczecin,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52655,52655,Śląsk,POL,2021/22,2024/25,2,Slask Wroclaw,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52660,52660,Sligo,IRL,2021/22,2022/23,2,Sligo Rovers,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52662,52662,Bohemians Praha,CZE,2023/24,2023/24,1,Bohemians Praha,1,exact_name_country,VERIFIED
+AO-UEFA-52681,52681,Nott'm Forest,ENG,2025/26,2025/26,1,Nottingham Forest,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52682,52682,Man Utd,ENG,2018/19,2024/25,7,Manchester United,1,exact_name_country,VERIFIED
+AO-UEFA-52683,52683,Aston Villa,ENG,2023/24,2025/26,3,Aston Villa,1,exact_name_country,VERIFIED
+AO-UEFA-52692,52692,Fenerbahçe,TUR,2018/19,2025/26,6,Fenerbahçe,1,exact_name_country,VERIFIED
+AO-UEFA-52693,52693,Nantes,FRA,2022/23,2022/23,1,FC Nantes,1,exact_name_country,VERIFIED
+AO-UEFA-52697,52697,Víkingur R.,ISL,2020/21,2025/26,5,Vikingur Reykjavik,1,exact_name_country,VERIFIED
+AO-UEFA-52704,52704,Dynamo Moscow,RUS,2020/21,2020/21,1,Dinamo Moscow,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52705,52705,Dinamo Tbilisi,GEO,2018/19,2024/25,7,Dinamo Tbilisi,1,exact_name_country,VERIFIED
+AO-UEFA-52707,52707,Shakhtar,UKR,2018/19,2025/26,8,Shakhtar Donetsk,1,exact_name_country,VERIFIED
+AO-UEFA-52709,52709,Copenhagen,DEN,2018/19,2025/26,8,FC København,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52714,52714,Sevilla,ESP,2018/19,2023/24,6,Sevilla,1,exact_name_country,VERIFIED
+AO-UEFA-52720,52720,ÍBV,ISL,2018/19,2018/19,1,IBV Vestmannaeyjar,1,exact_name_country,VERIFIED
+AO-UEFA-52723,52723,Dynamo Kyiv,UKR,2018/19,2025/26,8,Dinamo Kiev | Dynamo Kyiv,2,exact_name_country,VERIFIED
+AO-UEFA-52731,52731,Trabzonspor,TUR,2019/20,2024/25,4,Trabzonspor,1,exact_name_country,VERIFIED
+AO-UEFA-52734,52734,Radnicki Niš,SRB,2018/19,2022/23,3,Radnicki Nis,1,exact_name_country,VERIFIED
+AO-UEFA-52741,52741,Apollon,CYP,2018/19,2022/23,5,Apollon Limassol,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52747,52747,Paris,FRA,2018/19,2025/26,8,Paris Saint-Germain,1,exact_name_country,VERIFIED
+AO-UEFA-52748,52748,Marseille,FRA,2018/19,2025/26,6,Olympique Marseille,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52749,52749,Feyenoord,NED,2018/19,2025/26,8,Feyenoord,1,exact_name_country,VERIFIED
+AO-UEFA-52757,52757,Mönchengladbach,GER,2019/20,2020/21,2,Borussia Mönchengladbach,1,exact_name_country,VERIFIED
+AO-UEFA-52758,52758,B. Dortmund,GER,2018/19,2025/26,8,Borussia Dortmund,1,exact_name_country,VERIFIED
+AO-UEFA-52763,52763,Lechia,POL,2019/20,2022/23,2,Lechia Gdansk,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52770,52770,Brann,NOR,2019/20,2025/26,4,SK Brann Bergen,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52792,52792,Dinamo City,ALB,2025/26,2025/26,1,Dinamo Tirana,1,exact_name_country,VERIFIED
+AO-UEFA-52797,52797,S. Bratislava,SVK,2018/19,2025/26,8,Slovan Bratislava,1,exact_name_country,VERIFIED
+AO-UEFA-52800,52800,AEL,CYP,2019/20,2021/22,2,AEL Limassol,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52802,52802,Haka,FIN,2023/24,2023/24,1,Haka Valkeakoski,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52803,52803,Cork,IRL,2018/19,2019/20,2,Cork City,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52806,52806,Rosenborg,NOR,2018/19,2025/26,6,Rosenborg BK,1,exact_name_country,VERIFIED
+AO-UEFA-52808,52808,Luzern,SUI,2018/19,2023/24,4,FC Luzern,1,exact_name_country,VERIFIED
+AO-UEFA-52809,52809,Djurgården,SWE,2018/19,2024/25,5,Djurgårdens IF,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52810,52810,Vojvodina,SRB,2020/21,2024/25,4,Vojvodina Novi Sad,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52812,52812,RoPS,FIN,2019/20,2019/20,1,RoPS Rovaniemi,1,exact_name_country,VERIFIED
+AO-UEFA-52816,52816,Atalanta,ITA,2018/19,2025/26,7,Atalanta,1,exact_name_country,VERIFIED
+AO-UEFA-52817,52817,Fiorentina,ITA,2022/23,2025/26,4,Fiorentina,1,exact_name_country,VERIFIED
+AO-UEFA-52818,52818,Twente,NED,2022/23,2024/25,3,FC Twente Enschede,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52821,52821,Hibernian,SCO,2018/19,2025/26,4,Hibernian,1,exact_name_country,VERIFIED
+AO-UEFA-52826,52826,Zenit,RUS,2018/19,2021/22,4,Zenit St. Petersburg,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52876,52876,Partizani,ALB,2018/19,2025/26,7,Partizani Tirana,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52878,52878,Vllaznia,ALB,2021/22,2025/26,5,Vllaznia Shkodër,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52884,52884,Cercle Brugge,BEL,2024/25,2024/25,1,Cercle Brugge,1,exact_name_country,VERIFIED
+AO-UEFA-52886,52886,Charleroi,BEL,2020/21,2025/26,2,Charleroi,1,exact_name_country,VERIFIED
+AO-UEFA-52897,52897,Anorthosis,CYP,2018/19,2021/22,3,Anorthosis Famagusta,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52904,52904,Spartak Trnava,SVK,2018/19,2025/26,7,Spartak Trnava,1,exact_name_country,VERIFIED
+AO-UEFA-52905,52905,Sigma Olomouc,CZE,2018/19,2025/26,2,Sigma Olomouc,1,exact_name_country,VERIFIED
+AO-UEFA-52912,52912,Silkeborg,DEN,2022/23,2025/26,3,Silkeborg IF,1,exact_name_country,VERIFIED
+AO-UEFA-52914,52914,Chelsea,ENG,2018/19,2025/26,7,Chelsea,1,exact_name_country,VERIFIED
+AO-UEFA-52916,52916,Crystal Palace,ENG,2025/26,2025/26,1,Crystal Palace,1,exact_name_country,VERIFIED
+AO-UEFA-52919,52919,Man City,ENG,2018/19,2025/26,8,Manchester City,1,exact_name_country,VERIFIED
+AO-UEFA-52934,52934,Toulouse,FRA,2023/24,2023/24,1,Toulouse FC,1,exact_name_country,VERIFIED
+AO-UEFA-52949,52949,Aris T.,GRE,2019/20,2025/26,6,Aris Thessaloniki,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52953,52953,OFI Crete,GRE,2020/21,2020/21,1,OFI Heraklion,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52958,52958,Debrecen,HUN,2019/20,2023/24,2,DVSC Debrecen,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52966,52966,Akureyri,ISL,2023/24,2025/26,2,KA Akureyri,1,exact_name_country,VERIFIED
+AO-UEFA-52969,52969,Bologna,ITA,2024/25,2025/26,2,Bologna,1,exact_name_country,VERIFIED
+AO-UEFA-52973,52973,Lazio,ITA,2018/19,2024/25,7,Lazio,1,exact_name_country,VERIFIED
+AO-UEFA-52977,52977,Swift Hesper,LUX,2021/22,2023/24,2,Swift Hesperange,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52985,52985,Vitesse,NED,2018/19,2021/22,2,Vitesse Arnhem,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52987,52987,Willem II,NED,2020/21,2020/21,1,Willem II Tilburg,1,fixture_graph_unique,VERIFIED
+AO-UEFA-52991,52991,Cliftonville,NIR,2018/19,2025/26,5,Cliftonville,1,exact_name_country,VERIFIED
+AO-UEFA-52992,52992,Crusaders,NIR,2018/19,2024/25,5,Crusaders Belfast,1,fixture_graph_unique,VERIFIED
+AO-UEFA-53001,53001,Tromsø,NOR,2024/25,2024/25,1,Tromsø IL,1,exact_name_country,VERIFIED
+AO-UEFA-53020,53020,Shelbourne,IRL,2024/25,2025/26,2,Shelbourne,1,exact_name_country,VERIFIED
+AO-UEFA-53025,53025,U. Cluj,ROM,2025/26,2025/26,1,Universitatea Cluj,1,fixture_graph_unique,VERIFIED
+AO-UEFA-53035,53035,Motherwell,SCO,2020/21,2022/23,2,Motherwell,1,exact_name_country,VERIFIED
+AO-UEFA-53042,53042,Osasuna,ESP,2023/24,2023/24,1,Osasuna,1,exact_name_country,VERIFIED
+AO-UEFA-53043,53043,Celta,ESP,2025/26,2025/26,1,Celta de Vigo,1,fixture_graph_unique,VERIFIED
+AO-UEFA-53060,53060,Samsunspor,TUR,2025/26,2025/26,1,Samsunspor,1,exact_name_country,VERIFIED
+AO-UEFA-53065,53065,Lokomotiv Moskva,RUS,2018/19,2021/22,4,Lokomotiv Moscow,1,fixture_graph_unique,VERIFIED
+AO-UEFA-53069,53069,Barry,WAL,2019/20,2020/21,2,Barry Town,1,fixture_graph_unique,VERIFIED
+AO-UEFA-53071,53071,Caernarfon,WAL,2024/25,2024/25,1,Caernarfon Town,1,fixture_graph_unique,VERIFIED
+AO-UEFA-53078,53078,Budućnost,MON,2018/19,2025/26,8,Buducnost Podgorica,1,fixture_graph_unique,VERIFIED
+AO-UEFA-53079,53079,Spartak Subotica,SRB,2018/19,2018/19,1,Spartak Subotica,1,exact_name_country,VERIFIED
+AO-UEFA-53080,53080,Vardar,MAC,2018/19,2025/26,2,Vardar Skopje,1,fixture_graph_unique,VERIFIED
+AO-UEFA-53081,53081,Olimpija,SLO,2018/19,2025/26,8,Olimpija Ljubljana,1,exact_name_country,VERIFIED
+AO-UEFA-53082,53082,Osijek,CRO,2018/19,2024/25,7,NK Osijek,1,exact_name_country,VERIFIED
+AO-UEFA-5312,5312,Lyon,FRA,2018/19,2025/26,5,Olympique Lyon,1,fixture_graph_unique,VERIFIED
+AO-UEFA-53354,53354,Burnley,ENG,2018/19,2018/19,1,Burnley FC,1,exact_name_country,VERIFIED
+AO-UEFA-53357,53357,Wolves,ENG,2019/20,2019/20,1,Wolverhampton Wanderers,1,fixture_graph_unique,VERIFIED
+AO-UEFA-53358,53358,West Ham,ENG,2021/22,2023/24,3,West Ham United,1,fixture_graph_unique,VERIFIED
+AO-UEFA-53577,53577,Leicester,ENG,2020/21,2021/22,2,Leicester City,1,fixture_graph_unique,VERIFIED
+AO-UEFA-54187,54187,Kalmar,SWE,2023/24,2023/24,1,Kalmar FF,1,exact_name_country,VERIFIED
+AO-UEFA-54189,54189,Espanyol,ESP,2019/20,2019/20,1,Espanyol,1,exact_name_country,VERIFIED
+AO-UEFA-54191,54191,AEK Larnaca,CYP,2018/19,2025/26,6,AEK Larnaca,1,exact_name_country,VERIFIED
+AO-UEFA-54266,54266,CSKA Moskva,RUS,2018/19,2020/21,3,CSKA Moscow,1,fixture_graph_unique,VERIFIED
+AO-UEFA-55031,55031,Rennes,FRA,2018/19,2023/24,6,Stade Rennais,1,fixture_graph_unique,VERIFIED
+AO-UEFA-57388,57388,Schalke,GER,2018/19,2018/19,1,Schalke 04,1,fixture_graph_unique,VERIFIED
+AO-UEFA-57466,57466,Botev Plovdiv,BUL,2022/23,2024/25,2,Botev Plovdiv,1,exact_name_country,VERIFIED
+AO-UEFA-57475,57475,Klaksvík,FAR,2018/19,2025/26,8,KI Klaksvik,1,exact_name_country,VERIFIED
+AO-UEFA-57476,57476,B36 Tórshavn,FAR,2018/19,2024/25,6,B36 Torshavn,1,exact_name_country,VERIFIED
+AO-UEFA-57477,57477,M. Tel-Aviv,ISR,2018/19,2025/26,8,Maccabi Tel-Aviv,1,fixture_graph_unique,VERIFIED
+AO-UEFA-57482,57482,Vaduz,LIE,2018/19,2025/26,8,FC Vaduz,1,exact_name_country,VERIFIED
+AO-UEFA-57490,57490,Maribor,SLO,2018/19,2025/26,8,NK Maribor,1,exact_name_country,VERIFIED
+AO-UEFA-59024,59024,Neman,BLS,2023/24,2025/26,3,Neman Grodno,1,fixture_graph_unique,VERIFIED
+AO-UEFA-59025,59025,H. Bóltfelag,FAR,2019/20,2025/26,7,HB Torshavn,1,fixture_graph_unique,VERIFIED
+AO-UEFA-59028,59028,Diddeleng,LUX,2018/19,2025/26,7,F91 Dudelange,1,fixture_graph_unique,VERIFIED
+AO-UEFA-59030,59030,Celje,SLO,2020/21,2025/26,4,NK Celje,1,exact_name_country,VERIFIED
+AO-UEFA-59034,59034,Beitar,ISR,2018/19,2025/26,4,Beitar Jerusalem,1,fixture_graph_unique,VERIFIED
+AO-UEFA-59036,59036,Zimbru,MOL,2023/24,2025/26,3,Zimbru Chisinau,1,fixture_graph_unique,VERIFIED
+AO-UEFA-59045,59045,Maccabi Haifa,ISR,2019/20,2025/26,7,Maccabi Haifa,1,exact_name_country,VERIFIED
+AO-UEFA-59316,59316,Teuta,ALB,2019/20,2021/22,3,Teuta Durrës,1,fixture_graph_unique,VERIFIED
+AO-UEFA-59318,59318,Ararat-Yerevan,ARM,2021/22,2022/23,2,Ararat Yerevan,1,exact_name_country,VERIFIED
+AO-UEFA-59324,59324,Newcastle,ENG,2023/24,2025/26,2,Newcastle United,1,fixture_graph_unique,VERIFIED
+AO-UEFA-59325,59325,Víkingur,FAR,2018/19,2025/26,5,Víkingur,1,exact_name_country,VERIFIED
+AO-UEFA-59329,59329,FH,ISL,2018/19,2021/22,3,FH Hafnarfjardar,1,fixture_graph_unique,VERIFIED
+AO-UEFA-59333,59333,Bodø/Glimt,NOR,2020/21,2025/26,6,Bodø/Glimt,1,exact_name_country,VERIFIED
+AO-UEFA-59337,59337,Cardiff Met,WAL,2019/20,2019/20,1,Cardiff MU,1,fixture_graph_unique,VERIFIED
+AO-UEFA-59340,59340,H. Beer-Sheva,ISR,2018/19,2025/26,8,Hapoel Beer-Sheva,1,fixture_graph_unique,VERIFIED
+AO-UEFA-59341,59341,Flora Tallinn,EST,2018/19,2025/26,8,Flora Tallinn,1,exact_name_country,VERIFIED
+AO-UEFA-59856,59856,Basel,SUI,2018/19,2025/26,7,FC Basel,1,fixture_graph_unique,VERIFIED
+AO-UEFA-59857,59857,Strasbourg,FRA,2019/20,2025/26,2,RC Strasbourg,1,fixture_graph_unique,VERIFIED
+AO-UEFA-59860,59860,Rudar Velenje,SLO,2018/19,2018/19,1,Rudar Velenje,1,exact_name_country,VERIFIED
+AO-UEFA-59871,59871,Sileks,MAC,2020/21,2025/26,3,Sileks Kratovo,1,fixture_graph_unique,VERIFIED
+AO-UEFA-59877,59877,Shirak,ARM,2020/21,2020/21,1,Shirak Gyumri,1,fixture_graph_unique,VERIFIED
+AO-UEFA-59880,59880,Freiburg,GER,2022/23,2025/26,3,SC Freiburg,1,exact_name_country,VERIFIED
+AO-UEFA-59884,59884,Samtredia,GEO,2018/19,2018/19,1,Samtredia,1,exact_name_country,VERIFIED
+AO-UEFA-59885,59885,Dinamo Batumi,GEO,2020/21,2024/25,5,Dinamo Batumi,1,exact_name_country,VERIFIED
+AO-UEFA-59890,59890,Neftchi,AZB,2018/19,2023/24,6,Neftchi Baku,1,fixture_graph_unique,VERIFIED
+AO-UEFA-60457,60457,The New Saints,WAL,2018/19,2025/26,8,The New Saints,1,exact_name_country,VERIFIED
+AO-UEFA-60458,60458,Newtown,WAL,2021/22,2022/23,2,Newtown,1,exact_name_country,VERIFIED
+AO-UEFA-60514,60514,Varaždin,CRO,2025/26,2025/26,1,NK Varazdin,1,exact_name_country,VERIFIED
+AO-UEFA-60565,60565,Trans,EST,2018/19,2023/24,3,Trans Narva,1,exact_name_country,VERIFIED
+AO-UEFA-60566,60566,Raków,POL,2021/22,2025/26,4,Raków Czestochowa,1,exact_name_country,VERIFIED
+AO-UEFA-60570,60570,Čukarički,SRB,2019/20,2023/24,4,Cukaricki Belgrade,1,fixture_graph_unique,VERIFIED
+AO-UEFA-60573,60573,H. Haifa,ISR,2018/19,2018/19,1,Hapoel Haifa,1,fixture_graph_unique,VERIFIED
+AO-UEFA-60609,60609,Qarabağ,AZB,2018/19,2025/26,8,Qarabag FK,1,exact_name_country,VERIFIED
+AO-UEFA-61576,61576,M. Petah Tikva,ISR,2024/25,2024/25,1,Maccabi Petah-Tikva,1,fixture_graph_unique,VERIFIED
+AO-UEFA-61582,61582,Genk,BEL,2018/19,2025/26,5,Racing Genk,1,fixture_graph_unique,VERIFIED
+AO-UEFA-61601,61601,Žilina,SVK,2020/21,2025/26,4,MSK Zilina,1,exact_name_country,VERIFIED
+AO-UEFA-62169,62169,Jablonec,CZE,2018/19,2021/22,4,FK Jablonec,1,exact_name_country,VERIFIED
+AO-UEFA-62171,62171,Birkirkara,MLT,2018/19,2025/26,4,Birkirkara,1,exact_name_country,VERIFIED
+AO-UEFA-62174,62174,Vorskla Poltava,UKR,2018/19,2023/24,4,Vorskla Poltava,1,exact_name_country,VERIFIED
+AO-UEFA-62178,62178,Kilmarnock,SCO,2019/20,2024/25,2,Kilmarnock,1,exact_name_country,VERIFIED
+AO-UEFA-62180,62180,FC Santa Coloma,AND,2018/19,2025/26,6,FC Santa Coloma,1,exact_name_country,VERIFIED
+AO-UEFA-63399,63399,Sant Julià,AND,2018/19,2021/22,3,Sant Julià,1,exact_name_country,VERIFIED
+AO-UEFA-63401,63401,Inter Escaldes,AND,2020/21,2025/26,6,Inter Club d'Escaldes,1,exact_name_country,VERIFIED
+AO-UEFA-63405,63405,LASK,AUT,2018/19,2024/25,6,LASK | LASK Linz,2,exact_name_country,VERIFIED
+AO-UEFA-64110,64110,Luftëtari,ALB,2018/19,2018/19,1,Luftëtari Gjirokastër,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64111,64111,Laç,ALB,2018/19,2022/23,5,KF Laçi,1,exact_name_country,VERIFIED
+AO-UEFA-64125,64125,Union SG,BEL,2022/23,2025/26,4,Union Saint-Gilloise,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64140,64140,Esbjerg,DEN,2019/20,2019/20,1,Esbjerg fB,1,exact_name_country,VERIFIED
+AO-UEFA-64146,64146,Randers,DEN,2021/22,2021/22,1,Randers FC,1,exact_name_country,VERIFIED
+AO-UEFA-64150,64150,Runavík,FAR,2018/19,2025/26,5,NSI Runavik,1,exact_name_country,VERIFIED
+AO-UEFA-64161,64161,Inter Turku,FIN,2019/20,2022/23,4,Inter Turku,1,exact_name_country,VERIFIED
+AO-UEFA-64165,64165,Reims,FRA,2020/21,2020/21,1,Stade de Reims,1,exact_name_country,VERIFIED
+AO-UEFA-64182,64182,ZTE,HUN,2023/24,2023/24,1,Zalaegerszegi TE,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64186,64186,Ashdod,ISR,2021/22,2021/22,1,MS Ashdod,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64189,64189,Bnei Yehuda,ISR,2019/20,2019/20,1,Bnei Yehuda,1,exact_name_country,VERIFIED
+AO-UEFA-64201,64201,Gżira,MLT,2018/19,2023/24,5,Gzira United,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64207,64207,Go Ahead Eagles,NED,2024/25,2025/26,2,Go Ahead Eagles,1,exact_name_country,VERIFIED
+AO-UEFA-64211,64211,Fredrikstad,NOR,2025/26,2025/26,1,Fredrikstad FK,1,exact_name_country,VERIFIED
+AO-UEFA-64214,64214,Haugesund,NOR,2019/20,2019/20,1,FK Haugesund,1,exact_name_country,VERIFIED
+AO-UEFA-64227,64227,Lech Poznań,POL,2018/19,2025/26,5,Lech Poznan,1,exact_name_country,VERIFIED
+AO-UEFA-64237,64237,Rio Ave,POR,2018/19,2020/21,2,Rio Ave,1,exact_name_country,VERIFIED
+AO-UEFA-64249,64249,St Johnstone,SCO,2021/22,2021/22,1,St. Johnstone,1,exact_name_country,VERIFIED
+AO-UEFA-64275,64275,Connah's Quay,WAL,2018/19,2024/25,6,Connah's Quay,1,exact_name_country,VERIFIED
+AO-UEFA-64283,64283,Haverfordwest,WAL,2023/24,2025/26,2,Haverfordwest County,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64289,64289,Radnički 1923,SRB,2024/25,2025/26,2,Radnicki 1923,1,exact_name_country,VERIFIED
+AO-UEFA-64296,64296,Vitebsk,BLS,2019/20,2019/20,1,FC Vitebsk,1,exact_name_country,VERIFIED
+AO-UEFA-64309,64309,Mariupol,UKR,2018/19,2019/20,2,FC Mariupol,1,exact_name_country,VERIFIED
+AO-UEFA-64315,64315,Trenčín,SVK,2018/19,2018/19,1,AS Trencín,1,exact_name_country,VERIFIED
+AO-UEFA-64319,64319,Ružomberok,SVK,2019/20,2024/25,4,MFK Ruzomberok,1,exact_name_country,VERIFIED
+AO-UEFA-64325,64325,Locomotive Tbilisi,GEO,2020/21,2020/21,1,Lokomotivi Tbilisi,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64332,64332,Wolfsburg,GER,2019/20,2021/22,3,VfL Wolfsburg,1,exact_name_country,VERIFIED
+AO-UEFA-64348,64348,Banga,LIT,2025/26,2025/26,1,Banga Gargzdai,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64359,64359,Ventspils,LAT,2018/19,2020/21,3,FK Ventspils,1,exact_name_country,VERIFIED
+AO-UEFA-64374,64374,Dynamo Brest,BLS,2018/19,2025/26,4,Dynamo Brest,1,exact_name_country,VERIFIED
+AO-UEFA-64375,64375,Shakhtyor,BLS,2018/19,2022/23,5,Shakhtior Saligorsk,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64378,64378,Sarajevo,BOS,2018/19,2025/26,7,FK Sarajevo,1,exact_name_country,VERIFIED
+AO-UEFA-64381,64381,Željezničar,BOS,2018/19,2025/26,4,Zeljeznicar Sarajevo,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64385,64385,Liberec,CZE,2020/21,2020/21,1,Slovan Liberec,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64388,64388,Viktoria Plzeň,CZE,2018/19,2025/26,8,Viktoria Plzen,1,exact_name_country,VERIFIED
+AO-UEFA-64390,64390,VPS,FIN,2024/25,2024/25,1,VPS Vaasa,1,exact_name_country,VERIFIED
+AO-UEFA-64395,64395,Makedonija,MAC,2019/20,2023/24,3,Makedonija GjP,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64397,64397,Tikves,MAC,2024/25,2024/25,1,Tikves Kavadarci,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64467,64467,Dila,GEO,2021/22,2025/26,4,Dila Gori,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64471,64471,Torpedo Kutaisi,GEO,2018/19,2025/26,5,Torpedo Kutaisi,1,exact_name_country,VERIFIED
+AO-UEFA-64500,64500,Rostov,RUS,2020/21,2020/21,1,FK Rostov,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64503,64503,Cosmos,SMA,2023/24,2023/24,1,Cosmos,1,exact_name_country,VERIFIED
+AO-UEFA-64507,64507,Folgore,SMA,2018/19,2021/22,2,Folgore,1,exact_name_country,VERIFIED
+AO-UEFA-64508,64508,La Fiorita,SMA,2018/19,2025/26,8,La Fiorita,1,exact_name_country,VERIFIED
+AO-UEFA-64514,64514,Tre Fiori,SMA,2018/19,2025/26,5,Tre Fiori,1,exact_name_country,VERIFIED
+AO-UEFA-64515,64515,Tre Penne,SMA,2019/20,2024/25,6,Tre Penne,1,exact_name_country,VERIFIED
+AO-UEFA-64516,64516,Virtus,SMA,2024/25,2025/26,2,AC Virtus,1,fixture_graph_unique,VERIFIED
+AO-UEFA-64527,64527,Kryvbas,UKR,2024/25,2024/25,1,Kryvbas Kryviy Rih,1,fixture_graph_unique,VERIFIED
+AO-UEFA-65130,65130,Zorya Luhansk,UKR,2018/19,2023/24,6,Zorya Luhansk,1,exact_name_country,VERIFIED
+AO-UEFA-66168,66168,BATE,BLS,2018/19,2023/24,6,BATE Borisov,1,fixture_graph_unique,VERIFIED
+AO-UEFA-66169,66169,Gomel,BLS,2022/23,2022/23,1,FC Gomel,1,exact_name_country,VERIFIED
+AO-UEFA-69180,69180,Admira,AUT,2018/19,2018/19,1,Admira Wacker,1,fixture_graph_unique,VERIFIED
+AO-UEFA-69529,69529,Aris Limassol,CYP,2022/23,2025/26,3,Aris Limassol,1,exact_name_country,VERIFIED
+AO-UEFA-69570,69570,Viborg,DEN,2022/23,2022/23,1,Viborg FF,1,exact_name_country,VERIFIED
+AO-UEFA-69601,69601,Rabotnicki,MAC,2018/19,2025/26,2,Rabotnicki Skopje,1,fixture_graph_unique,VERIFIED
+AO-UEFA-69606,69606,Sheriff,MOL,2018/19,2025/26,8,Sheriff Tiraspol,1,fixture_graph_unique,VERIFIED
+AO-UEFA-69617,69617,Koper,SLO,2022/23,2025/26,2,NK Koper,1,fixture_graph_unique,VERIFIED
+AO-UEFA-69621,69621,Häcken,SWE,2018/19,2025/26,6,BK Häcken,1,exact_name_country,VERIFIED
+AO-UEFA-70690,70690,Domžale,SLO,2018/19,2023/24,4,NK Domzale,1,exact_name_country,VERIFIED
+AO-UEFA-70691,70691,Villarreal,ESP,2018/19,2025/26,6,Villarreal,1,exact_name_country,VERIFIED
+AO-UEFA-70853,70853,Mainz,GER,2025/26,2025/26,1,FSV Mainz 05,1,fixture_graph_unique,VERIFIED
+AO-UEFA-71235,71235,Breiðablik,ISL,2019/20,2025/26,7,Breidablik,1,exact_name_country,VERIFIED
+AO-UEFA-73387,73387,Široki Brijeg,BOS,2018/19,2021/22,3,Siroki Brijeg,1,exact_name_country,VERIFIED
+AO-UEFA-73390,73390,Zrinjski,BOS,2018/19,2025/26,7,Zrinjski Mostar,1,fixture_graph_unique,VERIFIED
+AO-UEFA-73561,73561,M. Netanya,ISR,2022/23,2022/23,1,Maccabi Netanya,1,fixture_graph_unique,VERIFIED
+AO-UEFA-73926,73926,Gil Vicente,POR,2022/23,2022/23,1,Gil Vicente,1,exact_name_country,VERIFIED
+AO-UEFA-73927,73927,Santa Clara,POR,2021/22,2025/26,2,CD Santa Clara,1,exact_name_country,VERIFIED
+AO-UEFA-73933,73933,Cefn Druids,WAL,2018/19,2018/19,1,Cefn Druids,1,exact_name_country,VERIFIED
+AO-UEFA-73936,73936,Sutjeska,MON,2018/19,2025/26,7,Sutjeska Niksic,1,fixture_graph_unique,VERIFIED
+AO-UEFA-74070,74070,Rayo Vallecano,ESP,2025/26,2025/26,1,Rayo Vallecano,1,exact_name_country,VERIFIED
+AO-UEFA-74072,74072,Şamaxı,AZB,2018/19,2021/22,3,Kesla FK,1,fixture_graph_unique,VERIFIED
+AO-UEFA-75787,75787,Cherno More,BUL,2024/25,2025/26,2,Cherno More Varna,1,fixture_graph_unique,VERIFIED
+AO-UEFA-75794,75794,Slovácko,CZE,2021/22,2022/23,2,1.FC Slovácko,1,exact_name_country,VERIFIED
+AO-UEFA-75795,75795,Midtjylland,DEN,2018/19,2025/26,8,FC Midtjylland,1,exact_name_country,VERIFIED
+AO-UEFA-75797,75797,Lille,FRA,2019/20,2025/26,6,Lille OSC,1,fixture_graph_unique,VERIFIED
+AO-UEFA-75807,75807,Shkëndija,MAC,2018/19,2025/26,8,Shkendija Tetovo,1,fixture_graph_unique,VERIFIED
+AO-UEFA-75817,75817,Paços Ferreira,POR,2021/22,2021/22,1,Paços de Ferreira,1,fixture_graph_unique,VERIFIED
+AO-UEFA-75834,75834,Zeta,MON,2019/20,2020/21,2,Zeta Golubovci,1,fixture_graph_unique,VERIFIED
+AO-UEFA-7607,7607,Fola,LUX,2018/19,2022/23,5,CS Fola Esch,1,exact_name_country,VERIFIED
+AO-UEFA-77431,77431,Pyunik,ARM,2018/19,2025/26,6,Pyunik Yerevan,1,fixture_graph_unique,VERIFIED
+AO-UEFA-77482,77482,Levadia Tallinn,EST,2018/19,2025/26,8,Levadia Tallinn,1,exact_name_country,VERIFIED
+AO-UEFA-77866,77866,Urartu,ARM,2018/19,2025/26,6,Banants Yerevan | Urartu FC,2,fixture_graph_unique,VERIFIED
+AO-UEFA-77878,77878,Radnik Bijeljina,BOS,2019/20,2019/20,1,Radnik Bijeljina,1,exact_name_country,VERIFIED
+AO-UEFA-77898,77898,Kecskemét,HUN,2023/24,2023/24,1,Kecskeméti TE,1,exact_name_country,VERIFIED
+AO-UEFA-77906,77906,Šiauliai,LIT,2024/25,2024/25,1,FA Siauliai,1,exact_name_country,VERIFIED
+AO-UEFA-77927,77927,Rudar Pljevlja,MON,2018/19,2018/19,1,Rudar Pljevlja,1,exact_name_country,VERIFIED
+AO-UEFA-77928,77928,Olexandriya,UKR,2019/20,2025/26,2,FC Oleksandriya,1,fixture_graph_unique,VERIFIED
+AO-UEFA-77977,77977,Union Berlin,GER,2021/22,2023/24,3,Union Berlin,1,exact_name_country,VERIFIED
+AO-UEFA-78058,78058,Yeni Malatyaspor,TUR,2019/20,2019/20,1,Yeni Malatyaspor,1,exact_name_country,VERIFIED
+AO-UEFA-7889,7889,Liverpool,ENG,2018/19,2025/26,8,Liverpool,1,exact_name_country,VERIFIED
+AO-UEFA-79551,79551,Torpedo-Belaz,BLS,2021/22,2025/26,4,Torpedo Zhodino,1,exact_name_country,VERIFIED
+AO-UEFA-79556,79556,Auda,LAT,2023/24,2025/26,3,FK Auda,1,exact_name_country,VERIFIED
+AO-UEFA-79557,79557,Sūduva,LIT,2018/19,2022/23,5,Suduva Marijampole,1,fixture_graph_unique,VERIFIED
+AO-UEFA-79940,79940,Nordsjælland,DEN,2018/19,2023/24,2,FC Nordsjælland,1,exact_name_country,VERIFIED
+AO-UEFA-79947,79947,Mosta,MLT,2021/22,2021/22,1,Mosta FC,1,exact_name_country,VERIFIED
+AO-UEFA-79948,79948,Marsaxlokk,MLT,2024/25,2024/25,1,Marsaxlokk,1,exact_name_country,VERIFIED
+AO-UEFA-79964,79964,Irtysh,KAZ,2018/19,2018/19,1,Irtysh Pavlodar,1,fixture_graph_unique,VERIFIED
+AO-UEFA-79967,79967,Kyzylzhar,KAZ,2022/23,2022/23,1,FK Kyzylzhar,1,fixture_graph_unique,VERIFIED
+AO-UEFA-79968,79968,Shakhter,KAZ,2021/22,2021/22,1,Shakhtyor Karaganda,1,fixture_graph_unique,VERIFIED
+AO-UEFA-79969,79969,Tobol,KAZ,2018/19,2024/25,6,Tobol Kustanai,1,fixture_graph_unique,VERIFIED
+AO-UEFA-79970,79970,Kairat Almaty,KAZ,2018/19,2025/26,6,Kairat Almaty,1,exact_name_country,VERIFIED
+AO-UEFA-79971,79971,Kaysar,KAZ,2020/21,2020/21,1,Kaysar Kyzylorda,1,fixture_graph_unique,VERIFIED
+AO-UEFA-79973,79973,Aktobe,KAZ,2023/24,2025/26,3,FK Aktobe,1,fixture_graph_unique,VERIFIED
+AO-UEFA-80409,80409,Thun,SUI,2019/20,2019/20,1,FC Thun,1,exact_name_country,VERIFIED
+AO-UEFA-82818,82818,Rubin,RUS,2021/22,2021/22,1,Rubin Kazan,1,fixture_graph_unique,VERIFIED
+AO-UEFA-82825,82825,Ordabasy,KAZ,2019/20,2025/26,5,Ordabasy Shymkent,1,fixture_graph_unique,VERIFIED
+AO-UEFA-84515,84515,Konyaspor,TUR,2022/23,2022/23,1,Konyaspor,1,exact_name_country,VERIFIED
+AO-UEFA-84641,84641,Atromitos,GRE,2018/19,2019/20,2,Atromitos FC,1,exact_name_country,VERIFIED
+AO-UEFA-84697,84697,Engordany,AND,2018/19,2020/21,3,UE Engordany,1,exact_name_country,VERIFIED
+AO-UEFA-84734,84734,Balzan,MLT,2018/19,2023/24,3,Balzan FC,1,exact_name_country,VERIFIED
+AO-UEFA-85008,85008,Dungannon,NIR,2025/26,2025/26,1,Dungannon Swifts,1,fixture_graph_unique,VERIFIED
+AO-UEFA-85009,85009,Larne,NIR,2021/22,2025/26,5,Larne FC,1,exact_name_country,VERIFIED
+AO-UEFA-8538,8538,Lugano,SUI,2019/20,2025/26,5,FC Lugano,1,exact_name_country,VERIFIED
+AO-UEFA-87960,87960,Getafe,ESP,2019/20,2019/20,1,Getafe,1,exact_name_country,VERIFIED
+AO-UEFA-88131,88131,CFR Cluj,ROM,2018/19,2025/26,8,CFR Cluj,1,exact_name_country,VERIFIED
+AO-UEFA-88133,88133,Cracovia,POL,2019/20,2020/21,2,Cracovia Kraków,1,fixture_graph_unique,VERIFIED
+AO-UEFA-88134,88134,Mladá Boleslav,CZE,2019/20,2024/25,2,Mladá Boleslav,1,exact_name_country,VERIFIED
+AO-UEFA-88135,88135,Racing Union,LUX,2018/19,2025/26,4,Racing Union Luxembourg,1,fixture_graph_unique,VERIFIED
+AO-UEFA-88148,88148,Egnatia,ALB,2023/24,2025/26,3,Egnatia Rrogozhinë,1,fixture_graph_unique,VERIFIED
+AO-UEFA-88371,88371,At. Escaldes,AND,2022/23,2025/26,4,Atlètic Club d'Escaldes,1,exact_name_country,VERIFIED
+AO-UEFA-89560,89560,Arsenal Tivat,MON,2023/24,2023/24,1,Arsenal Tivat,1,exact_name_country,VERIFIED
+AO-UEFA-89562,89562,Mornar,MON,2024/25,2024/25,1,Mornar Bar,1,fixture_graph_unique,VERIFIED
+AO-UEFA-89694,89694,SønderjyskE,DEN,2020/21,2020/21,1,SønderjyskE,1,exact_name_country,VERIFIED
+AO-UEFA-89708,89708,Renova,MAC,2020/21,2020/21,1,Renova Dzepciste,1,fixture_graph_unique,VERIFIED
+AO-UEFA-89728,89728,Sivasspor,TUR,2020/21,2022/23,3,Sivasspor,1,exact_name_country,VERIFIED
+AO-UEFA-91760,91760,Honka,FIN,2020/21,2023/24,3,Honka Espoo,1,fixture_graph_unique,VERIFIED
+AO-UEFA-92219,92219,Gandzasar,ARM,2018/19,2018/19,1,Gandzasar Kapan,1,fixture_graph_unique,VERIFIED
+AO-UEFA-92452,92452,Chikhura,GEO,2018/19,2019/20,2,Chikhura Sachkhere,1,fixture_graph_unique,VERIFIED
+AO-UEFA-93452,93452,Paksi,HUN,2024/25,2025/26,2,Paksi FC,1,exact_name_country,VERIFIED
+AO-UEFA-93628,93628,Gabala,AZB,2018/19,2023/24,4,Gabala FK,1,fixture_graph_unique,VERIFIED

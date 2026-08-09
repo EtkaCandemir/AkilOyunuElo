@@ -1,6 +1,0 @@
-comparison,challenger,baseline,matches,mean_brier_difference,ci_95_lower,ci_95_upper,folds_won,folds,reliable_improvement,reliable_harm
-dynamic_update,dynamic_season_reset,static_start_only,171,-0.0054686157176083204,-0.01536422562691906,0.004455155126511061,3,5,False,False
-carry_050_vs_reset,dynamic_carry_050,dynamic_season_reset,171,-0.0009791875502448857,-0.005558873090016019,0.003754523606523041,4,5,False,False
-carry_085_vs_reset,dynamic_carry_085_current,dynamic_season_reset,171,0.001065593908192966,-0.008023583232581611,0.010642580720824676,4,5,False,False
-carry_100_vs_reset,dynamic_carry_100,dynamic_season_reset,171,0.0034052240960221816,-0.008469856625481165,0.015348639953785074,3,5,False,False
-current_vs_clubelo,dynamic_carry_085_current,clubelo_external,171,0.014327098172325324,0.0010079918115849982,0.02729365983366809,1,5,False,True

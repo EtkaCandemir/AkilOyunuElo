@@ -1,2 +1,0 @@
-candidate,baseline,matches,clusters,mean_brier_difference,ci_95_lower,ci_95_upper,reliable_improvement,reliable_harm
-c0_e0_x0,c0_e0_x0,171,139,0.0,0.0,0.0,False,False

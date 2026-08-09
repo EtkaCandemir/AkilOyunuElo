@@ -1,8 +1,0 @@
-parameter,mode,mode_count,folds,mode_share,min,max
-selected_power_carry,0.85,2,6,0.3333333333333333,0.75,1.0
-selected_reserve_decay,0.0,5,6,0.8333333333333334,0.0,1.0
-selected_ucl_trophy_base,0.0,5,6,0.8333333333333334,0.0,20.0
-carry_only_power_carry,0.85,3,6,0.5,0.85,1.0
-achievement_power_carry,0.85,2,6,0.3333333333333333,0.75,1.0
-achievement_reserve_decay,0.25,5,6,0.8333333333333334,0.25,1.0
-achievement_ucl_trophy_base,20.0,6,6,1.0,20.0,20.0

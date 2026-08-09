@@ -1,0 +1,11 @@
+check,status,detail
+team_season_complete,PASS,1887
+registry_unique_clubs,PASS,504
+season_local_key_unique,PASS,1887
+season_club_key_unique,PASS,1887
+club_country_stable,PASS,504
+match_count_complete,PASS,6340
+match_id_unique,PASS,6340
+match_provider_identity_agrees,PASS,6340
+no_self_matches,PASS,6340
+name_changes_preserve_identity,PASS,7

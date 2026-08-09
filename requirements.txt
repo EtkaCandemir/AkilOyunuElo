@@ -3,3 +3,4 @@ pytest
 reportlab
 certifi
 lxml
+scipy==1.17.1

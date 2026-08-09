@@ -1,6 +1,19 @@
 {
   "model_version": "ao-european-elo-v2.0-dev-freeze",
-  "production_revision": "2026-07-23-controlled-goal-difference",
+  "production_revision": "2026-08-06-penalty-field-score-goal-alpha-015-bounded-xg",
+  "domestic_surprise": {
+    "active": true,
+    "family": "FIVE_SEASON_VARIANCE_CONTROLLED_DIRECT_PERCENTILE",
+    "coefficient": 0.4,
+    "variance_penalty": 0.5,
+    "max_abs_adjustment": 30.0,
+    "minimum_history_seasons": 5,
+    "season_weights_oldest_to_newest": [0.07, 0.13, 0.20, 0.27, 0.33],
+    "volatility_normalization": "min(1, 2 * weighted_volatility)",
+    "consistency_formula": "1 - variance_penalty * normalized_volatility",
+    "exposure_formula": "AO adjustment = (1 - effective European exposure) * domestic adjustment",
+    "insufficient_history_behavior": "NO_ADJUSTMENT"
+  },
   "dynamic_core": {
     "elo_scale": 835.5614973262034,
     "home_advantage": 148.54426619132505,
@@ -18,7 +31,7 @@
   "goal_margin": {
     "active": true,
     "family": "CONTROLLED_FAVORITE_DAMPED_LOG",
-    "alpha": 0.1,
+    "alpha": 0.15,
     "tau": 300.0,
     "goal_difference_cap": 4,
     "formula": "1 + alpha * ln(min(GD, goal_difference_cap)) * exp(-abs(D) / tau)",
@@ -26,9 +39,56 @@
     "penalty_multiplier": 1.0,
     "draw_multiplier": 1.0
   },
+  "xg_performance": {
+    "active": true,
+    "family": "BOUNDED_TWO_SIDED_PERFORMANCE_ADJUSTMENT",
+    "max_xg_ratio": 0.3,
+    "xg_scale": 1.25,
+    "minimum_winner_gain_ratio": 0.7,
+    "signal_formula": "Q_xG = tanh((xG_home - xG_away) / xg_scale)",
+    "adjustment_formula": "Delta_xG = max_xg_ratio * abs(Delta_base) * Q_xG",
+    "final_formula": "Delta = Delta_base + Delta_GD_bonus + Delta_xG",
+    "missing_xg_behavior": "FALL_BACK_TO_GOAL_MARGIN_ONLY",
+    "requires_both_teams": true,
+    "draw_behavior": "NO_XG_ADJUSTMENT",
+    "penalty_shootout_behavior": "NO_XG_ADJUSTMENT",
+    "shootout_excluded": true,
+    "time_scope": "90 minutes, or matching 120-minute xG when extra time is played",
+    "winner_direction_guard": true,
+    "zero_sum": true
+  },
   "progression_bonus": {
-    "active": false,
-    "base_bonus": 0.0
+    "active": true,
+    "family": "WINNER_ONLY_SEASON_LOCAL_FIXED",
+    "base_bonus": 12.0,
+    "stages_per_competition": 5,
+    "competition_ratios": {
+      "UCL": 1.0,
+      "UEL": 0.6666666666666666,
+      "UECL": 0.3333333333333333
+    },
+    "increments": {
+      "UCL": 12.0,
+      "UEL": 8.0,
+      "UECL": 4.0
+    },
+    "season_caps": {
+      "UCL": 60.0,
+      "UEL": 40.0,
+      "UECL": 20.0
+    },
+    "eligible_stages": [
+      "KNOCKOUT_PLAYOFF",
+      "ROUND_OF_16",
+      "QUARTERFINAL",
+      "SEMIFINAL",
+      "FINAL"
+    ],
+    "winner_only": true,
+    "loser_deduction": false,
+    "season_reset": true,
+    "single_application_per_tie_id": true,
+    "formula": "AO Live Elo = Power Elo + Achievement Reserve + European Progression Bonus"
   },
   "achievement_reserve": {
     "active": false,
@@ -52,8 +112,10 @@
     "dynamic_core": "CONFIRMED_1X2",
     "season_carry": "DISABLE_CARRY_1X2",
     "one_x_two_output": "PROMOTE_1X2_OUTPUT",
-    "goal_margin": "ACTIVATE_CONTROLLED_GOAL_DIFFERENCE_0_10_300",
-    "progression_bonus": "DISABLED",
+    "goal_margin": "ACTIVATE_CONTROLLED_GOAL_DIFFERENCE_0_15_300",
+    "xg_performance": "ACTIVATE_BOUNDED_RATIO_0_30_SCALE_1_25_FLOOR_0_70",
+    "domestic_surprise": "ACTIVATE_THETA_0_40_GAMMA_0_50_CAP_30",
+    "progression_bonus": "ACTIVATE_FIXED_12_8_4_CAP_60_40_20",
     "achievement_reserve": "DISABLED",
     "competition_k": "DISABLED"
   },
@@ -66,6 +128,41 @@
     "log_loss_delta_vs_base": -0.00024984982162956637,
     "pooled_spearman_delta_vs_base": 0.0006255255217031963,
     "pooled_pairwise_delta_vs_base": 0.00009443705331790841,
+    "manual_product_decision": true
+  },
+  "domestic_surprise_evidence": {
+    "source": "output/domestic_surprise_variance_backtest_2018_2026/gamma_sensitivity_cap_30/gamma_sensitivity_report.md",
+    "full_season_replay": "output/final_shadow_replay_2025_26_variance_gamma_050_cap_30/replay_report.md",
+    "matches": 961,
+    "teams": 236,
+    "brier_delta_vs_main": -0.000621585,
+    "log_loss_delta_vs_main": -0.000909671,
+    "ranking_delta_vs_main": 0.001302994,
+    "pairwise_delta_vs_main": 0.000773613,
+    "manual_product_decision": true
+  },
+  "progression_bonus_evidence": {
+    "source": "output/fixed_tournament_bonus_backtest_2018_2026/backtest_report.md",
+    "full_season_replay": "output/final_shadow_replay_2025_26_variance_gamma_050_cap_30/replay_report.md",
+    "development_matches": 4884,
+    "brier_fold_wins": "4/6",
+    "log_loss_fold_wins": "4/6",
+    "pooled_brier_delta_vs_base": -0.000006941,
+    "pooled_log_loss_delta_vs_base": -0.000011253,
+    "replay_bonus_events": 69,
+    "replay_total_bonus_added": 552.0,
+    "dependency_reliable_improvement": false,
+    "dependency_reliable_harm": false,
+    "evidence_interpretation": "Small mixed signal; activated by explicit product decision with conservative fixed caps",
+    "manual_product_decision": true
+  },
+  "xg_performance_evidence": {
+    "source": "output/bounded_xg_adjustment_walk_forward_2025_26/backtest_report.md",
+    "goal_alpha_source": "output/goal_alpha_with_bounded_xg_backtest_2025_26/backtest_report.md",
+    "full_season_replay": "output/goal_alpha_015_xg_full_season_replay_2025_26/replay_report.md",
+    "full_season_matches": 961,
+    "xg_eligible_matches": 606,
+    "missing_xg_fallback_matches": 355,
     "manual_product_decision": true
   },
   "development_data_through": "2025/26",

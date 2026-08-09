@@ -53,6 +53,12 @@ class AOEuropeanEloConfig:
     cup_double_bonus_multiplier: float = 0.08
     achievement_cap: float = 1.10
 
+    domestic_surprise_enabled: bool = False
+    domestic_surprise_coefficient: float = 0.0
+    domestic_surprise_variance_penalty: float = 0.0
+    domestic_surprise_max_abs_adjustment: float = 0.0
+    domestic_surprise_minimum_history_seasons: int = 5
+
     european_prior_max_boost: float = 420.0
     exposure_season_weight: float = 0.60
     exposure_match_weight: float = 0.40
@@ -108,6 +114,11 @@ class AOEuropeanEloConfig:
             domestic_league_component=140.0 * V2_RATING_MULTIPLIER,
             domestic_achievement_component=160.0 * V2_RATING_MULTIPLIER,
             european_prior_max_boost=420.0 * V2_RATING_MULTIPLIER,
+            domestic_surprise_enabled=True,
+            domestic_surprise_coefficient=0.40,
+            domestic_surprise_variance_penalty=0.50,
+            domestic_surprise_max_abs_adjustment=30.0,
+            domestic_surprise_minimum_history_seasons=5,
             country_tail_beta=country_tail_beta,
             european_tail_beta=european_tail_beta,
             exposure_tail_beta=exposure_tail_beta,
@@ -165,6 +176,33 @@ class AOEuropeanEloConfig:
         _require_between_zero_and_one("achievement_alpha", self.achievement_alpha)
         _require_positive("percentile_delta", self.percentile_delta)
         _require_positive("achievement_cap", self.achievement_cap)
+        if not isinstance(self.domestic_surprise_enabled, bool):
+            raise ValueError("domestic_surprise_enabled must be boolean")
+        _require_between_zero_and_one(
+            "domestic_surprise_coefficient",
+            self.domestic_surprise_coefficient,
+        )
+        _require_between_zero_and_one(
+            "domestic_surprise_variance_penalty",
+            self.domestic_surprise_variance_penalty,
+        )
+        _require_non_negative(
+            "domestic_surprise_max_abs_adjustment",
+            self.domestic_surprise_max_abs_adjustment,
+        )
+        if self.domestic_surprise_minimum_history_seasons != 5:
+            raise ValueError(
+                "domestic_surprise_minimum_history_seasons must equal five"
+            )
+        if self.domestic_surprise_enabled:
+            _require_positive(
+                "domestic_surprise_coefficient",
+                self.domestic_surprise_coefficient,
+            )
+            _require_positive(
+                "domestic_surprise_max_abs_adjustment",
+                self.domestic_surprise_max_abs_adjustment,
+            )
         _require_between_zero_and_one(
             "exposure_season_weight",
             self.exposure_season_weight,

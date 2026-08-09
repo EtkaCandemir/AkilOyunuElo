@@ -1,0 +1,44 @@
+{
+  "cache_files": 3850,
+  "cache_sha256": "c8ad8bf29e3d1f43cee1c84bba847b18c349e3fc9fc1025220012ed5a34c4685",
+  "competitions": {
+    "UCL": "4480",
+    "UECL": "5071",
+    "UEL": "4481"
+  },
+  "dataset_version": "ao-thesportsdb-uefa-2025-26-v1",
+  "event_results_endpoint": "NOT_APPLICABLE_FOR_SOCCER",
+  "events_source": "/Users/buycell/Desktop/Akil Oyunu Elo/data/external_elo_benchmark_2018_2026/exact_date_events.csv",
+  "events_source_sha256": "6a07ba8f23ba772625d9a5298aac6f3d2a42e8e6fec1adc62c0a8093db083ee6",
+  "field_catalog_rows": 239,
+  "normalized_files": [
+    "coverage_summary.csv",
+    "event_lineups.csv",
+    "event_stats_long.csv",
+    "event_stats_wide.csv",
+    "event_timeline.csv",
+    "events.csv",
+    "field_catalog.csv",
+    "match_identity_audit.csv",
+    "team_identity.csv",
+    "xg_source_comparison.csv",
+    "xg_source_comparison_summary.csv"
+  ],
+  "provider": "TheSportsDB Premium API v2",
+  "rate_limit_contract": "100 requests/minute premium; configured client maximum 98.0/minute",
+  "request_delay_seconds": 0.61225,
+  "season": "2025/26",
+  "table_rows": {
+    "coverage_summary": 44,
+    "event_lineups": 17510,
+    "event_stats_long": 11664,
+    "event_stats_wide": 961,
+    "event_timeline": 14151,
+    "events": 961,
+    "match_identity_audit": 961,
+    "team_identity": 236,
+    "xg_source_comparison": 961,
+    "xg_source_comparison_summary": 4
+  },
+  "xg_scope": "RAW_PROVIDER_FIELD_PRESERVED; ZERO_PLACEHOLDERS_EXCLUDED_FROM_ANALYSIS; DURATION/PENALTY_SEMANTICS_UNVERIFIED"
+}

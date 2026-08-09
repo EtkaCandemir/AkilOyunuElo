@@ -4,29 +4,30 @@ Sürüm: `ao-european-elo-v2.0-dev-freeze`
 
 Dondurma tarihi: 20 Temmuz 2026
 
-Operasyonel sözleşme revizyonu: 23 Temmuz 2026
+Operasyonel sözleşme revizyonu: 6 Ağustos 2026
 
-Durum: Kontrollü `0.10/300` gol farkı production'da aktiftir; 2026/27 lig
-aşaması ve sonrası için prospective izleme yapılacaktır. Sezonun tamamı
-untouched değildir.
+Durum: Kontrollü `0.15/300` gol farkı, bounded xG performansı, Domestic Surprise
+ve sabit `12/8/4` European Progression Bonus production'da aktiftir; 2026/27
+lig aşaması ve sonrası için prospective izleme yapılacaktır.
 
 ## 1. Karar Özeti
 
-AO European Elo v2 üç ayrı state üretir:
+AO European Elo v2 dört ayrı state bileşeni üretir:
 
 1. `AO First Elo`: Sezon öncesi statik başlangıç gücü.
 2. `Power Elo`: Oynanan maçlarla sıfır toplamlı değişen güç.
 3. `Achievement Reserve`: Tur/kupa başarısı için tasarlanan ayrı, sıfır toplamlı olmayan rezerv.
+4. `Progression Bonus`: Tamamlanan eleme turunun kazananına verilen sezonluk sabit bonus.
 
 Canlı rating şu kimliktir:
 
 ```text
-AO Live Elo = Power Elo + Achievement Reserve
+AO Live Elo = Power Elo + Achievement Reserve + Progression Bonus
 ```
 
-Aktif dondurulmuş modelde `Achievement Reserve = 0` olduğu için AO Live Elo ile
-Power Elo aynıdır. Katman kodda mevcuttur fakat kalibrasyon terfi kapısını
-geçmediği için aktif değildir.
+Aktif dondurulmuş modelde `Achievement Reserve = 0` kalır. Progression Bonus
+UCL/UEL/UECL için `12/8/4` ve sezonluk `60/40/20` cap ile aktiftir. Bu nedenle
+eleme aşamalarında AO Live Elo, Power Elo'dan progression bakiyesi kadar ayrılır.
 
 Seçilen kararlar:
 
@@ -39,8 +40,10 @@ Seçilen kararlar:
 | Dynamic Power çekirdeği | Terfi | Scale `835.561497`, H `148.544266`, K `103.980986` |
 | Season Power carry | Kapalı | `0.00` |
 | Standart 1X2 çıktı | Terfi | draw-at-even `0.24`, shape `1.00` |
-| Kontrollü gol farkı | Aktif | alpha `0.10`, tau `300`, GD cap `4` |
-| Progression bonus | Kapalı | base `0` |
+| Kontrollü gol farkı | Aktif | alpha `0.15`, tau `300`, GD cap `4` |
+| Bounded xG performansı | Aktif | ratio `0.30`, scale `1.25`, winner floor `0.70` |
+| Sabit kazanan-only progression | Aktif | `12/8/4`, cap `60/40/20` |
+| Sıfır-toplamlı progression | Kapalı | base `0` |
 | European Achievement Reserve | Kapalı | base `0` |
 | UCL/UEL/UECL normal maç K çarpanı | Kapalı | uygulanmaz |
 
@@ -229,12 +232,36 @@ Aktif `beta_exp = 0` olduğundan tam exposure'ın final karışımdaki değeri
 `0.85`tir. Böylece çok güçlü Avrupa kanıtında bile Domestic Prior'ın yüzde 15'i
 korunur.
 
-## 10. Final AO First Elo
+## 10. Domestic Surprise ve Final AO First Elo
+
+Son beş tamamlanmış lig bitirişi doğrudan percentile ile normalize edilir:
+
+```text
+P = (league_team_count - position) / (league_team_count - 1)
+
+Historical Mean = 0.07 x P(t-5) + 0.13 x P(t-4) + 0.20 x P(t-3)
+                + 0.27 x P(t-2) + 0.33 x P(t-1)
+
+Normalized Volatility = min(1, 2 x Weighted Volatility)
+Consistency = 1 - 0.50 x Normalized Volatility
+Effective Surprise = (P_current - Historical Mean) x Consistency
+
+Domestic Surprise Adjustment = clip(
+    594.1770647653 x Achievement Scale x 0.40 x Effective Surprise,
+    -30,
+    +30
+)
+
+Adjusted Domestic Prior = Domestic Prior + Domestic Surprise Adjustment
+```
+
+Beş tam sezon yoksa düzeltme sıfırdır. Pozitif ve negatif sürpriz aynı
+katsayıyla işlenir; varyans yalnız büyüklüğü azaltır ve yönü değiştiremez.
 
 ```text
 AO First Elo =
-    Domestic Prior
-    + Effective Exposure x (European Prior - Domestic Prior)
+    Adjusted Domestic Prior
+    + Effective Exposure x (European Prior - Adjusted Domestic Prior)
 ```
 
 İnvariantlar:
@@ -242,11 +269,13 @@ AO First Elo =
 - Ham ve effective exposure `[0,1]` aralığındadır.
 - Effective exposure ham exposure'ı aşamaz.
 - Avrupa geçmişi olmayan açık sıfır satırında iki exposure da `0` olur.
-- Sıfır exposure takımında `AO First Elo = Domestic Prior` olur.
-- Final rating Domestic Prior ile European Prior arasındaki kapalı aralıktadır.
+- Sıfır exposure takımında `AO First Elo = Adjusted Domestic Prior` olur.
+- Final rating Adjusted Domestic Prior ile European Prior arasındaki kapalı aralıktadır.
+- AO First Elo sürpriz etkisi `(1-Effective Exposure) x Domestic Surprise Adjustment`tır.
+- Domestic Surprise Adjustment `[-30,+30]` aralığındadır.
 - Rating hesap sonunda 500 veya 2000'e kırpılmaz.
-- Aktif beta `0/0/0` davranışında AO First Elo'nun ulaşılabilir yapısal üst
-  sınırı `2000`dir.
+- Aktif beta `0/0/0` davranışında sürpriz öncesi yapısal üst sınır `2000`,
+  sürpriz dahil üst değer `2030`dur.
 
 Rating kaynak kategorisi ham exposure ile belirlenir:
 
@@ -266,6 +295,8 @@ Statik output şu denetim sinyallerini taşır:
 - Achievement uncapped score ve cap active bayrağı.
 - Ham ve effective exposure, exposure tail excess/active.
 - Takım başına `saturation_count`.
+- Domestic Surprise tarihçe sayısı, ortalama, varyans, consistency, ham/efektif
+  skor, Domestic Prior düzeltmesi ve AO First Elo net etkisi.
 
 `5 x 5 x 4 = 100` tail/exposure kombinasyonu altı outer foldda test edilmiştir.
 Son değerlendirmede hedef, aday rating'lerden tamamen bağımsız cross-fitted
@@ -423,17 +454,31 @@ Production'da bunun yerine ayrı test edilen kontrollü formül aktiftir:
 ```text
 D = Home Live - Away Live + H
 M_GD = 1 + alpha x ln(min(GD, 4)) x exp(-abs(D) / tau)
-alpha = 0.10
+alpha = 0.15
 tau = 300
-Delta = K x (S - E) x M_GD
+Delta_GD = K x (S - E) x M_GD
 ```
 
 Beraberlik ve tek farklı sonuçta `M_GD=1`dir. Penaltı atışları saha skoruna
-eklenmez; penaltıyla sonuçlanan saha beraberliğinde `S=0.5`, `GD=0` ve
-`M_GD=1` kalır. Skor 90 dakika veya oynandıysa 120 dakika sonundaki saha
-skorudur. `GD` 4'te tavanlanır. `abs(D)` büyüdükçe bonus üstel biçimde söner;
+eklenmez. Shootout, 90/120 dakikalık saha sonucunu değiştirmez: saha galibiyeti
+`S=1`, beraberlik `S=0.5`, mağlubiyet `S=0` olarak işlenir. Ancak shootout ile
+karara bağlanan maçta ek gol farkı ve xG bonusları kapatılır; `M_GD=1` kalır.
+Skor 90 dakika veya oynandıysa 120 dakika sonundaki saha skorudur. `GD` 4'te
+tavanlanır. `abs(D)` büyüdükçe bonus üstel biçimde söner;
 bu nedenle ağır favorinin büyük galibiyeti yakın güçteki iki takım arasındaki
 aynı gol farkından daha az ek bilgi taşır.
+
+Production xG katmanı yalnız iki takımın da doğrulanmış ve aynı zaman kapsamına
+sahip xG değeri bulunduğunda, beraberlik ve shootout dışındaki maçlarda çalışır:
+
+```text
+Q_xG = tanh((xG_home - xG_away) / 1.25)
+Delta_xG = 0.30 x abs(K x (S-E)) x Q_xG
+Delta = Delta_GD + Delta_xG
+```
+
+Kazananın nihai maç kazancı klasik sonuç güncellemesinin `%70`inden aşağı
+inemez. xG eksikse imputasyon yapılmaz ve yalnız gol farkı güncellemesi kullanılır.
 
 Önceden belirlenen `0.10/300` adayı 4,884 tarihsel OOS maçta Brier'ı `6/6`
 foldda iyileştirmiştir. ΔBrier `-0.000174`, Δlog-loss `-0.000250`, pooled
@@ -454,7 +499,32 @@ Brier farkı `+0.000783`, envelope `[-0.000655, +0.002253]`tir. Training'de
 hiyerarşi seçilmesine rağmen geleceğe genellenmediği için production'da tüm
 turnuva K çarpanları `1.00` kalır.
 
-## 15. European Achievement Reserve
+## 15. Sabit European Progression Bonus
+
+Aktif katman maç Power Elo güncellemesinden bağımsız muhasebeleştirilir:
+
+```text
+UCL increment/cap  = 12 / 60
+UEL increment/cap  =  8 / 40
+UECL increment/cap =  4 / 20
+
+AO Live Elo = Power Elo + Achievement Reserve + Progression Bonus
+```
+
+Bonus yalnız knockout play-off, son 16, çeyrek final, yarı final ve final
+eşleşmesi tamamen sonuçlandığında kazanana verilir. Kaybedenden ek puan
+düşülmez. Lig aşaması, ilk sekiz ve ön elemeler bonus üretmez. Penaltıyla
+sonuçlanan saha beraberliğinde Power Elo `S=0.5` kalır, turu geçen takım bonusu
+alır. Her `tie_id` yalnız bir kez işlenir; UCL, UEL ve UECL bakiyeleri ayrı cap
+kontrolüne sahiptir ve sezon başında sıfırlanır.
+
+2018/19-2025/26 nested testinde `12/8/4` Brier ve log-loss'ta `4/6` fold
+kazanmış, pooled farklar `-0.000006941/-0.000011253` olmuştur. Güven aralıkları
+sıfırı kestiği için otomatik terfi kanıtı değildir. Daha yüksek `16-20`
+adaylarının unseen sonuçta bozulması nedeniyle yalnız konservatif `12/8/4`,
+açık ürün kararıyla ve prospective izleme şartıyla aktif edilmiştir.
+
+## 16. European Achievement Reserve
 
 Araştırılan ayrı katman:
 
@@ -505,7 +575,7 @@ Belgelerdeki `UCL=1.00`, `UEL=0.65`, `UECL=0.45` değerleri kapalı bir araştı
 konfigürasyonunun hiyerarşisidir. Base sıfır olduğu için production rating'ine
 puan eklemez.
 
-## 16. Harici ClubElo Bulgusu ve Kalan Risk
+## 17. Harici ClubElo Bulgusu ve Kalan Risk
 
 Final benchmark; `carry=0`, fold'a özel geçmişten seçilmiş Dynamic Core,
 training-only 1X2 draw mapping ve exact UTC kronoloji kullanır. Paired ClubElo
@@ -530,7 +600,7 @@ bandında görülür. 500-2000 affine ölçek farkı tek başına gidermez; Scal
 oranda büyütülür. Risk saklanmaz ve 2026/27 prospective lig-aşaması segment
 raporunda ayrı izlenir.
 
-## 17. Statik Input CSV Sözleşmesi
+## 18. Statik Input CSV Sözleşmesi
 
 | Dosya | Anahtar | Rol |
 | --- | --- | --- |
@@ -544,10 +614,16 @@ puan, played ve matches açıkça sıfır yazılır. Eksik, negatif, NaN veya so
 puanlar; duplicate anahtarlar; geçersiz boolean; pozisyon/takım sayısı çelişkisi;
 pozitif olmayan match cap reddedilir.
 
+Domestic Surprise için `domestic_context.csv`, `t_minus_5` ile `t_minus_1`
+arasındaki her sezon için `history_position_*` ve `history_team_count_*` kolon
+çiftlerini kabul eder. Bir çiftin tek taraflı dolması validation hatasıdır.
+Beş geçerli sezon tamamlanmazsa rating eski formülle üretilir ve output durumu
+`INSUFFICIENT_HISTORY` olur.
+
 `official_five_year_total`, `official_country_rank`,
 `official_club_coefficient` ve `country_part` opsiyonel denetim alanlarıdır.
 
-## 18. Dinamik Input ve Output Sözleşmesi
+## 19. Dinamik Input ve Output Sözleşmesi
 
 Prospective tahmin input'u sonuç içermez:
 
@@ -567,8 +643,13 @@ Settlement ve retrospective replay için `matches.csv` alanları:
 ```text
 match_id, season, kickoff_utc, competition, round,
 home_team_id, away_team_id, home_goals, away_goals,
+xg_home, xg_away, xg_analysis_eligible,
 is_neutral, decided_on_penalties
 ```
+
+xG değerleri yalnız `xg_analysis_eligible=true` iken ve iki takım için birlikte
+verilir. Eksik veya kapsam dışı xG satırı iki alanı da boş bırakır; runtime
+kontrollü gol farkı güncellemesine geri döner.
 
 Eleme metadata'sı:
 
@@ -584,15 +665,16 @@ Motor şunları reddeder:
 - Negatif veya tam sayı olmayan skor.
 - Geçersiz turnuva/tur.
 - Aynı `tie_id`nin farklı takım, turnuva veya stage ile tekrar kullanılması.
+- Tamamlanmış bir `tie_id`nin yeniden açılması veya ikinci kez bonus üretmesi.
 - State ile config'in model version veya config fingerprint uyuşmazlığı.
 
 Çıktılar:
 
 | Dosya | İçerik |
 | --- | --- |
-| `ratings_state.csv` | İnsan tarafından okunabilir takım rating snapshot'ı |
-| `state_checkpoint.json` | Processed maçlar, açık tie state'i, global kronoloji ve ratings checksum'u |
-| `match_updates.csv` | Pre/post ratingler, normalize beklenti, H/D/A olasılıkları, saha skoru, G, Power Delta ve reserve eventleri |
+| `ratings_state.csv` | Power, Achievement Reserve, üç turnuva bonus bakiyesi ve tek AO Live Elo snapshot'ı |
+| `state_checkpoint.json` | Processed maç/tie kimlikleri, açık tie state'i, global kronoloji ve ratings checksum'u |
+| `match_updates.csv` | Pre/post ratingler, H/D/A, saha skoru, G, Power Delta ve progression/reserve eventleri |
 | `replay_predictions.csv` | Sonuçlarla aynı batch'te üretilen, holdout olmayan retrospective audit |
 | `batch_manifest.json` | Replay modunu ve `prospective_holdout_evidence=false` bilgisini taşır |
 | `pre_match_log.csv` | Sonuçsuz fixture'dan kickoff öncesi üretilen append-only, hash-zincirli tahmin ledger'ı |
@@ -610,7 +692,7 @@ away pre-rating değerlerinden biri değişmişse settlement reddedilir.
 Tam kolon sırası makinece okunabilir sözleşmede tutulur:
 `contracts/ao_european_elo_v2.json`.
 
-## 19. Public Python API
+## 20. Public Python API
 
 ```python
 expected_score(...)
@@ -618,6 +700,7 @@ expected_1x2_probabilities(...)
 initialize_season(...)
 update_match(...)
 apply_progression(...)
+apply_tournament_progress_bonus(...)
 run_season(...)
 lock_prediction(...)
 settle_locked_match(...)
@@ -636,7 +719,7 @@ python3 scripts/run_dynamic_elo.py \
 Bu batch komutu yalnızca retrospective replay'dir. Prospective akış
 `run_dynamic_live.py initialize`, `lock` ve `settle` komutlarıyla yürütülür.
 
-## 20. Pilot ve Regresyon Sözleşmesi
+## 21. Pilot ve Regresyon Sözleşmesi
 
 V1.1 API ve sayısal pilot değerleri korunur. V2 beta=0 rating'i v1.1'in tam
 affine dönüşümüdür ve sıralama değişmez.
@@ -659,7 +742,7 @@ Gerçek 10 takım pilotu:
 Como sıfır exposure kontrolüdür: final rating'i doğrudan v2 Domestic Prior'dır.
 Bu sürümde Arsenal'in üstünde değildir ve gerçek pilot v1.1 sırası korunur.
 
-## 21. 2026/27 Prospective Lig Aşaması Holdout'u
+## 22. 2026/27 Prospective Lig Aşaması Holdout'u
 
 Holdout başlamadan dondurulanlar:
 
@@ -693,7 +776,7 @@ UCL/UEL/UECL segmentleri birlikte sunulur. 2027/28 bir sonraki tam sezon holdout
 adayıdır. Ayrıntılı operasyon sözleşmesi `docs/HOLDOUT_PROTOCOL_2026_27.md`
 dosyasındadır.
 
-## 22. Bilinen Metodolojik Borçlar
+## 23. Bilinen Metodolojik Borçlar
 
 - Altı outer fold güçlü ama sınırlı bir örneklemdir. Fold sayısı tek başına
   bağımsız tekrar sayısı gibi yorumlanmamalıdır.

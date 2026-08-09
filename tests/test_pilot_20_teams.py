@@ -37,7 +37,7 @@ def test_twenty_team_pilot_exercises_production_goal_difference(
         matches["goal_difference"].le(1),
         "goal_multiplier",
     ].eq(1.0).all()
-    assert matches["goal_multiplier"].max() == pytest.approx(1.132510, abs=1e-6)
+    assert matches["goal_multiplier"].max() == pytest.approx(1.197721, abs=1e-6)
     assert matches["goal_multiplier"].gt(1.0).any()
     assert matches.loc[
         matches["decided_on_penalties"],

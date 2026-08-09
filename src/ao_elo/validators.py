@@ -44,6 +44,14 @@ DOMESTIC_COLUMNS = {
     "european_entry_type",
 }
 
+DOMESTIC_HISTORY_KEYS = tuple(f"t_minus_{offset}" for offset in range(5, 0, -1))
+DOMESTIC_HISTORY_POSITION_COLUMNS = {
+    f"history_position_{key}" for key in DOMESTIC_HISTORY_KEYS
+}
+DOMESTIC_HISTORY_TEAM_COUNT_COLUMNS = {
+    f"history_team_count_{key}" for key in DOMESTIC_HISTORY_KEYS
+}
+
 CLUB_BASE_COLUMNS = {
     "season",
     "team_id",
@@ -154,6 +162,17 @@ def validate_domestic_context(domestic_context: pd.DataFrame) -> list[list[str]]
             f"found: {seasons}"
         )
 
+    for key in DOMESTIC_HISTORY_KEYS:
+        position_column = f"history_position_{key}"
+        count_column = f"history_team_count_{key}"
+        if (position_column in domestic_context.columns) != (
+            count_column in domestic_context.columns
+        ):
+            raise ValueError(
+                "domestic_context.csv historical finish columns must be supplied in "
+                f"pairs: {position_column}, {count_column}"
+            )
+
     warnings_by_row: list[list[str]] = []
     for _, row in domestic_context.iterrows():
         row_warnings: list[str] = []
@@ -217,6 +236,49 @@ def validate_domestic_context(domestic_context: pd.DataFrame) -> list[list[str]]
                 f"domestic_context.csv {key} is_league_champion=true requires "
                 "domestic_position=1 when domestic_position is provided"
             )
+
+        for history_key in DOMESTIC_HISTORY_KEYS:
+            history_position_column = f"history_position_{history_key}"
+            history_count_column = f"history_team_count_{history_key}"
+            if history_position_column not in domestic_context.columns:
+                continue
+            history_position = row[history_position_column]
+            history_count = row[history_count_column]
+            history_position_missing = is_missing(history_position)
+            history_count_missing = is_missing(history_count)
+            if history_position_missing and history_count_missing:
+                continue
+            if history_position_missing != history_count_missing:
+                raise ValueError(
+                    f"domestic_context.csv {key} {history_key} historical position "
+                    "and team count must both be provided or both be empty"
+                )
+            history_position_value = _require_number(
+                history_position,
+                label=(
+                    f"domestic_context.csv {key} {history_position_column}"
+                ),
+                minimum=1,
+            )
+            history_count_value = _require_number(
+                history_count,
+                label=f"domestic_context.csv {key} {history_count_column}",
+                minimum=2,
+            )
+            if not history_position_value.is_integer():
+                raise ValueError(
+                    f"domestic_context.csv {key} {history_position_column} "
+                    "must be an integer"
+                )
+            if not history_count_value.is_integer():
+                raise ValueError(
+                    f"domestic_context.csv {key} {history_count_column} must be an integer"
+                )
+            if history_position_value > history_count_value:
+                raise ValueError(
+                    f"domestic_context.csv {key} {history_position_column} must be <= "
+                    f"{history_count_column}"
+                )
 
         warnings_by_row.append(row_warnings)
     return warnings_by_row

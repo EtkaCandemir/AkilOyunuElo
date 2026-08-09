@@ -41,6 +41,10 @@ def test_v2_reference_multiplier_and_components() -> None:
     assert config.domestic_league_component == pytest.approx(519.904930177)
     assert config.domestic_achievement_component == pytest.approx(594.177064768)
     assert config.european_prior_max_boost == pytest.approx(1559.714790999)
+    assert config.domestic_surprise_enabled is True
+    assert config.domestic_surprise_coefficient == pytest.approx(0.40)
+    assert config.domestic_surprise_variance_penalty == pytest.approx(0.50)
+    assert config.domestic_surprise_max_abs_adjustment == pytest.approx(30.0)
 
 
 def test_v2_beta_zero_is_exact_affine_transform_of_v1_1() -> None:
@@ -121,6 +125,69 @@ def test_v2_zero_exposure_still_equals_scaled_domestic_prior() -> None:
     assert row["european_exposure"] == 0.0
     assert row["effective_european_exposure"] == 0.0
     assert row["ao_first_elo"] == pytest.approx(row["domestic_prior"])
+
+
+def test_active_v2_applies_variance_controlled_domestic_surprise() -> None:
+    frames = read_pilot_frames()
+    domestic = frames["domestic_context"]
+    for offset in range(5, 0, -1):
+        domestic[f"history_position_t_minus_{offset}"] = 6
+        domestic[f"history_team_count_t_minus_{offset}"] = 16
+
+    output = compute_ao_first_elo(
+        **frames,
+        config=AOEuropeanEloConfig.active(),
+    ).set_index("team_name")
+    row = output.loc["Midoria Champions"]
+
+    assert row["domestic_surprise_status"] == "APPLIED"
+    assert row["domestic_surprise_history_seasons"] == 5
+    assert row["domestic_surprise_historical_mean"] == pytest.approx(2 / 3)
+    assert row["domestic_surprise_historical_volatility"] == pytest.approx(0.0)
+    assert row["domestic_surprise_consistency_multiplier"] == pytest.approx(1.0)
+    assert row["domestic_surprise_raw_score"] == pytest.approx(1 / 3)
+    assert row["domestic_surprise_domestic_adjustment"] == pytest.approx(30.0)
+    assert row["adjusted_domestic_prior"] == pytest.approx(
+        row["domestic_prior"] + 30.0
+    )
+    assert row["domestic_surprise_ao_first_elo_adjustment"] == pytest.approx(30.0)
+    assert row["ao_first_elo"] == pytest.approx(row["adjusted_domestic_prior"])
+
+
+def test_domestic_surprise_is_damped_by_european_exposure() -> None:
+    frames = read_pilot_frames()
+    domestic = frames["domestic_context"]
+    for offset in range(5, 0, -1):
+        domestic[f"history_position_t_minus_{offset}"] = 1
+        domestic[f"history_team_count_t_minus_{offset}"] = 20
+
+    output = compute_ao_first_elo(
+        **frames,
+        config=AOEuropeanEloConfig.active(),
+    ).set_index("team_name")
+    row = output.loc["Few Match Wanderers"]
+
+    assert row["domestic_surprise_domestic_adjustment"] < 0.0
+    assert abs(row["domestic_surprise_ao_first_elo_adjustment"]) < abs(
+        row["domestic_surprise_domestic_adjustment"]
+    )
+    assert row["domestic_surprise_ao_first_elo_adjustment"] == pytest.approx(
+        (1.0 - row["effective_european_exposure"])
+        * row["domestic_surprise_domestic_adjustment"]
+    )
+
+
+def test_missing_domestic_history_preserves_previous_v2_rating() -> None:
+    output = run_pilot(AOEuropeanEloConfig.active())
+
+    assert output["domestic_surprise_status"].eq("INSUFFICIENT_HISTORY").all()
+    assert output["domestic_surprise_domestic_adjustment"].eq(0.0).all()
+    np.testing.assert_allclose(
+        output["ao_first_elo"],
+        output["ao_first_elo_before_domestic_surprise"],
+        atol=0.0,
+        rtol=0.0,
+    )
 
 
 def test_tail_output_exposes_uncapped_values_and_activation_flags() -> None:

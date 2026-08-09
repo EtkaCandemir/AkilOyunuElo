@@ -1,0 +1,19 @@
+check,passed,observed,requirement,severity_if_failed
+contract_active_parameters_equal,True,0.0,Production and final-candidate calculation parameters must match,MEDIUM
+production_replay_exact_match,True,0.0,Independent audit replay must match production pipeline,HIGH
+event_match_id_unique,True,0.0,One event row per match_id,HIGH
+event_season_match_unique,True,0.0,No duplicate season-match records,MEDIUM
+identity_team_season_unique,True,0.0,One identity row per team-season,MEDIUM
+adjustment_team_season_unique,True,0.0,One Domestic Surprise adjustment per team-season,MEDIUM
+feature_team_season_unique,True,0.0,One surprise feature row per team-season,MEDIUM
+prediction_match_model_unique,True,0.0,One current-model prediction per match,MEDIUM
+probabilities_normalized,True,0.0,1X2 probabilities sum to one,MEDIUM
+power_zero_sum,True,5.820766091346741e-11,Power Elo is conserved within season,HIGH
+match_zero_sum,True,9.094947017729282e-13,Every match Power update is zero-sum,HIGH
+progression_cap,True,0.0,Progression bonuses remain within competition caps,MEDIUM
+exposure_range,True,0.0,"Effective exposure stays in [0,1]",MEDIUM
+insufficient_history_zero_adjustment,True,0.0,Fewer than five seasons must produce zero surprise adjustment,MEDIUM
+surprise_sign_preserved,True,0.0,Surprise adjustment cannot reverse raw signal sign,MEDIUM
+surprise_cap,True,0.0,Domestic Surprise must respect +/-30 cap,MEDIUM
+chronology_sorted,True,0.0,event_order must be unique and UTC-monotonic within every season,MEDIUM
+simultaneous_team_collision,True,0.0,A team cannot appear twice at the same kickoff UTC,MEDIUM

@@ -20,9 +20,15 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from ao_elo.config import AO_MODEL_V2_VERSION, AOEuropeanEloConfig  # noqa: E402
+from ao_elo.controlled_live import calculate_goal_difference_multiplier  # noqa: E402
 from ao_elo.evaluation import (  # noqa: E402
     dependency_robust_loss_difference_ci,
     schedule_adjusted_team_performance,
+)
+from ao_elo.progression_probability import (  # noqa: E402
+    ProgressionProbabilityConfig,
+    calibrate_progression_probability,
+    identity_progression_probability_config,
 )
 from ao_elo.robustness import (  # noqa: E402
     CompetitionKCandidate,
@@ -79,6 +85,7 @@ BENCHMARK_PATH = (
 DYNAMIC_ROOT = ROOT / "output" / "v2_dynamic_calibration_2018_2026"
 EVALUATION_ROOT = ROOT / "output" / "v2_evaluation_upgrade_2018_2026"
 OUTPUT_ROOT = ROOT / "output" / "final_robustness_2018_2026"
+CLUB_IDENTITY_PATH = ROOT / "data" / "club_identity" / "team_season_identity.csv"
 COMPETITIONS = ("UCL", "UEL", "UECL")
 RANK_TOLERANCE = 1e-9
 
@@ -89,6 +96,21 @@ class SequenceEvaluation:
     predictions: pd.DataFrame
     end_ratings: pd.DataFrame
     ranking: pd.DataFrame
+
+
+@dataclass(frozen=True)
+class ControlledGoalConfig:
+    alpha: float
+    tau: float
+    goal_cap: int
+
+    def validate(self) -> None:
+        if not math.isfinite(self.alpha) or self.alpha < 0.0:
+            raise ValueError("controlled goal alpha must be non-negative")
+        if not math.isfinite(self.tau) or self.tau <= 0.0:
+            raise ValueError("controlled goal tau must be positive")
+        if isinstance(self.goal_cap, bool) or self.goal_cap <= 0:
+            raise ValueError("controlled goal cap must be positive")
 
 
 def main() -> None:
@@ -361,11 +383,21 @@ def evaluate_sequence(
     evaluation_seasons: set[str] | None = None,
     ranking_target_seasons: set[str] | None = None,
     return_predictions: bool = False,
+    advance_probability_config: ProgressionProbabilityConfig | None = None,
+    controlled_goal_config: ControlledGoalConfig | None = None,
 ) -> SequenceEvaluation:
     core.validate()
     margin.validate()
     competition_k.validate()
     reserve.validate()
+    probability_config = (
+        identity_progression_probability_config()
+        if advance_probability_config is None
+        else advance_probability_config
+    )
+    probability_config.validate()
+    if controlled_goal_config is not None:
+        controlled_goal_config.validate()
     evaluation = evaluation_seasons or {data.season for data in datasets}
     previous_reserve: dict[str, float] = {}
     metric_rows: list[dict[str, float | int]] = []
@@ -411,13 +443,23 @@ def evaluate_sequence(
             if reserve_active and data.knockout_flags[index] and tie_id not in open_ties:
                 if tie_id is None:
                     raise ValueError(f"{season}/{season_core.match_ids[index]}: missing tie_id")
-                neutral_tie_expectation = expected_home_score(
+                raw_tie_expectation = expected_home_score(
                     power[home_id] + reserve_state[home_id],
                     power[away_id] + reserve_state[away_id],
                     core,
                     neutral=True,
                 )
-                open_ties[tie_id] = (int(home_id), int(away_id), neutral_tie_expectation)
+                tie_expectation = calibrate_progression_probability(
+                    raw_tie_expectation,
+                    int(data.tie_match_counts[index]),
+                    bool(neutral),
+                    probability_config,
+                )
+                open_ties[tie_id] = (
+                    int(home_id),
+                    int(away_id),
+                    tie_expectation,
+                )
 
             home_before = float(power[home_id] + reserve_state[home_id])
             away_before = float(power[away_id] + reserve_state[away_id])
@@ -433,12 +475,34 @@ def evaluate_sequence(
                     1.0 - 1e-12,
                 )
             )
-            winner_expected = expected if actual == 1.0 else 1.0 - expected if actual == 0.0 else 0.5
-            margin_multiplier = goal_margin_multiplier(
-                int(goal.goal_differences[index]),
-                float(winner_expected),
-                margin,
+            winner_expected = (
+                expected
+                if actual == 1.0
+                else 1.0 - expected
+                if actual == 0.0
+                else 0.5
             )
+            if controlled_goal_config is None:
+                margin_multiplier = goal_margin_multiplier(
+                    int(goal.goal_differences[index]),
+                    float(winner_expected),
+                    margin,
+                )
+            else:
+                effective_difference = (
+                    home_before
+                    - away_before
+                    + (0.0 if bool(neutral) else core.home_advantage)
+                )
+                margin_multiplier = calculate_goal_difference_multiplier(
+                    int(goal.goal_differences[index]),
+                    effective_difference,
+                    controlled_goal_config.alpha,
+                    controlled_goal_config.tau,
+                    decided_on_penalties=bool(goal.penalty_flags[index]),
+                    is_draw=float(actual) == 0.5,
+                    goal_cap=controlled_goal_config.goal_cap,
+                )
             k_multiplier = competition_k.for_competition(competition)
             delta = core.k_factor * k_multiplier * margin_multiplier * (actual - expected)
             pair_before = float(power[home_id] + power[away_id])
@@ -597,6 +661,7 @@ def evaluate_sequence(
         end_ratings,
         target,
         allowed_target_seasons=allowed_ranking_targets,
+        identity=load_team_season_identity(),
     )
     return SequenceEvaluation(
         metrics,
@@ -620,8 +685,18 @@ def summarize_ranking(
     target: pd.DataFrame,
     *,
     allowed_target_seasons: set[str],
+    identity: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     """Compare each season-end rating only with the following season."""
+    if identity is not None:
+        from ao_elo.club_identity import identity_safe_forward_ranking
+
+        return identity_safe_forward_ranking(
+            end_ratings,
+            target,
+            identity,
+            allowed_target_seasons=allowed_target_seasons,
+        )
     target_seasons = tuple(sorted(target["season"].unique()))
     previous_season = {
         target_seasons[index]: target_seasons[index - 1]
@@ -690,6 +765,15 @@ def summarize_ranking(
             }
         )
     return pd.DataFrame(summaries)
+
+
+def load_team_season_identity(path: Path = CLUB_IDENTITY_PATH) -> pd.DataFrame:
+    if not path.exists():
+        raise ValueError(
+            "Permanent club identity registry is required for forward ranking: "
+            f"{path}"
+        )
+    return pd.read_csv(path, dtype={"uefa_team_id": "string"})
 
 
 def rank_value(ranking: pd.DataFrame, column: str, competition: str = "ALL") -> float:
@@ -1314,6 +1398,8 @@ def reserve_metric_table(
     candidates: Iterable[AchievementReserveConfig],
     *,
     progress_label: str | None = None,
+    advance_probability_config: ProgressionProbabilityConfig | None = None,
+    controlled_goal_config: ControlledGoalConfig | None = None,
 ) -> pd.DataFrame:
     candidate_list = tuple(candidates)
     rows = []
@@ -1326,6 +1412,8 @@ def reserve_metric_table(
             candidate,
             draw_mapping,
             target,
+            advance_probability_config=advance_probability_config,
+            controlled_goal_config=controlled_goal_config,
         )
         rows.append(
             evaluated_row(
@@ -1370,6 +1458,11 @@ def run_reserve_calibration(
     competition_k: CompetitionKCandidate,
     *,
     bootstrap_samples: int,
+    advance_configs_by_test_season: (
+        dict[str, ProgressionProbabilityConfig] | None
+    ) = None,
+    full_advance_config: ProgressionProbabilityConfig | None = None,
+    controlled_goal_config: ControlledGoalConfig | None = None,
 ) -> dict[str, object]:
     candidates = reserve_candidates()
     baseline = baseline_reserve()
@@ -1379,6 +1472,12 @@ def run_reserve_calibration(
     train_frames = []
     prediction_frames = []
     for fold, (train_seasons, test_season) in enumerate(folds, start=1):
+        advance_config = (
+            identity_progression_probability_config()
+            if advance_configs_by_test_season is None
+            else advance_configs_by_test_season[test_season]
+        )
+        advance_config.validate()
         core = core_for_fold(core_selections, fold)
         draw = draw_map_for_fold(draw_selections, fold)
         train = tuple(data for data in datasets if data.season in train_seasons)
@@ -1394,6 +1493,8 @@ def run_reserve_calibration(
             competition_k,
             candidates,
             progress_label=f"fold {fold}",
+            advance_probability_config=advance_config,
+            controlled_goal_config=controlled_goal_config,
         )
         selected_row = select_ranking_first(metrics, baseline_key)
         selected = reserve_from_row(selected_row)
@@ -1415,6 +1516,7 @@ def run_reserve_calibration(
                 "train_ranking_score": selected_row["ranking_score"],
                 "train_pairwise_accuracy": selected_row["pairwise_accuracy"],
                 "train_brier_1x2": selected_row["brier_1x2"],
+                "advance_probability_config": advance_config.key,
             }
         )
         evaluations = {}
@@ -1430,6 +1532,8 @@ def run_reserve_calibration(
                 evaluation_seasons={test_season},
                 ranking_target_seasons=set(target["season"]),
                 return_predictions=True,
+                advance_probability_config=advance_config,
+                controlled_goal_config=controlled_goal_config,
             )
             evaluations[model] = evaluated
             fold_rows.append(
@@ -1464,6 +1568,12 @@ def run_reserve_calibration(
         competition_k,
         candidates,
         progress_label="full-data",
+        advance_probability_config=(
+            identity_progression_probability_config()
+            if full_advance_config is None
+            else full_advance_config
+        ),
+        controlled_goal_config=controlled_goal_config,
     )
     full_row = select_ranking_first(full_metrics, baseline_key)
     full_candidate = reserve_from_row(full_row)

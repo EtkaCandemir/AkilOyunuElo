@@ -64,6 +64,9 @@ def write_inputs(root: Path) -> tuple[Path, Path]:
                 "away_team_id": "B",
                 "home_goals": 2,
                 "away_goals": 1,
+                "xg_home": 2.4,
+                "xg_away": 0.7,
+                "xg_analysis_eligible": True,
                 "is_neutral": False,
                 "decided_on_penalties": False,
                 "advanced_team_id": "",
@@ -82,6 +85,9 @@ def write_inputs(root: Path) -> tuple[Path, Path]:
                 "away_team_id": "A",
                 "home_goals": 1,
                 "away_goals": 1,
+                "xg_home": "",
+                "xg_away": "",
+                "xg_analysis_eligible": False,
                 "is_neutral": False,
                 "decided_on_penalties": False,
                 "advanced_team_id": "",
@@ -102,9 +108,16 @@ def test_manifest_loads_final_selected_parameters() -> None:
     assert config.draw_at_even == pytest.approx(0.24)
     assert config.draw_shape == pytest.approx(1.0)
     assert config.goal_difference_enabled is True
-    assert config.goal_alpha == pytest.approx(0.10)
+    assert config.goal_alpha == pytest.approx(0.15)
     assert config.goal_tau == pytest.approx(300.0)
     assert config.goal_difference_cap == 4
+    assert config.xg_performance_enabled is True
+    assert config.xg_performance_ratio == pytest.approx(0.30)
+    assert config.xg_performance_scale == pytest.approx(1.25)
+    assert config.minimum_winner_gain_ratio == pytest.approx(0.70)
+    assert config.progression_bonus_enabled is True
+    assert config.progression_base_bonus == pytest.approx(12.0)
+    assert config.fixed_progression_config.increment("UEL") == pytest.approx(8.0)
     assert config.reserve_base == 0.0
 
 
@@ -131,7 +144,6 @@ def test_production_manifest_requires_active_1x2_output(tmp_path: Path) -> None:
 @pytest.mark.parametrize(
     ("section", "field"),
     [
-        ("progression_bonus", "active"),
         ("competition_k", "active"),
     ],
 )
@@ -146,6 +158,28 @@ def test_production_manifest_rejects_unapproved_dynamic_layers(
     manifest.write_text(json.dumps(payload), encoding="utf-8")
 
     with pytest.raises(ValueError, match="must remain disabled"):
+        load_selected_v2_config(manifest)
+
+
+def test_production_manifest_rejects_invalid_progression_contract(
+    tmp_path: Path,
+) -> None:
+    payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    payload["progression_bonus"]["loser_deduction"] = True
+    manifest = tmp_path / "invalid-progression.json"
+    manifest.write_text(json.dumps(payload), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="cannot deduct"):
+        load_selected_v2_config(manifest)
+
+
+def test_production_manifest_rejects_invalid_xg_contract(tmp_path: Path) -> None:
+    payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    payload["xg_performance"]["minimum_winner_gain_ratio"] = 0.60
+    manifest = tmp_path / "invalid-xg.json"
+    manifest.write_text(json.dumps(payload), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="1-max_xg_ratio"):
         load_selected_v2_config(manifest)
 
 
@@ -199,9 +233,13 @@ def test_csv_batch_and_python_api_use_identical_kernel(tmp_path: Path) -> None:
     ].eq("normalized match points: win=1, draw=0.5, loss=0").all()
     audit = pd.read_csv(output / "match_updates.csv")
     assert audit["goal_difference_enabled"].all()
-    assert audit["goal_alpha"].eq(0.10).all()
+    assert audit["goal_alpha"].eq(0.15).all()
     assert audit["goal_tau"].eq(300.0).all()
     assert audit["goal_difference_cap"].eq(4).all()
+    assert audit["xg_performance_enabled"].all()
+    assert audit["xg_applied"].tolist() == [True, False]
+    assert audit["xg_fallback_used"].tolist() == [False, True]
+    assert audit.loc[0, "xg_power_adjustment"] != pytest.approx(0.0)
     assert list(pd.read_csv(output / "replay_predictions.csv").columns) == (
         REPLAY_PREDICTION_COLUMNS
     )
@@ -298,6 +336,23 @@ def test_invalid_boolean_and_duplicate_match_are_rejected(tmp_path: Path) -> Non
     data.loc[1, "match_id"] = "m1"
     data.to_csv(matches_path, index=False)
     with pytest.raises(ValueError, match="duplicate match_id"):
+        read_matches(matches_path)
+
+
+def test_xg_inputs_require_an_eligible_two_team_pair(tmp_path: Path) -> None:
+    _, matches_path = write_inputs(tmp_path)
+    data = pd.read_csv(matches_path)
+    data.loc[0, "xg_away"] = float("nan")
+    data.to_csv(matches_path, index=False)
+
+    with pytest.raises(ValueError, match="provided together"):
+        read_matches(matches_path)
+
+    _, matches_path = write_inputs(tmp_path)
+    data = pd.read_csv(matches_path)
+    data.loc[0, "xg_analysis_eligible"] = False
+    data.to_csv(matches_path, index=False)
+    with pytest.raises(ValueError, match="Ineligible xG"):
         read_matches(matches_path)
 
 

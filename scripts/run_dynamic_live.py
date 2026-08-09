@@ -149,6 +149,12 @@ def settle_command(args: argparse.Namespace, config) -> None:
     print("Locked match settled")
     print(f"Match: {update.match_id}")
     print(f"Power delta: {update.power_delta:+.6f}")
+    if update.progression_bonus_added > 0.0:
+        print(
+            "Progression bonus: "
+            f"{update.progression_bonus_recipient_id} "
+            f"+{update.progression_bonus_added:.3f}"
+        )
     print(f"State directory: {state_dir}")
 
 

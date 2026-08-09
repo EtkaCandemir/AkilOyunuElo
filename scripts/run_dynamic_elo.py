@@ -66,6 +66,14 @@ def main() -> None:
     print(f"Model version: {config.model_version}")
     print(f"Config id: {config.config_id}")
     print(f"Matches processed: {len(updates)}")
+    print(
+        "Progression bonus events: "
+        f"{sum(update.progression_bonus_added > 0.0 for update in updates)}"
+    )
+    print(
+        "Progression bonus added: "
+        f"{sum(update.progression_bonus_added for update in updates):.3f}"
+    )
     print(f"Teams in state: {len(ratings)}")
     print(
         "AO Live Elo range: "

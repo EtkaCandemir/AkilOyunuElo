@@ -1,6 +1,0 @@
-model,power_carry,k_factor,max_abs_rating_change,minimum_start_end_rank_correlation,guardrail_pass
-static_start_only,0.0,0.0,0.0,1.0,True
-dynamic_season_reset,0.0,28.0,127.91296938412597,0.937453785979035,True
-dynamic_carry_050,0.5,28.0,127.91296938412597,0.9286396980488845,True
-dynamic_carry_085_current,0.85,28.0,136.3466571439069,0.9079742727110884,True
-dynamic_carry_100,1.0,28.0,152.22351554401826,0.8884669986807688,True

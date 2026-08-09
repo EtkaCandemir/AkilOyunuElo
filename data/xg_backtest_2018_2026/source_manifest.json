@@ -1,0 +1,41 @@
+{
+  "dataset": "AO xG matched-sample ablation dataset",
+  "built_at_utc": "2026-07-25T13:40:26.844920+00:00",
+  "license": "CC-BY-4.0",
+  "attribution": "eatpizzanot/soccer-dataset; underlying sources API-Football and football-data.co.uk",
+  "source_urls": {
+    "fixtures": "https://huggingface.co/datasets/eatpizzanot/soccer-dataset/resolve/main/fixtures.parquet",
+    "match_stats": "https://huggingface.co/datasets/eatpizzanot/soccer-dataset/resolve/main/match_stats.parquet",
+    "leagues": "https://huggingface.co/datasets/eatpizzanot/soccer-dataset/resolve/main/leagues.parquet",
+    "teams": "https://huggingface.co/datasets/eatpizzanot/soccer-dataset/resolve/main/teams.parquet"
+  },
+  "source_sha256": {
+    "fixtures": "7ba90661dbed29eb940daf5ea385c7d76d5751d16be86bd9063293a982abc7b7",
+    "match_stats": "2fb85b14b4428e1a36efe6d651de4ca8f7a6169ecfa3edb9cda49cb5e58d97e9",
+    "leagues": "55c8e198650f5e2864fac85823196f6b5b45caf8342c1308e87e351098242c58",
+    "teams": "5529282b37ad51437142dd7c6d32fb60bbbdd56953dc432e3b9247dca17a2fa5"
+  },
+  "source_quality": {
+    "all_played_european_matches": 9746,
+    "rows_with_both_xg": 787,
+    "provider_metric": "coarse zone-derived xG estimate",
+    "provider_warning": "Not an Opta/StatsBomb-style per-shot model; source documentation describes API-Football xG as a deterministic shots-by-zone estimate."
+  },
+  "contract": {
+    "match_identity": "competition + UTC date + exact score + high-confidence home/away normalized-name match",
+    "xg_type": "coarse_zone_derived_xg",
+    "duration_scope": "90-minute FT matches only",
+    "missing_xg": "never imputed; excluded from matched evaluation",
+    "penalty_shootouts": "excluded from eligible sample",
+    "extra_time": "excluded because duration scope is not provider-auditable",
+    "future_information": "xG is post-match evidence used only after the prediction and result"
+  },
+  "rows": {
+    "ao_matches": 6340,
+    "source_xg_matches": 787,
+    "matched_xg_matches": 426,
+    "eligible_xg_matches": 417
+  },
+  "production_eligibility": false,
+  "production_blocker": "Provider xG is a coarse zone-derived estimate with sparse and non-contiguous tournament-season coverage."
+}

@@ -1,6 +1,0 @@
-stage,selected_candidate,dev_log_loss,validation_log_loss
-season_weights,weights_decay_0.85,0.6423249913803205,0.6434364805343167
-european_prior,europe_b28_boost420,0.640830698408152,0.6429107586541278
-exposure_cap,exposure_cap_0.80,0.6407968721879134,0.6425173181898755
-exposure_blend,exposure_season_0.70,0.6406587991742714,0.6424244964777662
-country_strength,country_b15_g1.2_c180,0.6343513198243693,0.6358939910180836

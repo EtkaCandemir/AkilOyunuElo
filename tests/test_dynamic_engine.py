@@ -78,9 +78,18 @@ def test_calibrated_v2_parameters_match_selected_model() -> None:
     assert config.draw_at_even == pytest.approx(0.24)
     assert config.draw_shape == pytest.approx(1.0)
     assert config.goal_difference_enabled is True
-    assert config.goal_alpha == pytest.approx(0.10)
+    assert config.goal_alpha == pytest.approx(0.15)
     assert config.goal_tau == pytest.approx(300.0)
     assert config.goal_difference_cap == 4
+    assert config.xg_performance_enabled is True
+    assert config.xg_performance_ratio == pytest.approx(0.30)
+    assert config.xg_performance_scale == pytest.approx(1.25)
+    assert config.minimum_winner_gain_ratio == pytest.approx(0.70)
+    assert config.progression_bonus_enabled is True
+    assert config.progression_base_bonus == pytest.approx(12.0)
+    assert config.fixed_progression_config.increment("UCL") == pytest.approx(12.0)
+    assert config.fixed_progression_config.increment("UEL") == pytest.approx(8.0)
+    assert config.fixed_progression_config.increment("UECL") == pytest.approx(4.0)
     assert config.reserve_base == 0.0
     config.validate()
 
@@ -187,6 +196,117 @@ def test_penalty_shootout_does_not_replace_field_draw() -> None:
     assert update.actual_home_score == 0.5
     assert update.goal_difference == 0
     assert update.goal_multiplier == 1.0
+    assert update.progression_bonus_added == pytest.approx(12.0)
+
+
+@pytest.mark.parametrize(
+    ("competition", "expected_bonus", "expected_cap"),
+    [("UCL", 12.0, 60.0), ("UEL", 8.0, 40.0), ("UECL", 4.0, 20.0)],
+)
+def test_fixed_progression_bonus_uses_competition_ratio_after_decider(
+    competition: str,
+    expected_bonus: float,
+    expected_cap: float,
+) -> None:
+    config = DynamicEloConfig.calibrated_v2()
+    initial = initialize_season("2026/27", seeds(), config)
+
+    state, update = update_match(
+        initial,
+        match(
+            competition=competition,
+            round_name="Quarter Finals",
+            tie_id=f"{competition}-qf",
+            knockout=True,
+            decider=True,
+            advanced="A",
+        ),
+        config,
+    )
+
+    assert update.progression_bonus_recipient_id == "A"
+    assert update.progression_bonus_added == pytest.approx(expected_bonus)
+    assert update.progression_bonus_competition_pre == 0.0
+    assert update.progression_bonus_competition_post == pytest.approx(expected_bonus)
+    assert update.progression_bonus_competition_cap == pytest.approx(expected_cap)
+    assert state.ratings["A"].progression_bonus_total == pytest.approx(expected_bonus)
+    assert state.ratings["B"].progression_bonus_total == 0.0
+    assert state.ratings["A"].ao_live_elo == pytest.approx(
+        state.ratings["A"].power_elo + expected_bonus
+    )
+
+
+def test_fixed_progression_bonus_caps_and_resets_at_new_season() -> None:
+    config = DynamicEloConfig.calibrated_v2()
+    state = initialize_season("2026/27", seeds(), config)
+    rounds = (
+        "Knockout round play-offs",
+        "Round of 16",
+        "Quarter Finals",
+        "Semi Finals",
+        "Final",
+        "Final",
+    )
+    last_update = None
+    for index, round_name in enumerate(rounds):
+        state, last_update = update_match(
+            state,
+            match(
+                f"progress-{index}",
+                kickoff=KICKOFF + timedelta(days=index),
+                round_name=round_name,
+                tie_id=f"tie-{index}",
+                knockout=True,
+                decider=True,
+                advanced="A",
+            ),
+            config,
+        )
+
+    assert last_update is not None
+    assert state.ratings["A"].progression_bonus_ucl == pytest.approx(60.0)
+    assert last_update.progression_bonus_added == 0.0
+    assert len(state.processed_tie_ids) == 6
+
+    next_season = initialize_season(
+        "2027/28",
+        seeds(),
+        config,
+        previous_state=state,
+    )
+    assert next_season.ratings["A"].progression_bonus_total == 0.0
+
+
+def test_completed_tie_id_cannot_receive_progression_twice() -> None:
+    config = DynamicEloConfig.calibrated_v2()
+    initial = initialize_season("2026/27", seeds(), config)
+    state, _ = update_match(
+        initial,
+        match(
+            "qf-1",
+            round_name="Quarter Finals",
+            tie_id="completed-qf",
+            knockout=True,
+            decider=True,
+            advanced="A",
+        ),
+        config,
+    )
+
+    with pytest.raises(ValueError, match="already completed"):
+        update_match(
+            state,
+            match(
+                "qf-2",
+                kickoff=KICKOFF + timedelta(days=1),
+                round_name="Quarter Finals",
+                tie_id="completed-qf",
+                knockout=True,
+                decider=True,
+                advanced="A",
+            ),
+            config,
+        )
 
 
 @pytest.mark.parametrize(
@@ -213,7 +333,7 @@ def test_production_goal_layer_uses_damped_log_margin_and_goal_cap() -> None:
     config = DynamicEloConfig.calibrated_v2()
     initial = initialize_season("2026/27", seeds(), config)
     effective_difference = 1500.0 - 1400.0 + config.home_advantage
-    expected_multiplier = 1.0 + 0.10 * math.log(4.0) * math.exp(
+    expected_multiplier = 1.0 + 0.15 * math.log(4.0) * math.exp(
         -abs(effective_difference) / 300.0
     )
 
@@ -234,7 +354,7 @@ def test_production_goal_layer_uses_damped_log_margin_and_goal_cap() -> None:
     assert four_goal.goal_multiplier == pytest.approx(expected_multiplier)
     assert five_goal.goal_multiplier == pytest.approx(expected_multiplier)
     assert four_goal.goal_difference_enabled is True
-    assert four_goal.goal_alpha == pytest.approx(0.10)
+    assert four_goal.goal_alpha == pytest.approx(0.15)
     assert four_goal.goal_tau == pytest.approx(300.0)
     assert four_goal.goal_difference_cap == 4
 
@@ -369,21 +489,24 @@ def test_missing_team_invalid_score_and_config_mismatch_are_rejected() -> None:
         update_match(initial, match(home_goals=-1), config)
     with pytest.raises(ValueError, match="config_id"):
         update_match(initial, match(), replace(config, k_factor=config.k_factor + 1.0))
-    with pytest.raises(ValueError, match="tied 90/120-minute"):
-        update_match(
-            initial,
-            match(
-                home_goals=2,
-                away_goals=1,
-                penalties=True,
-                tie_id="final",
-                knockout=True,
-                decider=True,
-                advanced="A",
-                round_name="Final",
-            ),
-            config,
-        )
+    _, penalty_update = update_match(
+        initial,
+        match(
+            home_goals=2,
+            away_goals=1,
+            penalties=True,
+            tie_id="final",
+            knockout=True,
+            decider=True,
+            advanced="A",
+            round_name="Final",
+        ),
+        config,
+    )
+    assert penalty_update.actual_home_score == 1.0
+    assert penalty_update.goal_difference == 1
+    assert penalty_update.goal_multiplier == 1.0
+    assert penalty_update.xg_applied is False
 
 
 @pytest.mark.parametrize(

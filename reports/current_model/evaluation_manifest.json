@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-08-09T10:53:01.332616+00:00",
+  "evaluation_only": true,
+  "production_files_changed": false,
+  "model_version": "ao-european-elo-v2.0-dev-freeze",
+  "production_revision": "2026-08-06-penalty-field-score-goal-alpha-015-bounded-xg",
+  "final_candidate_version": "ao-european-elo-v2.0-final-candidate-2026-08-05",
+  "contract_status": {
+    "all_active_blocks_exactly_equal": false,
+    "all_active_parameters_equal": true,
+    "production_revision": "2026-08-06-penalty-field-score-goal-alpha-015-bounded-xg",
+    "candidate_revision": "2026-08-05-domestic-surprise-progression-goal-alpha-015-bounded-xg",
+    "candidate_status": "FINAL_MODEL_CANDIDATE",
+    "candidate_production_activation": true
+  },
+  "contract_sha256": {
+    "production": "4c83f7c192356d237dda119b3adb2d59e660caf5a60eee4ee1f6c1e7b5fe03a1",
+    "final_candidate": "9227743890f476f12b50c33af4778e62bcd49199c803b245dd9a88fee01b6682"
+  },
+  "seasons": [
+    "2018/19",
+    "2019/20",
+    "2020/21",
+    "2021/22",
+    "2022/23",
+    "2023/24",
+    "2024/25",
+    "2025/26"
+  ],
+  "evaluation_fold_seasons": [
+    "2020/21",
+    "2021/22",
+    "2022/23",
+    "2023/24",
+    "2024/25",
+    "2025/26"
+  ],
+  "all_matches": 6340,
+  "evaluation_matches": 4884,
+  "xg_rows_available": 606,
+  "bootstrap_samples": 4000,
+  "replay_validation": {
+    "maximum_abs_expected_home_score_difference": 0.0,
+    "maximum_abs_brier_1x2_difference": 0.0,
+    "maximum_abs_log_loss_1x2_difference": 0.0,
+    "maximum_abs_power_delta_difference": 0.0,
+    "match_count_equal": true,
+    "pipeline_exact_match": true
+  },
+  "decision": "KEEP",
+  "caveat": "Development-window replay; not an untouched prospective holdout."
+}

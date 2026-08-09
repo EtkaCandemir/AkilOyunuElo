@@ -32,7 +32,7 @@ from ao_elo.dynamic import (
 )
 
 
-STATE_CHECKPOINT_SCHEMA_VERSION = "1.0.0"
+STATE_CHECKPOINT_SCHEMA_VERSION = "2.0.0"
 PREDICTION_LEDGER_SCHEMA_VERSION = "1.1.0"
 STATE_CHECKPOINT_FILENAME = "state_checkpoint.json"
 
@@ -65,6 +65,9 @@ MATCH_INPUT_COLUMNS = [
     "away_team_id",
     "home_goals",
     "away_goals",
+    "xg_home",
+    "xg_away",
+    "xg_analysis_eligible",
     "is_neutral",
     "decided_on_penalties",
     "advanced_team_id",
@@ -77,6 +80,10 @@ RATINGS_STATE_COLUMNS = [
     "ao_first_elo",
     "power_elo",
     "achievement_reserve",
+    "progression_bonus_ucl",
+    "progression_bonus_uel",
+    "progression_bonus_uecl",
+    "progression_bonus_total",
     "ao_live_elo",
     "last_event_utc",
     "last_match_id",
@@ -105,6 +112,8 @@ MATCH_UPDATE_COLUMNS = [
     "away_power_pre",
     "home_reserve_pre",
     "away_reserve_pre",
+    "home_progression_bonus_pre",
+    "away_progression_bonus_pre",
     "home_live_pre",
     "away_live_pre",
     "effective_rating_difference",
@@ -121,16 +130,37 @@ MATCH_UPDATE_COLUMNS = [
     "goal_difference_cap",
     "goal_difference",
     "goal_multiplier",
+    "xg_performance_enabled",
+    "xg_analysis_eligible",
+    "xg_applied",
+    "xg_fallback_used",
+    "xg_home",
+    "xg_away",
+    "xg_performance_ratio",
+    "xg_performance_scale",
+    "minimum_winner_gain_ratio",
+    "xg_performance_signal",
+    "power_delta_before_xg",
+    "xg_power_adjustment",
     "power_delta",
     "home_reserve_delta",
     "away_reserve_delta",
+    "home_progression_bonus_delta",
+    "away_progression_bonus_delta",
     "home_power_post",
     "away_power_post",
     "home_reserve_post",
     "away_reserve_post",
+    "home_progression_bonus_post",
+    "away_progression_bonus_post",
     "home_live_post",
     "away_live_post",
     "winner_probability",
+    "progression_bonus_recipient_id",
+    "progression_bonus_added",
+    "progression_bonus_competition_pre",
+    "progression_bonus_competition_post",
+    "progression_bonus_competition_cap",
     "progression_reserve_added",
     "trophy_reserve_added",
     "model_version",
@@ -209,6 +239,7 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
         "active_power_carry",
         "one_x_two_probability",
         "goal_margin",
+        "xg_performance",
         "progression_bonus",
         "competition_k",
         "achievement_reserve",
@@ -218,6 +249,7 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
         raise ValueError(f"Model manifest missing keys: {missing}")
     core = payload["dynamic_core"]
     goal = payload["goal_margin"]
+    xg = payload["xg_performance"]
     progression = payload["progression_bonus"]
     competition_k = payload["competition_k"]
     reserve = payload["achievement_reserve"]
@@ -227,6 +259,10 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
         "one_x_two_probability.active",
     )
     goal_active = _manifest_boolean(goal.get("active"), "goal_margin.active")
+    xg_active = _manifest_boolean(
+        xg.get("active"),
+        "xg_performance.active",
+    )
     progression_active = _manifest_boolean(
         progression.get("active"),
         "progression_bonus.active",
@@ -250,8 +286,82 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
         raise ValueError(
             "Active goal-difference config must use CONTROLLED_FAVORITE_DAMPED_LOG"
         )
-    if progression_active or float(progression.get("base_bonus", 0.0)) != 0.0:
-        raise ValueError("Production progression bonus must remain disabled")
+    xg_ratio = float(xg.get("max_xg_ratio", 0.0))
+    xg_scale = float(xg.get("xg_scale", 1.25))
+    minimum_winner_gain_ratio = float(
+        xg.get("minimum_winner_gain_ratio", 1.0)
+    )
+    if xg_active:
+        if str(xg.get("family")) != "BOUNDED_TWO_SIDED_PERFORMANCE_ADJUSTMENT":
+            raise ValueError(
+                "Active xG config must use BOUNDED_TWO_SIDED_PERFORMANCE_ADJUSTMENT"
+            )
+        if xg.get("missing_xg_behavior") != "FALL_BACK_TO_GOAL_MARGIN_ONLY":
+            raise ValueError("Production xG must fall back to goal-margin-only Elo")
+        if xg.get("draw_behavior") != "NO_XG_ADJUSTMENT":
+            raise ValueError("Production draws cannot receive xG adjustment")
+        if xg.get("penalty_shootout_behavior") != "NO_XG_ADJUSTMENT":
+            raise ValueError("Production shoot-outs cannot receive xG adjustment")
+        if not _manifest_boolean(xg.get("requires_both_teams"), "xg_performance.requires_both_teams"):
+            raise ValueError("Production xG requires both teams' xG values")
+        if not _manifest_boolean(xg.get("winner_direction_guard"), "xg_performance.winner_direction_guard"):
+            raise ValueError("Production xG must preserve the match-result direction")
+        if not _manifest_boolean(xg.get("zero_sum"), "xg_performance.zero_sum"):
+            raise ValueError("Production xG must remain zero-sum")
+        if not math.isclose(
+            minimum_winner_gain_ratio,
+            1.0 - xg_ratio,
+            rel_tol=0.0,
+            abs_tol=1e-12,
+        ):
+            raise ValueError(
+                "xG minimum_winner_gain_ratio must equal 1-max_xg_ratio"
+            )
+    elif xg_ratio != 0.0:
+        raise ValueError("Inactive xG performance config must have max_xg_ratio=0")
+    progression_base = float(progression.get("base_bonus", 0.0))
+    progression_stages = progression.get("stages_per_competition", 5)
+    if progression_active:
+        if str(progression.get("family")) != "WINNER_ONLY_SEASON_LOCAL_FIXED":
+            raise ValueError(
+                "Active progression bonus must use WINNER_ONLY_SEASON_LOCAL_FIXED"
+            )
+        if progression_base <= 0.0:
+            raise ValueError("Active progression bonus must have positive base_bonus")
+        if not _manifest_boolean(
+            progression.get("winner_only"),
+            "progression_bonus.winner_only",
+        ):
+            raise ValueError("Production progression bonus must be winner-only")
+        if _manifest_boolean(
+            progression.get("loser_deduction"),
+            "progression_bonus.loser_deduction",
+        ):
+            raise ValueError("Production progression bonus cannot deduct from the loser")
+        if not _manifest_boolean(
+            progression.get("season_reset"),
+            "progression_bonus.season_reset",
+        ):
+            raise ValueError("Production progression bonus must reset each season")
+        expected_ratios = {"UCL": 1.0, "UEL": 2.0 / 3.0, "UECL": 1.0 / 3.0}
+        ratios = progression.get("competition_ratios")
+        if not isinstance(ratios, dict) or set(ratios) != set(expected_ratios):
+            raise ValueError("progression_bonus.competition_ratios are invalid")
+        for competition, expected_ratio in expected_ratios.items():
+            if not math.isclose(
+                float(ratios[competition]),
+                expected_ratio,
+                rel_tol=0.0,
+                abs_tol=1e-12,
+            ):
+                raise ValueError(
+                    "Progression competition ratios must preserve UCL/UEL/UECL "
+                    "as 1, 2/3 and 1/3"
+                )
+    elif progression_base != 0.0:
+        raise ValueError("Inactive progression bonus must have base_bonus=0")
+    if isinstance(progression_stages, bool) or not isinstance(progression_stages, int):
+        raise ValueError("progression_bonus.stages_per_competition must be an integer")
     if competition_k_active:
         raise ValueError("Production competition K must remain disabled")
     for name in ("ucl_multiplier", "uel_multiplier", "uecl_multiplier"):
@@ -281,6 +391,13 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
         goal_alpha=goal_alpha,
         goal_tau=float(goal["tau"]),
         goal_difference_cap=goal_difference_cap,
+        xg_performance_enabled=xg_active,
+        xg_performance_ratio=xg_ratio,
+        xg_performance_scale=xg_scale,
+        minimum_winner_gain_ratio=minimum_winner_gain_ratio,
+        progression_bonus_enabled=progression_active,
+        progression_base_bonus=progression_base,
+        progression_stages_per_competition=progression_stages,
         reserve_base=float(reserve["reserve_base"]),
         reserve_cap=float(reserve["reserve_cap"]),
         reserve_decay=float(reserve["reserve_decay"]),
@@ -367,6 +484,13 @@ def read_matches(path: str | Path) -> tuple[MatchInput, ...]:
             away_team_id=fixture.away_team_id,
             home_goals=_non_negative_integer(row["home_goals"], "home_goals"),
             away_goals=_non_negative_integer(row["away_goals"], "away_goals"),
+            xg_home=_optional_non_negative_number(row.get("xg_home"), "xg_home"),
+            xg_away=_optional_non_negative_number(row.get("xg_away"), "xg_away"),
+            xg_analysis_eligible=_optional_boolean(
+                row.get("xg_analysis_eligible"),
+                "xg_analysis_eligible",
+                default=False,
+            ),
             is_neutral=fixture.is_neutral,
             decided_on_penalties=_boolean(
                 row["decided_on_penalties"], "decided_on_penalties"
@@ -411,6 +535,10 @@ def state_to_frame(state: SeasonState) -> pd.DataFrame:
                 "ao_first_elo": rating.ao_first_elo,
                 "power_elo": rating.power_elo,
                 "achievement_reserve": rating.achievement_reserve,
+                "progression_bonus_ucl": rating.progression_bonus_ucl,
+                "progression_bonus_uel": rating.progression_bonus_uel,
+                "progression_bonus_uecl": rating.progression_bonus_uecl,
+                "progression_bonus_total": rating.progression_bonus_total,
                 "ao_live_elo": rating.ao_live_elo,
                 "last_event_utc": _format_datetime(rating.last_event_utc),
                 "last_match_id": rating.last_match_id or "",
@@ -447,6 +575,15 @@ def state_from_frame(data: pd.DataFrame, config: DynamicEloConfig) -> SeasonStat
             achievement_reserve=_finite_number(
                 row["achievement_reserve"], "achievement_reserve"
             ),
+            progression_bonus_ucl=_finite_number(
+                row["progression_bonus_ucl"], "progression_bonus_ucl"
+            ),
+            progression_bonus_uel=_finite_number(
+                row["progression_bonus_uel"], "progression_bonus_uel"
+            ),
+            progression_bonus_uecl=_finite_number(
+                row["progression_bonus_uecl"], "progression_bonus_uecl"
+            ),
             last_event_utc=event_time,
             last_match_id=_optional_id(row["last_match_id"]),
         )
@@ -454,6 +591,16 @@ def state_from_frame(data: pd.DataFrame, config: DynamicEloConfig) -> SeasonStat
             _finite_number(row["ao_live_elo"], "ao_live_elo") - rating.ao_live_elo
         ) > 1e-9:
             raise ValueError("ratings_state.csv ao_live_elo is inconsistent")
+        if abs(
+            _finite_number(
+                row["progression_bonus_total"],
+                "progression_bonus_total",
+            )
+            - rating.progression_bonus_total
+        ) > 1e-9:
+            raise ValueError(
+                "ratings_state.csv progression_bonus_total is inconsistent"
+            )
         ratings[team_id] = rating
     ordered_events = [
         (rating.last_event_utc, rating.last_match_id)
@@ -465,6 +612,7 @@ def state_from_frame(data: pd.DataFrame, config: DynamicEloConfig) -> SeasonStat
         season=str(season_values[0]),
         ratings=ratings,
         processed_match_ids=frozenset(),
+        processed_tie_ids=frozenset(),
         open_ties={},
         last_event_utc=last_event,
         last_match_id=last_match,
@@ -493,6 +641,7 @@ def save_state_checkpoint(
         "config_id": state.config_id,
         "ratings_state_sha256": hashlib.sha256(ratings_bytes).hexdigest(),
         "processed_match_ids": sorted(state.processed_match_ids),
+        "processed_tie_ids": sorted(state.processed_tie_ids),
         "open_ties": [
             asdict(state.open_ties[tie_id]) for tie_id in sorted(state.open_ties)
         ],
@@ -540,6 +689,15 @@ def load_state_checkpoint(
     if len(processed) != len(set(processed)):
         raise ValueError("State checkpoint contains duplicate processed match_id values")
 
+    processed_tie_values = metadata.get("processed_tie_ids")
+    if not isinstance(processed_tie_values, list):
+        raise ValueError("State checkpoint processed_tie_ids must be a list")
+    processed_ties = [
+        _required_id(value, "processed tie_id") for value in processed_tie_values
+    ]
+    if len(processed_ties) != len(set(processed_ties)):
+        raise ValueError("State checkpoint contains duplicate processed tie_id values")
+
     tie_values = metadata.get("open_ties")
     if not isinstance(tie_values, list):
         raise ValueError("State checkpoint open_ties must be a list")
@@ -568,6 +726,7 @@ def load_state_checkpoint(
         season=base.season,
         ratings=base.ratings,
         processed_match_ids=frozenset(processed),
+        processed_tie_ids=frozenset(processed_ties),
         open_ties=open_ties,
         last_event_utc=last_event,
         last_match_id=last_match,
@@ -940,6 +1099,12 @@ def _boolean(value: object, label: str) -> bool:
     raise ValueError(f"{label} must be true/false or 0/1")
 
 
+def _optional_boolean(value: object, label: str, *, default: bool) -> bool:
+    if value is None or pd.isna(value) or str(value).strip() == "":
+        return default
+    return _boolean(value, label)
+
+
 def _manifest_boolean(value: object, label: str) -> bool:
     if not isinstance(value, bool):
         raise ValueError(f"{label} must be a JSON boolean")
@@ -964,6 +1129,15 @@ def _finite_number(value: object, label: str) -> float:
         raise ValueError(f"{label} must be finite") from error
     if not math.isfinite(numeric):
         raise ValueError(f"{label} must be finite")
+    return numeric
+
+
+def _optional_non_negative_number(value: object, label: str) -> float | None:
+    if value is None or pd.isna(value) or str(value).strip() == "":
+        return None
+    numeric = _finite_number(value, label)
+    if numeric < 0.0:
+        raise ValueError(f"{label} must be non-negative")
     return numeric
 
 

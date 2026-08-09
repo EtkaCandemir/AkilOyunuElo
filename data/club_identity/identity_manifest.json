@@ -1,0 +1,39 @@
+{
+  "identity_version": "ao-club-identity-v1",
+  "club_id_contract": "AO-UEFA-<positive UEFA team ID>",
+  "provider": "UEFA",
+  "clubs": 504,
+  "team_seasons": 1887,
+  "matches": 6340,
+  "name_variant_clubs": [
+    {
+      "club_id": "AO-UEFA-2604753",
+      "observed_names": "Farul Constanta | Viitorul Constanta"
+    },
+    {
+      "club_id": "AO-UEFA-2605905",
+      "observed_names": "Iberia 1999 | Saburtalo Tbilisi"
+    },
+    {
+      "club_id": "AO-UEFA-2606168",
+      "observed_names": "FK Riteriai | FK Trakai"
+    },
+    {
+      "club_id": "AO-UEFA-52288",
+      "observed_names": "FC Feh\u00e9rv\u00e1r | Videoton Feh\u00e9rv\u00e1r"
+    },
+    {
+      "club_id": "AO-UEFA-52723",
+      "observed_names": "Dinamo Kiev | Dynamo Kyiv"
+    },
+    {
+      "club_id": "AO-UEFA-63405",
+      "observed_names": "LASK | LASK Linz"
+    },
+    {
+      "club_id": "AO-UEFA-77866",
+      "observed_names": "Banants Yerevan | Urartu FC"
+    }
+  ],
+  "all_checks_passed": true
+}

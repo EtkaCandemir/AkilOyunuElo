@@ -1,0 +1,237 @@
+sportsdb_team_id,sportsdb_team_name,club_id,uefa_team_id,ao_team_name
+133616,Tottenham Hotspur,AO-UEFA-1652,1652,Tottenham Hotspur
+140118,Dečić,AO-UEFA-2600105,2600105,Decic Tuzi
+135297,Jagiellonia Białystok,AO-UEFA-2600277,2600277,Jagiellonia Bialystok
+134589,İstanbul Başakşehir,AO-UEFA-2600288,2600288,Istanbul Basaksehir
+134060,Nõmme Kalju,AO-UEFA-2600371,2600371,Kalju Nomme
+137975,Paide Linnameeskond,AO-UEFA-2600598,2600598,Paide Linnameeskond
+134342,Astana,AO-UEFA-2600605,2600605,FK Astana
+134084,Milsami Orhei,AO-UEFA-2600714,2600714,Milsami Orhei
+140069,Novi Pazar,AO-UEFA-2601090,2601090,Novi Pazar
+134095,Žalgiris Vilnius,AO-UEFA-2602334,2602334,Zalgiris Vilnius
+136687,Ilves,AO-UEFA-2602511,2602511,Ilves Tampere
+135673,SJK Seinajoki,AO-UEFA-2602520,2602520,SJK Seinäjoki
+138349,UNA Strassen,AO-UEFA-2603092,2603092,UNA Strassen
+133981,Ludogorets Razgrad,AO-UEFA-2603104,2603104,Ludogorets Razgrad
+137252,Wolfsberger AC,AO-UEFA-2603990,2603990,Wolfsberger AC
+138182,Puskás Akadémia FC,AO-UEFA-2605472,2605472,Puskás Akadémia
+140040,Lincoln Red Imps,AO-UEFA-2605572,2605572,Lincoln Red Imps
+140100,St Josephs,AO-UEFA-2605575,2605575,St Joseph's FC
+138046,Iberia 1999,AO-UEFA-2605905,2605905,Iberia 1999
+137992,Kauno Žalgiris,AO-UEFA-2605907,2605907,Kauno Zalgiris
+141212,FCB Magpies,AO-UEFA-2606279,2606279,FCB Magpies
+137486,Pen-y-Bont,AO-UEFA-2606314,2606314,Penybont
+134049,BFC Daugavpils,AO-UEFA-2606321,2606321,BFC Daugavpils
+146883,Araz-Naxçıvan,AO-UEFA-2606484,2606484,Araz Nakhchivan
+138188,Universitatea Craiova,AO-UEFA-2606501,2606501,Universitatea Craiova
+141007,Hegelmann Litauen,AO-UEFA-2607108,2607108,FC Hegelmann
+138123,Petrocub Hîncești,AO-UEFA-2607112,2607112,Petrocub Hîncesti
+138340,Zira,AO-UEFA-2607480,2607480,Zira FK
+137984,Riga FC,AO-UEFA-2607924,2607924,Riga FC
+140101,Prishtina,AO-UEFA-2608287,2608287,FC Prishtina
+140098,Drita,AO-UEFA-2608290,2608290,FC Drita
+137985,RFS,AO-UEFA-2609104,2609104,RFS Riga
+138341,Sabah FC,AO-UEFA-2609356,2609356,Sabah FK
+137928,Pafos,AO-UEFA-2609532,2609532,Pafos FC
+141258,Ballkani,AO-UEFA-2609552,2609552,FC Ballkani
+137895,Noah,AO-UEFA-2609987,2609987,FC Noah
+133754,Olympiacos,AO-UEFA-2610,2610,Olympiakos Piraeus
+137916,Arda Kardzhali,AO-UEFA-2610060,2610060,Arda Kardzhali
+134603,Košice,AO-UEFA-2610274,2610274,FC Kosice
+137892,Ararat-Armenia,AO-UEFA-2610304,2610304,Ararat-Armenia
+144994,Spaeri,AO-UEFA-2611621,2611621,Spaeri Tbilisi
+143606,Malisheva,AO-UEFA-2611789,2611789,KF Malisheva
+140180,Polissya Zhytomyr,AO-UEFA-2613172,2613172,Polissya Zhytomyr
+138990,Lausanne-Sport,AO-UEFA-4251,4251,Lausanne Sports
+133991,Servette,AO-UEFA-50008,50008,Servette FC Genève
+133893,Brøndby,AO-UEFA-50021,50021,Brøndby IF
+133823,Monaco,AO-UEFA-50023,50023,AS Monaco
+133970,Red Bull Salzburg,AO-UEFA-50030,50030,FC Salzburg
+134001,Young Boys,AO-UEFA-50031,50031,Young Boys
+134007,Sparta Prague,AO-UEFA-50033,50033,Sparta Praha
+133664,Bayern Munich,AO-UEFA-50037,50037,Bayern München
+134021,Rapid Vienna,AO-UEFA-50042,50042,Rapid Wien
+133789,Club Brugge,AO-UEFA-50043,50043,Club Brugge
+134085,Levski Sofia,AO-UEFA-50044,50044,Levski Sofia
+133647,Celtic,AO-UEFA-50050,50050,Celtic
+133738,Real Madrid,AO-UEFA-50051,50051,Real Madrid
+133953,HJK Helsinki,AO-UEFA-50052,50052,HJK Helsinki
+137973,Valur,AO-UEFA-50057,50057,Valur Reykjavik
+138133,Ħamrun Spartans,AO-UEFA-50060,50060,Hamrun Spartans
+133768,PSV Eindhoven,AO-UEFA-50062,50062,PSV Eindhoven
+134114,FC Porto,AO-UEFA-50064,50064,FC Porto
+134005,FCSB,AO-UEFA-50065,50065,FCSB
+133804,Galatasaray,AO-UEFA-50067,50067,Galatasaray
+133987,Crvena Zvezda,AO-UEFA-50069,50069,Red Star Belgrade
+133814,Eintracht Frankfurt,AO-UEFA-50072,50072,Eintracht Frankfurt
+133776,Anderlecht,AO-UEFA-50074,50074,Anderlecht
+133986,Omonia Nicosia,AO-UEFA-50077,50077,Omonia Nicosia
+133644,Dundee United,AO-UEFA-50079,50079,Dundee United
+133739,Barcelona,AO-UEFA-50080,50080,FC Barcelona
+133746,Panathinaikos,AO-UEFA-50084,50084,Panathinaikos
+134039,Floriana,AO-UEFA-50092,50092,Floriana
+137938,Borac Banja Luka,AO-UEFA-50104,50104,Borac Banja Luka
+133660,Stuttgart,AO-UEFA-50107,50107,VfB Stuttgart
+133666,Bayer Leverkusen,AO-UEFA-50109,50109,Bayer Leverkusen
+134390,Austria Vienna,AO-UEFA-50110,50110,Austria Wien
+137743,Sturm Graz,AO-UEFA-50111,50111,Sturm Graz
+133642,Rangers,AO-UEFA-50121,50121,Glasgow Rangers
+133638,Aberdeen,AO-UEFA-50122,50122,Aberdeen
+133729,Atlético Madrid,AO-UEFA-50124,50124,Atlético Madrid
+133727,Athletic Bilbao,AO-UEFA-50125,50125,Athletic Bilbao
+133753,AEK Athens,AO-UEFA-50129,50129,AEK Athens
+133749,PAOK,AO-UEFA-50130,50130,PAOK Thessaloniki
+134792,St Patricks,AO-UEFA-50133,50133,St. Patrick's Athletic
+133964,Linfield,AO-UEFA-50134,50134,Linfield Belfast
+133670,Napoli,AO-UEFA-50136,50136,Napoli
+133682,Roma,AO-UEFA-50137,50137,AS Roma
+133681,Inter Milan,AO-UEFA-50138,50138,Internazionale
+133676,Juventus,AO-UEFA-50139,50139,Juventus
+133772,Ajax,AO-UEFA-50143,50143,Ajax
+133992,Legia Warsaw,AO-UEFA-50146,50146,Legia Warsaw
+134108,Benfica,AO-UEFA-50147,50147,Benfica
+135708,Sporting CP,AO-UEFA-50149,50149,Sporting CP Lisbon
+134166,Malmo FF,AO-UEFA-50152,50152,Malmö FF
+133794,Beşiktaş,AO-UEFA-50157,50157,Besiktas
+137902,Dinamo Minsk,AO-UEFA-50161,50161,Dinamo Minsk
+133960,Partizan Belgrade,AO-UEFA-50162,50162,Partizan Belgrade
+133961,Dinamo Zagreb,AO-UEFA-50164,50164,Dinamo Zagreb
+136684,Baník Ostrava,AO-UEFA-51886,51886,Baník Ostrava
+133722,Real Betis,AO-UEFA-52265,52265,Real Betis
+133604,Arsenal,AO-UEFA-52280,52280,Arsenal
+134314,Győri ETO,AO-UEFA-52287,52287,ETO Györ
+134620,Ferencváros,AO-UEFA-52298,52298,Ferencváros
+134064,Differdange 03,AO-UEFA-52309,52309,Differdange 03
+134570,Viking,AO-UEFA-52319,52319,Viking Stavanger
+133764,Utrecht,AO-UEFA-52323,52323,FC Utrecht
+133767,AZ Alkmaar,AO-UEFA-52327,52327,AZ Alkmaar
+134098,Braga,AO-UEFA-52336,52336,Sporting Braga
+134011,AIK,AO-UEFA-52341,52341,AIK Stockholm
+134731,Hammarby,AO-UEFA-52343,52343,Hammarby IF
+134018,KuPS,AO-UEFA-52350,52350,KuPS Kuopio
+133712,Nice,AO-UEFA-52355,52355,OGC Nice
+134399,Rijeka,AO-UEFA-52356,52356,NK Rijeka
+134019,Hajduk Split,AO-UEFA-52359,52359,Hajduk Split
+133978,Shamrock Rovers,AO-UEFA-52381,52381,Shamrock Rovers
+136036,Slavia Prague,AO-UEFA-52498,52498,Slavia Praha
+138132,Hibernians,AO-UEFA-52640,52640,Hibernians FC
+133720,Nottingham Forest,AO-UEFA-52681,52681,Nottingham Forest
+133601,Aston Villa,AO-UEFA-52683,52683,Aston Villa
+133807,Fenerbahçe,AO-UEFA-52692,52692,Fenerbahçe
+137974,Víkingur Reykjavík,AO-UEFA-52697,52697,Vikingur Reykjavik
+134126,Shakhtar Donetsk,AO-UEFA-52707,52707,Shakhtar Donetsk
+133898,FC Copenhagen,AO-UEFA-52709,52709,FC København
+133944,Dynamo Kyiv,AO-UEFA-52723,52723,Dynamo Kyiv
+133714,Paris SG,AO-UEFA-52747,52747,Paris Saint-Germain
+133707,Marseille,AO-UEFA-52748,52748,Olympique Marseille
+133758,Feyenoord,AO-UEFA-52749,52749,Feyenoord
+133650,Borussia Dortmund,AO-UEFA-52758,52758,Borussia Dortmund
+134571,Brann,AO-UEFA-52770,52770,SK Brann Bergen
+140666,Dinamo City,AO-UEFA-52792,52792,Dinamo Tirana
+134090,Slovan Bratislava,AO-UEFA-52797,52797,Slovan Bratislava
+133990,Rosenborg,AO-UEFA-52806,52806,Rosenborg BK
+134782,Atalanta,AO-UEFA-52816,52816,Atalanta
+133674,Fiorentina,AO-UEFA-52817,52817,Fiorentina
+133646,Hibernian,AO-UEFA-52821,52821,Hibernian
+137799,Partizani Tirana,AO-UEFA-52876,52876,Partizani Tirana
+137800,Vllaznia Shkodër,AO-UEFA-52878,52878,Vllaznia Shkodër
+133826,Charleroi,AO-UEFA-52886,52886,Charleroi
+134004,Spartak Trnava,AO-UEFA-52904,52904,Spartak Trnava
+136677,Sigma Olomouc,AO-UEFA-52905,52905,Sigma Olomouc
+133892,Silkeborg IF,AO-UEFA-52912,52912,Silkeborg IF
+133610,Chelsea,AO-UEFA-52914,52914,Chelsea
+133632,Crystal Palace,AO-UEFA-52916,52916,Crystal Palace
+133613,Manchester City,AO-UEFA-52919,52919,Manchester City
+133742,Aris,AO-UEFA-52949,52949,Aris Thessaloniki
+137970,KA Akureyri,AO-UEFA-52966,52966,KA Akureyri
+134781,Bologna,AO-UEFA-52969,52969,Bologna
+134063,Cliftonville,AO-UEFA-52991,52991,Cliftonville
+138033,Shelbourne,AO-UEFA-53020,53020,Shelbourne
+138198,Universitatea Cluj,AO-UEFA-53025,53025,Universitatea Cluj
+133937,Celta Vigo,AO-UEFA-53043,53043,Celta de Vigo
+133797,Samsunspor,AO-UEFA-53060,53060,Samsunspor
+133983,Budućnost Podgorica,AO-UEFA-53078,53078,Buducnost Podgorica
+133979,Vardar,AO-UEFA-53080,53080,Vardar Skopje
+134033,Olimpija Ljubljana,AO-UEFA-53081,53081,Olimpija Ljubljana
+133713,Lyon,AO-UEFA-5312,5312,Olympique Lyon
+136251,AEK Larnaca,AO-UEFA-54191,54191,AEK Larnaca
+138051,KÍ Klaksvík,AO-UEFA-57475,57475,KI Klaksvik
+134315,Maccabi Tel Aviv,AO-UEFA-57477,57477,Maccabi Tel-Aviv
+134320,Vaduz,AO-UEFA-57482,57482,FC Vaduz
+133948,Maribor,AO-UEFA-57490,57490,NK Maribor
+134608,Neman Grodno,AO-UEFA-59024,59024,Neman Grodno
+134336,HB Tórshavn,AO-UEFA-59025,59025,HB Torshavn
+133947,F91 Dudelange,AO-UEFA-59028,59028,F91 Dudelange
+134318,Celje,AO-UEFA-59030,59030,NK Celje
+135992,Beitar Jerusalem,AO-UEFA-59034,59034,Beitar Jerusalem
+134051,Zimbru Chișinău,AO-UEFA-59036,59036,Zimbru Chisinau
+134400,Maccabi Haifa,AO-UEFA-59045,59045,Maccabi Haifa
+134777,Newcastle United,AO-UEFA-59324,59324,Newcastle United
+134026,Víkingur Gøta,AO-UEFA-59325,59325,Víkingur
+135497,Bodø/Glimt,AO-UEFA-59333,59333,Bodø/Glimt
+134799,Hapoel Be'er Sheva,AO-UEFA-59340,59340,Hapoel Beer-Sheva
+133967,Flora Tallinn,AO-UEFA-59341,59341,Flora Tallinn
+133957,Basel,AO-UEFA-59856,59856,FC Basel
+133882,Strasbourg,AO-UEFA-59857,59857,RC Strasbourg
+138073,Sileks,AO-UEFA-59871,59871,Sileks Kratovo
+133653,Freiburg,AO-UEFA-59880,59880,SC Freiburg
+134312,The New Saints,AO-UEFA-60457,60457,The New Saints
+137798,NK Varaždin,AO-UEFA-60514,60514,NK Varazdin
+137670,Raków Częstochowa,AO-UEFA-60566,60566,Raków Czestochowa
+135702,Qarabağ,AO-UEFA-60609,60609,Qarabag FK
+133779,Genk,AO-UEFA-61582,61582,Racing Genk
+133975,MSK Zilina,AO-UEFA-61601,61601,MSK Zilina
+134035,Birkirkara,AO-UEFA-62171,62171,Birkirkara
+134346,FC Santa Coloma,AO-UEFA-62180,62180,FC Santa Coloma
+137792,Inter Club d'Escaldes,AO-UEFA-63401,63401,Inter Club d'Escaldes
+138141,Union Saint-Gilloise,AO-UEFA-64125,64125,Union Saint-Gilloise
+134065,NSÍ Runavík,AO-UEFA-64150,64150,NSI Runavik
+134304,Go Ahead Eagles,AO-UEFA-64207,64207,Go Ahead Eagles
+134749,Fredrikstad,AO-UEFA-64211,64211,Fredrikstad FK
+134010,Lech Poznań,AO-UEFA-64227,64227,Lech Poznan
+140057,Haverfordwest County,AO-UEFA-64283,64283,Haverfordwest County
+141776,Radnički 1923,AO-UEFA-64289,64289,Radnicki 1923
+137989,Banga Gargždai,AO-UEFA-64348,64348,Banga Gargzdai
+137901,Dynamo Brest,AO-UEFA-64374,64374,Dynamo Brest
+134013,FK Sarajevo,AO-UEFA-64378,64378,FK Sarajevo
+137934,Željezničar Sarajevo,AO-UEFA-64381,64381,Zeljeznicar Sarajevo
+134015,Viktoria Plzeň,AO-UEFA-64388,64388,Viktoria Plzen
+133995,Dila Gori,AO-UEFA-64467,64467,Dila Gori
+134042,Torpedo Kutaisi,AO-UEFA-64471,64471,Torpedo Kutaisi
+134344,La Fiorita,AO-UEFA-64508,64508,La Fiorita
+138082,Tre Fiori,AO-UEFA-64514,64514,Tre Fiori
+138086,Virtus,AO-UEFA-64516,64516,AC Virtus
+141094,Aris Limassol,AO-UEFA-69529,69529,Aris Limassol
+138071,Rabotnichki,AO-UEFA-69601,69601,Rabotnicki Skopje
+133962,Sheriff Tiraspol,AO-UEFA-69606,69606,Sheriff Tiraspol
+134604,Koper,AO-UEFA-69617,69617,NK Koper
+134160,Hacken,AO-UEFA-69621,69621,BK Häcken
+133740,Villarreal,AO-UEFA-70691,70691,Villarreal
+133665,Mainz,AO-UEFA-70853,70853,FSV Mainz 05
+134347,Breiðablik,AO-UEFA-71235,71235,Breidablik
+134341,Zrinjski Mostar,AO-UEFA-73390,73390,Zrinjski Mostar
+136192,Santa Clara,AO-UEFA-73927,73927,CD Santa Clara
+134310,Sutjeska,AO-UEFA-73936,73936,Sutjeska Niksic
+133728,Rayo Vallecano,AO-UEFA-74070,74070,Rayo Vallecano
+137915,Cherno More,AO-UEFA-75787,75787,Cherno More Varna
+133891,FC Midtjylland,AO-UEFA-75795,75795,FC Midtjylland
+133711,Lille,AO-UEFA-75797,75797,Lille OSC
+134024,Shkëndija,AO-UEFA-75807,75807,Shkendija Tetovo
+137896,Pyunik Yerevan,AO-UEFA-77431,77431,Pyunik Yerevan
+134046,Levadia Tallinn,AO-UEFA-77482,77482,Levadia Tallinn
+137897,Urartu,AO-UEFA-77866,77866,Urartu FC
+135483,Oleksandriya,AO-UEFA-77928,77928,FC Oleksandriya
+133602,Liverpool,AO-UEFA-7889,7889,Liverpool
+137910,Torpedo-BelAZ Zhodino,AO-UEFA-79551,79551,Torpedo Zhodino
+145004,Auda Kekava,AO-UEFA-79556,79556,FK Auda
+134602,Kairat Almaty,AO-UEFA-79970,79970,Kairat Almaty
+140520,Aktobe,AO-UEFA-79973,79973,FK Aktobe
+134077,Ordabasy Shymkent,AO-UEFA-82825,82825,Ordabasy Shymkent
+135944,Dungannon Swifts,AO-UEFA-85008,85008,Dungannon Swifts
+138007,Larne,AO-UEFA-85009,85009,Larne FC
+136037,Lugano,AO-UEFA-8538,8538,FC Lugano
+133955,CFR Cluj,AO-UEFA-88131,88131,CFR Cluj
+139740,Racing Union Luxembourg,AO-UEFA-88135,88135,Racing Union Luxembourg
+140667,Egnatia,AO-UEFA-88148,88148,Egnatia Rrogozhinë
+137790,Atlètic d'Escaldes,AO-UEFA-88371,88371,Atlètic Club d'Escaldes
+138185,Paks,AO-UEFA-93452,93452,Paksi FC

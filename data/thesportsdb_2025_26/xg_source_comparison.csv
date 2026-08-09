@@ -1,0 +1,962 @@
+match_id,competition,thesportsdb_xg_home,thesportsdb_xg_away,thesportsdb_xg_raw_present,thesportsdb_xg_analysis_eligible,thesportsdb_xg_quality_status,fotmob_xg_home,fotmob_xg_away,fotmob_xg_covered,fotmob_xg_analysis_eligible,home_team_name,away_team_name,common_analysis_eligible,xg_home_difference,xg_away_difference,thesportsdb_xg_total,fotmob_xg_total,xg_total_difference
+202526-0003,UCL,,,False,False,NO_RAW_XG,,,False,False,KuPS Kuopio,Milsami Orhei,False,,,,,
+202526-0007,UCL,,,False,False,NO_RAW_XG,,,False,False,Iberia 1999,Malmö FF,False,,,,,
+202526-0025,UCL,,,False,False,NO_RAW_XG,,,False,False,FC Noah,Buducnost Podgorica,False,,,,,
+202526-0591,UECL,,,False,False,NO_RAW_XG,,,False,False,St Joseph's FC,Cliftonville,False,,,,,
+202526-0009,UCL,,,False,False,NO_RAW_XG,,,False,False,Levadia Tallinn,RFS Riga,False,,,,,
+202526-0023,UCL,,,False,False,NO_RAW_XG,,,False,False,Olimpija Ljubljana,Kairat Almaty,False,,,,,
+202526-0587,UECL,,,False,False,NO_RAW_XG,,,False,False,Floriana,Haverfordwest County,False,,,,,
+202526-0005,UCL,,,False,False,NO_RAW_XG,,,False,False,The New Saints,Shkendija Tetovo,False,,,,,
+202526-0011,UCL,,,False,False,NO_RAW_XG,,,False,False,FC Drita,Differdange 03,False,,,,,
+202526-0013,UCL,,,False,False,NO_RAW_XG,,,False,False,Víkingur,Lincoln Red Imps,False,,,,,
+202526-0015,UCL,,,False,False,NO_RAW_XG,,,False,False,Egnatia Rrogozhinë,Breidablik,False,,,,,
+202526-0021,UCL,,,False,False,NO_RAW_XG,,,False,False,AC Virtus,Zrinjski Mostar,False,,,,,
+202526-0001,UCL,,,False,False,NO_RAW_XG,,,False,False,Zalgiris Vilnius,Hamrun Spartans,False,,,,,
+202526-0019,UCL,,,False,False,NO_RAW_XG,,,False,False,FCSB,Inter Club d'Escaldes,False,,,,,
+202526-0027,UCL,,,False,False,NO_RAW_XG,,,False,False,Ludogorets Razgrad,Dinamo Minsk,False,,,,,
+202526-0017,UCL,,,False,False,NO_RAW_XG,,,False,False,Shelbourne,Linfield Belfast,False,,,,,
+202526-0573,UECL,,,False,False,NO_RAW_XG,,,False,False,Atlètic Club d'Escaldes,F91 Dudelange,False,,,,,
+202526-0557,UECL,,,False,False,NO_RAW_XG,,,False,False,FCB Magpies,Paide Linnameeskond,False,,,,,
+202526-0288,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Sabah FK,NK Celje,False,,,0,,
+202526-0561,UECL,,,False,False,NO_RAW_XG,,,False,False,Torpedo Kutaisi,Ordabasy Shymkent,False,,,,,
+202526-0577,UECL,,,False,False,NO_RAW_XG,,,False,False,SJK Seinäjoki,KI Klaksvik,False,,,,,
+202526-0583,UECL,,,False,False,NO_RAW_XG,,,False,False,Kauno Zalgiris,Penybont,False,,,,,
+202526-0294,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,AEK Larnaca,Partizan Belgrade,False,,,0,,
+202526-0567,UECL,,,False,False,NO_RAW_XG,,,False,False,Urartu FC,Neman Grodno,False,,,,,
+202526-0597,UECL,,,False,False,NO_RAW_XG,,,False,False,Racing Union Luxembourg,Dila Gori,False,,,,,
+202526-0585,UECL,,,False,False,NO_RAW_XG,,,False,False,Kalju Nomme,Partizani Tirana,False,,,,,
+202526-0284,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Sheriff Tiraspol,FC Prishtina,False,,,0,,
+202526-0296,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,0.27,0.83,True,True,Paksi FC,CFR Cluj,False,,,0,1.1,
+202526-0292,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Levski Sofia,Hapoel Beer-Sheva,False,,,0,,
+202526-0282,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Shakhtar Donetsk,Ilves Tampere,False,,,0,,
+202526-0559,UECL,,,False,False,NO_RAW_XG,,,False,False,Vllaznia Shkodër,BFC Daugavpils,False,,,,,
+202526-0563,UECL,,,False,False,NO_RAW_XG,,,False,False,Decic Tuzi,Sileks Kratovo,False,,,,,
+202526-0565,UECL,,,False,False,NO_RAW_XG,,,False,False,Birkirkara,Petrocub Hîncesti,False,,,,,
+202526-0595,UECL,,,False,False,NO_RAW_XG,,,False,False,Torpedo Zhodino,Rabotnicki Skopje,False,,,,,
+202526-0286,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Spartak Trnava,BK Häcken,False,,,0,,
+202526-0589,UECL,,,False,False,NO_RAW_XG,,,False,False,KF Malisheva,Vikingur Reykjavik,False,,,,,
+202526-0569,UECL,,,False,False,NO_RAW_XG,,,False,False,Zeljeznicar Sarajevo,NK Koper,False,,,,,
+202526-0571,UECL,,,False,False,NO_RAW_XG,,,False,False,Sutjeska Niksic,Dynamo Brest,False,,,,,
+202526-0575,UECL,,,False,False,NO_RAW_XG,,,False,False,Vardar Skopje,La Fiorita,False,,,,,
+202526-0553,UECL,,,False,False,NO_RAW_XG,,,False,False,NSI Runavik,HJK Helsinki,False,,,,,
+202526-0555,UECL,,,False,False,NO_RAW_XG,,,False,False,St. Patrick's Athletic,FC Hegelmann,False,,,,,
+202526-0290,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Legia Warsaw,FK Aktobe,False,,,0,,
+202526-0579,UECL,,,False,False,NO_RAW_XG,,,False,False,Larne FC,FK Auda,False,,,,,
+202526-0593,UECL,,,False,False,NO_RAW_XG,,,False,False,Tre Fiori,Pyunik Yerevan,False,,,,,
+202526-0599,UECL,,,False,False,NO_RAW_XG,,,False,False,Borac Banja Luka,FC Santa Coloma,False,,,,,
+202526-0581,UECL,,,False,False,NO_RAW_XG,,,False,False,Valur Reykjavik,Flora Tallinn,False,,,,,
+202526-0024,UCL,,,False,False,NO_RAW_XG,,,False,False,Kairat Almaty,Olimpija Ljubljana,False,,,,,
+202526-0014,UCL,,,False,False,NO_RAW_XG,,,False,False,Lincoln Red Imps,Víkingur,False,,,,,
+202526-0002,UCL,,,False,False,NO_RAW_XG,,,False,False,Hamrun Spartans,Zalgiris Vilnius,False,,,,,
+202526-0004,UCL,,,False,False,NO_RAW_XG,,,False,False,Milsami Orhei,KuPS Kuopio,False,,,,,
+202526-0008,UCL,,,False,False,NO_RAW_XG,,,False,False,Malmö FF,Iberia 1999,False,,,,,
+202526-0010,UCL,,,False,False,NO_RAW_XG,,,False,False,RFS Riga,Levadia Tallinn,False,,,,,
+202526-0006,UCL,,,False,False,NO_RAW_XG,,,False,False,Shkendija Tetovo,The New Saints,False,,,,,
+202526-0012,UCL,,,False,False,NO_RAW_XG,,,False,False,Differdange 03,FC Drita,False,,,,,
+202526-0020,UCL,,,False,False,NO_RAW_XG,,,False,False,Inter Club d'Escaldes,FCSB,False,,,,,
+202526-0016,UCL,,,False,False,NO_RAW_XG,,,False,False,Breidablik,Egnatia Rrogozhinë,False,,,,,
+202526-0022,UCL,,,False,False,NO_RAW_XG,,,False,False,Zrinjski Mostar,AC Virtus,False,,,,,
+202526-0026,UCL,,,False,False,NO_RAW_XG,,,False,False,Buducnost Podgorica,FC Noah,False,,,,,
+202526-0580,UECL,,,False,False,NO_RAW_XG,,,False,False,FK Auda,Larne FC,False,,,,,
+202526-0018,UCL,,,False,False,NO_RAW_XG,,,False,False,Linfield Belfast,Shelbourne,False,,,,,
+202526-0028,UCL,,,False,False,NO_RAW_XG,,,False,False,Dinamo Minsk,Ludogorets Razgrad,False,,,,,
+202526-0560,UECL,,,False,False,NO_RAW_XG,,,False,False,BFC Daugavpils,Vllaznia Shkodër,False,,,,,
+202526-0283,UEL,,,False,False,NO_RAW_XG,,,False,False,Ilves Tampere,Shakhtar Donetsk,False,,,,,
+202526-0291,UEL,,,False,False,NO_RAW_XG,,,False,False,FK Aktobe,Legia Warsaw,False,,,,,
+202526-0554,UECL,,,False,False,NO_RAW_XG,,,False,False,HJK Helsinki,NSI Runavik,False,,,,,
+202526-0556,UECL,,,False,False,NO_RAW_XG,,,False,False,FC Hegelmann,St. Patrick's Athletic,False,,,,,
+202526-0562,UECL,,,False,False,NO_RAW_XG,,,False,False,Ordabasy Shymkent,Torpedo Kutaisi,False,,,,,
+202526-0582,UECL,,,False,False,NO_RAW_XG,,,False,False,Flora Tallinn,Valur Reykjavik,False,,,,,
+202526-0594,UECL,,,False,False,NO_RAW_XG,,,False,False,Pyunik Yerevan,Tre Fiori,False,,,,,
+202526-0596,UECL,,,False,False,NO_RAW_XG,,,False,False,Rabotnicki Skopje,Torpedo Zhodino,False,,,,,
+202526-0598,UECL,,,False,False,NO_RAW_XG,,,False,False,Dila Gori,Racing Union Luxembourg,False,,,,,
+202526-0600,UECL,,,False,False,NO_RAW_XG,,,False,False,FC Santa Coloma,Borac Banja Luka,False,,,,,
+202526-0558,UECL,,,False,False,NO_RAW_XG,,,False,False,Paide Linnameeskond,FCB Magpies,False,,,,,
+202526-0287,UEL,,,False,False,NO_RAW_XG,,,False,False,BK Häcken,Spartak Trnava,False,,,,,
+202526-0564,UECL,,,False,False,NO_RAW_XG,,,False,False,Sileks Kratovo,Decic Tuzi,False,,,,,
+202526-0566,UECL,,,False,False,NO_RAW_XG,,,False,False,Petrocub Hîncesti,Birkirkara,False,,,,,
+202526-0574,UECL,,,False,False,NO_RAW_XG,,,False,False,F91 Dudelange,Atlètic Club d'Escaldes,False,,,,,
+202526-0584,UECL,,,False,False,NO_RAW_XG,,,False,False,Penybont,Kauno Zalgiris,False,,,,,
+202526-0588,UECL,,,False,False,NO_RAW_XG,,,False,False,Haverfordwest County,Floriana,False,,,,,
+202526-0297,UEL,,,False,False,NO_RAW_XG,1.09,1.35,True,True,CFR Cluj,Paksi FC,False,,,,2.44,
+202526-0570,UECL,,,False,False,NO_RAW_XG,,,False,False,NK Koper,Zeljeznicar Sarajevo,False,,,,,
+202526-0285,UEL,,,False,False,NO_RAW_XG,,,False,False,FC Prishtina,Sheriff Tiraspol,False,,,,,
+202526-0289,UEL,,,False,False,NO_RAW_XG,,,False,False,NK Celje,Sabah FK,False,,,,,
+202526-0293,UEL,,,False,False,NO_RAW_XG,,,False,False,Hapoel Beer-Sheva,Levski Sofia,False,,,,,
+202526-0568,UECL,,,False,False,NO_RAW_XG,,,False,False,Neman Grodno,Urartu FC,False,,,,,
+202526-0586,UECL,,,False,False,NO_RAW_XG,,,False,False,Partizani Tirana,Kalju Nomme,False,,,,,
+202526-0572,UECL,,,False,False,NO_RAW_XG,,,False,False,Dynamo Brest,Sutjeska Niksic,False,,,,,
+202526-0578,UECL,,,False,False,NO_RAW_XG,,,False,False,KI Klaksvik,SJK Seinäjoki,False,,,,,
+202526-0590,UECL,,,False,False,NO_RAW_XG,,,False,False,Vikingur Reykjavik,KF Malisheva,False,,,,,
+202526-0592,UECL,,,False,False,NO_RAW_XG,,,False,False,Cliftonville,St Joseph's FC,False,,,,,
+202526-0295,UEL,,,False,False,NO_RAW_XG,,,False,False,Partizan Belgrade,AEK Larnaca,False,,,,,
+202526-0576,UECL,,,False,False,NO_RAW_XG,,,False,False,La Fiorita,Vardar Skopje,False,,,,,
+202526-0051,UCL,,,False,False,NO_RAW_XG,,,False,False,KuPS Kuopio,Kairat Almaty,False,,,,,
+202526-0035,UCL,,,False,False,NO_RAW_XG,,,False,False,Lincoln Red Imps,Red Star Belgrade,False,,,,,
+202526-0037,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.68,1.79,True,True,FC Noah,Ferencváros,False,,,0,2.47,
+202526-0029,UCL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,RFS Riga,Malmö FF,False,,,0,,
+202526-0031,UCL,,,False,False,NO_RAW_XG,,,False,False,Hamrun Spartans,Dynamo Kyiv,False,,,,,
+202526-0033,UCL,,,False,False,NO_RAW_XG,,,False,False,Pafos FC,Maccabi Tel-Aviv,False,,,,,
+202526-0041,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,3.03,0.46,True,True,FC København,FC Drita,False,,,0,3.49,
+202526-0055,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.01,0.34,True,True,Viktoria Plzen,Servette FC Genève,False,,,0,2.35,
+202526-0045,UCL,,,False,False,NO_RAW_XG,,,False,False,Shkendija Tetovo,FCSB,False,,,,,
+202526-0047,UCL,,,False,False,NO_RAW_XG,,,False,False,Slovan Bratislava,Zrinjski Mostar,False,,,,,
+202526-0039,UCL,,,False,False,NO_RAW_XG,,,False,False,Lech Poznan,Breidablik,False,,,,,
+202526-0603,UECL,,,False,False,NO_RAW_XG,,,False,False,FC Ballkani,Floriana,False,,,,,
+202526-0043,UCL,,,False,False,NO_RAW_XG,,,False,False,NK Rijeka,Ludogorets Razgrad,False,,,,,
+202526-0057,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.57,1.65,True,True,Glasgow Rangers,Panathinaikos,False,,,0,3.22,
+202526-0629,UECL,,,False,False,NO_RAW_XG,,,False,False,Zira FK,Hajduk Split,False,,,,,
+202526-0689,UECL,,,False,False,NO_RAW_XG,,,False,False,Levadia Tallinn,Iberia 1999,False,,,,,
+202526-0053,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.38,2.56,True,True,SK Brann Bergen,FC Salzburg,False,,,0,2.94,
+202526-0641,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Silkeborg IF,KA Akureyri,False,,,0,,
+202526-0693,UECL,,,False,False,NO_RAW_XG,,,False,False,The New Saints,Differdange 03,False,,,,,
+202526-0695,UECL,,,False,False,NO_RAW_XG,,,False,False,Olimpija Ljubljana,Inter Club d'Escaldes,False,,,,,
+202526-0049,UCL,,,False,False,NO_RAW_XG,,,False,False,Shelbourne,Qarabag FK,False,,,,,
+202526-0697,UECL,,,False,False,NO_RAW_XG,,,False,False,Buducnost Podgorica,Milsami Orhei,False,,,,,
+202526-0659,UECL,,,False,False,NO_RAW_XG,,,False,False,FK Astana,Zimbru Chisinau,False,,,,,
+202526-0661,UECL,,,False,False,NO_RAW_XG,,,False,False,Atlètic Club d'Escaldes,Dinamo Tirana,False,,,,,
+202526-0657,UECL,,,False,False,NO_RAW_XG,,,False,False,Paide Linnameeskond,AIK Stockholm,False,,,,,
+202526-0609,UECL,,,False,False,NO_RAW_XG,,,False,False,St Joseph's FC,Shamrock Rovers,False,,,,,
+202526-0615,UECL,,,False,False,NO_RAW_XG,,,False,False,Kauno Zalgiris,Valur Reykjavik,False,,,,,
+202526-0619,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Ilves Tampere,AZ Alkmaar,False,,,0,,
+202526-0633,UECL,,,False,False,NO_RAW_XG,,,False,False,Pyunik Yerevan,ETO Györ,False,,,,,
+202526-0637,UECL,,,False,False,NO_RAW_XG,,,False,False,Hibernians FC,Spartak Trnava,False,,,,,
+202526-0639,UECL,,,False,False,NO_RAW_XG,,,False,False,Arda Kardzhali,HJK Helsinki,False,,,,,
+202526-0649,UECL,,,False,False,NO_RAW_XG,,,False,False,FK Aktobe,Sparta Praha,False,,,,,
+202526-0651,UECL,,,False,False,NO_RAW_XG,,,False,False,Rosenborg BK,Banga Gargzdai,False,,,,,
+202526-0673,UECL,,,False,False,NO_RAW_XG,,,False,False,Ararat-Armenia,Universitatea Cluj,False,,,,,
+202526-0677,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Aris Limassol,Puskás Akadémia,False,,,0,,
+202526-0681,UECL,,,False,False,NO_RAW_XG,,,False,False,Araz Nakhchivan,Aris Thessaloniki,False,,,,,
+202526-0691,UECL,,,False,False,NO_RAW_XG,,,False,False,Zalgiris Vilnius,Linfield Belfast,False,,,,,
+202526-0304,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Baník Ostrava,Legia Warsaw,False,,,0,,
+202526-0308,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,1.26,0.34,True,True,Sheriff Tiraspol,FC Utrecht,False,,,0,1.6,
+202526-0613,UECL,,,False,False,NO_RAW_XG,,,False,False,Viking Stavanger,NK Koper,False,,,,,
+202526-0627,UECL,,,False,False,NO_RAW_XG,,,False,False,FC Oleksandriya,Partizan Belgrade,False,,,,,
+202526-0643,UECL,,,False,False,NO_RAW_XG,,,False,False,Riga FC,Dila Gori,False,,,,,
+202526-0645,UECL,,,False,False,NO_RAW_XG,,,False,False,Hammarby IF,Charleroi,False,,,,,
+202526-0663,UECL,,,False,False,NO_RAW_XG,,,False,False,Petrocub Hîncesti,Sabah FK,False,,,,,
+202526-0665,UECL,,,False,False,NO_RAW_XG,,,False,False,Novi Pazar,Jagiellonia Bialystok,False,,,,,
+202526-0675,UECL,,,False,False,NO_RAW_XG,,,False,False,Polissya Zhytomyr,FC Santa Coloma,False,,,,,
+202526-0683,UECL,,,False,False,NO_RAW_XG,,,False,False,Omonia Nicosia,Torpedo Kutaisi,False,,,,,
+202526-0685,UECL,,,False,False,NO_RAW_XG,,,False,False,Cherno More Varna,Istanbul Basaksehir,False,,,,,
+202526-0302,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Levski Sofia,Sporting Braga,False,,,0,,
+202526-0310,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,1.66,0.49,True,True,FC Midtjylland,Hibernian,False,,,0,2.15,
+202526-0631,UECL,,,False,False,NO_RAW_XG,,,False,False,FC Vaduz,Dungannon Swifts,False,,,,,
+202526-0300,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,NK Celje,AEK Larnaca,False,,,0,,
+202526-0306,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Anderlecht,BK Häcken,False,,,0,,
+202526-0312,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,1.67,1.59,True,True,Besiktas,Shakhtar Donetsk,False,,,0,3.26,
+202526-0605,UECL,,,False,False,NO_RAW_XG,,,False,False,NK Varazdin,CD Santa Clara,False,,,,,
+202526-0621,UECL,,,False,False,NO_RAW_XG,,,False,False,FC Kosice,Neman Grodno,False,,,,,
+202526-0623,UECL,,,False,False,NO_RAW_XG,,,False,False,AEK Athens,Hapoel Beer-Sheva,False,,,,,
+202526-0625,UECL,,,False,False,NO_RAW_XG,,,False,False,Paksi FC,NK Maribor,False,,,,,
+202526-0655,UECL,,,False,False,NO_RAW_XG,,,False,False,Radnicki 1923,KI Klaksvik,False,,,,,
+202526-0679,UECL,,,False,False,NO_RAW_XG,,,False,False,Torpedo Zhodino,Maccabi Haifa,False,,,,,
+202526-0298,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,0.94,1.03,True,True,FC Lugano,CFR Cluj,False,,,0,1.97,
+202526-0607,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Vardar Skopje,Lausanne Sports,False,,,0,,
+202526-0635,UECL,,,False,False,NO_RAW_XG,,,False,False,Vllaznia Shkodër,Vikingur Reykjavik,False,,,,,
+202526-0671,UECL,,,False,False,NO_RAW_XG,,,False,False,Austria Wien,Spaeri Tbilisi,False,,,,,
+202526-0687,UECL,,,False,False,NO_RAW_XG,,,False,False,Sutjeska Niksic,Beitar Jerusalem,False,,,,,
+202526-0601,UECL,,,False,False,NO_RAW_XG,,,False,False,Dundee United,UNA Strassen,False,,,,,
+202526-0617,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,HB Torshavn,Brøndby IF,False,,,0,,
+202526-0647,UECL,,,False,False,NO_RAW_XG,,,False,False,St. Patrick's Athletic,Kalju Nomme,False,,,,,
+202526-0699,UECL,,,False,False,NO_RAW_XG,,,False,False,Dinamo Minsk,Egnatia Rrogozhinë,False,,,,,
+202526-0611,UECL,,,False,False,NO_RAW_XG,,,False,False,Larne FC,FC Prishtina,False,,,,,
+202526-0653,UECL,,,False,False,NO_RAW_XG,,,False,False,Raków Czestochowa,MSK Zilina,False,,,,,
+202526-0667,UECL,,,False,False,NO_RAW_XG,,,False,False,FK Sarajevo,Universitatea Craiova,False,,,,,
+202526-0669,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Decic Tuzi,Rapid Wien,False,,,0,,
+202526-0052,UCL,,,False,False,NO_RAW_XG,,,False,False,Kairat Almaty,KuPS Kuopio,False,,,,,
+202526-0690,UECL,,,False,False,NO_RAW_XG,,,False,False,Iberia 1999,Levadia Tallinn,False,,,,,
+202526-0032,UCL,,,False,False,NO_RAW_XG,,,False,False,Dynamo Kyiv,Hamrun Spartans,False,,,,,
+202526-0042,UCL,,,False,False,NO_RAW_XG,0.4,0.77,True,True,FC Drita,FC København,False,,,,1.17,
+202526-0694,UECL,,,False,False,NO_RAW_XG,,,False,False,Differdange 03,The New Saints,False,,,,,
+202526-0696,UECL,,,False,False,NO_RAW_XG,,,False,False,Inter Club d'Escaldes,Olimpija Ljubljana,False,,,,,
+202526-0036,UCL,,,False,False,NO_RAW_XG,,,False,False,Red Star Belgrade,Lincoln Red Imps,False,,,,,
+202526-0048,UCL,,,False,False,NO_RAW_XG,,,False,False,Zrinjski Mostar,Slovan Bratislava,False,,,,,
+202526-0050,UCL,,,False,False,NO_RAW_XG,,,False,False,Qarabag FK,Shelbourne,False,,,,,
+202526-0030,UCL,,,False,False,NO_RAW_XG,,,False,False,Malmö FF,RFS Riga,False,,,,,
+202526-0044,UCL,,,False,False,NO_RAW_XG,,,False,False,Ludogorets Razgrad,NK Rijeka,False,,,,,
+202526-0046,UCL,,,False,False,NO_RAW_XG,,,False,False,FCSB,Shkendija Tetovo,False,,,,,
+202526-0034,UCL,,,False,False,NO_RAW_XG,,,False,False,Maccabi Tel-Aviv,Pafos FC,False,,,,,
+202526-0038,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.27,0.79,True,True,Ferencváros,FC Noah,False,,,0,3.06,
+202526-0058,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.72,0.95,True,True,Panathinaikos,Glasgow Rangers,False,,,0,2.67,
+202526-0040,UCL,,,False,False,NO_RAW_XG,,,False,False,Breidablik,Lech Poznan,False,,,,,
+202526-0054,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.36,0.29,True,True,FC Salzburg,SK Brann Bergen,False,,,0,1.65,
+202526-0056,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.28,1.81,True,True,Servette FC Genève,Viktoria Plzen,False,,,0,3.09,
+202526-0638,UECL,,,False,False,NO_RAW_XG,,,False,False,Spartak Trnava,Hibernians FC,False,,,,,
+202526-0634,UECL,,,False,False,NO_RAW_XG,,,False,False,ETO Györ,Pyunik Yerevan,False,,,,,
+202526-0640,UECL,,,False,False,NO_RAW_XG,,,False,False,HJK Helsinki,Arda Kardzhali,False,,,,,
+202526-0644,UECL,,,False,False,NO_RAW_XG,,,False,False,Dila Gori,Riga FC,False,,,,,
+202526-0652,UECL,,,False,False,NO_RAW_XG,,,False,False,Banga Gargzdai,Rosenborg BK,False,,,,,
+202526-0664,UECL,,,False,False,NO_RAW_XG,,,False,False,Sabah FK,Petrocub Hîncesti,False,,,,,
+202526-0672,UECL,,,False,False,NO_RAW_XG,,,False,False,Spaeri Tbilisi,Austria Wien,False,,,,,
+202526-0676,UECL,,,False,False,NO_RAW_XG,,,False,False,FC Santa Coloma,Polissya Zhytomyr,False,,,,,
+202526-0301,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,AEK Larnaca,NK Celje,False,,,0,,
+202526-0620,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,AZ Alkmaar,Ilves Tampere,False,,,0,,
+202526-0648,UECL,,,False,False,NO_RAW_XG,,,False,False,Kalju Nomme,St. Patrick's Athletic,False,,,,,
+202526-0307,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,BK Häcken,Anderlecht,False,,,0,,
+202526-0602,UECL,,,False,False,NO_RAW_XG,,,False,False,UNA Strassen,Dundee United,False,,,,,
+202526-0658,UECL,,,False,False,NO_RAW_XG,,,False,False,AIK Stockholm,Paide Linnameeskond,False,,,,,
+202526-0660,UECL,,,False,False,NO_RAW_XG,,,False,False,Zimbru Chisinau,FK Astana,False,,,,,
+202526-0674,UECL,,,False,False,NO_RAW_XG,,,False,False,Universitatea Cluj,Ararat-Armenia,False,,,,,
+202526-0684,UECL,,,False,False,NO_RAW_XG,,,False,False,Torpedo Kutaisi,Omonia Nicosia,False,,,,,
+202526-0698,UECL,,,False,False,NO_RAW_XG,,,False,False,Milsami Orhei,Buducnost Podgorica,False,,,,,
+202526-0299,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,0.55,1.21,True,True,CFR Cluj,FC Lugano,False,,,0,1.76,
+202526-0618,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Brøndby IF,HB Torshavn,False,,,0,,
+202526-0668,UECL,,,False,False,NO_RAW_XG,,,False,False,Universitatea Craiova,FK Sarajevo,False,,,,,
+202526-0688,UECL,,,False,False,NO_RAW_XG,,,False,False,Beitar Jerusalem,Sutjeska Niksic,False,,,,,
+202526-0686,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Istanbul Basaksehir,Cherno More Varna,False,,,0,,
+202526-0309,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,2.07,1.12,True,True,FC Utrecht,Sheriff Tiraspol,False,,,0,3.19,
+202526-0313,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,0.96,0.67,True,True,Shakhtar Donetsk,Besiktas,False,,,0,1.63,
+202526-0606,UECL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,CD Santa Clara,NK Varazdin,False,,,0,,
+202526-0612,UECL,,,False,False,NO_RAW_XG,,,False,False,FC Prishtina,Larne FC,False,,,,,
+202526-0614,UECL,,,False,False,NO_RAW_XG,,,False,False,NK Koper,Viking Stavanger,False,,,,,
+202526-0622,UECL,,,False,False,NO_RAW_XG,,,False,False,Neman Grodno,FC Kosice,False,,,,,
+202526-0624,UECL,,,False,False,NO_RAW_XG,,,False,False,Hapoel Beer-Sheva,AEK Athens,False,,,,,
+202526-0626,UECL,,,False,False,NO_RAW_XG,,,False,False,NK Maribor,Paksi FC,False,,,,,
+202526-0642,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,KA Akureyri,Silkeborg IF,False,,,0,,
+202526-0646,UECL,,,False,False,NO_RAW_XG,,,False,False,Charleroi,Hammarby IF,False,,,,,
+202526-0650,UECL,,,False,False,NO_RAW_XG,,,False,False,Sparta Praha,FK Aktobe,False,,,,,
+202526-0678,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Puskás Akadémia,Aris Limassol,False,,,0,,
+202526-0680,UECL,,,False,False,NO_RAW_XG,,,False,False,Maccabi Haifa,Torpedo Zhodino,False,,,,,
+202526-0608,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Lausanne Sports,Vardar Skopje,False,,,0,,
+202526-0666,UECL,,,False,False,NO_RAW_XG,,,False,False,Jagiellonia Bialystok,Novi Pazar,False,,,,,
+202526-0682,UECL,,,False,False,NO_RAW_XG,,,False,False,Aris Thessaloniki,Araz Nakhchivan,False,,,,,
+202526-0616,UECL,,,False,False,NO_RAW_XG,,,False,False,Valur Reykjavik,Kauno Zalgiris,False,,,,,
+202526-0654,UECL,,,False,False,NO_RAW_XG,,,False,False,MSK Zilina,Raków Czestochowa,False,,,,,
+202526-0670,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Rapid Wien,Decic Tuzi,False,,,0,,
+202526-0604,UECL,,,False,False,NO_RAW_XG,,,False,False,Floriana,FC Ballkani,False,,,,,
+202526-0632,UECL,,,False,False,NO_RAW_XG,,,False,False,Dungannon Swifts,FC Vaduz,False,,,,,
+202526-0636,UECL,,,False,False,NO_RAW_XG,,,False,False,Vikingur Reykjavik,Vllaznia Shkodër,False,,,,,
+202526-0656,UECL,,,False,False,NO_RAW_XG,,,False,False,KI Klaksvik,Radnicki 1923,False,,,,,
+202526-0662,UECL,,,False,False,NO_RAW_XG,,,False,False,Dinamo Tirana,Atlètic Club d'Escaldes,False,,,,,
+202526-0692,UECL,,,False,False,NO_RAW_XG,,,False,False,Linfield Belfast,Zalgiris Vilnius,False,,,,,
+202526-0303,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Sporting Braga,Levski Sofia,False,,,0,,
+202526-0305,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Legia Warsaw,Baník Ostrava,False,,,0,,
+202526-0311,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,1.36,2.18,True,True,Hibernian,FC Midtjylland,False,,,0,3.54,
+202526-0610,UECL,,,False,False,NO_RAW_XG,,,False,False,Shamrock Rovers,St Joseph's FC,False,,,,,
+202526-0628,UECL,,,False,False,NO_RAW_XG,,,False,False,Partizan Belgrade,FC Oleksandriya,False,,,,,
+202526-0630,UECL,,,False,False,NO_RAW_XG,,,False,False,Hajduk Split,Zira FK,False,,,,,
+202526-0700,UECL,,,False,False,NO_RAW_XG,,,False,False,Egnatia Rrogozhinë,Dinamo Minsk,False,,,,,
+202526-0059,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.11,0.58,True,True,Malmö FF,FC København,False,,,0,0.69,
+202526-0334,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Hamrun Spartans,Maccabi Tel-Aviv,False,,,0,,
+202526-0067,UCL,,,False,False,NO_RAW_XG,,,False,False,Dynamo Kyiv,Pafos FC,False,,,,,
+202526-0069,UCL,,,False,False,NO_RAW_XG,,,False,False,Shkendija Tetovo,Qarabag FK,False,,,,,
+202526-0073,UCL,,,False,False,NO_RAW_XG,,,False,False,Glasgow Rangers,Viktoria Plzen,False,,,,,
+202526-0703,UECL,,,False,False,NO_RAW_XG,,,False,False,KI Klaksvik,Neman Grodno,False,,,,,
+202526-0061,UCL,,,False,False,NO_RAW_XG,,,False,False,Kairat Almaty,Slovan Bratislava,False,,,,,
+202526-0071,UCL,,,False,False,NO_RAW_XG,1.82,1.28,True,True,FC Salzburg,Club Brugge,False,,,,3.1,
+202526-0332,UEL,,,False,False,NO_RAW_XG,,,False,False,RFS Riga,KuPS Kuopio,False,,,,,
+202526-0065,UCL,,,False,False,NO_RAW_XG,0.52,1.78,True,True,Ludogorets Razgrad,Ferencváros,False,,,,2.3,
+202526-0063,UCL,,,False,False,NO_RAW_XG,0.68,1.42,True,True,Lech Poznan,Red Star Belgrade,False,,,,2.1,
+202526-0330,UEL,,,False,False,NO_RAW_XG,,,False,False,NK Rijeka,Shelbourne,False,,,,,
+202526-0075,UCL,,,False,False,NO_RAW_XG,0.99,1.9,True,True,OGC Nice,Benfica,False,,,,2.89,
+202526-0077,UCL,,,False,False,NO_RAW_XG,0.7,0.68,True,True,Feyenoord,Fenerbahçe,False,,,,1.38,
+202526-0316,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,1.12,1.7,True,True,Fredrikstad FK,FC Midtjylland,False,,,0,2.82,
+202526-0328,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Lincoln Red Imps,FC Noah,False,,,0,,
+202526-0717,UECL,,,False,False,NO_RAW_XG,,,False,False,Araz Nakhchivan,Omonia Nicosia,False,,,,,
+202526-0735,UECL,,,False,False,NO_RAW_XG,,,False,False,Aris Limassol,AEK Athens,False,,,,,
+202526-0747,UECL,,,False,False,NO_RAW_XG,,,False,False,Rosenborg BK,Hammarby IF,False,,,,,
+202526-0751,UECL,,,False,False,NO_RAW_XG,,,False,False,Kauno Zalgiris,Arda Kardzhali,False,,,,,
+202526-0755,UECL,,,False,False,NO_RAW_XG,,,False,False,Milsami Orhei,AC Virtus,False,,,,,
+202526-0314,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,1.41,1.3,True,True,AEK Larnaca,Legia Warsaw,False,,,0,2.71,
+202526-0318,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,CFR Cluj,Sporting Braga,False,,,0,,
+202526-0745,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Baník Ostrava,Austria Wien,False,,,0,,
+202526-0324,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,BK Häcken,SK Brann Bergen,False,,,0,,
+202526-0707,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Viking Stavanger,Istanbul Basaksehir,False,,,0,,
+202526-0709,UECL,,,False,False,NO_RAW_XG,,,False,False,AIK Stockholm,ETO Györ,False,,,,,
+202526-0713,UECL,,,False,False,NO_RAW_XG,,,False,False,Riga FC,Beitar Jerusalem,False,,,,,
+202526-0741,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Silkeborg IF,Jagiellonia Bialystok,False,,,0,,
+202526-0320,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,0.3,0.94,True,True,PAOK Thessaloniki,Wolfsberger AC,False,,,0,1.24,
+202526-0326,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Panathinaikos,Shakhtar Donetsk,False,,,0,,
+202526-0336,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Zrinjski Mostar,Breidablik,False,,,0,,
+202526-0705,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Anderlecht,Sheriff Tiraspol,False,,,0,,
+202526-0711,UECL,,,False,False,NO_RAW_XG,,,False,False,Sparta Praha,Ararat-Armenia,False,,,,,
+202526-0721,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,AZ Alkmaar,FC Vaduz,False,,,0,,
+202526-0729,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Polissya Zhytomyr,Paksi FC,False,,,0,,
+202526-0739,UECL,,,False,False,NO_RAW_XG,,,False,False,Levski Sofia,Sabah FK,False,,,,,
+202526-0753,UECL,,,False,False,NO_RAW_XG,,,False,False,Olimpija Ljubljana,Egnatia Rrogozhinë,False,,,,,
+202526-0757,UECL,,,False,False,NO_RAW_XG,,,False,False,Differdange 03,Levadia Tallinn,False,,,,,
+202526-0759,UECL,,,False,False,NO_RAW_XG,,,False,False,Víkingur,Linfield Belfast,False,,,,,
+202526-0715,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Lausanne Sports,FK Astana,False,,,0,,
+202526-0322,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,1.21,1.41,True,True,Servette FC Genève,FC Utrecht,False,,,0,2.62,
+202526-0338,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,FCSB,FC Drita,False,,,0,,
+202526-0719,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Universitatea Craiova,Spartak Trnava,False,,,0,,
+202526-0727,UECL,,,False,False,NO_RAW_XG,,,False,False,FC Ballkani,Shamrock Rovers,False,,,,,
+202526-0731,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,FC Lugano,NK Celje,False,,,0,,
+202526-0723,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Vikingur Reykjavik,Brøndby IF,False,,,0,,
+202526-0749,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,St. Patrick's Athletic,Besiktas,False,,,0,,
+202526-0701,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Rapid Wien,Dundee United,False,,,0,,
+202526-0725,UECL,,,False,False,NO_RAW_XG,,,False,False,Larne FC,CD Santa Clara,False,,,,,
+202526-0733,UECL,,,False,False,NO_RAW_XG,,,False,False,Hajduk Split,Dinamo Tirana,False,,,,,
+202526-0737,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Raków Czestochowa,Maccabi Haifa,False,,,0,,
+202526-0743,UECL,,,False,False,NO_RAW_XG,,,False,False,Partizan Belgrade,Hibernian,False,,,,,
+202526-0070,UCL,,,False,False,NO_RAW_XG,,,False,False,Qarabag FK,Shkendija Tetovo,False,,,,,
+202526-0060,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.95,0.86,True,True,FC København,Malmö FF,False,,,0,1.81,
+202526-0068,UCL,,,False,False,NO_RAW_XG,,,False,False,Pafos FC,Dynamo Kyiv,False,,,,,
+202526-0074,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,3.22,1.19,True,True,Viktoria Plzen,Glasgow Rangers,False,,,0,4.41,
+202526-0078,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.72,1.38,True,True,Fenerbahçe,Feyenoord,False,,,0,3.1,
+202526-0072,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.76,0.94,True,True,Club Brugge,FC Salzburg,False,,,0,3.7,
+202526-0062,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.68,1.02,True,True,Slovan Bratislava,Kairat Almaty,False,,,0,2.7,
+202526-0066,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.48,0.71,True,True,Ferencváros,Ludogorets Razgrad,False,,,0,2.19,
+202526-0331,UEL,0,0,True,False,BOTH_ZERO_PLACEHOLDER,,,False,False,Shelbourne,NK Rijeka,False,,,0,,
+202526-0064,UCL,,,False,False,NO_RAW_XG,,,False,False,Red Star Belgrade,Lech Poznan,False,,,,,
+202526-0076,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.7,0.64,True,True,Benfica,OGC Nice,False,,,0,2.34,
+202526-0708,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Istanbul Basaksehir,Viking Stavanger,False,,,0,,
+202526-0716,UECL,,,False,False,NO_RAW_XG,,,False,False,FK Astana,Lausanne Sports,False,,,,,
+202526-0333,UEL,,,False,False,NO_RAW_XG,,,False,False,KuPS Kuopio,RFS Riga,False,,,,,
+202526-0317,UEL,,,False,False,NO_RAW_XG,1.55,0.39,True,True,FC Midtjylland,Fredrikstad FK,False,,,,1.94,
+202526-0712,UECL,,,False,False,NO_RAW_XG,,,False,False,Ararat-Armenia,Sparta Praha,False,,,,,
+202526-0740,UECL,,,False,False,NO_RAW_XG,,,False,False,Sabah FK,Levski Sofia,False,,,,,
+202526-0758,UECL,,,False,False,NO_RAW_XG,,,False,False,Levadia Tallinn,Differdange 03,False,,,,,
+202526-0321,UEL,,,False,False,NO_RAW_XG,1.46,0.68,True,True,Wolfsberger AC,PAOK Thessaloniki,False,,,,2.14,
+202526-0325,UEL,,,False,False,NO_RAW_XG,,,False,False,SK Brann Bergen,BK Häcken,False,,,,,
+202526-0329,UEL,,,False,False,NO_RAW_XG,,,False,False,FC Noah,Lincoln Red Imps,False,,,,,
+202526-0706,UECL,,,False,False,NO_RAW_XG,,,False,False,Sheriff Tiraspol,Anderlecht,False,,,,,
+202526-0710,UECL,,,False,False,NO_RAW_XG,,,False,False,ETO Györ,AIK Stockholm,False,,,,,
+202526-0718,UECL,,,False,False,NO_RAW_XG,,,False,False,Omonia Nicosia,Araz Nakhchivan,False,,,,,
+202526-0730,UECL,,,False,False,NO_RAW_XG,,,False,False,Paksi FC,Polissya Zhytomyr,False,,,,,
+202526-0748,UECL,,,False,False,NO_RAW_XG,,,False,False,Hammarby IF,Rosenborg BK,False,,,,,
+202526-0337,UEL,,,False,False,NO_RAW_XG,,,False,False,Breidablik,Zrinjski Mostar,False,,,,,
+202526-0714,UECL,,,False,False,NO_RAW_XG,,,False,False,Beitar Jerusalem,Riga FC,False,,,,,
+202526-0722,UECL,,,False,False,NO_RAW_XG,,,False,False,FC Vaduz,AZ Alkmaar,False,,,,,
+202526-0724,UECL,,,False,False,NO_RAW_XG,,,False,False,Brøndby IF,Vikingur Reykjavik,False,,,,,
+202526-0752,UECL,,,False,False,NO_RAW_XG,,,False,False,Arda Kardzhali,Kauno Zalgiris,False,,,,,
+202526-0323,UEL,,,False,False,NO_RAW_XG,2.34,1.17,True,True,FC Utrecht,Servette FC Genève,False,,,,3.51,
+202526-0327,UEL,,,False,False,NO_RAW_XG,0.96,0.72,True,True,Shakhtar Donetsk,Panathinaikos,False,,,,1.68,
+202526-0335,UEL,,,False,False,NO_RAW_XG,,,False,False,Maccabi Tel-Aviv,Hamrun Spartans,False,,,,,
+202526-0339,UEL,,,False,False,NO_RAW_XG,1.12,0.93,True,True,FC Drita,FCSB,False,,,,2.05,
+202526-0704,UECL,,,False,False,NO_RAW_XG,,,False,False,Neman Grodno,KI Klaksvik,False,,,,,
+202526-0732,UECL,,,False,False,NO_RAW_XG,,,False,False,NK Celje,FC Lugano,False,,,,,
+202526-0736,UECL,,,False,False,NO_RAW_XG,,,False,False,AEK Athens,Aris Limassol,False,,,,,
+202526-0738,UECL,,,False,False,NO_RAW_XG,,,False,False,Maccabi Haifa,Raków Czestochowa,False,,,,,
+202526-0750,UECL,,,False,False,NO_RAW_XG,,,False,False,Besiktas,St. Patrick's Athletic,False,,,,,
+202526-0742,UECL,,,False,False,NO_RAW_XG,,,False,False,Jagiellonia Bialystok,Silkeborg IF,False,,,,,
+202526-0319,UEL,,,False,False,NO_RAW_XG,1.85,0.12,True,True,Sporting Braga,CFR Cluj,False,,,,1.97,
+202526-0720,UECL,,,False,False,NO_RAW_XG,,,False,False,Spartak Trnava,Universitatea Craiova,False,,,,,
+202526-0702,UECL,,,False,False,NO_RAW_XG,,,False,False,Dundee United,Rapid Wien,False,,,,,
+202526-0734,UECL,,,False,False,NO_RAW_XG,,,False,False,Dinamo Tirana,Hajduk Split,False,,,,,
+202526-0760,UECL,,,False,False,NO_RAW_XG,,,False,False,Linfield Belfast,Víkingur,False,,,,,
+202526-0315,UEL,,,False,False,NO_RAW_XG,1.65,1.14,True,True,Legia Warsaw,AEK Larnaca,False,,,,2.79,
+202526-0726,UECL,,,False,False,NO_RAW_XG,,,False,False,CD Santa Clara,Larne FC,False,,,,,
+202526-0728,UECL,,,False,False,NO_RAW_XG,,,False,False,Shamrock Rovers,FC Ballkani,False,,,,,
+202526-0744,UECL,,,False,False,NO_RAW_XG,,,False,False,Hibernian,Partizan Belgrade,False,,,,,
+202526-0746,UECL,,,False,False,NO_RAW_XG,,,False,False,Austria Wien,Baník Ostrava,False,,,,,
+202526-0754,UECL,,,False,False,NO_RAW_XG,,,False,False,Egnatia Rrogozhinë,Olimpija Ljubljana,False,,,,,
+202526-0756,UECL,,,False,False,NO_RAW_XG,,,False,False,AC Virtus,Milsami Orhei,False,,,,,
+202526-0079,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.09,0.77,True,True,Ferencváros,Qarabag FK,False,,,0,1.86,
+202526-0081,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.38,1.85,True,True,Red Star Belgrade,Pafos FC,False,,,0,4.23,
+202526-0091,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.26,1.01,True,True,Glasgow Rangers,Club Brugge,False,,,0,2.27,
+202526-0083,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.03,0.78,True,True,Bodø/Glimt,Sturm Graz,False,,,0,2.81,
+202526-0085,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.56,0.56,True,True,Celtic,Kairat Almaty,False,,,0,1.12,
+202526-0087,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.37,1.07,True,True,FC Basel,FC København,False,,,0,2.44,
+202526-0089,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.41,0.33,True,True,Fenerbahçe,Benfica,False,,,0,0.74,
+202526-0791,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Rosenborg BK,FSV Mainz 05,False,,,0,,
+202526-0354,UEL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.58,0.97,True,True,FC Midtjylland,KuPS Kuopio,False,,,0,2.55,
+202526-0346,UEL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Malmö FF,Sigma Olomouc,False,,,0,,
+202526-0360,UEL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,SK Brann Bergen,AEK Larnaca,False,,,0,,
+202526-0787,UECL,,,False,False,NO_RAW_XG,,,False,False,ETO Györ,Rapid Wien,False,,,,,
+202526-0795,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,BK Häcken,CFR Cluj,False,,,0,,
+202526-0797,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Wolfsberger AC,Omonia Nicosia,False,,,0,,
+202526-0799,UECL,,,False,False,NO_RAW_XG,,,False,False,Hamrun Spartans,RFS Riga,False,,,,,
+202526-0773,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Istanbul Basaksehir,Universitatea Craiova,False,,,0,,
+202526-0340,UEL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Maccabi Tel-Aviv,Dynamo Kyiv,False,,,0,,
+202526-0342,UEL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Shkendija Tetovo,Ludogorets Razgrad,False,,,0,,
+202526-0348,UEL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.89,0.38,True,True,Panathinaikos,Samsunspor,False,,,0,1.27,
+202526-0358,UEL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.58,1.96,True,True,Zrinjski Mostar,FC Utrecht,False,,,0,2.54,
+202526-0761,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,RC Strasbourg,Brøndby IF,False,,,0,,
+202526-0763,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Anderlecht,AEK Athens,False,,,0,,
+202526-0765,UECL,,,False,False,NO_RAW_XG,,,False,False,NK Celje,Baník Ostrava,False,,,,,
+202526-0767,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Levski Sofia,AZ Alkmaar,False,,,0,,
+202526-0769,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Neman Grodno,Rayo Vallecano,False,,,0,,
+202526-0777,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Polissya Zhytomyr,Fiorentina,False,,,0,,
+202526-0781,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Shakhtar Donetsk,Servette FC Genève,False,,,0,,
+202526-0793,UECL,,,False,False,NO_RAW_XG,,,False,False,Sparta Praha,Riga FC,False,,,,,
+202526-0803,UECL,,,False,False,NO_RAW_XG,,,False,False,Breidablik,AC Virtus,False,,,,,
+202526-0805,UECL,,,False,False,NO_RAW_XG,,,False,False,FC Drita,Differdange 03,False,,,,,
+202526-0807,UECL,,,False,False,NO_RAW_XG,,,False,False,Olimpija Ljubljana,FC Noah,False,,,,,
+202526-0344,UEL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.7,0.72,True,True,Slovan Bratislava,Young Boys,False,,,0,1.42,
+202526-0771,UECL,,,False,False,NO_RAW_XG,,,False,False,Jagiellonia Bialystok,Dinamo Tirana,False,,,,,
+202526-0779,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Lausanne Sports,Besiktas,False,,,0,,
+202526-0352,UEL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.12,3.92,True,True,Lech Poznan,Racing Genk,False,,,0,5.04,
+202526-0350,UEL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.43,1.79,True,True,Aberdeen,FCSB,False,,,0,3.22,
+202526-0362,UEL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.78,0.5,True,True,NK Rijeka,PAOK Thessaloniki,False,,,0,1.28,
+202526-0801,UECL,,,False,False,NO_RAW_XG,,,False,False,Shelbourne,Linfield Belfast,False,,,,,
+202526-0356,UEL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Lincoln Red Imps,Sporting Braga,False,,,0,,
+202526-0775,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Raków Czestochowa,Arda Kardzhali,False,,,0,,
+202526-0783,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Crystal Palace,Fredrikstad FK,False,,,0,,
+202526-0785,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,,,False,False,Hibernian,Legia Warsaw,False,,,0,,
+202526-0789,UECL,,,False,False,NO_RAW_XG,,,False,False,CD Santa Clara,Shamrock Rovers,False,,,,,
+202526-0086,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.59,1.22,True,True,Kairat Almaty,Celtic,False,,,0,1.81,
+202526-0082,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.6,0.88,True,True,Pafos FC,Red Star Belgrade,False,,,0,1.48,
+202526-0084,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.67,1.06,True,True,Sturm Graz,Bodø/Glimt,False,,,0,2.73,
+202526-0361,UEL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.24,1.79,True,True,AEK Larnaca,SK Brann Bergen,False,,,0,3.03,
+202526-0080,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.86,3.05,True,True,Qarabag FK,Ferencváros,False,,,0,4.91,
+202526-0794,UECL,,,False,False,NO_RAW_XG,,,False,False,Riga FC,Sparta Praha,False,,,,,
+202526-0088,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.55,1.39,True,True,FC København,FC Basel,False,,,0,2.94,
+202526-0090,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.32,0.38,True,True,Benfica,Fenerbahçe,False,,,0,1.7,
+202526-0092,UCL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,4.27,0.12,True,True,Club Brugge,Glasgow Rangers,False,,,0,4.39,
+202526-0355,UEL,,,False,False,NO_RAW_XG,0.58,4.6,True,True,KuPS Kuopio,FC Midtjylland,False,,,,5.18,
+202526-0784,UECL,,,False,False,NO_RAW_XG,,,False,False,Fredrikstad FK,Crystal Palace,False,,,,,
+202526-0798,UECL,,,False,False,NO_RAW_XG,,,False,False,Omonia Nicosia,Wolfsberger AC,False,,,,,
+202526-0808,UECL,,,False,False,NO_RAW_XG,,,False,False,FC Noah,Olimpija Ljubljana,False,,,,,
+202526-0347,UEL,,,False,False,NO_RAW_XG,1.41,2.15,True,True,Sigma Olomouc,Malmö FF,False,,,,3.56,
+202526-0349,UEL,,,False,False,NO_RAW_XG,0.61,0.97,True,True,Samsunspor,Panathinaikos,False,,,,1.58,
+202526-0780,UECL,,,False,False,NO_RAW_XG,,,False,False,Besiktas,Lausanne Sports,False,,,,,
+202526-0788,UECL,,,False,False,NO_RAW_XG,,,False,False,Rapid Wien,ETO Györ,False,,,,,
+202526-0800,UECL,,,False,False,NO_RAW_XG,,,False,False,RFS Riga,Hamrun Spartans,False,,,,,
+202526-0343,UEL,,,False,False,NO_RAW_XG,2.02,1.14,True,True,Ludogorets Razgrad,Shkendija Tetovo,False,,,,3.16,
+202526-0363,UEL,,,False,False,NO_RAW_XG,2.36,0.59,True,True,PAOK Thessaloniki,NK Rijeka,False,,,,2.95,
+202526-0768,UECL,,,False,False,NO_RAW_XG,,,False,False,AZ Alkmaar,Levski Sofia,False,,,,,
+202526-0774,UECL,,,False,False,NO_RAW_XG,,,False,False,Universitatea Craiova,Istanbul Basaksehir,False,,,,,
+202526-0796,UECL,,,False,False,NO_RAW_XG,,,False,False,CFR Cluj,BK Häcken,False,,,,,
+202526-0341,UEL,,,False,False,NO_RAW_XG,,,False,False,Dynamo Kyiv,Maccabi Tel-Aviv,False,,,,,
+202526-0345,UEL,,,False,False,NO_RAW_XG,1.04,1.87,True,True,Young Boys,Slovan Bratislava,False,,,,2.91,
+202526-0353,UEL,,,False,False,NO_RAW_XG,1.48,1.06,True,True,Racing Genk,Lech Poznan,False,,,,2.54,
+202526-0359,UEL,,,False,False,NO_RAW_XG,1.12,0.38,True,True,FC Utrecht,Zrinjski Mostar,False,,,,1.5,
+202526-0762,UECL,,,False,False,NO_RAW_XG,,,False,False,Brøndby IF,RC Strasbourg,False,,,,,
+202526-0764,UECL,,,False,False,NO_RAW_XG,,,False,False,AEK Athens,Anderlecht,False,,,,,
+202526-0766,UECL,,,False,False,NO_RAW_XG,,,False,False,Baník Ostrava,NK Celje,False,,,,,
+202526-0770,UECL,,,False,False,NO_RAW_XG,,,False,False,Rayo Vallecano,Neman Grodno,False,,,,,
+202526-0776,UECL,,,False,False,NO_RAW_XG,,,False,False,Arda Kardzhali,Raków Czestochowa,False,,,,,
+202526-0778,UECL,,,False,False,NO_RAW_XG,,,False,False,Fiorentina,Polissya Zhytomyr,False,,,,,
+202526-0806,UECL,,,False,False,NO_RAW_XG,,,False,False,Differdange 03,FC Drita,False,,,,,
+202526-0351,UEL,,,False,False,NO_RAW_XG,1.48,1.12,True,True,FCSB,Aberdeen,False,,,,2.6,
+202526-0772,UECL,,,False,False,NO_RAW_XG,,,False,False,Dinamo Tirana,Jagiellonia Bialystok,False,,,,,
+202526-0802,UECL,,,False,False,NO_RAW_XG,,,False,False,Linfield Belfast,Shelbourne,False,,,,,
+202526-0357,UEL,,,False,False,NO_RAW_XG,,,False,False,Sporting Braga,Lincoln Red Imps,False,,,,,
+202526-0782,UECL,,,False,False,NO_RAW_XG,,,False,False,Servette FC Genève,Shakhtar Donetsk,False,,,,,
+202526-0786,UECL,,,False,False,NO_RAW_XG,,,False,False,Legia Warsaw,Hibernian,False,,,,,
+202526-0790,UECL,,,False,False,NO_RAW_XG,,,False,False,Shamrock Rovers,CD Santa Clara,False,,,,,
+202526-0792,UECL,,,False,False,NO_RAW_XG,,,False,False,FSV Mainz 05,Rosenborg BK,False,,,,,
+202526-0804,UECL,,,False,False,NO_RAW_XG,,,False,False,AC Virtus,Breidablik,False,,,,,
+202526-0093,UCL,0,1,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.35,1.28,True,True,Athletic Bilbao,Arsenal,False,,,1,1.63,
+202526-0094,UCL,2,3,True,True,ELIGIBLE,2.52,3.34,True,True,PSV Eindhoven,Union Saint-Gilloise,True,-0.52,-0.34,5,5.86,-0.86
+202526-0095,UCL,2,2,True,True,ELIGIBLE,1.92,1.71,True,True,Juventus,Borussia Dortmund,True,0.08,0.29,4,3.63,0.37
+202526-0096,UCL,4,1,True,True,ELIGIBLE,3.74,0.73,True,True,Real Madrid,Olympique Marseille,True,0.26,0.27,5,4.47,0.53
+202526-0097,UCL,1,2,True,True,ELIGIBLE,1.38,1.52,True,True,Benfica,Qarabag FK,True,-0.38,0.48,3,2.9,0.1
+202526-0098,UCL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.54,0.48,True,True,Tottenham Hotspur,Villarreal,False,,,1,1.02,
+202526-0099,UCL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.52,0.3,True,True,Olympiakos Piraeus,Pafos FC,False,,,1,1.82,
+202526-0100,UCL,3,3,True,True,ELIGIBLE,3.98,2.52,True,True,Slavia Praha,Bodø/Glimt,True,-0.98,0.48,6,6.5,-0.5
+202526-0101,UCL,1,1,True,True,ELIGIBLE,1.26,1.24,True,True,Ajax,Internazionale,True,-0.26,-0.24,2,2.5,-0.5
+202526-0102,UCL,2,1,True,True,ELIGIBLE,2.07,0.73,True,True,Bayern München,Chelsea,True,-0.07,0.27,3,2.8,0.2
+202526-0103,UCL,3,1,True,True,ELIGIBLE,2.72,0.61,True,True,Liverpool,Atlético Madrid,True,0.28,0.39,4,3.33,0.67
+202526-0104,UCL,3,1,True,True,ELIGIBLE,3.48,0.55,True,True,Paris Saint-Germain,Atalanta,True,-0.48,0.45,4,4.03,-0.03
+202526-0105,UCL,3,2,True,True,ELIGIBLE,3.15,1.53,True,True,Club Brugge,AS Monaco,True,-0.15,0.47,5,4.68,0.32
+202526-0106,UCL,2,1,True,True,ELIGIBLE,1.89,1.21,True,True,FC København,Bayer Leverkusen,True,0.11,-0.21,3,3.1,-0.1
+202526-0107,UCL,1,1,True,True,ELIGIBLE,1.27,1.09,True,True,Eintracht Frankfurt,Galatasaray,True,-0.27,-0.09,2,2.36,-0.36
+202526-0108,UCL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.12,0.17,True,True,Manchester City,Napoli,False,,,2,2.29,
+202526-0109,UCL,1,1,True,True,ELIGIBLE,1.22,1.13,True,True,Newcastle United,FC Barcelona,True,-0.22,-0.13,2,2.35,-0.35
+202526-0110,UCL,4,1,True,True,ELIGIBLE,3.81,0.72,True,True,Sporting CP Lisbon,Kairat Almaty,True,0.19,0.28,5,4.53,0.47
+202526-0364,UEL,1,1,True,True,ELIGIBLE,0.56,0.91,True,True,FC Midtjylland,Sturm Graz,True,0.44,0.09,2,1.47,0.53
+202526-0365,UEL,1,2,True,True,ELIGIBLE,1.43,1.56,True,True,PAOK Thessaloniki,Maccabi Tel-Aviv,True,-0.43,0.44,3,2.99,0.01
+202526-0366,UEL,1,2,True,True,ELIGIBLE,1.61,1.68,True,True,Red Star Belgrade,Celtic,True,-0.61,0.32,3,3.29,-0.29
+202526-0367,UEL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.5,0.17,True,True,Dinamo Zagreb,Fenerbahçe,False,,,1,1.67,
+202526-0368,UEL,1,3,True,True,ELIGIBLE,0.65,3.02,True,True,Malmö FF,Ludogorets Razgrad,True,0.35,-0.02,4,3.67,0.33
+202526-0369,UEL,1,1,True,True,ELIGIBLE,0.96,0.8,True,True,OGC Nice,AS Roma,True,0.04,0.2,2,1.76,0.24
+202526-0370,UEL,1,3,True,True,ELIGIBLE,0.49,3.27,True,True,Real Betis,Nottingham Forest,True,0.51,-0.27,4,3.76,0.24
+202526-0371,UEL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.68,0.27,True,True,Sporting Braga,Feyenoord,False,,,1,0.95,
+202526-0372,UEL,1,1,True,True,ELIGIBLE,0.92,1.11,True,True,SC Freiburg,FC Basel,True,0.08,-0.11,2,2.03,-0.03
+202526-0373,UEL,1,1,True,True,ELIGIBLE,1.39,0.66,True,True,Go Ahead Eagles,FCSB,True,-0.39,0.34,2,2.05,-0.05
+202526-0374,UEL,2,1,True,True,ELIGIBLE,1.57,1.19,True,True,Lille OSC,SK Brann Bergen,True,0.43,-0.19,3,2.76,0.24
+202526-0375,UEL,1,1,True,True,ELIGIBLE,1.45,1.24,True,True,Aston Villa,Bologna,True,-0.45,-0.24,2,2.69,-0.69
+202526-0376,UEL,1,1,True,True,ELIGIBLE,1.73,1.25,True,True,Young Boys,Panathinaikos,True,-0.73,-0.25,2,2.98,-0.98
+202526-0377,UEL,1,1,True,True,ELIGIBLE,1.36,1.23,True,True,FC Salzburg,FC Porto,True,-0.36,-0.23,2,2.59,-0.59
+202526-0378,UEL,1,1,True,True,ELIGIBLE,1.25,1.04,True,True,FC Utrecht,Olympique Lyon,True,-0.25,-0.04,2,2.29,-0.29
+202526-0379,UEL,1,1,True,True,ELIGIBLE,0.93,0.67,True,True,Ferencváros,Viktoria Plzen,True,0.07,0.33,2,1.6,0.4
+202526-0380,UEL,1,3,True,True,ELIGIBLE,0.9,3.79,True,True,Glasgow Rangers,Racing Genk,True,0.1,-0.79,4,4.69,-0.69
+202526-0381,UEL,2,1,True,True,ELIGIBLE,1.51,0.46,True,True,VfB Stuttgart,Celta de Vigo,True,0.49,0.54,3,1.97,1.03
+202526-0111,UCL,2,1,True,True,ELIGIBLE,2.96,0.86,True,True,Atalanta,Club Brugge,True,-0.96,0.14,3,3.82,-0.82
+202526-0112,UCL,0,3,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.43,3.54,True,True,Kairat Almaty,Real Madrid,False,,,3,3.97,
+202526-0113,UCL,5,1,True,True,ELIGIBLE,4.44,0.59,True,True,Atlético Madrid,Eintracht Frankfurt,True,0.56,0.41,6,5.03,0.97
+202526-0114,UCL,1,1,True,True,ELIGIBLE,0.93,0.85,True,True,Chelsea,Benfica,True,0.07,0.15,2,1.78,0.22
+202526-0115,UCL,4,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,3.99,0.11,True,True,Internazionale,Slavia Praha,False,,,4,4.1,
+202526-0116,UCL,3,1,True,True,ELIGIBLE,2.52,1.46,True,True,Bodø/Glimt,Tottenham Hotspur,True,0.48,-0.46,4,3.98,0.02
+202526-0117,UCL,1,2,True,True,ELIGIBLE,1.34,1.81,True,True,Galatasaray,Liverpool,True,-0.34,0.19,3,3.15,-0.15
+202526-0118,UCL,1,1,True,True,ELIGIBLE,1.13,0.8,True,True,Olympique Marseille,Ajax,True,-0.13,0.2,2,1.93,0.07
+202526-0119,UCL,0,4,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.39,4.54,True,True,Pafos FC,Bayern München,False,,,4,4.93,
+202526-0120,UCL,2,1,True,True,ELIGIBLE,1.91,0.98,True,True,Qarabag FK,FC København,True,0.09,0.02,3,2.89,0.11
+202526-0121,UCL,,,False,False,NO_RAW_XG,0.88,2.76,True,True,Union Saint-Gilloise,Newcastle United,False,,,,3.64,
+202526-0122,UCL,,,False,False,NO_RAW_XG,2.9,0.5,True,True,Arsenal,Olympiakos Piraeus,False,,,,3.4,
+202526-0123,UCL,,,False,False,NO_RAW_XG,1.45,1.54,True,True,AS Monaco,Manchester City,False,,,,2.99,
+202526-0124,UCL,,,False,False,NO_RAW_XG,1.74,0.49,True,True,Bayer Leverkusen,PSV Eindhoven,False,,,,2.23,
+202526-0125,UCL,1,1,True,True,ELIGIBLE,1.18,0.95,True,True,Borussia Dortmund,Athletic Bilbao,True,-0.18,0.05,2,2.13,-0.13
+202526-0126,UCL,1,2,True,True,ELIGIBLE,1.27,1.67,True,True,FC Barcelona,Paris Saint-Germain,True,-0.27,0.33,3,2.94,0.06
+202526-0127,UCL,,,False,False,NO_RAW_XG,0.88,1.35,True,True,Napoli,Sporting CP Lisbon,False,,,,2.23,
+202526-0128,UCL,,,False,False,NO_RAW_XG,1.72,1.6,True,True,Villarreal,Juventus,False,,,,3.32,
+202526-0382,UEL,2,1,True,True,ELIGIBLE,2.61,1.13,True,True,AS Roma,Lille OSC,True,-0.61,-0.13,3,3.74,-0.74
+202526-0383,UEL,1,2,True,True,ELIGIBLE,0.79,2.08,True,True,Bologna,SC Freiburg,True,0.21,-0.08,3,2.87,0.13
+202526-0384,UEL,1,1,True,True,ELIGIBLE,0.64,1.09,True,True,Celtic,Sporting Braga,True,0.36,-0.09,2,1.73,0.27
+202526-0385,UEL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.17,0.36,True,True,Viktoria Plzen,Malmö FF,False,,,2,2.53,
+202526-0386,UEL,2,1,True,True,ELIGIBLE,1.52,1.29,True,True,Fenerbahçe,OGC Nice,True,0.48,-0.29,3,2.81,0.19
+202526-0387,UEL,1,1,True,True,ELIGIBLE,0.69,1.5,True,True,FCSB,Young Boys,True,0.31,-0.5,2,2.19,-0.19
+202526-0388,UEL,2,1,True,True,ELIGIBLE,2.23,1.02,True,True,Panathinaikos,Go Ahead Eagles,True,-0.23,-0.02,3,3.25,-0.25
+202526-0389,UEL,0,1,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.44,0.75,True,True,Ludogorets Razgrad,Real Betis,False,,,1,1.19,
+202526-0390,UEL,1,1,True,True,ELIGIBLE,0.66,0.51,True,True,SK Brann Bergen,FC Utrecht,True,0.34,0.49,2,1.17,0.83
+202526-0809,UECL,1,2,True,True,ELIGIBLE,0.45,1.53,True,True,Dynamo Kyiv,Crystal Palace,True,0.55,0.47,3,1.98,1.02
+202526-0810,UECL,2,1,True,True,ELIGIBLE,2.19,1.07,True,True,Lausanne Sports,Breidablik,True,-0.19,-0.07,3,3.26,-0.26
+202526-0811,UECL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.99,0.16,True,True,FC Noah,NK Rijeka,False,,,1,1.15,
+202526-0812,UECL,3,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,3.11,0.42,True,True,Zrinjski Mostar,Lincoln Red Imps,False,,,3,3.53,
+202526-0813,UECL,1,1,True,True,ELIGIBLE,2.09,0.73,True,True,Jagiellonia Bialystok,Hamrun Spartans,True,-1.09,0.27,2,2.82,-0.82
+202526-0814,UECL,3,1,True,True,ELIGIBLE,2.85,0.66,True,True,Lech Poznan,Rapid Wien,True,0.15,0.34,4,3.51,0.49
+202526-0815,UECL,1,1,True,True,ELIGIBLE,0.63,0.89,True,True,KuPS Kuopio,FC Drita,True,0.37,0.11,2,1.52,0.48
+202526-0816,UECL,0,2,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.24,1.59,True,True,Omonia Nicosia,FSV Mainz 05,False,,,2,1.83,
+202526-0817,UECL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.01,0.02,True,True,Rayo Vallecano,Shkendija Tetovo,False,,,2,2.03,
+202526-0391,UEL,2,2,True,True,ELIGIBLE,1.43,2.54,True,True,FC Basel,VfB Stuttgart,True,0.57,-0.54,4,3.97,0.03
+202526-0392,UEL,2,1,True,True,ELIGIBLE,2.65,0.53,True,True,FC Porto,Red Star Belgrade,True,-0.65,0.47,3,3.18,-0.18
+202526-0393,UEL,1,1,True,True,ELIGIBLE,1.47,0.63,True,True,Feyenoord,Aston Villa,True,-0.47,0.37,2,2.1,-0.1
+202526-0394,UEL,1,1,True,True,ELIGIBLE,1.19,1.18,True,True,Racing Genk,Ferencváros,True,-0.19,-0.18,2,2.37,-0.37
+202526-0395,UEL,1,1,True,True,ELIGIBLE,0.59,0.69,True,True,Maccabi Tel-Aviv,Dinamo Zagreb,True,0.41,0.31,2,1.28,0.72
+202526-0396,UEL,2,2,True,True,ELIGIBLE,2.05,2.1,True,True,Nottingham Forest,FC Midtjylland,True,-0.05,-0.1,4,4.15,-0.15
+202526-0397,UEL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,3.21,0.51,True,True,Olympique Lyon,FC Salzburg,False,,,2,3.72,
+202526-0398,UEL,3,1,True,True,ELIGIBLE,2.7,0.75,True,True,Celta de Vigo,PAOK Thessaloniki,True,0.3,0.25,4,3.45,0.55
+202526-0399,UEL,2,2,True,True,ELIGIBLE,1.64,1.87,True,True,Sturm Graz,Glasgow Rangers,True,0.36,0.13,4,3.51,0.49
+202526-0818,UECL,2,1,True,True,ELIGIBLE,1.97,1.32,True,True,Aberdeen,Shakhtar Donetsk,True,0.03,-0.32,3,3.29,-0.29
+202526-0819,UECL,3,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,3.21,0.09,True,True,Sparta Praha,Shamrock Rovers,False,,,3,3.3,
+202526-0820,UECL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.77,0.36,True,True,Fiorentina,Sigma Olomouc,False,,,2,2.13,
+202526-0821,UECL,3,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.9,0.48,True,True,AEK Larnaca,AZ Alkmaar,False,,,3,3.38,
+202526-0822,UECL,1,1,True,True,ELIGIBLE,1.25,0.87,True,True,Legia Warsaw,Samsunspor,True,-0.25,0.13,2,2.12,-0.12
+202526-0823,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.94,1.1,True,True,NK Celje,AEK Athens,False,,,0,4.04,
+202526-0824,UECL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.6,0.14,True,True,Raków Czestochowa,Universitatea Craiova,False,,,2,1.74,
+202526-0825,UECL,0,1,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.32,0.94,True,True,Shelbourne,BK Häcken,False,,,1,1.26,
+202526-0826,UECL,2,1,True,True,ELIGIBLE,2.13,1.14,True,True,Slovan Bratislava,RC Strasbourg,True,-0.13,-0.14,3,3.27,-0.27
+202526-0129,UCL,2,1,True,True,ELIGIBLE,2.58,1,True,True,FC Barcelona,Olympiakos Piraeus,True,-0.58,0,3,3.58,-0.58
+202526-0130,UCL,2,2,True,True,ELIGIBLE,1.26,1.76,True,True,Kairat Almaty,Pafos FC,True,0.74,0.24,4,3.02,0.98
+202526-0131,UCL,2,1,True,True,ELIGIBLE,2.19,0.67,True,True,Arsenal,Atlético Madrid,True,-0.19,0.33,3,2.86,0.14
+202526-0132,UCL,3,3,True,True,ELIGIBLE,2.5,2.86,True,True,Bayer Leverkusen,Paris Saint-Germain,True,0.5,0.14,6,5.36,0.64
+202526-0133,UCL,1,2,True,True,ELIGIBLE,0.82,1.64,True,True,FC København,Borussia Dortmund,True,0.18,0.36,3,2.46,0.54
+202526-0134,UCL,3,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.63,0.33,True,True,Newcastle United,Benfica,False,,,3,2.96,
+202526-0135,UCL,3,1,True,True,ELIGIBLE,2.89,1.16,True,True,PSV Eindhoven,Napoli,True,0.11,-0.16,4,4.05,-0.05
+202526-0136,UCL,1,5,True,True,ELIGIBLE,0.99,4.55,True,True,Union Saint-Gilloise,Internazionale,True,0.01,0.45,6,5.54,0.46
+202526-0137,UCL,1,1,True,True,ELIGIBLE,1.28,1.34,True,True,Villarreal,Manchester City,True,-0.28,-0.34,2,2.62,-0.62
+202526-0138,UCL,3,1,True,True,ELIGIBLE,3.47,0.52,True,True,Athletic Bilbao,Qarabag FK,True,-0.47,0.48,4,3.99,0.01
+202526-0139,UCL,4,1,True,True,ELIGIBLE,3.87,1.41,True,True,Galatasaray,Bodø/Glimt,True,0.13,-0.41,5,5.28,-0.28
+202526-0140,UCL,2,1,True,True,ELIGIBLE,2.45,0.88,True,True,AS Monaco,Tottenham Hotspur,True,-0.45,0.12,3,3.33,-0.33
+202526-0141,UCL,2,1,True,True,ELIGIBLE,2.59,0.73,True,True,Atalanta,Slavia Praha,True,-0.59,0.27,3,3.32,-0.32
+202526-0142,UCL,4,1,True,True,ELIGIBLE,3.65,1.05,True,True,Chelsea,Ajax,True,0.35,-0.05,5,4.7,0.3
+202526-0143,UCL,0,3,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.33,3.21,True,True,Eintracht Frankfurt,Liverpool,False,,,3,3.54,
+202526-0144,UCL,4,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,4.2,0.25,True,True,Bayern München,Club Brugge,False,,,4,4.45,
+202526-0145,UCL,3,1,True,True,ELIGIBLE,2.69,0.59,True,True,Real Madrid,Juventus,True,0.31,0.41,4,3.28,0.72
+202526-0146,UCL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.11,0.54,True,True,Sporting CP Lisbon,Olympique Marseille,False,,,1,1.65,
+202526-0400,UEL,1,3,True,True,ELIGIBLE,1.3,2.78,True,True,FC Salzburg,Ferencváros,True,-0.3,0.22,4,4.08,-0.08
+202526-0401,UEL,2,1,True,True,ELIGIBLE,1.79,1.1,True,True,Fenerbahçe,VfB Stuttgart,True,0.21,-0.1,3,2.89,0.11
+202526-0403,UEL,1,2,True,True,ELIGIBLE,0.66,1.72,True,True,FCSB,Bologna,True,0.34,0.28,3,2.38,0.62
+202526-0404,UEL,1,2,True,True,ELIGIBLE,0.83,2.82,True,True,Go Ahead Eagles,Aston Villa,True,0.17,-0.82,3,3.65,-0.65
+202526-0405,UEL,0,1,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.23,0.79,True,True,Racing Genk,Real Betis,False,,,1,1.02,
+202526-0406,UEL,2,1,True,True,ELIGIBLE,2.47,1.19,True,True,Olympique Lyon,FC Basel,True,-0.47,-0.19,3,3.66,-0.66
+202526-0407,UEL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.73,0.41,True,True,Sporting Braga,Red Star Belgrade,False,,,2,2.14,
+202526-0408,UEL,3,1,True,True,ELIGIBLE,2.33,1.27,True,True,SK Brann Bergen,Glasgow Rangers,True,0.67,-0.27,4,3.6,0.4
+202526-0827,UECL,5,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,5.25,0.45,True,True,AEK Athens,Aberdeen,False,,,5,5.7,
+202526-0828,UECL,2,2,True,True,ELIGIBLE,2.16,1.62,True,True,BK Häcken,Rayo Vallecano,True,-0.16,0.38,4,3.78,0.22
+202526-0829,UECL,2,1,True,True,ELIGIBLE,2.13,1.06,True,True,Breidablik,KuPS Kuopio,True,-0.13,-0.06,3,3.19,-0.19
+202526-0830,UECL,1,1,True,True,ELIGIBLE,0.49,0.98,True,True,Shakhtar Donetsk,Legia Warsaw,True,0.51,0.02,2,1.47,0.53
+202526-0831,UECL,0,1,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.17,1.19,True,True,FC Drita,Omonia Nicosia,False,,,1,1.36,
+202526-0832,UECL,1,1,True,True,ELIGIBLE,0.62,0.72,True,True,NK Rijeka,Sparta Praha,True,0.38,0.28,2,1.34,0.66
+202526-0833,UECL,0,1,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.47,0.48,True,True,Shkendija Tetovo,Shelbourne,False,,,1,0.95,
+202526-0834,UECL,2,1,True,True,ELIGIBLE,2.59,0.85,True,True,RC Strasbourg,Jagiellonia Bialystok,True,-0.59,0.15,3,3.44,-0.44
+202526-0835,UECL,1,2,True,True,ELIGIBLE,0.66,1.64,True,True,Rapid Wien,Fiorentina,True,0.34,0.36,3,2.3,0.7
+202526-0837,UECL,3,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,3.55,0.24,True,True,AZ Alkmaar,Slovan Bratislava,False,,,3,3.79,
+202526-0402,UEL,3,1,True,True,ELIGIBLE,2.63,1.13,True,True,Feyenoord,Panathinaikos,True,0.37,-0.13,4,3.76,0.24
+202526-0409,UEL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.28,0.16,True,True,AS Roma,Viktoria Plzen,False,,,2,2.44,
+202526-0410,UEL,4,1,True,True,ELIGIBLE,4.36,0.99,True,True,Young Boys,Ludogorets Razgrad,True,-0.36,0.01,5,5.35,-0.35
+202526-0411,UEL,4,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,4.02,0.46,True,True,Celtic,Sturm Graz,False,,,4,4.48,
+202526-0412,UEL,2,2,True,True,ELIGIBLE,1.67,2.19,True,True,Lille OSC,PAOK Thessaloniki,True,0.33,-0.19,4,3.86,0.14
+202526-0413,UEL,1,1,True,True,ELIGIBLE,0.95,1.44,True,True,Maccabi Tel-Aviv,FC Midtjylland,True,0.05,-0.44,2,2.39,-0.39
+202526-0414,UEL,1,2,True,True,ELIGIBLE,0.63,2.45,True,True,Malmö FF,Dinamo Zagreb,True,0.37,-0.45,3,3.08,-0.08
+202526-0415,UEL,2,1,True,True,ELIGIBLE,2.09,0.6,True,True,Nottingham Forest,FC Porto,True,-0.09,0.4,3,2.69,0.31
+202526-0416,UEL,1,1,True,True,ELIGIBLE,1.31,1.18,True,True,Celta de Vigo,OGC Nice,True,-0.31,-0.18,2,2.49,-0.49
+202526-0417,UEL,2,1,True,True,ELIGIBLE,1.56,0.97,True,True,SC Freiburg,FC Utrecht,True,0.44,0.03,3,2.53,0.47
+202526-0836,UECL,3,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,3.21,0.06,True,True,FSV Mainz 05,Zrinjski Mostar,False,,,3,3.27,
+202526-0838,UECL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.76,0.2,True,True,Crystal Palace,AEK Larnaca,False,,,2,1.96,
+202526-0839,UECL,2,1,True,True,ELIGIBLE,1.96,1.25,True,True,Hamrun Spartans,Lausanne Sports,True,0.04,-0.25,3,3.21,-0.21
+202526-0840,UECL,1,3,True,True,ELIGIBLE,0.84,3.25,True,True,Lincoln Red Imps,Lech Poznan,True,0.16,-0.25,4,4.09,-0.09
+202526-0841,UECL,3,1,True,True,ELIGIBLE,2.48,0.72,True,True,Samsunspor,Dynamo Kyiv,True,0.52,0.28,4,3.2,0.8
+202526-0842,UECL,1,2,True,True,ELIGIBLE,0.99,2.22,True,True,Shamrock Rovers,NK Celje,True,0.01,-0.22,3,3.21,-0.21
+202526-0843,UECL,0,1,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.43,1.15,True,True,Sigma Olomouc,Raków Czestochowa,False,,,1,1.58,
+202526-0844,UECL,1,1,True,True,ELIGIBLE,0.65,1.33,True,True,Universitatea Craiova,FC Noah,True,0.35,-0.33,2,1.98,0.02
+202526-0147,UCL,0,2,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.47,1.81,True,True,Slavia Praha,Arsenal,False,,,2,2.28,
+202526-0148,UCL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.85,0.36,True,True,Napoli,Eintracht Frankfurt,False,,,2,2.21,
+202526-0149,UCL,2,1,True,True,ELIGIBLE,2.3,1.11,True,True,Atlético Madrid,Union Saint-Gilloise,True,-0.3,-0.11,3,3.41,-0.41
+202526-0150,UCL,2,1,True,True,ELIGIBLE,1.67,1.29,True,True,Bodø/Glimt,AS Monaco,True,0.33,-0.29,3,2.96,0.04
+202526-0151,UCL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.53,0.21,True,True,Juventus,Sporting CP Lisbon,False,,,2,1.74,
+202526-0152,UCL,3,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.51,0.45,True,True,Liverpool,Real Madrid,False,,,3,2.96,
+202526-0153,UCL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.92,0.35,True,True,Olympiakos Piraeus,PSV Eindhoven,False,,,1,1.27,
+202526-0154,UCL,2,1,True,True,ELIGIBLE,1.95,1.53,True,True,Paris Saint-Germain,Bayern München,True,0.05,-0.53,3,3.48,-0.48
+202526-0155,UCL,3,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,3.32,0.35,True,True,Tottenham Hotspur,FC København,False,,,3,3.67,
+202526-0156,UCL,1,2,True,True,ELIGIBLE,0.75,1.77,True,True,Pafos FC,Villarreal,True,0.25,0.23,3,2.52,0.48
+202526-0157,UCL,2,1,True,True,ELIGIBLE,1.63,1.26,True,True,Qarabag FK,Chelsea,True,0.37,-0.26,3,2.89,0.11
+202526-0158,UCL,1,3,True,True,ELIGIBLE,0.88,2.61,True,True,Ajax,Galatasaray,True,0.12,0.39,4,3.49,0.51
+202526-0159,UCL,2,2,True,True,ELIGIBLE,2.14,2.4,True,True,Club Brugge,FC Barcelona,True,-0.14,-0.4,4,4.54,-0.54
+202526-0160,UCL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.38,0.15,True,True,Internazionale,Kairat Almaty,False,,,2,2.53,
+202526-0161,UCL,2,1,True,True,ELIGIBLE,1.98,1.02,True,True,Manchester City,Borussia Dortmund,True,0.02,-0.02,3,3,0
+202526-0162,UCL,1,1,True,True,ELIGIBLE,1.2,0.58,True,True,Newcastle United,Athletic Bilbao,True,-0.2,0.42,2,1.78,0.22
+202526-0163,UCL,1,1,True,True,ELIGIBLE,0.9,1.25,True,True,Olympique Marseille,Atalanta,True,0.1,-0.25,2,2.15,-0.15
+202526-0164,UCL,2,1,True,True,ELIGIBLE,1.62,0.74,True,True,Benfica,Bayer Leverkusen,True,0.38,0.26,3,2.36,0.64
+202526-0418,UEL,3,1,True,True,ELIGIBLE,2.33,1.37,True,True,FC Salzburg,Go Ahead Eagles,True,0.67,-0.37,4,3.7,0.3
+202526-0419,UEL,4,1,True,True,ELIGIBLE,4.03,1.16,True,True,FC Basel,FCSB,True,-0.03,-0.16,5,5.19,-0.19
+202526-0420,UEL,2,1,True,True,ELIGIBLE,2.73,0.98,True,True,FC Midtjylland,Celtic,True,-0.73,0.02,3,3.71,-0.71
+202526-0421,UEL,1,1,True,True,ELIGIBLE,0.54,1.22,True,True,FC Utrecht,FC Porto,True,0.46,-0.22,2,1.76,0.24
+202526-0422,UEL,2,2,True,True,ELIGIBLE,1.71,1.58,True,True,Red Star Belgrade,Lille OSC,True,0.29,0.42,4,3.29,0.71
+202526-0423,UEL,1,1,True,True,ELIGIBLE,0.75,1.44,True,True,Dinamo Zagreb,Celta de Vigo,True,0.25,-0.44,2,2.19,-0.19
+202526-0424,UEL,1,1,True,True,ELIGIBLE,1.42,1.36,True,True,Malmö FF,Panathinaikos,True,-0.42,-0.36,2,2.78,-0.78
+202526-0425,UEL,2,2,True,True,ELIGIBLE,1.79,2.13,True,True,OGC Nice,SC Freiburg,True,0.21,-0.13,4,3.92,0.08
+202526-0426,UEL,0,1,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.09,1.7,True,True,Sturm Graz,Nottingham Forest,False,,,1,1.79,
+202526-0845,UECL,2,2,True,True,ELIGIBLE,1.97,1.76,True,True,FSV Mainz 05,Fiorentina,True,0.03,0.24,4,3.73,0.27
+202526-0846,UECL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.8,0.41,True,True,Sparta Praha,Raków Czestochowa,False,,,1,1.21,
+202526-0847,UECL,3,1,True,True,ELIGIBLE,3.71,0.79,True,True,AEK Athens,Shamrock Rovers,True,-0.71,0.21,4,4.5,-0.5
+202526-0848,UECL,1,1,True,True,ELIGIBLE,0.57,0.84,True,True,AEK Larnaca,Aberdeen,True,0.43,0.16,2,1.41,0.59
+202526-0849,UECL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.16,0.46,True,True,Shakhtar Donetsk,Breidablik,False,,,1,1.62,
+202526-0850,UECL,0,2,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.29,2.06,True,True,FC Noah,Sigma Olomouc,False,,,2,2.35,
+202526-0851,UECL,1,1,True,True,ELIGIBLE,1.36,0.96,True,True,KuPS Kuopio,Slovan Bratislava,True,-0.36,0.04,2,2.32,-0.32
+202526-0852,UECL,1,2,True,True,ELIGIBLE,0.82,1.65,True,True,NK Celje,Legia Warsaw,True,0.18,0.35,3,2.47,0.53
+202526-0853,UECL,3,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.46,0.21,True,True,Samsunspor,Hamrun Spartans,False,,,3,2.67,
+202526-0427,UEL,2,1,True,True,ELIGIBLE,2.07,1.1,True,True,Aston Villa,Maccabi Tel-Aviv,True,-0.07,-0.1,3,3.17,-0.17
+202526-0428,UEL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.01,0.41,True,True,Bologna,SK Brann Bergen,False,,,1,1.42,
+202526-0429,UEL,1,1,True,True,ELIGIBLE,1.16,1.05,True,True,Viktoria Plzen,Fenerbahçe,True,-0.16,-0.05,2,2.21,-0.21
+202526-0430,UEL,2,1,True,True,ELIGIBLE,1.98,0.67,True,True,Ferencváros,Ludogorets Razgrad,True,0.02,0.33,3,2.65,0.35
+202526-0431,UEL,4,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,3.8,0.19,True,True,PAOK Thessaloniki,Young Boys,False,,,4,3.99,
+202526-0432,UEL,1,2,True,True,ELIGIBLE,0.91,2.05,True,True,Glasgow Rangers,AS Roma,True,0.09,-0.05,3,2.96,0.04
+202526-0433,UEL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.89,0.45,True,True,Real Betis,Olympique Lyon,False,,,1,1.34,
+202526-0434,UEL,3,1,True,True,ELIGIBLE,2.55,1.09,True,True,Sporting Braga,Racing Genk,True,0.45,-0.09,4,3.64,0.36
+202526-0435,UEL,2,1,True,True,ELIGIBLE,1.73,0.89,True,True,VfB Stuttgart,Feyenoord,True,0.27,0.11,3,2.62,0.38
+202526-0854,UECL,2,1,True,True,ELIGIBLE,1.7,0.97,True,True,BK Häcken,RC Strasbourg,True,0.3,0.03,3,2.67,0.33
+202526-0855,UECL,4,1,True,True,ELIGIBLE,3.83,1.19,True,True,Crystal Palace,AZ Alkmaar,True,0.17,-0.19,5,5.02,-0.02
+202526-0856,UECL,2,1,True,True,ELIGIBLE,2.27,1.24,True,True,Lausanne Sports,Omonia Nicosia,True,-0.27,-0.24,3,3.51,-0.51
+202526-0857,UECL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.27,0.37,True,True,Dynamo Kyiv,Zrinjski Mostar,False,,,2,2.64,
+202526-0858,UECL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.56,0.45,True,True,Shkendija Tetovo,Jagiellonia Bialystok,False,,,1,1.01,
+202526-0859,UECL,2,1,True,True,ELIGIBLE,2.17,0.76,True,True,Lincoln Red Imps,NK Rijeka,True,-0.17,0.24,3,2.93,0.07
+202526-0860,UECL,3,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,3.66,0.38,True,True,Rayo Vallecano,Lech Poznan,False,,,3,4.04,
+202526-0861,UECL,1,1,True,True,ELIGIBLE,1.09,1.14,True,True,Shelbourne,FC Drita,True,-0.09,-0.14,2,2.23,-0.23
+202526-0862,UECL,1,2,True,True,ELIGIBLE,0.8,1.8,True,True,Rapid Wien,Universitatea Craiova,True,0.2,0.2,3,2.6,0.4
+202526-0165,UCL,1,1,True,True,ELIGIBLE,0.96,1.17,True,True,Ajax,Benfica,True,0.04,-0.17,2,2.13,-0.13
+202526-0166,UCL,1,2,True,True,ELIGIBLE,1.18,1.63,True,True,Galatasaray,Union Saint-Gilloise,True,-0.18,0.37,3,2.81,0.19
+202526-0167,UCL,4,1,True,True,ELIGIBLE,4.03,0.83,True,True,Borussia Dortmund,Villarreal,True,-0.03,0.17,5,4.86,0.14
+202526-0168,UCL,2,1,True,True,ELIGIBLE,1.89,0.79,True,True,Chelsea,FC Barcelona,True,0.11,0.21,3,2.68,0.32
+202526-0169,UCL,2,3,True,True,ELIGIBLE,1.75,3.44,True,True,Bodø/Glimt,Juventus,True,0.25,-0.44,5,5.19,-0.19
+202526-0170,UCL,2,1,True,True,ELIGIBLE,1.78,0.51,True,True,Manchester City,Bayer Leverkusen,True,0.22,0.49,3,2.29,0.71
+202526-0171,UCL,2,1,True,True,ELIGIBLE,2,1.46,True,True,Olympique Marseille,Newcastle United,True,0,-0.46,3,3.46,-0.46
+202526-0172,UCL,1,1,True,True,ELIGIBLE,0.57,1.32,True,True,Slavia Praha,Athletic Bilbao,True,0.43,-0.32,2,1.89,0.11
+202526-0173,UCL,3,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,3.45,0.49,True,True,Napoli,Qarabag FK,False,,,3,3.94,
+202526-0174,UCL,3,2,True,True,ELIGIBLE,3.27,1.88,True,True,FC København,Kairat Almaty,True,-0.27,0.12,5,5.15,-0.15
+202526-0175,UCL,1,2,True,True,ELIGIBLE,1.21,1.54,True,True,Pafos FC,AS Monaco,True,-0.21,0.46,3,2.75,0.25
+202526-0176,UCL,3,1,True,True,ELIGIBLE,3.11,0.65,True,True,Arsenal,Bayern München,True,-0.11,0.35,4,3.76,0.24
+202526-0177,UCL,1,1,True,True,ELIGIBLE,0.98,1.42,True,True,Atlético Madrid,Internazionale,True,0.02,-0.42,2,2.4,-0.4
+202526-0178,UCL,1,3,True,True,ELIGIBLE,0.96,2.84,True,True,Eintracht Frankfurt,Atalanta,True,0.04,0.16,4,3.8,0.2
+202526-0179,UCL,3,2,True,True,ELIGIBLE,2.5,2.17,True,True,Liverpool,PSV Eindhoven,True,0.5,-0.17,5,4.67,0.33
+202526-0180,UCL,2,2,True,True,ELIGIBLE,1.69,1.68,True,True,Olympiakos Piraeus,Real Madrid,True,0.31,0.32,4,3.37,0.63
+202526-0181,UCL,2,2,True,True,ELIGIBLE,1.85,1.79,True,True,Paris Saint-Germain,Tottenham Hotspur,True,0.15,0.21,4,3.64,0.36
+202526-0182,UCL,2,1,True,True,ELIGIBLE,1.84,0.81,True,True,Sporting CP Lisbon,Club Brugge,True,0.16,0.19,3,2.65,0.35
+202526-0436,UEL,1,1,True,True,ELIGIBLE,0.84,0.73,True,True,AS Roma,FC Midtjylland,True,0.16,0.27,2,1.57,0.43
+202526-0437,UEL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.19,0.38,True,True,Aston Villa,Young Boys,False,,,2,2.57,
+202526-0438,UEL,2,1,True,True,ELIGIBLE,1.47,0.95,True,True,FC Porto,OGC Nice,True,0.53,0.05,3,2.42,0.58
+202526-0439,UEL,1,1,True,True,ELIGIBLE,1.29,0.87,True,True,Viktoria Plzen,SC Freiburg,True,-0.29,0.13,2,2.16,-0.16
+202526-0440,UEL,1,1,True,True,ELIGIBLE,1.33,0.68,True,True,Fenerbahçe,Ferencváros,True,-0.33,0.32,2,2.01,-0.01
+202526-0441,UEL,2,1,True,True,ELIGIBLE,1.85,1.31,True,True,Feyenoord,Celtic,True,0.15,-0.31,3,3.16,-0.16
+202526-0442,UEL,3,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,3.19,0.15,True,True,Lille OSC,Dinamo Zagreb,False,,,3,3.34,
+202526-0443,UEL,1,2,True,True,ELIGIBLE,1.2,1.84,True,True,PAOK Thessaloniki,SK Brann Bergen,True,-0.2,0.16,3,3.04,-0.04
+202526-0444,UEL,3,2,True,True,ELIGIBLE,2.6,2,True,True,Ludogorets Razgrad,Celta de Vigo,True,0.4,0,5,4.6,0.4
+202526-0863,UECL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.63,0.28,True,True,AZ Alkmaar,Shelbourne,False,,,2,1.91,
+202526-0864,UECL,2,1,True,True,ELIGIBLE,2.2,1.11,True,True,Hamrun Spartans,Lincoln Red Imps,True,-0.2,-0.11,3,3.31,-0.31
+202526-0865,UECL,1,2,True,True,ELIGIBLE,1.65,1.42,True,True,Zrinjski Mostar,BK Häcken,True,-0.65,0.58,3,3.07,-0.07
+202526-0866,UECL,1,1,True,True,ELIGIBLE,1.27,0.88,True,True,Lech Poznan,Lausanne Sports,True,-0.27,0.12,2,2.15,-0.15
+202526-0867,UECL,3,1,True,True,ELIGIBLE,3.04,0.83,True,True,Omonia Nicosia,Dynamo Kyiv,True,-0.04,0.17,4,3.87,0.13
+202526-0868,UECL,2,1,True,True,ELIGIBLE,2.12,0.62,True,True,Raków Czestochowa,Rapid Wien,True,-0.12,0.38,3,2.74,0.26
+202526-0869,UECL,2,2,True,True,ELIGIBLE,2.23,1.58,True,True,Sigma Olomouc,NK Celje,True,-0.23,0.42,4,3.81,0.19
+202526-0870,UECL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.09,0.41,True,True,Universitatea Craiova,FSV Mainz 05,False,,,1,1.5,
+202526-0871,UECL,1,2,True,True,ELIGIBLE,0.96,2,True,True,Slovan Bratislava,Rayo Vallecano,True,0.04,0,3,2.96,0.04
+202526-0445,UEL,4,2,True,True,ELIGIBLE,3.91,2.07,True,True,Bologna,FC Salzburg,True,0.09,-0.07,6,5.98,0.02
+202526-0446,UEL,2,1,True,True,ELIGIBLE,1.75,0.78,True,True,Red Star Belgrade,FCSB,True,0.25,0.22,3,2.53,0.47
+202526-0447,UEL,0,2,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.2,2.34,True,True,Go Ahead Eagles,VfB Stuttgart,False,,,2,2.54,
+202526-0448,UEL,1,1,True,True,ELIGIBLE,0.86,0.65,True,True,Racing Genk,FC Basel,True,0.14,0.35,2,1.51,0.49
+202526-0449,UEL,0,4,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.46,4.17,True,True,Maccabi Tel-Aviv,Olympique Lyon,False,,,4,4.63,
+202526-0450,UEL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.2,0.06,True,True,Nottingham Forest,Malmö FF,False,,,2,2.26,
+202526-0451,UEL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.67,0.26,True,True,Panathinaikos,Sturm Graz,False,,,1,0.93,
+202526-0452,UEL,2,2,True,True,ELIGIBLE,1.69,1.67,True,True,Glasgow Rangers,Sporting Braga,True,0.31,0.33,4,3.36,0.64
+202526-0453,UEL,2,1,True,True,ELIGIBLE,1.95,0.76,True,True,Real Betis,FC Utrecht,True,0.05,0.24,3,2.71,0.29
+202526-0872,UECL,1,1,True,True,ELIGIBLE,0.93,0.66,True,True,Aberdeen,FC Noah,True,0.07,0.34,2,1.59,0.41
+202526-0873,UECL,1,2,True,True,ELIGIBLE,1.43,1.95,True,True,Fiorentina,AEK Athens,True,-0.43,0.05,3,3.38,-0.38
+202526-0874,UECL,1,1,True,True,ELIGIBLE,1.4,1.32,True,True,Breidablik,Samsunspor,True,-0.4,-0.32,2,2.72,-0.72
+202526-0875,UECL,1,1,True,True,ELIGIBLE,0.59,0.71,True,True,FC Drita,Shkendija Tetovo,True,0.41,0.29,2,1.3,0.7
+202526-0876,UECL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.03,0.38,True,True,NK Rijeka,AEK Larnaca,False,,,1,1.41,
+202526-0877,UECL,1,1,True,True,ELIGIBLE,1.33,0.83,True,True,Jagiellonia Bialystok,KuPS Kuopio,True,-0.33,0.17,2,2.16,-0.16
+202526-0878,UECL,1,1,True,True,ELIGIBLE,1.02,0.69,True,True,Legia Warsaw,Sparta Praha,True,-0.02,0.31,2,1.71,0.29
+202526-0879,UECL,2,2,True,True,ELIGIBLE,2.37,2.82,True,True,RC Strasbourg,Crystal Palace,True,-0.37,-0.82,4,5.19,-1.19
+202526-0880,UECL,1,2,True,True,ELIGIBLE,0.48,2.58,True,True,Shamrock Rovers,Shakhtar Donetsk,True,0.52,-0.58,3,3.06,-0.06
+202526-0183,UCL,0,2,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.2,2.28,True,True,Kairat Almaty,Olympiakos Piraeus,False,,,2,2.48,
+202526-0184,UCL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.1,0.28,True,True,Bayern München,Sporting CP Lisbon,False,,,2,2.38,
+202526-0185,UCL,4,1,True,True,ELIGIBLE,3.68,1.29,True,True,AS Monaco,Galatasaray,True,0.32,-0.29,5,4.97,0.03
+202526-0186,UCL,2,1,True,True,ELIGIBLE,1.72,1.37,True,True,Atalanta,Chelsea,True,0.28,-0.37,3,3.09,-0.09
+202526-0187,UCL,2,1,True,True,ELIGIBLE,1.52,0.76,True,True,FC Barcelona,Eintracht Frankfurt,True,0.48,0.24,3,2.28,0.72
+202526-0188,UCL,0,1,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.44,1.42,True,True,Internazionale,Liverpool,False,,,1,1.86,
+202526-0189,UCL,3,2,True,True,ELIGIBLE,2.67,2.23,True,True,PSV Eindhoven,Atlético Madrid,True,0.33,-0.23,5,4.9,0.1
+202526-0190,UCL,1,1,True,True,ELIGIBLE,0.66,1.46,True,True,Union Saint-Gilloise,Olympique Marseille,True,0.34,-0.46,2,2.12,-0.12
+202526-0191,UCL,3,1,True,True,ELIGIBLE,2.75,0.77,True,True,Tottenham Hotspur,Slavia Praha,True,0.25,0.23,4,3.52,0.48
+202526-0192,UCL,1,2,True,True,ELIGIBLE,1.1,1.6,True,True,Qarabag FK,Ajax,True,-0.1,0.4,3,2.7,0.3
+202526-0193,UCL,2,2,True,True,ELIGIBLE,2.08,1.36,True,True,Villarreal,FC København,True,-0.08,0.64,4,3.44,0.56
+202526-0194,UCL,1,2,True,True,ELIGIBLE,0.52,2.22,True,True,Athletic Bilbao,Paris Saint-Germain,True,0.48,-0.22,3,2.74,0.26
+202526-0195,UCL,1,2,True,True,ELIGIBLE,1.2,2.06,True,True,Bayer Leverkusen,Newcastle United,True,-0.2,-0.06,3,3.26,-0.26
+202526-0196,UCL,3,1,True,True,ELIGIBLE,3.19,1.38,True,True,Borussia Dortmund,Bodø/Glimt,True,-0.19,-0.38,4,4.57,-0.57
+202526-0197,UCL,1,3,True,True,ELIGIBLE,1.1,2.99,True,True,Club Brugge,Arsenal,True,-0.1,0.01,4,4.09,-0.09
+202526-0198,UCL,3,1,True,True,ELIGIBLE,2.65,1.18,True,True,Juventus,Pafos FC,True,0.35,-0.18,4,3.83,0.17
+202526-0199,UCL,2,3,True,True,ELIGIBLE,1.5,2.6,True,True,Real Madrid,Manchester City,True,0.5,0.4,5,4.1,0.9
+202526-0200,UCL,2,1,True,True,ELIGIBLE,2.22,0.64,True,True,Benfica,Napoli,True,-0.22,0.36,3,2.86,0.14
+202526-0454,UEL,2,1,True,True,ELIGIBLE,1.66,0.83,True,True,Young Boys,Lille OSC,True,0.34,0.17,3,2.49,0.51
+202526-0455,UEL,2,1,True,True,ELIGIBLE,2.17,0.95,True,True,FC Midtjylland,Racing Genk,True,-0.17,0.05,3,3.12,-0.12
+202526-0456,UEL,1,2,True,True,ELIGIBLE,0.73,1.65,True,True,FC Utrecht,Nottingham Forest,True,0.27,0.35,3,2.38,0.62
+202526-0457,UEL,2,1,True,True,ELIGIBLE,1.71,1.15,True,True,Ferencváros,Glasgow Rangers,True,0.29,-0.15,3,2.86,0.14
+202526-0458,UEL,1,2,True,True,ELIGIBLE,0.77,1.86,True,True,Dinamo Zagreb,Real Betis,True,0.23,0.14,3,2.63,0.37
+202526-0459,UEL,1,1,True,True,ELIGIBLE,1.5,0.73,True,True,OGC Nice,Sporting Braga,True,-0.5,0.27,2,2.23,-0.23
+202526-0460,UEL,2,3,True,True,ELIGIBLE,2.18,3.4,True,True,Ludogorets Razgrad,PAOK Thessaloniki,True,-0.18,-0.4,5,5.58,-0.58
+202526-0461,UEL,2,2,True,True,ELIGIBLE,1.5,1.57,True,True,Sturm Graz,Red Star Belgrade,True,0.5,0.43,4,3.07,0.93
+202526-0462,UEL,2,1,True,True,ELIGIBLE,2.54,0.56,True,True,VfB Stuttgart,Maccabi Tel-Aviv,True,-0.54,0.44,3,3.1,-0.1
+202526-0881,UECL,2,1,True,True,ELIGIBLE,2.88,0.57,True,True,Fiorentina,Dynamo Kyiv,True,-0.88,0.43,3,3.45,-0.45
+202526-0882,UECL,1,1,True,True,ELIGIBLE,1.04,1.33,True,True,BK Häcken,AEK Larnaca,True,-0.04,-0.33,2,2.37,-0.37
+202526-0883,UECL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.6,0.36,True,True,Breidablik,Shamrock Rovers,False,,,2,1.96,
+202526-0884,UECL,0,3,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.16,3.08,True,True,FC Drita,AZ Alkmaar,False,,,3,3.24,
+202526-0885,UECL,1,2,True,True,ELIGIBLE,1.39,2.07,True,True,FC Noah,Legia Warsaw,True,-0.39,-0.07,3,3.46,-0.46
+202526-0886,UECL,1,1,True,True,ELIGIBLE,0.87,1.12,True,True,Jagiellonia Bialystok,Rayo Vallecano,True,0.13,-0.12,2,1.99,0.01
+202526-0887,UECL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.85,0.32,True,True,Shkendija Tetovo,Slovan Bratislava,False,,,1,2.17,
+202526-0888,UECL,1,1,True,True,ELIGIBLE,1.1,0.81,True,True,Samsunspor,AEK Athens,True,-0.1,0.19,2,1.91,0.09
+202526-0889,UECL,1,2,True,True,ELIGIBLE,1.05,1.57,True,True,Universitatea Craiova,Sparta Praha,True,-0.05,0.43,3,2.62,0.38
+202526-0463,UEL,1,1,True,True,ELIGIBLE,1.34,1.47,True,True,Celtic,AS Roma,True,-0.34,-0.47,2,2.81,-0.81
+202526-0464,UEL,3,1,True,True,ELIGIBLE,2.81,0.81,True,True,FC Porto,Malmö FF,True,0.19,0.19,4,3.62,0.38
+202526-0465,UEL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.88,0.47,True,True,FC Basel,Aston Villa,False,,,1,1.35,
+202526-0466,UEL,1,2,True,True,ELIGIBLE,1.28,2.11,True,True,FCSB,Feyenoord,True,-0.28,-0.11,3,3.39,-0.39
+202526-0467,UEL,3,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,3.06,0.47,True,True,Olympique Lyon,Go Ahead Eagles,False,,,3,3.53,
+202526-0468,UEL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.35,0.35,True,True,Panathinaikos,Viktoria Plzen,False,,,1,1.7,
+202526-0469,UEL,0,2,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.34,2.2,True,True,Celta de Vigo,Bologna,False,,,2,2.54,
+202526-0470,UEL,3,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.61,0.43,True,True,SC Freiburg,FC Salzburg,False,,,3,3.04,
+202526-0471,UEL,0,4,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.23,3.73,True,True,SK Brann Bergen,Fenerbahçe,False,,,4,3.96,
+202526-0890,UECL,1,3,True,True,ELIGIBLE,0.86,2.38,True,True,Aberdeen,RC Strasbourg,True,0.14,0.62,4,3.24,0.76
+202526-0891,UECL,0,3,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.23,2.89,True,True,Hamrun Spartans,Shakhtar Donetsk,False,,,3,3.12,
+202526-0892,UECL,2,2,True,True,ELIGIBLE,1.84,1.68,True,True,NK Rijeka,NK Celje,True,0.16,0.32,4,3.52,0.48
+202526-0893,UECL,3,1,True,True,ELIGIBLE,2.89,1.23,True,True,Lech Poznan,FSV Mainz 05,True,0.11,-0.23,4,4.12,-0.12
+202526-0894,UECL,1,2,True,True,ELIGIBLE,0.94,2.18,True,True,KuPS Kuopio,Lausanne Sports,True,0.06,-0.18,3,3.12,-0.12
+202526-0895,UECL,1,2,True,True,ELIGIBLE,0.46,2.4,True,True,Lincoln Red Imps,Sigma Olomouc,True,0.54,-0.4,3,2.86,0.14
+202526-0896,UECL,2,1,True,True,ELIGIBLE,1.63,0.8,True,True,Raków Czestochowa,Zrinjski Mostar,True,0.37,0.2,3,2.43,0.57
+202526-0897,UECL,0,4,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.4,3.53,True,True,Shelbourne,Crystal Palace,False,,,4,3.93,
+202526-0898,UECL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.85,0.26,True,True,Rapid Wien,Omonia Nicosia,False,,,2,2.11,
+202526-0899,UECL,2,1,True,True,ELIGIBLE,1.88,0.86,True,True,FSV Mainz 05,Samsunspor,True,0.12,0.14,3,2.74,0.26
+202526-0900,UECL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.2,0.1,True,True,Sparta Praha,Aberdeen,False,,,1,1.3,
+202526-0901,UECL,3,1,True,True,ELIGIBLE,3.44,1.35,True,True,AEK Athens,Universitatea Craiova,True,-0.44,-0.35,4,4.79,-0.79
+202526-0902,UECL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,2.23,0.19,True,True,AEK Larnaca,Shkendija Tetovo,False,,,2,2.42,
+202526-0903,UECL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.1,0.09,True,True,AZ Alkmaar,Jagiellonia Bialystok,False,,,1,1.19,
+202526-0904,UECL,2,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.32,0.26,True,True,Crystal Palace,KuPS Kuopio,False,,,2,1.58,
+202526-0905,UECL,0,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.6,0.43,True,True,Shakhtar Donetsk,NK Rijeka,False,,,0,1.03,
+202526-0906,UECL,1,1,True,True,ELIGIBLE,1.39,0.46,True,True,Dynamo Kyiv,FC Noah,True,-0.39,0.54,2,1.85,0.15
+202526-0907,UECL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.42,0.58,True,True,Lausanne Sports,Fiorentina,False,,,1,2,
+202526-0908,UECL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,1.46,0.96,True,True,Zrinjski Mostar,Rapid Wien,False,,,1,2.42,
+202526-0909,UECL,3,1,True,True,ELIGIBLE,3.37,0.63,True,True,Legia Warsaw,Lincoln Red Imps,True,-0.37,0.37,4,4,0
+202526-0910,UECL,2,1,True,True,ELIGIBLE,1.84,1.07,True,True,NK Celje,Shelbourne,True,0.16,-0.07,3,2.91,0.09
+202526-0911,UECL,1,1,True,True,ELIGIBLE,0.69,1.39,True,True,Omonia Nicosia,Raków Czestochowa,True,0.31,-0.39,2,2.08,-0.08
+202526-0912,UECL,4,1,True,True,ELIGIBLE,3.36,0.64,True,True,RC Strasbourg,Breidablik,True,0.64,0.36,5,4,1
+202526-0913,UECL,1,0,True,False,ZERO_INCONSISTENT_WITH_SHOTS,0.86,0.36,True,True,Rayo Vallecano,FC Drita,False,,,1,1.22,
+202526-0914,UECL,5,1,True,True,ELIGIBLE,5.35,0.8,True,True,Shamrock Rovers,Hamrun Spartans,True,-0.35,0.2,6,6.15,-0.15
+202526-0915,UECL,1,3,True,True,ELIGIBLE,1.32,2.56,True,True,Sigma Olomouc,Lech Poznan,True,-0.32,0.44,4,3.88,0.12
+202526-0916,UECL,2,1,True,True,ELIGIBLE,1.99,1.32,True,True,Slovan Bratislava,BK Häcken,True,0.01,-0.32,3,3.31,-0.31
+202526-0201,UCL,0.25,2.23,True,True,ELIGIBLE,0.28,2.54,True,True,Kairat Almaty,Club Brugge,True,-0.03,-0.31,2.48,2.82,-0.34
+202526-0202,UCL,1.35,1.16,True,True,ELIGIBLE,1.6,1.23,True,True,Bodø/Glimt,Manchester City,True,-0.25,-0.07,2.51,2.83,-0.32
+202526-0203,UCL,1.38,1.46,True,True,ELIGIBLE,1.38,1.54,True,True,FC København,Napoli,True,0,-0.08,2.84,2.92,-0.08
+202526-0204,UCL,1.33,2.12,True,True,ELIGIBLE,1.36,2.14,True,True,Internazionale,Arsenal,True,-0.03,-0.02,3.45,3.5,-0.05
+202526-0205,UCL,1.13,2.37,True,True,ELIGIBLE,1.13,2.58,True,True,Olympiakos Piraeus,Bayer Leverkusen,True,0,-0.21,3.5,3.71,-0.21
+202526-0206,UCL,4,1.5,True,True,ELIGIBLE,3.86,1.4,True,True,Real Madrid,AS Monaco,True,0.14,0.1,5.5,5.26,0.24
+202526-0207,UCL,0.82,1.25,True,True,ELIGIBLE,0.89,1.42,True,True,Sporting CP Lisbon,Paris Saint-Germain,True,-0.07,-0.17,2.07,2.31,-0.24
+202526-0208,UCL,2.23,0.38,True,True,ELIGIBLE,1.97,0.38,True,True,Tottenham Hotspur,Borussia Dortmund,True,0.26,0,2.61,2.35,0.26
+202526-0209,UCL,1.35,0.91,True,True,ELIGIBLE,1.36,0.91,True,True,Villarreal,Ajax,True,-0.01,0,2.26,2.27,-0.01
+202526-0210,UCL,0.5,1.43,True,True,ELIGIBLE,0.5,1.43,True,True,Galatasaray,Atlético Madrid,True,0,0,1.93,1.93,0
+202526-0211,UCL,1.78,1.21,True,True,ELIGIBLE,1.78,1.21,True,True,Qarabag FK,Eintracht Frankfurt,True,0,0,2.99,2.99,0
+202526-0212,UCL,2.02,1.74,True,True,ELIGIBLE,2.02,1.74,True,True,Atalanta,Athletic Bilbao,True,0,0,3.76,3.76,0
+202526-0213,UCL,1.85,0.14,True,True,ELIGIBLE,1.85,0.14,True,True,Chelsea,Pafos FC,True,0,0,1.99,1.99,0
+202526-0214,UCL,3.14,0.88,True,True,ELIGIBLE,3.09,0.88,True,True,Bayern München,Union Saint-Gilloise,True,0.05,0,4.02,3.97,0.05
+202526-0215,UCL,1.36,1.44,True,True,ELIGIBLE,1.36,1.44,True,True,Juventus,Benfica,True,0,0,2.8,2.8,0
+202526-0216,UCL,2.4,0.34,True,True,ELIGIBLE,2.4,0.34,True,True,Newcastle United,PSV Eindhoven,True,0,0,2.74,2.74,0
+202526-0217,UCL,0.87,1.46,True,True,ELIGIBLE,0.87,1.46,True,True,Olympique Marseille,Liverpool,True,0,0,2.33,2.33,0
+202526-0218,UCL,0.99,1.47,True,True,ELIGIBLE,0.99,1.47,True,True,Slavia Praha,FC Barcelona,True,0,0,2.46,2.46,0
+202526-0472,UEL,2.46,1.99,True,True,ELIGIBLE,2.64,2.11,True,True,Bologna,Celtic,True,-0.18,-0.12,4.45,4.75,-0.3
+202526-0473,UEL,0.8,0.67,True,True,ELIGIBLE,0.86,0.59,True,True,Young Boys,Olympique Lyon,True,-0.06,0.08,1.47,1.45,0.02
+202526-0474,UEL,0.29,2.07,True,True,ELIGIBLE,0.34,2.14,True,True,Viktoria Plzen,FC Porto,True,-0.05,-0.07,2.36,2.48,-0.12
+202526-0475,UEL,0.89,1.45,True,True,ELIGIBLE,1.08,1.69,True,True,Fenerbahçe,Aston Villa,True,-0.19,-0.24,2.34,2.77,-0.43
+202526-0476,UEL,1.32,0.1,True,True,ELIGIBLE,1.37,0.14,True,True,Feyenoord,Sturm Graz,True,-0.05,-0.04,1.42,1.51,-0.09
+202526-0477,UEL,0.42,1.67,True,True,ELIGIBLE,0.42,1.23,True,True,Malmö FF,Red Star Belgrade,True,0,0.44,2.09,1.65,0.44
+202526-0478,UEL,2.86,0.59,True,True,ELIGIBLE,2.9,0.73,True,True,PAOK Thessaloniki,Real Betis,True,-0.04,-0.14,3.45,3.63,-0.18
+202526-0479,UEL,2.96,0.17,True,True,ELIGIBLE,2.46,0.17,True,True,SC Freiburg,Maccabi Tel-Aviv,True,0.5,0,3.13,2.63,0.5
+202526-0480,UEL,3.34,1.88,True,True,ELIGIBLE,3.32,1.86,True,True,SK Brann Bergen,FC Midtjylland,True,0.02,0.02,5.22,5.18,0.04
+202526-0481,UEL,0.94,1.77,True,True,ELIGIBLE,1,1.65,True,True,AS Roma,VfB Stuttgart,True,-0.06,0.12,2.71,2.65,0.06
+202526-0482,UEL,2.09,1.66,True,True,ELIGIBLE,2.06,1.61,True,True,FC Utrecht,Racing Genk,True,0.03,0.05,3.75,3.67,0.08
+202526-0483,UEL,1.49,0.45,True,True,ELIGIBLE,1.65,0.37,True,True,FC Salzburg,FC Basel,True,-0.16,0.08,1.94,2.02,-0.08
+202526-0484,UEL,1.49,0.61,True,True,ELIGIBLE,1.49,0.73,True,True,Ferencváros,Panathinaikos,True,0,-0.12,2.1,2.22,-0.12
+202526-0485,UEL,2.35,0.24,True,True,ELIGIBLE,2.84,0.24,True,True,Dinamo Zagreb,FCSB,True,-0.49,0,2.59,3.08,-0.49
+202526-0486,UEL,2.16,1.7,True,True,ELIGIBLE,2.43,1.78,True,True,OGC Nice,Go Ahead Eagles,True,-0.27,-0.08,3.86,4.21,-0.35
+202526-0487,UEL,1.56,0.89,True,True,ELIGIBLE,1.42,0.97,True,True,Glasgow Rangers,Ludogorets Razgrad,True,0.14,-0.08,2.45,2.39,0.06
+202526-0488,UEL,1.23,1.53,True,True,ELIGIBLE,1.27,1.54,True,True,Celta de Vigo,Lille OSC,True,-0.04,-0.01,2.76,2.81,-0.05
+202526-0489,UEL,0.55,1.74,True,True,ELIGIBLE,0.55,1.79,True,True,Sporting Braga,Nottingham Forest,True,0,-0.05,2.29,2.34,-0.05
+202526-0219,UCL,1.84,0.54,True,True,ELIGIBLE,1.87,0.53,True,True,Ajax,Olympiakos Piraeus,True,-0.03,0.01,2.38,2.4,-0.02
+202526-0220,UCL,4.06,1.11,True,True,ELIGIBLE,3.94,1.11,True,True,Arsenal,Kairat Almaty,True,0.12,0,5.17,5.05,0.12
+202526-0221,UCL,0.5,0.17,True,True,ELIGIBLE,1.04,0.18,True,True,AS Monaco,Juventus,True,-0.54,-0.01,0.67,1.22,-0.55
+202526-0222,UCL,0.59,1.49,True,True,ELIGIBLE,0.57,1.76,True,True,Athletic Bilbao,Sporting CP Lisbon,True,0.02,-0.27,2.08,2.33,-0.25
+202526-0223,UCL,2.04,1.88,True,True,ELIGIBLE,2.18,1.88,True,True,Atlético Madrid,Bodø/Glimt,True,-0.14,0,3.92,4.06,-0.14
+202526-0224,UCL,2.03,0.25,True,True,ELIGIBLE,1.93,0.26,True,True,Bayer Leverkusen,Villarreal,True,0.1,-0.01,2.28,2.19,0.09
+202526-0225,UCL,0.94,0.94,True,True,ELIGIBLE,0.84,0.98,True,True,Borussia Dortmund,Internazionale,True,0.1,-0.04,1.88,1.82,0.06
+202526-0226,UCL,1.67,0.99,True,True,ELIGIBLE,1.41,1.03,True,True,Club Brugge,Olympique Marseille,True,0.26,-0.04,2.66,2.44,0.22
+202526-0227,UCL,0.86,1.71,True,True,ELIGIBLE,0.86,1.27,True,True,Eintracht Frankfurt,Tottenham Hotspur,True,0,0.44,2.57,2.13,0.44
+202526-0228,UCL,3.05,1.06,True,True,ELIGIBLE,3.18,1.06,True,True,FC Barcelona,FC København,True,-0.13,0,4.11,4.24,-0.13
+202526-0229,UCL,5.6,0.22,True,True,ELIGIBLE,5.91,0.22,True,True,Liverpool,Qarabag FK,True,-0.31,0,5.82,6.13,-0.31
+202526-0230,UCL,1.64,0.22,True,True,ELIGIBLE,1.77,0.26,True,True,Manchester City,Galatasaray,True,-0.13,-0.04,1.86,2.03,-0.17
+202526-0231,UCL,1.46,1.59,True,True,ELIGIBLE,1.4,1.73,True,True,Pafos FC,Slavia Praha,True,0.06,-0.14,3.05,3.13,-0.08
+202526-0232,UCL,2.58,1,True,True,ELIGIBLE,2.52,1.07,True,True,Paris Saint-Germain,Newcastle United,True,0.06,-0.07,3.58,3.59,-0.01
+202526-0233,UCL,0.69,1.82,True,True,ELIGIBLE,0.6,1.98,True,True,PSV Eindhoven,Bayern München,True,0.09,-0.16,2.51,2.58,-0.07
+202526-0234,UCL,1,0.87,True,True,ELIGIBLE,1,0.83,True,True,Union Saint-Gilloise,Atalanta,True,0,0.04,1.87,1.83,0.04
+202526-0235,UCL,2.99,1.5,True,True,ELIGIBLE,3.01,1.5,True,True,Benfica,Real Madrid,True,-0.02,0,4.49,4.51,-0.02
+202526-0236,UCL,0.98,2.01,True,True,ELIGIBLE,0.98,2.02,True,True,Napoli,Chelsea,True,0,-0.01,2.99,3,-0.01
+202526-0490,UEL,1.94,2.37,True,True,ELIGIBLE,1.54,2.73,True,True,Aston Villa,FC Salzburg,True,0.4,-0.36,4.31,4.27,0.04
+202526-0491,UEL,2.09,0.43,True,True,ELIGIBLE,2.66,0.41,True,True,Celtic,FC Utrecht,True,-0.57,0.02,2.52,3.07,-0.55
+202526-0492,UEL,1.72,0.42,True,True,ELIGIBLE,1.6,0.43,True,True,FC Porto,Glasgow Rangers,True,0.12,-0.01,2.14,2.03,0.11
+202526-0493,UEL,0.8,1.11,True,True,ELIGIBLE,0.82,1.04,True,True,FC Basel,Viktoria Plzen,True,-0.02,0.07,1.91,1.86,0.05
+202526-0494,UEL,1.42,0.85,True,True,ELIGIBLE,1.21,0.8,True,True,FC Midtjylland,Dinamo Zagreb,True,0.21,0.05,2.27,2.01,0.26
+202526-0495,UEL,0.88,1.29,True,True,ELIGIBLE,1.01,1.29,True,True,Red Star Belgrade,Celta de Vigo,True,-0.13,0,2.17,2.3,-0.13
+202526-0496,UEL,1.76,1.48,True,True,ELIGIBLE,1.77,1.54,True,True,FCSB,Fenerbahçe,True,-0.01,-0.06,3.24,3.31,-0.07
+202526-0497,UEL,0.23,0.38,True,True,ELIGIBLE,0.18,0.44,True,True,Go Ahead Eagles,Sporting Braga,True,0.05,-0.06,0.61,0.62,-0.01
+202526-0498,UEL,3.22,0.54,True,True,ELIGIBLE,3.27,0.54,True,True,Racing Genk,Malmö FF,True,-0.05,0,3.76,3.81,-0.05
+202526-0499,UEL,1.63,0.41,True,True,ELIGIBLE,1.62,0.63,True,True,Lille OSC,SC Freiburg,True,0.01,-0.22,2.04,2.25,-0.21
+202526-0500,UEL,0.6,3,True,True,ELIGIBLE,0.86,3.28,True,True,Maccabi Tel-Aviv,Bologna,True,-0.26,-0.28,3.6,4.14,-0.54
+202526-0501,UEL,2.56,0.67,True,True,ELIGIBLE,2.88,0.65,True,True,Nottingham Forest,Ferencváros,True,-0.32,0.02,3.23,3.53,-0.3
+202526-0502,UEL,2.37,0.65,True,True,ELIGIBLE,2.52,0.65,True,True,Olympique Lyon,PAOK Thessaloniki,True,-0.15,0,3.02,3.17,-0.15
+202526-0503,UEL,0.73,1.5,True,True,ELIGIBLE,0.8,1.38,True,True,Panathinaikos,AS Roma,True,-0.07,0.12,2.23,2.18,0.05
+202526-0504,UEL,1.66,0.89,True,True,ELIGIBLE,1.66,1.19,True,True,Ludogorets Razgrad,OGC Nice,True,0,-0.3,2.55,2.85,-0.3
+202526-0505,UEL,1.21,1.34,True,True,ELIGIBLE,1.24,1.7,True,True,Real Betis,Feyenoord,True,-0.03,-0.36,2.55,2.94,-0.39
+202526-0506,UEL,0.85,2.05,True,True,ELIGIBLE,0.85,2.29,True,True,Sturm Graz,SK Brann Bergen,True,0,-0.24,2.9,3.14,-0.24
+202526-0507,UEL,3.41,1.52,True,True,ELIGIBLE,3.48,1.52,True,True,VfB Stuttgart,Young Boys,True,-0.07,0,4.93,5,-0.07
+202526-0239,UCL,2.96,1.13,True,True,ELIGIBLE,2.92,1.13,True,True,Galatasaray,Juventus,True,0.04,0,4.09,4.05,0.04
+202526-0237,UCL,1.19,3.09,True,True,ELIGIBLE,1.19,3.09,True,True,AS Monaco,Paris Saint-Germain,True,0,0,4.28,4.28,0
+202526-0241,UCL,0.15,0.94,True,True,ELIGIBLE,0.47,0.89,True,True,Benfica,Real Madrid,True,-0.32,0.05,1.09,1.36,-0.27
+202526-0243,UCL,1.94,0.19,True,True,ELIGIBLE,2.1,0.47,True,True,Borussia Dortmund,Atalanta,True,-0.16,-0.28,2.13,2.57,-0.44
+202526-0245,UCL,0.46,5.56,True,True,ELIGIBLE,0.46,5.69,True,True,Qarabag FK,Newcastle United,True,0,-0.13,6.02,6.15,-0.13
+202526-0247,UCL,2.33,2.33,True,True,ELIGIBLE,2.33,2.33,True,True,Club Brugge,Atlético Madrid,True,0,0,4.66,4.66,0
+202526-0249,UCL,1.17,1.35,True,True,ELIGIBLE,1.19,1.56,True,True,Bodø/Glimt,Internazionale,True,-0.02,-0.21,2.52,2.75,-0.23
+202526-0251,UCL,0.87,1.95,True,True,ELIGIBLE,0.75,1.95,True,True,Olympiakos Piraeus,Bayer Leverkusen,True,0.12,0,2.82,2.7,0.12
+202526-0512,UEL,1.66,1.48,True,True,ELIGIBLE,1.53,1.41,True,True,Dinamo Zagreb,Racing Genk,True,0.13,0.07,3.14,2.94,0.2
+202526-0514,UEL,0.62,1,True,True,ELIGIBLE,0.6,1.2,True,True,PAOK Thessaloniki,Celta de Vigo,True,0.02,-0.2,1.62,1.8,-0.18
+202526-0518,UEL,0.48,2.87,True,True,ELIGIBLE,0.48,2.74,True,True,Fenerbahçe,Nottingham Forest,True,0,0.13,3.35,3.22,0.13
+202526-0520,UEL,0.5,0.81,True,True,ELIGIBLE,0.5,0.94,True,True,SK Brann Bergen,Bologna,True,0,-0.13,1.31,1.44,-0.13
+202526-0917,UECL,0.06,3.23,True,True,ELIGIBLE,0.14,2.9,True,True,KuPS Kuopio,Lech Poznan,True,-0.08,0.33,3.29,3.04,0.25
+202526-0919,UECL,1.04,0.54,True,True,ELIGIBLE,0.98,0.7,True,True,FC Noah,AZ Alkmaar,True,0.06,-0.16,1.58,1.68,-0.1
+202526-0921,UECL,1.24,0.8,True,True,ELIGIBLE,1.24,0.7,True,True,Zrinjski Mostar,Crystal Palace,True,0,0.1,2.04,1.94,0.1
+202526-0929,UECL,2.31,0.46,True,True,ELIGIBLE,2.96,0.46,True,True,Sigma Olomouc,Lausanne Sports,True,-0.65,0,2.77,3.42,-0.65
+202526-0508,UEL,0.47,1.57,True,True,ELIGIBLE,0.47,1.57,True,True,Ludogorets Razgrad,Ferencváros,True,0,0,2.04,2.04,0
+202526-0510,UEL,0.87,0.76,True,True,ELIGIBLE,0.87,0.76,True,True,Panathinaikos,Viktoria Plzen,True,0,0,1.63,1.63,0
+202526-0516,UEL,2.09,1.88,True,True,ELIGIBLE,2.09,1.88,True,True,Celtic,VfB Stuttgart,True,0,0,3.97,3.97,0
+202526-0522,UEL,0.47,2.34,True,True,ELIGIBLE,0.41,2.21,True,True,Lille OSC,Red Star Belgrade,True,0.06,0.13,2.81,2.62,0.19
+202526-0923,UECL,0.73,2.41,True,True,ELIGIBLE,0.73,2.41,True,True,Jagiellonia Bialystok,Fiorentina,True,0,0,3.14,3.14,0
+202526-0925,UECL,0.24,2.55,True,True,ELIGIBLE,0.24,2.4,True,True,Shkendija Tetovo,Samsunspor,True,0,0.15,2.79,2.64,0.15
+202526-0927,UECL,1.7,2.03,True,True,ELIGIBLE,1.55,2.03,True,True,FC Drita,NK Celje,True,0.15,0,3.73,3.58,0.15
+202526-0931,UECL,1.83,0.56,True,True,ELIGIBLE,3.32,0.5,True,True,Omonia Nicosia,NK Rijeka,True,-1.49,0.06,2.39,3.82,-1.43
+202526-0248,UCL,2.32,1.81,True,True,ELIGIBLE,2.1,1.75,True,True,Atlético Madrid,Club Brugge,True,0.22,0.06,4.13,3.85,0.28
+202526-0246,UCL,2.78,1.3,True,True,ELIGIBLE,2.66,1.3,True,True,Newcastle United,Qarabag FK,True,0.12,0,4.08,3.96,0.12
+202526-0250,UCL,2.15,1.74,True,True,ELIGIBLE,2.29,1.74,True,True,Internazionale,Bodø/Glimt,True,-0.14,0,3.89,4.03,-0.14
+202526-0252,UCL,0.69,0.17,True,True,ELIGIBLE,0.69,0.21,True,True,Bayer Leverkusen,Olympiakos Piraeus,True,0,-0.04,0.86,0.9,-0.04
+202526-0244,UCL,2.49,0.93,True,True,ELIGIBLE,2.93,0.93,True,True,Atalanta,Borussia Dortmund,True,-0.44,0,3.42,3.86,-0.44
+202526-0238,UCL,2.13,1.16,True,True,ELIGIBLE,2.21,1.32,True,True,Paris Saint-Germain,AS Monaco,True,-0.08,-0.16,3.29,3.53,-0.24
+202526-0240,UCL,5.06,2.01,True,True,ELIGIBLE,5.2,2.01,True,True,Juventus,Galatasaray,True,-0.14,0,7.07,7.21,-0.14
+202526-0242,UCL,1.11,1.98,True,True,ELIGIBLE,0.98,1.64,True,True,Real Madrid,Benfica,True,0.13,0.34,3.09,2.62,0.47
+202526-0509,UEL,0.46,0.38,True,True,ELIGIBLE,1.75,0.91,True,True,Ferencváros,Ludogorets Razgrad,True,-1.29,-0.53,0.84,2.66,-1.82
+202526-0511,UEL,0.41,0.54,True,True,ELIGIBLE,0.95,1.36,True,True,Viktoria Plzen,Panathinaikos,True,-0.54,-0.82,0.95,2.31,-1.36
+202526-0517,UEL,0.56,0.18,True,True,ELIGIBLE,2.13,0.3,True,True,VfB Stuttgart,Celtic,True,-1.57,-0.12,0.74,2.43,-1.69
+202526-0523,UEL,0.66,0.68,True,True,ELIGIBLE,0.9,1.1,True,True,Red Star Belgrade,Lille OSC,True,-0.24,-0.42,1.34,2,-0.66
+202526-0924,UECL,1.39,2.46,True,True,ELIGIBLE,1.69,2.46,True,True,Fiorentina,Jagiellonia Bialystok,True,-0.3,0,3.85,4.15,-0.3
+202526-0926,UECL,3.72,0.37,True,True,ELIGIBLE,3.84,0.38,True,True,Samsunspor,Shkendija Tetovo,True,-0.12,-0.01,4.09,4.22,-0.13
+202526-0928,UECL,2.81,1.54,True,True,ELIGIBLE,2.9,1.42,True,True,NK Celje,FC Drita,True,-0.09,0.12,4.35,4.32,0.03
+202526-0932,UECL,1.11,1.46,True,True,ELIGIBLE,1.15,2.31,True,True,NK Rijeka,Omonia Nicosia,True,-0.04,-0.85,2.57,3.46,-0.89
+202526-0513,UEL,0.55,0.66,True,True,ELIGIBLE,3.56,1.61,True,True,Racing Genk,Dinamo Zagreb,True,-3.01,-0.95,1.21,5.17,-3.96
+202526-0515,UEL,0.29,0.28,True,True,ELIGIBLE,1.35,0.35,True,True,Celta de Vigo,PAOK Thessaloniki,True,-1.06,-0.07,0.57,1.7,-1.13
+202526-0519,UEL,0.13,0.86,True,True,ELIGIBLE,0.99,1.76,True,True,Nottingham Forest,Fenerbahçe,True,-0.86,-0.9,0.99,2.75,-1.76
+202526-0521,UEL,0.96,0.51,True,True,ELIGIBLE,1.23,0.51,True,True,Bologna,SK Brann Bergen,True,-0.27,0,1.47,1.74,-0.27
+202526-0918,UECL,1.59,0.67,True,True,ELIGIBLE,2.23,0.77,True,True,Lech Poznan,KuPS Kuopio,True,-0.64,-0.1,2.26,3,-0.74
+202526-0920,UECL,1.55,0.13,True,True,ELIGIBLE,1.76,0.13,True,True,AZ Alkmaar,FC Noah,True,-0.21,0,1.68,1.89,-0.21
+202526-0922,UECL,2.22,0.16,True,True,ELIGIBLE,2.05,0.33,True,True,Crystal Palace,Zrinjski Mostar,True,0.17,-0.17,2.38,2.38,4.440892099e-16
+202526-0930,UECL,1.04,1.14,True,True,ELIGIBLE,1.09,1.14,True,True,Lausanne Sports,Sigma Olomouc,True,-0.05,0,2.18,2.23,-0.05
+202526-0255,UCL,1.44,1.28,True,True,ELIGIBLE,1.34,1.31,True,True,Galatasaray,Liverpool,True,0.1,-0.03,2.72,2.65,0.07
+202526-0259,UCL,0.72,4.56,True,True,ELIGIBLE,1.68,4.84,True,True,Atalanta,Bayern München,True,-0.96,-0.28,5.28,6.52,-1.24
+202526-0261,UCL,1.38,0.69,True,True,ELIGIBLE,1.3,1.42,True,True,Newcastle United,FC Barcelona,True,0.08,-0.73,2.07,2.72,-0.65
+202526-0263,UCL,3.12,1.41,True,True,ELIGIBLE,2.59,1.99,True,True,Atlético Madrid,Tottenham Hotspur,True,0.53,-0.58,4.53,4.58,-0.05
+202526-0267,UCL,0.88,1.65,True,True,ELIGIBLE,0.85,1.64,True,True,Bayer Leverkusen,Arsenal,True,0.03,0.01,2.53,2.49,0.04
+202526-0253,UCL,0.87,1.53,True,True,ELIGIBLE,0.9,1.57,True,True,Paris Saint-Germain,Chelsea,True,-0.03,-0.04,2.4,2.47,-0.07
+202526-0257,UCL,2.59,0.56,True,True,ELIGIBLE,2.63,0.59,True,True,Real Madrid,Manchester City,True,-0.04,-0.03,3.15,3.22,-0.07
+202526-0265,UCL,2.46,0.51,True,True,ELIGIBLE,2.78,0.61,True,True,Bodø/Glimt,Sporting CP Lisbon,True,-0.32,-0.1,2.97,3.39,-0.42
+202526-0526,UEL,0.98,0.65,True,True,ELIGIBLE,0.97,0.68,True,True,Panathinaikos,Real Betis,True,0.01,-0.03,1.63,1.65,-0.02
+202526-0532,UEL,0.63,0.98,True,True,ELIGIBLE,0.63,0.94,True,True,VfB Stuttgart,FC Porto,True,0,0.04,1.61,1.57,0.04
+202526-0536,UEL,1.39,1.36,True,True,ELIGIBLE,1.46,1.35,True,True,Bologna,AS Roma,True,-0.07,0.01,2.75,2.81,-0.06
+202526-0538,UEL,0.4,0.49,True,True,ELIGIBLE,0.43,0.51,True,True,Lille OSC,Aston Villa,True,-0.03,-0.02,0.89,0.94,-0.05
+202526-0933,UECL,1.45,1.27,True,True,ELIGIBLE,1.45,1.79,True,True,Lech Poznan,Shakhtar Donetsk,True,0,-0.52,2.72,3.24,-0.52
+202526-0935,UECL,4.04,0.97,True,True,ELIGIBLE,3.84,0.97,True,True,AZ Alkmaar,Sparta Praha,True,0.2,0,5.01,4.81,0.2
+202526-0941,UECL,0.58,0.55,True,True,ELIGIBLE,0.54,0.55,True,True,Samsunspor,Rayo Vallecano,True,0.04,0,1.13,1.09,0.04
+202526-0947,UECL,1.26,2.5,True,True,ELIGIBLE,2.1,2.5,True,True,NK Rijeka,RC Strasbourg,True,-0.84,0,3.76,4.6,-0.84
+202526-0524,UEL,1.18,0.79,True,True,ELIGIBLE,1.42,0.59,True,True,Ferencváros,Sporting Braga,True,-0.24,0.2,1.97,2.01,-0.04
+202526-0528,UEL,0.85,0.26,True,True,ELIGIBLE,1,0.3,True,True,Racing Genk,SC Freiburg,True,-0.15,-0.04,1.11,1.3,-0.19
+202526-0530,UEL,0.97,0.77,True,True,ELIGIBLE,1.1,1.08,True,True,Celta de Vigo,Olympique Lyon,True,-0.13,-0.31,1.74,2.18,-0.44
+202526-0534,UEL,1.68,0.69,True,True,ELIGIBLE,1.72,0.69,True,True,Nottingham Forest,FC Midtjylland,True,-0.04,0,2.37,2.41,-0.04
+202526-0937,UECL,1.59,0.01,True,True,ELIGIBLE,1.98,0.23,True,True,Crystal Palace,AEK Larnaca,True,-0.39,-0.22,1.6,2.21,-0.61
+202526-0939,UECL,1.77,0.78,True,True,ELIGIBLE,1.94,0.52,True,True,Fiorentina,Raków Czestochowa,True,-0.17,0.26,2.55,2.46,0.09
+202526-0943,UECL,0.28,2.78,True,True,ELIGIBLE,0.26,3.76,True,True,NK Celje,AEK Athens,True,0.02,-0.98,3.06,4.02,-0.96
+202526-0945,UECL,0.32,0.86,True,True,ELIGIBLE,0.44,0.73,True,True,Sigma Olomouc,FSV Mainz 05,True,-0.12,0.13,1.18,1.17,0.01
+202526-0266,UCL,3.35,0.54,True,True,ELIGIBLE,3.78,0.54,True,True,Sporting CP Lisbon,Bodø/Glimt,True,-0.43,0,3.89,4.32,-0.43
+202526-0254,UCL,1,1.09,True,True,ELIGIBLE,1.26,1.09,True,True,Chelsea,Paris Saint-Germain,True,-0.26,0,2.09,2.35,-0.26
+202526-0258,UCL,1.91,2.29,True,True,ELIGIBLE,1.95,3.14,True,True,Manchester City,Real Madrid,True,-0.04,-0.85,4.2,5.09,-0.89
+202526-0268,UCL,1.75,0.52,True,True,ELIGIBLE,1.7,0.52,True,True,Arsenal,Bayer Leverkusen,True,0.05,0,2.27,2.22,0.05
+202526-0525,UEL,1.58,0.17,True,True,ELIGIBLE,1.54,0.17,True,True,Sporting Braga,Ferencváros,True,0.04,0,1.75,1.71,0.04
+202526-0262,UCL,4.29,1.52,True,True,ELIGIBLE,4.29,1.54,True,True,FC Barcelona,Newcastle United,True,0,-0.02,5.81,5.83,-0.02
+202526-0256,UCL,5.02,0.18,True,True,ELIGIBLE,4.88,0.18,True,True,Liverpool,Galatasaray,True,0.14,0,5.2,5.06,0.14
+202526-0260,UCL,3.61,2.3,True,True,ELIGIBLE,3.59,2.06,True,True,Bayern München,Atalanta,True,0.02,0.24,5.91,5.65,0.26
+202526-0264,UCL,2.44,1.04,True,True,ELIGIBLE,2.39,1.02,True,True,Tottenham Hotspur,Atlético Madrid,True,0.05,0.02,3.48,3.41,0.07
+202526-0529,UEL,1.95,1.06,True,True,ELIGIBLE,2.41,1.74,True,True,SC Freiburg,Racing Genk,True,-0.46,-0.68,3.01,4.15,-1.14
+202526-0531,UEL,0.24,1.54,True,True,ELIGIBLE,0.24,1.49,True,True,Olympique Lyon,Celta de Vigo,True,0,0.05,1.78,1.73,0.05
+202526-0535,UEL,0.67,2.03,True,True,ELIGIBLE,0.7,2.07,True,True,FC Midtjylland,Nottingham Forest,True,-0.03,-0.04,2.7,2.77,-0.07
+202526-0938,UECL,0.28,3.18,True,True,ELIGIBLE,0.22,3.61,True,True,AEK Larnaca,Crystal Palace,True,0.06,-0.43,3.46,3.83,-0.37
+202526-0940,UECL,0.76,1.67,True,True,ELIGIBLE,0.85,2.17,True,True,Raków Czestochowa,Fiorentina,True,-0.09,-0.5,2.43,3.02,-0.59
+202526-0944,UECL,0.98,1.21,True,True,ELIGIBLE,1.1,1.21,True,True,AEK Athens,NK Celje,True,-0.12,0,2.19,2.31,-0.12
+202526-0946,UECL,1.44,0.48,True,True,ELIGIBLE,1.91,0.47,True,True,FSV Mainz 05,Sigma Olomouc,True,-0.47,0.01,1.92,2.38,-0.46
+202526-0527,UEL,3,0.26,True,True,ELIGIBLE,3.13,0.26,True,True,Real Betis,Panathinaikos,True,-0.13,0,3.26,3.39,-0.13
+202526-0533,UEL,1.52,1.55,True,True,ELIGIBLE,1.5,1.71,True,True,FC Porto,VfB Stuttgart,True,0.02,-0.16,3.07,3.21,-0.14
+202526-0537,UEL,2.03,1.69,True,True,ELIGIBLE,2.19,1.75,True,True,AS Roma,Bologna,True,-0.16,-0.06,3.72,3.94,-0.22
+202526-0539,UEL,1.8,0.34,True,True,ELIGIBLE,1.85,0.39,True,True,Aston Villa,Lille OSC,True,-0.05,-0.05,2.14,2.24,-0.1
+202526-0934,UECL,0.43,2.14,True,True,ELIGIBLE,0.62,2.13,True,True,Shakhtar Donetsk,Lech Poznan,True,-0.19,0.01,2.57,2.75,-0.18
+202526-0936,UECL,0.72,1.91,True,True,ELIGIBLE,0.74,2.52,True,True,Sparta Praha,AZ Alkmaar,True,-0.02,-0.61,2.63,3.26,-0.63
+202526-0942,UECL,1.23,0.93,True,True,ELIGIBLE,1.15,0.92,True,True,Rayo Vallecano,Samsunspor,True,0.08,0.01,2.16,2.07,0.09
+202526-0948,UECL,1.04,1.01,True,True,ELIGIBLE,1.11,1.34,True,True,RC Strasbourg,NK Rijeka,True,-0.07,-0.33,2.05,2.45,-0.4
+202526-0271,UCL,2.2,2.92,True,True,ELIGIBLE,2.2,2.92,True,True,Real Madrid,Bayern München,True,0,0,5.12,5.12,0
+202526-0275,UCL,0.71,1.33,True,True,ELIGIBLE,0.71,1.33,True,True,Sporting CP Lisbon,Arsenal,True,0,0,2.04,2.04,0
+202526-0540,UEL,1.39,1.54,True,True,ELIGIBLE,1.26,1.55,True,True,Sporting Braga,Real Betis,True,0.13,-0.01,2.93,2.81,0.12
+202526-0269,UCL,2.2,0.18,True,True,ELIGIBLE,2.35,0.17,True,True,Paris Saint-Germain,Liverpool,True,-0.15,0.01,2.38,2.52,-0.14
+202526-0273,UCL,1.16,0.45,True,True,ELIGIBLE,1.1,0.44,True,True,FC Barcelona,Atlético Madrid,True,0.06,0.01,1.61,1.54,0.07
+202526-0953,UECL,2.31,1.14,True,True,ELIGIBLE,2.33,1.11,True,True,Rayo Vallecano,AEK Athens,True,-0.02,0.03,3.45,3.44,0.01
+202526-0542,UEL,1.56,0.58,True,True,ELIGIBLE,1.59,0.53,True,True,SC Freiburg,Celta de Vigo,True,-0.03,0.05,2.14,2.12,0.02
+202526-0544,UEL,2.16,0.45,True,True,ELIGIBLE,2.16,0.45,True,True,FC Porto,Nottingham Forest,True,0,0,2.61,2.61,0
+202526-0546,UEL,0.9,1.64,True,True,ELIGIBLE,0.85,1.57,True,True,Bologna,Aston Villa,True,0.05,0.07,2.54,2.42,0.12
+202526-0949,UECL,0.78,0.49,True,True,ELIGIBLE,0.71,0.49,True,True,Shakhtar Donetsk,AZ Alkmaar,True,0.07,0,1.27,1.2,0.07
+202526-0951,UECL,3.05,0.45,True,True,ELIGIBLE,3.05,0.45,True,True,Crystal Palace,Fiorentina,True,0,0,3.5,3.5,0
+202526-0955,UECL,1.52,1,True,True,ELIGIBLE,1.62,1.06,True,True,FSV Mainz 05,RC Strasbourg,True,-0.1,-0.06,2.52,2.68,-0.16
+202526-0270,UCL,1.93,1.25,True,True,ELIGIBLE,1.97,1.09,True,True,Liverpool,Paris Saint-Germain,True,-0.04,0.16,3.18,3.06,0.12
+202526-0274,UCL,1.64,2.25,True,True,ELIGIBLE,1.77,2.22,True,True,Atlético Madrid,FC Barcelona,True,-0.13,0.03,3.89,3.99,-0.1
+202526-0272,UCL,2.14,2.25,True,True,ELIGIBLE,2.14,2.25,True,True,Bayern München,Real Madrid,True,0,0,4.39,4.39,0
+202526-0276,UCL,0.67,0.29,True,True,ELIGIBLE,0.64,0.29,True,True,Arsenal,Sporting CP Lisbon,True,0.03,0,0.96,0.93,0.03
+202526-0543,UEL,1.6,1.06,True,True,ELIGIBLE,1.6,1.06,True,True,Celta de Vigo,SC Freiburg,True,0,0,2.66,2.66,0
+202526-0950,UECL,0.85,1.51,True,True,ELIGIBLE,0.81,1.65,True,True,AZ Alkmaar,Shakhtar Donetsk,True,0.04,-0.14,2.36,2.46,-0.1
+202526-0541,UEL,1.25,1.5,True,True,ELIGIBLE,1.25,1.5,True,True,Real Betis,Sporting Braga,True,0,0,2.75,2.75,0
+202526-0545,UEL,2.17,0.97,True,True,ELIGIBLE,2.17,0.97,True,True,Nottingham Forest,FC Porto,True,0,0,3.14,3.14,0
+202526-0547,UEL,2.49,0.8,True,True,ELIGIBLE,2.49,0.8,True,True,Aston Villa,Bologna,True,0,0,3.29,3.29,0
+202526-0952,UECL,1.92,1.34,True,True,ELIGIBLE,1.9,1.43,True,True,Fiorentina,Crystal Palace,True,0.02,-0.09,3.26,3.33,-0.07
+202526-0954,UECL,2.78,1.8,True,True,ELIGIBLE,2.78,1.9,True,True,AEK Athens,Rayo Vallecano,True,0,-0.1,4.58,4.68,-0.1
+202526-0956,UECL,2.89,0.24,True,True,ELIGIBLE,3.26,0.24,True,True,RC Strasbourg,FSV Mainz 05,True,-0.37,0,3.13,3.5,-0.37
+202526-0277,UCL,1.91,2.51,True,True,ELIGIBLE,1.9,3.06,True,True,Paris Saint-Germain,Bayern München,True,0.01,-0.55,4.42,4.96,-0.54
+202526-0279,UCL,2.22,1.5,True,True,ELIGIBLE,2.21,1.51,True,True,Atlético Madrid,Arsenal,True,0.01,-0.01,3.72,3.72,4.440892099e-16
+202526-0548,UEL,2.37,1.11,True,True,ELIGIBLE,2.39,1.31,True,True,Sporting Braga,SC Freiburg,True,-0.02,-0.2,3.48,3.7,-0.22
+202526-0550,UEL,1.46,0.77,True,True,ELIGIBLE,1.56,0.79,True,True,Nottingham Forest,Aston Villa,True,-0.1,-0.02,2.23,2.35,-0.12
+202526-0957,UECL,1.01,2.11,True,True,ELIGIBLE,1.15,2.2,True,True,Shakhtar Donetsk,Crystal Palace,True,-0.14,-0.09,3.12,3.35,-0.23
+202526-0959,UECL,1.4,0.21,True,True,ELIGIBLE,1.29,0.21,True,True,Rayo Vallecano,RC Strasbourg,True,0.11,0,1.61,1.5,0.11
+202526-0280,UCL,1.58,0.53,True,True,ELIGIBLE,1.56,0.99,True,True,Arsenal,Atlético Madrid,True,0.02,-0.46,2.11,2.55,-0.44
+202526-0278,UCL,1.4,1.03,True,True,ELIGIBLE,1.41,1.06,True,True,Bayern München,Paris Saint-Germain,True,-0.01,-0.03,2.43,2.47,-0.04
+202526-0549,UEL,1.69,1.6,True,True,ELIGIBLE,1.83,1.84,True,True,SC Freiburg,Sporting Braga,True,-0.14,-0.24,3.29,3.67,-0.38
+202526-0551,UEL,2.58,0.79,True,True,ELIGIBLE,2.74,0.79,True,True,Aston Villa,Nottingham Forest,True,-0.16,0,3.37,3.53,-0.16
+202526-0958,UECL,1.37,1.04,True,True,ELIGIBLE,1.35,1.11,True,True,Crystal Palace,Shakhtar Donetsk,True,0.02,-0.07,2.41,2.46,-0.05
+202526-0960,UECL,1.6,1.73,True,True,ELIGIBLE,1.48,1.69,True,True,RC Strasbourg,Rayo Vallecano,True,0.12,0.04,3.33,3.17,0.16
+202526-0552,UEL,0.22,2.08,True,True,ELIGIBLE,0.27,2.3,True,True,SC Freiburg,Aston Villa,True,-0.05,-0.22,2.3,2.57,-0.27
+202526-0961,UECL,2.54,0.44,True,True,ELIGIBLE,2.58,0.56,True,True,Crystal Palace,Rayo Vallecano,True,-0.04,-0.12,2.98,3.14,-0.16
+202526-0281,UCL,1.77,0.44,True,True,ELIGIBLE,1.72,0.51,True,True,Paris Saint-Germain,Arsenal,True,0.05,-0.07,2.21,2.23,-0.02

@@ -1,0 +1,30 @@
+{
+  "reason": "One UCL, UEL and UECL sample returned no result records.",
+  "samples": [
+    {
+      "competition": "UCL",
+      "records": 0,
+      "source_event_id": "2272338",
+      "top_level_fields": [
+        "Message"
+      ]
+    },
+    {
+      "competition": "UEL",
+      "records": 0,
+      "source_event_id": "2272315",
+      "top_level_fields": [
+        "Message"
+      ]
+    },
+    {
+      "competition": "UECL",
+      "records": 0,
+      "source_event_id": "2272248",
+      "top_level_fields": [
+        "Message"
+      ]
+    }
+  ],
+  "status": "NOT_APPLICABLE_FOR_SOCCER"
+}

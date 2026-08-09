@@ -138,6 +138,23 @@ def test_domestic_context_allows_only_one_target_season() -> None:
         run_model(inputs)
 
 
+def test_domestic_history_position_and_team_count_must_be_paired() -> None:
+    inputs = valid_inputs()
+    inputs["domestic_context"]["history_position_t_minus_1"] = 2
+
+    with pytest.raises(ValueError, match=r"must be supplied in pairs"):
+        run_model(inputs)
+
+
+def test_domestic_history_rejects_invalid_position() -> None:
+    inputs = valid_inputs()
+    inputs["domestic_context"]["history_position_t_minus_1"] = 21
+    inputs["domestic_context"]["history_team_count_t_minus_1"] = 20
+
+    with pytest.raises(ValueError, match=r"must be <="):
+        run_model(inputs)
+
+
 def test_match_cap_must_be_positive_even_without_european_history() -> None:
     inputs = valid_inputs()
     inputs["club_european_points"].loc[0, "match_cap_t"] = 0

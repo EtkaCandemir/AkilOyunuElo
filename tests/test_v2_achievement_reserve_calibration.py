@@ -57,6 +57,7 @@ def synthetic_reserve_season() -> ReserveSeasonData:
     return ReserveSeasonData(
         goal=goal,
         tie_ids=np.array(["tie-1", None], dtype=object),
+        tie_match_counts=np.array([1, 0]),
         knockout_flags=np.array([True, False]),
         tie_decider_flags=np.array([True, False]),
         advanced_team_ids=np.array([1, -1]),

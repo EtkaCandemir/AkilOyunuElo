@@ -9,6 +9,16 @@ from typing import Iterable, Mapping
 
 from ao_elo.config import AO_MODEL_V2_VERSION, V2_RATING_MULTIPLIER
 from ao_elo.controlled_live import calculate_goal_difference_multiplier
+from ao_elo.tournament_bonus import (
+    ELIGIBLE_PROGRESSION_STAGES,
+    FixedTournamentBonusConfig,
+    apply_tournament_progress_bonus,
+)
+from ao_elo.xg_live import (
+    XGBlendConfig,
+    XGPerformanceBonusConfig,
+    update_match_elo_with_xg,
+)
 
 
 COMPETITIONS = ("UCL", "UEL", "UECL")
@@ -87,6 +97,13 @@ class DynamicEloConfig:
     goal_alpha: float = 0.0
     goal_tau: float = 300.0
     goal_difference_cap: int = 4
+    xg_performance_enabled: bool = False
+    xg_performance_ratio: float = 0.0
+    xg_performance_scale: float = 1.25
+    minimum_winner_gain_ratio: float = 0.70
+    progression_bonus_enabled: bool = False
+    progression_base_bonus: float = 0.0
+    progression_stages_per_competition: int = 5
     reserve_base: float = 0.0
     reserve_cap: float = 80.0 * V2_RATING_MULTIPLIER
     reserve_decay: float = 0.0
@@ -98,7 +115,7 @@ class DynamicEloConfig:
 
     @classmethod
     def calibrated_v2(cls) -> DynamicEloConfig:
-        """Return the development-frozen v2 parameters selected on 2018-2026 data."""
+        """Return the active v2 parameters frozen after development and review."""
         return cls(
             model_version=AO_MODEL_V2_VERSION,
             elo_scale=225.0 * V2_RATING_MULTIPLIER,
@@ -108,9 +125,16 @@ class DynamicEloConfig:
             draw_at_even=0.24,
             draw_shape=1.0,
             goal_difference_enabled=True,
-            goal_alpha=0.10,
+            goal_alpha=0.15,
             goal_tau=300.0,
             goal_difference_cap=4,
+            xg_performance_enabled=True,
+            xg_performance_ratio=0.30,
+            xg_performance_scale=1.25,
+            minimum_winner_gain_ratio=0.70,
+            progression_bonus_enabled=True,
+            progression_base_bonus=12.0,
+            progression_stages_per_competition=5,
             reserve_base=0.0,
             reserve_decay=0.0,
         )
@@ -143,6 +167,48 @@ class DynamicEloConfig:
         if not self.goal_difference_enabled and self.goal_alpha != 0.0:
             raise ValueError(
                 "Disabled goal-difference config must have goal_alpha=0"
+            )
+        if not isinstance(self.xg_performance_enabled, bool):
+            raise ValueError("xg_performance_enabled must be boolean")
+        _require_between_zero_and_one(
+            "xg_performance_ratio",
+            self.xg_performance_ratio,
+        )
+        _require_positive_finite(
+            "xg_performance_scale",
+            self.xg_performance_scale,
+        )
+        _require_between_zero_and_one(
+            "minimum_winner_gain_ratio",
+            self.minimum_winner_gain_ratio,
+        )
+        if self.minimum_winner_gain_ratio <= 0.0:
+            raise ValueError("minimum_winner_gain_ratio must be positive")
+        if self.xg_performance_enabled and self.xg_performance_ratio <= 0.0:
+            raise ValueError(
+                "Enabled xG performance config must have positive xg_performance_ratio"
+            )
+        if not self.xg_performance_enabled and self.xg_performance_ratio != 0.0:
+            raise ValueError(
+                "Disabled xG performance config must have xg_performance_ratio=0"
+            )
+        if not isinstance(self.progression_bonus_enabled, bool):
+            raise ValueError("progression_bonus_enabled must be boolean")
+        _require_non_negative_finite(
+            "progression_base_bonus",
+            self.progression_base_bonus,
+        )
+        _require_positive_integer(
+            "progression_stages_per_competition",
+            self.progression_stages_per_competition,
+        )
+        if self.progression_bonus_enabled and self.progression_base_bonus <= 0.0:
+            raise ValueError(
+                "Enabled progression bonus must have positive progression_base_bonus"
+            )
+        if not self.progression_bonus_enabled and self.progression_base_bonus != 0.0:
+            raise ValueError(
+                "Disabled progression bonus must have progression_base_bonus=0"
             )
         _require_non_negative_finite("reserve_base", self.reserve_base)
         _require_positive_finite("reserve_cap", self.reserve_cap)
@@ -184,6 +250,25 @@ class DynamicEloConfig:
         except KeyError as error:
             raise ValueError(f"Unknown stage: {stage}") from error
 
+    @property
+    def fixed_progression_config(self) -> FixedTournamentBonusConfig:
+        config = FixedTournamentBonusConfig(
+            base_bonus=self.progression_base_bonus,
+            stages_per_competition=self.progression_stages_per_competition,
+        )
+        config.validate()
+        return config
+
+    @property
+    def xg_performance_config(self) -> XGPerformanceBonusConfig:
+        config = XGPerformanceBonusConfig(
+            beta=self.xg_performance_ratio,
+            xg_scale=self.xg_performance_scale,
+            minimum_winner_gain_ratio=self.minimum_winner_gain_ratio,
+        )
+        config.validate()
+        return config
+
 
 @dataclass(frozen=True)
 class TeamSeed:
@@ -204,12 +289,33 @@ class TeamRating:
     ao_first_elo: float
     power_elo: float
     achievement_reserve: float
+    progression_bonus_ucl: float = 0.0
+    progression_bonus_uel: float = 0.0
+    progression_bonus_uecl: float = 0.0
     last_event_utc: datetime | None = None
     last_match_id: str | None = None
 
     @property
     def ao_live_elo(self) -> float:
-        return self.power_elo + self.achievement_reserve
+        return self.power_elo + self.achievement_reserve + self.progression_bonus_total
+
+    @property
+    def progression_bonus_total(self) -> float:
+        return (
+            self.progression_bonus_ucl
+            + self.progression_bonus_uel
+            + self.progression_bonus_uecl
+        )
+
+    def progression_bonus_for(self, competition: str) -> float:
+        try:
+            return {
+                "UCL": self.progression_bonus_ucl,
+                "UEL": self.progression_bonus_uel,
+                "UECL": self.progression_bonus_uecl,
+            }[competition]
+        except KeyError as error:
+            raise ValueError(f"Unknown competition: {competition}") from error
 
 
 @dataclass(frozen=True)
@@ -227,6 +333,7 @@ class SeasonState:
     season: str
     ratings: Mapping[str, TeamRating]
     processed_match_ids: frozenset[str]
+    processed_tie_ids: frozenset[str]
     open_ties: Mapping[str, TieState]
     last_event_utc: datetime | None
     last_match_id: str | None
@@ -295,6 +402,9 @@ class MatchInput:
     is_tie_decider: bool = False
     advanced_team_id: str | None = None
     stage: str | None = None
+    xg_home: float | None = None
+    xg_away: float | None = None
+    xg_analysis_eligible: bool = False
 
     def fixture(self) -> MatchFixture:
         return MatchFixture(
@@ -329,10 +439,18 @@ class MatchInput:
             raise ValueError("advanced_team_id is only valid on a tie decider")
         if self.decided_on_penalties and not self.is_tie_decider:
             raise ValueError("decided_on_penalties requires a deciding knockout match")
-        if self.decided_on_penalties and self.home_goals != self.away_goals:
-            raise ValueError(
-                "Penalty-decided matches require a tied 90/120-minute field score"
-            )
+        if not isinstance(self.xg_analysis_eligible, bool):
+            raise ValueError("xg_analysis_eligible must be boolean")
+        if (self.xg_home is None) != (self.xg_away is None):
+            raise ValueError("xg_home and xg_away must be provided together")
+        if self.xg_home is not None:
+            _require_non_negative_finite("xg_home", self.xg_home)
+            assert self.xg_away is not None
+            _require_non_negative_finite("xg_away", self.xg_away)
+        if self.xg_analysis_eligible and self.xg_home is None:
+            raise ValueError("Eligible xG requires both xg_home and xg_away")
+        if not self.xg_analysis_eligible and self.xg_home is not None:
+            raise ValueError("Ineligible xG rows must leave xg_home and xg_away empty")
 
 
 @dataclass(frozen=True)
@@ -450,6 +568,8 @@ class MatchUpdate:
     away_power_pre: float
     home_reserve_pre: float
     away_reserve_pre: float
+    home_progression_bonus_pre: float
+    away_progression_bonus_pre: float
     home_live_pre: float
     away_live_pre: float
     effective_rating_difference: float
@@ -464,16 +584,37 @@ class MatchUpdate:
     goal_difference_cap: int
     goal_difference: int
     goal_multiplier: float
+    xg_performance_enabled: bool
+    xg_analysis_eligible: bool
+    xg_applied: bool
+    xg_fallback_used: bool
+    xg_home: float | None
+    xg_away: float | None
+    xg_performance_ratio: float
+    xg_performance_scale: float
+    minimum_winner_gain_ratio: float
+    xg_performance_signal: float | None
+    power_delta_before_xg: float
+    xg_power_adjustment: float
     power_delta: float
     home_reserve_delta: float
     away_reserve_delta: float
+    home_progression_bonus_delta: float
+    away_progression_bonus_delta: float
     home_power_post: float
     away_power_post: float
     home_reserve_post: float
     away_reserve_post: float
+    home_progression_bonus_post: float
+    away_progression_bonus_post: float
     home_live_post: float
     away_live_post: float
     winner_probability: float | None
+    progression_bonus_recipient_id: str | None
+    progression_bonus_added: float
+    progression_bonus_competition_pre: float
+    progression_bonus_competition_post: float
+    progression_bonus_competition_cap: float
     progression_reserve_added: float
     trophy_reserve_added: float
     model_version: str
@@ -784,6 +925,7 @@ def initialize_season(
         season=season,
         ratings=ratings,
         processed_match_ids=frozenset(),
+        processed_tie_ids=frozenset(),
         open_ties={},
         last_event_utc=None,
         last_match_id=None,
@@ -856,6 +998,7 @@ def update_match(
 
     ratings = dict(state.ratings)
     open_ties = dict(state.open_ties)
+    processed_tie_ids = set(state.processed_tie_ids)
     home = ratings[match.home_team_id]
     away = ratings[match.away_team_id]
     stage = match.stage or normalize_stage(
@@ -863,6 +1006,8 @@ def update_match(
         match.competition,
         match.is_knockout,
     )
+    if match.is_knockout and match.tie_id in processed_tie_ids:
+        raise ValueError(f"Knockout tie_id already completed: {match.tie_id}")
     if match.is_knockout and match.tie_id not in open_ties:
         assert match.tie_id is not None
         open_ties[match.tie_id] = TieState(
@@ -903,22 +1048,44 @@ def update_match(
             neutral=match.is_neutral,
         )
     )
-    actual = actual_home_score(match.home_goals, match.away_goals)
-    field_draw = match.home_goals == match.away_goals
-    difference = 0 if field_draw else abs(match.home_goals - match.away_goals)
-    effective_rating_difference = (
-        home.ao_live_elo
-        - away.ao_live_elo
-        + (0.0 if match.is_neutral else config.home_advantage)
-    )
-    multiplier = goal_multiplier(
-        difference,
-        effective_rating_difference,
-        config,
+    xg_home = match.xg_home if match.xg_analysis_eligible else None
+    xg_away = match.xg_away if match.xg_analysis_eligible else None
+    elo_update = update_match_elo_with_xg(
+        home.ao_live_elo,
+        away.ao_live_elo,
+        match.home_goals,
+        match.away_goals,
+        k_factor=config.k_factor,
+        elo_scale=config.elo_scale,
+        home_advantage=config.home_advantage,
+        is_neutral=match.is_neutral,
         decided_on_penalties=match.decided_on_penalties,
-        is_draw=field_draw,
+        goal_difference_enabled=config.goal_difference_enabled,
+        goal_alpha=config.goal_alpha,
+        goal_tau=config.goal_tau,
+        goal_difference_cap=config.goal_difference_cap,
+        xg_config=XGBlendConfig(0.0, 1.0),
+        xg_home=xg_home,
+        xg_away=xg_away,
+        xg_performance_bonus_config=(
+            config.xg_performance_config
+            if config.xg_performance_enabled
+            else None
+        ),
     )
-    delta = config.k_factor * multiplier * (actual - probability)
+    actual = elo_update.actual_home_score
+    difference = elo_update.goal_difference
+    effective_rating_difference = elo_update.effective_rating_difference
+    multiplier = elo_update.goal_difference_multiplier
+    delta = elo_update.power_delta
+    power_delta_before_xg = config.k_factor * elo_update.result_residual
+    xg_power_adjustment = delta - power_delta_before_xg
+    xg_applied = (
+        config.xg_performance_enabled
+        and match.xg_analysis_eligible
+        and actual != 0.5
+        and not match.decided_on_penalties
+    )
     home_post = replace(
         home,
         power_elo=home.power_elo + delta,
@@ -941,6 +1108,13 @@ def update_match(
     working = replace(state, ratings=ratings, open_ties=open_ties)
 
     winner_probability: float | None = None
+    progression_bonus_recipient_id: str | None = None
+    progression_bonus_added = 0.0
+    progression_bonus_competition_pre = 0.0
+    progression_bonus_competition_post = 0.0
+    progression_bonus_competition_cap = config.fixed_progression_config.cap(
+        match.competition
+    )
     progression_added = 0.0
     trophy_added = 0.0
     if match.is_tie_decider:
@@ -955,7 +1129,48 @@ def update_match(
             if match.advanced_team_id == tie.team_a_id
             else 1.0 - tie.expected_a_to_advance
         )
-        working = replace(working, open_ties=open_ties)
+        if match.tie_id in processed_tie_ids:
+            raise ValueError(f"Progression bonus already processed for tie_id: {match.tie_id}")
+        winner = working.ratings[match.advanced_team_id]
+        progression_bonus_competition_pre = winner.progression_bonus_for(
+            match.competition
+        )
+        if (
+            config.progression_bonus_enabled
+            and stage in ELIGIBLE_PROGRESSION_STAGES
+        ):
+            bonus_update = apply_tournament_progress_bonus(
+                progression_bonus_competition_pre,
+                match.competition,
+                stage,
+                match.tie_id,
+                processed_tie_ids,
+                config.fixed_progression_config,
+            )
+            progression_bonus_added = bonus_update.applied_bonus
+            progression_bonus_competition_post = bonus_update.bonus_post
+            progression_bonus_competition_cap = bonus_update.competition_cap
+            progression_bonus_recipient_id = match.advanced_team_id
+            field_name = {
+                "UCL": "progression_bonus_ucl",
+                "UEL": "progression_bonus_uel",
+                "UECL": "progression_bonus_uecl",
+            }[match.competition]
+            winner = replace(
+                winner,
+                **{field_name: progression_bonus_competition_post},
+            )
+            working_ratings = dict(working.ratings)
+            working_ratings[match.advanced_team_id] = winner
+            working = replace(working, ratings=working_ratings)
+        else:
+            processed_tie_ids.add(match.tie_id)
+            progression_bonus_competition_post = progression_bonus_competition_pre
+        working = replace(
+            working,
+            open_ties=open_ties,
+            processed_tie_ids=frozenset(processed_tie_ids),
+        )
         working, progression_added = apply_progression(
             working,
             match.advanced_team_id,
@@ -1007,6 +1222,8 @@ def update_match(
         away_power_pre=away.power_elo,
         home_reserve_pre=home.achievement_reserve,
         away_reserve_pre=away.achievement_reserve,
+        home_progression_bonus_pre=home.progression_bonus_total,
+        away_progression_bonus_pre=away.progression_bonus_total,
         home_live_pre=home.ao_live_elo,
         away_live_pre=away.ao_live_elo,
         effective_rating_difference=effective_rating_difference,
@@ -1021,6 +1238,20 @@ def update_match(
         goal_difference_cap=config.goal_difference_cap,
         goal_difference=difference,
         goal_multiplier=multiplier,
+        xg_performance_enabled=config.xg_performance_enabled,
+        xg_analysis_eligible=match.xg_analysis_eligible,
+        xg_applied=xg_applied,
+        xg_fallback_used=(
+            config.xg_performance_enabled and not match.xg_analysis_eligible
+        ),
+        xg_home=match.xg_home,
+        xg_away=match.xg_away,
+        xg_performance_ratio=config.xg_performance_ratio,
+        xg_performance_scale=config.xg_performance_scale,
+        minimum_winner_gain_ratio=config.minimum_winner_gain_ratio,
+        xg_performance_signal=elo_update.xg_performance_signal,
+        power_delta_before_xg=power_delta_before_xg,
+        xg_power_adjustment=xg_power_adjustment,
         power_delta=delta,
         home_reserve_delta=(
             final_home.achievement_reserve - home.achievement_reserve
@@ -1028,13 +1259,26 @@ def update_match(
         away_reserve_delta=(
             final_away.achievement_reserve - away.achievement_reserve
         ),
+        home_progression_bonus_delta=(
+            final_home.progression_bonus_total - home.progression_bonus_total
+        ),
+        away_progression_bonus_delta=(
+            final_away.progression_bonus_total - away.progression_bonus_total
+        ),
         home_power_post=final_home.power_elo,
         away_power_post=final_away.power_elo,
         home_reserve_post=final_home.achievement_reserve,
         away_reserve_post=final_away.achievement_reserve,
+        home_progression_bonus_post=final_home.progression_bonus_total,
+        away_progression_bonus_post=final_away.progression_bonus_total,
         home_live_post=final_home.ao_live_elo,
         away_live_post=final_away.ao_live_elo,
         winner_probability=winner_probability,
+        progression_bonus_recipient_id=progression_bonus_recipient_id,
+        progression_bonus_added=progression_bonus_added,
+        progression_bonus_competition_pre=progression_bonus_competition_pre,
+        progression_bonus_competition_post=progression_bonus_competition_post,
+        progression_bonus_competition_cap=progression_bonus_competition_cap,
         progression_reserve_added=progression_added,
         trophy_reserve_added=trophy_added,
         model_version=config.model_version,
@@ -1153,6 +1397,25 @@ def _validate_state_config(state: SeasonState, config: DynamicEloConfig) -> None
         )
         if rating.achievement_reserve > config.reserve_cap + 1e-9:
             raise ValueError(f"State reserve exceeds cap for team_id: {team_id}")
+        for competition, value in (
+            ("UCL", rating.progression_bonus_ucl),
+            ("UEL", rating.progression_bonus_uel),
+            ("UECL", rating.progression_bonus_uecl),
+        ):
+            _require_non_negative_finite(
+                f"state {competition} progression bonus",
+                value,
+            )
+            cap = config.fixed_progression_config.cap(competition)
+            if value > cap + 1e-9:
+                raise ValueError(
+                    f"State {competition} progression bonus exceeds cap for "
+                    f"team_id: {team_id}"
+                )
+            if not config.progression_bonus_enabled and value != 0.0:
+                raise ValueError(
+                    f"Disabled progression bonus must be zero for team_id: {team_id}"
+                )
         if (rating.last_event_utc is None) != (rating.last_match_id is None):
             raise ValueError(
                 f"State last event metadata is incomplete for team_id: {team_id}"
@@ -1163,6 +1426,10 @@ def _validate_state_config(state: SeasonState, config: DynamicEloConfig) -> None
             _require_identifier("state last_match_id", rating.last_match_id)
     for match_id in state.processed_match_ids:
         _require_identifier("processed match_id", match_id)
+    for tie_id in state.processed_tie_ids:
+        _require_identifier("processed tie_id", tie_id)
+        if tie_id in state.open_ties:
+            raise ValueError(f"Processed tie_id cannot remain open: {tie_id}")
     for tie_id, tie in state.open_ties.items():
         if tie.tie_id != tie_id:
             raise ValueError(f"State open tie key mismatch for tie_id: {tie_id}")

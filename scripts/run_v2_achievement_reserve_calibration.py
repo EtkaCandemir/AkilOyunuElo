@@ -19,6 +19,11 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from ao_elo.config import AO_MODEL_V2_VERSION, V2_RATING_MULTIPLIER  # noqa: E402
+from ao_elo.progression_probability import (  # noqa: E402
+    ProgressionProbabilityConfig,
+    calibrate_progression_probability,
+    identity_progression_probability_config,
+)
 from scripts.run_dynamic_core_calibration import (  # noqa: E402
     DynamicCoreConfig,
     expanding_folds,
@@ -127,6 +132,7 @@ class AchievementReserveConfig:
 class ReserveSeasonData:
     goal: GoalCarrySeasonData
     tie_ids: np.ndarray
+    tie_match_counts: np.ndarray
     knockout_flags: np.ndarray
     tie_decider_flags: np.ndarray
     advanced_team_ids: np.ndarray
@@ -168,6 +174,11 @@ def main() -> None:
     parser.add_argument("--static-manifest", type=Path, default=STATIC_MANIFEST_PATH)
     parser.add_argument("--dynamic-output-root", type=Path, default=DYNAMIC_OUTPUT_ROOT)
     parser.add_argument("--goal-output-root", type=Path, default=GOAL_OUTPUT_ROOT)
+    parser.add_argument(
+        "--progression-probability-manifest",
+        type=Path,
+        default=None,
+    )
     parser.add_argument("--output-root", type=Path, default=OUTPUT_ROOT)
     args = parser.parse_args()
 
@@ -194,6 +205,27 @@ def main() -> None:
         float(goal_manifest["goal_margin"]["goal_weight"]),
         float(goal_manifest["goal_margin"]["goal_cap"]),
     )
+    advance_configs = None
+    full_advance_config = identity_progression_probability_config()
+    if args.progression_probability_manifest is not None:
+        probability_manifest = json.loads(
+            args.progression_probability_manifest.resolve().read_text(
+                encoding="utf-8"
+            )
+        )
+        if not bool(probability_manifest.get("reserve_retest_authorized")):
+            raise ValueError(
+                "Progression probability manifest does not authorize reserve retest"
+            )
+        advance_configs = {
+            str(season): progression_config_from_payload(payload)
+            for season, payload in probability_manifest[
+                "configs_by_test_season"
+            ].items()
+        }
+        full_advance_config = progression_config_from_payload(
+            probability_manifest["full_data_candidate"]
+        )
 
     selections, fold_results, predictions = run_walk_forward(
         datasets,
@@ -202,6 +234,7 @@ def main() -> None:
         carry_selections,
         goal_config,
         event_metadata,
+        advance_configs_by_test_season=advance_configs,
     )
     competition_summary = summarize_loss_differences(
         predictions, MODEL_NAME, BASELINE_NAME
@@ -216,6 +249,7 @@ def main() -> None:
         goal_config,
         candidate_grid(),
         progress_label="full-data",
+        advance_probability_config=full_advance_config,
     )
     decision, guardrails = promotion_decision(
         selections,
@@ -276,6 +310,18 @@ def main() -> None:
     print(f"Report: {output_root / 'calibration_report.md'}")
 
 
+def progression_config_from_payload(
+    payload: dict[str, object],
+) -> ProgressionProbabilityConfig:
+    config = ProgressionProbabilityConfig(
+        float(payload["logit_slope"]),
+        float(payload["single_home_bias"]),
+        float(payload["two_leg_first_home_bias"]),
+    )
+    config.validate()
+    return config
+
+
 def read_goal_manifest(path: Path) -> dict[str, object]:
     payload = json.loads(path.read_text(encoding="utf-8"))
     if "goal_margin" not in payload or "dynamic_core" not in payload:
@@ -307,6 +353,12 @@ def load_reserve_data(
         raise ValueError(f"Reserve event data missing columns: {missing}")
     events, tie_audit = normalize_exact_tie_deciders(events)
     validate_tie_contract(events)
+    tie_counts = (
+        events.loc[events["is_knockout"].astype(bool)]
+        .groupby(["season", "tie_id"])
+        .size()
+        .to_dict()
+    )
     event_index = events.set_index("match_id")
     result = []
     for goal in goal_data:
@@ -327,6 +379,18 @@ def load_reserve_data(
                 tie_ids=aligned["tie_id"].where(
                     aligned["tie_id"].notna(), None
                 ).to_numpy(object),
+                tie_match_counts=np.array(
+                    [
+                        int(tie_counts[(str(season), str(tie_id))])
+                        if pd.notna(tie_id)
+                        else 0
+                        for season, tie_id in zip(
+                            aligned["season"],
+                            aligned["tie_id"],
+                        )
+                    ],
+                    dtype=int,
+                ),
                 knockout_flags=aligned["is_knockout"].to_numpy(bool),
                 tie_decider_flags=aligned["is_tie_decider"].to_numpy(bool),
                 advanced_team_ids=aligned["advanced_team_id"].fillna(-1).to_numpy(int),
@@ -414,10 +478,17 @@ def evaluate_sequence(
     *,
     evaluation_seasons: set[str] | None = None,
     return_predictions: bool = False,
+    advance_probability_config: ProgressionProbabilityConfig | None = None,
 ) -> tuple[dict[str, float | int], pd.DataFrame | None]:
     core_config.validate()
     goal_config.validate()
     reserve_config.validate()
+    probability_config = (
+        identity_progression_probability_config()
+        if advance_probability_config is None
+        else advance_probability_config
+    )
+    probability_config.validate()
     if not 0.0 <= power_carry <= 1.0:
         raise ValueError("power_carry must be in [0,1]")
     evaluation = evaluation_seasons or {data.season for data in datasets}
@@ -462,14 +533,20 @@ def evaluate_sequence(
             if data.knockout_flags[index] and tie_id not in open_ties:
                 if tie_id is None:
                     raise ValueError(f"{data.season}/{core.match_ids[index]}: missing tie_id")
+                raw_probability = expected_home_score(
+                    power[home_id] + reserve[home_id],
+                    power[away_id] + reserve[away_id],
+                    core_config,
+                    neutral=True,
+                )
                 open_ties[tie_id] = TieExpectation(
                     int(home_id),
                     int(away_id),
-                    expected_home_score(
-                        power[home_id] + reserve[home_id],
-                        power[away_id] + reserve[away_id],
-                        core_config,
-                        neutral=True,
+                    calibrate_progression_probability(
+                        raw_probability,
+                        int(data.tie_match_counts[index]),
+                        bool(neutral),
+                        probability_config,
                     ),
                 )
 
@@ -639,10 +716,18 @@ def candidate_metrics(
     candidates: tuple[AchievementReserveConfig, ...],
     *,
     progress_label: str | None = None,
+    advance_probability_config: ProgressionProbabilityConfig | None = None,
 ) -> pd.DataFrame:
     rows = []
     for index, config in enumerate(candidates, start=1):
-        metrics, _ = evaluate_sequence(datasets, core, power_carry, goal, config)
+        metrics, _ = evaluate_sequence(
+            datasets,
+            core,
+            power_carry,
+            goal,
+            config,
+            advance_probability_config=advance_probability_config,
+        )
         rows.append(
             {
                 "reserve_base": config.reserve_base,
@@ -679,6 +764,7 @@ def select_candidate(
     candidates: tuple[AchievementReserveConfig, ...],
     *,
     progress_label: str | None = None,
+    advance_probability_config: ProgressionProbabilityConfig | None = None,
 ) -> tuple[AchievementReserveConfig, pd.DataFrame]:
     metrics = candidate_metrics(
         datasets,
@@ -687,6 +773,7 @@ def select_candidate(
         goal,
         candidates,
         progress_label=progress_label,
+        advance_probability_config=advance_probability_config,
     )
     eligible = metrics.loc[
         metrics["start_end_rank_correlation"].ge(RANK_CORRELATION_FLOOR)
@@ -714,6 +801,10 @@ def run_walk_forward(
     carry_selections: pd.DataFrame,
     goal_config: GoalMarginConfig,
     events: pd.DataFrame,
+    *,
+    advance_configs_by_test_season: (
+        dict[str, ProgressionProbabilityConfig] | None
+    ) = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     candidates = candidate_grid()
     baseline = baseline_config()
@@ -721,6 +812,12 @@ def run_walk_forward(
     result_rows: list[dict[str, object]] = []
     prediction_frames: list[pd.DataFrame] = []
     for fold, (train_seasons, test_season) in enumerate(folds, start=1):
+        advance_config = (
+            identity_progression_probability_config()
+            if advance_configs_by_test_season is None
+            else advance_configs_by_test_season[test_season]
+        )
+        advance_config.validate()
         core_row = core_selections.loc[core_selections["fold"].eq(fold)].iloc[0]
         carry_row = carry_selections.loc[carry_selections["fold"].eq(fold)].iloc[0]
         core = DynamicCoreConfig(
@@ -740,9 +837,15 @@ def run_walk_forward(
             goal_config,
             candidates,
             progress_label=f"fold {fold}",
+            advance_probability_config=advance_config,
         )
         baseline_metrics, _ = evaluate_sequence(
-            train, core, power_carry, goal_config, baseline
+            train,
+            core,
+            power_carry,
+            goal_config,
+            baseline,
+            advance_probability_config=advance_config,
         )
         selected_row = train_metrics.loc[
             train_metrics["reserve_base"].eq(selected.reserve_base)
@@ -760,6 +863,12 @@ def run_walk_forward(
                 "core_home_advantage": core.home_advantage,
                 "core_k": core.k_factor,
                 "power_carry": power_carry,
+                "advance_probability_config": advance_config.key,
+                "advance_logit_slope": advance_config.logit_slope,
+                "advance_single_home_bias": advance_config.single_home_bias,
+                "advance_two_leg_first_home_bias": (
+                    advance_config.two_leg_first_home_bias
+                ),
                 "selected_reserve_base": selected.reserve_base,
                 "selected_uel_multiplier": selected.uel_multiplier,
                 "selected_uecl_multiplier": selected.uecl_multiplier,
@@ -780,6 +889,7 @@ def run_walk_forward(
                 config,
                 evaluation_seasons={test_season},
                 return_predictions=True,
+                advance_probability_config=advance_config,
             )
             result_rows.append(
                 {
@@ -791,6 +901,7 @@ def run_walk_forward(
                     "uecl_multiplier": config.uecl_multiplier,
                     "stage_profile": config.stage_profile,
                     "reserve_decay": config.reserve_decay,
+                    "advance_probability_config": advance_config.key,
                     **metrics,
                 }
             )

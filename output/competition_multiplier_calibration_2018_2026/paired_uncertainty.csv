@@ -1,5 +1,0 @@
-competition,matches,mean_brier_difference,ci_95_lower,ci_95_upper,reliable_improvement,reliable_harm
-ALL,4884,-0.00013307834495069414,-0.00026019600427827714,-4.7690750318281835e-06,True,False
-UCL,1384,0.0,0.0,0.0,False,False
-UECL,2073,-0.00031353335105604926,-0.0006124168952421885,-2.0691898801499602e-05,True,False
-UEL,1427,0.0,0.0,0.0,False,False

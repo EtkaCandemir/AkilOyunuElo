@@ -3,8 +3,13 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 tmp/
-data/backtest_2021_2026/_source_cache/
-data/backtest_stage_b_2021_2026/_source_cache/
-data/backtest_2018_2026/_source_cache/
-data/backtest_stage_b_2018_2026/_source_cache/
-data/external_elo_benchmark_2018_2026/_source_cache/
+
+# Reproducible runtime and backtest artifacts stay local. Curated results live
+# under reports/ so a normal `git add .` does not stage hundreds of CSV files.
+output/
+
+# Raw provider responses are large and can be rebuilt from their manifests.
+data/**/_source_cache/
+
+.env.local
+.env.*.local

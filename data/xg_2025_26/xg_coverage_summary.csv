@@ -1,0 +1,35 @@
+competition,round,matches,xg_covered,xg_analysis_eligible,coverage_rate,missing_xg,identity_rejected,time_scope_rejected
+ALL,ALL,961,606,606,0.6305931322,355,0,0
+UCL,1st Qualifying Round,28,0,0,0,28,0,0
+UCL,2nd Qualifying Round,30,10,10,0.3333333333,20,0,0
+UCL,3rd Qualifying Round,20,13,13,0.65,7,0,0
+UCL,ALL,281,226,226,0.8042704626,55,0,0
+UCL,Final,1,1,1,1,0,0,0
+UCL,Knockout round play-offs,16,16,16,1,0,0,0
+UCL,League Stage,144,144,144,1,0,0,0
+UCL,Qualifying Play-off Round,14,14,14,1,0,0,0
+UCL,Quarter Finals,8,8,8,1,0,0,0
+UCL,Round of 16,16,16,16,1,0,0,0
+UCL,Semi Finals,4,4,4,1,0,0,0
+UECL,1st Qualifying Round,48,0,0,0,48,0,0
+UECL,2nd Qualifying Round,100,0,0,0,100,0,0
+UECL,3rd Qualifying Round,60,0,0,0,60,0,0
+UECL,ALL,409,153,153,0.3740831296,256,0,0
+UECL,Final,1,1,1,1,0,0,0
+UECL,Knockout round play-offs,16,16,16,1,0,0,0
+UECL,League Stage,108,108,108,1,0,0,0
+UECL,Qualifying Play-off Round,48,0,0,0,48,0,0
+UECL,Quarter Finals,8,8,8,1,0,0,0
+UECL,Round of 16,16,16,16,1,0,0,0
+UECL,Semi Finals,4,4,4,1,0,0,0
+UEL,1st Qualifying Round,16,2,2,0.125,14,0,0
+UEL,2nd Qualifying Round,16,8,8,0.5,8,0,0
+UEL,3rd Qualifying Round,26,11,11,0.4230769231,15,0,0
+UEL,ALL,271,227,227,0.8376383764,44,0,0
+UEL,Final,1,1,1,1,0,0,0
+UEL,Knockout round play-offs,16,16,16,1,0,0,0
+UEL,League Stage,144,144,144,1,0,0,0
+UEL,Qualifying Play-off Round,24,17,17,0.7083333333,7,0,0
+UEL,Quarter Finals,8,8,8,1,0,0,0
+UEL,Round of 16,16,16,16,1,0,0,0
+UEL,Semi Finals,4,4,4,1,0,0,0

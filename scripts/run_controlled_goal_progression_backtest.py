@@ -36,6 +36,7 @@ from scripts.run_dynamic_core_calibration import (  # noqa: E402
 from scripts.run_final_robustness import (  # noqa: E402
     core_for_fold,
     draw_map_for_fold,
+    load_team_season_identity,
     production_core,
     production_draw_map,
     rank_value,
@@ -640,6 +641,7 @@ def evaluate_sequence(
         end_ratings,
         target,
         allowed_target_seasons=allowed_targets,
+        identity=load_team_season_identity(),
     )
     season_metrics = pd.DataFrame(season_rows)
     metrics: dict[str, float | int] = {
