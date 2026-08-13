@@ -9,6 +9,7 @@ from typing import Iterable, Mapping
 
 from ao_elo.config import AO_MODEL_V2_VERSION, V2_RATING_MULTIPLIER
 from ao_elo.controlled_live import calculate_goal_difference_multiplier
+from ao_elo.draw_probability import score_preserving_1x2_scalar
 from ao_elo.tournament_bonus import (
     ELIGIBLE_PROGRESSION_STAGES,
     FixedTournamentBonusConfig,
@@ -85,6 +86,60 @@ STAGE_MULTIPLIERS: dict[str, dict[str, float]] = {
 
 
 @dataclass(frozen=True)
+class AchievementReserveConfig:
+    """Experimental-only non-zero-sum progression reserve configuration.
+
+    Production leaves this object as ``None``.  Keeping the experiment behind
+    one explicit opt-in prevents inactive reserve parameters from expanding the
+    production dynamic-core contract.
+    """
+
+    reserve_base: float
+    reserve_cap: float = 80.0 * V2_RATING_MULTIPLIER
+    reserve_decay: float = 0.0
+    ucl_multiplier: float = 1.0
+    uel_multiplier: float = 0.65
+    uecl_multiplier: float = 0.45
+    stage_profile: str = "FLAT"
+    trophy_uses_same_base: bool = True
+
+    def validate(self) -> None:
+        _require_non_negative_finite("reserve_base", self.reserve_base)
+        _require_positive_finite("reserve_cap", self.reserve_cap)
+        _require_between_zero_and_one("reserve_decay", self.reserve_decay)
+        if self.reserve_base > self.reserve_cap:
+            raise ValueError("reserve_base cannot exceed reserve_cap")
+        if self.reserve_base == 0.0:
+            raise ValueError("Experimental reserve config requires reserve_base > 0")
+        for name in ("ucl_multiplier", "uel_multiplier", "uecl_multiplier"):
+            _require_positive_finite(name, getattr(self, name))
+        if not self.ucl_multiplier > self.uel_multiplier > self.uecl_multiplier:
+            raise ValueError("Competition hierarchy must satisfy UCL > UEL > UECL")
+        if self.stage_profile not in STAGE_MULTIPLIERS:
+            raise ValueError(f"Unknown stage_profile: {self.stage_profile}")
+        if not isinstance(self.trophy_uses_same_base, bool):
+            raise ValueError("trophy_uses_same_base must be boolean")
+
+    def competition_multiplier(self, competition: str) -> float:
+        self.validate()
+        try:
+            return {
+                "UCL": self.ucl_multiplier,
+                "UEL": self.uel_multiplier,
+                "UECL": self.uecl_multiplier,
+            }[competition]
+        except KeyError as error:
+            raise ValueError(f"Unknown competition: {competition}") from error
+
+    def stage_multiplier(self, stage: str) -> float:
+        self.validate()
+        try:
+            return STAGE_MULTIPLIERS[self.stage_profile][stage]
+        except KeyError as error:
+            raise ValueError(f"Unknown stage: {stage}") from error
+
+
+@dataclass(frozen=True)
 class DynamicEloConfig:
     model_version: str
     elo_scale: float
@@ -93,6 +148,8 @@ class DynamicEloConfig:
     power_carry: float
     draw_at_even: float = 0.24
     draw_shape: float = 1.0
+    single_match_draw_enabled: bool = False
+    single_match_draw_at_even: float = 0.12
     goal_difference_enabled: bool = False
     goal_alpha: float = 0.0
     goal_tau: float = 300.0
@@ -103,15 +160,8 @@ class DynamicEloConfig:
     minimum_winner_gain_ratio: float = 0.70
     progression_bonus_enabled: bool = False
     progression_base_bonus: float = 0.0
-    progression_stages_per_competition: int = 5
-    reserve_base: float = 0.0
-    reserve_cap: float = 80.0 * V2_RATING_MULTIPLIER
-    reserve_decay: float = 0.0
-    ucl_multiplier: float = 1.0
-    uel_multiplier: float = 0.65
-    uecl_multiplier: float = 0.45
-    stage_profile: str = "FLAT"
-    trophy_uses_same_base: bool = True
+    progression_stages_per_competition: int = 4
+    achievement_reserve: AchievementReserveConfig | None = None
 
     @classmethod
     def calibrated_v2(cls) -> DynamicEloConfig:
@@ -124,6 +174,8 @@ class DynamicEloConfig:
             power_carry=0.0,
             draw_at_even=0.24,
             draw_shape=1.0,
+            single_match_draw_enabled=True,
+            single_match_draw_at_even=0.12,
             goal_difference_enabled=True,
             goal_alpha=0.15,
             goal_tau=300.0,
@@ -134,9 +186,7 @@ class DynamicEloConfig:
             minimum_winner_gain_ratio=0.70,
             progression_bonus_enabled=True,
             progression_base_bonus=12.0,
-            progression_stages_per_competition=5,
-            reserve_base=0.0,
-            reserve_decay=0.0,
+            progression_stages_per_competition=4,
         )
 
     def validate(self) -> None:
@@ -150,8 +200,14 @@ class DynamicEloConfig:
         if self.draw_at_even > 0.5:
             raise ValueError("draw_at_even must be <= 0.5")
         _require_positive_finite("draw_shape", self.draw_shape)
-        if self.draw_shape < 1.0:
-            raise ValueError("draw_shape must be >= 1.0")
+        if not isinstance(self.single_match_draw_enabled, bool):
+            raise ValueError("single_match_draw_enabled must be boolean")
+        _require_between_zero_and_one(
+            "single_match_draw_at_even",
+            self.single_match_draw_at_even,
+        )
+        if self.single_match_draw_at_even > 0.5:
+            raise ValueError("single_match_draw_at_even must be <= 0.5")
         if not isinstance(self.goal_difference_enabled, bool):
             raise ValueError("goal_difference_enabled must be boolean")
         _require_non_negative_finite("goal_alpha", self.goal_alpha)
@@ -206,49 +262,26 @@ class DynamicEloConfig:
             raise ValueError(
                 "Enabled progression bonus must have positive progression_base_bonus"
             )
+        if (
+            self.progression_bonus_enabled
+            and self.progression_stages_per_competition
+            != len(ELIGIBLE_PROGRESSION_STAGES)
+        ):
+            raise ValueError(
+                "Enabled progression bonus must use the four eligible post-R16 stages"
+            )
         if not self.progression_bonus_enabled and self.progression_base_bonus != 0.0:
             raise ValueError(
                 "Disabled progression bonus must have progression_base_bonus=0"
             )
-        _require_non_negative_finite("reserve_base", self.reserve_base)
-        _require_positive_finite("reserve_cap", self.reserve_cap)
-        _require_between_zero_and_one("reserve_decay", self.reserve_decay)
-        if self.reserve_base > self.reserve_cap:
-            raise ValueError("reserve_base cannot exceed reserve_cap")
-        if self.reserve_base == 0.0 and self.reserve_decay != 0.0:
-            raise ValueError("reserve_decay must be zero when reserve is disabled")
-        for name in ("ucl_multiplier", "uel_multiplier", "uecl_multiplier"):
-            _require_positive_finite(name, getattr(self, name))
-        if not self.ucl_multiplier > self.uel_multiplier > self.uecl_multiplier:
-            raise ValueError("Competition hierarchy must satisfy UCL > UEL > UECL")
-        if self.stage_profile not in STAGE_MULTIPLIERS:
-            raise ValueError(f"Unknown stage_profile: {self.stage_profile}")
-        if not isinstance(self.trophy_uses_same_base, bool):
-            raise ValueError("trophy_uses_same_base must be boolean")
+        if self.achievement_reserve is not None:
+            self.achievement_reserve.validate()
 
     @property
     def config_id(self) -> str:
         self.validate()
         payload = json.dumps(asdict(self), sort_keys=True, separators=(",", ":"))
         return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
-
-    def competition_multiplier(self, competition: str) -> float:
-        self.validate()
-        try:
-            return {
-                "UCL": self.ucl_multiplier,
-                "UEL": self.uel_multiplier,
-                "UECL": self.uecl_multiplier,
-            }[competition]
-        except KeyError as error:
-            raise ValueError(f"Unknown competition: {competition}") from error
-
-    def stage_multiplier(self, stage: str) -> float:
-        self.validate()
-        try:
-            return STAGE_MULTIPLIERS[self.stage_profile][stage]
-        except KeyError as error:
-            raise ValueError(f"Unknown stage: {stage}") from error
 
     @property
     def fixed_progression_config(self) -> FixedTournamentBonusConfig:
@@ -355,6 +388,7 @@ class MatchFixture:
     is_knockout: bool = False
     is_tie_decider: bool = False
     stage: str | None = None
+    is_single_match_tie: bool = False
 
     def validate(self) -> None:
         _require_identifier("match_id", self.match_id)
@@ -367,7 +401,12 @@ class MatchFixture:
         _require_identifier("away_team_id", self.away_team_id)
         if self.home_team_id == self.away_team_id:
             raise ValueError("home_team_id and away_team_id must differ")
-        for name in ("is_neutral", "is_knockout", "is_tie_decider"):
+        for name in (
+            "is_neutral",
+            "is_knockout",
+            "is_tie_decider",
+            "is_single_match_tie",
+        ):
             if not isinstance(getattr(self, name), bool):
                 raise ValueError(f"{name} must be boolean")
         if self.is_knockout and not self.tie_id:
@@ -376,6 +415,8 @@ class MatchFixture:
             raise ValueError("Non-knockout matches cannot have tie_id")
         if self.is_tie_decider and not self.is_knockout:
             raise ValueError("A tie decider must be a knockout match")
+        if self.is_single_match_tie and not self.is_tie_decider:
+            raise ValueError("A single-match tie must be a deciding knockout match")
         if self.stage is not None and self.stage not in STAGE_MULTIPLIERS["FLAT"]:
             raise ValueError(f"Unknown stage: {self.stage}")
         if self.is_knockout and self.stage == "LEAGUE":
@@ -405,6 +446,7 @@ class MatchInput:
     xg_home: float | None = None
     xg_away: float | None = None
     xg_analysis_eligible: bool = False
+    is_single_match_tie: bool = False
 
     def fixture(self) -> MatchFixture:
         return MatchFixture(
@@ -420,6 +462,7 @@ class MatchInput:
             is_knockout=self.is_knockout,
             is_tie_decider=self.is_tie_decider,
             stage=self.stage,
+            is_single_match_tie=self.is_single_match_tie,
         )
 
     def validate(self) -> None:
@@ -467,6 +510,7 @@ class LockedPrediction:
     stage: str
     is_knockout: bool
     is_tie_decider: bool
+    is_single_match_tie: bool
     is_neutral: bool
     home_power_pre: float
     away_power_pre: float
@@ -476,6 +520,7 @@ class LockedPrediction:
     away_live_pre: float
     expected_home_score: float
     expected_score_semantics: str
+    effective_draw_at_even: float
     home_win_probability: float
     draw_probability: float
     away_win_probability: float
@@ -496,7 +541,12 @@ class LockedPrediction:
             raise ValueError(f"Unknown prediction competition: {self.competition}")
         for name in ("round", "home_team_id", "away_team_id", "stage"):
             _require_identifier(f"prediction {name}", getattr(self, name))
-        for name in ("is_knockout", "is_tie_decider", "is_neutral"):
+        for name in (
+            "is_knockout",
+            "is_tie_decider",
+            "is_single_match_tie",
+            "is_neutral",
+        ):
             if not isinstance(getattr(self, name), bool):
                 raise ValueError(f"prediction {name} must be boolean")
         if self.is_knockout and not self.tie_id:
@@ -505,6 +555,8 @@ class LockedPrediction:
             raise ValueError("Non-knockout prediction cannot have tie_id")
         if self.is_tie_decider and not self.is_knockout:
             raise ValueError("A deciding prediction must be a knockout match")
+        if self.is_single_match_tie and not self.is_tie_decider:
+            raise ValueError("A single-match prediction must decide a knockout tie")
         for name in (
             "home_power_pre",
             "away_power_pre",
@@ -513,12 +565,15 @@ class LockedPrediction:
             "home_live_pre",
             "away_live_pre",
             "expected_home_score",
+            "effective_draw_at_even",
         ):
             _require_finite(f"prediction {name}", getattr(self, name))
         _require_between_zero_and_one(
             "prediction expected_home_score",
             self.expected_home_score,
         )
+        if self.effective_draw_at_even > 0.5:
+            raise ValueError("prediction effective_draw_at_even must be <= 0.5")
         if self.expected_score_semantics != EXPECTED_SCORE_SEMANTICS:
             raise ValueError("Prediction expected-score semantics do not match the model")
         _validate_1x2_probabilities(
@@ -559,6 +614,7 @@ class MatchUpdate:
     stage: str
     is_knockout: bool
     is_tie_decider: bool
+    is_single_match_tie: bool
     advanced_team_id: str | None
     home_goals: int
     away_goals: int
@@ -574,6 +630,7 @@ class MatchUpdate:
     away_live_pre: float
     effective_rating_difference: float
     expected_home_score: float
+    effective_draw_at_even: float
     home_win_probability: float
     draw_probability: float
     away_win_probability: float
@@ -649,16 +706,33 @@ def expected_1x2_probabilities(
     config: DynamicEloConfig,
     *,
     neutral: bool = False,
+    is_single_match_tie: bool = False,
 ) -> tuple[float, float, float]:
     """Return calibrated home-win, draw, and away-win probabilities."""
+    if not isinstance(is_single_match_tie, bool):
+        raise ValueError("is_single_match_tie must be boolean")
     expected = expected_score(home_rating, away_rating, config, neutral=neutral)
-    draw = config.draw_at_even * (
-        4.0 * expected * (1.0 - expected)
-    ) ** config.draw_shape
-    home = expected - 0.5 * draw
-    away = 1.0 - expected - 0.5 * draw
+    draw_at_even = effective_draw_at_even(config, is_single_match_tie)
+    home, draw, away = score_preserving_1x2_scalar(
+        expected,
+        draw_at_even,
+        config.draw_shape,
+    )
     _validate_1x2_probabilities(home, draw, away, expected, "expected")
     return float(home), float(draw), float(away)
+
+
+def effective_draw_at_even(
+    config: DynamicEloConfig,
+    is_single_match_tie: bool,
+) -> float:
+    """Select the pre-match draw intercept without changing Elo expectation."""
+    config.validate()
+    if not isinstance(is_single_match_tie, bool):
+        raise ValueError("is_single_match_tie must be boolean")
+    if config.single_match_draw_enabled and is_single_match_tie:
+        return float(config.single_match_draw_at_even)
+    return float(config.draw_at_even)
 
 
 def lock_prediction(
@@ -717,6 +791,7 @@ def lock_prediction(
             away.ao_live_elo,
             config,
             neutral=fixture.is_neutral,
+            is_single_match_tie=fixture.is_single_match_tie,
         )
     )
     prediction = LockedPrediction(
@@ -732,6 +807,7 @@ def lock_prediction(
         stage=stage,
         is_knockout=fixture.is_knockout,
         is_tie_decider=fixture.is_tie_decider,
+        is_single_match_tie=fixture.is_single_match_tie,
         is_neutral=fixture.is_neutral,
         home_power_pre=home.power_elo,
         away_power_pre=away.power_elo,
@@ -741,6 +817,10 @@ def lock_prediction(
         away_live_pre=away.ao_live_elo,
         expected_home_score=probability,
         expected_score_semantics=EXPECTED_SCORE_SEMANTICS,
+        effective_draw_at_even=effective_draw_at_even(
+            config,
+            fixture.is_single_match_tie,
+        ),
         home_win_probability=home_win_probability,
         draw_probability=draw_probability,
         away_win_probability=away_win_probability,
@@ -781,6 +861,7 @@ def settle_locked_match(
         "stage": stage,
         "is_knockout": match.is_knockout,
         "is_tie_decider": match.is_tie_decider,
+        "is_single_match_tie": match.is_single_match_tie,
         "is_neutral": match.is_neutral,
     }
     for name, value in expected_metadata.items():
@@ -839,6 +920,7 @@ def settle_locked_match(
         away.ao_live_elo,
         config,
         neutral=match.is_neutral,
+        is_single_match_tie=match.is_single_match_tie,
     )
     locked_1x2 = (
         prediction.home_win_probability,
@@ -910,10 +992,12 @@ def initialize_season(
                 (1.0 - config.power_carry) * seed.ao_first_elo
                 + config.power_carry * previous.power_elo
             )
-            reserve = min(
-                config.reserve_cap,
-                config.reserve_decay * previous.achievement_reserve,
-            )
+            if config.achievement_reserve is not None:
+                reserve = min(
+                    config.achievement_reserve.reserve_cap,
+                    config.achievement_reserve.reserve_decay
+                    * previous.achievement_reserve,
+                )
         ratings[seed.team_id] = TeamRating(
             team_id=seed.team_id,
             team_name=seed.team_name,
@@ -952,17 +1036,20 @@ def apply_progression(
         raise ValueError("winner_probability must be in [0,1]")
     if not isinstance(trophy, bool):
         raise ValueError("trophy must be boolean")
-    competition_multiplier = config.competition_multiplier(competition)
-    stage_multiplier = 1.0 if trophy else config.stage_multiplier(stage)
+    reserve_config = config.achievement_reserve
+    if reserve_config is None:
+        return state, 0.0
+    competition_multiplier = reserve_config.competition_multiplier(competition)
+    stage_multiplier = 1.0 if trophy else reserve_config.stage_multiplier(stage)
     requested = (
-        config.reserve_base
+        reserve_config.reserve_base
         * competition_multiplier
         * stage_multiplier
         * (1.0 - float(winner_probability))
     )
     winner = state.ratings[winner_team_id]
     addition = min(
-        max(0.0, config.reserve_cap - winner.achievement_reserve),
+        max(0.0, reserve_config.reserve_cap - winner.achievement_reserve),
         requested,
     )
     if addition == 0.0:
@@ -1046,6 +1133,7 @@ def update_match(
             away.ao_live_elo,
             config,
             neutral=match.is_neutral,
+            is_single_match_tie=match.is_single_match_tie,
         )
     )
     xg_home = match.xg_home if match.xg_analysis_eligible else None
@@ -1080,12 +1168,9 @@ def update_match(
     delta = elo_update.power_delta
     power_delta_before_xg = config.k_factor * elo_update.result_residual
     xg_power_adjustment = delta - power_delta_before_xg
-    xg_applied = (
-        config.xg_performance_enabled
-        and match.xg_analysis_eligible
-        and actual != 0.5
-        and not match.decided_on_penalties
-    )
+    # The xG kernel owns eligibility. Reusing its audit signal prevents this
+    # wrapper from drifting if the kernel contract changes.
+    xg_applied = elo_update.xg_performance_signal is not None
     home_post = replace(
         home,
         power_elo=home.power_elo + delta,
@@ -1171,24 +1256,28 @@ def update_match(
             open_ties=open_ties,
             processed_tie_ids=frozenset(processed_tie_ids),
         )
-        working, progression_added = apply_progression(
-            working,
-            match.advanced_team_id,
-            match.competition,
-            stage,
-            winner_probability,
-            config,
-        )
-        if stage == "FINAL" and config.trophy_uses_same_base:
-            working, trophy_added = apply_progression(
+        if config.achievement_reserve is not None:
+            working, progression_added = apply_progression(
                 working,
                 match.advanced_team_id,
                 match.competition,
                 stage,
                 winner_probability,
                 config,
-                trophy=True,
             )
+            if (
+                stage == "FINAL"
+                and config.achievement_reserve.trophy_uses_same_base
+            ):
+                working, trophy_added = apply_progression(
+                    working,
+                    match.advanced_team_id,
+                    match.competition,
+                    stage,
+                    winner_probability,
+                    config,
+                    trophy=True,
+                )
 
     final_ratings = dict(working.ratings)
     final_home = final_ratings[match.home_team_id]
@@ -1213,6 +1302,7 @@ def update_match(
         stage=stage,
         is_knockout=match.is_knockout,
         is_tie_decider=match.is_tie_decider,
+        is_single_match_tie=match.is_single_match_tie,
         advanced_team_id=match.advanced_team_id,
         home_goals=match.home_goals,
         away_goals=match.away_goals,
@@ -1228,6 +1318,10 @@ def update_match(
         away_live_pre=away.ao_live_elo,
         effective_rating_difference=effective_rating_difference,
         expected_home_score=probability,
+        effective_draw_at_even=effective_draw_at_even(
+            config,
+            match.is_single_match_tie,
+        ),
         home_win_probability=home_win_probability,
         draw_probability=draw_probability,
         away_win_probability=away_win_probability,
@@ -1395,7 +1489,12 @@ def _validate_state_config(state: SeasonState, config: DynamicEloConfig) -> None
             "state achievement_reserve",
             rating.achievement_reserve,
         )
-        if rating.achievement_reserve > config.reserve_cap + 1e-9:
+        if config.achievement_reserve is None:
+            if not math.isclose(rating.achievement_reserve, 0.0, abs_tol=1e-12):
+                raise ValueError(
+                    f"Production state cannot carry achievement reserve for team_id: {team_id}"
+                )
+        elif rating.achievement_reserve > config.achievement_reserve.reserve_cap + 1e-9:
             raise ValueError(f"State reserve exceeds cap for team_id: {team_id}")
         for competition, value in (
             ("UCL", rating.progression_bonus_ucl),
@@ -1439,8 +1538,10 @@ def _validate_state_config(state: SeasonState, config: DynamicEloConfig) -> None
             raise ValueError(f"State open tie must contain two teams: {tie_id}")
         if not 0.0 <= tie.expected_a_to_advance <= 1.0:
             raise ValueError(f"State open tie probability is invalid: {tie_id}")
-        config.competition_multiplier(tie.competition)
-        config.stage_multiplier(tie.stage)
+        if tie.competition not in COMPETITIONS:
+            raise ValueError(f"State open tie has unknown competition: {tie_id}")
+        if tie.stage not in STAGE_MULTIPLIERS["FLAT"]:
+            raise ValueError(f"State open tie has unknown stage: {tie_id}")
     if (state.last_event_utc is None) != (state.last_match_id is None):
         raise ValueError("State global last event metadata is incomplete")
     if state.last_event_utc is not None:

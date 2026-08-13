@@ -116,7 +116,7 @@ def run_pilot(
             ("goal_tau", production_config.goal_tau),
             ("goal_difference_cap", production_config.goal_difference_cap),
             ("progression_bonus_enabled", False),
-            ("achievement_reserve_base", production_config.reserve_base),
+            ("achievement_reserve_enabled", production_config.achievement_reserve is not None),
             ("competition_k_enabled", False),
         ],
         columns=["parameter", "value"],

@@ -1,0 +1,15 @@
+{
+  "ao_team_count": 236,
+  "archive_source_url": "https://web.archive.org/web/20250703231150id_/https://dataviz.theanalyst.com/opta-power-rankings/pr-reference.json",
+  "archive_team_count": 10000,
+  "archive_timestamp": "20250703231150",
+  "article_url": "https://theanalyst.com/articles/strongest-leagues-in-the-world-opta-power-rankings-june-2025",
+  "first_uefa_kickoff_utc": "2025-07-08T15:00:00+00:00",
+  "normalized_file": "data/external_rankings_2025_26/opta_power_rankings_2025_07_03_ao_scope.csv",
+  "normalized_sha256": "b9938d2e0c6271d8f0a9ebfce7c669da3ce8fc3990794dfe21760b8fed4a489f",
+  "original_source_url": "https://dataviz.theanalyst.com/opta-power-rankings/pr-reference.json",
+  "provider": "Opta Analyst",
+  "raw_response_sha256": "4ed8d6b057d9be52f8bfc349c9cc67edd2c08f17cd43bf9262395e3d66791f9c",
+  "snapshot_timestamp": "2025-07-03T23:11:50Z",
+  "strictly_pre_first_match": true
+}

@@ -1,0 +1,18 @@
+{
+  "base_elo_scale": 835.5614973262034,
+  "continuous_full_elo_scale": 906.1008124790812,
+  "continuous_full_multiplier": 1.0844214523749642,
+  "decision": "KEEP_SHADOW",
+  "full_grid_elo_scale": 898.2286096256686,
+  "full_grid_multiplier": 1.075,
+  "gates": {
+    "brier_fold_wins": "2/6",
+    "log_loss_fold_wins": "2/6",
+    "no_competition_harm": false,
+    "no_reliable_harm": true,
+    "pooled_brier_improved": false,
+    "pooled_log_loss_improved": false
+  },
+  "rating_state_changed": false,
+  "scope": "prediction-only; no feedback to Power Elo or ranking"
+}

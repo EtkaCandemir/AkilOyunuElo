@@ -62,8 +62,15 @@ def load_final_candidate_runtime(path: str | Path) -> FinalCandidateRuntime:
         raise ValueError("Final candidate draws must not receive xG adjustment")
     if xg.get("penalty_shootout_behavior") != "NO_XG_ADJUSTMENT":
         raise ValueError("Final candidate shoot-outs must not receive xG adjustment")
-    if xg.get("zero_sum") is not True or xg.get("winner_direction_guard") is not True:
-        raise ValueError("Final candidate must preserve zero-sum and winner direction")
+    if xg.get("zero_sum") is not True:
+        raise ValueError("Final candidate xG performance must remain zero-sum")
+    winner_gain_bound = xg.get("winner_gain_bound")
+    if not isinstance(winner_gain_bound, dict):
+        raise ValueError("Final candidate requires winner_gain_bound metadata")
+    if winner_gain_bound.get("source") != "ANALYTIC_XG_RATIO_BOUND":
+        raise ValueError("Final candidate winner gain bound must be analytic")
+    if winner_gain_bound.get("runtime_floor_expected_to_bind") is not False:
+        raise ValueError("Final candidate floor must be analytically non-binding")
 
     max_ratio = _finite_number(xg.get("max_xg_ratio"), "max_xg_ratio")
     xg_scale = _finite_number(xg.get("xg_scale"), "xg_scale")
@@ -76,6 +83,12 @@ def load_final_candidate_runtime(path: str | Path) -> FinalCandidateRuntime:
         raise ValueError("Final candidate xg_scale must equal 1.25")
     if not math.isclose(minimum_ratio, 1.0 - max_ratio, abs_tol=1e-12):
         raise ValueError("minimum_winner_gain_ratio must equal 1-max_xg_ratio")
+    if not math.isclose(
+        _finite_number(winner_gain_bound.get("minimum_ratio"), "winner_gain_bound.minimum_ratio"),
+        minimum_ratio,
+        abs_tol=1e-12,
+    ):
+        raise ValueError("winner_gain_bound.minimum_ratio must equal minimum_winner_gain_ratio")
     xg_config = XGPerformanceBonusConfig(max_ratio, xg_scale, minimum_ratio)
     xg_config.validate()
     return FinalCandidateRuntime(

@@ -26,7 +26,9 @@ AO Live Elo = Power Elo + Achievement Reserve + Progression Bonus
 ```
 
 Aktif dondurulmuş modelde `Achievement Reserve = 0` kalır. Progression Bonus
-UCL/UEL/UECL için `12/8/4` ve sezonluk `60/40/20` cap ile aktiftir. Bu nedenle
+UCL/UEL/UECL için R16 ve sonrasındaki dört aşamada `12/8/4` ve sezonluk
+`48/32/16` cap ile aktiftir. Knockout play-off, lig aşamasını ilk 8'de bitiren
+takımlara karşı rota asimetrisi oluşturmaması için bonus üretmez. Bu nedenle
 eleme aşamalarında AO Live Elo, Power Elo'dan progression bakiyesi kadar ayrılır.
 
 Seçilen kararlar:
@@ -41,8 +43,8 @@ Seçilen kararlar:
 | Season Power carry | Kapalı | `0.00` |
 | Standart 1X2 çıktı | Terfi | draw-at-even `0.24`, shape `1.00` |
 | Kontrollü gol farkı | Aktif | alpha `0.15`, tau `300`, GD cap `4` |
-| Bounded xG performansı | Aktif | ratio `0.30`, scale `1.25`, winner floor `0.70` |
-| Sabit kazanan-only progression | Aktif | `12/8/4`, cap `60/40/20` |
+| Bounded xG performansı | Aktif | ratio `0.30`, scale `1.25`, analitik minimum kazanım oranı `0.70` |
+| Sabit kazanan-only progression | Aktif | R16 ve sonrası `12/8/4`, cap `48/32/16` |
 | Sıfır-toplamlı progression | Kapalı | base `0` |
 | European Achievement Reserve | Kapalı | base `0` |
 | UCL/UEL/UECL normal maç K çarpanı | Kapalı | uygulanmaz |
@@ -381,9 +383,14 @@ Bu eski expected-score MSE sonucu yalnız legacy diagnostiktir. Yeni doğrulama
 gerçek üç sınıflı olasılıklarla yapılmıştır:
 
 ```text
-P_draw = 0.24 x (4 x E_home x (1-E_home)) ^ 1.00
+P_draw_raw = draw_at_even x (4 x E_home x (1-E_home)) ^ draw_shape
+P_draw = min(P_draw_raw, 2 x min(E_home, 1-E_home))
 P_home = E_home - 0.5 x P_draw
 P_away = 1 - E_home - 0.5 x P_draw
+
+active draw_at_even = 0.24
+single-match knockout tie draw_at_even = 0.12
+active draw_shape = 1.00
 ```
 
 İnvariantlar:
@@ -393,11 +400,34 @@ P_away = 1 - E_home - 0.5 x P_draw
 - `P_home + 0.5 x P_draw = E_home`; Elo beklenen puan anlamı değişmez.
 - Standart Brier üç sınıftaki kare hataların toplamıdır ve `[0,2]` aralığındadır.
 - Standart log-loss gerçekleşen H/D/A sınıfına atanan olasılığı kullanır.
+- `is_single_match_tie=true` yalnız önceden bilinen fikstür formatıyla ve
+  eşleşme tam olarak tek saha maçından oluşuyorsa verilebilir.
+- Tek maç formatı `E_home`, Power Elo güncellemesi, gol farkı veya xG katmanını
+  değiştirmez; yalnız `draw_at_even` seçimini ve H/D/A ayrışmasını değiştirir.
 
 Dinamik çekirdeğin tuned static karşılaştırıcıya karşı unseen standart 1X2
 Brier farkı `-0.008929`, en geniş dependency-bootstrap yüzde 95 zarfı
 `[-0.012823, -0.004990]` ve fold sonucu `6/6`dır. UCL, UEL ve UECL
 segmentlerinin hiçbirinde güvenilir zarar yoktur. Karar `CONFIRMED_1X2`dir.
+
+Eski validation `draw_shape < 1` değerlerini bütünüyle reddediyordu. Bu sınır
+kuyruklarda daha fazla beraberlik olasılığı isteyen adayları yapısal olarak
+engellediği için kaldırılmıştır. Yeni score-preserving zarf çok uç `E`
+değerlerinde negatif galibiyet olasılığını önler. Full-history grid `0.84`,
+continuous fit `0.845902` seçmiştir. Training-only walk-forward ise Brier'da
+`4/6`, log-loss'ta `3/6` kazanmış; pooled farklar sırasıyla `+0.000036` ve
+`+0.000243` olmuştur. Bu nedenle geçerli parametre uzayı genişletilmiş fakat
+production değeri `1.00` olarak korunmuştur.
+
+Tek maçlık eleme eşleşmelerinin 120 dakika saha skoru beraberlik oranı ayrı
+incelenmiştir. Toplam 248 tek maçın gözlenen beraberlik oranı `0.0968`, iki
+ayaklı eşleşmelerdeki 3.716 maçın oranı `0.2207`dir. Tam örneklem continuous
+fit `draw_at_even=0.112861` üretmiştir. Sözleşme açıklanabilir yuvarlak değer
+`0.12`yi kullanır. Bu sabit aday 4.884 maçlık değerlendirme penceresinde Brier
+`-0.000658`, log-loss `-0.001617` farkı üretmiştir; ancak 248 maçın 200'ü
+2020/21 COVID formatından geldiği için sonuç prospective terfi iddiası olarak
+sunulmaz. Format düzeltmesi açık bir sözleşme düzeltmesi olarak aktiftir ve
+COVID sonrası düşük hacimli segment ayrıca izlenir.
 
 ## 13. Season Power Carry
 
@@ -504,15 +534,16 @@ turnuva K çarpanları `1.00` kalır.
 Aktif katman maç Power Elo güncellemesinden bağımsız muhasebeleştirilir:
 
 ```text
-UCL increment/cap  = 12 / 60
-UEL increment/cap  =  8 / 40
-UECL increment/cap =  4 / 20
+UCL increment/cap  = 12 / 48
+UEL increment/cap  =  8 / 32
+UECL increment/cap =  4 / 16
 
 AO Live Elo = Power Elo + Achievement Reserve + Progression Bonus
 ```
 
-Bonus yalnız knockout play-off, son 16, çeyrek final, yarı final ve final
-eşleşmesi tamamen sonuçlandığında kazanana verilir. Kaybedenden ek puan
+Bonus yalnız son 16, çeyrek final, yarı final ve final eşleşmesi tamamen
+sonuçlandığında kazanana verilir. Knockout play-off rota asimetrisi nedeniyle
+bonus üretmez. Kaybedenden ek puan
 düşülmez. Lig aşaması, ilk sekiz ve ön elemeler bonus üretmez. Penaltıyla
 sonuçlanan saha beraberliğinde Power Elo `S=0.5` kalır, turu geçen takım bonusu
 alır. Her `tie_id` yalnız bir kez işlenir; UCL, UEL ve UECL bakiyeleri ayrı cap
@@ -684,6 +715,21 @@ maç ve açık eşleşme bilgisi için checkpoint JSON ile birlikte kullanılmal
 Prediction ledger'ın hash zinciri satır değişikliğini görünür kılar, fakat
 harici güvenilir zaman damgasının yerini tutmaz.
 
+Kullanıcıya sunulan production 1X2, base AO lock'tan sonra çalışan
+prediction-only ensemble'dır:
+
+```text
+Current ML = LogBlend(AO, Structural Logistic, 0.90)
+AO Poisson = LogBlend(AO, Domestic Poisson rho=0, 0.50)
+Served 1X2 = LogBlend(Current ML, AO Poisson, 0.50)
+```
+
+Karar `PROMOTE_WITH_MONITORING`dir. Rating feedback kapalıdır. Artifact veya
+feature/state doğrulaması başarısızsa served çıktı Current AO 1X2 olur ve
+fallback nedeni, coverage ile contract/artifact hash'leri pre-match loga
+yazılır. Frozen artifact manifesti
+`artifacts/production_prediction/manifest.json` dosyasıdır.
+
 Eşzamanlı farklı maçlar kickoff öncesi aynı state'ten kilitlenebilir. Settlement
 `kickoff_utc`, ardından `match_id` artan sırasıyla yapılır. Aynı kickoff'taki
 önceki bağımsız settlement global state konumunu ilerletse de kilitli maçın home/
@@ -704,6 +750,8 @@ apply_tournament_progress_bonus(...)
 run_season(...)
 lock_prediction(...)
 settle_locked_match(...)
+ProductionPredictionService.from_contract(...)
+ProductionPredictionService.predict(...)
 ```
 
 Tek maç kernel'i input state'i mutate etmez. Aynı başlangıç state'i, aynı config

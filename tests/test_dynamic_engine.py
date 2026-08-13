@@ -8,6 +8,7 @@ import pytest
 
 from ao_elo.config import V2_RATING_MULTIPLIER
 from ao_elo.dynamic import (
+    AchievementReserveConfig,
     DynamicEloConfig,
     MatchInput,
     TeamSeed,
@@ -77,6 +78,8 @@ def test_calibrated_v2_parameters_match_selected_model() -> None:
     assert config.power_carry == 0.0
     assert config.draw_at_even == pytest.approx(0.24)
     assert config.draw_shape == pytest.approx(1.0)
+    assert config.single_match_draw_enabled is True
+    assert config.single_match_draw_at_even == pytest.approx(0.12)
     assert config.goal_difference_enabled is True
     assert config.goal_alpha == pytest.approx(0.15)
     assert config.goal_tau == pytest.approx(300.0)
@@ -87,10 +90,11 @@ def test_calibrated_v2_parameters_match_selected_model() -> None:
     assert config.minimum_winner_gain_ratio == pytest.approx(0.70)
     assert config.progression_bonus_enabled is True
     assert config.progression_base_bonus == pytest.approx(12.0)
+    assert config.progression_stages_per_competition == 4
     assert config.fixed_progression_config.increment("UCL") == pytest.approx(12.0)
     assert config.fixed_progression_config.increment("UEL") == pytest.approx(8.0)
     assert config.fixed_progression_config.increment("UECL") == pytest.approx(4.0)
-    assert config.reserve_base == 0.0
+    assert config.achievement_reserve is None
     config.validate()
 
 
@@ -126,6 +130,37 @@ def test_1x2_probabilities_preserve_expected_score() -> None:
     assert home + draw + away == pytest.approx(1.0)
     assert home + 0.5 * draw == pytest.approx(expected)
     assert all(0.0 <= value <= 1.0 for value in (home, draw, away))
+
+
+def test_single_match_draw_intercept_changes_only_1x2_decomposition() -> None:
+    config = DynamicEloConfig.calibrated_v2()
+    expected = expected_score(1400.0, 1400.0, config, neutral=True)
+    regular = expected_1x2_probabilities(
+        1400.0,
+        1400.0,
+        config,
+        neutral=True,
+    )
+    single = expected_1x2_probabilities(
+        1400.0,
+        1400.0,
+        config,
+        neutral=True,
+        is_single_match_tie=True,
+    )
+
+    assert regular == pytest.approx((0.38, 0.24, 0.38))
+    assert single == pytest.approx((0.44, 0.12, 0.44))
+    assert regular[0] + 0.5 * regular[1] == pytest.approx(expected)
+    assert single[0] + 0.5 * single[1] == pytest.approx(expected)
+
+
+def test_single_match_format_requires_a_deciding_knockout_tie() -> None:
+    invalid = match()
+    invalid = replace(invalid, is_single_match_tie=True)
+
+    with pytest.raises(ValueError, match="single-match tie"):
+        invalid.validate()
 
 
 def test_match_update_is_pure_deterministic_and_power_zero_sum() -> None:
@@ -201,7 +236,7 @@ def test_penalty_shootout_does_not_replace_field_draw() -> None:
 
 @pytest.mark.parametrize(
     ("competition", "expected_bonus", "expected_cap"),
-    [("UCL", 12.0, 60.0), ("UEL", 8.0, 40.0), ("UECL", 4.0, 20.0)],
+    [("UCL", 12.0, 48.0), ("UEL", 8.0, 32.0), ("UECL", 4.0, 16.0)],
 )
 def test_fixed_progression_bonus_uses_competition_ratio_after_decider(
     competition: str,
@@ -236,6 +271,29 @@ def test_fixed_progression_bonus_uses_competition_ratio_after_decider(
     )
 
 
+def test_knockout_playoff_winner_receives_no_progression_bonus() -> None:
+    config = DynamicEloConfig.calibrated_v2()
+    initial = initialize_season("2026/27", seeds(), config)
+
+    state, update = update_match(
+        initial,
+        match(
+            round_name="Knockout round play-offs",
+            tie_id="ucl-kpo-1",
+            knockout=True,
+            decider=True,
+            advanced="A",
+        ),
+        config,
+    )
+
+    assert update.stage == "KNOCKOUT_PLAYOFF"
+    assert update.progression_bonus_recipient_id is None
+    assert update.progression_bonus_added == 0.0
+    assert state.ratings["A"].progression_bonus_total == 0.0
+    assert state.ratings["B"].progression_bonus_total == 0.0
+
+
 def test_fixed_progression_bonus_caps_and_resets_at_new_season() -> None:
     config = DynamicEloConfig.calibrated_v2()
     state = initialize_season("2026/27", seeds(), config)
@@ -264,7 +322,7 @@ def test_fixed_progression_bonus_caps_and_resets_at_new_season() -> None:
         )
 
     assert last_update is not None
-    assert state.ratings["A"].progression_bonus_ucl == pytest.approx(60.0)
+    assert state.ratings["A"].progression_bonus_ucl == pytest.approx(48.0)
     assert last_update.progression_bonus_added == 0.0
     assert len(state.processed_tie_ids) == 6
 
@@ -379,8 +437,10 @@ def test_explicitly_disabled_goal_layer_keeps_large_result_at_one() -> None:
 def test_two_leg_progression_reserve_is_visible_only_after_decider() -> None:
     config = replace(
         DynamicEloConfig.calibrated_v2(),
-        reserve_base=100.0,
-        reserve_decay=0.5,
+        achievement_reserve=AchievementReserveConfig(
+            reserve_base=100.0,
+            reserve_decay=0.5,
+        ),
     )
     initial = initialize_season("2026/27", seeds(), config)
     first_leg = match(
@@ -419,8 +479,10 @@ def test_two_leg_progression_reserve_is_visible_only_after_decider() -> None:
 def test_single_match_final_uses_trophy_reserve_after_field_update() -> None:
     config = replace(
         DynamicEloConfig.calibrated_v2(),
-        reserve_base=100.0,
-        reserve_decay=0.5,
+        achievement_reserve=AchievementReserveConfig(
+            reserve_base=100.0,
+            reserve_decay=0.5,
+        ),
     )
     initial = initialize_season("2026/27", seeds(), config)
     final = match(
@@ -509,6 +571,35 @@ def test_missing_team_invalid_score_and_config_mismatch_are_rejected() -> None:
     assert penalty_update.xg_applied is False
 
 
+def test_dynamic_xg_applied_uses_kernel_eligibility_signal() -> None:
+    config = DynamicEloConfig.calibrated_v2()
+    initial = initialize_season("2026/27", seeds(), config)
+    eligible = replace(
+        match(home_goals=2, away_goals=0),
+        xg_home=3.0,
+        xg_away=0.5,
+        xg_analysis_eligible=True,
+    )
+    _, applied = update_match(initial, eligible, config)
+    penalty = replace(
+        eligible,
+        match_id="penalty",
+        round="Final",
+        tie_id="penalty-tie",
+        is_knockout=True,
+        is_tie_decider=True,
+        is_single_match_tie=True,
+        advanced_team_id="A",
+        decided_on_penalties=True,
+    )
+    _, suppressed = update_match(initial, penalty, config)
+
+    assert applied.xg_performance_signal is not None
+    assert applied.xg_applied is True
+    assert suppressed.xg_performance_signal is None
+    assert suppressed.xg_applied is False
+
+
 @pytest.mark.parametrize(
     "config",
     [
@@ -526,6 +617,31 @@ def test_invalid_goal_difference_config_is_rejected(
 ) -> None:
     with pytest.raises(ValueError):
         config.validate()
+
+
+def test_active_progression_rejects_five_stage_contract() -> None:
+    config = replace(
+        DynamicEloConfig.calibrated_v2(),
+        progression_stages_per_competition=5,
+    )
+    with pytest.raises(ValueError, match="four eligible post-R16 stages"):
+        config.validate()
+
+
+def test_dynamic_config_accepts_subunit_draw_shape_safely() -> None:
+    config = replace(DynamicEloConfig.calibrated_v2(), draw_shape=0.84)
+    config.validate()
+
+    home, draw, away = expected_1x2_probabilities(
+        2500.0,
+        500.0,
+        config,
+        neutral=True,
+    )
+    expected = expected_score(2500.0, 500.0, config, neutral=True)
+    assert min(home, draw, away) >= 0.0
+    assert home + draw + away == pytest.approx(1.0)
+    assert home + 0.5 * draw == pytest.approx(expected)
 
 
 def test_knockout_tie_identity_cannot_be_reused_for_other_teams() -> None:

@@ -1,6 +1,6 @@
 {
   "model_version": "ao-european-elo-v2.0-dev-freeze",
-  "production_revision": "2026-08-06-penalty-field-score-goal-alpha-015-bounded-xg",
+  "production_revision": "2026-08-13-ml-poisson-ensemble-monitoring",
   "domestic_surprise": {
     "active": true,
     "family": "FIVE_SEASON_VARIANCE_CONTROLLED_DIRECT_PERCENTILE",
@@ -24,6 +24,11 @@
     "active": true,
     "draw_at_even": 0.24,
     "draw_shape": 1.0,
+    "single_match_draw_enabled": true,
+    "single_match_draw_at_even": 0.12,
+    "single_match_definition": "knockout tie scheduled as exactly one field-score match",
+    "single_match_metadata_required": true,
+    "rating_state_changed": false,
     "expected_score_identity_preserved": true,
     "standard_brier": true,
     "standard_log_loss": true
@@ -54,14 +59,18 @@
     "penalty_shootout_behavior": "NO_XG_ADJUSTMENT",
     "shootout_excluded": true,
     "time_scope": "90 minutes, or matching 120-minute xG when extra time is played",
-    "winner_direction_guard": true,
+    "winner_gain_bound": {
+      "source": "ANALYTIC_XG_RATIO_BOUND",
+      "minimum_ratio": 0.7,
+      "runtime_floor_expected_to_bind": false
+    },
     "zero_sum": true
   },
   "progression_bonus": {
     "active": true,
     "family": "WINNER_ONLY_SEASON_LOCAL_FIXED",
     "base_bonus": 12.0,
-    "stages_per_competition": 5,
+    "stages_per_competition": 4,
     "competition_ratios": {
       "UCL": 1.0,
       "UEL": 0.6666666666666666,
@@ -73,12 +82,11 @@
       "UECL": 4.0
     },
     "season_caps": {
-      "UCL": 60.0,
-      "UEL": 40.0,
-      "UECL": 20.0
+      "UCL": 48.0,
+      "UEL": 32.0,
+      "UECL": 16.0
     },
     "eligible_stages": [
-      "KNOCKOUT_PLAYOFF",
       "ROUND_OF_16",
       "QUARTERFINAL",
       "SEMIFINAL",
@@ -91,15 +99,7 @@
     "formula": "AO Live Elo = Power Elo + Achievement Reserve + European Progression Bonus"
   },
   "achievement_reserve": {
-    "active": false,
-    "reserve_base": 0.0,
-    "ucl_multiplier": 1.0,
-    "uel_multiplier": 0.65,
-    "uecl_multiplier": 0.45,
-    "stage_profile": "FLAT",
-    "reserve_decay": 0.0,
-    "reserve_cap": 297.0885323826501,
-    "trophy_uses_same_base": true
+    "active": false
   },
   "competition_k": {
     "active": false,
@@ -108,16 +108,78 @@
     "uel_multiplier": 1.0,
     "uecl_multiplier": 1.0
   },
+  "prediction_layer": {
+    "active": true,
+    "model_version": "ao-ml-poisson-ensemble-v1-production",
+    "decision": "PROMOTE_WITH_MONITORING",
+    "family": "ML_DOMESTIC_POISSON_LOG_PROBABILITY_BLEND",
+    "activation_date": "2026-08-13",
+    "top_level_blend": {
+      "space": "LOG_PROBABILITY",
+      "current_ml_weight": 0.5,
+      "ao_domestic_poisson_weight": 0.5
+    },
+    "current_ml_component": {
+      "source": "STRUCTURAL_LOGISTIC",
+      "ao_weight": 0.1,
+      "ml_weight": 0.9
+    },
+    "ao_domestic_poisson_component": {
+      "source": "AO_POISSON_RHO0_CONTROL",
+      "ao_weight": 0.5,
+      "poisson_weight": 0.5,
+      "domestic_config": {
+        "team_learning_rate": 0.02,
+        "season_carry": 0.9,
+        "shrinkage_matches": 10.0,
+        "venue_context": false,
+        "lambda_min": 0.2,
+        "lambda_max": 4.5,
+        "team_parameter_cap": 1.0,
+        "venue_parameter_cap": 0.75,
+        "league_home_min": -0.3,
+        "league_home_max": 0.5,
+        "league_learning_ratio": 0.1,
+        "model_version": "ao-domestic-dynamic-poisson-v1-production-state"
+      },
+      "transfer_config": {
+        "mu": 0.28040079791632944,
+        "elo_slope": 0.6663036964859297,
+        "attack_coefficient": 0.09209745423072817,
+        "defence_coefficient": 0.06065648173017676,
+        "venue_coefficient": 0.0,
+        "l2_strength": 10.0,
+        "rho": 0.0,
+        "use_reliability": true,
+        "use_venue": false,
+        "model_version": "ao-domestic-poisson-transfer-v1-production-rho0"
+      }
+    },
+    "artifact_manifest": {
+      "path": "artifacts/production_prediction/manifest.json",
+      "sha256": "f37cbe7211c7ef70d00c5581ca4e3e3f569b745afda32495ec3b01eeeac33299"
+    },
+    "fallback": "CURRENT_AO_1X2",
+    "rating_feedback": false,
+    "monitoring": {
+      "active": true,
+      "season": "2026/27",
+      "log_every_prediction": true,
+      "compare_against_current_ao": true
+    }
+  },
   "decisions": {
     "dynamic_core": "CONFIRMED_1X2",
     "season_carry": "DISABLE_CARRY_1X2",
     "one_x_two_output": "PROMOTE_1X2_OUTPUT",
+    "single_match_draw": "ACTIVATE_STRUCTURAL_FORMAT_CORRECTION_0_12",
     "goal_margin": "ACTIVATE_CONTROLLED_GOAL_DIFFERENCE_0_15_300",
     "xg_performance": "ACTIVATE_BOUNDED_RATIO_0_30_SCALE_1_25_FLOOR_0_70",
     "domestic_surprise": "ACTIVATE_THETA_0_40_GAMMA_0_50_CAP_30",
-    "progression_bonus": "ACTIVATE_FIXED_12_8_4_CAP_60_40_20",
+    "progression_bonus": "ACTIVATE_FIXED_12_8_4_CAP_48_32_16_NO_KNOCKOUT_PLAYOFF",
     "achievement_reserve": "DISABLED",
-    "competition_k": "DISABLED"
+    "competition_k": "DISABLED",
+    "prediction_layer": "PROMOTE_WITH_MONITORING_50_ML_50_AO_POISSON_RHO0"
   },
   "evidence": {
     "source": "output/goal_shadow_parameter_search_2018_2026/parameter_search_report.md",
@@ -164,6 +226,20 @@
     "xg_eligible_matches": 606,
     "missing_xg_fallback_matches": 355,
     "manual_product_decision": true
+  },
+  "prediction_layer_evidence": {
+    "source": "output/final_prediction_ensemble_backtest_2018_2026/selected_candidate.json",
+    "development_matches": 6340,
+    "unseen_matches": 4884,
+    "pooled_brier": 0.5680932199564515,
+    "pooled_log_loss": 0.9592418968185772,
+    "pooled_accuracy": 0.5538493038493039,
+    "delta_brier_vs_ao": -0.00399944549914677,
+    "delta_log_loss_vs_ao": -0.00512894042292622,
+    "historical_gate_decision": "KEEP_SHADOW",
+    "operational_decision": "PROMOTE_WITH_MONITORING",
+    "manual_product_decision": true,
+    "rating_feedback": false
   },
   "development_data_through": "2025/26",
   "prospective_monitoring": "2026/27 league phase and later"

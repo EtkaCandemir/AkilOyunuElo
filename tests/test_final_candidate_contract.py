@@ -18,13 +18,14 @@ PRODUCTION = ROOT / "contracts" / "ao_european_elo_v2_production.json"
 
 def test_final_candidate_contract_loads_selected_parameters() -> None:
     runtime = load_final_candidate_runtime(CANDIDATE)
-    assert runtime.candidate_version.endswith("2026-08-05")
+    assert runtime.candidate_version.endswith("2026-08-13")
     assert len(runtime.contract_sha256) == 64
     assert runtime.dynamic_config.goal_alpha == pytest.approx(0.15)
     assert runtime.dynamic_config.goal_tau == pytest.approx(300.0)
     assert runtime.dynamic_config.goal_difference_cap == 4
     assert runtime.dynamic_config.progression_bonus_enabled is True
     assert runtime.dynamic_config.progression_base_bonus == pytest.approx(12.0)
+    assert runtime.dynamic_config.progression_stages_per_competition == 4
     assert runtime.xg_config.beta == pytest.approx(0.30)
     assert runtime.xg_config.xg_scale == pytest.approx(1.25)
     assert runtime.xg_config.minimum_winner_gain_ratio == pytest.approx(0.70)
@@ -91,6 +92,11 @@ def test_active_production_contract_keeps_dynamic_core_and_adds_surprise() -> No
         "UEL": 8.0,
         "UECL": 4.0,
     }
+    assert production["progression_bonus"]["season_caps"] == {
+        "UCL": 48.0,
+        "UEL": 32.0,
+        "UECL": 16.0,
+    }
     assert production["xg_performance"]["active"] is True
     assert production["xg_performance"]["max_xg_ratio"] == pytest.approx(0.30)
     assert production["xg_performance"]["xg_scale"] == pytest.approx(1.25)
@@ -112,3 +118,16 @@ def test_active_production_contract_keeps_dynamic_core_and_adds_surprise() -> No
         ),
         "insufficient_history_behavior": "NO_ADJUSTMENT",
     }
+    prediction = production["prediction_layer"]
+    assert prediction["active"] is True
+    assert prediction["decision"] == "PROMOTE_WITH_MONITORING"
+    assert prediction["top_level_blend"] == {
+        "space": "LOG_PROBABILITY",
+        "current_ml_weight": 0.5,
+        "ao_domestic_poisson_weight": 0.5,
+    }
+    assert prediction["ao_domestic_poisson_component"]["transfer_config"][
+        "rho"
+    ] == pytest.approx(0.0)
+    assert prediction["rating_feedback"] is False
+    assert prediction["fallback"] == "CURRENT_AO_1X2"

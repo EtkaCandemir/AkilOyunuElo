@@ -63,6 +63,7 @@ def fixture(
     decider: bool = False,
     round_name: str = "League Stage",
     stage: str | None = "LEAGUE",
+    single_match: bool = False,
 ) -> MatchFixture:
     return MatchFixture(
         match_id=match_id,
@@ -77,6 +78,7 @@ def fixture(
         is_knockout=knockout,
         is_tie_decider=decider,
         stage=stage,
+        is_single_match_tie=single_match,
     )
 
 
@@ -94,6 +96,7 @@ def result(
     advanced: str | None = None,
     round_name: str = "League Stage",
     stage: str | None = "LEAGUE",
+    single_match: bool = False,
 ) -> MatchInput:
     return MatchInput(
         match_id=match_id,
@@ -112,7 +115,31 @@ def result(
         is_tie_decider=decider,
         advanced_team_id=advanced,
         stage=stage,
+        is_single_match_tie=single_match,
     )
+
+
+def test_locked_single_match_prediction_audits_format_draw_intercept() -> None:
+    selected = config()
+    state = initialize_season("2099/00", seeds(), selected)
+    single = fixture(
+        tie_id="final-1",
+        knockout=True,
+        decider=True,
+        round_name="Final",
+        stage="FINAL",
+        single_match=True,
+    )
+
+    prediction = lock_prediction(
+        state,
+        single,
+        selected,
+        generated_at_utc=GENERATED,
+    )
+
+    assert prediction.is_single_match_tie is True
+    assert prediction.effective_draw_at_even == pytest.approx(0.12)
 
 
 def test_result_free_prediction_is_locked_before_kickoff_and_settled() -> None:

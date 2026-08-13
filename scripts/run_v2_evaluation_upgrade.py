@@ -68,7 +68,21 @@ DYNAMIC_ROOT = ROOT / "output" / "v2_dynamic_calibration_2018_2026"
 OUTPUT_ROOT = ROOT / "output" / "v2_evaluation_upgrade_2018_2026"
 COMPETITIONS = ("UCL", "UEL", "UECL")
 DRAW_AT_EVEN_CANDIDATES = tuple(np.arange(0.18, 0.381, 0.02).round(2))
-DRAW_SHAPE_CANDIDATES = (1.0, 1.25, 1.5, 2.0)
+DRAW_SHAPE_CANDIDATES = (
+    0.50,
+    0.60,
+    0.70,
+    0.75,
+    0.80,
+    0.84,
+    0.85,
+    0.90,
+    0.95,
+    1.00,
+    1.25,
+    1.50,
+    2.00,
+)
 CLIMATOLOGY_ALPHA = 1.0
 TARGET_HOME_EDGE_PRIOR = 20.0
 TARGET_OPPONENT_PRIOR = 4.0

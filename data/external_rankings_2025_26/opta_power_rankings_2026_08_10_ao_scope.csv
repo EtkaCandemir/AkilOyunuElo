@@ -1,0 +1,237 @@
+club_id,uefa_team_id,opta_team_id,opta_global_rank,opta_power_rating,opta_team_name,opta_club_name,opta_association,opta_domestic_league
+AO-UEFA-52280,52280,4dsgumo7d4zupm2ugsvm4zm4d,1,100.0000000000,Arsenal,Arsenal FC,England,Premier League
+AO-UEFA-50037,50037,apoawtpvac4zqlancmvw4nk4o,2,99.9583242438,Bayern München,FC Bayern München,Germany,Bundesliga
+AO-UEFA-52747,52747,2b3mar72yy8d6uvat1ka6tn3r,4,97.2871506849,Paris Saint-Germain,Paris Saint-Germain FC,France,Ligue 1
+AO-UEFA-52683,52683,b496gs285it6bheuikox6z9mj,7,95.0316250976,Aston Villa,Aston Villa FC,England,Premier League
+AO-UEFA-50080,50080,agh9ifb2mw3ivjusgedj7c3fe,5,96.2000272776,Barcelona,FC Barcelona,Spain,Primera División
+AO-UEFA-50051,50051,3kq9cckrnlogidldtdie2fkbl,8,94.9950536857,Real Madrid,Real Madrid CF,Spain,Primera División
+AO-UEFA-7889,7889,c8h9bw1l82s06h77xxrelzhur,10,94.4728025704,Liverpool,Liverpool FC,England,Premier League
+AO-UEFA-1652,1652,22doj4sgsocqpxw45h607udje,30,90.8204653225,Tottenham Hotspur,Tottenham Hotspur FC,England,Premier League
+AO-UEFA-50124,50124,4ku8o6uf87yd8iecdalipo6wd,28,91.0941076203,Atlético de Madrid,Club Atlético de Madrid,Spain,Primera División
+AO-UEFA-50109,50109,7ad69ngbpjuyzv96drf8d9sn2,26,91.2631189451,Bayer Leverkusen,Bayer 04 Leverkusen,Germany,Bundesliga
+AO-UEFA-50149,50149,7catg5lpivcmpf4xhggh6d8rk,16,92.1311862198,Sporting CP,Sporting Clube de Portugal,Portugal,Primeira Liga
+AO-UEFA-52914,52914,9q0arba2kbnywth8bkxlhgmdr,18,91.8476900945,Chelsea,Chelsea FC,England,Premier League
+AO-UEFA-52919,52919,a3nyxabgsqlnqfkeg41m6tnpp,3,98.1570042630,Manchester City,Manchester City FC,England,Premier League
+AO-UEFA-50137,50137,2tk2l9sgktwc9jhzqdd4mpdtb,22,91.5949158407,Roma,AS Roma,Italy,Serie A
+AO-UEFA-50138,50138,3vo5mpj7catp66nrwwqiuhuup,9,94.5814237758,Internazionale,FC Internazionale Milano,Italy,Serie A
+AO-UEFA-59333,59333,ctvzi2jbl1q6xzq0s3sexj73g,38,89.9727939407,Bodø / Glimt,FK Bodø / Glimt,Norway,Eliteserien
+AO-UEFA-75795,75795,59as3grjvj19voay31j3yfgni,98,85.1790480431,Midtjylland,FC Midtjylland,Denmark,Superliga
+AO-UEFA-52336,52336,26t6lvlpql4w5wu1ih73qpy36,63,87.3661155255,Sporting Braga,Sporting Braga,Portugal,Primeira Liga
+AO-UEFA-52758,52758,dt4pinj0vw0t0cvz7za6mhmzy,15,92.5478223862,Borussia Dortmund,BV Borussia 09 Dortmund,Germany,Bundesliga
+AO-UEFA-50139,50139,bqbbqm98ud8obe45ds9ohgyrd,25,91.3351858411,Juventus,Juventus FC,Italy,Serie A
+AO-UEFA-50043,50043,1oyb7oym5nwzny8vxf03szd2h,19,91.8096462521,Club Brugge,Club Brugge KV,Belgium,First Division A
+AO-UEFA-50064,50064,66bsnl0zjb7l5akwo00h0y5me,31,90.6185221803,Porto,FC Porto,Portugal,Primeira Liga
+AO-UEFA-52816,52816,e75syeuawg3ql8nwpi3vr2btz,36,90.0851128650,Atalanta,Atalanta Bergamasca Calcio,Italy,Serie A
+AO-UEFA-52681,52681,1qtaiy11gswx327s0vkibf70n,17,92.1011908059,Nottingham Forest,Nottingham Forest FC,England,Premier League
+AO-UEFA-50147,50147,9ldqu49smv1xg2va0n2cy28zl,20,91.7913559017,Benfica,SL Benfica,Portugal,Primeira Liga
+AO-UEFA-59324,59324,7vn2i2kd35zuetw6b38gw9jsz,13,92.8788535357,Newcastle United,Newcastle United FC,England,Premier League
+AO-UEFA-52265,52265,ah8dala7suqqkj04n2l8xz4zd,51,88.1792083987,Real Betis,Real Betis Balompié,Spain,Primera División
+AO-UEFA-52916,52916,1c8m2ko0wxq1asfkuykurdr0y,21,91.6256441001,Crystal Palace,Crystal Palace FC,England,Premier League
+AO-UEFA-64388,64388,c6fx1460nlkawjgh67sp7a1hd,165,83.2478176343,Viktoria Plzeň,FC Viktoria Plzeň,Czechia,Czech Liga
+AO-UEFA-50062,50062,24fvcruwqrqvqa3aonf8c3zuy,46,88.9457775549,PSV,PSV Eindhoven,Netherlands,Eredivisie
+AO-UEFA-2610,2610,9ghx7vbghs3628n5chm9r8ig3,70,86.9094123711,Olympiakos Piraeus,Olympiakos FC,Greece,Super League 1
+AO-UEFA-50067,50067,esa748l653sss1wurz5ps3228,57,87.7818171352,Galatasaray,Galatasaray Spor Kulübü,Türkiye,Süper Lig
+AO-UEFA-59880,59880,6k5zscdm9ufw0tguvzyjlp5hq,60,87.5344471624,Freiburg,SC Freiburg,Germany,Bundesliga
+AO-UEFA-52298,52298,b3o0wckz4w3fusytybpgxftgm,118,84.4579863493,Ferencváros,Ferencvárosi TC,Hungary,NB I
+AO-UEFA-5312,5312,121le8unjfzug3iu9pgkqa1c7,54,87.9223326913,Olympique Lyonnais,Lyon,France,Ligue 1
+AO-UEFA-52817,52817,4raiad4l2j5lkfaz92pk4osb,71,86.8665955410,Fiorentina,ACF Fiorentina,Italy,Serie A
+AO-UEFA-52692,52692,8lroq0cbhdxj8124qtxwrhvmm,50,88.3500898830,Fenerbahçe,Fenerbahçe Spor Kulübü,Türkiye,Süper Lig
+AO-UEFA-50069,50069,81lpho34qr3dad0xzalq0abja,124,84.1578355693,Crvena zvezda,FK Crvena zvezda Beograd,Serbia,Super Liga
+AO-UEFA-50023,50023,4t4hod56fsj7utpjdor8so5q6,52,88.1598148421,Monaco,AS Monaco FC,France,Ligue 1
+AO-UEFA-52969,52969,ej5er0oyngdw138yuumwqbyqt,66,87.2318144331,Bologna,Bologna FC 1909,Italy,Serie A
+AO-UEFA-50136,50136,gi0l1habji5hpgar77dl5jqe,33,90.3920638667,Napoli,SSC Napoli,Italy,Serie A
+AO-UEFA-52709,52709,b3r6d8ydtmtjckam6pku9y400,117,84.4927594037,København,FC København,Denmark,Superliga
+AO-UEFA-52327,52327,3kfktv64h7kg7zryax1wktr5r,122,84.1688168351,AZ,Alkmaar Zaanstreek,Netherlands,Eredivisie
+AO-UEFA-50084,50084,4ws3k9155net1ydbvr8c940dy,196,82.5112567841,Panathinaikos,Panathinaikos FC,Greece,Super League 1
+AO-UEFA-64125,64125,ecj1gmc7pqcjo4sc9hvghj5u3,35,90.3031622845,Union Saint-Gilloise,Royale Union Saint-Gilloise,Belgium,First Division A
+AO-UEFA-75797,75797,be2k34rut1lz79jxenabttqlc,49,88.6036632552,Lille,Lille OSC,France,Ligue 1
+AO-UEFA-52748,52748,27xvwccz8kpmqsefjv2b2sc0o,55,87.8864721084,Olympique Marseille,Olympique de Marseille,France,Ligue 1
+AO-UEFA-50050,50050,dvnjvad3p09dugr79gktlrtll,120,84.1874849625,Celtic,Celtic FC,Scotland,Premiership
+AO-UEFA-61582,61582,89xivtxk59uzvhdsd6miao6tm,103,84.9495576981,Genk,KRC Genk,Belgium,First Division A
+AO-UEFA-53043,53043,6f27yvbqcngegwsg2ozxxdj4,67,87.0660401292,Celta de Vigo,Real Club Celta de Vigo,Spain,Primera División
+AO-UEFA-50072,50072,c5hderjlkcoaze51e5wgvptk,83,85.4231738924,Eintracht Frankfurt,Eintracht Frankfurt,Germany,Bundesliga
+AO-UEFA-50125,50125,3czravw89omgc9o4s0w3l1bg5,77,86.1225823591,Athletic Club,Athletic Club,Spain,Primera División
+AO-UEFA-50143,50143,d0zdg647gvgc95xdtk1vpbkys,110,84.5974439590,Ajax,AFC Ajax,Netherlands,Eredivisie
+AO-UEFA-64227,64227,duvz7klp081jpg8fx5nze7ks7,87,85.2635959622,Lech Poznań,KKS Lech Poznań,Poland,Ekstraklasa
+AO-UEFA-74070,74070,3budh3j9xivsid3ptm8ptpy4k,65,87.2753618213,Rayo Vallecano,Rayo Vallecano de Madrid,Spain,Primera División
+AO-UEFA-52707,52707,cf8plcmeniaen0fc5emyb5j93,139,83.7972781025,Shakhtar Donetsk,FC Shakhtar Donetsk,Ukraine,Premier League
+AO-UEFA-52749,52749,20vymiy7bo8wkyxai3ew494fz,100,85.1311006786,Feyenoord,Feyenoord Rotterdam,Netherlands,Eredivisie
+AO-UEFA-2609532,2609532,d6e2elufz1jf4h68k21uahq7d,159,83.3320138499,Pafos,Pafos FC,Cyprus,1. Division
+AO-UEFA-70853,70853,1c7qokc1j5z50cjj4tcu32haa,69,86.9178293365,Mainz 05,1. FSV Mainz 05,Germany,Bundesliga
+AO-UEFA-50107,50107,3dwlvz6cl4lcavvrg0y2dycrt,39,89.9460860310,Stuttgart,VfB Stuttgart 1893,Germany,Bundesliga
+AO-UEFA-50164,50164,7vyubxg6fnmwwyo2nnyhp6j5d,56,87.8367062222,Dinamo Zagreb,GNK Dinamo Zagreb,Croatia,HNL
+AO-UEFA-50130,50130,deazflnflqmejndo05gviznzd,101,85.0557021281,PAOK,PAOK Thessaloniki FC,Greece,Super League 1
+AO-UEFA-50129,50129,7ruua9q5rtswwi5d6xtquuto5,72,86.5657754536,AEK Athens,AEK Athens FC,Greece,Super League 1
+AO-UEFA-50031,50031,5fd9f9bti2cdgb6r1lf8l2bc7,190,82.6547654931,Young Boys,BSC Young Boys,Switzerland,Super League
+AO-UEFA-52498,52498,8kpapuorr6hf0vosnovbreqqd,47,88.8396682803,Slavia Praha,SK Slavia Praha,Czechia,Czech Liga
+AO-UEFA-60609,60609,dz0fc3304a30bzm9lht0bhpqt,240,81.6274657832,Qarabağ,Qarabağ Ağdam FK,Azerbaijan,Premyer Liqa
+AO-UEFA-59857,59857,71ajatxnuhc5cnm3xvgdky49w,73,86.4622066508,Strasbourg,RC Strasbourg Alsace,France,Ligue 1
+AO-UEFA-2600277,2600277,8jw3s68b9lil5xcgjvbcmrgc2,236,81.8207782230,Jagiellonia Białystok,SSA Jagiellonia Białystok,Poland,Ekstraklasa
+AO-UEFA-50121,50121,cnnku8uihko7u4th0fms4pvg6,297,80.5568631790,Rangers,Rangers FC,Scotland,Premiership
+AO-UEFA-2603104,2603104,6uhzci0mwrzly1e4trka6k4ea,286,80.6992989305,Ludogorets Razgrad,PFK Ludogorets 1945 Razgrad,Bulgaria,First League
+AO-UEFA-50033,50033,5ocdn3a6s75u0d0dy0rbou0xc,160,83.3232281873,Sparta Praha,AC Sparta Praha,Czechia,Czech Liga
+AO-UEFA-50146,50146,d7udukc1t631drge83p7ucqws,164,83.2825944085,Legia Warszawa,KP Legia Warszawa,Poland,Ekstraklasa
+AO-UEFA-60566,60566,1sxaf8l7fknmucd72fdretogm,209,82.3615225092,Raków Częstochowa,KS Raków Częstochowa,Poland,Ekstraklasa
+AO-UEFA-70691,70691,74mcjsm72vr3l9pw2i4qfjchj,45,89.0244441713,Villarreal,Villarreal CF,Spain,Primera División
+AO-UEFA-50074,50074,6vyr13j6kbwdtxjwm1m4m8nu2,140,83.7431019778,Anderlecht,RSC Anderlecht,Belgium,First Division A
+AO-UEFA-53060,53060,dpsnqu7pd2b0shfzjyn5j1znf,259,81.2789090044,Samsunspor,Samsunspor Kulübü,Türkiye,Süper Lig
+AO-UEFA-59030,59030,a75rj6mt43qjbvvabry5qg162,388,79.0580613974,Celje,NK Celje,Slovenia,1. SNL
+AO-UEFA-50030,50030,bonj6qc7po4anunhydmjmi6g5,219,82.0316606559,Salzburg,FC Salzburg,Austria,Bundesliga
+AO-UEFA-50111,50111,4lauow63npvttmvxgh2koqb0r,144,83.6720869342,Sturm Graz,SK Sturm Graz,Austria,Bundesliga
+AO-UEFA-8538,8538,btqfm8txcvhi29sddmc9nr68,172,83.0973610848,Lugano,FC Lugano,Switzerland,Super League
+AO-UEFA-52356,52356,1ej3fkeq5d7359enihddsxzae,182,82.9154194439,Rijeka,HNK Rijeka,Croatia,HNL
+AO-UEFA-50162,50162,c0d1qca7kz0fi0ypx7aw4nusc,615,76.3682546009,Partizan,FK Partizan Beograd,Serbia,Super Liga
+AO-UEFA-4251,4251,96jxcq0onij7zd9rwwkal8q1l,554,76.9521306409,Lausanne-Sport,FC Lausanne-Sport,Switzerland,Super League
+AO-UEFA-2600288,2600288,47njg6cmlx5q3fvdsupd2n6qu,232,81.9167009402,İstanbul Başakşehir,İstanbul Başakşehir Futbol Kulübü,Türkiye,Süper Lig
+AO-UEFA-54191,54191,q4y48hs70h74p3waaxxjtdu5,143,83.7039339420,AEK Larnaca,AEK Larnaca,Cyprus,1. Division
+AO-UEFA-59045,59045,bglyqy0awtu6lzvpab390rir2,549,76.9872940149,Maccabi Haifa,Maccabi Haifa FC,Israel,Ligat Ha'al
+AO-UEFA-59856,59856,5u18kvqiqhup2vd345dci1069,333,79.9918617810,Basel,FC Basel 1893,Switzerland,Super League
+AO-UEFA-52770,52770,6oxoag5c6zbnn09wx08vz4iak,258,81.2789090044,Brann,SK Brann,Norway,Eliteserien
+AO-UEFA-88131,88131,j9rqsuwsz35jx5drlh5f629w,488,77.7553642509,CFR Cluj,SCS CFR 1907 Cluj,Romania,Liga I
+AO-UEFA-50157,50157,2ez9cvam9lp9jyhng3eh3znb4,92,85.2269952077,Beşiktaş,Beşiktaş Jimnastik Kulübü,Türkiye,Süper Lig
+AO-UEFA-50065,50065,bpk1d09f7zqtmcp7cis2c1b7i,641,76.1125694530,FCSB,SC Fotbal Club FCSB SA,Romania,Liga I
+AO-UEFA-57475,57475,5hxhbq90kzf5ru0s2weylw1wu,729,75.0578919638,KÍ,KÍ Klaksvík,Faroe Islands,Meistaradeildin
+AO-UEFA-52797,52797,cmj1019uptq8i042n5y16itbd,266,81.0724058500,Slovan Bratislava,ŠK Slovan Bratislava,Slovakia,1. liga
+AO-UEFA-50079,50079,4qdzzur2cuuridyb0jso8mksi,1002,72.5667413325,Dundee United,Dundee United FC,Scotland,Premiership
+AO-UEFA-50077,50077,1pf6zmsueuc9tr64ql67gynqc,62,87.4499157054,Omonia Nicosia,AC Omonia Nicosia,Cyprus,1. Division
+AO-UEFA-52905,52905,dchxm00ei80l8ljbcfpdill8k,383,79.1096971974,Sigma Olomouc,SK Sigma Olomouc,Czechia,Czech Liga
+AO-UEFA-52806,52806,c7jgkxx1czv5etn7snf1r6p2m,320,80.1551769518,Rosenborg,Rosenborg BK,Norway,Eliteserien
+AO-UEFA-52723,52723,7lgvcey3svf6k22vg5svdztmg,322,80.1522475535,Dynamo Kyiv,FC Dynamo Kyiv,Ukraine,Premier League
+AO-UEFA-52323,52323,ccpscwdcm65czscrun048ecn5,224,81.9840660142,Utrecht,FC Utrecht,Netherlands,Eredivisie
+AO-UEFA-50104,50104,399xya5sk812vkpg0no4dq552,358,79.5348590660,Borac Banja Luka,FK Borac Banja Luka,Bosnia and Herzegovina,Premijer Liga
+AO-UEFA-52319,52319,bsykw9d70ffqe9atosc92n1e9,68,87.0115134129,Viking,Viking FK,Norway,Eliteserien
+AO-UEFA-2606501,2606501,83rbv17lblttd5vcb3emcyzms,323,80.1460225794,Universitatea Craiova,Universitatea Craiova 1948 Club Sportiv,Romania,Liga I
+AO-UEFA-73927,73927,cmbqc74mshg77ra7mywec2a6b,294,80.5894514721,Santa Clara,CD Santa Clara,Portugal,Primeira Liga
+AO-UEFA-50042,50042,eljjik2vvlpy6d649mgwwivam,398,78.9108430590,Rapid,SK Rapid,Austria,Bundesliga
+AO-UEFA-2609987,2609987,e9x62jymlef5ugsrijq19ur8q,359,79.5165492566,Noah,FC Noah,Armenia,Premier League
+AO-UEFA-52287,52287,3jvgab7r5m1rqtyxvxrgyuwhd,263,81.1826145790,Győri ETO,Győri ETO FC,Hungary,NB I
+AO-UEFA-2603990,2603990,9pn4d8sj6pmqidrhhlvev437k,517,77.4052162318,Wolfsberger AC,Wolfsberger AC,Austria,Bundesliga
+AO-UEFA-52697,52697,7gmdb4hmtrz199zv9r66qy9qp,493,77.6934665543,Víkingur Reykjavík,Víkingur Reykjavík,Iceland,Besta deild
+AO-UEFA-52341,52341,5mbo4f0vps12dr0fcvjn3wyp5,481,77.7905249095,AIK,AIK Fotboll,Sweden,Allsvenskan
+AO-UEFA-52886,52886,920raeoumft3q2wmvc296uceo,171,83.1046826181,Sporting Charleroi,Royal Charleroi SC,Belgium,First Division A
+AO-UEFA-50152,50152,93ohqui2qgqm8408viwmm1ken,461,78.0875545114,Malmö FF,Malmö FF,Sweden,Allsvenskan
+AO-UEFA-53081,53081,75ajd08kvi4wwfua0u1a1qa1q,898,73.5099276464,Olimpija,NK Olimpija Ljubljana,Slovenia,1. SNL
+AO-UEFA-57477,57477,ealjallt13942jb2q2hk4buxa,363,79.4583238546,Maccabi Tel Aviv,Maccabi Tel Aviv FC,Israel,Ligat Ha'al
+AO-UEFA-52381,52381,51xekmm31jztuvdliya7idg5d,803,74.3002438432,Shamrock Rovers,Shamrock Rovers FC,Republic of Ireland,Premier Division
+AO-UEFA-52355,52355,bx0cdmzr2gwr70ez72dorx82p,174,83.0933342394,Nice,OGC Nice Côte d'Azur,France,Ligue 1
+AO-UEFA-2607924,2607924,5nqwiqpytmrp3o4ndubmbiy95,399,78.8998565341,Riga,Riga FC,Latvia,Virsliga
+AO-UEFA-50008,50008,ccwv4ymbs3u0q8xaby4hqb0jz,315,80.2774786224,Servette,Servette FC,Switzerland,Super League
+AO-UEFA-79970,79970,6j2gnvqgprscy600ex68i5ynf,378,79.1375291560,Kairat,FK Kairat Almaty,Kazakhstan,Premier League
+AO-UEFA-59340,59340,9ppjmek1r3tb9yddebneaxj7i,217,82.1458869601,Hapoel Be'er Sheva,Hapoel Be'er Sheva FC,Israel,Ligat Ha'al
+AO-UEFA-59034,59034,cx0rucvdzkg1yd00vrueu2u7,348,79.7088006941,Beitar Jerusalem,Beitar Jerusalem FC,Israel,Ligat Ha'al
+AO-UEFA-2609552,2609552,cuzhkg1y2iv7fppnjldenfk2y,1084,71.9602567526,Ballkani,KF Ballkani,Kosovo,Superliga
+AO-UEFA-69529,69529,3yt473wfo7f64lhmyfsf0zxcg,324,80.1343049714,Aris Limassol,Aris FC Limassol,Cyprus,1. Division
+AO-UEFA-50044,50044,c3yrcw3g5bj4rlmcxw9i8tale,132,83.9715184737,Levski Sofia,PFK Levski Sofia,Bulgaria,First League
+AO-UEFA-60514,60514,auws85cw488audeo1rdgbvs2z,300,80.5334288403,Varaždin,NK Varaždin,Croatia,HNL
+AO-UEFA-69606,69606,dcx559ojp4lgxwc9z9xxbzgre,939,73.1229904004,Sheriff,FK Sheriff Tiraspol,Moldova,Super Liga
+AO-UEFA-73390,73390,39r69xdnw8usnndtetv3un9z3,637,76.1543293547,Zrinjski,HŠK Zrinjski Mostar,Bosnia and Herzegovina,Premijer Liga
+AO-UEFA-50052,50052,303582z192rnbr2x28o2t7u38,899,73.4952712098,HJK,Helsingin Jalkapalloklubi,Finland,Veikkausliiga
+AO-UEFA-64211,64211,e5txudmuc2qpc460bs4lb5aff,528,77.2920382568,Fredrikstad,Fredrikstad FK,Norway,Eliteserien
+AO-UEFA-52912,52912,ahnt9ejgwj58ul8auzdvi3czf,586,76.6210029974,Silkeborg,Silkeborg IF,Denmark,Superliga
+AO-UEFA-52343,52343,2nnlsjfbcea40t4jeclcbw9lk,202,82.4340102586,Hammarby,Hammarby IF,Sweden,Allsvenskan
+AO-UEFA-52359,52359,6ouaoxrghzeqpzqk02xn3t4r9,194,82.5306598555,Hajduk Split,HNK Hajduk Split,Croatia,HNL
+AO-UEFA-52904,52904,e2eyddqxo12gs0dhbsb7l5pua,472,77.8626771407,Spartak Trnava,FC Spartak Trnava,Slovakia,1. liga
+AO-UEFA-50021,50021,9qsmopgutr7ut5g6workk8w4i,237,81.8105268910,Brøndby,Brøndby IF,Denmark,Superliga
+AO-UEFA-64207,64207,b79uipsy57y1jqpy07h4i5ovk,471,77.8689034521,Go Ahead Eagles,Go Ahead Eagles,Netherlands,Eredivisie
+AO-UEFA-52821,52821,c9ky1957qli8v2lylfga7io8b,519,77.3718856293,Hibernian,Hibernian FC,Scotland,Premiership
+AO-UEFA-50110,50110,84gk4ytf9vr8oml51cqyit78w,455,78.1413925155,Austria Wien,FK Austria Wien,Austria,Bundesliga
+AO-UEFA-52350,52350,1c7dv8ays675v9kp6a04sd8pq,675,75.6960600304,KuPS,Kuopion Palloseura,Finland,Veikkausliiga
+AO-UEFA-51886,51886,dfvvrv84skv23rsn1k6kt4slc,584,76.6466437921,Baník Ostrava,FC Baník Ostrava,Czechia,Czech Liga
+AO-UEFA-53025,53025,1umdtlidvrcxd3umripq0f8tm,445,78.2677459319,Universitatea Cluj,FC Universitatea Cluj,Romania,Liga I
+AO-UEFA-2600605,2600605,8hluxv5afo5yejrtl36naq9uv,703,75.3722185778,Astana,FK Astana,Kazakhstan,Premier League
+AO-UEFA-77928,77928,x5bf07g3gy7xj2zidytj28m3,3752,59.6957609327,Oleksandria,FC Oleksandria,Ukraine,Persha Liga
+AO-UEFA-93452,93452,e86hbyj6fwyumuwoiaglh33r5,508,77.4861615365,Paks,Paksi FC,Hungary,NB I
+AO-UEFA-2602334,2602334,tqszs9t9rn0xzxxjuhr2ujob,1203,71.0550335085,Žalgiris,FK Žalgiris Vilnius,Lithuania,Toplyga
+AO-UEFA-2610060,2610060,5y0ugwe1fh4wt4nsen0n47cxl,681,75.6436746137,Arda Kardzhali,FK Arda 1924 Kardzhali,Bulgaria,First League
+AO-UEFA-2601090,2601090,ctuzznbzdmug74ywjlq53frtf,1251,70.7039166403,Novi Pazar,FK Novi Pazar,Serbia,Super Liga
+AO-UEFA-71235,71235,c6hu27u143y4z4te8b4036bae,1356,69.9418968247,Breidablik,Breidablik UBK,Iceland,Besta deild
+AO-UEFA-2606484,2606484,7a2tbo29mvdo54wusbqp6i0wg,1110,71.7608932056,Araz Naxçıvan,Araz FK Naxçıvan,Azerbaijan,Premyer Liqa
+AO-UEFA-2602511,2602511,2rdnn9p03qrmmv34tyx1nahpa,990,72.6543215172,Ilves,Tampereen Ilves,Finland,Veikkausliiga
+AO-UEFA-2608290,2608290,41h9qlpbu053buypjhxtbuhxs,912,73.3582348810,Drita,KF Drita,Kosovo,Superliga
+AO-UEFA-77431,77431,6a568y7uc4jumukhqo96lb5du,717,75.2256805812,Pyunik,Pyunik FC,Armenia,Premier League
+AO-UEFA-57490,57490,4px9dur1rd4l660rv3ro7m6l6,640,76.1165989246,Maribor,NK Maribor,Slovenia,1. SNL
+AO-UEFA-69621,69621,9zqn9ugvg64it0lr5z8cq4g9v,393,78.9324498583,Häcken,BK Häcken,Sweden,Allsvenskan
+AO-UEFA-75807,75807,3wd9j6ytmipbqczenvqqmtikn,686,75.5975166101,Shkendija,KF Shkendija,North Macedonia,First League
+AO-UEFA-50133,50133,1bb2bbjq1gdsq3qqlh3c6rxs7,959,72.8994685608,St Patrick's Athletic,St Patrick's Athletic FC,Republic of Ireland,Premier Division
+AO-UEFA-2610304,2610304,e3c3aotjsfoewbuow17vqm0kq,441,78.3197518248,Ararat-Armenia,Ararat-Armenia FC,Armenia,Premier League
+AO-UEFA-63401,63401,4gq0wigc3xedon7eosdhr01lw,1326,70.1768503551,Inter Club d'Escaldes,Inter Club d'Escaldes,Andorra,1a Divisió
+AO-UEFA-52792,52792,80w98a04tq1cwg3ucxsrxb6sm,1069,72.0679955950,Dinamo City,FC Dinamo City,Albania,Superliga
+AO-UEFA-88148,88148,che78z4iaseye3rm58s8rbhyx,798,74.3456750377,Egnatia Rrogozhinë,KS Egnatia Rrogozhinë,Albania,Superliga
+AO-UEFA-52949,52949,90z9l1k46z46ep9oupipgganh,422,78.5603673003,Aris,Aris Thessaloniki FC,Greece,Super League 1
+AO-UEFA-2613172,2613172,6473hce9r52khyh9ptc6i385c,500,77.5612459853,Polissya,Polissya Zhytomyr,Ukraine,Premier League
+AO-UEFA-2605572,2605572,c6xkfm5pm0pd220olqc6x8hlj,1048,72.2288747100,Lincoln Red Imps,Lincoln Red Imps FC,Gibraltar,Premier Division
+AO-UEFA-50057,50057,khmdmbol7850k3i07yusgpn,1591,68.4766938523,Valur,Valur Reykjavík,Iceland,Besta deild
+AO-UEFA-69617,69617,6co245hvi01aei4mz0f6f5qw5,585,76.6239333772,Koper,FC Koper,Slovenia,1. SNL
+AO-UEFA-53020,53020,7e5odtzvbyx4ubpzwyphao0sv,1383,69.7890455742,Shelbourne,Shelbourne FC,Republic of Ireland,Premier Division
+AO-UEFA-50122,50122,841zp0njrq63yv4fvw6lgf60q,1112,71.7557625336,Aberdeen,Aberdeen FC,Scotland,Premiership
+AO-UEFA-79551,79551,11qjb788x4nw7zznnhx18gf83,1295,70.4191285728,Torpedo BelAZ,FK Torpedo-BelAZ Zhodino,Belarus,Premier League
+AO-UEFA-2607480,2607480,8oxa17y70f9muh5ytwsbikqeq,582,76.6711856357,Zira,Zira IK,Azerbaijan,Premyer Liqa
+AO-UEFA-64289,64289,3z0tiyynmxdyozfrpasdbpm0p,1205,71.0473369314,Radnički Kragujevac,FK Radnički 1923 Kragujevac,Serbia,Super Liga
+AO-UEFA-2609356,2609356,evvhmz4bq4dq1v9llaev1j97u,223,81.9935849590,Sabah,Sabah FK,Azerbaijan,Premyer Liqa
+AO-UEFA-2608287,2608287,4g3koeh06r6g4bkz64jvoz2nv,1464,69.3275466272,Prishtina,FC Prishtina,Kosovo,Superliga
+AO-UEFA-85009,85009,1hg5ttq2rjlbm4t1qgh4o3jnw,1804,67.3889123986,Larne,Larne FC,Northern Ireland,Premiership
+AO-UEFA-79973,79973,cfzisyjd68ij8s4zjgj79z7sx,1126,71.6590122050,Aktobe,FK Aktobe,Kazakhstan,Premier League
+AO-UEFA-75787,75787,8dvknzmkpm7sdaxjpqoawxis,995,72.6217080677,Cherno more Varna,PFK Cherno more Varna,Bulgaria,First League
+AO-UEFA-2609104,2609104,d592cup61qbgth2xkawbo7qp1,567,76.8162377275,RFS,FC RFS,Latvia,Virsliga
+AO-UEFA-2600371,2600371,40pjuk2hetu11tfersjb41mi1,1722,67.7456545707,Nõmme Kalju,Nõmme Kalju FC,Estonia,Premium liiga
+AO-UEFA-59024,59024,386qiirdll8s1nqs9e2npa9c4,1378,69.8022414642,Neman Grodno,FK Neman Grodno,Belarus,Premier League
+AO-UEFA-52878,52878,9woncasw0yu6hdqn2ovft81uh,1220,70.9582760854,Vllaznia Shkodër,KS Vllaznia Shkodër,Albania,Superliga
+AO-UEFA-2600598,2600598,5vwu7oi4z4a3vd0yqmre7kdk,1888,66.9547897889,Paide,Paide Linnameeskond,Estonia,Premium liiga
+AO-UEFA-79556,79556,draqnc9vabufj8l9mo6gs15w3,1184,71.1965028186,Auda,FK Auda,Latvia,Virsliga
+AO-UEFA-2600714,2600714,cs3cstr4siwdipeuc95fxur3u,2394,64.7072049082,Milsami,FC Milsami Orhei,Moldova,Super Liga
+AO-UEFA-2606321,2606321,cedlwrl615fkhjod0guz905nq,2166,65.6632964631,Daugavpils,BFC Daugavpils,Latvia,Virsliga
+AO-UEFA-53080,53080,8t3x6av7uu9f5lj2kt0rdr3w5,835,74.0404760172,Vardar Skopje,FK Vardar Skopje,North Macedonia,First League
+AO-UEFA-50092,50092,d3jgrr02bhmrht5ifgdgz08ah,1055,72.1757356441,Floriana,Floriana FC,Malta,Premier League
+AO-UEFA-57482,57482,9kxht4usspzkeyosl567vjrs2,668,75.7502768207,Vaduz,FC Vaduz,Switzerland,Super League
+AO-UEFA-88371,88371,1kqorwebktwqaz7k56ulfdrjv,2245,65.3240738614,Atlètic Club d'Escaldes,Atlètic Club d'Escaldes,Andorra,1a Divisió
+AO-UEFA-64378,64378,5lgdd15clfwbntgxl31nd9h61,829,74.0822445033,Sarajevo,FK Sarajevo,Bosnia and Herzegovina,Premijer Liga
+AO-UEFA-64150,64150,92v4fx009zyhcp8kjlvd2x4yv,1485,69.2256369354,NSÍ,NSÍ Runavík,Faroe Islands,Meistaradeildin
+AO-UEFA-2605472,2605472,7gmb3yf0l30i996xp4cqt5u9p,505,77.4890916715,Puskás,Puskás Akadémia FC,Hungary,NB I
+AO-UEFA-59341,59341,1rfuyt1v2hq9gp7xi55x56fi2,1756,67.5887337491,Flora,FC Flora Tallinn,Estonia,Premium liiga
+AO-UEFA-77482,77482,8952lfdnv83lu5eik36jp1znu,1003,72.5652755487,FCI Levadia,Tallinna FCI Levadia,Estonia,Premium liiga
+AO-UEFA-64467,64467,2udrm008c4g48fy6s25m1zfd9,1396,69.6768797557,Dila,FC Dila Gori,Georgia,Erovnuli Liga
+AO-UEFA-61601,61601,c6q7rcydz4bslvyiw1l9nb9vq,665,75.8158494446,Žilina,MŠK Žilina,Slovakia,1. liga
+AO-UEFA-50134,50134,94p0uurlgchf82q5ydhyapm7h,3136,61.8874497142,Linfield,Linfield FC,Northern Ireland,Premiership
+AO-UEFA-2607112,2607112,1gb1u8v90q0v14qtkm24chs4n,1028,72.3629952557,Petrocub,CS Petrocub Hînceşti,Moldova,Super Liga
+AO-UEFA-2605907,2605907,1qwvjhbjm0zt4dgbfyhj5ic79,922,73.2625973564,Kauno Žalgiris,FK Kauno Žalgiris,Lithuania,Toplyga
+AO-UEFA-85008,85008,6ehepmlp6lxt0cvhis2tnzmjj,4604,56.9568538754,Dungannon Swifts,Dungannon Swifts FC,Northern Ireland,Premiership
+AO-UEFA-52876,52876,6wqpjldp6k1dpun59bqsz7jrt,1317,70.2596874826,Partizani Tirana,KF Partizani Tirana,Albania,Superliga
+AO-UEFA-52966,52966,4mo70a9j7p2ersbrieg5aw3dg,2250,65.2954685417,KA,KA Akureyri,Iceland,Besta deild
+AO-UEFA-2605575,2605575,117gebg7w7g65l2gfzcy1i575,2011,66.3618727531,St Joseph's,St Joseph's FC,Gibraltar,Premier Division
+AO-UEFA-2610274,2610274,dbdao4og2npxkgwkkan30knze,861,73.8067158062,FC Košice,FC Košice,Slovakia,1. liga
+AO-UEFA-62171,62171,bdd46gvlzs61006ojuan7sd5g,2607,63.9098308328,Birkirkara,Birkirkara FC,Malta,Premier League
+AO-UEFA-64381,64381,doer7kikrtjedg8uuwa8rrrn5,1334,70.1013433103,Željezničar,FK Željezničar Sarajevo,Bosnia and Herzegovina,Premijer Liga
+AO-UEFA-59025,59025,6foqbb98vw3n9fvcmgjm6wdqn,1582,68.5408494680,HB,HB Tórshavn,Faroe Islands,Meistaradeildin
+AO-UEFA-59036,59036,2yzlrvk4m7lpi4wa4leshqagk,1255,70.6797264816,Zimbru,FC Zimbru Chişinău,Moldova,Super Liga
+AO-UEFA-53078,53078,dfjnxj9vmk8l3e8nrql4vg9fl,2361,64.8546413182,Budućnost,FK Budućnost Podgorica,Montenegro,First League
+AO-UEFA-62180,62180,ct5bxskoczd1sizdp0sv6up7s,2097,65.9434660841,FC Santa Coloma,FC Santa Coloma,Andorra,1a Divisió
+AO-UEFA-2605905,2605905,8sdwl1q76c1wmj5pj0hz2w8cz,998,72.6019200788,Iberia 1999,FC Iberia 1999,Georgia,Erovnuli Liga
+AO-UEFA-52309,52309,axyphoc3w7qr7cwygrn30fzpu,1177,71.2961897761,Differdange 03,FC Differdange 03,Luxembourg,National Division
+AO-UEFA-59871,59871,dwqmyoxorsdxolgeg3hy9ujf1,1416,69.5852400132,Sileks,FK Sileks,North Macedonia,First League
+AO-UEFA-82825,82825,e881yj9z884poj2x0wak5diuo,664,75.8235422946,Ordabasy,FK Ordabasy Shymkent,Kazakhstan,Premier League
+AO-UEFA-59325,59325,du6s5ma69psb2yrcg7o83jneb,1703,67.8442786474,Víkingur,Víkingur Gøta,Faroe Islands,Meistaradeildin
+AO-UEFA-50161,50161,bschq9e72atozq6g9ufvko950,597,76.4876698353,Dinamo Minsk,FK Dinamo Minsk,Belarus,Premier League
+AO-UEFA-64374,64374,azfxqr8km2gusov0ahqgq51f2,1246,70.7416678250,Dinamo Brest,FK Dinamo Brest,Belarus,Premier League
+AO-UEFA-64471,64471,2uml5k81v2tv5i7noj5mozguj,1346,70.0236363965,Torpedo Kutaisi,FC Torpedo Kutaisi,Georgia,Erovnuli Liga
+AO-UEFA-50060,50060,acdg6tq939mzvm80c0z90uxbi,1174,71.3376035368,Hamrun Spartans,Hamrun Spartans FC,Malta,Premier League
+AO-UEFA-60457,60457,85l2ewv17mqmw3otdletjc36,1432,69.4829689953,The New Saints,The New Saints FC,Wales,Premier League
+AO-UEFA-59028,59028,4tp84mwagxlkpla801f50njpb,2027,66.2962324227,F91 Dudelange,F91 Dudelange,Luxembourg,National Division
+AO-UEFA-2611789,2611789,a60ufzrtuj1dkkmxtnjchah3o,1007,72.5418253857,Malisheva,KF Malisheva,Kosovo,Superliga
+AO-UEFA-2602520,2602520,ea3yd0dgq6uy6pupkpn17j5xg,1293,70.4330566318,SJK,Seinäjoen Jalkapallokerho,Finland,Veikkausliiga
+AO-UEFA-2600105,2600105,dov4tu4y70u1l4gc47280fxlu,2619,63.8566454626,Dečić,FK Dečić,Montenegro,First League
+AO-UEFA-64508,64508,8l7k4sc5qar1h6wcco71j0fsc,6397,51.3242627455,La Fiorita,SP La Fiorita,San Marino,Campionato
+AO-UEFA-2606314,2606314,dozumun3c1iyou6uruj9e8ei6,4010,58.7220953751,Penybont,Penybont FC,Wales,Premier League
+AO-UEFA-64348,64348,eldef4g8gikucxy1xdnj4jgsi,1637,68.1837719205,Banga,FK Banga Gargždai,Lithuania,Toplyga
+AO-UEFA-77866,77866,3qmloxmolo1ydf5n3l2e4gqxk,1040,72.2673503879,Urartu,FC Urartu,Armenia,Premier League
+AO-UEFA-2603092,2603092,9jbo73wambhvqdu8hz87q6q57,1575,68.5980392380,UNA Strassen,FC UNA Strassen,Luxembourg,National Division
+AO-UEFA-64514,64514,1cn7kuxtegfn6he1600he43qg,6706,50.6070538028,Tre Fiori,SP Tre Fiori,San Marino,Campionato
+AO-UEFA-73936,73936,7z96mlqdlobsxna5du1chzdnr,2208,65.4623315831,Sutjeska,FK Sutjeska Nikšić,Montenegro,First League
+AO-UEFA-52991,52991,duykkqn0ga5fcpx7d1bdpdw7a,3529,60.4953762628,Cliftonville,Cliftonville FC,Northern Ireland,Premiership
+AO-UEFA-2607108,2607108,7q9rtpy2dnzzah7dr523n5syd,2183,65.5782170047,Hegelmann,FC Hegelmann,Lithuania,Toplyga
+AO-UEFA-69601,69601,db6g6xcwyh9vtf1zr7yylpxgl,4432,57.4245872617,Rabotnički,FK Rabotnički Skopje,North Macedonia,Second League
+AO-UEFA-2611621,2611621,oi708995c54gdqni76i7omi,2301,65.0809256446,Spaeri,Spaeri FC,Georgia,Erovnuli Liga
+AO-UEFA-52640,52640,4a542bmlacp4513ji3xvibtay,2849,62.9216287384,Hibernians,Paola Hibernians FC,Malta,Premier League
+AO-UEFA-88135,88135,8k1u9vuetmkqc1d74i44i7drx,2456,64.4607384113,Racing,Racing FC Union Lëtzebuerg,Luxembourg,National Division
+AO-UEFA-64283,64283,bczfjrx9ttgqygv8g1gjzn8sm,4550,57.1205844639,Haverfordwest County,Haverfordwest County AFC,Wales,Premier League
+AO-UEFA-2606279,2606279,54qtdmwvlye9o9wpti1sph093,5456,54.1996920433,Magpies,FC Magpies,Gibraltar,Premier Division
+AO-UEFA-64516,64516,1mni16kannw0s2tzcxzwoakik,5453,54.2059353053,Virtus,SS Virtus,San Marino,Campionato

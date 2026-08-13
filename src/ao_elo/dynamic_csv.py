@@ -30,10 +30,11 @@ from ao_elo.dynamic import (
     settle_locked_match,
     validate_state,
 )
+from ao_elo.tournament_bonus import ELIGIBLE_PROGRESSION_STAGES
 
 
 STATE_CHECKPOINT_SCHEMA_VERSION = "2.0.0"
-PREDICTION_LEDGER_SCHEMA_VERSION = "1.1.0"
+PREDICTION_LEDGER_SCHEMA_VERSION = "1.2.0"
 STATE_CHECKPOINT_FILENAME = "state_checkpoint.json"
 
 FIXTURE_INPUT_COLUMNS = [
@@ -45,6 +46,7 @@ FIXTURE_INPUT_COLUMNS = [
     "tie_id",
     "is_knockout",
     "is_tie_decider",
+    "is_single_match_tie",
     "stage",
     "home_team_id",
     "away_team_id",
@@ -60,6 +62,7 @@ MATCH_INPUT_COLUMNS = [
     "tie_id",
     "is_knockout",
     "is_tie_decider",
+    "is_single_match_tie",
     "stage",
     "home_team_id",
     "away_team_id",
@@ -103,6 +106,7 @@ MATCH_UPDATE_COLUMNS = [
     "stage",
     "is_knockout",
     "is_tie_decider",
+    "is_single_match_tie",
     "advanced_team_id",
     "home_goals",
     "away_goals",
@@ -119,6 +123,7 @@ MATCH_UPDATE_COLUMNS = [
     "effective_rating_difference",
     "expected_home_score",
     "expected_score_semantics",
+    "effective_draw_at_even",
     "home_win_probability",
     "draw_probability",
     "away_win_probability",
@@ -183,6 +188,7 @@ REPLAY_PREDICTION_COLUMNS = [
     "away_live_pre",
     "expected_home_score",
     "expected_score_semantics",
+    "effective_draw_at_even",
     "home_win_probability",
     "draw_probability",
     "away_win_probability",
@@ -204,6 +210,7 @@ PRE_MATCH_LOG_COLUMNS = [
     "stage",
     "is_knockout",
     "is_tie_decider",
+    "is_single_match_tie",
     "home_team_id",
     "away_team_id",
     "is_neutral",
@@ -215,6 +222,7 @@ PRE_MATCH_LOG_COLUMNS = [
     "away_live_pre",
     "expected_home_score",
     "expected_score_semantics",
+    "effective_draw_at_even",
     "home_win_probability",
     "draw_probability",
     "away_win_probability",
@@ -243,6 +251,7 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
         "progression_bonus",
         "competition_k",
         "achievement_reserve",
+        "prediction_layer",
     }
     missing = sorted(required - set(payload))
     if missing:
@@ -254,6 +263,8 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
     competition_k = payload["competition_k"]
     reserve = payload["achievement_reserve"]
     probability = payload["one_x_two_probability"]
+    prediction_layer = payload["prediction_layer"]
+    _validate_prediction_layer_contract(prediction_layer)
     probability_active = _manifest_boolean(
         probability.get("active"),
         "one_x_two_probability.active",
@@ -274,10 +285,6 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
     reserve_active = _manifest_boolean(
         reserve.get("active"),
         "achievement_reserve.active",
-    )
-    trophy_uses_same_base = _manifest_boolean(
-        reserve.get("trophy_uses_same_base"),
-        "achievement_reserve.trophy_uses_same_base",
     )
     goal_alpha = float(goal.get("alpha", 0.0))
     if not goal_active and goal_alpha != 0.0:
@@ -304,8 +311,17 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
             raise ValueError("Production shoot-outs cannot receive xG adjustment")
         if not _manifest_boolean(xg.get("requires_both_teams"), "xg_performance.requires_both_teams"):
             raise ValueError("Production xG requires both teams' xG values")
-        if not _manifest_boolean(xg.get("winner_direction_guard"), "xg_performance.winner_direction_guard"):
-            raise ValueError("Production xG must preserve the match-result direction")
+        winner_gain_bound = xg.get("winner_gain_bound")
+        if not isinstance(winner_gain_bound, dict):
+            raise ValueError("Production xG requires winner_gain_bound metadata")
+        if winner_gain_bound.get("source") != "ANALYTIC_XG_RATIO_BOUND":
+            raise ValueError(
+                "Production xG winner_gain_bound must be analytic from max_xg_ratio"
+            )
+        if winner_gain_bound.get("runtime_floor_expected_to_bind") is not False:
+            raise ValueError(
+                "Production xG floor must be documented as analytically non-binding"
+            )
         if not _manifest_boolean(xg.get("zero_sum"), "xg_performance.zero_sum"):
             raise ValueError("Production xG must remain zero-sum")
         if not math.isclose(
@@ -317,10 +333,19 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
             raise ValueError(
                 "xG minimum_winner_gain_ratio must equal 1-max_xg_ratio"
             )
+        if not math.isclose(
+            float(winner_gain_bound.get("minimum_ratio", math.nan)),
+            minimum_winner_gain_ratio,
+            rel_tol=0.0,
+            abs_tol=1e-12,
+        ):
+            raise ValueError(
+                "xG winner_gain_bound.minimum_ratio must equal minimum_winner_gain_ratio"
+            )
     elif xg_ratio != 0.0:
         raise ValueError("Inactive xG performance config must have max_xg_ratio=0")
     progression_base = float(progression.get("base_bonus", 0.0))
-    progression_stages = progression.get("stages_per_competition", 5)
+    progression_stages = progression.get("stages_per_competition", 4)
     if progression_active:
         if str(progression.get("family")) != "WINNER_ONLY_SEASON_LOCAL_FIXED":
             raise ValueError(
@@ -358,6 +383,46 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
                     "Progression competition ratios must preserve UCL/UEL/UECL "
                     "as 1, 2/3 and 1/3"
                 )
+        eligible_stages = progression.get("eligible_stages")
+        if (
+            not isinstance(eligible_stages, list)
+            or set(eligible_stages) != set(ELIGIBLE_PROGRESSION_STAGES)
+            or len(eligible_stages) != len(ELIGIBLE_PROGRESSION_STAGES)
+        ):
+            raise ValueError(
+                "Active progression stages must be ROUND_OF_16, QUARTERFINAL, "
+                "SEMIFINAL and FINAL; KNOCKOUT_PLAYOFF is not eligible"
+            )
+        if progression_stages != len(ELIGIBLE_PROGRESSION_STAGES):
+            raise ValueError(
+                "progression_bonus.stages_per_competition must match the four "
+                "eligible post-R16 stages"
+            )
+        increments = progression.get("increments")
+        season_caps = progression.get("season_caps")
+        if not isinstance(increments, dict) or set(increments) != set(expected_ratios):
+            raise ValueError("progression_bonus.increments are invalid")
+        if not isinstance(season_caps, dict) or set(season_caps) != set(expected_ratios):
+            raise ValueError("progression_bonus.season_caps are invalid")
+        for competition, ratio in expected_ratios.items():
+            expected_increment = progression_base * ratio
+            expected_cap = expected_increment * progression_stages
+            if not math.isclose(
+                float(increments[competition]),
+                expected_increment,
+                rel_tol=0.0,
+                abs_tol=1e-12,
+            ):
+                raise ValueError("Progression increments do not match base and ratios")
+            if not math.isclose(
+                float(season_caps[competition]),
+                expected_cap,
+                rel_tol=0.0,
+                abs_tol=1e-12,
+            ):
+                raise ValueError(
+                    "Progression season caps do not match the four-stage contract"
+                )
     elif progression_base != 0.0:
         raise ValueError("Inactive progression bonus must have base_bonus=0")
     if isinstance(progression_stages, bool) or not isinstance(progression_stages, int):
@@ -375,8 +440,10 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
         or not isinstance(goal_difference_cap, int)
     ):
         raise ValueError("goal_margin.goal_difference_cap must be an integer")
-    if not reserve_active and float(reserve.get("reserve_base", 0.0)) != 0.0:
-        raise ValueError("Inactive reserve config must have reserve_base=0")
+    if reserve_active:
+        raise ValueError(
+            "Achievement Reserve is experimental-only and cannot be enabled in the production manifest"
+        )
     if not probability_active:
         raise ValueError("Production manifest must activate the calibrated 1X2 output")
     config = DynamicEloConfig(
@@ -387,6 +454,13 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
         power_carry=float(payload["active_power_carry"]),
         draw_at_even=float(probability["draw_at_even"]),
         draw_shape=float(probability["draw_shape"]),
+        single_match_draw_enabled=_manifest_boolean(
+            probability["single_match_draw_enabled"],
+            "one_x_two_probability.single_match_draw_enabled",
+        ),
+        single_match_draw_at_even=float(
+            probability["single_match_draw_at_even"]
+        ),
         goal_difference_enabled=goal_active,
         goal_alpha=goal_alpha,
         goal_tau=float(goal["tau"]),
@@ -398,17 +472,73 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
         progression_bonus_enabled=progression_active,
         progression_base_bonus=progression_base,
         progression_stages_per_competition=progression_stages,
-        reserve_base=float(reserve["reserve_base"]),
-        reserve_cap=float(reserve["reserve_cap"]),
-        reserve_decay=float(reserve["reserve_decay"]),
-        ucl_multiplier=float(reserve["ucl_multiplier"]),
-        uel_multiplier=float(reserve["uel_multiplier"]),
-        uecl_multiplier=float(reserve["uecl_multiplier"]),
-        stage_profile=str(reserve["stage_profile"]),
-        trophy_uses_same_base=trophy_uses_same_base,
     )
     config.validate()
     return config
+
+
+def _validate_prediction_layer_contract(layer: object) -> None:
+    if not isinstance(layer, dict):
+        raise ValueError("prediction_layer must be an object")
+    if not _manifest_boolean(layer.get("active"), "prediction_layer.active"):
+        raise ValueError("Production prediction_layer must be active")
+    if layer.get("decision") != "PROMOTE_WITH_MONITORING":
+        raise ValueError("Production prediction_layer decision is invalid")
+    if layer.get("family") != "ML_DOMESTIC_POISSON_LOG_PROBABILITY_BLEND":
+        raise ValueError("Production prediction_layer family is invalid")
+    if layer.get("rating_feedback") is not False:
+        raise ValueError("Production prediction_layer cannot change AO Live Elo")
+    if layer.get("fallback") != "CURRENT_AO_1X2":
+        raise ValueError("Production prediction_layer must fall back to current AO")
+    top = layer.get("top_level_blend")
+    ml = layer.get("current_ml_component")
+    poisson = layer.get("ao_domestic_poisson_component")
+    monitoring = layer.get("monitoring")
+    artifact = layer.get("artifact_manifest")
+    if not all(isinstance(value, dict) for value in (top, ml, poisson, monitoring, artifact)):
+        raise ValueError("Production prediction_layer blocks are incomplete")
+    assert isinstance(top, dict)
+    assert isinstance(ml, dict)
+    assert isinstance(poisson, dict)
+    assert isinstance(monitoring, dict)
+    assert isinstance(artifact, dict)
+    if top.get("space") != "LOG_PROBABILITY":
+        raise ValueError("Production prediction blend must use log probabilities")
+    if ml.get("source") != "STRUCTURAL_LOGISTIC":
+        raise ValueError("Production prediction ML source is invalid")
+    if poisson.get("source") != "AO_POISSON_RHO0_CONTROL":
+        raise ValueError("Production prediction Poisson source is invalid")
+    for name, value, expected in (
+        ("current_ml_weight", top.get("current_ml_weight"), 0.5),
+        ("ao_domestic_poisson_weight", top.get("ao_domestic_poisson_weight"), 0.5),
+        ("current_ml ao_weight", ml.get("ao_weight"), 0.1),
+        ("current_ml ml_weight", ml.get("ml_weight"), 0.9),
+        ("AO Poisson ao_weight", poisson.get("ao_weight"), 0.5),
+        ("AO Poisson poisson_weight", poisson.get("poisson_weight"), 0.5),
+    ):
+        try:
+            numeric = float(value)
+        except (TypeError, ValueError) as exc:
+            raise ValueError(f"prediction_layer {name} must be numeric") from exc
+        if not math.isclose(numeric, expected, abs_tol=1e-12):
+            raise ValueError(f"prediction_layer {name} must equal {expected}")
+    transfer = poisson.get("transfer_config")
+    if not isinstance(transfer, dict) or not math.isclose(
+        float(transfer.get("rho", math.nan)), 0.0, abs_tol=1e-12
+    ):
+        raise ValueError("Production prediction Domestic Poisson rho must equal zero")
+    if monitoring.get("active") is not True or monitoring.get("season") != "2026/27":
+        raise ValueError("Production prediction monitoring must be active for 2026/27")
+    if monitoring.get("log_every_prediction") is not True:
+        raise ValueError("Production prediction monitoring must log every prediction")
+    if monitoring.get("compare_against_current_ao") is not True:
+        raise ValueError("Production monitoring must retain the Current AO comparator")
+    manifest_path = artifact.get("path")
+    manifest_sha = artifact.get("sha256")
+    if not isinstance(manifest_path, str) or not manifest_path.strip():
+        raise ValueError("Production prediction artifact path is invalid")
+    if not isinstance(manifest_sha, str) or len(manifest_sha) != 64:
+        raise ValueError("Production prediction artifact SHA-256 is invalid")
 
 
 def read_team_seeds(path: str | Path) -> tuple[str, tuple[TeamSeed, ...]]:
@@ -496,6 +626,7 @@ def read_matches(path: str | Path) -> tuple[MatchInput, ...]:
                 row["decided_on_penalties"], "decided_on_penalties"
             ),
             advanced_team_id=_optional_id(row.get("advanced_team_id")),
+            is_single_match_tie=fixture.is_single_match_tie,
         )
         match.validate()
         matches.append(match)
@@ -515,6 +646,11 @@ def _fixture_from_row(row: dict[str, object]) -> MatchFixture:
         is_tie_decider=_boolean(
             row.get("is_tie_decider", False),
             "is_tie_decider",
+        ),
+        is_single_match_tie=_optional_boolean(
+            row.get("is_single_match_tie"),
+            "is_single_match_tie",
+            default=False,
         ),
         stage=_optional_text(row.get("stage")),
         home_team_id=_required_id(row["home_team_id"], "home_team_id"),
@@ -920,6 +1056,7 @@ def _prediction_to_record(prediction: LockedPrediction) -> dict[str, str]:
         "stage": prediction.stage,
         "is_knockout": _format_boolean(prediction.is_knockout),
         "is_tie_decider": _format_boolean(prediction.is_tie_decider),
+        "is_single_match_tie": _format_boolean(prediction.is_single_match_tie),
         "home_team_id": prediction.home_team_id,
         "away_team_id": prediction.away_team_id,
         "is_neutral": _format_boolean(prediction.is_neutral),
@@ -931,6 +1068,9 @@ def _prediction_to_record(prediction: LockedPrediction) -> dict[str, str]:
         "away_live_pre": _format_number(prediction.away_live_pre),
         "expected_home_score": _format_number(prediction.expected_home_score),
         "expected_score_semantics": prediction.expected_score_semantics,
+        "effective_draw_at_even": _format_number(
+            prediction.effective_draw_at_even
+        ),
         "home_win_probability": _format_number(
             prediction.home_win_probability
         ),
@@ -965,6 +1105,10 @@ def _prediction_from_record(row: dict[str, str]) -> LockedPrediction:
         stage=_required_text(row["stage"], "stage"),
         is_knockout=_boolean(row["is_knockout"], "is_knockout"),
         is_tie_decider=_boolean(row["is_tie_decider"], "is_tie_decider"),
+        is_single_match_tie=_boolean(
+            row["is_single_match_tie"],
+            "is_single_match_tie",
+        ),
         home_team_id=_required_id(row["home_team_id"], "home_team_id"),
         away_team_id=_required_id(row["away_team_id"], "away_team_id"),
         is_neutral=_boolean(row["is_neutral"], "is_neutral"),
@@ -987,6 +1131,10 @@ def _prediction_from_record(row: dict[str, str]) -> LockedPrediction:
         expected_score_semantics=_required_text(
             row["expected_score_semantics"],
             "expected_score_semantics",
+        ),
+        effective_draw_at_even=_finite_number(
+            row["effective_draw_at_even"],
+            "effective_draw_at_even",
         ),
         home_win_probability=_finite_number(
             row["home_win_probability"],

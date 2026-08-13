@@ -117,8 +117,10 @@ def test_manifest_loads_final_selected_parameters() -> None:
     assert config.minimum_winner_gain_ratio == pytest.approx(0.70)
     assert config.progression_bonus_enabled is True
     assert config.progression_base_bonus == pytest.approx(12.0)
+    assert config.progression_stages_per_competition == 4
     assert config.fixed_progression_config.increment("UEL") == pytest.approx(8.0)
-    assert config.reserve_base == 0.0
+    assert config.fixed_progression_config.cap("UCL") == pytest.approx(48.0)
+    assert config.achievement_reserve is None
 
 
 def test_inactive_optional_layer_cannot_hide_nonzero_parameter(tmp_path: Path) -> None:
@@ -173,6 +175,21 @@ def test_production_manifest_rejects_invalid_progression_contract(
         load_selected_v2_config(manifest)
 
 
+def test_production_manifest_rejects_knockout_playoff_bonus_stage(
+    tmp_path: Path,
+) -> None:
+    payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    payload["progression_bonus"]["eligible_stages"].insert(
+        0, "KNOCKOUT_PLAYOFF"
+    )
+    payload["progression_bonus"]["stages_per_competition"] = 5
+    manifest = tmp_path / "invalid-kpo-progression.json"
+    manifest.write_text(json.dumps(payload), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="KNOCKOUT_PLAYOFF is not eligible"):
+        load_selected_v2_config(manifest)
+
+
 def test_production_manifest_rejects_invalid_xg_contract(tmp_path: Path) -> None:
     payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
     payload["xg_performance"]["minimum_winner_gain_ratio"] = 0.60
@@ -180,6 +197,30 @@ def test_production_manifest_rejects_invalid_xg_contract(tmp_path: Path) -> None
     manifest.write_text(json.dumps(payload), encoding="utf-8")
 
     with pytest.raises(ValueError, match="1-max_xg_ratio"):
+        load_selected_v2_config(manifest)
+
+
+def test_production_manifest_rejects_prediction_rating_feedback(
+    tmp_path: Path,
+) -> None:
+    payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    payload["prediction_layer"]["rating_feedback"] = True
+    manifest = tmp_path / "invalid-prediction-layer.json"
+    manifest.write_text(json.dumps(payload), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="cannot change AO Live Elo"):
+        load_selected_v2_config(manifest)
+
+
+def test_production_manifest_rejects_achievement_reserve_reactivation(
+    tmp_path: Path,
+) -> None:
+    payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    payload["achievement_reserve"] = {"active": True}
+    manifest = tmp_path / "reserve-reactivated.json"
+    manifest.write_text(json.dumps(payload), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="experimental-only"):
         load_selected_v2_config(manifest)
 
 

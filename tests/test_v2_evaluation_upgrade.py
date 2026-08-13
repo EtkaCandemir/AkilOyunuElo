@@ -14,6 +14,7 @@ if str(ROOT) not in sys.path:
 
 from scripts.run_v2_evaluation_upgrade import (  # noqa: E402
     COMPETITIONS,
+    DRAW_SHAPE_CANDIDATES,
     apply_fold_draw_models,
     draw_model_candidates,
     probability_output_decision,
@@ -44,7 +45,7 @@ def _prediction_frame() -> pd.DataFrame:
 def test_draw_candidate_grid_is_explicit_and_complete() -> None:
     candidates = draw_model_candidates()
 
-    assert len(candidates) == 44
+    assert len(candidates) == 143
     assert len(set(candidates)) == len(candidates)
     assert min(candidate.draw_at_even for candidate in candidates) == pytest.approx(0.18)
     assert max(candidate.draw_at_even for candidate in candidates) == pytest.approx(0.38)
@@ -54,9 +55,9 @@ def test_draw_selection_returns_one_training_winner_per_competition() -> None:
     selected, metrics = select_draw_models(_prediction_frame())
 
     assert selected["competition"].tolist() == ["ALL", *sorted(COMPETITIONS)]
-    assert len(metrics) == 44 * (len(COMPETITIONS) + 1)
+    assert len(metrics) == len(draw_model_candidates()) * (len(COMPETITIONS) + 1)
     assert selected["draw_at_even"].between(0.18, 0.38).all()
-    assert selected["draw_shape"].isin((1.0, 1.25, 1.5, 2.0)).all()
+    assert selected["draw_shape"].isin(DRAW_SHAPE_CANDIDATES).all()
 
 
 def test_fold_draw_application_covers_every_row_and_preserves_expected_score() -> None:

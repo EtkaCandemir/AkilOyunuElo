@@ -123,6 +123,27 @@ def test_penalty_decision_forces_draw_score_and_no_goal_signal() -> None:
     assert update.power_delta == pytest.approx(0.0)
 
 
+def test_penalty_decider_preserves_non_draw_field_result_but_disables_goal_bonus() -> None:
+    update = update_match_elo(
+        1500.0,
+        1500.0,
+        2,
+        0,
+        k_factor=100.0,
+        elo_scale=800.0,
+        home_advantage=0.0,
+        is_neutral=True,
+        decided_on_penalties=True,
+        alpha=0.20,
+        tau=150.0,
+    )
+
+    assert update.actual_home_score == pytest.approx(1.0)
+    assert update.goal_difference == 2
+    assert update.goal_difference_multiplier == pytest.approx(1.0)
+    assert update.power_delta == pytest.approx(50.0)
+
+
 def test_progression_bonus_keeps_exact_competition_ratios_and_zero_sum() -> None:
     ucl = apply_progression_bonus(1600.0, 1500.0, "UCL", 6.0)
     uel = apply_progression_bonus(1600.0, 1500.0, "UEL", 6.0)

@@ -88,6 +88,15 @@ def test_score_preserving_1x2_scalar_contract() -> None:
     assert log_loss > 0.0
 
 
+def test_score_preserving_1x2_scalar_caps_subunit_shape_in_extreme_tail() -> None:
+    home, draw, away = one_x_two_probabilities_scalar(0.99, 0.24, 0.50)
+
+    assert min(home, draw, away) >= 0.0
+    assert home + draw + away == pytest.approx(1.0)
+    assert home + 0.5 * draw == pytest.approx(0.99)
+    assert draw == pytest.approx(0.02)
+
+
 def test_ranking_first_selection_will_not_trade_ranking_for_brier() -> None:
     metrics = pd.DataFrame(
         [

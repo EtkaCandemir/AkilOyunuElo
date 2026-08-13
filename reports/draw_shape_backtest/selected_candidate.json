@@ -1,0 +1,36 @@
+{
+  "baseline": {
+    "draw_at_even": 0.24,
+    "draw_shape": 1.0
+  },
+  "continuous_full_fit": {
+    "accuracy_1x2": 0.5465299684542587,
+    "brier_1x2": 0.5747337789738306,
+    "converged": true,
+    "draw_at_even": 0.24033519092790234,
+    "draw_envelope_hits": 0,
+    "draw_shape": 0.8459019548315152,
+    "log_loss_1x2": 0.9685652855518111,
+    "matches": 6340,
+    "mean_predicted_draw": 0.20844061634764915,
+    "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+    "observed_draw_rate": 0.211198738170347
+  },
+  "decision": "KEEP_SHADOW",
+  "full_grid_candidate": {
+    "draw_at_even": 0.24,
+    "draw_shape": 0.84
+  },
+  "full_joint_grid_candidate": {
+    "draw_at_even": 0.24,
+    "draw_shape": 0.84
+  },
+  "gates": {
+    "brier_fold_wins": "4/6",
+    "dependency_reliable_improvement": false,
+    "log_loss_fold_wins": "3/6",
+    "no_competition_harm": false
+  },
+  "rating_state_changed": false,
+  "score_preserving_tail_envelope": "min(raw_draw, 2*min(E,1-E))"
+}

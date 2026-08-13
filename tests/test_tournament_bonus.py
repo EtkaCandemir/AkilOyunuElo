@@ -24,9 +24,9 @@ def test_fixed_bonus_uses_requested_12_8_4_hierarchy_and_caps() -> None:
     assert config.increment("UCL") == pytest.approx(12.0)
     assert config.increment("UEL") == pytest.approx(8.0)
     assert config.increment("UECL") == pytest.approx(4.0)
-    assert config.cap("UCL") == pytest.approx(60.0)
-    assert config.cap("UEL") == pytest.approx(40.0)
-    assert config.cap("UECL") == pytest.approx(20.0)
+    assert config.cap("UCL") == pytest.approx(48.0)
+    assert config.cap("UEL") == pytest.approx(32.0)
+    assert config.cap("UECL") == pytest.approx(16.0)
 
 
 def test_bonus_is_winner_only_and_does_not_require_loser_state() -> None:
@@ -66,7 +66,7 @@ def test_bonus_is_applied_once_per_decided_tie() -> None:
         )
 
 
-def test_cap_prevents_more_than_five_stage_increments() -> None:
+def test_cap_prevents_more_than_four_stage_increments() -> None:
     config = FixedTournamentBonusConfig(12.0)
     processed: set[str] = set()
     current = 0.0
@@ -89,9 +89,9 @@ def test_cap_prevents_more_than_five_stage_increments() -> None:
         processed,
         config,
     )
-    assert current == pytest.approx(60.0)
+    assert current == pytest.approx(48.0)
     assert extra.applied_bonus == pytest.approx(0.0)
-    assert extra.bonus_post == pytest.approx(60.0)
+    assert extra.bonus_post == pytest.approx(48.0)
 
 
 @pytest.mark.parametrize(
@@ -109,13 +109,14 @@ def test_config_rejects_invalid_values(kwargs: dict[str, object]) -> None:
         FixedTournamentBonusConfig(**kwargs).validate()
 
 
-def test_non_knockout_stage_is_rejected() -> None:
+@pytest.mark.parametrize("stage", ["LEAGUE", "KNOCKOUT_PLAYOFF"])
+def test_ineligible_stage_is_rejected(stage: str) -> None:
     with pytest.raises(ValueError, match="not eligible"):
         apply_tournament_progress_bonus(
             0.0,
             "UCL",
-            "LEAGUE",
-            "league-stage",
+            stage,
+            f"ineligible-{stage}",
             set(),
             FixedTournamentBonusConfig(12.0),
         )

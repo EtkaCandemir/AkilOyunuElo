@@ -559,6 +559,51 @@ def test_xg_performance_bonus_floor_keeps_extreme_lucky_winner_positive() -> Non
     assert corrected.power_delta > 0.0
 
 
+@pytest.mark.parametrize(
+    ("home_goals", "away_goals", "xg_home", "xg_away"),
+    [
+        (1, 0, 0.0, 100.0),
+        (0, 1, 100.0, 0.0),
+        (4, 0, 0.0, 100.0),
+        (0, 4, 100.0, 0.0),
+    ],
+)
+def test_production_xg_floor_is_analytic_bound_not_runtime_clamp(
+    home_goals: int,
+    away_goals: int,
+    xg_home: float,
+    xg_away: float,
+) -> None:
+    """Production beta=.30 and floor=.70 make the explicit floor a no-op."""
+    corrected = update_match_elo_with_xg(
+        **{
+            **BASE_ARGS,
+            "home_goals": home_goals,
+            "away_goals": away_goals,
+            "is_neutral": True,
+            "home_advantage": 0.0,
+            "goal_alpha": 0.15,
+            "xg_config": XGBlendConfig(0.0, 1.0),
+            "xg_home": xg_home,
+            "xg_away": xg_away,
+            "xg_performance_bonus_config": XGPerformanceBonusConfig(
+                0.30,
+                1.25,
+                0.70,
+            ),
+        }
+    )
+    raw_blended = corrected.result_residual + corrected.xg_performance_adjustment
+
+    assert corrected.direction_floor_residual == pytest.approx(
+        0.70 * corrected.base_result_residual
+    )
+    assert corrected.blended_residual == pytest.approx(raw_blended)
+    assert abs(corrected.blended_residual) >= (
+        0.70 * abs(corrected.base_result_residual) - 1e-12
+    )
+
+
 def test_xg_performance_bonus_does_not_change_draw_or_missing_xg() -> None:
     config = XGPerformanceBonusConfig(0.30, 1.0, 0.25)
     draw = update_match_elo_with_xg(
@@ -771,6 +816,43 @@ def test_penalty_decider_uses_field_result_but_disables_gd_and_xg_bonus() -> Non
     assert update.power_delta == pytest.approx(
         BASE_ARGS["k_factor"] * (1.0 - update.expected_home_score)
     )
+
+
+def test_controlled_and_xg_kernels_share_penalty_field_score_semantics() -> None:
+    controlled = update_match_elo(
+        1500.0,
+        1500.0,
+        2,
+        0,
+        k_factor=BASE_ARGS["k_factor"],
+        elo_scale=BASE_ARGS["elo_scale"],
+        home_advantage=0.0,
+        is_neutral=True,
+        decided_on_penalties=True,
+        alpha=0.15,
+        tau=300.0,
+    )
+    xg = update_match_elo_with_xg(
+        **{
+            **BASE_ARGS,
+            "home_goals": 2,
+            "away_goals": 0,
+            "home_advantage": 0.0,
+            "is_neutral": True,
+            "decided_on_penalties": True,
+            "goal_alpha": 0.15,
+            "xg_config": XGBlendConfig(0.0, 1.0),
+            "xg_home": None,
+            "xg_away": None,
+        }
+    )
+
+    assert controlled.actual_home_score == pytest.approx(xg.actual_home_score)
+    assert controlled.goal_difference == xg.goal_difference
+    assert controlled.goal_difference_multiplier == pytest.approx(
+        xg.goal_difference_multiplier
+    )
+    assert controlled.power_delta == pytest.approx(xg.power_delta)
 
 
 def test_ablation_grid_has_four_arms_and_42_candidates() -> None:

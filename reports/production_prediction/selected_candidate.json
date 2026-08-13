@@ -1,0 +1,93 @@
+{
+  "decision": "KEEP_SHADOW",
+  "production_activated": false,
+  "candidate_arm": "ML_POISSON_ENSEMBLE",
+  "pooled_brier": 0.5680932199564515,
+  "pooled_log_loss": 0.9592418968185772,
+  "pooled_accuracy": 0.5538493038493039,
+  "delta_brier_vs_current_ml": -0.000597205662182132,
+  "delta_log_loss_vs_current_ml": -0.001215653815989981,
+  "delta_accuracy_vs_current_ml": 0.0018427518427518441,
+  "delta_brier_vs_ao": -0.00399944549914677,
+  "delta_log_loss_vs_ao": -0.00512894042292622,
+  "gates": {
+    "brier_fold_wins_vs_current_ml": 4,
+    "log_loss_fold_wins_vs_current_ml": 4,
+    "fold_gate": true,
+    "pooled_loss_gate_vs_current_ml": true,
+    "uncertainty_gate": false,
+    "competition_and_coverage_no_harm_gate": true,
+    "calibration_gate": true,
+    "probability_gate": true,
+    "rating_state_identity_gate": true,
+    "beats_ao_brier": true,
+    "beats_ao_log_loss": true
+  },
+  "candidate_calibration": {
+    "ece": 0.013065676717128147,
+    "calibration_slope": 0.9750406382065651,
+    "calibration_intercept": -0.026974961625172163,
+    "mean_max_probability": 0.5510920380406368
+  },
+  "current_ml_calibration": {
+    "ece": 0.015589914557196789,
+    "calibration_slope": 0.9668112044496361,
+    "calibration_intercept": -0.038748993961203466,
+    "mean_max_probability": 0.5502791615957493
+  },
+  "fold_poisson_sources": [
+    {
+      "fold": 1,
+      "test_season": "2020/21",
+      "poisson_source": "AO_POISSON_RHO0_CONTROL",
+      "poisson_weight": 0.1
+    },
+    {
+      "fold": 2,
+      "test_season": "2021/22",
+      "poisson_source": "AO_POISSON_BLEND",
+      "poisson_weight": 1.0
+    },
+    {
+      "fold": 3,
+      "test_season": "2022/23",
+      "poisson_source": "AO_POISSON_BLEND",
+      "poisson_weight": 0.7
+    },
+    {
+      "fold": 4,
+      "test_season": "2023/24",
+      "poisson_source": "AO_POISSON_RHO0_CONTROL",
+      "poisson_weight": 0.3
+    },
+    {
+      "fold": 5,
+      "test_season": "2024/25",
+      "poisson_source": "AO_POISSON_BLEND",
+      "poisson_weight": 0.2
+    },
+    {
+      "fold": 6,
+      "test_season": "2025/26",
+      "poisson_source": "AO_POISSON_BLEND",
+      "poisson_weight": 0.6
+    }
+  ],
+  "prospective_2026_27_selection": {
+    "poisson_source": "AO_POISSON_RHO0_CONTROL",
+    "poisson_weight": 0.5,
+    "ml_weight": 0.5,
+    "selection_data": "2020/21-2025/26 OOS development predictions"
+  },
+  "untouched_holdout": "2026/27",
+  "rating_feedback": false,
+  "model_version": "ao-ml-poisson-ensemble-v1-shadow",
+  "production_contract_sha256": "d4fbf39cb3e7fb1ea528b6272053a8c53561aba362816a3dd25967622a7b3df0",
+  "python_version": "3.14.0",
+  "scipy_version": "1.17.1",
+  "scikit_learn_version": "1.8.0",
+  "development_matches": 6340,
+  "unseen_matches": 4884,
+  "domestic_matches": 45423,
+  "selection_method": "nested inner-season log-probability blend"
+}

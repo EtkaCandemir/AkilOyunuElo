@@ -4,72 +4,76 @@
 
 - Production contract hesap parametreleri final-candidate ile eşittir: `True`. Birebir JSON eşitliği `False`; fark production'a sonradan eklenen açıklayıcı formül alanlarıdır.
 - Anlamlı karşılaştırma için aynı Scale/H/K üzerinde bütün aktif ek katmanları kapalı `REFERENCE_CORE_NO_ACTIVE_EXTRAS` kolu üretildi.
-- `6` unseen/development fold sezonunda `4884` maç değerlendirildi. Güncel model Brier `0.572740`, log-loss `0.965972`, accuracy `0.5504` üretti.
-- Referansa karşı farklar: Brier `-0.000958`, log-loss `-0.001398`, accuracy `+0.0031`.
+- `6` unseen/development fold sezonunda `4884` maç değerlendirildi. AO rating çekirdeğinin 1X2 çıkışı Brier `0.572093`, log-loss `0.964371`, accuracy `0.5502` üretti.
+- Referansa karşı farklar: Brier `-0.001606`, log-loss `-0.002999`, accuracy `+0.0029`.
 - Fold kazanımları Brier `6/6`, log-loss `6/6`, aynı-sezon Spearman `6/6`, pairwise `6/6`.
-- Production kararı: **KEEP**. Model çalışır ve guardrail'ler geçer; ancak 2026/27 lig aşaması sonrası prospective holdout henüz tamamlanmadığı için yeni bir PROMOTE iddiası yapılmamalıdır.
+- Kullanıcıya sunulan production tahmini `%50 Current ML + %50 AO Domestic Poisson (rho=0)` log-probability ensemble'dır: Brier `0.568093`, log-loss `0.959242`, accuracy `0.5538`.
+- Kararlar: rating çekirdeği **KEEP**; prediction katmanı **PROMOTE_WITH_MONITORING**. Prediction yalnız olasılık üretir, AO Live Elo'ya geri beslenmez ve sorun halinde Current AO 1X2'ye döner.
 
 ## Güncel sözleşme ve aktif mimari
 
-- Model: `ao-european-elo-v2.0-dev-freeze`; production revision `2026-08-06-penalty-field-score-goal-alpha-015-bounded-xg`; final candidate `ao-european-elo-v2.0-final-candidate-2026-08-05`.
+- Model: `ao-european-elo-v2.0-dev-freeze`; production revision `2026-08-13-ml-poisson-ensemble-monitoring`; final candidate `ao-european-elo-v2.0-final-candidate-2026-08-13`.
 - Statik: country benchmark `25`, European history benchmark `20`, sezon ağırlıkları `0.07/0.13/0.20/0.27/0.33`, country/european/exposure tail beta `0/0/0`.
 - Domestic Prior = 500 + lig gücü bileşeni + lig/kupa başarısının lig gücüyle ölçeklenmiş bileşeni. Şampiyonluk, kupa ve duble kuralları başlangıç ratinginde kullanılır.
 - Domestic Surprise aktiftir: theta `0.4`, variance penalty `0.5`, cap `+/-30.0`, tam geçmiş `5` sezon.
 - Dynamic: Scale `835.561497`, H `148.544266`, K `103.980986`, carry `0.0`.
+- 1X2: normal ve iki ayaklı maçlarda draw-at-even `0.24`, tek maçta biten eleme eşleşmelerinde `0.12`; format düzeltmesi Elo state'ini değiştirmez.
 - Gol farkı: alpha `0.15`, tau `300.0`, GD cap `4`.
-- xG: ratio `0.3`, scale `1.25`, winner floor `0.7`; iki taraf xG yoksa GD-only fallback.
-- Progression: UCL/UEL/UECL `12/8/4`, sezon cap `60/40/20`, winner-only, tek tie uygulaması, sezon resetli.
+- xG: ratio `0.3`, scale `1.25`, analitik minimum winner gain oranı `0.7`; iki taraf xG yoksa GD-only fallback.
+- Progression: UCL/UEL/UECL `12/8/4`, sezon cap `48/32/16`; yalnız R16, çeyrek final, yarı final ve final, winner-only, tek tie uygulaması, sezon resetli.
+- Production prediction: Current ML ve AO Domestic Poisson `0.50/0.50` log-probability blend; Poisson `rho=0`; her tahmin audit edilir; fallback Current AO 1X2'dir.
 - Achievement Reserve, Competition K, Dynamic K, season carry ve takım bazlı home context aktif değildir. Ev sahibi avantajı global H olarak uygulanır.
 
 ## Baseline ve güncel model ana metrikleri
 
 | model | matches | brier_1x2 | log_loss_1x2 | accuracy_1x2 | same_season_spearman | same_season_pairwise_accuracy | xg_applied_matches | total_progression_bonus | maximum_abs_match_delta | delta_vs_reference_brier_1x2 | delta_vs_reference_log_loss_1x2 | delta_vs_reference_accuracy_1x2 | delta_vs_reference_same_season_spearman | delta_vs_reference_same_season_pairwise_accuracy |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CURRENT_PRODUCTION | 4884 | 0.5727403 | 0.9659716 | 0.5503686 | 0.6720790 | 0.7535029 | 600 | 2892.0000000 | 110.9260891 | -0.0009584 | -0.0013978 | 0.0030713 | 0.0040202 | 0.0014788 |
+| CURRENT_PRODUCTION | 4884 | 0.5720927 | 0.9643708 | 0.5501638 | 0.6721598 | 0.7535188 | 600 | 2092.0000000 | 110.9260891 | -0.0016060 | -0.0029986 | 0.0028665 | 0.0041010 | 0.0014947 |
 | REFERENCE_CORE_NO_ACTIVE_EXTRAS | 4884 | 0.5736987 | 0.9673694 | 0.5472973 | 0.6680588 | 0.7520241 | 0 | 0.0000000 | 94.8104820 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 |
-| ABLATION_NO_DOMESTIC_SURPRISE | 4884 | 0.5732295 | 0.9666814 | 0.5489353 | 0.6716322 | 0.7536077 | 600 | 2892.0000000 | 111.8771739 | -0.0004692 | -0.0006880 | 0.0016380 | 0.0035734 | 0.0015836 |
-| ABLATION_NO_GOAL_MARGIN | 4884 | 0.5729322 | 0.9662491 | 0.5485258 | 0.6687604 | 0.7523040 | 600 | 2892.0000000 | 109.0500188 | -0.0007665 | -0.0011203 | 0.0012285 | 0.0007016 | 0.0002799 |
-| ABLATION_NO_XG | 4884 | 0.5729839 | 0.9663293 | 0.5489353 | 0.6716423 | 0.7533348 | 0 | 2892.0000000 | 95.3172344 | -0.0007148 | -0.0010402 | 0.0016380 | 0.0035835 | 0.0013107 |
-| ABLATION_NO_PROGRESSION | 4884 | 0.5727501 | 0.9659874 | 0.5501638 | 0.6720493 | 0.7535030 | 600 | 0.0000000 | 110.9260891 | -0.0009486 | -0.0013820 | 0.0028665 | 0.0039905 | 0.0014789 |
+| ABLATION_NO_DOMESTIC_SURPRISE | 4884 | 0.5725833 | 0.9650927 | 0.5491400 | 0.6716184 | 0.7535759 | 600 | 2092.0000000 | 111.8771739 | -0.0011154 | -0.0022767 | 0.0018428 | 0.0035596 | 0.0015518 |
+| ABLATION_NO_GOAL_MARGIN | 4884 | 0.5722867 | 0.9646444 | 0.5487305 | 0.6686932 | 0.7522562 | 600 | 2092.0000000 | 109.0500188 | -0.0014120 | -0.0027251 | 0.0014333 | 0.0006345 | 0.0002321 |
+| ABLATION_NO_XG | 4884 | 0.5723343 | 0.9647240 | 0.5485258 | 0.6715864 | 0.7533108 | 0 | 2092.0000000 | 95.3172344 | -0.0013644 | -0.0026454 | 0.0012285 | 0.0035276 | 0.0012867 |
+| ABLATION_NO_PROGRESSION | 4884 | 0.5720926 | 0.9643704 | 0.5501638 | 0.6720493 | 0.7535030 | 600 | 0.0000000 | 110.9260891 | -0.0016061 | -0.0029990 | 0.0028665 | 0.0039905 | 0.0014789 |
+| ABLATION_NO_SINGLE_MATCH_DRAW | 4884 | 0.5727502 | 0.9659879 | 0.5501638 | 0.6721598 | 0.7535188 | 600 | 2092.0000000 | 110.9260891 | -0.0009485 | -0.0013815 | 0.0028665 | 0.0041010 | 0.0014947 |
 
-Referans tarihsel bir production sürümü değildir; güncel modelin aktif ek katmanları kapatılmış kontrollü ablation çekirdeğidir. Production contract daha yeni otoritedir; final-candidate ile hesap parametreleri aynı olduğundan dürüst performans karşılaştırması bu kontrollü koldur.
+Bu tablodaki CURRENT_PRODUCTION etiketi geriye uyumlu replay adıdır ve AO rating çekirdeğinin olasılığını gösterir; nihai servis edilen ML+Poisson olasılığı değildir. Referans tarihsel bir production sürümü değil, aktif rating ekleri kapalı kontrollü ablation çekirdeğidir.
 
 ## Fold bazlı performans
 
 | fold | test_season | model | matches | brier_1x2 | log_loss_1x2 | accuracy_1x2 | same_season_spearman | same_season_pairwise_accuracy | delta_vs_reference_brier_1x2 | delta_vs_reference_log_loss_1x2 | delta_vs_reference_accuracy_1x2 | delta_vs_reference_same_season_spearman | delta_vs_reference_same_season_pairwise_accuracy |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 2020/21 | CURRENT_PRODUCTION | 540 | 0.5348640 | 0.9132200 | 0.5944444 | 0.5830464 | 0.7153059 | -0.0002175 | -0.0002075 | 0.0000000 | 0.0025874 | 0.0009031 |
+| 1 | 2020/21 | CURRENT_PRODUCTION | 540 | 0.5296328 | 0.9005783 | 0.5944444 | 0.5832998 | 0.7152271 | -0.0054487 | -0.0128492 | 0.0000000 | 0.0028408 | 0.0008243 |
 | 1 | 2020/21 | REFERENCE_CORE_NO_ACTIVE_EXTRAS | 540 | 0.5350815 | 0.9134275 | 0.5944444 | 0.5804590 | 0.7144028 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 |
-| 2 | 2021/22 | CURRENT_PRODUCTION | 816 | 0.5762665 | 0.9711967 | 0.5477941 | 0.6680210 | 0.7573257 | -0.0006611 | -0.0009612 | 0.0024510 | 0.0038178 | 0.0013908 |
+| 2 | 2021/22 | CURRENT_PRODUCTION | 816 | 0.5762709 | 0.9711082 | 0.5453431 | 0.6683018 | 0.7573732 | -0.0006566 | -0.0010497 | 0.0000000 | 0.0040986 | 0.0014383 |
 | 2 | 2021/22 | REFERENCE_CORE_NO_ACTIVE_EXTRAS | 816 | 0.5769276 | 0.9721579 | 0.5453431 | 0.6642033 | 0.7559349 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 |
-| 3 | 2022/23 | CURRENT_PRODUCTION | 804 | 0.5922468 | 0.9933569 | 0.5149254 | 0.6503044 | 0.7533710 | -0.0012620 | -0.0018668 | 0.0049751 | 0.0061912 | 0.0012021 |
+| 3 | 2022/23 | CURRENT_PRODUCTION | 804 | 0.5922543 | 0.9933672 | 0.5149254 | 0.6504594 | 0.7535213 | -0.0012545 | -0.0018565 | 0.0049751 | 0.0063461 | 0.0013524 |
 | 3 | 2022/23 | REFERENCE_CORE_NO_ACTIVE_EXTRAS | 804 | 0.5935088 | 0.9952237 | 0.5099502 | 0.6441133 | 0.7521689 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 |
-| 4 | 2023/24 | CURRENT_PRODUCTION | 806 | 0.5646922 | 0.9546210 | 0.5558313 | 0.7120615 | 0.7712042 | -0.0005878 | -0.0008583 | 0.0000000 | 0.0027013 | 0.0013386 |
+| 4 | 2023/24 | CURRENT_PRODUCTION | 806 | 0.5642390 | 0.9534485 | 0.5558313 | 0.7120210 | 0.7711544 | -0.0010409 | -0.0020308 | 0.0000000 | 0.0026608 | 0.0012888 |
 | 4 | 2023/24 | REFERENCE_CORE_NO_ACTIVE_EXTRAS | 806 | 0.5652800 | 0.9554793 | 0.5558313 | 0.7093602 | 0.7698656 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 |
-| 5 | 2024/25 | CURRENT_PRODUCTION | 957 | 0.5694950 | 0.9613779 | 0.5642633 | 0.7184099 | 0.7715843 | -0.0004941 | -0.0007873 | 0.0041797 | 0.0014496 | 0.0007771 |
+| 5 | 2024/25 | CURRENT_PRODUCTION | 957 | 0.5692230 | 0.9607593 | 0.5642633 | 0.7178450 | 0.7713771 | -0.0007661 | -0.0014059 | 0.0041797 | 0.0008847 | 0.0005699 |
 | 5 | 2024/25 | REFERENCE_CORE_NO_ACTIVE_EXTRAS | 957 | 0.5699891 | 0.9621652 | 0.5600836 | 0.7169603 | 0.7708072 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 |
-| 6 | 2025/26 | CURRENT_PRODUCTION | 961 | 0.5846915 | 0.9823598 | 0.5390219 | 0.6928186 | 0.7631921 | -0.0021465 | -0.0031056 | 0.0052029 | 0.0072511 | 0.0034531 |
+| 6 | 2025/26 | CURRENT_PRODUCTION | 961 | 0.5849805 | 0.9829940 | 0.5400624 | 0.6932334 | 0.7634490 | -0.0018575 | -0.0024713 | 0.0062435 | 0.0076659 | 0.0037099 |
 | 6 | 2025/26 | REFERENCE_CORE_NO_ACTIVE_EXTRAS | 961 | 0.5868380 | 0.9854653 | 0.5338189 | 0.6855675 | 0.7597391 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 | 0.0000000 |
 
 ### Bağımlılığa dayanıklı pooled güven aralıkları
 
 | metric | mean_difference | ci_95_lower | ci_95_upper | reliable_improvement |
 | --- | --- | --- | --- | --- |
-| brier_1x2 | -0.0009584 | -0.0015728 | -0.0002979 | True |
-| log_loss_1x2 | -0.0013978 | -0.0022746 | -0.0004498 | True |
+| brier_1x2 | -0.0016060 | -0.0026457 | -0.0007203 | True |
+| log_loss_1x2 | -0.0029986 | -0.0052072 | -0.0011241 | True |
 
 ## UCL, UEL ve UECL
 
 | model | competition | matches | brier_1x2 | log_loss_1x2 | accuracy_1x2 | same_season_spearman | same_season_pairwise_accuracy | delta_vs_reference_brier_1x2 | delta_vs_reference_log_loss_1x2 | delta_vs_reference_accuracy_1x2 | delta_vs_reference_same_season_spearman | delta_vs_reference_same_season_pairwise_accuracy |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CURRENT_PRODUCTION | UCL | 1384 | 0.5539399 | 0.9384161 | 0.5715318 | 0.5629461 | 0.7059133 | -0.0009529 | -0.0012895 | 0.0043353 | 0.0018258 | -0.0000012 |
-| CURRENT_PRODUCTION | UECL | 2073 | 0.5820429 | 0.9794461 | 0.5311143 | 0.7268177 | 0.7730841 | -0.0004971 | -0.0007468 | 0.0004824 | 0.0047553 | 0.0018243 |
-| CURRENT_PRODUCTION | UEL | 1427 | 0.5774603 | 0.9731223 | 0.5578136 | 0.6811333 | 0.7366103 | -0.0016339 | -0.0024485 | 0.0056062 | 0.0047893 | 0.0015435 |
+| CURRENT_PRODUCTION | UCL | 1384 | 0.5530894 | 0.9359207 | 0.5722543 | 0.5631967 | 0.7061278 | -0.0018034 | -0.0037850 | 0.0050578 | 0.0020763 | 0.0002133 |
+| CURRENT_PRODUCTION | UECL | 2073 | 0.5819288 | 0.9792106 | 0.5306319 | 0.7268126 | 0.7730704 | -0.0006112 | -0.0009823 | 0.0000000 | 0.0047502 | 0.0018107 |
+| CURRENT_PRODUCTION | UEL | 1427 | 0.5762344 | 0.9704060 | 0.5571128 | 0.6812012 | 0.7365797 | -0.0028598 | -0.0051648 | 0.0049054 | 0.0048572 | 0.0015129 |
 
 ## Sıralama ve ileri sezon kontrolü
 
-- Aynı-sezon pooled Spearman `0.672079`, pairwise `0.753503`.
-- Beş forward geçişte pooled Spearman current `0.468489`, reference `0.467063`; pairwise current `0.658162`, reference `0.657936`.
+- Aynı-sezon pooled Spearman `0.672160`, pairwise `0.753519`.
+- Beş forward geçişte pooled Spearman current `0.468478`, reference `0.467063`; pairwise current `0.658162`, reference `0.657936`.
 - Aynı-sezon ranking diagnostiktir; forward ranking sezon sonu ratingi yalnız takip eden sezon performansına bağlar.
 
 ## Başlangıç Elo etkisi
@@ -121,46 +125,47 @@ Referans tarihsel bir production sürümü değildir; güncel modelin aktif ek k
 
 | team_seasons | changed_team_seasons | mean_abs_end_delta | median_abs_end_delta | p90_abs_end_delta | p95_abs_end_delta | maximum_positive_end_delta | maximum_negative_end_delta | mean_abs_rank_change | maximum_rank_gain | maximum_rank_loss |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1413 | 1405 | 10.100195 | 5.708840 | 23.477094 | 31.180086 | 114.541614 | -61.186522 | 2.070771 | 15 | -22 |
+| 1413 | 1405 | 9.652741 | 5.626641 | 22.670393 | 30.037748 | 111.669838 | -61.186522 | 2.045294 | 15 | -22 |
 
 ### Güncel modelde en büyük sezon içi yükselişler
 
 | season | team_name | initial_rating | end_live_rating | season_live_change | rank_change_vs_reference |
 | --- | --- | --- | --- | --- | --- |
-| 2020/21 | Villarreal | 1584.0857 | 2055.4568 | 471.3710 | 3.0000 |
-| 2022/23 | West Ham United | 1451.4821 | 1900.0380 | 448.5559 | 0.0000 |
-| 2025/26 | Nottingham Forest | 1382.3541 | 1830.3870 | 448.0329 | 9.0000 |
-| 2022/23 | Lech Poznan | 1076.0726 | 1506.0973 | 430.0247 | 4.0000 |
-| 2025/26 | Newcastle United | 1356.8377 | 1782.7944 | 425.9567 | 7.0000 |
-| 2021/22 | Bodø/Glimt | 1138.7035 | 1551.3953 | 412.6918 | 1.0000 |
-| 2024/25 | Aston Villa | 1438.0263 | 1840.7581 | 402.7318 | 2.0000 |
-| 2025/26 | Aston Villa | 1715.5687 | 2115.8135 | 400.2448 | 2.0000 |
-| 2025/26 | AEK Athens | 1091.1861 | 1489.2873 | 398.1012 | 4.0000 |
-| 2025/26 | Crystal Palace | 1371.0186 | 1766.9024 | 395.8838 | 14.0000 |
+| 2020/21 | Villarreal | 1584.0857 | 2047.4568 | 463.3710 | 3.0000 |
+| 2022/23 | West Ham United | 1451.4821 | 1899.0632 | 447.5811 | 0.0000 |
+| 2025/26 | Nottingham Forest | 1382.3541 | 1824.7564 | 442.4023 | 9.0000 |
+| 2022/23 | Lech Poznan | 1076.0726 | 1502.6378 | 426.5652 | 4.0000 |
+| 2025/26 | Newcastle United | 1356.8377 | 1772.5041 | 415.6663 | 6.0000 |
+| 2021/22 | Bodø/Glimt | 1138.7035 | 1548.3117 | 409.6082 | 0.0000 |
+| 2024/25 | Aston Villa | 1438.0263 | 1838.0053 | 399.9790 | 2.0000 |
+| 2025/26 | Aston Villa | 1715.5687 | 2113.2254 | 397.6566 | 2.0000 |
+| 2025/26 | AEK Athens | 1091.1861 | 1488.8321 | 397.6460 | 4.0000 |
+| 2024/25 | Tottenham Hotspur | 1589.9783 | 1983.7813 | 393.8031 | 1.0000 |
 
 ### Güncel modelde en büyük sezon içi düşüşler
 
 | season | team_name | initial_rating | end_live_rating | season_live_change | rank_change_vs_reference |
 | --- | --- | --- | --- | --- | --- |
 | 2022/23 | Olympiakos Piraeus | 1614.3665 | 1231.5552 | -382.8113 | -2.0000 |
-| 2025/26 | Glasgow Rangers | 1804.1011 | 1422.0245 | -382.0766 | -6.0000 |
+| 2025/26 | Glasgow Rangers | 1804.1011 | 1422.0245 | -382.0766 | -5.0000 |
 | 2025/26 | Maccabi Tel-Aviv | 1547.6020 | 1174.4916 | -373.1104 | -12.0000 |
 | 2020/21 | AA Gent | 1499.5497 | 1151.8996 | -347.6501 | 0.0000 |
 | 2025/26 | Rapid Wien | 1557.8784 | 1211.1352 | -346.7432 | -10.0000 |
 | 2024/25 | RB Leipzig | 1920.1503 | 1594.6797 | -325.4706 | 0.0000 |
 | 2024/25 | Qarabag FK | 1562.7972 | 1239.6947 | -323.1025 | -2.0000 |
 | 2025/26 | Eintracht Frankfurt | 1883.3537 | 1563.9653 | -319.3884 | -9.0000 |
+| 2023/24 | Ajax | 1857.6763 | 1549.5823 | -308.0940 | -1.0000 |
 | 2021/22 | Tottenham Hotspur | 1905.1105 | 1599.6264 | -305.4841 | -3.0000 |
-| 2023/24 | Ajax | 1857.6763 | 1552.9626 | -304.7137 | -1.0000 |
 
 ## Ablation: katkı hangi katmandan geliyor?
 
 | model | brier_cost_when_disabled | log_loss_cost_when_disabled | accuracy_1x2 | same_season_spearman | same_season_pairwise_accuracy |
 | --- | --- | --- | --- | --- | --- |
-| ABLATION_NO_DOMESTIC_SURPRISE | 0.0004892 | 0.0007098 | 0.5489353 | 0.6716322 | 0.7536077 |
-| ABLATION_NO_GOAL_MARGIN | 0.0001919 | 0.0002775 | 0.5485258 | 0.6687604 | 0.7523040 |
-| ABLATION_NO_XG | 0.0002436 | 0.0003577 | 0.5489353 | 0.6716423 | 0.7533348 |
-| ABLATION_NO_PROGRESSION | 0.0000098 | 0.0000158 | 0.5501638 | 0.6720493 | 0.7535030 |
+| ABLATION_NO_DOMESTIC_SURPRISE | 0.0004906 | 0.0007219 | 0.5491400 | 0.6716184 | 0.7535759 |
+| ABLATION_NO_GOAL_MARGIN | 0.0001940 | 0.0002735 | 0.5487305 | 0.6686932 | 0.7522562 |
+| ABLATION_NO_XG | 0.0002417 | 0.0003532 | 0.5485258 | 0.6715864 | 0.7533108 |
+| ABLATION_NO_PROGRESSION | -0.0000001 | -0.0000005 | 0.5501638 | 0.6720493 | 0.7535030 |
+| ABLATION_NO_SINGLE_MATCH_DRAW | 0.0006575 | 0.0016170 | 0.5501638 | 0.6721598 | 0.7535188 |
 
 Pozitif `cost_when_disabled`, katman kapatıldığında loss'un yükseldiğini ve katmanın fayda sağladığını gösterir. Negatif değer katmanın mevcut kombinasyonda loss'a zarar verdiğini gösterir; bu sonuç nedensel veya bağımsız prospective kanıt değildir.
 
@@ -177,15 +182,19 @@ Pozitif `cost_when_disabled`, katman kapatıldığında loss'un yükseldiğini v
 | feature_team_season_unique | True | 0.0000000000 | One surprise feature row per team-season | MEDIUM |
 | prediction_match_model_unique | True | 0.0000000000 | One current-model prediction per match | MEDIUM |
 | probabilities_normalized | True | 0.0000000000 | 1X2 probabilities sum to one | MEDIUM |
+| single_match_format_draw_contract | True | 248.0000000000 | Exactly 248 frozen single-match ties use draw_at_even=0.12; all other matches use 0.24 | MEDIUM |
 | power_zero_sum | True | 0.0000000001 | Power Elo is conserved within season | HIGH |
 | match_zero_sum | True | 0.0000000000 | Every match Power update is zero-sum | HIGH |
 | progression_cap | True | 0.0000000000 | Progression bonuses remain within competition caps | MEDIUM |
+| knockout_playoff_bonus_disabled | True | 0.0000000000 | Knockout play-off cannot generate progression bonus | MEDIUM |
 | exposure_range | True | 0.0000000000 | Effective exposure stays in [0,1] | MEDIUM |
 | insufficient_history_zero_adjustment | True | 0.0000000000 | Fewer than five seasons must produce zero surprise adjustment | MEDIUM |
 | surprise_sign_preserved | True | 0.0000000000 | Surprise adjustment cannot reverse raw signal sign | MEDIUM |
 | surprise_cap | True | 0.0000000000 | Domestic Surprise must respect +/-30 cap | MEDIUM |
 | chronology_sorted | True | 0.0000000000 | event_order must be unique and UTC-monotonic within every season | MEDIUM |
 | simultaneous_team_collision | True | 0.0000000000 | A team cannot appear twice at the same kickoff UTC | MEDIUM |
+| production_prediction_artifacts_load | True | 171.0000000000 | Checksummed ML artifact and Domestic Poisson state load; 171 AO club mappings expected | HIGH |
+| production_prediction_rating_feedback_disabled | True | 0.0000000000 | Served prediction cannot feed back into AO Live Elo | HIGH |
 
 Bağımsız audit replay ile production pipeline eşleşmesi: `True`. En büyük expected-score farkı `0.000e+00`.
 
@@ -196,11 +205,12 @@ Bağımsız audit replay ile production pipeline eşleşmesi: `True`. En büyük
 - Zayıf: aktif katmanların bir kısmı manuel product kararıyla aktive edilmiştir; 2018/19-2025/26 geliştirme penceresi bağımsız prospective holdout değildir.
 - Zayıf: xG yalnız 2025/26'da geniş kapsamalıdır; önceki sezonlarda current kol çoğunlukla GD fallback kullanır.
 - Zayıf: progression winner-only ve non-zero-sum olduğu için AO Live toplamını artırır; Power Elo conservation geçse de görünen Live Elo toplamı korunmaz.
+- Zayıf: KPO rota asimetrisi kaldırıldıktan sonra progression katmanının pooled loss katkısı pratikte sıfırdır; katmanın tamamen kapatılması ayrı bir ürün kararı olarak değerlendirilmelidir.
 - Zayıf: global H sabittir; takım bazlı saha etkisi güncel production'da yoktur.
 
 ## Production kararı ve sonraki adım
 
-**KEEP**: güncel production contract korunmalı. Bu değerlendirme contract değiştirmez. 2026/27 lig aşaması ve sonrası kilitli pre-match ledger ile prospective sonuç geldiğinde aynı paket tekrar çalıştırılmalıdır.
+Rating çekirdeği **KEEP** olarak korunur. Prediction katmanı **PROMOTE_WITH_MONITORING** olarak aktiftir: `%50 Current ML + %50 AO Domestic Poisson`, `rho=0`, log-probability blend, rating feedback kapalı. 2026/27 lig aşaması ve sonrası kilitli pre-match log ile AO fallback'e karşı izlenmelidir.
 
 ## Açık sorular
 

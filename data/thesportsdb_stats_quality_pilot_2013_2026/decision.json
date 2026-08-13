@@ -1,0 +1,15 @@
+{
+  "decision": "STOP_RICH_STATS_COLLECTION",
+  "sample_matches": 600,
+  "identity_rate": 1.0,
+  "core_stats_coverage_rate": 0.26666666666666666,
+  "xg_coverage_rate": 0.18333333333333332,
+  "xg_placeholder_rate_among_present": 0.3,
+  "gates": {
+    "identity_rate_gte_0_95": true,
+    "core_stats_coverage_gte_0_60": false,
+    "xg_placeholder_rate_lte_0_15": false,
+    "field_semantics_consistent": false
+  },
+  "automatic_production_activation": false
+}

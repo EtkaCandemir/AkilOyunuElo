@@ -1,6 +1,6 @@
 # AO European Elo Model Durumu
 
-Güncelleme tarihi: 2026-08-06
+Güncelleme tarihi: 2026-08-13
 
 Aktif geliştirme sürümü: `ao-european-elo-v2.0-dev-freeze`
 
@@ -11,6 +11,12 @@ Standart 1X2 çıktı, kontrollü gol farkı ve sabit kazanan-only progression
 katmanları aktiftir. Season carry, sıfır-toplamlı progression, turnuva K ve
 European Achievement Reserve kapalıdır. V1.1 API ve pilot değerleri regresyon
 karşılaştırması olarak korunur.
+
+Pre-match kullanıcı tahmini ayrıca `PROMOTE_WITH_MONITORING` statüsündedir:
+mevcut Structural ML olasılığı ile `rho=0` AO Domestic Poisson olasılığı
+log-probability uzayında `%50/%50` birleştirilir. Bu katman ratinge geri
+beslenmez; artifact, feature veya state sorunu olduğunda Current AO 1X2'ye
+döner ve 2026/27 boyunca her tahmin karşılaştırmalı kaydedilir.
 
 Beş sezonluk varyans kontrollü Domestic Surprise manuel ürün kararıyla AO First
 Elo production pipeline'ına alınmıştır. Aktif değerler `theta=0.40`,
@@ -45,28 +51,34 @@ Domestic Surprise        = active (theta 0.40, gamma 0.50, cap +/-30)
 Season Power carry       = 0.00
 1X2 draw at even         = 0.24
 1X2 draw shape           = 1.00
+Single-match tie draw    = 0.12 (format metadata; rating state unchanged)
 Goal difference          = active (alpha 0.15, tau 300, GD cap 4)
-xG performance           = active (ratio 0.30, scale 1.25, floor 0.70)
-Progression bonus        = active (UCL/UEL/UECL 12/8/4; cap 60/40/20)
+xG performance           = active (ratio 0.30, scale 1.25, analytic minimum gain ratio 0.70; not a runtime clamp)
+Progression bonus        = active (R16 ve sonrası 12/8/4; cap 48/32/16)
 Achievement Reserve      = inactive (base 0)
 Competition match K      = inactive
+Production prediction    = active with monitoring (50% Current ML + 50% AO Domestic Poisson)
+Poisson rho              = 0
+Prediction fallback      = Current AO 1X2
+Prediction -> Elo        = disabled
 ```
 
 ## Nihai Model Adayı
 
 ```text
 Candidate status         = FINAL_MODEL_CANDIDATE
-Candidate version        = ao-european-elo-v2.0-final-candidate-2026-08-05
+Candidate version        = ao-european-elo-v2.0-final-candidate-2026-08-13
 Domestic Surprise        = active (theta 0.40, gamma 0.50, cap +/-30)
 Goal difference          = active (alpha 0.15, tau 300, GD cap 4)
 xG performance           = active (ratio 0.30, scale 1.25)
-Progression bonus        = active (UCL/UEL/UECL 12/8/4; cap 60/40/20)
-Winner minimum ratio     = 0.70 x classic result gain
+Progression bonus        = active (R16 ve sonrası 12/8/4; cap 48/32/16)
+Winner minimum ratio     = 0.70 x classic result gain, analytically implied by xG ratio; runtime floor is non-binding
 Missing xG fallback      = alpha 0.15 goal-margin-only update
 Draw / penalty shootout  = xG adjustment 0
 Power update             = zero-sum
 Match movement hard cap  = yok
 Production activation    = true
+Prediction activation    = PROMOTE_WITH_MONITORING
 ```
 
 Makinece doğrulanan aday sözleşmesi:
@@ -89,10 +101,12 @@ v1.1 sıralamasını ve aynı koşullardaki beklenen puanı yapay biçimde deği
 | Domestic Surprise | `PROMOTE_MANUAL` | Cap-30 gamma testinde gamma 0.50 sıralamayı 6/6 korudu; 2025/26 replay Brier `-0.000622`, log-loss `-0.000910`, pooled ranking `+0.001303` |
 | Dynamic Power | `PROMOTE` | Standart 1X2 ile 6/6; Brier farkı `-0.008929`, envelope CI tamamen negatif |
 | Standart 1X2 çıktı | `PROMOTE` | Tüm turnuvalarda climatology Brier ve log-loss'tan iyi |
+| Tek maç format düzeltmesi | `ACTIVATE_STRUCTURAL` | Full fit `0.1129`; sabit `0.12` ile pooled Brier `-0.000658`, log-loss `-0.001617`; 200/248 maç 2020/21 olduğundan kanıt sınırlılığı ayrıca işaretli |
+| Alt-1 beraberlik shape | `KEEP_SHADOW` | Full fit `0.24/0.84`; walk-forward Brier `4/6`, log-loss `3/6`, pooled farklar `+0.000036/+0.000243` |
 | Season carry | `DISABLE` | Nested 1X2 seçiminde 5/6 fold; full-data aday 0.85 olsa da kapı geçilmedi |
 | Eski LOG/SQRT goal margin | `DISABLE` | Final 1X2: 3/6 Brier, forward ranking 2/5; CI sıfırı kesiyor |
 | Kontrollü GD (`alpha/tau`) | `PROMOTE` | `0.10/300`: Brier 6/6, iki loss zarfı negatif, pooled ranking pozitif |
-| Sabit kazanan-only progression | `PROMOTE_MANUAL` | `12/8/4`: Brier ve log-loss 4/6, pooled farklar küçük olumlu, güvenilir zarar yok; cap `60/40/20` |
+| Sabit kazanan-only progression | `PROMOTE_MANUAL` | R16 ve sonrası `12/8/4`; KPO rota asimetrisi nedeniyle dışarıda, cap `48/32/16` |
 | Kontrollü xG ile GD alpha taraması | `NO_AUTOMATIC_PROMOTION` | `0.10-0.25` gridinde nested unseen Brier `+0.000136`, log-loss `+0.000202`; yüksek alpha UCL/UEL'i az iyileştirirken UECL'i kötüleştirdi |
 | `alpha=0.15` + xG tam sezon replay | `FINAL_MODEL_CANDIDATE` | 961 maçta `0.10+xG`ye karşı Brier `-0.000002`, log-loss `+0.000010`; ranking `+0.001941`, pairwise `+0.000720`, final medyan mutlak fark `1.03` Elo |
 | xG harmanı | `SHADOW_ONLY` | 606 FotMob maçında loss iyileşti; ranking-first guardrail hafif geriledi ve tek sezon kanıtı terfi için yetersiz |
@@ -100,6 +114,7 @@ v1.1 sıralamasını ve aynı koşullardaki beklenen puanı yapay biçimde deği
 | xG goal-bonus guard | `SHADOW_ONLY` | Yalnız GD bonusunu düzenledi; Brier `+0.000027`, pairwise `+0.000103`, güvenilir zarar yok fakat terfi kapısı geçilmedi |
 | xG çift yönlü performans bonusu | `SHADOW_CANDIDATE` | Beş nested foldun tamamında seçildi; pooled Brier `-0.005023`, log-loss `-0.007137` ve sıralama olumlu, fakat UECL geriledi ve cluster CI sıfırı kesti |
 | Kontrollü xG düzeltmesi | `PROMOTE_MANUAL` | `%30` etki tavanlı `ratio=0.30/scale=1.25`; sabit unseen Brier `-0.002542`, log-loss `-0.003828`, üç turnuva olumlu; production'da aktif |
+| ML + Domestic Poisson 1X2 | `PROMOTE_WITH_MONITORING` | 4.884 unseen maçta Brier `0.568093`, log-loss `0.959242`; AO'ya fark `-0.003999/-0.005129`; `%50/%50`, `rho=0`, AO fallback, rating feedback kapalı |
 | Takım belirsizliğine göre Dynamic K | `KEEP_FIXED_K` | Nested ΔBrier `+0.000085`, Δlog-loss `+0.000112`; forward ranking güvenli 1/5 |
 | Format-duyarlı `P_advance` | `SHADOW_ONLY` | Tie Brier `-0.003531`, log-loss `-0.009814`; bazı turnuva/format segmentleri geriledi |
 | Sıfır-toplamlı progression | `REJECT` | Nested ΔBrier `-0.000014`; pratik fayda yok, forward ranking 3/5 |
@@ -110,7 +125,7 @@ v1.1 sıralamasını ve aynı koşullardaki beklenen puanı yapay biçimde deği
 | Dinamik saha avantajı | `NO_PROMOTION` | 108 profilde ranking-first seçim her fold global saha avantajını korudu |
 | Takım bazlı home/away residual context | `KEEP_SHADOW_CANDIDATE` | Prediction-only nested testte loss 5/6 foldda iyileşti; pooled Brier `-0.000885`, log-loss `-0.001265`, fakat dependency CI sıfırı kesti |
 | Bağlamsal beraberlik | `NO_PROMOTION` | ΔBrier `+0.000850`, Δlog-loss `+0.001640`; yalnız 1/6 fold kazandı |
-| Domestic-Prior sezon regresyonu | `SHADOW_ONLY` | ΔBrier `-0.004535`, fakat forward ranking yalnız 4/5 güvenli |
+| Domestic-Prior sezon regresyonu | `NO_PROMOTION_LATEST_CONTEXT_REPLAY` | Ranking vetosu CI-temelli düzeltildi ve geçiyor; güncel match-context replay'inde ΔBrier `-0.003339`, Δlog-loss `-0.004885`, fakat Brier 3/6 fold ve conservative üst sınır `+0.000110` |
 | Achievement Reserve | `DISABLE` | Final 1X2: 2/6 Brier, forward ranking 1/5; güvenilir zarar |
 
 Domestic Surprise öncesi tarihsel statik dağılım 1,887 takım-sezonda yüzde 100 referans bandındadır;
@@ -460,11 +475,13 @@ Season Start = Current Domestic Prior
              + persistence x (Previous Power Elo - Current Domestic Prior)
 ```
 
-Nested aday Brier'da `-0.004535`, log-loss'ta `-0.006590` iyileşmiş;
-conservative Brier aralığı `[-0.008741,-0.000599]` olmuştur. UCL, UEL ve
-UECL'nin üçünde de loss yönü iyidir. Buna rağmen ilk unseen ranking foldunda
-Spearman `-0.001292`, pairwise `-0.001314` gerilemiştir. Kesin ranking-first
-kuralı gereği production'a alınmaz; `SHADOW_ONLY_RANKING_GAP` statüsündedir.
+Tarihsel değerlendirme artefaktında nested aday Brier'da `-0.004535`,
+log-loss'ta `-0.006590` iyileşmiş; conservative Brier aralığı
+`[-0.008741,-0.000599]` olmuştur. Buna karşın tek unseen ranking foldundaki
+Spearman `-0.001292`, pairwise `-0.001314` farkı belirsizlik ölçülmeden mutlak
+veto olarak uygulanmıştır. Bu karar kuralı düzeltilmiştir: ranking farkları
+artık target-season cluster bootstrap ve küçük örneklem t-aralığıyla ölçülür;
+veto yalnız conservative yüzde 95 aralığı tamamen zarar yönündeyse çalışır.
 
 Başarısız ilk ranking foldu ayrıca takım seviyesinde incelenmiştir. Kaynak
 rating sezonu 2020/21, forward hedef 2021/22 ve 2021/22 aynı zamanda UECL'nin
@@ -475,11 +492,15 @@ gözlemlerinden herhangi biri tek başına çıkarıldığında pooled iki sıra
 farkı da yeniden sıfırın üstüne çıkmaktadır.
 
 Bu nedenle gap geniş ve model-geneli bir çöküş değil; ilk UECL sezonunda az
-sayıda oynak kulübe duyarlı, küçük bir sıralama kaybıdır. Ancak evrensel
-Domestic carry başlangıç ratinglerini ortalama `65.02`, maksimum `349.22`
-puan değiştirmekte ve post-hoc test edilen hiçbir persistence değeri aynı
-anda loss ile iki sıralama metriğini iyileştirmemektedir. Sonuç yine
-`KEEP_SHADOW_NO_PRODUCTION_CHANGE` olarak kalır.
+sayıda oynak kulübe duyarlı, küçük bir sıralama kaybıdır ve artık otomatik
+veto değildir. Güncel kodla yeniden çalıştırılan tarihsel match-context
+baseline'ında (`GD=0.10`, xG yok) ranking kapısı geçmiştir:
+ortalama Spearman farkı `+0.002560`, conservative
+aralık `[-0.012265,+0.017384]`; güvenilir zarar yoktur. Ancak güncel loss
+sonucu tarihsel artefakttan daha zayıftır: Brier `-0.003339`, log-loss
+`-0.004885`, Brier fold kazanımı `3/6` ve conservative Brier üst sınırı
+`+0.000110` olmuştur. Dolayısıyla güncel karar yine `NO_PROMOTION`dur, fakat
+gerekçe artık ranking gürültüsü değil loss kapılarının tamamlanmamasıdır.
 
 Tam rapor:
 
@@ -590,13 +611,13 @@ AO First Elo, Power Elo ve kontrollü gol farkı çekirdeği değiştirilmemişt
 Önceden belirlenen aday:
 
 ```text
-UCL etap bonusu       +12   sezonluk UCL cap 60
-UEL etap bonusu        +8   sezonluk UEL cap 40
-UECL etap bonusu       +4   sezonluk UECL cap 20
+UCL etap bonusu       +12   sezonluk UCL cap 48
+UEL etap bonusu        +8   sezonluk UEL cap 32
+UECL etap bonusu       +4   sezonluk UECL cap 16
 ```
 
-Bonus yalnız knockout play-off, son 16, çeyrek final, yarı final ve final
-eşleşmeleri tamamen sonuçlandığında uygulanır. Lig aşaması, ilk sekiz ve ön
+Bonus yalnız son 16, çeyrek final, yarı final ve final eşleşmeleri tamamen
+sonuçlandığında uygulanır. Knockout play-off, lig aşaması, ilk sekiz ve ön
 elemeler kapsam dışıdır. Maç Power Elo güncellemesi sıfır-toplam kalırken bonus
 bilinçli olarak non-zero-sum'dır; kullanıcıya yine tek `AO Live Elo = Power Elo
 + Turnuva Bonusu` gösterilmesi hedeflenir.

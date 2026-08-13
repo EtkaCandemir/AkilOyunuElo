@@ -2,7 +2,10 @@
 
 AO European Elo, UEFA kulüp turnuvaları için sezon öncesi başlangıç rating'i,
 exact-UTC maç olaylarıyla güncellenen canlı Power Elo ve standart H/D/A maç
-olasılıkları üreten açıklanabilir bir Python/Pandas motorudur.
+olasılıkları üreten açıklanabilir bir Python/Pandas motorudur. Kullanıcıya
+sunulan güncel 1X2 tahmini, AO rating çekirdeğinin üzerine kurulu Current ML ve
+AO Domestic Poisson bileşenlerini log-probability uzayında `%50/%50`
+birleştirir.
 
 Aktif geliştirme sözleşmesi `ao-european-elo-v2.0-dev-freeze` sürümüdür.
 Parametreler 2018/19-2025/26 geliştirme verisinde nested walk-forward ile
@@ -10,6 +13,8 @@ seçilmiştir. 2026/27 elemeleri freeze tarihinden önce başladığı için sez
 tamamı untouched sayılamaz. Prospective holdout, yalnızca sonuçsuz fixture ile
 maçtan önce kilitlenen 2026/27 lig aşaması ve sonrası kayıtlarından oluşacaktır.
 Bu nedenle model henüz tamamen kanıtlanmış production modeli olarak tanımlanmaz.
+Prediction katmanı `PROMOTE_WITH_MONITORING` olarak operasyonel biçimde aktiftir;
+bu ifade 2026/27 prospective doğrulamasının tamamlandığı anlamına gelmez.
 
 Güncel production değerlendirmesinin ana belgesi:
 
@@ -31,6 +36,17 @@ Progression Bonus       tamamlanan eleme turu için sezonluk sabit bonus
 
 AO Live Elo = Power Elo + Achievement Reserve + Progression Bonus
 ```
+
+Pre-match olasılık sunumu rating muhasebesinden ayrıdır:
+
+```text
+P_current_ml = LogBlend(P_AO, P_structural_ml, 0.90)
+P_ao_poisson = LogBlend(P_AO, P_domestic_poisson_rho0, 0.50)
+P_served     = LogBlend(P_current_ml, P_ao_poisson, 0.50)
+```
+
+Bu tahmin AO Live Elo'yu değiştirmez. Herhangi bir artifact, feature veya
+Domestic Poisson state problemi satır bazında `P_AO` fallback'i üretir.
 
 Aktif sürümde Achievement Reserve sıfırdır. Progression Bonus ise UCL/UEL/UECL
 için `12/8/4` olarak aktiftir; bu nedenle eleme aşamalarında AO Live Elo,
@@ -136,14 +152,15 @@ Tamamlanan eleme eşleşmesinin kazananına maç güncellemesinden sonra sabit b
 eklenir:
 
 ```text
-UCL  = +12 / etap, sezonluk cap 60
-UEL  =  +8 / etap, sezonluk cap 40
-UECL =  +4 / etap, sezonluk cap 20
+UCL  = +12 / etap, sezonluk cap 48
+UEL  =  +8 / etap, sezonluk cap 32
+UECL =  +4 / etap, sezonluk cap 16
 
 AO Live Elo = Power Elo + Achievement Reserve + Progression Bonus
 ```
 
-Uygun etaplar knockout play-off, son 16, çeyrek final, yarı final ve finaldir.
+Uygun etaplar son 16, çeyrek final, yarı final ve finaldir. Knockout play-off
+rota asimetrisi nedeniyle uygun değildir.
 Bonus yalnız eşleşme tamamen kesinleşince ve aynı `tie_id` için bir kez verilir.
 Kaybedenden ayrıca puan düşülmez; lig aşaması ve ön elemeler bonus üretmez.
 Penaltıyla tur atlayan takım maç Elo'sunda beraberlik sonucunu korurken tur
@@ -160,6 +177,18 @@ P_home = E_home - 0.5 x P_draw
 P_away = 1 - E_home - 0.5 x P_draw
 ```
 
+Tek maçta tamamlanan eleme eşleşmelerinde saha skoru 120 dakika sonunda da
+berabere kalabildiği için ayrı ve sonuçtan bağımsız format girdisi kullanılır:
+
+```text
+normal / iki ayaklı maç draw_at_even = 0.24
+tek maçlık eleme draw_at_even         = 0.12
+```
+
+`is_single_match_tie` yalnız fikstür formatından gelir; skor, uzatma sonucu,
+penaltı veya tur atlayan takım kullanılarak türetilemez. Bu düzeltme Power Elo
+ve `E_home` değerini değiştirmez, yalnız H/D/A olasılık ayrışmasını düzeltir.
+
 Bu dönüşümde olasılıklar toplamı `1` ve
 `P_home + 0.5 x P_draw = E_home` eşitliği zorunludur. Standart Brier, H/D/A
 sınıflarındaki üç kare hatanın toplamıdır; standart log-loss gerçekleşen sınıfa
@@ -174,12 +203,15 @@ atanan olasılığın negatif logaritmasıdır.
 | Dynamic Scale/H/K | `PROMOTE` | `835.561/148.544/103.981` |
 | Season carry | `DISABLE` | `0.00` |
 | Standart 1X2 çıktı | `PROMOTE` | draw `0.24`, shape `1.00` |
+| Tek maç format düzeltmesi | `ACTIVATE_STRUCTURAL` | draw `0.12`; rating state değişmez |
+| Alt-1 beraberlik shape | `KEEP_SHADOW` | full fit `0.84`; production `1.00` |
 | Kontrollü gol farkı | `PROMOTE_MANUAL` | `alpha=0.15`, `tau=300`, GD cap `4` |
-| Bounded xG performansı | `PROMOTE_MANUAL` | ratio `0.30`, scale `1.25`, winner floor `0.70` |
+| Bounded xG performansı | `PROMOTE_MANUAL` | ratio `0.30`, scale `1.25`, analitik minimum kazanım oranı `0.70` |
 | Sıfır-toplamlı tur bonusu | `REJECT` | aktif base bonus `0` |
-| Sabit kazanan-only progression | `PROMOTE_MANUAL` | `12/8/4`, cap `60/40/20` |
+| Sabit kazanan-only progression | `PROMOTE_MANUAL` | R16 ve sonrası `12/8/4`, cap `48/32/16` |
 | Achievement Reserve | `DISABLE` | base `0` |
 | Normal maç turnuva K çarpanı | `DISABLE` | uygulanmaz |
+| ML + Domestic Poisson 1X2 | `PROMOTE_WITH_MONITORING` | `%50/%50` log blend, `rho=0`, AO fallback, rating feedback yok |
 
 Final robustness'taki eski LOG/SQRT gol farkı ailesi `3/6` Brier ve `2/5`
 forward-ranking sonucu nedeniyle kapalı kalmıştır. Onun yerine 23 Temmuz
@@ -187,15 +219,40 @@ kontrollü deneyinde `1 + alpha x ln(min(GD,4)) x exp(-abs(D)/tau)` formülü
 test edilmiştir. Önceden belirlenen `0.10/300` adayı kontrollü gol farkı
 ailesinin ilk güçlü kanıtını üretmiştir. Sonraki bounded xG çalışması ve tam
 sezon replay sonrasında manuel production kararı `alpha=0.15`, xG ratio `0.30`,
-scale `1.25` ve winner floor `0.70` olarak dondurulmuştur. Sabit `12/8/4`
+scale `1.25` ve analitik minimum kazanım oranı `0.70` olarak dondurulmuştur. Bu oran
+ayrı bir runtime clamp değildir: `max_xg_ratio=0.30` olduğu için bounded xG formülü
+zaten kazananın klasik sonuç residual'ını en fazla yüzde 30 azaltabilir. Sabit `12/8/4`
 progression manuel ürün kararıyla aktiftir;
 sıfır-toplamlı tur bonusu, turnuva K ve Achievement Reserve kapalıdır.
+
+Beraberlik eğrisinde `shape < 1` artık geçerli bir araştırma alanıdır. Ham
+beraberlik olasılığı negatif H/A olasılığı üretmemesi için
+`min(raw_draw, 2*min(E,1-E))` zarfıyla korunur. Full-history optimumu `0.84`
+olsa da training-only walk-forward sonuç Brier `4/6`, log-loss `3/6` ve pooled
+losslarda çok küçük gerileme ürettiği için production shape `1.00` kalır.
+Tek maç format düzeltmesinin tam örneklem optimumu `0.1129`dur. Sabit `0.12`,
+4.884 değerlendirme maçında Brier'ı `0.000658`, log-loss'u `0.001617`
+iyileştirmiştir. 248 tek maçın 200'ü 2020/21 sezonunda olduğu için bu sonuç
+untouched terfi kanıtı sayılmaz; açık format hatasını düzelten production
+sözleşmesi ve ayrıca izlenen bir duyarlılık sonucu olarak tutulur.
 
 Aktif runtime manifesti:
 
 ```text
 contracts/ao_european_elo_v2_production.json
 ```
+
+Aktif prediction artifact manifesti:
+
+```text
+artifacts/production_prediction/manifest.json
+```
+
+Development-window ensemble sonucu `4.884` unseen maçta Brier `0.568093`,
+log-loss `0.959242`, accuracy `0.553849` olmuştur. AO rating çekirdeği aynı
+pencerede `0.572093/0.964371/0.550164` üretmiştir. Tarihsel otomatik gate
+`KEEP_SHADOW` vermiş, kullanıcı onayıyla kontrollü fallback ve monitoring
+şartları altında operasyonel karar `PROMOTE_WITH_MONITORING` olmuştur.
 
 ### Aktif Nihai Model
 
@@ -212,7 +269,7 @@ goal_cap             = 4
 xG ratio             = 0.30
 xG scale             = 1.25
 minimum winner ratio = 0.70
-progression bonus    = 12/8/4; cap 60/40/20
+progression bonus    = R16 ve sonrası 12/8/4; cap 48/32/16
 ```
 
 Aday maç güncellemesi:
@@ -673,11 +730,19 @@ Veri 8 sezonda 6.340 maç, 2.106 eleme eşleşmesi ve 1.858 rövanş maçı içe
 Her katman ayrı nested seçimden geçer; yalnız tek başına bütün kapıları geçen
 özellik ortak modele taşınır.
 
-Sonuçta toplam skor ve 108 dinamik saha profili her fold baseline'a dönmüş,
-bağlamsal beraberlik unseen Brier'ı `+0.000850` kötüleştirmiştir. Domestic
-regresyon Brier'ı `-0.004535`, log-loss'u `-0.006590` iyileştirmiştir; ancak
-forward ranking yalnız `4/5` foldda güvenli kaldığından `SHADOW_ONLY` olarak
-sınıflandırılmıştır. Production modeli ve `AO First Elo` sözleşmesi
+Sonuçta toplam skor ve 108 dinamik saha profili her fold baseline'a dönmüştür.
+Domestic regression için eski “her evaluable fold sıfırın altında olmayacak”
+ranking vetosu kaldırılmıştır. Ranking farkları artık target-season cluster
+bootstrap ve küçük örneklem t-aralığıyla ölçülür; yalnız conservative yüzde 95
+aralığı tamamen zarar yönündeyse veto uygulanır.
+
+Güncel kodla yeniden çalıştırılan bu tarihsel match-context baseline'ında
+(`GD=0.10`, xG yok) Domestic regression ranking kapısını geçer:
+ortalama Spearman farkı `+0.002560`, conservative aralık
+`[-0.012265,+0.017384]` ve reliable harm `false` değerindedir. Bununla birlikte
+Brier `-0.003339`, log-loss `-0.004885` olsa da Brier yalnız `3/6` fold kazanır
+ve conservative Brier üst sınırı `+0.000110` ile sıfırı keser. Bu nedenle güncel
+karar `NO_PROMOTION`dur. Production modeli ve `AO First Elo` sözleşmesi
 değişmemiştir.
 
 Tam çıktı:
@@ -695,9 +760,9 @@ python3 scripts/run_domestic_regression_diagnostics.py
 
 2021/22'nin ilk UECL sezonundaki pooled kayıp küçüktür ve üç UECL gözlemine
 duyarlıdır; bu gözlemlerden herhangi biri çıkarıldığında iki sıralama farkı
-da pozitif olur. Buna karşılık hiçbir post-hoc persistence değeri loss,
-Spearman ve pairwise metriklerini aynı anda iyileştirmemiştir. Bu nedenle
-bulgu küçük ve outlier-duyarlı kabul edilse de production'a taşınmaz.
+da pozitif olur. Bu bulgu artık tek başına ret sebebi değildir. Post-hoc
+persistence taraması yalnız diagnostik kalır; production kararı complete
+walk-forward loss ve ranking belirsizlik kapılarından verilir.
 
 ```text
 output/domestic_regression_diagnostics_2018_2026/diagnostic_report.md
@@ -850,12 +915,14 @@ edilir:
 ```text
 AO Live Elo = Power Elo + sezonluk turnuva bonusu
 UCL / UEL / UECL etap bonusu = 12 / 8 / 4
-UCL / UEL / UECL cap = 60 / 40 / 20
+UCL / UEL / UECL cap = 48 / 32 / 16
 ```
 
-Yalnız tamamen sonuçlanmış knockout play-off, son 16, çeyrek final, yarı final
-ve final eşleşmesinin kazananı bonus alır. Kaybedenden puan düşülmez; bonus yeni
-sezon başında sıfırlanır. Lig aşaması ve ön elemeler bonus üretmez.
+Yalnız tamamen sonuçlanmış son 16, çeyrek final, yarı final ve final
+eşleşmesinin kazananı bonus alır. Knockout play-off bonus üretmez; böylece lig
+aşamasını ilk 8'de bitirip play-off'u atlayan takıma karşı rota kaynaklı bir
+dezavantaj oluşmaz. Kaybedenden puan düşülmez ve bonus yeni sezonda sıfırlanır.
+Lig aşaması ile ön elemeler de bonus üretmez.
 
 Altı foldun `4/6` tanesinde Brier ve log-loss iyileşmiş; pooled farklar sırasıyla
 `-0.000006941` ve `-0.000011253` olmuştur. Etki küçük, güven aralıkları sıfırı
@@ -888,7 +955,8 @@ Nested seçim iki foldda `Gentle + cap 30`, dört foldda mevcut production
 `-0.000017673` ve `-0.000022539` iyileşmiş, fakat güven aralıkları sıfırı
 kesmiştir. Aynı-sezon ranking iki metrikte birlikte `0/6`, forward-ranking ise
 `0/5` iyileşme göstermiştir. Tam geçmiş seçimi de mevcut production olmuştur.
-Karar `KEEP_CURRENT_PRODUCTION`; production manifesti değişmemiştir.
+Bu tarihsel karar daha sonra rota asimetrisi denetimiyle geçersiz kılınmıştır:
+aktif production sözleşmesi KPO'yu dışlayan dört aşamalı yapıdır.
 
 KPO'yu koruyup toplam cap'i yine `60/40/20` bırakan beş aşamalı ağırlık testi
 de ayrıca yapılmıştır. Gentle `%10/15/20/25/30`, Linear `1/2/3/4/5` oranlı ve

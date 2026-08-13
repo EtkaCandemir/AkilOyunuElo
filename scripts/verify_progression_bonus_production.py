@@ -18,14 +18,13 @@ from ao_elo.dynamic_csv import (  # noqa: E402
     load_selected_v2_config,
     run_batch,
 )
+from ao_elo.tournament_bonus import ELIGIBLE_PROGRESSION_STAGES  # noqa: E402
 
 
 SEASON = "2025/26"
 EXPECTED_MATCHES = 961
 EXPECTED_XG_ELIGIBLE = 606
 EXPECTED_XG_FALLBACK = EXPECTED_MATCHES - EXPECTED_XG_ELIGIBLE
-EXPECTED_BONUS_EVENTS = 69
-EXPECTED_TOTAL_BONUS = 552.0
 STATIC_RATINGS = (
     ROOT
     / "output"
@@ -62,7 +61,7 @@ def main() -> None:
     bonus_events = update_frame.loc[update_frame["progression_bonus_added"].gt(0)].copy()
     bonus_events.to_csv(OUTPUT / "bonus_events.csv", index=False, lineterminator="\n")
 
-    verification = verify(initial, state, update_frame, bonus_events, config.config_id)
+    verification = verify(initial, state, update_frame, bonus_events, config)
     (OUTPUT / "verification.json").write_text(
         json.dumps(verification, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
@@ -85,6 +84,9 @@ def build_matches() -> pd.DataFrame:
     events = pd.read_csv(EVENTS)
     events = events.loc[events["season"].astype(str).eq(SEASON)].copy()
     events = events.sort_values(["kickoff_utc", "match_id"], kind="mergesort")
+    tie_counts = events.loc[events["is_knockout"]].groupby("tie_id")["match_id"].transform("size")
+    events["is_single_match_tie"] = False
+    events.loc[tie_counts.index, "is_single_match_tie"] = tie_counts.eq(1)
     result = pd.DataFrame(
         {
             "match_id": events["match_id"],
@@ -95,6 +97,7 @@ def build_matches() -> pd.DataFrame:
             "tie_id": events["tie_id"],
             "is_knockout": events["is_knockout"],
             "is_tie_decider": events["is_tie_decider"],
+            "is_single_match_tie": events["is_single_match_tie"],
             "stage": "",
             "home_team_id": events["home_team_id"],
             "away_team_id": events["away_team_id"],
@@ -114,11 +117,20 @@ def build_matches() -> pd.DataFrame:
     return result.reset_index(drop=True)
 
 
-def verify(initial, state, updates, bonus_events, config_id) -> dict[str, object]:
+def verify(initial, state, updates, bonus_events, config) -> dict[str, object]:
     if len(updates) != EXPECTED_MATCHES:
         raise ValueError("Production replay match count is incorrect")
-    if len(bonus_events) != EXPECTED_BONUS_EVENTS:
+    eligible_deciders = updates.loc[
+        updates["is_tie_decider"]
+        & updates["stage"].isin(ELIGIBLE_PROGRESSION_STAGES)
+    ]
+    if len(bonus_events) != len(eligible_deciders):
         raise ValueError("Progression bonus event count is incorrect")
+    if updates.loc[
+        updates["stage"].eq("KNOCKOUT_PLAYOFF"),
+        "progression_bonus_added",
+    ].gt(0.0).any():
+        raise ValueError("Knockout play-off cannot generate progression bonus")
     xg_eligible = int(updates["xg_analysis_eligible"].sum())
     xg_fallback = int(updates["xg_fallback_used"].sum())
     if xg_eligible != EXPECTED_XG_ELIGIBLE:
@@ -131,9 +143,17 @@ def verify(initial, state, updates, bonus_events, config_id) -> dict[str, object
     if observed_values != [4.0, 8.0, 12.0]:
         raise ValueError(f"Unexpected progression increments: {observed_values}")
     total_bonus = float(bonus_events["progression_bonus_added"].sum())
-    if not math.isclose(total_bonus, EXPECTED_TOTAL_BONUS, abs_tol=1e-9):
+    expected_total_bonus = sum(
+        config.fixed_progression_config.increment(competition)
+        for competition in eligible_deciders["competition"]
+    )
+    if not math.isclose(total_bonus, expected_total_bonus, abs_tol=1e-9):
         raise ValueError("Total progression bonus is incorrect")
-    if float(updates["progression_bonus_competition_post"].max()) > 60.0 + 1e-9:
+    maximum_cap = max(
+        config.fixed_progression_config.cap(competition)
+        for competition in ("UCL", "UEL", "UECL")
+    )
+    if float(updates["progression_bonus_competition_post"].max()) > maximum_cap + 1e-9:
         raise ValueError("Progression cap invariant failed")
     initial_power_total = float(initial["ao_first_elo"].sum())
     final_power_total = float(sum(rating.power_elo for rating in state.ratings.values()))
@@ -158,12 +178,13 @@ def verify(initial, state, updates, bonus_events, config_id) -> dict[str, object
         "season": SEASON,
         "matches": len(updates),
         "teams": len(state.ratings),
-        "config_id": config_id,
+        "config_id": config.config_id,
         "xg_eligible_matches": xg_eligible,
         "xg_applied_matches": int(updates["xg_applied"].sum()),
         "xg_fallback_matches": xg_fallback,
         "penalty_decisions": int(updates["decided_on_penalties"].sum()),
         "bonus_events": len(bonus_events),
+        "knockout_playoff_bonus_events": 0,
         "bonus_values": observed_values,
         "total_bonus_added": total_bonus,
         "maximum_team_bonus": maximum_team_bonus,

@@ -89,8 +89,8 @@ class DrawContextConfig:
             raise ValueError("draw-context parameters must be finite")
         if not 0.0 <= self.draw_at_even <= 0.5:
             raise ValueError("draw_at_even must be in [0,0.5]")
-        if self.draw_shape < 1.0:
-            raise ValueError("draw_shape must be at least one")
+        if self.draw_shape <= 0.0:
+            raise ValueError("draw_shape must be positive")
         for competition in COMPETITIONS:
             for knockout in (False, True):
                 for second_leg in (False, True):

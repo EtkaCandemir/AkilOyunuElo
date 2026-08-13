@@ -6,6 +6,8 @@ from math import isfinite
 import numpy as np
 import pandas as pd
 
+from ao_elo.draw_probability import validate_draw_parameters
+
 
 RANKING_MATCH_COLUMNS = {
     "season",
@@ -146,16 +148,15 @@ def score_preserving_1x2_probabilities(
     The construction preserves ``P(H) + 0.5 * P(D) == expected_home_score``.
     ``draw_at_even`` is therefore the draw probability when both teams are even.
     """
-    _validate_probability_parameter(draw_at_even, "draw_at_even", maximum=0.5)
-    if not isfinite(float(draw_shape)) or float(draw_shape) < 1.0:
-        raise ValueError("draw_shape must be finite and >= 1")
+    validate_draw_parameters(draw_at_even, draw_shape)
     values, index = _one_dimensional_numeric(expected_home_score, "expected_home_score")
     if ((values < 0.0) | (values > 1.0)).any():
         raise ValueError("expected_home_score must be within [0, 1]")
 
-    draw = float(draw_at_even) * (4.0 * values * (1.0 - values)) ** float(
+    raw_draw = float(draw_at_even) * (4.0 * values * (1.0 - values)) ** float(
         draw_shape
     )
+    draw = np.minimum(raw_draw, 2.0 * np.minimum(values, 1.0 - values))
     home = values - 0.5 * draw
     away = 1.0 - values - 0.5 * draw
     probabilities = pd.DataFrame(

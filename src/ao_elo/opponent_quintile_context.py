@@ -351,14 +351,29 @@ def estimate_categorical_1x2_elo_offset(
         probability = _logistic_array(base_logit + slope * offset)
         first_expected = probability * (1.0 - probability)
         second_expected = first_expected * (1.0 - 2.0 * probability)
-        draw = draw_at_even * (
+        raw_draw = draw_at_even * (
             4.0 * probability * (1.0 - probability)
         ) ** draw_shape
         draw_log_derivative = draw_shape * (1.0 - 2.0 * probability)
-        first_draw = draw * draw_log_derivative
-        second_draw = draw * (
+        first_raw_draw = raw_draw * draw_log_derivative
+        second_raw_draw = raw_draw * (
             draw_log_derivative**2 - 2.0 * draw_shape * first_expected
         )
+        draw_limit = 2.0 * np.minimum(probability, 1.0 - probability)
+        uncapped = raw_draw <= draw_limit
+        draw = np.minimum(raw_draw, draw_limit)
+        first_limit = np.where(
+            probability <= 0.5,
+            2.0 * first_expected,
+            -2.0 * first_expected,
+        )
+        second_limit = np.where(
+            probability <= 0.5,
+            2.0 * second_expected,
+            -2.0 * second_expected,
+        )
+        first_draw = np.where(uncapped, first_raw_draw, first_limit)
+        second_draw = np.where(uncapped, second_raw_draw, second_limit)
         probabilities = np.column_stack(
             (
                 probability - 0.5 * draw,
@@ -561,8 +576,8 @@ def _require_draw_parameters(draw_at_even: float, draw_shape: float) -> None:
     _require_finite("draw_shape", draw_shape)
     if not 0.0 < float(draw_at_even) <= 0.5:
         raise ValueError("draw_at_even must be in (0, 0.5]")
-    if float(draw_shape) < 1.0:
-        raise ValueError("draw_shape must be at least one")
+    if float(draw_shape) <= 0.0:
+        raise ValueError("draw_shape must be positive")
 
 
 def _require_finite(name: str, value: float) -> None:

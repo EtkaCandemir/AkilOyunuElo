@@ -61,7 +61,8 @@ def test_diagnostic_identifies_inaugural_uecl_outlier_sensitivity():
         match_metrics,
     )
     assert decision["diagnosis"] == "INAUGURAL_UECL_OUTLIER_SENSITIVE_GAP"
-    assert decision["status"] == "KEEP_SHADOW_NO_PRODUCTION_CHANGE"
+    assert decision["status"] == "NO_AUTOMATIC_RANKING_VETO"
+    assert "no longer vetoes" in decision["reason"]
 
 
 def test_markdown_table_does_not_require_optional_tabulate_dependency():

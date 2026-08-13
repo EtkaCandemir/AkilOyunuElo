@@ -95,11 +95,6 @@ def update_match_elo(
     _require_boolean("decided_on_penalties", decided_on_penalties)
     _require_non_negative_finite("alpha", alpha)
     _require_positive_finite("tau", tau)
-    if decided_on_penalties and home_goals != away_goals:
-        raise ValueError(
-            "Penalty-decided matches require a tied 90/120-minute field score"
-        )
-
     advantage = 0.0 if is_neutral else float(home_advantage)
     difference = float(home_rating) - float(away_rating) + advantage
     exponent = -(difference / float(elo_scale))
@@ -111,7 +106,9 @@ def update_match_elo(
         expected = 1.0 / (1.0 + 10.0**exponent)
 
     field_draw = home_goals == away_goals
-    if decided_on_penalties or field_draw:
+    # Shoot-outs settle the tie, not the 90/120-minute field result. They turn
+    # off only the GD signal below; a 2-0 second-leg field win remains a win.
+    if field_draw:
         actual = 0.5
         goal_difference = 0
     elif home_goals > away_goals:

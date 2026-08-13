@@ -26,6 +26,9 @@ from ao_elo.evaluation import (  # noqa: E402
     dependency_robust_loss_difference_ci,
     schedule_adjusted_team_performance,
 )
+from ao_elo.production_prediction import (  # noqa: E402
+    load_production_prediction_runtime,
+)
 from ao_elo.tournament_bonus import (  # noqa: E402
     ELIGIBLE_PROGRESSION_STAGES,
     FixedTournamentBonusConfig,
@@ -74,7 +77,16 @@ NO_SURPRISE = "ABLATION_NO_DOMESTIC_SURPRISE"
 NO_GOAL_MARGIN = "ABLATION_NO_GOAL_MARGIN"
 NO_XG = "ABLATION_NO_XG"
 NO_PROGRESSION = "ABLATION_NO_PROGRESSION"
-ARMS_IN_ORDER = (CURRENT, REFERENCE, NO_SURPRISE, NO_GOAL_MARGIN, NO_XG, NO_PROGRESSION)
+NO_FORMAT_DRAW = "ABLATION_NO_SINGLE_MATCH_DRAW"
+ARMS_IN_ORDER = (
+    CURRENT,
+    REFERENCE,
+    NO_SURPRISE,
+    NO_GOAL_MARGIN,
+    NO_XG,
+    NO_PROGRESSION,
+    NO_FORMAT_DRAW,
+)
 COMPETITION_INDEX = {"UCL": 0, "UEL": 1, "UECL": 2}
 
 
@@ -85,6 +97,7 @@ class EvaluationArm:
     goal_margin: bool
     xg: bool
     progression: bool
+    format_draw: bool
 
 
 @dataclass
@@ -98,12 +111,13 @@ class ArmEvaluation:
 
 def evaluation_arms() -> tuple[EvaluationArm, ...]:
     return (
-        EvaluationArm(CURRENT, True, True, True, True),
-        EvaluationArm(REFERENCE, False, False, False, False),
-        EvaluationArm(NO_SURPRISE, False, True, True, True),
-        EvaluationArm(NO_GOAL_MARGIN, True, False, True, True),
-        EvaluationArm(NO_XG, True, True, False, True),
-        EvaluationArm(NO_PROGRESSION, True, True, True, False),
+        EvaluationArm(CURRENT, True, True, True, True, True),
+        EvaluationArm(REFERENCE, False, False, False, False, False),
+        EvaluationArm(NO_SURPRISE, False, True, True, True, True),
+        EvaluationArm(NO_GOAL_MARGIN, True, False, True, True, True),
+        EvaluationArm(NO_XG, True, True, False, True, True),
+        EvaluationArm(NO_PROGRESSION, True, True, True, False, True),
+        EvaluationArm(NO_FORMAT_DRAW, True, True, True, True, False),
     )
 
 
@@ -145,6 +159,7 @@ def evaluate_arm(
         max_match_zero_sum = 0.0
         max_match_delta = 0.0
         max_cap_error = 0.0
+        tie_counts = pd.Series(reserve.tie_ids, dtype="object").dropna().value_counts()
 
         for index, (home_raw, away_raw, neutral_raw, competition_raw) in enumerate(
             zip(
@@ -184,9 +199,19 @@ def evaluate_arm(
                 xg_away=None if xg_values is None else xg_values[1],
                 xg_performance_bonus_config=xg_bonus if arm.xg else None,
             )
+            is_single_match_tie = bool(
+                tie_id is not None
+                and int(tie_counts.get(tie_id, 0)) == 1
+                and bool(reserve.tie_decider_flags[index])
+            )
+            effective_draw_at_even = (
+                float(parameters["single_match_draw_at_even"])
+                if arm.format_draw and is_single_match_tie
+                else float(parameters["draw_at_even"])
+            )
             probabilities = probability_vector(
                 update.expected_home_score,
-                float(parameters["draw_at_even"]),
+                effective_draw_at_even,
                 float(parameters["draw_shape"]),
             )
             observed = (
@@ -236,6 +261,8 @@ def evaluate_arm(
                         "tie_id": tie_id,
                         "competition": competition,
                         "stage": stage,
+                        "is_single_match_tie": is_single_match_tie,
+                        "effective_draw_at_even": effective_draw_at_even,
                         "winner_team_id": progression_winner,
                         "decided_on_penalties": penalty,
                         "bonus_pre": update_bonus.bonus_pre,
@@ -254,6 +281,8 @@ def evaluate_arm(
                     "competition": competition,
                     "stage": stage,
                     "tie_id": tie_id,
+                    "is_single_match_tie": is_single_match_tie,
+                    "effective_draw_at_even": effective_draw_at_even,
                     "home_team_id": home_id,
                     "away_team_id": away_id,
                     "home_goals": int(data.home_goals[index]),
@@ -503,7 +532,13 @@ def build_dependency_uncertainty(
     rows = []
     comparisons = ((CURRENT, REFERENCE),) + tuple(
         (arm_name, CURRENT)
-        for arm_name in (NO_SURPRISE, NO_GOAL_MARGIN, NO_XG, NO_PROGRESSION)
+        for arm_name in (
+            NO_SURPRISE,
+            NO_GOAL_MARGIN,
+            NO_XG,
+            NO_PROGRESSION,
+            NO_FORMAT_DRAW,
+        )
     )
     for candidate_name, baseline_name in comparisons:
         candidate = evaluations[candidate_name].predictions.loc[
@@ -715,6 +750,7 @@ def contract_audit(production: dict, candidate: dict) -> tuple[pd.DataFrame, dic
         "progression_bonus",
         "achievement_reserve",
         "competition_k",
+        "prediction_layer",
     )
     documentation_keys = {"formula", "consistency_formula", "exposure_formula"}
 
@@ -795,6 +831,7 @@ def data_quality_audit(
     current = evaluations[CURRENT]
     current_predictions = current.predictions
     current_seasons = current.season_metrics
+    current_bonus_events = current.bonus_events
     chronology_rows = events.sort_values(["season", "event_order"], kind="stable")
     chronology_violations = sum(
         not pd.to_datetime(frame["kickoff_utc"], utc=True).is_monotonic_increasing
@@ -819,9 +856,38 @@ def data_quality_audit(
         ("feature_team_season_unique", not features.duplicated(["season", "team_id"]).any(), int(features.duplicated(["season", "team_id"]).sum()), "One surprise feature row per team-season"),
         ("prediction_match_model_unique", not current_predictions.duplicated(["model", "match_id"]).any(), int(current_predictions.duplicated(["model", "match_id"]).sum()), "One current-model prediction per match"),
         ("probabilities_normalized", bool(np.allclose(current_predictions[["home_probability", "draw_probability", "away_probability"]].sum(axis=1), 1.0, atol=1e-12)), int((~np.isclose(current_predictions[["home_probability", "draw_probability", "away_probability"]].sum(axis=1), 1.0, atol=1e-12)).sum()), "1X2 probabilities sum to one"),
+        (
+            "single_match_format_draw_contract",
+            bool(
+                int(current_predictions["is_single_match_tie"].sum()) == 248
+                and current_predictions.loc[
+                    current_predictions["is_single_match_tie"],
+                    "effective_draw_at_even",
+                ].eq(0.12).all()
+                and current_predictions.loc[
+                    ~current_predictions["is_single_match_tie"],
+                    "effective_draw_at_even",
+                ].eq(0.24).all()
+            ),
+            int(current_predictions["is_single_match_tie"].sum()),
+            "Exactly 248 frozen single-match ties use draw_at_even=0.12; all other matches use 0.24",
+        ),
         ("power_zero_sum", float(current_seasons["season_power_conservation_error"].max()) <= 1e-9, float(current_seasons["season_power_conservation_error"].max()), "Power Elo is conserved within season"),
         ("match_zero_sum", float(current_predictions["zero_sum_error"].abs().max()) <= 1e-9, float(current_predictions["zero_sum_error"].abs().max()), "Every match Power update is zero-sum"),
         ("progression_cap", float(current_seasons["maximum_bonus_cap_error"].max()) <= 1e-9, float(current_seasons["maximum_bonus_cap_error"].max()), "Progression bonuses remain within competition caps"),
+        (
+            "knockout_playoff_bonus_disabled",
+            bool(
+                current_bonus_events.empty
+                or not current_bonus_events["stage"].eq("KNOCKOUT_PLAYOFF").any()
+            ),
+            int(
+                0
+                if current_bonus_events.empty
+                else current_bonus_events["stage"].eq("KNOCKOUT_PLAYOFF").sum()
+            ),
+            "Knockout play-off cannot generate progression bonus",
+        ),
         ("exposure_range", features["effective_european_exposure"].between(0.0, 1.0).all(), int((~features["effective_european_exposure"].between(0.0, 1.0)).sum()), "Effective exposure stays in [0,1]"),
         ("insufficient_history_zero_adjustment", bool(adjustments.loc[adjustments["history_seasons"].lt(5), "ao_first_elo_adjustment"].abs().le(1e-12).all()), int(adjustments.loc[adjustments["history_seasons"].lt(5), "ao_first_elo_adjustment"].abs().gt(1e-12).sum()), "Fewer than five seasons must produce zero surprise adjustment"),
         ("surprise_sign_preserved", bool((adjustments["domestic_prior_adjustment"] * adjustments["raw_surprise"]).ge(-1e-12).all()), int((adjustments["domestic_prior_adjustment"] * adjustments["raw_surprise"]).lt(-1e-12).sum()), "Surprise adjustment cannot reverse raw signal sign"),
@@ -918,7 +984,10 @@ def build_report(
         & uncertainty["competition"].eq("ALL")
         & uncertainty["method"].eq("conservative_envelope")
     ][["metric", "mean_difference", "ci_95_lower", "ci_95_upper", "reliable_improvement"]]
-    decision = "KEEP"
+    rating_decision = "KEEP"
+    prediction = production["prediction_layer"]
+    prediction_evidence = production["prediction_layer_evidence"]
+    prediction_decision = prediction["decision"]
     return "\n".join(
         [
             "# AO European Elo Güncel Production Model Değerlendirmesi",
@@ -927,10 +996,11 @@ def build_report(
             "",
             f"- Production contract hesap parametreleri final-candidate ile eşittir: `{contract_status['all_active_parameters_equal']}`. Birebir JSON eşitliği `{contract_status['all_active_blocks_exactly_equal']}`; fark production'a sonradan eklenen açıklayıcı formül alanlarıdır.",
             f"- Anlamlı karşılaştırma için aynı Scale/H/K üzerinde bütün aktif ek katmanları kapalı `{REFERENCE}` kolu üretildi.",
-            f"- `{len(evaluation_seasons)}` unseen/development fold sezonunda `{int(current['matches'])}` maç değerlendirildi. Güncel model Brier `{current['brier_1x2']:.6f}`, log-loss `{current['log_loss_1x2']:.6f}`, accuracy `{current['accuracy_1x2']:.4f}` üretti.",
+            f"- `{len(evaluation_seasons)}` unseen/development fold sezonunda `{int(current['matches'])}` maç değerlendirildi. AO rating çekirdeğinin 1X2 çıkışı Brier `{current['brier_1x2']:.6f}`, log-loss `{current['log_loss_1x2']:.6f}`, accuracy `{current['accuracy_1x2']:.4f}` üretti.",
             f"- Referansa karşı farklar: Brier `{current['brier_1x2']-reference['brier_1x2']:+.6f}`, log-loss `{current['log_loss_1x2']-reference['log_loss_1x2']:+.6f}`, accuracy `{current['accuracy_1x2']-reference['accuracy_1x2']:+.4f}`.",
             f"- Fold kazanımları Brier `{brier_wins}/6`, log-loss `{log_wins}/6`, aynı-sezon Spearman `{rank_wins}/6`, pairwise `{pair_wins}/6`.",
-            f"- Production kararı: **{decision}**. Model çalışır ve guardrail'ler geçer; ancak 2026/27 lig aşaması sonrası prospective holdout henüz tamamlanmadığı için yeni bir PROMOTE iddiası yapılmamalıdır.",
+            f"- Kullanıcıya sunulan production tahmini `%50 Current ML + %50 AO Domestic Poisson (rho=0)` log-probability ensemble'dır: Brier `{prediction_evidence['pooled_brier']:.6f}`, log-loss `{prediction_evidence['pooled_log_loss']:.6f}`, accuracy `{prediction_evidence['pooled_accuracy']:.4f}`.",
+            f"- Kararlar: rating çekirdeği **{rating_decision}**; prediction katmanı **{prediction_decision}**. Prediction yalnız olasılık üretir, AO Live Elo'ya geri beslenmez ve sorun halinde Current AO 1X2'ye döner.",
             "",
             "## Güncel sözleşme ve aktif mimari",
             "",
@@ -939,16 +1009,18 @@ def build_report(
             "- Domestic Prior = 500 + lig gücü bileşeni + lig/kupa başarısının lig gücüyle ölçeklenmiş bileşeni. Şampiyonluk, kupa ve duble kuralları başlangıç ratinginde kullanılır.",
             f"- Domestic Surprise aktiftir: theta `{production['domestic_surprise']['coefficient']}`, variance penalty `{production['domestic_surprise']['variance_penalty']}`, cap `+/-{production['domestic_surprise']['max_abs_adjustment']}`, tam geçmiş `{production['domestic_surprise']['minimum_history_seasons']}` sezon.",
             f"- Dynamic: Scale `{production['dynamic_core']['elo_scale']:.6f}`, H `{production['dynamic_core']['home_advantage']:.6f}`, K `{production['dynamic_core']['k_factor']:.6f}`, carry `{production['active_power_carry']}`.",
+            f"- 1X2: normal ve iki ayaklı maçlarda draw-at-even `{production['one_x_two_probability']['draw_at_even']}`, tek maçta biten eleme eşleşmelerinde `{production['one_x_two_probability']['single_match_draw_at_even']}`; format düzeltmesi Elo state'ini değiştirmez.",
             f"- Gol farkı: alpha `{production['goal_margin']['alpha']}`, tau `{production['goal_margin']['tau']}`, GD cap `{production['goal_margin']['goal_difference_cap']}`.",
-            f"- xG: ratio `{production['xg_performance']['max_xg_ratio']}`, scale `{production['xg_performance']['xg_scale']}`, winner floor `{production['xg_performance']['minimum_winner_gain_ratio']}`; iki taraf xG yoksa GD-only fallback.",
-            f"- Progression: UCL/UEL/UECL `12/8/4`, sezon cap `60/40/20`, winner-only, tek tie uygulaması, sezon resetli.",
+            f"- xG: ratio `{production['xg_performance']['max_xg_ratio']}`, scale `{production['xg_performance']['xg_scale']}`, analitik minimum winner gain oranı `{production['xg_performance']['minimum_winner_gain_ratio']}`; iki taraf xG yoksa GD-only fallback.",
+            f"- Progression: UCL/UEL/UECL `12/8/4`, sezon cap `48/32/16`; yalnız R16, çeyrek final, yarı final ve final, winner-only, tek tie uygulaması, sezon resetli.",
+            "- Production prediction: Current ML ve AO Domestic Poisson `0.50/0.50` log-probability blend; Poisson `rho=0`; her tahmin audit edilir; fallback Current AO 1X2'dir.",
             "- Achievement Reserve, Competition K, Dynamic K, season carry ve takım bazlı home context aktif değildir. Ev sahibi avantajı global H olarak uygulanır.",
             "",
             "## Baseline ve güncel model ana metrikleri",
             "",
             markdown_table(model_summary, 7),
             "",
-            "Referans tarihsel bir production sürümü değildir; güncel modelin aktif ek katmanları kapatılmış kontrollü ablation çekirdeğidir. Production contract daha yeni otoritedir; final-candidate ile hesap parametreleri aynı olduğundan dürüst performans karşılaştırması bu kontrollü koldur.",
+            "Bu tablodaki CURRENT_PRODUCTION etiketi geriye uyumlu replay adıdır ve AO rating çekirdeğinin olasılığını gösterir; nihai servis edilen ML+Poisson olasılığı değildir. Referans tarihsel bir production sürümü değil, aktif rating ekleri kapalı kontrollü ablation çekirdeğidir.",
             "",
             "## Fold bazlı performans",
             "",
@@ -1013,11 +1085,12 @@ def build_report(
             "- Zayıf: aktif katmanların bir kısmı manuel product kararıyla aktive edilmiştir; 2018/19-2025/26 geliştirme penceresi bağımsız prospective holdout değildir.",
             "- Zayıf: xG yalnız 2025/26'da geniş kapsamalıdır; önceki sezonlarda current kol çoğunlukla GD fallback kullanır.",
             "- Zayıf: progression winner-only ve non-zero-sum olduğu için AO Live toplamını artırır; Power Elo conservation geçse de görünen Live Elo toplamı korunmaz.",
+            "- Zayıf: KPO rota asimetrisi kaldırıldıktan sonra progression katmanının pooled loss katkısı pratikte sıfırdır; katmanın tamamen kapatılması ayrı bir ürün kararı olarak değerlendirilmelidir.",
             "- Zayıf: global H sabittir; takım bazlı saha etkisi güncel production'da yoktur.",
             "",
             "## Production kararı ve sonraki adım",
             "",
-            f"**{decision}**: güncel production contract korunmalı. Bu değerlendirme contract değiştirmez. 2026/27 lig aşaması ve sonrası kilitli pre-match ledger ile prospective sonuç geldiğinde aynı paket tekrar çalıştırılmalıdır.",
+            f"Rating çekirdeği **{rating_decision}** olarak korunur. Prediction katmanı **{prediction_decision}** olarak aktiftir: `%50 Current ML + %50 AO Domestic Poisson`, `rho=0`, log-probability blend, rating feedback kapalı. 2026/27 lig aşaması ve sonrası kilitli pre-match log ile AO fallback'e karşı izlenmelidir.",
             "",
             "## Açık sorular",
             "",
@@ -1040,6 +1113,10 @@ def main() -> None:
     production = json.loads(production_path.read_text(encoding="utf-8"))
     candidate = json.loads(candidate_path.read_text(encoding="utf-8"))
     contract_comparison, contract_status = contract_audit(production, candidate)
+    prediction_runtime = load_production_prediction_runtime(
+        production_path,
+        repository_root=ROOT,
+    )
     core, parameters = validate_production_contract(production)
     dynamic = json.loads(DYNAMIC_MANIFEST.read_text(encoding="utf-8"))
     static_config = AOEuropeanEloConfig(**dynamic["static_config"])
@@ -1110,6 +1187,30 @@ def main() -> None:
         contract_status,
         replay_validation,
     )
+    quality = pd.concat(
+        [
+            quality,
+            pd.DataFrame(
+                [
+                    {
+                        "check": "production_prediction_artifacts_load",
+                        "passed": len(prediction_runtime.domestic_identity_map) == 171,
+                        "observed": len(prediction_runtime.domestic_identity_map),
+                        "requirement": "Checksummed ML artifact and Domestic Poisson state load; 171 AO club mappings expected",
+                        "severity_if_failed": "HIGH",
+                    },
+                    {
+                        "check": "production_prediction_rating_feedback_disabled",
+                        "passed": prediction_runtime.config.rating_feedback is False,
+                        "observed": int(prediction_runtime.config.rating_feedback),
+                        "requirement": "Served prediction cannot feed back into AO Live Elo",
+                        "severity_if_failed": "HIGH",
+                    },
+                ]
+            ),
+        ],
+        ignore_index=True,
+    )
     if not quality["passed"].all():
         failures = quality.loc[~quality["passed"], "check"].tolist()
         raise ValueError(f"Current model audit failed: {failures}")
@@ -1175,6 +1276,11 @@ def main() -> None:
         "bootstrap_samples": args.bootstrap_samples,
         "replay_validation": replay_validation,
         "decision": "KEEP",
+        "prediction_layer_decision": production["prediction_layer"]["decision"],
+        "served_prediction_metrics": {
+            key: production["prediction_layer_evidence"][key]
+            for key in ("pooled_brier", "pooled_log_loss", "pooled_accuracy")
+        },
         "caveat": "Development-window replay; not an untouched prospective holdout.",
     }
     active_model_snapshot = {
@@ -1199,6 +1305,7 @@ def main() -> None:
                 "progression_bonus",
                 "achievement_reserve",
                 "competition_k",
+                "prediction_layer",
             )
         },
         "calculation_order": [
@@ -1207,8 +1314,10 @@ def main() -> None:
             "effective_european_exposure_blend",
             "domestic_surprise_exposure_adjustment",
             "match_expected_score_with_global_home_advantage",
+            "format_aware_single_match_1x2_decomposition",
             "zero_sum_power_update_with_goal_margin_and_optional_xg",
             "winner_only_season_local_progression_bonus",
+            "prediction_only_ml_domestic_poisson_log_probability_blend",
         ],
         "evaluation_only": True,
     }
@@ -1239,7 +1348,11 @@ def main() -> None:
         replay_validation=replay_validation,
     )
     (output / "current_model_evaluation_report.md").write_text(report, encoding="utf-8")
-    print(f"Decision: KEEP")
+    print("Rating decision: KEEP")
+    print(
+        "Prediction decision: "
+        f"{production['prediction_layer']['decision']}"
+    )
     print(f"Report: {output / 'current_model_evaluation_report.md'}")
 
 

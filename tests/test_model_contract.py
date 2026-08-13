@@ -15,6 +15,7 @@ from ao_elo.dynamic_csv import (
     RATINGS_STATE_COLUMNS,
     REPLAY_PREDICTION_COLUMNS,
 )
+from ao_elo.production_prediction import PRODUCTION_PREDICTION_LOG_COLUMNS
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -86,7 +87,7 @@ def test_frozen_contract_matches_active_static_and_dynamic_config() -> None:
     assert dynamic.goal_difference_cap == (
         payload["dynamic"]["goal_margin"]["goal_difference_cap"]
     )
-    assert dynamic.reserve_base == 0.0
+    assert dynamic.achievement_reserve is None
 
 
 def test_frozen_contract_schemas_match_csv_engine() -> None:
@@ -147,6 +148,10 @@ def test_calibration_manifests_match_frozen_layer_decisions() -> None:
     assert production["one_x_two_probability"]["draw_at_even"] == pytest.approx(
         0.24
     )
+    assert production["one_x_two_probability"]["single_match_draw_enabled"] is True
+    assert production["one_x_two_probability"][
+        "single_match_draw_at_even"
+    ] == pytest.approx(0.12)
     assert production["goal_margin"]["active"] is True
     assert production["goal_margin"]["alpha"] == pytest.approx(0.15)
     assert production["goal_margin"]["tau"] == pytest.approx(300.0)
@@ -165,10 +170,17 @@ def test_calibration_manifests_match_frozen_layer_decisions() -> None:
         "UECL": 4.0,
     }
     assert production["progression_bonus"]["season_caps"] == {
-        "UCL": 60.0,
-        "UEL": 40.0,
-        "UECL": 20.0,
+        "UCL": 48.0,
+        "UEL": 32.0,
+        "UECL": 16.0,
     }
+    assert production["progression_bonus"]["stages_per_competition"] == 4
+    assert production["progression_bonus"]["eligible_stages"] == [
+        "ROUND_OF_16",
+        "QUARTERFINAL",
+        "SEMIFINAL",
+        "FINAL",
+    ]
 
 
 def test_historical_robustness_remains_immutable_after_manual_goal_decision() -> None:
@@ -176,7 +188,13 @@ def test_historical_robustness_remains_immutable_after_manual_goal_decision() ->
     robustness = json.loads(ROBUSTNESS_MANIFEST.read_text(encoding="utf-8"))
     recommended = robustness["recommended_production_model"]
 
-    assert contract["contract_version"] == "1.7.0"
+    assert contract["contract_version"] == "1.8.0"
+    assert contract["prediction_layer"]["active"] is True
+    assert contract["prediction_layer"]["decision"] == "PROMOTE_WITH_MONITORING"
+    assert contract["prediction_layer"]["rating_feedback"] is False
+    assert tuple(contract["schemas"]["production_prediction_log_csv"]) == (
+        PRODUCTION_PREDICTION_LOG_COLUMNS
+    )
     assert contract["evaluation"]["dynamic_ranking_same_season_reuse_allowed"] is False
     assert contract["evaluation"]["dynamic_forward_ranking_folds"] == 5
     assert robustness["decisions"] == {

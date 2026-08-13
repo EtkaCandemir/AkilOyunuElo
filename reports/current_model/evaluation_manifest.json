@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-09T10:53:01.332616+00:00",
+  "generated_at": "2026-08-13T09:29:04.862101+00:00",
   "evaluation_only": true,
   "production_files_changed": false,
   "model_version": "ao-european-elo-v2.0-dev-freeze",
-  "production_revision": "2026-08-06-penalty-field-score-goal-alpha-015-bounded-xg",
-  "final_candidate_version": "ao-european-elo-v2.0-final-candidate-2026-08-05",
+  "production_revision": "2026-08-13-ml-poisson-ensemble-monitoring",
+  "final_candidate_version": "ao-european-elo-v2.0-final-candidate-2026-08-13",
   "contract_status": {
     "all_active_blocks_exactly_equal": false,
     "all_active_parameters_equal": true,
-    "production_revision": "2026-08-06-penalty-field-score-goal-alpha-015-bounded-xg",
-    "candidate_revision": "2026-08-05-domestic-surprise-progression-goal-alpha-015-bounded-xg",
+    "production_revision": "2026-08-13-ml-poisson-ensemble-monitoring",
+    "candidate_revision": "2026-08-13-ml-poisson-ensemble-monitoring",
     "candidate_status": "FINAL_MODEL_CANDIDATE",
     "candidate_production_activation": true
   },
   "contract_sha256": {
-    "production": "4c83f7c192356d237dda119b3adb2d59e660caf5a60eee4ee1f6c1e7b5fe03a1",
-    "final_candidate": "9227743890f476f12b50c33af4778e62bcd49199c803b245dd9a88fee01b6682"
+    "production": "7bea713499b9acd90fc814bea52996ea5be43d6a95de65c94355cc0524f22c30",
+    "final_candidate": "42aa5d282bbee2c38c8eb0f348e1f2dce13c22482a9fba4a9c7d7556654524df"
   },
   "seasons": [
     "2018/19",
@@ -48,5 +48,11 @@
     "pipeline_exact_match": true
   },
   "decision": "KEEP",
+  "prediction_layer_decision": "PROMOTE_WITH_MONITORING",
+  "served_prediction_metrics": {
+    "pooled_brier": 0.5680932199564515,
+    "pooled_log_loss": 0.9592418968185772,
+    "pooled_accuracy": 0.5538493038493039
+  },
   "caveat": "Development-window replay; not an untouched prospective holdout."
 }

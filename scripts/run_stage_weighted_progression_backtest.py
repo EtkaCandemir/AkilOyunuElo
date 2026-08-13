@@ -23,6 +23,7 @@ from ao_elo.evaluation import (  # noqa: E402
     dependency_robust_loss_difference_ci,
     schedule_adjusted_team_performance,
 )
+from ao_elo.robustness import one_x_two_probabilities_scalar  # noqa: E402
 from ao_elo.tournament_bonus import (  # noqa: E402
     ELIGIBLE_PROGRESSION_STAGES,
     STAGE_WEIGHTED_PROGRESSION_STAGES,
@@ -276,6 +277,7 @@ def validate_production_contract(
         "xg_floor": 0.70,
         "draw_at_even": 0.24,
         "draw_shape": 1.0,
+        "single_match_draw_at_even": 0.12,
     }
     actual: dict[str, float | int] = {
         "elo_scale": core.elo_scale,
@@ -289,12 +291,17 @@ def validate_production_contract(
         "xg_floor": float(xg["minimum_winner_gain_ratio"]),
         "draw_at_even": float(contract["one_x_two_probability"]["draw_at_even"]),
         "draw_shape": float(contract["one_x_two_probability"]["draw_shape"]),
+        "single_match_draw_at_even": float(
+            contract["one_x_two_probability"]["single_match_draw_at_even"]
+        ),
     }
     for key, expected_value in expected.items():
         if not math.isclose(float(actual[key]), float(expected_value), abs_tol=1e-9):
             raise ValueError(f"Unexpected production {key}: {actual[key]}")
     if float(contract["active_power_carry"]) != 0.0:
         raise ValueError("Backtest requires production carry=0")
+    if not bool(contract["one_x_two_probability"]["single_match_draw_enabled"]):
+        raise ValueError("Production single-match draw correction must be active")
     if not bool(goal.get("active")) or not bool(xg.get("active")):
         raise ValueError("Production goal-margin and xG layers must be active")
     if not bool(surprise.get("active")):
@@ -392,15 +399,10 @@ def load_xg_map(
 
 
 def probability_vector(expected: float, draw_at_even: float, draw_shape: float) -> np.ndarray:
-    draw = draw_at_even * (4.0 * expected * (1.0 - expected)) ** draw_shape
-    result = np.array(
-        [expected - 0.5 * draw, draw, 1.0 - expected - 0.5 * draw], dtype=float
+    return np.asarray(
+        one_x_two_probabilities_scalar(expected, draw_at_even, draw_shape),
+        dtype=float,
     )
-    if not np.isfinite(result).all() or (result < -1e-12).any():
-        raise ValueError("Invalid 1X2 probability vector")
-    result = np.maximum(result, 0.0)
-    result /= result.sum()
-    return result
 
 
 def evaluate_candidate(
@@ -442,6 +444,7 @@ def evaluate_candidate(
         max_zero_sum_error = 0.0
         max_cap_error = 0.0
         max_delta = 0.0
+        tie_counts = pd.Series(reserve.tie_ids, dtype="object").dropna().value_counts()
 
         for index, (home_raw, away_raw, neutral_raw, competition_raw) in enumerate(
             zip(
@@ -482,9 +485,19 @@ def evaluate_candidate(
                 xg_away=None if xg_values is None else xg_values[1],
                 xg_performance_bonus_config=xg_bonus,
             )
+            is_single_match_tie = bool(
+                tie_id is not None
+                and int(tie_counts.get(tie_id, 0)) == 1
+                and bool(reserve.tie_decider_flags[index])
+            )
+            effective_draw_at_even = (
+                float(parameters["single_match_draw_at_even"])
+                if is_single_match_tie
+                else float(parameters["draw_at_even"])
+            )
             probabilities = probability_vector(
                 update.expected_home_score,
-                float(parameters["draw_at_even"]),
+                effective_draw_at_even,
                 float(parameters["draw_shape"]),
             )
             observed = 0 if update.actual_home_score == 1.0 else 1 if update.actual_home_score == 0.5 else 2
@@ -604,6 +617,8 @@ def evaluate_candidate(
                         "competition": competition,
                         "stage": stage,
                         "tie_id": tie_id,
+                        "is_single_match_tie": is_single_match_tie,
+                        "effective_draw_at_even": effective_draw_at_even,
                         "home_team_id": home_id,
                         "away_team_id": away_id,
                         "home_goals": int(data.home_goals[index]),

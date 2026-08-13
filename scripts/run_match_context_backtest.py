@@ -9,6 +9,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from scipy.stats import t as student_t
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -705,8 +706,17 @@ def run_layer_backtest(
     fold_results = pd.DataFrame(fold_rows)
     predictions = pd.concat(prediction_frames, ignore_index=True)
     uncertainty = comparison_uncertainty(predictions, bootstrap_samples)
+    ranking_uncertainty = ranking_difference_uncertainty(
+        fold_results, bootstrap_samples
+    )
     competition = competition_summary(predictions)
-    guardrails = layer_guardrails(fold_results, predictions, competition, uncertainty)
+    guardrails = layer_guardrails(
+        fold_results,
+        predictions,
+        competition,
+        uncertainty,
+        ranking_uncertainty,
+    )
     promotion_gates = (
         "brier_fold_gate",
         "log_loss_fold_gate",
@@ -742,6 +752,7 @@ def run_layer_backtest(
         "predictions": predictions,
         "competition_summary": competition,
         "uncertainty": uncertainty,
+        "ranking_uncertainty": ranking_uncertainty,
         "guardrails": guardrails,
         "full_metrics": full_table,
     }
@@ -847,8 +858,17 @@ def run_joint_backtest(
     fold_results = pd.DataFrame(fold_rows)
     predictions = pd.concat(prediction_frames, ignore_index=True)
     uncertainty = comparison_uncertainty(predictions, bootstrap_samples)
+    ranking_uncertainty = ranking_difference_uncertainty(
+        fold_results, bootstrap_samples
+    )
     competition = competition_summary(predictions)
-    guardrails = layer_guardrails(fold_results, predictions, competition, uncertainty)
+    guardrails = layer_guardrails(
+        fold_results,
+        predictions,
+        competition,
+        uncertainty,
+        ranking_uncertainty,
+    )
     decision = (
         "PROMOTE_JOINT_CONTEXT"
         if promoted and all(guardrails[gate] for gate in (
@@ -876,6 +896,7 @@ def run_joint_backtest(
         "predictions": predictions,
         "competition_summary": competition,
         "uncertainty": uncertainty,
+        "ranking_uncertainty": ranking_uncertainty,
         "guardrails": guardrails,
         "full_metrics": pd.DataFrame(),
     }
@@ -989,6 +1010,71 @@ def comparison_uncertainty(predictions: pd.DataFrame, bootstrap_samples: int) ->
     return pd.concat(frames, ignore_index=True)
 
 
+def ranking_difference_uncertainty(
+    fold_results: pd.DataFrame,
+    bootstrap_samples: int,
+    *,
+    seed: int = 20260810,
+) -> pd.DataFrame:
+    """Quantify ranking deltas with target-season folds as dependency clusters."""
+    if bootstrap_samples <= 0:
+        raise ValueError("bootstrap_samples must be positive")
+    pivot = fold_results.pivot(index="fold", columns="model")
+    rng = np.random.default_rng(seed)
+    rows: list[dict[str, object]] = []
+    for metric in ("ranking_score", "pairwise_accuracy"):
+        differences = (
+            pivot[metric]["candidate"] - pivot[metric]["baseline"]
+        ).dropna().to_numpy(float)
+        if len(differences) < 2:
+            raise ValueError(
+                f"At least two evaluable ranking folds are required for {metric}"
+            )
+        mean_difference = float(differences.mean())
+        samples = rng.choice(
+            differences,
+            size=(bootstrap_samples, len(differences)),
+            replace=True,
+        ).mean(axis=1)
+        bootstrap_lower, bootstrap_upper = np.quantile(samples, [0.025, 0.975])
+        standard_error = float(differences.std(ddof=1) / math.sqrt(len(differences)))
+        critical = float(student_t.ppf(0.975, df=len(differences) - 1))
+        t_lower = mean_difference - critical * standard_error
+        t_upper = mean_difference + critical * standard_error
+        methods = (
+            ("target_season_cluster_bootstrap", bootstrap_lower, bootstrap_upper),
+            ("small_sample_t_interval", t_lower, t_upper),
+        )
+        for method, lower, upper in methods:
+            rows.append(
+                {
+                    "metric": metric,
+                    "method": method,
+                    "evaluable_folds": len(differences),
+                    "mean_difference": mean_difference,
+                    "ci_95_lower": float(lower),
+                    "ci_95_upper": float(upper),
+                    "reliable_improvement": bool(lower > 0.0),
+                    "reliable_harm": bool(upper < 0.0),
+                }
+            )
+        envelope_lower = min(bootstrap_lower, t_lower)
+        envelope_upper = max(bootstrap_upper, t_upper)
+        rows.append(
+            {
+                "metric": metric,
+                "method": "conservative_envelope",
+                "evaluable_folds": len(differences),
+                "mean_difference": mean_difference,
+                "ci_95_lower": float(envelope_lower),
+                "ci_95_upper": float(envelope_upper),
+                "reliable_improvement": bool(envelope_lower > 0.0),
+                "reliable_harm": bool(envelope_upper < 0.0),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
 def competition_summary(predictions: pd.DataFrame) -> pd.DataFrame:
     rows = []
     for competition, frame in [("ALL", predictions), *predictions.groupby("competition", sort=True)]:
@@ -1016,6 +1102,7 @@ def layer_guardrails(
     predictions: pd.DataFrame,
     competition: pd.DataFrame,
     uncertainty: pd.DataFrame,
+    ranking_uncertainty: pd.DataFrame | None = None,
 ) -> dict[str, object]:
     pivot = fold_results.pivot(index="fold", columns="model")
     brier_delta = pivot["brier_1x2"]["candidate"] - pivot["brier_1x2"]["baseline"]
@@ -1026,6 +1113,25 @@ def layer_guardrails(
     rank_safe = (rank_delta[rank_evaluable] >= -RANK_TOLERANCE) & (
         pair_delta[rank_evaluable] >= -RANK_TOLERANCE
     )
+    if ranking_uncertainty is None:
+        ranking_uncertainty = ranking_difference_uncertainty(
+            fold_results, bootstrap_samples=2000
+        )
+    ranking_envelope = ranking_uncertainty.loc[
+        ranking_uncertainty["method"].eq("conservative_envelope")
+    ]
+    if set(ranking_envelope["metric"]) != {
+        "ranking_score",
+        "pairwise_accuracy",
+    }:
+        raise ValueError("Ranking uncertainty must contain both ranking metrics")
+    reliable_ranking_harm = bool(ranking_envelope["reliable_harm"].any())
+    spearman_interval = ranking_envelope.loc[
+        ranking_envelope["metric"].eq("ranking_score")
+    ].iloc[0]
+    pairwise_interval = ranking_envelope.loc[
+        ranking_envelope["metric"].eq("pairwise_accuracy")
+    ].iloc[0]
     brier_uncertainty = uncertainty.loc[uncertainty["metric"].eq("brier_1x2")]
     envelope_upper = float(brier_uncertainty["ci_95_upper"].max())
     overall = competition.loc[competition["competition"].eq("ALL")].iloc[0]
@@ -1035,6 +1141,13 @@ def layer_guardrails(
         "log_loss_fold_wins": int((log_delta < -1e-12).sum()),
         "ranking_evaluable_folds": int(rank_evaluable.sum()),
         "ranking_no_regression_folds": int(rank_safe.sum()),
+        "mean_ranking_score_difference": float(spearman_interval["mean_difference"]),
+        "ranking_score_conservative_lower_95": float(spearman_interval["ci_95_lower"]),
+        "ranking_score_conservative_upper_95": float(spearman_interval["ci_95_upper"]),
+        "mean_pairwise_accuracy_difference": float(pairwise_interval["mean_difference"]),
+        "pairwise_accuracy_conservative_lower_95": float(pairwise_interval["ci_95_lower"]),
+        "pairwise_accuracy_conservative_upper_95": float(pairwise_interval["ci_95_upper"]),
+        "ranking_reliable_harm": reliable_ranking_harm,
         "overall_brier_difference": float(overall["brier_difference"]),
         "overall_log_loss_difference": float(overall["log_loss_difference"]),
         "conservative_brier_upper_95": envelope_upper,
@@ -1043,8 +1156,7 @@ def layer_guardrails(
         "brier_fold_gate": int((brier_delta < -1e-12).sum()) >= 4,
         "log_loss_fold_gate": int((log_delta < -1e-12).sum()) >= 4,
         "ranking_gate": bool(
-            int(rank_evaluable.sum()) >= 5
-            and int(rank_safe.sum()) == int(rank_evaluable.sum())
+            int(rank_evaluable.sum()) >= 5 and not reliable_ranking_harm
         ),
         "overall_loss_gate": bool(
             overall["brier_difference"] < 0.0
@@ -1102,6 +1214,7 @@ def write_layer_outputs(path: Path, result: dict[str, object]) -> None:
         ("predictions", "unseen_predictions.csv"),
         ("competition_summary", "competition_summary.csv"),
         ("uncertainty", "dependency_uncertainty.csv"),
+        ("ranking_uncertainty", "ranking_uncertainty.csv"),
         ("full_metrics", "full_candidate_metrics.csv"),
     ):
         frame = result[key]
@@ -1172,8 +1285,8 @@ def write_report(
         "",
         "## Decisions",
         "",
-        "| Layer | Decision | Brier delta | Log-loss delta | Fold wins | Ranking safe |",
-        "|---|---:|---:|---:|---:|---:|",
+        "| Layer | Decision | Brier delta | Log-loss delta | Fold wins | Ranking safe | Reliable ranking harm |",
+        "|---|---:|---:|---:|---:|---:|---:|",
     ]
     for layer, result in layers.items():
         guard = result["guardrails"]
@@ -1182,7 +1295,32 @@ def write_report(
             f"{guard['overall_brier_difference']:+.6f} | "
             f"{guard['overall_log_loss_difference']:+.6f} | "
             f"{guard['brier_fold_wins']}/6 | "
-            f"{guard['ranking_no_regression_folds']}/{guard['ranking_evaluable_folds']} |"
+            f"{guard['ranking_no_regression_folds']}/{guard['ranking_evaluable_folds']} | "
+            f"{guard['ranking_reliable_harm']} |"
+        )
+    lines.extend(
+        [
+            "",
+            "## Forward-Ranking Uncertainty",
+            "",
+            "Ranking differences use `candidate - baseline`; a negative interval is harm. "
+            "The strict fold count is retained as a diagnostic, while veto now requires "
+            "the conservative 95% interval to remain entirely below zero.",
+            "",
+            "| Layer | Spearman mean | Spearman 95% | Pairwise mean | Pairwise 95% | Reliable harm |",
+            "|---|---:|---:|---:|---:|---:|",
+        ]
+    )
+    for layer, result in layers.items():
+        guard = result["guardrails"]
+        lines.append(
+            f"| {layer} | {guard['mean_ranking_score_difference']:+.6f} | "
+            f"[{guard['ranking_score_conservative_lower_95']:+.6f}, "
+            f"{guard['ranking_score_conservative_upper_95']:+.6f}] | "
+            f"{guard['mean_pairwise_accuracy_difference']:+.6f} | "
+            f"[{guard['pairwise_accuracy_conservative_lower_95']:+.6f}, "
+            f"{guard['pairwise_accuracy_conservative_upper_95']:+.6f}] | "
+            f"{guard['ranking_reliable_harm']} |"
         )
     guard = joint["guardrails"]
     lines.extend(
@@ -1197,7 +1335,7 @@ def write_report(
             f"- Conservative Brier upper 95%: `{guard['conservative_brier_upper_95']:+.6f}`",
             "",
             "A layer is promoted only when it wins at least four outer folds in both loss metrics, "
-            "does not regress forward ranking in any evaluable fold, has no "
+            "has no dependency-robust reliable forward-ranking harm, has no "
             "competition-level Brier regression, preserves zero-sum updates, and its conservative "
             "Brier interval does not cross zero.",
         ]

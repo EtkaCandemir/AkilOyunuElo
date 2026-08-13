@@ -13,12 +13,19 @@ COMPETITION_BONUS_RATIOS = {
 
 ELIGIBLE_PROGRESSION_STAGES = frozenset(
     {
-        "KNOCKOUT_PLAYOFF",
         "ROUND_OF_16",
         "QUARTERFINAL",
         "SEMIFINAL",
         "FINAL",
     }
+)
+
+FIVE_STAGE_WEIGHTED_PROGRESSION_STAGES = (
+    "KNOCKOUT_PLAYOFF",
+    "ROUND_OF_16",
+    "QUARTERFINAL",
+    "SEMIFINAL",
+    "FINAL",
 )
 
 STAGE_WEIGHTED_PROGRESSION_STAGES = (
@@ -36,10 +43,10 @@ DEFAULT_STAGE_WEIGHTED_COMPETITION_RATIOS = (
 
 @dataclass(frozen=True, order=True)
 class FixedTournamentBonusConfig:
-    """Winner-only, season-local tournament progression bonus."""
+    """Winner-only, season-local bonus after the round of 16 and later."""
 
     base_bonus: float
-    stages_per_competition: int = 5
+    stages_per_competition: int = 4
 
     def validate(self) -> None:
         if (
@@ -200,7 +207,7 @@ class FiveStageWeightedTournamentBonusConfig:
         weights = _validated_pairs(
             "stage_weights",
             self.stage_weights,
-            expected_keys=set(ELIGIBLE_PROGRESSION_STAGES),
+            expected_keys=set(FIVE_STAGE_WEIGHTED_PROGRESSION_STAGES),
         )
         if any(value < 0.0 for value in weights.values()):
             raise ValueError("stage_weights cannot be negative")
@@ -341,7 +348,7 @@ def apply_five_stage_weighted_tournament_bonus(
     _require_non_negative_finite(
         "current_competition_bonus", current_competition_bonus
     )
-    if stage not in ELIGIBLE_PROGRESSION_STAGES:
+    if stage not in FIVE_STAGE_WEIGHTED_PROGRESSION_STAGES:
         raise ValueError(
             f"Stage is not eligible for a five-stage weighted bonus: {stage}"
         )

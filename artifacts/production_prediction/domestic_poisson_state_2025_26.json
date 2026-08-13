@@ -1,0 +1,4401 @@
+{
+  "artifact_version": "ao-domestic-poisson-state-v1",
+  "engine_state": {
+    "config": {
+      "lambda_max": 4.5,
+      "lambda_min": 0.2,
+      "league_home_max": 0.5,
+      "league_home_min": -0.3,
+      "league_learning_ratio": 0.1,
+      "model_version": "ao-domestic-dynamic-poisson-v1-production-state",
+      "season_carry": 0.9,
+      "shrinkage_matches": 10.0,
+      "team_learning_rate": 0.02,
+      "team_parameter_cap": 1.0,
+      "venue_context": false,
+      "venue_parameter_cap": 0.75
+    },
+    "leagues": {
+      "4328": {
+        "current_season": "2025/26",
+        "goal_level": 0.2228576866045408,
+        "home_advantage": 0.15044394148601997,
+        "teams": {
+          "133599": {
+            "attack": -0.24881938026603181,
+            "away_strength": 0.0,
+            "defence": -0.08711012672402095,
+            "effective_matches": 216.42246020000005,
+            "home_strength": 0.0
+          },
+          "133600": {
+            "attack": 0.008975100405762054,
+            "away_strength": 0.0,
+            "defence": 0.1357924749462778,
+            "effective_matches": 182.02822458627801,
+            "home_strength": 0.0
+          },
+          "133601": {
+            "attack": 0.20066796639347126,
+            "away_strength": 0.0,
+            "defence": 0.13242402330715955,
+            "effective_matches": 234.15408376149804,
+            "home_strength": 0.0
+          },
+          "133602": {
+            "attack": 0.3354538773649512,
+            "away_strength": 0.0,
+            "defence": 0.13398708077649193,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133603": {
+            "attack": -0.10132100342132885,
+            "away_strength": 0.0,
+            "defence": 0.0753480915354756,
+            "effective_matches": 88.62888434349802,
+            "home_strength": 0.0
+          },
+          "133604": {
+            "attack": 0.3597474383801591,
+            "away_strength": 0.0,
+            "defence": 0.5855512710207734,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133605": {
+            "attack": -0.0014385605701669,
+            "away_strength": 0.0,
+            "defence": -0.10625972334456302,
+            "effective_matches": 11.924802651420007,
+            "home_strength": 0.0
+          },
+          "133608": {
+            "attack": -0.29912505540066053,
+            "away_strength": 0.0,
+            "defence": -0.26087675466035154,
+            "effective_matches": 69.10866111007802,
+            "home_strength": 0.0
+          },
+          "133609": {
+            "attack": -0.08684856781224139,
+            "away_strength": 0.0,
+            "defence": -0.040553210797006314,
+            "effective_matches": 66.98663832349804,
+            "home_strength": 0.0
+          },
+          "133610": {
+            "attack": 0.15759459148844474,
+            "away_strength": 0.0,
+            "defence": 0.11220887112193222,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133611": {
+            "attack": -0.11629960781372205,
+            "away_strength": 0.0,
+            "defence": -0.132323349827572,
+            "effective_matches": 89.42525832349803,
+            "home_strength": 0.0
+          },
+          "133612": {
+            "attack": 0.30133179957228395,
+            "away_strength": 0.0,
+            "defence": 0.1584353538390073,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133613": {
+            "attack": 0.4442893121514035,
+            "away_strength": 0.0,
+            "defence": 0.43856027160170996,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133614": {
+            "attack": -0.10903969734212336,
+            "away_strength": 0.0,
+            "defence": -0.017151740520582985,
+            "effective_matches": 66.98663832349804,
+            "home_strength": 0.0
+          },
+          "133615": {
+            "attack": -0.034409037311706685,
+            "away_strength": 0.0,
+            "defence": 0.17719395852745437,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133616": {
+            "attack": 0.05210367089417878,
+            "away_strength": 0.0,
+            "defence": -0.04841019862868705,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133617": {
+            "attack": -0.08435187998365785,
+            "away_strength": 0.0,
+            "defence": -0.1254581679919856,
+            "effective_matches": 37.37910361969801,
+            "home_strength": 0.0
+          },
+          "133619": {
+            "attack": 0.13752892007924472,
+            "away_strength": 0.0,
+            "defence": 0.16629362619852514,
+            "effective_matches": 232.78021418000006,
+            "home_strength": 0.0
+          },
+          "133622": {
+            "attack": -0.1373178300971915,
+            "away_strength": 0.0,
+            "defence": -0.24833578939190784,
+            "effective_matches": 34.2,
+            "home_strength": 0.0
+          },
+          "133623": {
+            "attack": -0.18094357512805967,
+            "away_strength": 0.0,
+            "defence": -0.212945662239249,
+            "effective_matches": 197.52499541342004,
+            "home_strength": 0.0
+          },
+          "133624": {
+            "attack": -0.14612913931524424,
+            "away_strength": 0.0,
+            "defence": -0.18963090301964527,
+            "effective_matches": 107.63135348580003,
+            "home_strength": 0.0
+          },
+          "133626": {
+            "attack": -0.1875714445146222,
+            "away_strength": 0.0,
+            "defence": -0.17848582934974308,
+            "effective_matches": 203.89677613722006,
+            "home_strength": 0.0
+          },
+          "133628": {
+            "attack": -0.11072589458588829,
+            "away_strength": 0.0,
+            "defence": -0.014118037782829728,
+            "effective_matches": 14.721978582000009,
+            "home_strength": 0.0
+          },
+          "133632": {
+            "attack": -0.0465919357886461,
+            "away_strength": 0.0,
+            "defence": 0.10090545579020972,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133635": {
+            "attack": 0.05624226876994534,
+            "away_strength": 0.0,
+            "defence": 0.0084984470556019,
+            "effective_matches": 113.07242000000001,
+            "home_strength": 0.0
+          },
+          "133636": {
+            "attack": 0.013860696895661632,
+            "away_strength": 0.0,
+            "defence": -0.014653182418642226,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133637": {
+            "attack": -0.09727512623723701,
+            "away_strength": 0.0,
+            "defence": -0.08379098428791534,
+            "effective_matches": 28.90760458627801,
+            "home_strength": 0.0
+          },
+          "133720": {
+            "attack": 0.1088505021981283,
+            "away_strength": 0.0,
+            "defence": 0.1706820699684572,
+            "effective_matches": 130.68200000000002,
+            "home_strength": 0.0
+          },
+          "133811": {
+            "attack": -0.2620824001871858,
+            "away_strength": 0.0,
+            "defence": -0.3609519007032832,
+            "effective_matches": 73.41337800000001,
+            "home_strength": 0.0
+          },
+          "133888": {
+            "attack": 0.02301045123161423,
+            "away_strength": 0.0,
+            "defence": -0.23499934168974032,
+            "effective_matches": 30.780000000000005,
+            "home_strength": 0.0
+          },
+          "133932": {
+            "attack": -0.21545443658812335,
+            "away_strength": 0.0,
+            "defence": -0.12139260796296815,
+            "effective_matches": 34.53303618,
+            "home_strength": 0.0
+          },
+          "134301": {
+            "attack": 0.184289409968397,
+            "away_strength": 0.0,
+            "defence": 0.16341767092551313,
+            "effective_matches": 213.38155348580005,
+            "home_strength": 0.0
+          },
+          "134355": {
+            "attack": 0.17157858626571604,
+            "away_strength": 0.0,
+            "defence": 0.11444486097314542,
+            "effective_matches": 155.61380000000003,
+            "home_strength": 0.0
+          },
+          "134777": {
+            "attack": 0.2162067530649572,
+            "away_strength": 0.0,
+            "defence": 0.07454061840051072,
+            "effective_matches": 268.68711994149805,
+            "home_strength": 0.0
+          },
+          "134778": {
+            "attack": -0.30598677276048153,
+            "away_strength": 0.0,
+            "defence": -0.2708366346475519,
+            "effective_matches": 214.62909852349804,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4331": {
+        "current_season": "2025/26",
+        "goal_level": 0.3120882938786701,
+        "home_advantage": 0.19222190036870912,
+        "teams": {
+          "133650": {
+            "attack": 0.40941469184395496,
+            "away_strength": 0.0,
+            "defence": 0.34737752175630066,
+            "effective_matches": 253.576561836814,
+            "home_strength": 0.0
+          },
+          "133651": {
+            "attack": -0.14757992096863648,
+            "away_strength": 0.0,
+            "defence": 0.03284867485939666,
+            "effective_matches": 96.70561323681402,
+            "home_strength": 0.0
+          },
+          "133652": {
+            "attack": -0.07882142635388695,
+            "away_strength": 0.0,
+            "defence": 0.021953832758686218,
+            "effective_matches": 253.576561836814,
+            "home_strength": 0.0
+          },
+          "133653": {
+            "attack": 0.06911340529334936,
+            "away_strength": 0.0,
+            "defence": 0.0301499687381904,
+            "effective_matches": 241.72149487341403,
+            "home_strength": 0.0
+          },
+          "133654": {
+            "attack": -0.06109171963217244,
+            "away_strength": 0.0,
+            "defence": -0.08237095565720935,
+            "effective_matches": 198.29284299646002,
+            "home_strength": 0.0
+          },
+          "133655": {
+            "attack": -0.05714998775085289,
+            "away_strength": 0.0,
+            "defence": -0.055078974640234875,
+            "effective_matches": 255.576561836814,
+            "home_strength": 0.0
+          },
+          "133656": {
+            "attack": -0.14109850565343326,
+            "away_strength": 0.0,
+            "defence": -0.08338953894841859,
+            "effective_matches": 63.02521121081402,
+            "home_strength": 0.0
+          },
+          "133657": {
+            "attack": 0.2287172774800726,
+            "away_strength": 0.0,
+            "defence": -0.016832345096139192,
+            "effective_matches": 253.576561836814,
+            "home_strength": 0.0
+          },
+          "133658": {
+            "attack": -0.1020767420859287,
+            "away_strength": 0.0,
+            "defence": -0.14210578112267774,
+            "effective_matches": 162.74876183681403,
+            "home_strength": 0.0
+          },
+          "133659": {
+            "attack": -0.1751106970527421,
+            "away_strength": 0.0,
+            "defence": -0.08610985091603103,
+            "effective_matches": 25.864698840354006,
+            "home_strength": 0.0
+          },
+          "133660": {
+            "attack": 0.4305751104515334,
+            "away_strength": 0.0,
+            "defence": 0.14743542579577548,
+            "effective_matches": 223.79327121081403,
+            "home_strength": 0.0
+          },
+          "133661": {
+            "attack": -0.20607907120775484,
+            "away_strength": 0.0,
+            "defence": -0.16573490809405028,
+            "effective_matches": 139.129161836814,
+            "home_strength": 0.0
+          },
+          "133662": {
+            "attack": -0.11275243343809177,
+            "away_strength": 0.0,
+            "defence": 0.025434670541925948,
+            "effective_matches": 231.80060283681402,
+            "home_strength": 0.0
+          },
+          "133664": {
+            "attack": 0.8701223725340119,
+            "away_strength": 0.0,
+            "defence": 0.3394064529511912,
+            "effective_matches": 253.576561836814,
+            "home_strength": 0.0
+          },
+          "133665": {
+            "attack": 0.025813867920936654,
+            "away_strength": 0.0,
+            "defence": 0.15831817011101088,
+            "effective_matches": 253.576561836814,
+            "home_strength": 0.0
+          },
+          "133666": {
+            "attack": 0.35719158877197044,
+            "away_strength": 0.0,
+            "defence": 0.24713037237468982,
+            "effective_matches": 253.576561836814,
+            "home_strength": 0.0
+          },
+          "133813": {
+            "attack": -0.3674613329600317,
+            "away_strength": 0.0,
+            "defence": 0.037121301122894655,
+            "effective_matches": 64.6,
+            "home_strength": 0.0
+          },
+          "133814": {
+            "attack": 0.20982052058631384,
+            "away_strength": 0.0,
+            "defence": -0.015202389998286107,
+            "effective_matches": 253.576561836814,
+            "home_strength": 0.0
+          },
+          "133839": {
+            "attack": -0.20446506079149898,
+            "away_strength": 0.0,
+            "defence": -0.12013175859546109,
+            "effective_matches": 106.8534,
+            "home_strength": 0.0
+          },
+          "133852": {
+            "attack": -0.26063657981037835,
+            "away_strength": 0.0,
+            "defence": 0.03938023618440973,
+            "effective_matches": 42.38406,
+            "home_strength": 0.0
+          },
+          "133935": {
+            "attack": -0.1011153125142693,
+            "away_strength": 0.0,
+            "defence": -0.07182217029350181,
+            "effective_matches": 35.9510886,
+            "home_strength": 0.0
+          },
+          "134099": {
+            "attack": -0.16318538137664287,
+            "away_strength": 0.0,
+            "defence": -0.13462192624995206,
+            "effective_matches": 22.3074,
+            "home_strength": 0.0
+          },
+          "134302": {
+            "attack": -0.07530350336305572,
+            "away_strength": 0.0,
+            "defence": -0.02566217852585262,
+            "effective_matches": 9.602604240354003,
+            "home_strength": 0.0
+          },
+          "134551": {
+            "attack": -0.14294952188804583,
+            "away_strength": 0.0,
+            "defence": -0.06988393841322761,
+            "effective_matches": 30.738554267060007,
+            "home_strength": 0.0
+          },
+          "134690": {
+            "attack": -0.10405735258254087,
+            "away_strength": 0.0,
+            "defence": 0.0207031644425517,
+            "effective_matches": 177.379054,
+            "home_strength": 0.0
+          },
+          "134693": {
+            "attack": -0.2767861946406095,
+            "away_strength": 0.0,
+            "defence": -0.2767720650530251,
+            "effective_matches": 52.5673635894,
+            "home_strength": 0.0
+          },
+          "134694": {
+            "attack": -0.07602387899926233,
+            "away_strength": 0.0,
+            "defence": -0.00868401962389815,
+            "effective_matches": 25.0273635894,
+            "home_strength": 0.0
+          },
+          "134695": {
+            "attack": 0.29178583328017016,
+            "away_strength": 0.0,
+            "defence": 0.16677388487678496,
+            "effective_matches": 221.449330366,
+            "home_strength": 0.0
+          },
+          "134696": {
+            "attack": -0.06694295130912029,
+            "away_strength": 0.0,
+            "defence": -0.13142659314518965,
+            "effective_matches": 94.47144100000001,
+            "home_strength": 0.0
+          },
+          "134779": {
+            "attack": 0.0046375222033718435,
+            "away_strength": 0.0,
+            "defence": 0.07946093667616515,
+            "effective_matches": 253.576561836814,
+            "home_strength": 0.0
+          },
+          "136027": {
+            "attack": 0.03764578312698111,
+            "away_strength": 0.0,
+            "defence": -0.19527148284736418,
+            "effective_matches": 31.780980000000003,
+            "home_strength": 0.0
+          },
+          "138411": {
+            "attack": -0.014150399113711324,
+            "away_strength": 0.0,
+            "defence": -0.01239373596945412,
+            "effective_matches": 1.8,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4332": {
+        "current_season": "2025/26",
+        "goal_level": 0.15116817144024355,
+        "home_advantage": 0.09470161783525878,
+        "teams": {
+          "133667": {
+            "attack": 0.23502793042872022,
+            "away_strength": 0.0,
+            "defence": 0.2530410683584463,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133668": {
+            "attack": 0.07468162528426288,
+            "away_strength": 0.0,
+            "defence": 0.19807974781299478,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133669": {
+            "attack": -0.019105489224864762,
+            "away_strength": 0.0,
+            "defence": -0.1201683612378324,
+            "effective_matches": 11.924802651420007,
+            "home_strength": 0.0
+          },
+          "133670": {
+            "attack": 0.2848671856053983,
+            "away_strength": 0.0,
+            "defence": 0.3748801316489225,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133671": {
+            "attack": -0.015096214181319947,
+            "away_strength": 0.0,
+            "defence": -0.0840795269068894,
+            "effective_matches": 10.732322386278007,
+            "home_strength": 0.0
+          },
+          "133674": {
+            "attack": 0.10249245746138634,
+            "away_strength": 0.0,
+            "defence": 0.12993910369128492,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133675": {
+            "attack": -0.05176925283685954,
+            "away_strength": 0.0,
+            "defence": 0.09434562853022449,
+            "effective_matches": 255.70709852349805,
+            "home_strength": 0.0
+          },
+          "133676": {
+            "attack": 0.3114684052918921,
+            "away_strength": 0.0,
+            "defence": 0.38781849691501263,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133677": {
+            "attack": -0.029571286140441078,
+            "away_strength": 0.0,
+            "defence": -0.10293613444182263,
+            "effective_matches": 22.657125037698002,
+            "home_strength": 0.0
+          },
+          "133678": {
+            "attack": -0.31560305092757646,
+            "away_strength": 0.0,
+            "defence": 0.0588915475080114,
+            "effective_matches": 151.40819900000002,
+            "home_strength": 0.0
+          },
+          "133679": {
+            "attack": 0.03226113252727262,
+            "away_strength": 0.0,
+            "defence": 0.10676660715598361,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133680": {
+            "attack": -0.07109255994987398,
+            "away_strength": 0.0,
+            "defence": -0.1446215790829339,
+            "effective_matches": 39.89656195722001,
+            "home_strength": 0.0
+          },
+          "133681": {
+            "attack": 0.7140459112796943,
+            "away_strength": 0.0,
+            "defence": 0.3852144546144254,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133682": {
+            "attack": 0.38266727193439704,
+            "away_strength": 0.0,
+            "defence": 0.3919431996611835,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133683": {
+            "attack": -0.1763980550115401,
+            "away_strength": 0.0,
+            "defence": -0.1808353171917915,
+            "effective_matches": 180.42909852349806,
+            "home_strength": 0.0
+          },
+          "133685": {
+            "attack": -0.03203013631372518,
+            "away_strength": 0.0,
+            "defence": -0.14401006787294754,
+            "effective_matches": 14.721978582000009,
+            "home_strength": 0.0
+          },
+          "133687": {
+            "attack": 0.004427599479487064,
+            "away_strength": 0.0,
+            "defence": -0.04349274444078025,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133690": {
+            "attack": -0.07642574241791686,
+            "away_strength": 0.0,
+            "defence": -0.1578636116932747,
+            "effective_matches": 20.194758000000007,
+            "home_strength": 0.0
+          },
+          "133693": {
+            "attack": -0.018123728085535404,
+            "away_strength": 0.0,
+            "defence": -0.22851440212102522,
+            "effective_matches": 53.518352562000004,
+            "home_strength": 0.0
+          },
+          "133694": {
+            "attack": -0.006955529929544826,
+            "away_strength": 0.0,
+            "defence": -0.13702194887007293,
+            "effective_matches": 10.732322386278007,
+            "home_strength": 0.0
+          },
+          "133695": {
+            "attack": -0.1946529180051545,
+            "away_strength": 0.0,
+            "defence": -0.06782097806946343,
+            "effective_matches": 175.68564415722,
+            "home_strength": 0.0
+          },
+          "133701": {
+            "attack": 0.07561924246432652,
+            "away_strength": 0.0,
+            "defence": -0.04670144884595826,
+            "effective_matches": 249.20909852349803,
+            "home_strength": 0.0
+          },
+          "133818": {
+            "attack": -0.056915192719064554,
+            "away_strength": 0.0,
+            "defence": -0.15586098493209857,
+            "effective_matches": 62.2050629238,
+            "home_strength": 0.0
+          },
+          "133846": {
+            "attack": -0.09777020609713385,
+            "away_strength": 0.0,
+            "defence": -0.2784444852465351,
+            "effective_matches": 83.41380000000001,
+            "home_strength": 0.0
+          },
+          "133859": {
+            "attack": -0.22931210667300214,
+            "away_strength": 0.0,
+            "defence": -0.28251242111080366,
+            "effective_matches": 38.0,
+            "home_strength": 0.0
+          },
+          "133879": {
+            "attack": -0.1271203266248744,
+            "away_strength": 0.0,
+            "defence": -0.13281025720942394,
+            "effective_matches": 75.80142000000001,
+            "home_strength": 0.0
+          },
+          "134224": {
+            "attack": -0.16019023359903187,
+            "away_strength": 0.0,
+            "defence": -0.13911256650922021,
+            "effective_matches": 65.702,
+            "home_strength": 0.0
+          },
+          "134234": {
+            "attack": -0.17637385880746798,
+            "away_strength": 0.0,
+            "defence": -0.025640808700955364,
+            "effective_matches": 59.1318,
+            "home_strength": 0.0
+          },
+          "134243": {
+            "attack": 0.36715257405908575,
+            "away_strength": 0.0,
+            "defence": 0.33229184056333094,
+            "effective_matches": 72.2,
+            "home_strength": 0.0
+          },
+          "134270": {
+            "attack": -0.21800880686207447,
+            "away_strength": 0.0,
+            "defence": -0.20435609926485668,
+            "effective_matches": 92.682,
+            "home_strength": 0.0
+          },
+          "134405": {
+            "attack": -0.013426611869405636,
+            "away_strength": 0.0,
+            "defence": -0.031040314745318626,
+            "effective_matches": 13.249780723800008,
+            "home_strength": 0.0
+          },
+          "134665": {
+            "attack": -0.1378238553701578,
+            "away_strength": 0.0,
+            "defence": -0.18602810221133856,
+            "effective_matches": 54.727794180000004,
+            "home_strength": 0.0
+          },
+          "134688": {
+            "attack": -0.08547453287757584,
+            "away_strength": 0.0,
+            "defence": -0.14689634180804492,
+            "effective_matches": 38.796373980000006,
+            "home_strength": 0.0
+          },
+          "134780": {
+            "attack": -0.168638259388545,
+            "away_strength": 0.0,
+            "defence": -0.12628992427654773,
+            "effective_matches": 85.16192052349804,
+            "home_strength": 0.0
+          },
+          "134781": {
+            "attack": 0.16193097569229553,
+            "away_strength": 0.0,
+            "defence": 0.12766225710867773,
+            "effective_matches": 271.484295872078,
+            "home_strength": 0.0
+          },
+          "134782": {
+            "attack": 0.2823663375124222,
+            "away_strength": 0.0,
+            "defence": 0.31221365295682185,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "134783": {
+            "attack": -0.034579855416180486,
+            "away_strength": 0.0,
+            "defence": -0.01272951629223573,
+            "effective_matches": 242.988758799698,
+            "home_strength": 0.0
+          },
+          "134784": {
+            "attack": -0.3280972820223704,
+            "away_strength": 0.0,
+            "defence": -0.059054714615067005,
+            "effective_matches": 251.24083774149804,
+            "home_strength": 0.0
+          },
+          "135728": {
+            "attack": -0.1884535576694037,
+            "away_strength": 0.0,
+            "defence": 0.08575492117191783,
+            "effective_matches": 133.0086602,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4334": {
+        "current_season": "2025/26",
+        "goal_level": 0.22530649340528644,
+        "home_advantage": 0.16417365570001916,
+        "teams": {
+          "133702": {
+            "attack": -0.2758526164658914,
+            "away_strength": 0.0,
+            "defence": -0.2005914691193066,
+            "effective_matches": 38.434322386278005,
+            "home_strength": 0.0
+          },
+          "133703": {
+            "attack": 0.054288906389531176,
+            "away_strength": 0.0,
+            "defence": 0.13808896122852657,
+            "effective_matches": 193.09348921769805,
+            "home_strength": 0.0
+          },
+          "133704": {
+            "attack": 0.04502180813045924,
+            "away_strength": 0.0,
+            "defence": -0.028930944558319214,
+            "effective_matches": 182.092768,
+            "home_strength": 0.0
+          },
+          "133705": {
+            "attack": -0.020281247227788183,
+            "away_strength": 0.0,
+            "defence": -0.059408610150061644,
+            "effective_matches": 22.657125037698002,
+            "home_strength": 0.0
+          },
+          "133706": {
+            "attack": -0.021928414451307773,
+            "away_strength": 0.0,
+            "defence": -0.08465546485616134,
+            "effective_matches": 10.732322386278007,
+            "home_strength": 0.0
+          },
+          "133707": {
+            "attack": 0.3214039430586792,
+            "away_strength": 0.0,
+            "defence": 0.1001480661439863,
+            "effective_matches": 239.28292921769804,
+            "home_strength": 0.0
+          },
+          "133708": {
+            "attack": -0.014235849460269035,
+            "away_strength": 0.0,
+            "defence": -0.04650200611271597,
+            "effective_matches": 10.732322386278007,
+            "home_strength": 0.0
+          },
+          "133709": {
+            "attack": -0.22952673235523677,
+            "away_strength": 0.0,
+            "defence": -0.2600900846343717,
+            "effective_matches": 205.28292921769804,
+            "home_strength": 0.0
+          },
+          "133711": {
+            "attack": 0.12281154718538,
+            "away_strength": 0.0,
+            "defence": 0.3722341449635719,
+            "effective_matches": 239.28292921769804,
+            "home_strength": 0.0
+          },
+          "133712": {
+            "attack": 0.0036470562955365827,
+            "away_strength": 0.0,
+            "defence": 0.06249960454501185,
+            "effective_matches": 241.28292921769804,
+            "home_strength": 0.0
+          },
+          "133713": {
+            "attack": 0.2570349503528635,
+            "away_strength": 0.0,
+            "defence": 0.15733613761149595,
+            "effective_matches": 239.28292921769804,
+            "home_strength": 0.0
+          },
+          "133714": {
+            "attack": 0.525473350415106,
+            "away_strength": 0.0,
+            "defence": 0.42191358343916857,
+            "effective_matches": 238.751488217698,
+            "home_strength": 0.0
+          },
+          "133715": {
+            "attack": 0.09556196309255528,
+            "away_strength": 0.0,
+            "defence": 0.018149474094713267,
+            "effective_matches": 159.269545037698,
+            "home_strength": 0.0
+          },
+          "133716": {
+            "attack": 0.026044480789974848,
+            "away_strength": 0.0,
+            "defence": -0.2837373707275092,
+            "effective_matches": 119.44092921769801,
+            "home_strength": 0.0
+          },
+          "133717": {
+            "attack": -0.08309308526205772,
+            "away_strength": 0.0,
+            "defence": -0.25360148540591465,
+            "effective_matches": 156.50457021769805,
+            "home_strength": 0.0
+          },
+          "133718": {
+            "attack": -0.21653041207127252,
+            "away_strength": 0.0,
+            "defence": -0.1812203180930127,
+            "effective_matches": 71.85200418000001,
+            "home_strength": 0.0
+          },
+          "133719": {
+            "attack": 0.3022960822077749,
+            "away_strength": 0.0,
+            "defence": 0.051056681573792506,
+            "effective_matches": 239.28292921769804,
+            "home_strength": 0.0
+          },
+          "133822": {
+            "attack": 0.3263493311221943,
+            "away_strength": 0.0,
+            "defence": 0.3208928421675151,
+            "effective_matches": 179.13722265142005,
+            "home_strength": 0.0
+          },
+          "133823": {
+            "attack": 0.3511730699505132,
+            "away_strength": 0.0,
+            "defence": 0.03550855146735871,
+            "effective_matches": 239.28292921769804,
+            "home_strength": 0.0
+          },
+          "133861": {
+            "attack": -0.26269978238477054,
+            "away_strength": 0.0,
+            "defence": 0.06836702733237147,
+            "effective_matches": 240.46390921769802,
+            "home_strength": 0.0
+          },
+          "133862": {
+            "attack": -0.15597177906041473,
+            "away_strength": 0.0,
+            "defence": 0.07432113436605102,
+            "effective_matches": 92.13999999999999,
+            "home_strength": 0.0
+          },
+          "133882": {
+            "attack": 0.26038831629240494,
+            "away_strength": 0.0,
+            "defence": 0.0995971205272173,
+            "effective_matches": 216.09436318000002,
+            "home_strength": 0.0
+          },
+          "133883": {
+            "attack": -0.17878424169472162,
+            "away_strength": 0.0,
+            "defence": -0.28930296569368585,
+            "effective_matches": 155.49332463142002,
+            "home_strength": 0.0
+          },
+          "133933": {
+            "attack": -0.036067851817208015,
+            "away_strength": 0.0,
+            "defence": -0.010900136637400307,
+            "effective_matches": 22.657125037698002,
+            "home_strength": 0.0
+          },
+          "133934": {
+            "attack": -0.2019101233705076,
+            "away_strength": 0.0,
+            "defence": 0.08775196646107135,
+            "effective_matches": 191.25661623769804,
+            "home_strength": 0.0
+          },
+          "134244": {
+            "attack": -0.1105101958122628,
+            "away_strength": 0.0,
+            "defence": -0.09836700179945258,
+            "effective_matches": 57.19016121769801,
+            "home_strength": 0.0
+          },
+          "134709": {
+            "attack": -0.31627609252907296,
+            "away_strength": 0.0,
+            "defence": 0.03899734171914234,
+            "effective_matches": 189.08580418,
+            "home_strength": 0.0
+          },
+          "134713": {
+            "attack": -0.18276846019545737,
+            "away_strength": 0.0,
+            "defence": -0.09491992699233236,
+            "effective_matches": 80.17380000000001,
+            "home_strength": 0.0
+          },
+          "134715": {
+            "attack": -0.03199194437672711,
+            "away_strength": 0.0,
+            "defence": -0.12845984751765727,
+            "effective_matches": 55.4942502,
+            "home_strength": 0.0
+          },
+          "134787": {
+            "attack": -0.16643239743071656,
+            "away_strength": 0.0,
+            "defence": -0.026646975622207577,
+            "effective_matches": 46.457838831420005,
+            "home_strength": 0.0
+          },
+          "134788": {
+            "attack": -0.0779931260012366,
+            "away_strength": 0.0,
+            "defence": 0.16251460524576905,
+            "effective_matches": 93.61420000000001,
+            "home_strength": 0.0
+          },
+          "134789": {
+            "attack": -0.11294778000065155,
+            "away_strength": 0.0,
+            "defence": -0.2010692919607669,
+            "effective_matches": 68.99155398,
+            "home_strength": 0.0
+          },
+          "135465": {
+            "attack": 0.09001285586181867,
+            "away_strength": 0.0,
+            "defence": 0.09559929241077408,
+            "effective_matches": 34.0,
+            "home_strength": 0.0
+          },
+          "135467": {
+            "attack": 0.011070526409932705,
+            "away_strength": 0.0,
+            "defence": -0.03582718409383901,
+            "effective_matches": 1.0,
+            "home_strength": 0.0
+          },
+          "135658": {
+            "attack": -0.09835262990677233,
+            "away_strength": 0.0,
+            "defence": -0.03906775458932083,
+            "effective_matches": 49.41338418,
+            "home_strength": 0.0
+          },
+          "137652": {
+            "attack": 0.001576574319618757,
+            "away_strength": 0.0,
+            "defence": 0.01832230326649831,
+            "effective_matches": 2.0,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4335": {
+        "current_season": "2025/26",
+        "goal_level": 0.14909768308923296,
+        "home_advantage": 0.2649142862962962,
+        "teams": {
+          "133721": {
+            "attack": -0.08711637203051309,
+            "away_strength": 0.0,
+            "defence": -0.3011117628492606,
+            "effective_matches": 148.97406234349805,
+            "home_strength": 0.0
+          },
+          "133722": {
+            "attack": 0.21914924505388939,
+            "away_strength": 0.0,
+            "defence": 0.09836057592545042,
+            "effective_matches": 271.484295872078,
+            "home_strength": 0.0
+          },
+          "133723": {
+            "attack": -0.015406636392502495,
+            "away_strength": 0.0,
+            "defence": -0.09561901178375945,
+            "effective_matches": 27.971759305800003,
+            "home_strength": 0.0
+          },
+          "133724": {
+            "attack": 0.14847548158771756,
+            "away_strength": 0.0,
+            "defence": -0.06521417140210098,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133725": {
+            "attack": 0.0203598576207188,
+            "away_strength": 0.0,
+            "defence": 0.04870748844528669,
+            "effective_matches": 282.279380377574,
+            "home_strength": 0.0
+          },
+          "133727": {
+            "attack": 0.011144105244575403,
+            "away_strength": 0.0,
+            "defence": 0.07333734623842816,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133728": {
+            "attack": -0.11686796843059569,
+            "away_strength": 0.0,
+            "defence": 0.197319845987361,
+            "effective_matches": 209.69598796149802,
+            "home_strength": 0.0
+          },
+          "133729": {
+            "attack": 0.27748711554182304,
+            "away_strength": 0.0,
+            "defence": 0.22109066054355458,
+            "effective_matches": 282.844239450536,
+            "home_strength": 0.0
+          },
+          "133730": {
+            "attack": -0.016154220968902074,
+            "away_strength": 0.0,
+            "defence": 0.043908175070299295,
+            "effective_matches": 223.70147896827802,
+            "home_strength": 0.0
+          },
+          "133731": {
+            "attack": -0.2915977747129758,
+            "away_strength": 0.0,
+            "defence": 0.3074429946229711,
+            "effective_matches": 268.12226086853605,
+            "home_strength": 0.0
+          },
+          "133732": {
+            "attack": 0.0792464581890365,
+            "away_strength": 0.0,
+            "defence": -0.1124634590634306,
+            "effective_matches": 174.310542722612,
+            "home_strength": 0.0
+          },
+          "133733": {
+            "attack": -0.07282232709501069,
+            "away_strength": 0.0,
+            "defence": 0.042533872439586784,
+            "effective_matches": 175.808558,
+            "home_strength": 0.0
+          },
+          "133734": {
+            "attack": -0.07192921619653109,
+            "away_strength": 0.0,
+            "defence": -0.00627405207699248,
+            "effective_matches": 230.19047852349806,
+            "home_strength": 0.0
+          },
+          "133735": {
+            "attack": -0.03386944883370519,
+            "away_strength": 0.0,
+            "defence": -0.04181746655568558,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133736": {
+            "attack": -0.1161499806788222,
+            "away_strength": 0.0,
+            "defence": -0.03753564024367585,
+            "effective_matches": 66.98663832349804,
+            "home_strength": 0.0
+          },
+          "133738": {
+            "attack": 0.4612638997648273,
+            "away_strength": 0.0,
+            "defence": 0.3665676207706514,
+            "effective_matches": 282.279380377574,
+            "home_strength": 0.0
+          },
+          "133739": {
+            "attack": 0.6316875012871843,
+            "away_strength": 0.0,
+            "defence": 0.3248377244926023,
+            "effective_matches": 283.4090985234981,
+            "home_strength": 0.0
+          },
+          "133740": {
+            "attack": 0.4373635440358697,
+            "away_strength": 0.0,
+            "defence": 0.08030835009661813,
+            "effective_matches": 282.844239450536,
+            "home_strength": 0.0
+          },
+          "133816": {
+            "attack": -0.041550322631691596,
+            "away_strength": 0.0,
+            "defence": -0.13501316108062364,
+            "effective_matches": 56.25431593722002,
+            "home_strength": 0.0
+          },
+          "133817": {
+            "attack": 0.02884696072963198,
+            "away_strength": 0.0,
+            "defence": -0.22737515186859333,
+            "effective_matches": 80.57426596473601,
+            "home_strength": 0.0
+          },
+          "133841": {
+            "attack": -0.3128028254051102,
+            "away_strength": 0.0,
+            "defence": -0.44399637227261973,
+            "effective_matches": 133.442982586278,
+            "home_strength": 0.0
+          },
+          "133937": {
+            "attack": 0.1577279858325587,
+            "away_strength": 0.0,
+            "defence": 0.06405078036748121,
+            "effective_matches": 282.844239450536,
+            "home_strength": 0.0
+          },
+          "134221": {
+            "attack": -0.07613922096911219,
+            "away_strength": 0.0,
+            "defence": 0.013171133984305979,
+            "effective_matches": 219.80019276200005,
+            "home_strength": 0.0
+          },
+          "134222": {
+            "attack": -0.3119932111833964,
+            "away_strength": 0.0,
+            "defence": -0.02837206515070064,
+            "effective_matches": 105.85242000000001,
+            "home_strength": 0.0
+          },
+          "134259": {
+            "attack": -0.18112825539723276,
+            "away_strength": 0.0,
+            "defence": -0.08011890125161023,
+            "effective_matches": 109.30951328580001,
+            "home_strength": 0.0
+          },
+          "134384": {
+            "attack": -0.01786034963892573,
+            "away_strength": 0.0,
+            "defence": -0.06928107012187275,
+            "effective_matches": 135.72954503769802,
+            "home_strength": 0.0
+          },
+          "134626": {
+            "attack": -0.12445519904976607,
+            "away_strength": 0.0,
+            "defence": -0.049006292956182945,
+            "effective_matches": 117.06297613722003,
+            "home_strength": 0.0
+          },
+          "134627": {
+            "attack": -0.08236647715943177,
+            "away_strength": 0.0,
+            "defence": -0.117929497208181,
+            "effective_matches": 11.924802651420007,
+            "home_strength": 0.0
+          },
+          "134700": {
+            "attack": -0.05467562265831225,
+            "away_strength": 0.0,
+            "defence": 0.0304815438713376,
+            "effective_matches": 165.21503618000003,
+            "home_strength": 0.0
+          },
+          "134701": {
+            "attack": -0.11959652837919643,
+            "away_strength": 0.0,
+            "defence": -0.011512503193107499,
+            "effective_matches": 103.64977276200001,
+            "home_strength": 0.0
+          },
+          "135454": {
+            "attack": -0.05893285581444186,
+            "away_strength": 0.0,
+            "defence": -0.037432437441258196,
+            "effective_matches": 40.613902200000005,
+            "home_strength": 0.0
+          },
+          "135455": {
+            "attack": -0.2693373412616572,
+            "away_strength": 0.0,
+            "defence": -0.05204509633627918,
+            "effective_matches": 38.0,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4336": {
+        "current_season": "2025/26",
+        "goal_level": 0.15007810891695758,
+        "home_advantage": 0.14738489746980052,
+        "teams": {
+          "133741": {
+            "attack": -0.14586316648814793,
+            "away_strength": 0.0,
+            "defence": -0.24866927137183628,
+            "effective_matches": 93.89277,
+            "home_strength": 0.0
+          },
+          "133742": {
+            "attack": 0.001866691597035606,
+            "away_strength": 0.0,
+            "defence": 0.2774985434069263,
+            "effective_matches": 161.08124000000004,
+            "home_strength": 0.0
+          },
+          "133743": {
+            "attack": 0.08550744785913073,
+            "away_strength": 0.0,
+            "defence": -0.17254833695555477,
+            "effective_matches": 152.72447,
+            "home_strength": 0.0
+          },
+          "133744": {
+            "attack": 0.08341276351524722,
+            "away_strength": 0.0,
+            "defence": 0.07443241517669567,
+            "effective_matches": 156.72447,
+            "home_strength": 0.0
+          },
+          "133746": {
+            "attack": 0.2597623435463454,
+            "away_strength": 0.0,
+            "defence": 0.34470977691927446,
+            "effective_matches": 161.08124000000004,
+            "home_strength": 0.0
+          },
+          "133749": {
+            "attack": 0.48899101655405475,
+            "away_strength": 0.0,
+            "defence": 0.36648618422845225,
+            "effective_matches": 161.08124000000004,
+            "home_strength": 0.0
+          },
+          "133750": {
+            "attack": 0.011753092127212456,
+            "away_strength": 0.0,
+            "defence": -0.021457568431308468,
+            "effective_matches": 1.1809800000000004,
+            "home_strength": 0.0
+          },
+          "133751": {
+            "attack": -0.26157725664503806,
+            "away_strength": 0.0,
+            "defence": 0.009840260579577119,
+            "effective_matches": 161.50545,
+            "home_strength": 0.0
+          },
+          "133752": {
+            "attack": -0.15838987408008168,
+            "away_strength": 0.0,
+            "defence": -0.026055215277271407,
+            "effective_matches": 158.49594000000002,
+            "home_strength": 0.0
+          },
+          "133753": {
+            "attack": 0.4338572215694463,
+            "away_strength": 0.0,
+            "defence": 0.5380255560543397,
+            "effective_matches": 161.67173,
+            "home_strength": 0.0
+          },
+          "133754": {
+            "attack": 0.3158195444804309,
+            "away_strength": 0.0,
+            "defence": 0.6490017931393973,
+            "effective_matches": 161.08124000000004,
+            "home_strength": 0.0
+          },
+          "133755": {
+            "attack": 0.3089397458298384,
+            "away_strength": 0.0,
+            "defence": -0.08956761142099882,
+            "effective_matches": 88.45700000000001,
+            "home_strength": 0.0
+          },
+          "133832": {
+            "attack": -0.2908316110926719,
+            "away_strength": 0.0,
+            "defence": -0.369584124716484,
+            "effective_matches": 95.13,
+            "home_strength": 0.0
+          },
+          "133887": {
+            "attack": 0.004951813721399586,
+            "away_strength": 0.0,
+            "defence": -0.028536595764878592,
+            "effective_matches": 1.3122000000000003,
+            "home_strength": 0.0
+          },
+          "134217": {
+            "attack": -0.09870808623287439,
+            "away_strength": 0.0,
+            "defence": -0.14243396925391694,
+            "effective_matches": 45.70830000000001,
+            "home_strength": 0.0
+          },
+          "134228": {
+            "attack": -0.07512821697536591,
+            "away_strength": 0.0,
+            "defence": -0.0864816308513558,
+            "effective_matches": 32.4,
+            "home_strength": 0.0
+          },
+          "134388": {
+            "attack": -0.24160466473550543,
+            "away_strength": 0.0,
+            "defence": -0.18598894303056723,
+            "effective_matches": 41.13747000000001,
+            "home_strength": 0.0
+          },
+          "135709": {
+            "attack": -0.15507534764565736,
+            "away_strength": 0.0,
+            "defence": -0.16985769133055312,
+            "effective_matches": 56.076660000000004,
+            "home_strength": 0.0
+          },
+          "136029": {
+            "attack": -0.31897281459891064,
+            "away_strength": 0.0,
+            "defence": -0.35170169007462737,
+            "effective_matches": 128.06667000000002,
+            "home_strength": 0.0
+          },
+          "136853": {
+            "attack": -0.13347254260626606,
+            "away_strength": 0.0,
+            "defence": -0.23906664869465846,
+            "effective_matches": 158.51147000000003,
+            "home_strength": 0.0
+          },
+          "144147": {
+            "attack": -0.11523809969962226,
+            "away_strength": 0.0,
+            "defence": -0.12804523233065143,
+            "effective_matches": 62.730000000000004,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4337": {
+        "current_season": "2025/26",
+        "goal_level": 0.27364827009948156,
+        "home_advantage": 0.23553284047072104,
+        "teams": {
+          "133757": {
+            "attack": 0.036945714812255184,
+            "away_strength": 0.0,
+            "defence": -0.023277422345929378,
+            "effective_matches": 160.09750359646006,
+            "home_strength": 0.0
+          },
+          "133758": {
+            "attack": 0.3334538251320899,
+            "away_strength": 0.0,
+            "defence": 0.3172453191113354,
+            "effective_matches": 249.97457283681405,
+            "home_strength": 0.0
+          },
+          "133759": {
+            "attack": 0.13108064403395775,
+            "away_strength": 0.0,
+            "defence": 0.043619864217677676,
+            "effective_matches": 253.995233836814,
+            "home_strength": 0.0
+          },
+          "133760": {
+            "attack": 0.3553529834154038,
+            "away_strength": 0.0,
+            "defence": 0.11509475182368219,
+            "effective_matches": 177.34483782975403,
+            "home_strength": 0.0
+          },
+          "133761": {
+            "attack": -0.12724374564656657,
+            "away_strength": 0.0,
+            "defence": -0.1603466391505162,
+            "effective_matches": 55.37903296975402,
+            "home_strength": 0.0
+          },
+          "133762": {
+            "attack": -0.03402052026177372,
+            "away_strength": 0.0,
+            "defence": 0.14305050900993146,
+            "effective_matches": 223.375523836814,
+            "home_strength": 0.0
+          },
+          "133764": {
+            "attack": 0.16947669081094305,
+            "away_strength": 0.0,
+            "defence": 0.29254837277694695,
+            "effective_matches": 257.32136663681405,
+            "home_strength": 0.0
+          },
+          "133765": {
+            "attack": -0.09272523689232312,
+            "away_strength": 0.0,
+            "defence": -0.1262812629829237,
+            "effective_matches": 152.73013024035404,
+            "home_strength": 0.0
+          },
+          "133766": {
+            "attack": -0.22827581621654172,
+            "away_strength": 0.0,
+            "defence": -0.31459182089959664,
+            "effective_matches": 226.329530736814,
+            "home_strength": 0.0
+          },
+          "133767": {
+            "attack": 0.20517098446110707,
+            "away_strength": 0.0,
+            "defence": 0.1931577162183237,
+            "effective_matches": 253.21799283681403,
+            "home_strength": 0.0
+          },
+          "133768": {
+            "attack": 0.7696307429377214,
+            "away_strength": 0.0,
+            "defence": 0.26201995364433966,
+            "effective_matches": 249.32503383681401,
+            "home_strength": 0.0
+          },
+          "133769": {
+            "attack": -0.13087528853522365,
+            "away_strength": 0.0,
+            "defence": -0.2355686380779092,
+            "effective_matches": 119.068233836814,
+            "home_strength": 0.0
+          },
+          "133770": {
+            "attack": -0.15861005229453698,
+            "away_strength": 0.0,
+            "defence": -0.12412289014900947,
+            "effective_matches": 187.827730736814,
+            "home_strength": 0.0
+          },
+          "133771": {
+            "attack": -0.10652359360995123,
+            "away_strength": 0.0,
+            "defence": -0.17419810526178572,
+            "effective_matches": 35.439851563400005,
+            "home_strength": 0.0
+          },
+          "133772": {
+            "attack": 0.22111969563569703,
+            "away_strength": 0.0,
+            "defence": 0.36807815366826613,
+            "effective_matches": 250.793592836814,
+            "home_strength": 0.0
+          },
+          "133773": {
+            "attack": -0.21985852320481458,
+            "away_strength": 0.0,
+            "defence": -0.019741319538526002,
+            "effective_matches": 126.62981424741402,
+            "home_strength": 0.0
+          },
+          "133774": {
+            "attack": 0.2712695720330009,
+            "away_strength": 0.0,
+            "defence": 0.27525964176281986,
+            "effective_matches": 237.778939236814,
+            "home_strength": 0.0
+          },
+          "133827": {
+            "attack": -0.18842525465597196,
+            "away_strength": 0.0,
+            "defence": -0.06860025255064188,
+            "effective_matches": 160.45442959646002,
+            "home_strength": 0.0
+          },
+          "133866": {
+            "attack": -0.1212710055608332,
+            "away_strength": 0.0,
+            "defence": 0.008757819576198346,
+            "effective_matches": 205.25219776600002,
+            "home_strength": 0.0
+          },
+          "133867": {
+            "attack": -0.2380540468846556,
+            "away_strength": 0.0,
+            "defence": -0.02425669439404416,
+            "effective_matches": 86.91649000000001,
+            "home_strength": 0.0
+          },
+          "133936": {
+            "attack": -0.0731292578100162,
+            "away_strength": 0.0,
+            "defence": -0.1608628149116257,
+            "effective_matches": 224.539033836814,
+            "home_strength": 0.0
+          },
+          "134236": {
+            "attack": -0.07374063545818005,
+            "away_strength": 0.0,
+            "defence": -0.04315483495821393,
+            "effective_matches": 5.6,
+            "home_strength": 0.0
+          },
+          "134264": {
+            "attack": -0.06691870475482245,
+            "away_strength": 0.0,
+            "defence": -0.05891947339771186,
+            "effective_matches": 189.3896206,
+            "home_strength": 0.0
+          },
+          "134303": {
+            "attack": -0.1940094033617821,
+            "away_strength": 0.0,
+            "defence": -0.17698241619755514,
+            "effective_matches": 81.020631470814,
+            "home_strength": 0.0
+          },
+          "134304": {
+            "attack": 0.13371124575601764,
+            "away_strength": 0.0,
+            "defence": 0.09142830469315952,
+            "effective_matches": 174.29786113341402,
+            "home_strength": 0.0
+          },
+          "134550": {
+            "attack": -0.10521142267444969,
+            "away_strength": 0.0,
+            "defence": -0.06804327074146645,
+            "effective_matches": 15.889560267060004,
+            "home_strength": 0.0
+          },
+          "136030": {
+            "attack": -0.07427009084972441,
+            "away_strength": 0.0,
+            "defence": -0.23930439720990468,
+            "effective_matches": 67.70810574,
+            "home_strength": 0.0
+          },
+          "136191": {
+            "attack": -0.16347184968347403,
+            "away_strength": 0.0,
+            "defence": -0.10592663968115991,
+            "effective_matches": 81.68871060000001,
+            "home_strength": 0.0
+          },
+          "137996": {
+            "attack": -0.22757230981913892,
+            "away_strength": 0.0,
+            "defence": -0.0180865235322581,
+            "effective_matches": 67.10449,
+            "home_strength": 0.0
+          },
+          "137997": {
+            "attack": -0.03612208798668478,
+            "away_strength": 0.0,
+            "defence": -0.007460819592858724,
+            "effective_matches": 4.082400000000001,
+            "home_strength": 0.0
+          },
+          "138003": {
+            "attack": -0.03466514225758054,
+            "away_strength": 0.0,
+            "defence": -0.03552769311254539,
+            "effective_matches": 1.4580000000000002,
+            "home_strength": 0.0
+          },
+          "138004": {
+            "attack": 0.06778188939085186,
+            "away_strength": 0.0,
+            "defence": 0.0749935221835014,
+            "effective_matches": 39.4,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4338": {
+        "current_season": "2025/26",
+        "goal_level": 0.2613622898416359,
+        "home_advantage": 0.15676036882944439,
+        "teams": {
+          "133775": {
+            "attack": -0.16997921387456866,
+            "away_strength": 0.0,
+            "defence": -2.8646315649504157e-05,
+            "effective_matches": 143.17005999999998,
+            "home_strength": 0.0
+          },
+          "133776": {
+            "attack": 0.17469097398815916,
+            "away_strength": 0.0,
+            "defence": 0.017476344520828187,
+            "effective_matches": 150.64960000000002,
+            "home_strength": 0.0
+          },
+          "133778": {
+            "attack": -0.20033132981750001,
+            "away_strength": 0.0,
+            "defence": 0.24874681339871166,
+            "effective_matches": 151.087,
+            "home_strength": 0.0
+          },
+          "133779": {
+            "attack": 0.13244993714494266,
+            "away_strength": 0.0,
+            "defence": 0.19472520123393333,
+            "effective_matches": 156.0236,
+            "home_strength": 0.0
+          },
+          "133781": {
+            "attack": -0.04027901976608895,
+            "away_strength": 0.0,
+            "defence": 0.09763209260986384,
+            "effective_matches": 156.0236,
+            "home_strength": 0.0
+          },
+          "133782": {
+            "attack": 0.11513739633660154,
+            "away_strength": 0.0,
+            "defence": -0.10963308226755873,
+            "effective_matches": 141.74406,
+            "home_strength": 0.0
+          },
+          "133783": {
+            "attack": -0.10187124762112869,
+            "away_strength": 0.0,
+            "defence": -0.12164577544071778,
+            "effective_matches": 99.57006,
+            "home_strength": 0.0
+          },
+          "133786": {
+            "attack": 0.12827898807983376,
+            "away_strength": 0.0,
+            "defence": -0.10341855152779757,
+            "effective_matches": 103.17005999999999,
+            "home_strength": 0.0
+          },
+          "133787": {
+            "attack": -0.0017077684947866749,
+            "away_strength": 0.0,
+            "defence": -0.05921819579884127,
+            "effective_matches": 150.64960000000002,
+            "home_strength": 0.0
+          },
+          "133789": {
+            "attack": 0.7116844931050124,
+            "away_strength": 0.0,
+            "defence": 0.293625319254502,
+            "effective_matches": 155.0236,
+            "home_strength": 0.0
+          },
+          "133790": {
+            "attack": 0.055544971764138695,
+            "away_strength": 0.0,
+            "defence": -0.025129077586470767,
+            "effective_matches": 105.16000000000001,
+            "home_strength": 0.0
+          },
+          "133825": {
+            "attack": -0.13642627296653176,
+            "away_strength": 0.0,
+            "defence": -0.2943525083467929,
+            "effective_matches": 67.17005999999999,
+            "home_strength": 0.0
+          },
+          "133826": {
+            "attack": 0.00801689862964275,
+            "away_strength": 0.0,
+            "defence": 0.1750979599396673,
+            "effective_matches": 148.00666,
+            "home_strength": 0.0
+          },
+          "133863": {
+            "attack": -0.1725951288566257,
+            "away_strength": 0.0,
+            "defence": -0.1689283960469803,
+            "effective_matches": 74.0,
+            "home_strength": 0.0
+          },
+          "133931": {
+            "attack": -0.13179195188687715,
+            "away_strength": 0.0,
+            "defence": -0.2738285227069455,
+            "effective_matches": 70.713,
+            "home_strength": 0.0
+          },
+          "133941": {
+            "attack": -0.01992887957005414,
+            "away_strength": 0.0,
+            "defence": -0.18617821467958717,
+            "effective_matches": 21.257640000000002,
+            "home_strength": 0.0
+          },
+          "134245": {
+            "attack": -0.08751563472887995,
+            "away_strength": 0.0,
+            "defence": 0.16720229938954476,
+            "effective_matches": 155.92360000000002,
+            "home_strength": 0.0
+          },
+          "134552": {
+            "attack": -0.10049783958638663,
+            "away_strength": 0.0,
+            "defence": -0.05877926316233169,
+            "effective_matches": 20.07666,
+            "home_strength": 0.0
+          },
+          "135461": {
+            "attack": 0.1478152637680829,
+            "away_strength": 0.0,
+            "defence": 0.16078822966982068,
+            "effective_matches": 139.57006,
+            "home_strength": 0.0
+          },
+          "135924": {
+            "attack": -0.02783459215217439,
+            "away_strength": 0.0,
+            "defence": -0.0019426893051894861,
+            "effective_matches": 1.3122000000000003,
+            "home_strength": 0.0
+          },
+          "138141": {
+            "attack": 0.2587638828391822,
+            "away_strength": 0.0,
+            "defence": 0.620343385069238,
+            "effective_matches": 131.404,
+            "home_strength": 0.0
+          },
+          "138142": {
+            "attack": -0.14565094694987846,
+            "away_strength": 0.0,
+            "defence": -0.23517443595951615,
+            "effective_matches": 78.78406000000001,
+            "home_strength": 0.0
+          },
+          "138143": {
+            "attack": 0.06973595245855432,
+            "away_strength": 0.0,
+            "defence": 0.05448384247811863,
+            "effective_matches": 6.0,
+            "home_strength": 0.0
+          },
+          "140081": {
+            "attack": -0.26785072165814755,
+            "away_strength": 0.0,
+            "defence": -0.19984012557539332,
+            "effective_matches": 49.58658,
+            "home_strength": 0.0
+          },
+          "143872": {
+            "attack": -0.041355512507467856,
+            "away_strength": 0.0,
+            "defence": -0.03567495384736402,
+            "effective_matches": 2.0,
+            "home_strength": 0.0
+          },
+          "147430": {
+            "attack": -0.014750545798563391,
+            "away_strength": 0.0,
+            "defence": -0.12914226734398185,
+            "effective_matches": 3.8,
+            "home_strength": 0.0
+          },
+          "148488": {
+            "attack": -0.14175215187849036,
+            "away_strength": 0.0,
+            "defence": -0.027206781653110468,
+            "effective_matches": 36.0,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4339": {
+        "current_season": "2025/26",
+        "goal_level": 0.20503038252801897,
+        "home_advantage": 0.19371297132333262,
+        "teams": {
+          "133791": {
+            "attack": -0.07371085884419981,
+            "away_strength": 0.0,
+            "defence": 0.024632520078290542,
+            "effective_matches": 80.6436,
+            "home_strength": 0.0
+          },
+          "133794": {
+            "attack": 0.27138403381017584,
+            "away_strength": 0.0,
+            "defence": 0.2579677001262298,
+            "effective_matches": 171.9754,
+            "home_strength": 0.0
+          },
+          "133796": {
+            "attack": 0.311917313798345,
+            "away_strength": 0.0,
+            "defence": 0.16262207354505948,
+            "effective_matches": 171.9754,
+            "home_strength": 0.0
+          },
+          "133797": {
+            "attack": 0.10366781299406824,
+            "away_strength": 0.0,
+            "defence": 0.10712809256246365,
+            "effective_matches": 97.18,
+            "home_strength": 0.0
+          },
+          "133798": {
+            "attack": -0.08358987843839898,
+            "away_strength": 0.0,
+            "defence": -0.006387591927863706,
+            "effective_matches": 57.619600000000005,
+            "home_strength": 0.0
+          },
+          "133799": {
+            "attack": -0.20475266731866495,
+            "away_strength": 0.0,
+            "defence": -0.061191859544902596,
+            "effective_matches": 171.9754,
+            "home_strength": 0.0
+          },
+          "133802": {
+            "attack": -0.21470483659757844,
+            "away_strength": 0.0,
+            "defence": -0.1327857770051126,
+            "effective_matches": 171.9754,
+            "home_strength": 0.0
+          },
+          "133804": {
+            "attack": 0.5529615355723779,
+            "away_strength": 0.0,
+            "defence": 0.45128364794180686,
+            "effective_matches": 171.9754,
+            "home_strength": 0.0
+          },
+          "133806": {
+            "attack": -0.05226952700199688,
+            "away_strength": 0.0,
+            "defence": -0.04098035171288368,
+            "effective_matches": 138.56589000000002,
+            "home_strength": 0.0
+          },
+          "133807": {
+            "attack": 0.6084382807756187,
+            "away_strength": 0.0,
+            "defence": 0.24483561002892879,
+            "effective_matches": 171.9754,
+            "home_strength": 0.0
+          },
+          "133834": {
+            "attack": 0.0009962364748279749,
+            "away_strength": 0.0,
+            "defence": -0.03237911486503425,
+            "effective_matches": 171.9754,
+            "home_strength": 0.0
+          },
+          "133835": {
+            "attack": -0.01789057150796405,
+            "away_strength": 0.0,
+            "defence": 0.053796805050138244,
+            "effective_matches": 171.9754,
+            "home_strength": 0.0
+          },
+          "133868": {
+            "attack": -0.10002007676447826,
+            "away_strength": 0.0,
+            "defence": -0.19945123411811147,
+            "effective_matches": 23.619600000000002,
+            "home_strength": 0.0
+          },
+          "133870": {
+            "attack": -0.2327389645673162,
+            "away_strength": 0.0,
+            "defence": 0.1538012419456837,
+            "effective_matches": 34.0,
+            "home_strength": 0.0
+          },
+          "133885": {
+            "attack": 0.12412268489652782,
+            "away_strength": 0.0,
+            "defence": -0.06011826641271712,
+            "effective_matches": 145.7314,
+            "home_strength": 0.0
+          },
+          "134227": {
+            "attack": -0.2241385914725543,
+            "away_strength": 0.0,
+            "defence": -0.15896163273975075,
+            "effective_matches": 48.551400000000015,
+            "home_strength": 0.0
+          },
+          "134238": {
+            "attack": -0.2271313241285742,
+            "away_strength": 0.0,
+            "defence": -0.2714143576915426,
+            "effective_matches": 57.02400000000001,
+            "home_strength": 0.0
+          },
+          "134254": {
+            "attack": -0.0960249526093555,
+            "away_strength": 0.0,
+            "defence": -0.035136413860153676,
+            "effective_matches": 24.931800000000006,
+            "home_strength": 0.0
+          },
+          "134272": {
+            "attack": -0.03483789066785228,
+            "away_strength": 0.0,
+            "defence": -0.1224011262521013,
+            "effective_matches": 23.619600000000002,
+            "home_strength": 0.0
+          },
+          "134589": {
+            "attack": 0.3033273368160664,
+            "away_strength": 0.0,
+            "defence": 0.22626599300901082,
+            "effective_matches": 171.9754,
+            "home_strength": 0.0
+          },
+          "135676": {
+            "attack": 0.0025419455973444954,
+            "away_strength": 0.0,
+            "defence": 0.11994563780313557,
+            "effective_matches": 172.56589000000002,
+            "home_strength": 0.0
+          },
+          "135891": {
+            "attack": 0.023716739223316505,
+            "away_strength": 0.0,
+            "defence": 0.17397869944923244,
+            "effective_matches": 114.9514,
+            "home_strength": 0.0
+          },
+          "138092": {
+            "attack": -0.030407436090677475,
+            "away_strength": 0.0,
+            "defence": -0.09419267231687105,
+            "effective_matches": 171.9754,
+            "home_strength": 0.0
+          },
+          "138935": {
+            "attack": 0.0021091772805537914,
+            "away_strength": 0.0,
+            "defence": -0.0918820445083283,
+            "effective_matches": 26.244,
+            "home_strength": 0.0
+          },
+          "138944": {
+            "attack": -0.03085642315789014,
+            "away_strength": 0.0,
+            "defence": -0.25739645362679303,
+            "effective_matches": 137.9754,
+            "home_strength": 0.0
+          },
+          "138946": {
+            "attack": -0.06679929403550369,
+            "away_strength": 0.0,
+            "defence": -0.03459887777846094,
+            "effective_matches": 51.17580000000001,
+            "home_strength": 0.0
+          },
+          "138957": {
+            "attack": -0.0727888246985465,
+            "away_strength": 0.0,
+            "defence": -0.13676830676703142,
+            "effective_matches": 30.780000000000005,
+            "home_strength": 0.0
+          },
+          "138974": {
+            "attack": -0.2670473114111592,
+            "away_strength": 0.0,
+            "defence": 0.1420919652877394,
+            "effective_matches": 32.4,
+            "home_strength": 0.0
+          },
+          "138977": {
+            "attack": -0.07015917823292664,
+            "away_strength": 0.0,
+            "defence": 0.05645920611196309,
+            "effective_matches": 66.4,
+            "home_strength": 0.0
+          },
+          "138982": {
+            "attack": -0.11337721918694103,
+            "away_strength": 0.0,
+            "defence": -0.4311398114850526,
+            "effective_matches": 114.35580000000002,
+            "home_strength": 0.0
+          },
+          "138983": {
+            "attack": -0.09193727050664423,
+            "away_strength": 0.0,
+            "defence": -0.007623300326971407,
+            "effective_matches": 139.5754,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4340": {
+        "current_season": "2025/26",
+        "goal_level": 0.31589878381259134,
+        "home_advantage": 0.13762417586417514,
+        "teams": {
+          "133889": {
+            "attack": -0.005188716030119944,
+            "away_strength": 0.0,
+            "defence": -0.10616515018877681,
+            "effective_matches": 102.2432,
+            "home_strength": 0.0
+          },
+          "133890": {
+            "attack": 0.16359873593651686,
+            "away_strength": 0.0,
+            "defence": 0.15364333280709427,
+            "effective_matches": 131.0432,
+            "home_strength": 0.0
+          },
+          "133891": {
+            "attack": 0.40090271807736894,
+            "away_strength": 0.0,
+            "defence": 0.24781197833341737,
+            "effective_matches": 131.7722,
+            "home_strength": 0.0
+          },
+          "133892": {
+            "attack": -0.05067588705479478,
+            "away_strength": 0.0,
+            "defence": -0.20215211697197236,
+            "effective_matches": 131.9432,
+            "home_strength": 0.0
+          },
+          "133893": {
+            "attack": 0.04126093741582156,
+            "away_strength": 0.0,
+            "defence": 0.24883184179875315,
+            "effective_matches": 132.6993,
+            "home_strength": 0.0
+          },
+          "133894": {
+            "attack": -0.19506166808499395,
+            "away_strength": 0.0,
+            "defence": -0.25334167295122556,
+            "effective_matches": 73.1232,
+            "home_strength": 0.0
+          },
+          "133895": {
+            "attack": -0.14501539304544822,
+            "away_strength": 0.0,
+            "defence": -0.1258697263824052,
+            "effective_matches": 23.328000000000003,
+            "home_strength": 0.0
+          },
+          "133897": {
+            "attack": -0.017787013066578712,
+            "away_strength": 0.0,
+            "defence": -0.011730529235896368,
+            "effective_matches": 81.7952,
+            "home_strength": 0.0
+          },
+          "133898": {
+            "attack": 0.3956524257982121,
+            "away_strength": 0.0,
+            "defence": 0.2162592370189637,
+            "effective_matches": 132.85320000000002,
+            "home_strength": 0.0
+          },
+          "133899": {
+            "attack": 0.24719882608916718,
+            "away_strength": 0.0,
+            "defence": 0.29978503988273564,
+            "effective_matches": 131.0432,
+            "home_strength": 0.0
+          },
+          "133900": {
+            "attack": -0.3240449116399217,
+            "away_strength": 0.0,
+            "defence": 0.02526485378418098,
+            "effective_matches": 78.048,
+            "home_strength": 0.0
+          },
+          "133938": {
+            "attack": -0.1591412219385602,
+            "away_strength": 0.0,
+            "defence": -0.006439640234834197,
+            "effective_matches": 132.7532,
+            "home_strength": 0.0
+          },
+          "134307": {
+            "attack": 0.09761227281490623,
+            "away_strength": 0.0,
+            "defence": 0.022927703762585086,
+            "effective_matches": 132.4283,
+            "home_strength": 0.0
+          },
+          "136188": {
+            "attack": -0.2377182571722618,
+            "away_strength": 0.0,
+            "defence": -0.13931055332053907,
+            "effective_matches": 107.7152,
+            "home_strength": 0.0
+          },
+          "138451": {
+            "attack": -0.00959068792822193,
+            "away_strength": 0.0,
+            "defence": -0.22522466445096376,
+            "effective_matches": 32.0,
+            "home_strength": 0.0
+          },
+          "139047": {
+            "attack": -0.2020021601710916,
+            "away_strength": 0.0,
+            "defence": -0.1442899336511169,
+            "effective_matches": 25.92,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4344": {
+        "current_season": "2025/26",
+        "goal_level": 0.13132042796116525,
+        "home_advantage": 0.16563218983729935,
+        "teams": {
+          "134023": {
+            "attack": -0.06310606146159058,
+            "away_strength": 0.0,
+            "defence": -0.17757465443373407,
+            "effective_matches": 68.62805999999999,
+            "home_strength": 0.0
+          },
+          "134098": {
+            "attack": 0.38076894397147093,
+            "away_strength": 0.0,
+            "defence": 0.2333411095062821,
+            "effective_matches": 159.31006,
+            "home_strength": 0.0
+          },
+          "134106": {
+            "attack": 0.21213118077587023,
+            "away_strength": 0.0,
+            "defence": -0.13810623823834411,
+            "effective_matches": 139.2334,
+            "home_strength": 0.0
+          },
+          "134107": {
+            "attack": -0.10986430212214744,
+            "away_strength": 0.0,
+            "defence": -0.12201582039656515,
+            "effective_matches": 137.59315,
+            "home_strength": 0.0
+          },
+          "134108": {
+            "attack": 0.611998340992701,
+            "away_strength": 0.0,
+            "defence": 0.46324573211729436,
+            "effective_matches": 159.31006,
+            "home_strength": 0.0
+          },
+          "134109": {
+            "attack": -0.116680397624503,
+            "away_strength": 0.0,
+            "defence": 0.01663114336576783,
+            "effective_matches": 84.67666,
+            "home_strength": 0.0
+          },
+          "134111": {
+            "attack": -0.1703903934933755,
+            "away_strength": 0.0,
+            "defence": -0.17740724498968816,
+            "effective_matches": 67.17005999999999,
+            "home_strength": 0.0
+          },
+          "134112": {
+            "attack": -0.10801098378258385,
+            "away_strength": 0.0,
+            "defence": -0.017264770207709224,
+            "effective_matches": 135.83625999999998,
+            "home_strength": 0.0
+          },
+          "134113": {
+            "attack": 0.01019193057309185,
+            "away_strength": 0.0,
+            "defence": 0.0913709614727188,
+            "effective_matches": 159.31006,
+            "home_strength": 0.0
+          },
+          "134114": {
+            "attack": 0.383860144941292,
+            "away_strength": 0.0,
+            "defence": 0.5542545982801411,
+            "effective_matches": 159.31006,
+            "home_strength": 0.0
+          },
+          "134115": {
+            "attack": 0.02794039632652235,
+            "away_strength": 0.0,
+            "defence": 0.008654830569686127,
+            "effective_matches": 159.31006,
+            "home_strength": 0.0
+          },
+          "134386": {
+            "attack": -0.191283555648781,
+            "away_strength": 0.0,
+            "defence": -0.09336023899838129,
+            "effective_matches": 42.38406,
+            "home_strength": 0.0
+          },
+          "134387": {
+            "attack": 0.13036015479964108,
+            "away_strength": 0.0,
+            "defence": -0.13619518986595852,
+            "effective_matches": 139.82389,
+            "home_strength": 0.0
+          },
+          "134588": {
+            "attack": -0.2098600495046106,
+            "away_strength": 0.0,
+            "defence": -0.2346402039837822,
+            "effective_matches": 125.31006,
+            "home_strength": 0.0
+          },
+          "135502": {
+            "attack": -0.1734786619489014,
+            "away_strength": 0.0,
+            "defence": -0.15879191877069954,
+            "effective_matches": 76.38406,
+            "home_strength": 0.0
+          },
+          "135674": {
+            "attack": -0.14216290765890224,
+            "away_strength": 0.0,
+            "defence": -0.18183337283441406,
+            "effective_matches": 53.6382,
+            "home_strength": 0.0
+          },
+          "135708": {
+            "attack": 0.7265205428636008,
+            "away_strength": 0.0,
+            "defence": 0.4638462116407268,
+            "effective_matches": 159.31006,
+            "home_strength": 0.0
+          },
+          "136031": {
+            "attack": -0.10643280247350877,
+            "away_strength": 0.0,
+            "defence": -0.25180744591504034,
+            "effective_matches": 96.33005999999999,
+            "home_strength": 0.0
+          },
+          "136192": {
+            "attack": -0.15897485962337488,
+            "away_strength": 0.0,
+            "defence": 0.15385194420094858,
+            "effective_matches": 131.77006,
+            "home_strength": 0.0
+          },
+          "136854": {
+            "attack": 0.030882378547915486,
+            "away_strength": 0.0,
+            "defence": 0.2985491740491716,
+            "effective_matches": 159.31006,
+            "home_strength": 0.0
+          },
+          "138853": {
+            "attack": -0.15986562793497086,
+            "away_strength": 0.0,
+            "defence": -0.0014766876115885914,
+            "effective_matches": 78.21666,
+            "home_strength": 0.0
+          },
+          "138864": {
+            "attack": -0.17906856342767985,
+            "away_strength": 0.0,
+            "defence": -0.017713674336561673,
+            "effective_matches": 118.92599999999999,
+            "home_strength": 0.0
+          },
+          "140008": {
+            "attack": -0.1664340929677006,
+            "away_strength": 0.0,
+            "defence": -0.10686645901270062,
+            "effective_matches": 93.598,
+            "home_strength": 0.0
+          },
+          "140097": {
+            "attack": -0.09326731302376416,
+            "away_strength": 0.0,
+            "defence": -0.24984740565508537,
+            "effective_matches": 76.43339999999999,
+            "home_strength": 0.0
+          },
+          "143704": {
+            "attack": -0.07886145388360875,
+            "away_strength": 0.0,
+            "defence": -0.029586584758033524,
+            "effective_matches": 34.0,
+            "home_strength": 0.0
+          },
+          "143720": {
+            "attack": -0.050154840066198636,
+            "away_strength": 0.0,
+            "defence": -0.0011335920115985733,
+            "effective_matches": 2.0,
+            "home_strength": 0.0
+          },
+          "147479": {
+            "attack": -0.2367571471459038,
+            "away_strength": 0.0,
+            "defence": -0.18812420318285242,
+            "effective_matches": 68.02,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4347": {
+        "current_season": "2025/26",
+        "goal_level": 0.25706983236903896,
+        "home_advantage": 0.1464008950287741,
+        "teams": {
+          "133951": {
+            "attack": -0.183389727802308,
+            "away_strength": 0.0,
+            "defence": -0.10286243943373391,
+            "effective_matches": 22.3074,
+            "home_strength": 0.0
+          },
+          "133984": {
+            "attack": 0.11261070798311515,
+            "away_strength": 0.0,
+            "defence": -0.09128203814081862,
+            "effective_matches": 118.01861000000001,
+            "home_strength": 0.0
+          },
+          "134002": {
+            "attack": -0.043530846148769016,
+            "away_strength": 0.0,
+            "defence": -0.0546211627870969,
+            "effective_matches": 89.47422000000002,
+            "home_strength": 0.0
+          },
+          "134011": {
+            "attack": 0.01330941891756553,
+            "away_strength": 0.0,
+            "defence": 0.20398821723032395,
+            "effective_matches": 118.00132000000002,
+            "home_strength": 0.0
+          },
+          "134160": {
+            "attack": 0.15688974681190332,
+            "away_strength": 0.0,
+            "defence": -0.05849383479603024,
+            "effective_matches": 118.00322000000001,
+            "home_strength": 0.0
+          },
+          "134161": {
+            "attack": -0.005849919950775283,
+            "away_strength": 0.0,
+            "defence": 0.24905810381328664,
+            "effective_matches": 118.17422000000002,
+            "home_strength": 0.0
+          },
+          "134162": {
+            "attack": 0.27911398420771644,
+            "away_strength": 0.0,
+            "defence": 0.2588795881570278,
+            "effective_matches": 118.02032000000003,
+            "home_strength": 0.0
+          },
+          "134164": {
+            "attack": 0.20197048871440576,
+            "away_strength": 0.0,
+            "defence": 0.4970458607712359,
+            "effective_matches": 117.98422000000002,
+            "home_strength": 0.0
+          },
+          "134165": {
+            "attack": -0.06949063589287,
+            "away_strength": 0.0,
+            "defence": -0.17558368777483596,
+            "effective_matches": 120.17422000000002,
+            "home_strength": 0.0
+          },
+          "134166": {
+            "attack": 0.21697389435091505,
+            "away_strength": 0.0,
+            "defence": 0.2800079812402742,
+            "effective_matches": 117.84571000000001,
+            "home_strength": 0.0
+          },
+          "134167": {
+            "attack": -0.3039500262928895,
+            "away_strength": 0.0,
+            "defence": 0.004028532074684627,
+            "effective_matches": 98.41832,
+            "home_strength": 0.0
+          },
+          "134170": {
+            "attack": 0.05217042792056748,
+            "away_strength": 0.0,
+            "defence": -0.0871116541390766,
+            "effective_matches": 79.568,
+            "home_strength": 0.0
+          },
+          "134171": {
+            "attack": -0.12257374871078348,
+            "away_strength": 0.0,
+            "defence": -0.08353046409023027,
+            "effective_matches": 30.158,
+            "home_strength": 0.0
+          },
+          "134482": {
+            "attack": -0.1346764684286308,
+            "away_strength": 0.0,
+            "defence": -0.15671249736063986,
+            "effective_matches": 19.158120000000004,
+            "home_strength": 0.0
+          },
+          "134722": {
+            "attack": -0.01894059918773884,
+            "away_strength": 0.0,
+            "defence": 0.002102453350088281,
+            "effective_matches": 1.8,
+            "home_strength": 0.0
+          },
+          "134724": {
+            "attack": 0.29716131676746343,
+            "away_strength": 0.0,
+            "defence": -0.08295634726257393,
+            "effective_matches": 118.17422000000002,
+            "home_strength": 0.0
+          },
+          "134725": {
+            "attack": 0.06709467961975094,
+            "away_strength": 0.0,
+            "defence": 0.26116756741643427,
+            "effective_matches": 54.62,
+            "home_strength": 0.0
+          },
+          "134726": {
+            "attack": -0.06653217819867702,
+            "away_strength": 0.0,
+            "defence": -0.289375357297577,
+            "effective_matches": 100.8161,
+            "home_strength": 0.0
+          },
+          "134728": {
+            "attack": -0.14059401950801798,
+            "away_strength": 0.0,
+            "defence": -0.09743443530576466,
+            "effective_matches": 92.17322,
+            "home_strength": 0.0
+          },
+          "134729": {
+            "attack": -0.11371300750264252,
+            "away_strength": 0.0,
+            "defence": -0.3522512686574415,
+            "effective_matches": 21.0681,
+            "home_strength": 0.0
+          },
+          "134730": {
+            "attack": -0.15921124694616884,
+            "away_strength": 0.0,
+            "defence": -0.3031286867983258,
+            "effective_matches": 65.01222,
+            "home_strength": 0.0
+          },
+          "134731": {
+            "attack": 0.3379023330468714,
+            "away_strength": 0.0,
+            "defence": 0.3498385099052873,
+            "effective_matches": 117.99322000000002,
+            "home_strength": 0.0
+          },
+          "134732": {
+            "attack": -0.16128913602327075,
+            "away_strength": 0.0,
+            "defence": -0.19695674657081413,
+            "effective_matches": 19.158120000000004,
+            "home_strength": 0.0
+          },
+          "135462": {
+            "attack": -0.051093267867011814,
+            "away_strength": 0.0,
+            "defence": -0.05981872331097225,
+            "effective_matches": 1.62,
+            "home_strength": 0.0
+          },
+          "135668": {
+            "attack": -0.006497531367858683,
+            "away_strength": 0.0,
+            "defence": 0.051337664379331856,
+            "effective_matches": 2.0,
+            "home_strength": 0.0
+          },
+          "136832": {
+            "attack": -0.15386463851186213,
+            "away_strength": 0.0,
+            "defence": 0.03466486538795682,
+            "effective_matches": 25.92,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4358": {
+        "current_season": "2025/26",
+        "goal_level": 0.31927417894217525,
+        "home_advantage": 0.2334213680960222,
+        "teams": {
+          "133958": {
+            "attack": 0.20136849910909027,
+            "away_strength": 0.0,
+            "defence": 0.17804697787029122,
+            "effective_matches": 135.465894,
+            "home_strength": 0.0
+          },
+          "133990": {
+            "attack": 0.1594896996641217,
+            "away_strength": 0.0,
+            "defence": 0.10339565793127882,
+            "effective_matches": 135.455894,
+            "home_strength": 0.0
+          },
+          "133997": {
+            "attack": 0.061849436770215364,
+            "away_strength": 0.0,
+            "defence": 0.2421022400437221,
+            "effective_matches": 118.32400000000001,
+            "home_strength": 0.0
+          },
+          "133998": {
+            "attack": -0.2956389236075361,
+            "away_strength": 0.0,
+            "defence": -0.21745283952944874,
+            "effective_matches": 63.88270400000002,
+            "home_strength": 0.0
+          },
+          "134054": {
+            "attack": -0.2201608618423372,
+            "away_strength": 0.0,
+            "defence": -0.012311139632903784,
+            "effective_matches": 59.98001400000001,
+            "home_strength": 0.0
+          },
+          "134563": {
+            "attack": 0.011552345465628142,
+            "away_strength": 0.0,
+            "defence": -0.02426855271527582,
+            "effective_matches": 0.5904900000000002,
+            "home_strength": 0.0
+          },
+          "134564": {
+            "attack": -0.15537956337219003,
+            "away_strength": 0.0,
+            "defence": -0.2551944720745482,
+            "effective_matches": 135.79521400000004,
+            "home_strength": 0.0
+          },
+          "134566": {
+            "attack": 0.1202015041121856,
+            "away_strength": 0.0,
+            "defence": -0.07821700264120092,
+            "effective_matches": 135.933724,
+            "home_strength": 0.0
+          },
+          "134568": {
+            "attack": -0.1025066089551847,
+            "away_strength": 0.0,
+            "defence": -0.05577568282758672,
+            "effective_matches": 17.478504,
+            "home_strength": 0.0
+          },
+          "134569": {
+            "attack": -0.10624518945926555,
+            "away_strength": 0.0,
+            "defence": -0.18963447390541127,
+            "effective_matches": 89.56332,
+            "home_strength": 0.0
+          },
+          "134570": {
+            "attack": 0.5502607229849444,
+            "away_strength": 0.0,
+            "defence": 0.20190354077263348,
+            "effective_matches": 135.356704,
+            "home_strength": 0.0
+          },
+          "134571": {
+            "attack": 0.24741223962972414,
+            "away_strength": 0.0,
+            "defence": 0.1266880146792711,
+            "effective_matches": 114.86389399999999,
+            "home_strength": 0.0
+          },
+          "134572": {
+            "attack": -0.34326816039817587,
+            "away_strength": 0.0,
+            "defence": -0.3414337138195151,
+            "effective_matches": 137.650824,
+            "home_strength": 0.0
+          },
+          "134573": {
+            "attack": -0.20152174194716896,
+            "away_strength": 0.0,
+            "defence": -0.08044962911389585,
+            "effective_matches": 106.78982400000001,
+            "home_strength": 0.0
+          },
+          "134574": {
+            "attack": 0.08484167486129061,
+            "away_strength": 0.0,
+            "defence": 5.857503368494172e-05,
+            "effective_matches": 111.410604,
+            "home_strength": 0.0
+          },
+          "134749": {
+            "attack": -0.09130197724396534,
+            "away_strength": 0.0,
+            "defence": 0.24168498882157705,
+            "effective_matches": 54.72,
+            "home_strength": 0.0
+          },
+          "134750": {
+            "attack": -0.13989209820474166,
+            "away_strength": 0.0,
+            "defence": -0.10619976706446668,
+            "effective_matches": 30.9,
+            "home_strength": 0.0
+          },
+          "134753": {
+            "attack": -0.030175769710030092,
+            "away_strength": 0.0,
+            "defence": 0.07834292510397466,
+            "effective_matches": 99.2071,
+            "home_strength": 0.0
+          },
+          "134754": {
+            "attack": -0.18889942630777523,
+            "away_strength": 0.0,
+            "defence": -0.1618720294945047,
+            "effective_matches": 113.86930400000001,
+            "home_strength": 0.0
+          },
+          "135497": {
+            "attack": 0.6921058094319592,
+            "away_strength": 0.0,
+            "defence": 0.3500550307907706,
+            "effective_matches": 135.600284,
+            "home_strength": 0.0
+          },
+          "135501": {
+            "attack": -0.16963499065531032,
+            "away_strength": 0.0,
+            "defence": -0.056338304695095494,
+            "effective_matches": 37.29272400000001,
+            "home_strength": 0.0
+          },
+          "135715": {
+            "attack": 0.17733273192725624,
+            "away_strength": 0.0,
+            "defence": 0.09900230488556423,
+            "effective_matches": 137.54562400000003,
+            "home_strength": 0.0
+          },
+          "135719": {
+            "attack": -0.1041722210760206,
+            "away_strength": 0.0,
+            "defence": -0.195525846321277,
+            "effective_matches": 21.7971,
+            "home_strength": 0.0
+          },
+          "135723": {
+            "attack": -0.06916386983142972,
+            "away_strength": 0.0,
+            "defence": 0.16663083216043942,
+            "effective_matches": 54.82,
+            "home_strength": 0.0
+          },
+          "135724": {
+            "attack": -0.016031295979365808,
+            "away_strength": 0.0,
+            "defence": -0.04296620834335422,
+            "effective_matches": 1.4580000000000002,
+            "home_strength": 0.0
+          },
+          "147094": {
+            "attack": -0.07242196536591859,
+            "away_strength": 0.0,
+            "defence": 0.029728574085276984,
+            "effective_matches": 1.8,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4422": {
+        "current_season": "2025/26",
+        "goal_level": 0.1974899835709143,
+        "home_advantage": 0.2263124917550652,
+        "teams": {
+          "133952": {
+            "attack": -0.030656853854389345,
+            "away_strength": 0.0,
+            "defence": 0.0037426379271722167,
+            "effective_matches": 122.94810000000001,
+            "home_strength": 0.0
+          },
+          "133992": {
+            "attack": 0.05774475612355009,
+            "away_strength": 0.0,
+            "defence": 0.20734257515480098,
+            "effective_matches": 156.9481,
+            "home_strength": 0.0
+          },
+          "134010": {
+            "attack": 0.34340399275959194,
+            "away_strength": 0.0,
+            "defence": 0.18382976480272392,
+            "effective_matches": 156.9481,
+            "home_strength": 0.0
+          },
+          "134016": {
+            "attack": -0.011798590347024906,
+            "away_strength": 0.0,
+            "defence": -0.0666325480676698,
+            "effective_matches": 27.540000000000003,
+            "home_strength": 0.0
+          },
+          "134489": {
+            "attack": -0.10758660082569753,
+            "away_strength": 0.0,
+            "defence": 0.14039538960828202,
+            "effective_matches": 116.92599999999999,
+            "home_strength": 0.0
+          },
+          "135294": {
+            "attack": -0.052047612021805585,
+            "away_strength": 0.0,
+            "defence": 0.06369508862121172,
+            "effective_matches": 156.9481,
+            "home_strength": 0.0
+          },
+          "135295": {
+            "attack": -0.12347913794367665,
+            "away_strength": 0.0,
+            "defence": -0.12401280780830858,
+            "effective_matches": 22.3074,
+            "home_strength": 0.0
+          },
+          "135296": {
+            "attack": 0.0754628018721266,
+            "away_strength": 0.0,
+            "defence": 0.20460333219392818,
+            "effective_matches": 156.9481,
+            "home_strength": 0.0
+          },
+          "135297": {
+            "attack": 0.2224320859272275,
+            "away_strength": 0.0,
+            "defence": 0.15334249822842388,
+            "effective_matches": 156.9481,
+            "home_strength": 0.0
+          },
+          "135298": {
+            "attack": -0.09366677884301318,
+            "away_strength": 0.0,
+            "defence": 0.1374563241338815,
+            "effective_matches": 116.92599999999999,
+            "home_strength": 0.0
+          },
+          "135299": {
+            "attack": 0.2054862923419542,
+            "away_strength": 0.0,
+            "defence": -0.2346789195799663,
+            "effective_matches": 129.4081,
+            "home_strength": 0.0
+          },
+          "135300": {
+            "attack": -0.0689104433956181,
+            "away_strength": 0.0,
+            "defence": 0.12535304567959488,
+            "effective_matches": 156.9481,
+            "home_strength": 0.0
+          },
+          "135301": {
+            "attack": -0.048050428920531546,
+            "away_strength": 0.0,
+            "defence": -0.17067859878388192,
+            "effective_matches": 17.7147,
+            "home_strength": 0.0
+          },
+          "135302": {
+            "attack": 0.12631664797032532,
+            "away_strength": 0.0,
+            "defence": 0.09567070313233775,
+            "effective_matches": 156.9481,
+            "home_strength": 0.0
+          },
+          "135303": {
+            "attack": -0.0392111065462103,
+            "away_strength": 0.0,
+            "defence": -0.11720431933870809,
+            "effective_matches": 40.0221,
+            "home_strength": 0.0
+          },
+          "135495": {
+            "attack": -0.03777976146929191,
+            "away_strength": 0.0,
+            "defence": -0.24610444526348957,
+            "effective_matches": 56.3074,
+            "home_strength": 0.0
+          },
+          "135496": {
+            "attack": -0.10714199123281466,
+            "away_strength": 0.0,
+            "defence": 0.17345568471428616,
+            "effective_matches": 156.9481,
+            "home_strength": 0.0
+          },
+          "135659": {
+            "attack": -0.18961177375946003,
+            "away_strength": 0.0,
+            "defence": 0.058103156378953066,
+            "effective_matches": 98.8081,
+            "home_strength": 0.0
+          },
+          "135660": {
+            "attack": -0.12402388800352294,
+            "away_strength": 0.0,
+            "defence": -0.16728966905498116,
+            "effective_matches": 34.0,
+            "home_strength": 0.0
+          },
+          "136190": {
+            "attack": -0.08558344610243018,
+            "away_strength": 0.0,
+            "defence": -0.09917572715090578,
+            "effective_matches": 24.786,
+            "home_strength": 0.0
+          },
+          "137112": {
+            "attack": -0.0621069164430951,
+            "away_strength": 0.0,
+            "defence": -0.3093705482617821,
+            "effective_matches": 27.540000000000003,
+            "home_strength": 0.0
+          },
+          "137670": {
+            "attack": 0.15862878985344414,
+            "away_strength": 0.0,
+            "defence": 0.30981594653014194,
+            "effective_matches": 156.9481,
+            "home_strength": 0.0
+          },
+          "138905": {
+            "attack": -0.06086933863834819,
+            "away_strength": 0.0,
+            "defence": -0.12033862559430052,
+            "effective_matches": 122.94810000000001,
+            "home_strength": 0.0
+          },
+          "138906": {
+            "attack": -0.15109976584676432,
+            "away_strength": 0.0,
+            "defence": 0.08707384354899356,
+            "effective_matches": 92.34810000000002,
+            "home_strength": 0.0
+          },
+          "138913": {
+            "attack": -0.08303800818094756,
+            "away_strength": 0.0,
+            "defence": -0.214999368999917,
+            "effective_matches": 58.13999999999999,
+            "home_strength": 0.0
+          },
+          "138916": {
+            "attack": 0.08726347109199226,
+            "away_strength": 0.0,
+            "defence": -0.08015506841220425,
+            "effective_matches": 139.2334,
+            "home_strength": 0.0
+          },
+          "142467": {
+            "attack": 0.13727907043333967,
+            "away_strength": 0.0,
+            "defence": 0.1047639244878527,
+            "effective_matches": 64.6,
+            "home_strength": 0.0
+          },
+          "147435": {
+            "attack": 0.06264453400109037,
+            "away_strength": 0.0,
+            "defence": -0.09800326882646948,
+            "effective_matches": 64.6,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4621": {
+        "current_season": "2025/26",
+        "goal_level": 0.24102164460751688,
+        "home_advantage": 0.1310152606535155,
+        "teams": {
+          "133970": {
+            "attack": 0.2979555123735427,
+            "away_strength": 0.0,
+            "defence": 0.18654863106343744,
+            "effective_matches": 149.93888,
+            "home_strength": 0.0
+          },
+          "133993": {
+            "attack": -0.14408033226228387,
+            "away_strength": 0.0,
+            "defence": -0.02344401036045232,
+            "effective_matches": 98.21888000000001,
+            "home_strength": 0.0
+          },
+          "134008": {
+            "attack": -0.14818226537687818,
+            "away_strength": 0.0,
+            "defence": -0.07516022836698791,
+            "effective_matches": 39.89088,
+            "home_strength": 0.0
+          },
+          "134021": {
+            "attack": 0.011964496127103475,
+            "away_strength": 0.0,
+            "defence": 0.11658259724148483,
+            "effective_matches": 155.05107999999998,
+            "home_strength": 0.0
+          },
+          "134390": {
+            "attack": 0.10560427476573522,
+            "away_strength": 0.0,
+            "defence": 0.07131420228868682,
+            "effective_matches": 156.05033000000003,
+            "home_strength": 0.0
+          },
+          "134607": {
+            "attack": -0.09159842974286303,
+            "away_strength": 0.0,
+            "defence": -0.15536443299897462,
+            "effective_matches": 20.07666,
+            "home_strength": 0.0
+          },
+          "137252": {
+            "attack": 0.04499022853874491,
+            "away_strength": 0.0,
+            "defence": 0.06010417390021178,
+            "effective_matches": 154.83984,
+            "home_strength": 0.0
+          },
+          "137261": {
+            "attack": 0.3531162870806436,
+            "away_strength": 0.0,
+            "defence": 0.17803470425357143,
+            "effective_matches": 153.29498,
+            "home_strength": 0.0
+          },
+          "137742": {
+            "attack": -0.24383213222826805,
+            "away_strength": 0.0,
+            "defence": 0.04299248907729158,
+            "effective_matches": 149.93888,
+            "home_strength": 0.0
+          },
+          "137743": {
+            "attack": 0.29590459669893854,
+            "away_strength": 0.0,
+            "defence": 0.2713014373023709,
+            "effective_matches": 149.93888,
+            "home_strength": 0.0
+          },
+          "137805": {
+            "attack": -0.005143133933143494,
+            "away_strength": 0.0,
+            "defence": 0.10369142318114966,
+            "effective_matches": 153.04937,
+            "home_strength": 0.0
+          },
+          "137807": {
+            "attack": -0.10781081228398184,
+            "away_strength": 0.0,
+            "defence": -0.18682006899727166,
+            "effective_matches": 151.90718000000004,
+            "home_strength": 0.0
+          },
+          "139411": {
+            "attack": -0.10634966622823566,
+            "away_strength": 0.0,
+            "defence": -0.37806220247191635,
+            "effective_matches": 99.49518,
+            "home_strength": 0.0
+          },
+          "139412": {
+            "attack": -0.07570046327522206,
+            "away_strength": 0.0,
+            "defence": -0.04461577916875085,
+            "effective_matches": 86.72,
+            "home_strength": 0.0
+          },
+          "139415": {
+            "attack": -0.013742575881082526,
+            "away_strength": 0.0,
+            "defence": 0.005246154250055278,
+            "effective_matches": 60.8,
+            "home_strength": 0.0
+          },
+          "139425": {
+            "attack": -0.17309558437274963,
+            "away_strength": 0.0,
+            "defence": -0.17234909019390604,
+            "effective_matches": 51.435,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4630": {
+        "current_season": "2025/26",
+        "goal_level": 0.22531067080603642,
+        "home_advantage": 0.16486281461703675,
+        "teams": {
+          "133986": {
+            "attack": 0.7739693943259656,
+            "away_strength": 0.0,
+            "defence": 0.5389927346686415,
+            "effective_matches": 166.05684000000002,
+            "home_strength": 0.0
+          },
+          "133994": {
+            "attack": -0.016030352145505668,
+            "away_strength": 0.0,
+            "defence": 0.17020543648707856,
+            "effective_matches": 163.27284000000003,
+            "home_strength": 0.0
+          },
+          "133999": {
+            "attack": 0.22278835523047485,
+            "away_strength": 0.0,
+            "defence": 0.29512246675269094,
+            "effective_matches": 168.4188,
+            "home_strength": 0.0
+          },
+          "134407": {
+            "attack": 0.2036051771453361,
+            "away_strength": 0.0,
+            "defence": 0.3244166037079321,
+            "effective_matches": 168.56784000000002,
+            "home_strength": 0.0
+          },
+          "134628": {
+            "attack": -0.04154736852497449,
+            "away_strength": 0.0,
+            "defence": -0.1163434254874351,
+            "effective_matches": 23.619600000000002,
+            "home_strength": 0.0
+          },
+          "136251": {
+            "attack": 0.3758723996197099,
+            "away_strength": 0.0,
+            "defence": 0.5082642819218165,
+            "effective_matches": 166.05684000000002,
+            "home_strength": 0.0
+          },
+          "137922": {
+            "attack": -0.023659100221248654,
+            "away_strength": 0.0,
+            "defence": -0.025815761046461667,
+            "effective_matches": 165.78384,
+            "home_strength": 0.0
+          },
+          "137923": {
+            "attack": -0.2689707090912354,
+            "away_strength": 0.0,
+            "defence": -0.19584377551784857,
+            "effective_matches": 106.17479999999999,
+            "home_strength": 0.0
+          },
+          "137924": {
+            "attack": -0.5046457469061539,
+            "away_strength": 0.0,
+            "defence": -0.3976141936090792,
+            "effective_matches": 115.4796,
+            "home_strength": 0.0
+          },
+          "137925": {
+            "attack": -0.07550203039527655,
+            "away_strength": 0.0,
+            "defence": -0.12853071439396557,
+            "effective_matches": 139.71480000000003,
+            "home_strength": 0.0
+          },
+          "137926": {
+            "attack": -0.1542099334374425,
+            "away_strength": 0.0,
+            "defence": -0.2000330061583042,
+            "effective_matches": 114.87960000000001,
+            "home_strength": 0.0
+          },
+          "137927": {
+            "attack": -0.22353660394122088,
+            "away_strength": 0.0,
+            "defence": 0.023152714710634743,
+            "effective_matches": 104.41284000000002,
+            "home_strength": 0.0
+          },
+          "137928": {
+            "attack": 0.457264689236026,
+            "away_strength": 0.0,
+            "defence": 0.4595871604706892,
+            "effective_matches": 168.4188,
+            "home_strength": 0.0
+          },
+          "140064": {
+            "attack": -0.16191077911426927,
+            "away_strength": 0.0,
+            "defence": -0.15328363700679562,
+            "effective_matches": 114.87960000000001,
+            "home_strength": 0.0
+          },
+          "141089": {
+            "attack": -0.17443851980402392,
+            "away_strength": 0.0,
+            "defence": -0.4794348033391852,
+            "effective_matches": 32.4,
+            "home_strength": 0.0
+          },
+          "141091": {
+            "attack": -0.16990469955488613,
+            "away_strength": 0.0,
+            "defence": -0.2295362539296548,
+            "effective_matches": 62.16,
+            "home_strength": 0.0
+          },
+          "141094": {
+            "attack": 0.38572606635471773,
+            "away_strength": 0.0,
+            "defence": 0.25340426270964755,
+            "effective_matches": 144.79919999999998,
+            "home_strength": 0.0
+          },
+          "141098": {
+            "attack": -0.07249140548040674,
+            "away_strength": 0.0,
+            "defence": 0.025845712675436467,
+            "effective_matches": 33.0,
+            "home_strength": 0.0
+          },
+          "141101": {
+            "attack": -0.16453421455680453,
+            "away_strength": 0.0,
+            "defence": 0.02730505181865163,
+            "effective_matches": 62.7,
+            "home_strength": 0.0
+          },
+          "141104": {
+            "attack": -0.019310239771029063,
+            "away_strength": 0.0,
+            "defence": -0.24388823148747338,
+            "effective_matches": 32.4,
+            "home_strength": 0.0
+          },
+          "141105": {
+            "attack": -0.10533558669816157,
+            "away_strength": 0.0,
+            "defence": -0.21177346414159962,
+            "effective_matches": 20.995200000000004,
+            "home_strength": 0.0
+          },
+          "143789": {
+            "attack": -0.24319879226959074,
+            "away_strength": 0.0,
+            "defence": -0.24419915980541648,
+            "effective_matches": 29.7,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4631": {
+        "current_season": "2025/26",
+        "goal_level": 0.20000057628626525,
+        "home_advantage": 0.15028012651642658,
+        "teams": {
+          "133954": {
+            "attack": 0.027333185741480238,
+            "away_strength": 0.0,
+            "defence": 0.200383078479904,
+            "effective_matches": 129.65786000000003,
+            "home_strength": 0.0
+          },
+          "134000": {
+            "attack": 0.06572257207412177,
+            "away_strength": 0.0,
+            "defence": -0.06096485033755718,
+            "effective_matches": 132.21206,
+            "home_strength": 0.0
+          },
+          "134007": {
+            "attack": 0.45109071114954075,
+            "away_strength": 0.0,
+            "defence": 0.2854256007099619,
+            "effective_matches": 135.05516,
+            "home_strength": 0.0
+          },
+          "134015": {
+            "attack": 0.35501921271311626,
+            "away_strength": 0.0,
+            "defence": 0.2763675699469669,
+            "effective_matches": 135.05516,
+            "home_strength": 0.0
+          },
+          "134395": {
+            "attack": 0.10715370751700554,
+            "away_strength": 0.0,
+            "defence": 0.035114078771195927,
+            "effective_matches": 135.64565,
+            "home_strength": 0.0
+          },
+          "136036": {
+            "attack": 0.5574507037458576,
+            "away_strength": 0.0,
+            "defence": 0.46832242600707424,
+            "effective_matches": 135.05516,
+            "home_strength": 0.0
+          },
+          "136677": {
+            "attack": 0.10481443512323523,
+            "away_strength": 0.0,
+            "defence": 0.07933995584931298,
+            "effective_matches": 133.39906000000002,
+            "home_strength": 0.0
+          },
+          "136678": {
+            "attack": -0.14991225975875908,
+            "away_strength": 0.0,
+            "defence": -0.14098964280488324,
+            "effective_matches": 21.534660000000002,
+            "home_strength": 0.0
+          },
+          "136679": {
+            "attack": 0.04543649428948479,
+            "away_strength": 0.0,
+            "defence": -0.2879920047827216,
+            "effective_matches": 105.84016,
+            "home_strength": 0.0
+          },
+          "136680": {
+            "attack": -0.06574321769605285,
+            "away_strength": 0.0,
+            "defence": 0.11980722374335363,
+            "effective_matches": 136.36736000000002,
+            "home_strength": 0.0
+          },
+          "136681": {
+            "attack": -0.15233549310689332,
+            "away_strength": 0.0,
+            "defence": 0.08661054076458659,
+            "effective_matches": 132.46736,
+            "home_strength": 0.0
+          },
+          "136682": {
+            "attack": -0.3570651104339596,
+            "away_strength": 0.0,
+            "defence": -0.0679637055598835,
+            "effective_matches": 68.30000000000001,
+            "home_strength": 0.0
+          },
+          "136684": {
+            "attack": 0.0610326650599371,
+            "away_strength": 0.0,
+            "defence": 0.09942528430004767,
+            "effective_matches": 137.05516,
+            "home_strength": 0.0
+          },
+          "136685": {
+            "attack": -0.16019784843392135,
+            "away_strength": 0.0,
+            "defence": -0.05217067614059159,
+            "effective_matches": 137.64565,
+            "home_strength": 0.0
+          },
+          "137808": {
+            "attack": -0.3629779397678714,
+            "away_strength": 0.0,
+            "defence": -0.4208475721511912,
+            "effective_matches": 95.89986,
+            "home_strength": 0.0
+          },
+          "137809": {
+            "attack": -0.17323970807188285,
+            "away_strength": 0.0,
+            "defence": -0.2209976893811894,
+            "effective_matches": 21.388860000000005,
+            "home_strength": 0.0
+          },
+          "137810": {
+            "attack": -0.03936260608393068,
+            "away_strength": 0.0,
+            "defence": -0.19214472620231074,
+            "effective_matches": 105.01316,
+            "home_strength": 0.0
+          },
+          "140093": {
+            "attack": -0.10024139299285947,
+            "away_strength": 0.0,
+            "defence": -0.06275366430256117,
+            "effective_matches": 135.31315999999998,
+            "home_strength": 0.0
+          },
+          "140094": {
+            "attack": -0.12469928237963651,
+            "away_strength": 0.0,
+            "defence": -0.14315443875681483,
+            "effective_matches": 45.59166000000001,
+            "home_strength": 0.0
+          },
+          "141108": {
+            "attack": -0.03228621494582309,
+            "away_strength": 0.0,
+            "defence": -0.004140839471703501,
+            "effective_matches": 1.8,
+            "home_strength": 0.0
+          },
+          "141109": {
+            "attack": 0.08887457212484465,
+            "away_strength": 0.0,
+            "defence": 0.230706962238517,
+            "effective_matches": 113.3495,
+            "home_strength": 0.0
+          },
+          "141110": {
+            "attack": -0.041220445125264404,
+            "away_strength": 0.0,
+            "defence": -0.09223094091488328,
+            "effective_matches": 2.0,
+            "home_strength": 0.0
+          },
+          "141113": {
+            "attack": -0.053442056847086715,
+            "away_strength": 0.0,
+            "defence": -0.10365708462539647,
+            "effective_matches": 2.0,
+            "home_strength": 0.0
+          },
+          "141118": {
+            "attack": 0.0009664183368555779,
+            "away_strength": 0.0,
+            "defence": -0.052542414588809205,
+            "effective_matches": 1.3122000000000003,
+            "home_strength": 0.0
+          },
+          "141794": {
+            "attack": -0.052171102231538154,
+            "away_strength": 0.0,
+            "defence": 0.02104752920957616,
+            "effective_matches": 3.258,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4644": {
+        "current_season": "2025/26",
+        "goal_level": 0.24333392349005345,
+        "home_advantage": 0.09936540486741768,
+        "teams": {
+          "133950": {
+            "attack": 0.004661746347911706,
+            "away_strength": 0.0,
+            "defence": -0.1568741078380732,
+            "effective_matches": 129.66594000000003,
+            "home_strength": 0.0
+          },
+          "134009": {
+            "attack": -0.10100332794488043,
+            "away_strength": 0.0,
+            "defence": -0.05406828650262009,
+            "effective_matches": 19.48617,
+            "home_strength": 0.0
+          },
+          "134087": {
+            "attack": 0.22182894052847965,
+            "away_strength": 0.0,
+            "defence": -0.19469917554662644,
+            "effective_matches": 134.74977,
+            "home_strength": 0.0
+          },
+          "134124": {
+            "attack": 0.0586810563362745,
+            "away_strength": 0.0,
+            "defence": 0.2767691338073863,
+            "effective_matches": 102.16277000000001,
+            "home_strength": 0.0
+          },
+          "134315": {
+            "attack": 0.5055114082921309,
+            "away_strength": 0.0,
+            "defence": 0.21280076863263575,
+            "effective_matches": 138.52124,
+            "home_strength": 0.0
+          },
+          "134400": {
+            "attack": 0.3831329381169397,
+            "away_strength": 0.0,
+            "defence": 0.11781328776753451,
+            "effective_matches": 139.52124,
+            "home_strength": 0.0
+          },
+          "134799": {
+            "attack": 0.4891010589746877,
+            "away_strength": 0.0,
+            "defence": 0.38427295653984983,
+            "effective_matches": 139.52124,
+            "home_strength": 0.0
+          },
+          "135991": {
+            "attack": -0.09951568508789832,
+            "away_strength": 0.0,
+            "defence": -0.20082293374685412,
+            "effective_matches": 131.85294,
+            "home_strength": 0.0
+          },
+          "135992": {
+            "attack": 0.41781723901532974,
+            "away_strength": 0.0,
+            "defence": 0.20225928252919048,
+            "effective_matches": 133.59447,
+            "home_strength": 0.0
+          },
+          "135994": {
+            "attack": -0.402401630009378,
+            "away_strength": 0.0,
+            "defence": -0.02805229446289901,
+            "effective_matches": 129.86277,
+            "home_strength": 0.0
+          },
+          "135995": {
+            "attack": -0.05714484821166893,
+            "away_strength": 0.0,
+            "defence": 0.03015736491512267,
+            "effective_matches": 130.59447,
+            "home_strength": 0.0
+          },
+          "135996": {
+            "attack": -0.12058328824381169,
+            "away_strength": 0.0,
+            "defence": -0.09596136637226355,
+            "effective_matches": 19.48617,
+            "home_strength": 0.0
+          },
+          "135998": {
+            "attack": -0.18622510283999458,
+            "away_strength": 0.0,
+            "defence": -0.042618176713639204,
+            "effective_matches": 72.60894,
+            "home_strength": 0.0
+          },
+          "136198": {
+            "attack": -0.17423651406907695,
+            "away_strength": 0.0,
+            "defence": -0.198432210246832,
+            "effective_matches": 94.89447000000001,
+            "home_strength": 0.0
+          },
+          "137913": {
+            "attack": -0.12050237179939476,
+            "away_strength": 0.0,
+            "defence": -0.10544742991081787,
+            "effective_matches": 24.057000000000002,
+            "home_strength": 0.0
+          },
+          "141235": {
+            "attack": -0.2826826558822544,
+            "away_strength": 0.0,
+            "defence": 0.14284310431823086,
+            "effective_matches": 110.59530000000001,
+            "home_strength": 0.0
+          },
+          "141237": {
+            "attack": -0.1632663607451347,
+            "away_strength": 0.0,
+            "defence": -0.07836379834309361,
+            "effective_matches": 21.651300000000003,
+            "home_strength": 0.0
+          },
+          "141238": {
+            "attack": 0.007027232194457689,
+            "away_strength": 0.0,
+            "defence": 0.0351464559825761,
+            "effective_matches": 36.0,
+            "home_strength": 0.0
+          },
+          "141801": {
+            "attack": -0.333188461997228,
+            "away_strength": 0.0,
+            "defence": -0.21857221446458674,
+            "effective_matches": 86.757,
+            "home_strength": 0.0
+          },
+          "146401": {
+            "attack": -0.047011372975490844,
+            "away_strength": 0.0,
+            "defence": -0.0281503603442207,
+            "effective_matches": 62.7,
+            "home_strength": 0.0
+          }
+        }
+      },
+      "4675": {
+        "current_season": "2025/26",
+        "goal_level": 0.3403742524816487,
+        "home_advantage": 0.19712188477718162,
+        "teams": {
+          "133957": {
+            "attack": 0.039931669185098446,
+            "away_strength": 0.0,
+            "defence": 0.03101920877325791,
+            "effective_matches": 143.32124,
+            "home_strength": 0.0
+          },
+          "133991": {
+            "attack": 0.19360359022198093,
+            "away_strength": 0.0,
+            "defence": 0.04519817623379743,
+            "effective_matches": 143.32124,
+            "home_strength": 0.0
+          },
+          "134001": {
+            "attack": 0.3458176747021901,
+            "away_strength": 0.0,
+            "defence": -0.0017984148305721153,
+            "effective_matches": 143.32124,
+            "home_strength": 0.0
+          },
+          "134123": {
+            "attack": 0.22304302433168993,
+            "away_strength": 0.0,
+            "defence": -0.05463345682298401,
+            "effective_matches": 144.63344,
+            "home_strength": 0.0
+          },
+          "134320": {
+            "attack": -0.14344327125985995,
+            "away_strength": 0.0,
+            "defence": -0.016879411971891113,
+            "effective_matches": 21.257640000000002,
+            "home_strength": 0.0
+          },
+          "134391": {
+            "attack": -0.20082601341990652,
+            "away_strength": 0.0,
+            "defence": -0.09427603700602222,
+            "effective_matches": 125.8636,
+            "home_strength": 0.0
+          },
+          "134394": {
+            "attack": 0.22408696815438284,
+            "away_strength": 0.0,
+            "defence": 0.0493574346170651,
+            "effective_matches": 39.18098,
+            "home_strength": 0.0
+          },
+          "134396": {
+            "attack": -0.17701207442054848,
+            "away_strength": 0.0,
+            "defence": -0.11185879796421494,
+            "effective_matches": 143.32124,
+            "home_strength": 0.0
+          },
+          "134406": {
+            "attack": 0.1179050545156777,
+            "away_strength": 0.0,
+            "defence": 0.1913363473816509,
+            "effective_matches": 143.32124,
+            "home_strength": 0.0
+          },
+          "135947": {
+            "attack": 0.03456802027584812,
+            "away_strength": 0.0,
+            "defence": 0.28522292697467894,
+            "effective_matches": 145.96022,
+            "home_strength": 0.0
+          },
+          "136037": {
+            "attack": 0.0027995507931901317,
+            "away_strength": 0.0,
+            "defence": 0.30835997104682406,
+            "effective_matches": 143.32124,
+            "home_strength": 0.0
+          },
+          "138984": {
+            "attack": -0.2483247041094468,
+            "away_strength": 0.0,
+            "defence": -0.38859278252538143,
+            "effective_matches": 98.44399999999999,
+            "home_strength": 0.0
+          },
+          "138985": {
+            "attack": -0.09314748620642152,
+            "away_strength": 0.0,
+            "defence": 0.0019075892730559493,
+            "effective_matches": 3.8,
+            "home_strength": 0.0
+          },
+          "138986": {
+            "attack": 0.014261246944729864,
+            "away_strength": 0.0,
+            "defence": 0.021309669722121456,
+            "effective_matches": 1.4580000000000002,
+            "home_strength": 0.0
+          },
+          "138989": {
+            "attack": -0.017160309505594454,
+            "away_strength": 0.0,
+            "defence": -0.008231503941192445,
+            "effective_matches": 1.3122000000000003,
+            "home_strength": 0.0
+          },
+          "138990": {
+            "attack": -0.13251557104142767,
+            "away_strength": 0.0,
+            "defence": -0.110360155926731,
+            "effective_matches": 117.07724000000002,
+            "home_strength": 0.0
+          },
+          "141840": {
+            "attack": -0.18358736916158275,
+            "away_strength": 0.0,
+            "defence": -0.14708076303346246,
+            "effective_matches": 34.2,
+            "home_strength": 0.0
+          }
+        }
+      }
+    },
+    "schema_version": "1.0"
+  },
+  "identity_bridge_sha256": "a6a56274be0e76e1d1d7c2ec72a3d4ce8e4747d8975403c11467295fd666ccfa",
+  "identity_map": {
+    "AO-UEFA-1652": {
+      "league_id": "4328",
+      "source_team_id": "133616"
+    },
+    "AO-UEFA-2600277": {
+      "league_id": "4422",
+      "source_team_id": "135297"
+    },
+    "AO-UEFA-2600288": {
+      "league_id": "4339",
+      "source_team_id": "134589"
+    },
+    "AO-UEFA-2600293": {
+      "league_id": "4336",
+      "source_team_id": "133752"
+    },
+    "AO-UEFA-2600431": {
+      "league_id": "4331",
+      "source_team_id": "133657"
+    },
+    "AO-UEFA-2600545": {
+      "league_id": "4422",
+      "source_team_id": "135300"
+    },
+    "AO-UEFA-2601074": {
+      "league_id": "4621",
+      "source_team_id": "137805"
+    },
+    "AO-UEFA-2601105": {
+      "league_id": "4328",
+      "source_team_id": "133619"
+    },
+    "AO-UEFA-2601306": {
+      "league_id": "4334",
+      "source_team_id": "133704"
+    },
+    "AO-UEFA-2602798": {
+      "league_id": "4335",
+      "source_team_id": "134700"
+    },
+    "AO-UEFA-2602893": {
+      "league_id": "4335",
+      "source_team_id": "133721"
+    },
+    "AO-UEFA-2602955": {
+      "league_id": "4344",
+      "source_team_id": "134387"
+    },
+    "AO-UEFA-2603791": {
+      "league_id": "4331",
+      "source_team_id": "134696"
+    },
+    "AO-UEFA-2603990": {
+      "league_id": "4621",
+      "source_team_id": "137252"
+    },
+    "AO-UEFA-2604478": {
+      "league_id": "4339",
+      "source_team_id": "138982"
+    },
+    "AO-UEFA-2604486": {
+      "league_id": "4358",
+      "source_team_id": "134566"
+    },
+    "AO-UEFA-2607117": {
+      "league_id": "4339",
+      "source_team_id": "135676"
+    },
+    "AO-UEFA-2609532": {
+      "league_id": "4630",
+      "source_team_id": "137928"
+    },
+    "AO-UEFA-4251": {
+      "league_id": "4675",
+      "source_team_id": "138990"
+    },
+    "AO-UEFA-4608": {
+      "league_id": "4338",
+      "source_team_id": "133781"
+    },
+    "AO-UEFA-50008": {
+      "league_id": "4675",
+      "source_team_id": "133991"
+    },
+    "AO-UEFA-50018": {
+      "league_id": "4331",
+      "source_team_id": "133654"
+    },
+    "AO-UEFA-50019": {
+      "league_id": "4340",
+      "source_team_id": "133899"
+    },
+    "AO-UEFA-50021": {
+      "league_id": "4340",
+      "source_team_id": "133893"
+    },
+    "AO-UEFA-50022": {
+      "league_id": "4334",
+      "source_team_id": "133717"
+    },
+    "AO-UEFA-50023": {
+      "league_id": "4334",
+      "source_team_id": "133823"
+    },
+    "AO-UEFA-50029": {
+      "league_id": "4332",
+      "source_team_id": "133687"
+    },
+    "AO-UEFA-50030": {
+      "league_id": "4621",
+      "source_team_id": "133970"
+    },
+    "AO-UEFA-50031": {
+      "league_id": "4675",
+      "source_team_id": "134001"
+    },
+    "AO-UEFA-50043": {
+      "league_id": "4338",
+      "source_team_id": "133789"
+    },
+    "AO-UEFA-50051": {
+      "league_id": "4335",
+      "source_team_id": "133738"
+    },
+    "AO-UEFA-50058": {
+      "league_id": "4332",
+      "source_team_id": "133667"
+    },
+    "AO-UEFA-50062": {
+      "league_id": "4337",
+      "source_team_id": "133768"
+    },
+    "AO-UEFA-50063": {
+      "league_id": "4422",
+      "source_team_id": "135296"
+    },
+    "AO-UEFA-50064": {
+      "league_id": "4344",
+      "source_team_id": "134114"
+    },
+    "AO-UEFA-50067": {
+      "league_id": "4339",
+      "source_team_id": "133804"
+    },
+    "AO-UEFA-50074": {
+      "league_id": "4338",
+      "source_team_id": "133776"
+    },
+    "AO-UEFA-50077": {
+      "league_id": "4630",
+      "source_team_id": "133986"
+    },
+    "AO-UEFA-50080": {
+      "league_id": "4335",
+      "source_team_id": "133739"
+    },
+    "AO-UEFA-50084": {
+      "league_id": "4336",
+      "source_team_id": "133746"
+    },
+    "AO-UEFA-50099": {
+      "league_id": "4347",
+      "source_team_id": "134165"
+    },
+    "AO-UEFA-50107": {
+      "league_id": "4331",
+      "source_team_id": "133660"
+    },
+    "AO-UEFA-50109": {
+      "league_id": "4331",
+      "source_team_id": "133666"
+    },
+    "AO-UEFA-50111": {
+      "league_id": "4621",
+      "source_team_id": "137743"
+    },
+    "AO-UEFA-50113": {
+      "league_id": "4338",
+      "source_team_id": "134245"
+    },
+    "AO-UEFA-50118": {
+      "league_id": "4630",
+      "source_team_id": "133999"
+    },
+    "AO-UEFA-50127": {
+      "league_id": "4334",
+      "source_team_id": "133716"
+    },
+    "AO-UEFA-50130": {
+      "league_id": "4336",
+      "source_team_id": "133749"
+    },
+    "AO-UEFA-50136": {
+      "league_id": "4332",
+      "source_team_id": "133670"
+    },
+    "AO-UEFA-50137": {
+      "league_id": "4332",
+      "source_team_id": "133682"
+    },
+    "AO-UEFA-50138": {
+      "league_id": "4332",
+      "source_team_id": "133681"
+    },
+    "AO-UEFA-50139": {
+      "league_id": "4332",
+      "source_team_id": "133676"
+    },
+    "AO-UEFA-50142": {
+      "league_id": "4358",
+      "source_team_id": "133958"
+    },
+    "AO-UEFA-50143": {
+      "league_id": "4337",
+      "source_team_id": "133772"
+    },
+    "AO-UEFA-50146": {
+      "league_id": "4422",
+      "source_team_id": "133992"
+    },
+    "AO-UEFA-50147": {
+      "league_id": "4344",
+      "source_team_id": "134108"
+    },
+    "AO-UEFA-50149": {
+      "league_id": "4344",
+      "source_team_id": "135708"
+    },
+    "AO-UEFA-50152": {
+      "league_id": "4347",
+      "source_team_id": "134166"
+    },
+    "AO-UEFA-50157": {
+      "league_id": "4339",
+      "source_team_id": "133794"
+    },
+    "AO-UEFA-51150": {
+      "league_id": "4675",
+      "source_team_id": "134396"
+    },
+    "AO-UEFA-51151": {
+      "league_id": "4675",
+      "source_team_id": "134406"
+    },
+    "AO-UEFA-51886": {
+      "league_id": "4631",
+      "source_team_id": "136684"
+    },
+    "AO-UEFA-52268": {
+      "league_id": "4335",
+      "source_team_id": "133725"
+    },
+    "AO-UEFA-52277": {
+      "league_id": "4334",
+      "source_team_id": "133822"
+    },
+    "AO-UEFA-52280": {
+      "league_id": "4328",
+      "source_team_id": "133604"
+    },
+    "AO-UEFA-52318": {
+      "league_id": "4358",
+      "source_team_id": "134574"
+    },
+    "AO-UEFA-52319": {
+      "league_id": "4358",
+      "source_team_id": "134570"
+    },
+    "AO-UEFA-52323": {
+      "league_id": "4337",
+      "source_team_id": "133764"
+    },
+    "AO-UEFA-52327": {
+      "league_id": "4337",
+      "source_team_id": "133767"
+    },
+    "AO-UEFA-52336": {
+      "league_id": "4344",
+      "source_team_id": "134098"
+    },
+    "AO-UEFA-52341": {
+      "league_id": "4347",
+      "source_team_id": "134011"
+    },
+    "AO-UEFA-52343": {
+      "league_id": "4347",
+      "source_team_id": "134731"
+    },
+    "AO-UEFA-52344": {
+      "league_id": "4347",
+      "source_team_id": "133984"
+    },
+    "AO-UEFA-52355": {
+      "league_id": "4334",
+      "source_team_id": "133712"
+    },
+    "AO-UEFA-52651": {
+      "league_id": "4422",
+      "source_team_id": "135303"
+    },
+    "AO-UEFA-52652": {
+      "league_id": "4422",
+      "source_team_id": "135302"
+    },
+    "AO-UEFA-52655": {
+      "league_id": "4422",
+      "source_team_id": "133952"
+    },
+    "AO-UEFA-52681": {
+      "league_id": "4328",
+      "source_team_id": "133720"
+    },
+    "AO-UEFA-52682": {
+      "league_id": "4328",
+      "source_team_id": "133612"
+    },
+    "AO-UEFA-52683": {
+      "league_id": "4328",
+      "source_team_id": "133601"
+    },
+    "AO-UEFA-52692": {
+      "league_id": "4339",
+      "source_team_id": "133807"
+    },
+    "AO-UEFA-52693": {
+      "league_id": "4334",
+      "source_team_id": "133861"
+    },
+    "AO-UEFA-52709": {
+      "league_id": "4340",
+      "source_team_id": "133898"
+    },
+    "AO-UEFA-52714": {
+      "league_id": "4335",
+      "source_team_id": "133735"
+    },
+    "AO-UEFA-52731": {
+      "league_id": "4339",
+      "source_team_id": "133796"
+    },
+    "AO-UEFA-52741": {
+      "league_id": "4630",
+      "source_team_id": "134407"
+    },
+    "AO-UEFA-52747": {
+      "league_id": "4334",
+      "source_team_id": "135465"
+    },
+    "AO-UEFA-52748": {
+      "league_id": "4334",
+      "source_team_id": "133707"
+    },
+    "AO-UEFA-52749": {
+      "league_id": "4337",
+      "source_team_id": "133758"
+    },
+    "AO-UEFA-52763": {
+      "league_id": "4422",
+      "source_team_id": "135299"
+    },
+    "AO-UEFA-52770": {
+      "league_id": "4358",
+      "source_team_id": "134571"
+    },
+    "AO-UEFA-52800": {
+      "league_id": "4630",
+      "source_team_id": "137922"
+    },
+    "AO-UEFA-52806": {
+      "league_id": "4358",
+      "source_team_id": "133990"
+    },
+    "AO-UEFA-52809": {
+      "league_id": "4347",
+      "source_team_id": "134162"
+    },
+    "AO-UEFA-52816": {
+      "league_id": "4332",
+      "source_team_id": "134782"
+    },
+    "AO-UEFA-52817": {
+      "league_id": "4332",
+      "source_team_id": "133674"
+    },
+    "AO-UEFA-52818": {
+      "league_id": "4337",
+      "source_team_id": "133774"
+    },
+    "AO-UEFA-52884": {
+      "league_id": "4338",
+      "source_team_id": "133782"
+    },
+    "AO-UEFA-52886": {
+      "league_id": "4338",
+      "source_team_id": "133826"
+    },
+    "AO-UEFA-52897": {
+      "league_id": "4630",
+      "source_team_id": "133994"
+    },
+    "AO-UEFA-52905": {
+      "league_id": "4631",
+      "source_team_id": "136677"
+    },
+    "AO-UEFA-52912": {
+      "league_id": "4340",
+      "source_team_id": "133892"
+    },
+    "AO-UEFA-52914": {
+      "league_id": "4328",
+      "source_team_id": "133610"
+    },
+    "AO-UEFA-52916": {
+      "league_id": "4328",
+      "source_team_id": "133632"
+    },
+    "AO-UEFA-52919": {
+      "league_id": "4328",
+      "source_team_id": "133613"
+    },
+    "AO-UEFA-52934": {
+      "league_id": "4334",
+      "source_team_id": "133703"
+    },
+    "AO-UEFA-52969": {
+      "league_id": "4332",
+      "source_team_id": "134781"
+    },
+    "AO-UEFA-52973": {
+      "league_id": "4332",
+      "source_team_id": "133668"
+    },
+    "AO-UEFA-52985": {
+      "league_id": "4337",
+      "source_team_id": "133770"
+    },
+    "AO-UEFA-52987": {
+      "league_id": "4337",
+      "source_team_id": "133827"
+    },
+    "AO-UEFA-53042": {
+      "league_id": "4335",
+      "source_team_id": "133730"
+    },
+    "AO-UEFA-53060": {
+      "league_id": "4339",
+      "source_team_id": "133797"
+    },
+    "AO-UEFA-5312": {
+      "league_id": "4334",
+      "source_team_id": "133713"
+    },
+    "AO-UEFA-53354": {
+      "league_id": "4328",
+      "source_team_id": "133623"
+    },
+    "AO-UEFA-53357": {
+      "league_id": "4328",
+      "source_team_id": "133599"
+    },
+    "AO-UEFA-53358": {
+      "league_id": "4328",
+      "source_team_id": "133636"
+    },
+    "AO-UEFA-53577": {
+      "league_id": "4328",
+      "source_team_id": "133626"
+    },
+    "AO-UEFA-54187": {
+      "league_id": "4347",
+      "source_team_id": "134002"
+    },
+    "AO-UEFA-54189": {
+      "league_id": "4335",
+      "source_team_id": "133734"
+    },
+    "AO-UEFA-54191": {
+      "league_id": "4630",
+      "source_team_id": "136251"
+    },
+    "AO-UEFA-55031": {
+      "league_id": "4334",
+      "source_team_id": "133719"
+    },
+    "AO-UEFA-57388": {
+      "league_id": "4331",
+      "source_team_id": "133661"
+    },
+    "AO-UEFA-57477": {
+      "league_id": "4644",
+      "source_team_id": "134315"
+    },
+    "AO-UEFA-59034": {
+      "league_id": "4644",
+      "source_team_id": "135992"
+    },
+    "AO-UEFA-59045": {
+      "league_id": "4644",
+      "source_team_id": "134400"
+    },
+    "AO-UEFA-59324": {
+      "league_id": "4328",
+      "source_team_id": "134777"
+    },
+    "AO-UEFA-59340": {
+      "league_id": "4644",
+      "source_team_id": "134799"
+    },
+    "AO-UEFA-59856": {
+      "league_id": "4675",
+      "source_team_id": "133957"
+    },
+    "AO-UEFA-59857": {
+      "league_id": "4334",
+      "source_team_id": "133882"
+    },
+    "AO-UEFA-59880": {
+      "league_id": "4331",
+      "source_team_id": "133653"
+    },
+    "AO-UEFA-60566": {
+      "league_id": "4422",
+      "source_team_id": "137670"
+    },
+    "AO-UEFA-60573": {
+      "league_id": "4644",
+      "source_team_id": "135995"
+    },
+    "AO-UEFA-61576": {
+      "league_id": "4644",
+      "source_team_id": "135998"
+    },
+    "AO-UEFA-61582": {
+      "league_id": "4338",
+      "source_team_id": "133779"
+    },
+    "AO-UEFA-62169": {
+      "league_id": "4631",
+      "source_team_id": "134395"
+    },
+    "AO-UEFA-63405": {
+      "league_id": "4621",
+      "source_team_id": "137261"
+    },
+    "AO-UEFA-64146": {
+      "league_id": "4340",
+      "source_team_id": "133938"
+    },
+    "AO-UEFA-64165": {
+      "league_id": "4334",
+      "source_team_id": "133934"
+    },
+    "AO-UEFA-64186": {
+      "league_id": "4644",
+      "source_team_id": "135991"
+    },
+    "AO-UEFA-64189": {
+      "league_id": "4644",
+      "source_team_id": "134009"
+    },
+    "AO-UEFA-64207": {
+      "league_id": "4337",
+      "source_team_id": "134304"
+    },
+    "AO-UEFA-64211": {
+      "league_id": "4358",
+      "source_team_id": "134749"
+    },
+    "AO-UEFA-64214": {
+      "league_id": "4358",
+      "source_team_id": "134572"
+    },
+    "AO-UEFA-64227": {
+      "league_id": "4422",
+      "source_team_id": "134010"
+    },
+    "AO-UEFA-64237": {
+      "league_id": "4344",
+      "source_team_id": "134107"
+    },
+    "AO-UEFA-64332": {
+      "league_id": "4331",
+      "source_team_id": "133655"
+    },
+    "AO-UEFA-64385": {
+      "league_id": "4631",
+      "source_team_id": "133954"
+    },
+    "AO-UEFA-64388": {
+      "league_id": "4631",
+      "source_team_id": "134015"
+    },
+    "AO-UEFA-69529": {
+      "league_id": "4630",
+      "source_team_id": "141094"
+    },
+    "AO-UEFA-69570": {
+      "league_id": "4340",
+      "source_team_id": "134307"
+    },
+    "AO-UEFA-69621": {
+      "league_id": "4347",
+      "source_team_id": "134160"
+    },
+    "AO-UEFA-70691": {
+      "league_id": "4335",
+      "source_team_id": "133740"
+    },
+    "AO-UEFA-70853": {
+      "league_id": "4331",
+      "source_team_id": "133665"
+    },
+    "AO-UEFA-73561": {
+      "league_id": "4644",
+      "source_team_id": "134087"
+    },
+    "AO-UEFA-73926": {
+      "league_id": "4344",
+      "source_team_id": "134113"
+    },
+    "AO-UEFA-73927": {
+      "league_id": "4344",
+      "source_team_id": "136192"
+    },
+    "AO-UEFA-75794": {
+      "league_id": "4631",
+      "source_team_id": "136685"
+    },
+    "AO-UEFA-75795": {
+      "league_id": "4340",
+      "source_team_id": "133891"
+    },
+    "AO-UEFA-75797": {
+      "league_id": "4334",
+      "source_team_id": "133711"
+    },
+    "AO-UEFA-77977": {
+      "league_id": "4331",
+      "source_team_id": "134690"
+    },
+    "AO-UEFA-7889": {
+      "league_id": "4328",
+      "source_team_id": "133602"
+    },
+    "AO-UEFA-79940": {
+      "league_id": "4340",
+      "source_team_id": "133890"
+    },
+    "AO-UEFA-80409": {
+      "league_id": "4675",
+      "source_team_id": "134394"
+    },
+    "AO-UEFA-84515": {
+      "league_id": "4339",
+      "source_team_id": "133835"
+    },
+    "AO-UEFA-84641": {
+      "league_id": "4336",
+      "source_team_id": "133744"
+    },
+    "AO-UEFA-8538": {
+      "league_id": "4675",
+      "source_team_id": "136037"
+    },
+    "AO-UEFA-87960": {
+      "league_id": "4335",
+      "source_team_id": "133731"
+    },
+    "AO-UEFA-88133": {
+      "league_id": "4422",
+      "source_team_id": "135294"
+    },
+    "AO-UEFA-88134": {
+      "league_id": "4631",
+      "source_team_id": "134000"
+    },
+    "AO-UEFA-89694": {
+      "league_id": "4340",
+      "source_team_id": "133897"
+    },
+    "AO-UEFA-89728": {
+      "league_id": "4339",
+      "source_team_id": "133806"
+    }
+  },
+  "source_data_sha256": "4a789394f9602e041fcad802e2cf897316a22cd3667106645923d6207891d4da",
+  "source_matches": 45423,
+  "state_cutoff_utc": "2026-05-31T16:30:00+00:00"
+}

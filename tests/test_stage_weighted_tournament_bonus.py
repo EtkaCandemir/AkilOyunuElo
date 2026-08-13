@@ -12,6 +12,7 @@ if str(ROOT / "src") not in sys.path:
 
 from ao_elo.tournament_bonus import (
     ELIGIBLE_PROGRESSION_STAGES,
+    FIVE_STAGE_WEIGHTED_PROGRESSION_STAGES,
     STAGE_WEIGHTED_PROGRESSION_STAGES,
     FiveStageWeightedTournamentBonusConfig,
     FixedTournamentBonusConfig,
@@ -224,11 +225,13 @@ def test_five_stage_gentle_profile_uses_expected_distribution(
 
 def test_equal_five_profile_is_numerically_identical_to_current_production() -> None:
     weighted = FiveStageWeightedTournamentBonusConfig(
-        stage_weights=tuple((stage, 0.20) for stage in sorted(ELIGIBLE_PROGRESSION_STAGES))
+        stage_weights=tuple(
+            (stage, 0.20) for stage in FIVE_STAGE_WEIGHTED_PROGRESSION_STAGES
+        )
     )
-    fixed = FixedTournamentBonusConfig(12.0)
+    fixed = FixedTournamentBonusConfig(12.0, stages_per_competition=5)
     for competition in ("UCL", "UEL", "UECL"):
-        for stage in ELIGIBLE_PROGRESSION_STAGES:
+        for stage in FIVE_STAGE_WEIGHTED_PROGRESSION_STAGES:
             assert weighted.stage_bonus(competition, stage) == pytest.approx(
                 fixed.increment(competition)
             )
@@ -266,5 +269,8 @@ def test_five_stage_backtest_isolates_weighting_at_fixed_total_cap() -> None:
         if candidate.family != "FIVE_STAGE_WEIGHTED":
             continue
         assert isinstance(candidate.config, FiveStageWeightedTournamentBonusConfig)
-        weights = [candidate.config.stage_weight(stage) for stage in ELIGIBLE_PROGRESSION_STAGES]
+        weights = [
+            candidate.config.stage_weight(stage)
+            for stage in FIVE_STAGE_WEIGHTED_PROGRESSION_STAGES
+        ]
         assert sum(weights) == pytest.approx(1.0)

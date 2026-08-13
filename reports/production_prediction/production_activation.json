@@ -1,0 +1,19 @@
+{
+  "activation_date": "2026-08-13",
+  "decision": "PROMOTE_WITH_MONITORING",
+  "family": "ML_DOMESTIC_POISSON_LOG_PROBABILITY_BLEND",
+  "top_level_blend": {
+    "space": "LOG_PROBABILITY",
+    "current_ml_weight": 0.5,
+    "ao_domestic_poisson_weight": 0.5
+  },
+  "poisson_source": "AO_POISSON_RHO0_CONTROL",
+  "rho": 0.0,
+  "rating_feedback": false,
+  "fallback": "CURRENT_AO_1X2",
+  "monitoring_season": "2026/27",
+  "historical_automatic_gate": "KEEP_SHADOW",
+  "manual_product_decision": true,
+  "production_contract": "contracts/ao_european_elo_v2_production.json",
+  "artifact_manifest": "artifacts/production_prediction/manifest.json"
+}

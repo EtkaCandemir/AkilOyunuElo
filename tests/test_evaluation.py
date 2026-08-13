@@ -40,7 +40,7 @@ def test_score_preserving_1x2_probabilities_are_valid_and_preserve_elo_score() -
 
 @pytest.mark.parametrize(
     ("draw_at_even", "draw_shape"),
-    [(-0.1, 1.0), (0.51, 1.0), (0.25, 0.99), (0.25, float("inf"))],
+    [(-0.1, 1.0), (0.51, 1.0), (0.25, 0.0), (0.25, -0.5), (0.25, float("inf"))],
 )
 def test_score_preserving_1x2_rejects_invalid_parameters(
     draw_at_even: float,
@@ -52,6 +52,33 @@ def test_score_preserving_1x2_rejects_invalid_parameters(
             draw_at_even=draw_at_even,
             draw_shape=draw_shape,
         )
+
+
+def test_shape_below_one_raises_tail_draws_without_invalid_probabilities() -> None:
+    expected = pd.Series([0.0, 0.01, 0.27, 0.5, 0.86, 0.99, 1.0])
+
+    candidate = score_preserving_1x2_probabilities(
+        expected,
+        draw_at_even=0.24,
+        draw_shape=0.84,
+    )
+    baseline = score_preserving_1x2_probabilities(
+        expected,
+        draw_at_even=0.24,
+        draw_shape=1.0,
+    )
+
+    assert candidate.to_numpy().min() >= 0.0
+    assert np.allclose(candidate.sum(axis=1), 1.0)
+    assert np.allclose(
+        candidate["home_probability"] + 0.5 * candidate["draw_probability"],
+        expected,
+    )
+    assert candidate.loc[3, "draw_probability"] == pytest.approx(0.24)
+    assert candidate.loc[2, "draw_probability"] > baseline.loc[2, "draw_probability"]
+    assert candidate.loc[4, "draw_probability"] > baseline.loc[4, "draw_probability"]
+    assert candidate.loc[1, "draw_probability"] <= 0.02 + 1e-12
+    assert candidate.loc[5, "draw_probability"] <= 0.02 + 1e-12
 
 
 def test_standard_1x2_losses_use_three_class_definitions() -> None:

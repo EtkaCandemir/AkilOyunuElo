@@ -4,6 +4,8 @@ import math
 from dataclasses import dataclass
 from itertools import product
 
+from ao_elo.draw_probability import score_preserving_1x2_scalar
+
 
 GOAL_MARGIN_FAMILIES = (
     "NONE",
@@ -203,22 +205,11 @@ def one_x_two_probabilities_scalar(
     draw_at_even: float,
     draw_shape: float,
 ) -> tuple[float, float, float]:
-    values = (expected_home_score, draw_at_even, draw_shape)
-    if not all(math.isfinite(value) for value in values):
-        raise ValueError("1X2 inputs must be finite")
-    if not 0.0 <= expected_home_score <= 1.0:
-        raise ValueError("expected_home_score must be in [0,1]")
-    if not 0.0 <= draw_at_even <= 0.5:
-        raise ValueError("draw_at_even must be in [0,0.5]")
-    if draw_shape < 1.0:
-        raise ValueError("draw_shape must be at least one")
-    draw = draw_at_even * (4.0 * expected_home_score * (1.0 - expected_home_score)) ** draw_shape
-    home = expected_home_score - 0.5 * draw
-    away = 1.0 - expected_home_score - 0.5 * draw
-    probabilities = (home, draw, away)
-    if min(probabilities) < -1e-12 or abs(sum(probabilities) - 1.0) > 1e-12:
-        raise ValueError("Invalid score-preserving 1X2 probabilities")
-    return tuple(max(0.0, probability) for probability in probabilities)
+    return score_preserving_1x2_scalar(
+        expected_home_score,
+        draw_at_even,
+        draw_shape,
+    )
 
 
 def standard_1x2_loss_scalar(

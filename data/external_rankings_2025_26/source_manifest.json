@@ -1,0 +1,32 @@
+{
+  "analysis": "AO 2025/26 external ranking comparison",
+  "ao_snapshot": "output/final_shadow_replay_2025_26/initial_and_final_ratings.csv",
+  "ao_snapshot_sha256": "e830185314db7c8ceb0dc2054d25806952de6f55dcdf035dc10994f2f89ef838",
+  "bootstrap_samples": 4000,
+  "current_model_arm": "CURRENT_PRODUCTION",
+  "current_model_ratings": "output/current_model_evaluation_2018_2026/model_end_ratings.csv",
+  "current_model_ratings_sha256": "5c485bbf287d1a74cd934f7a9016198915044b51932e25c3884f61efd900bfae",
+  "current_model_season": "2025/26",
+  "opta": {
+    "interpretation": "current global team-strength rating",
+    "method_url": "https://theanalyst.com/articles/power-rankings-your-club-ranked",
+    "normalized_file": "data/external_rankings_2025_26/opta_power_rankings_2026_08_10_ao_scope.csv",
+    "normalized_sha256": "146fd25ee821b83af9d1669d3a398c528e7df4ee9279af80136d2026863d7323",
+    "raw_sha256": "54c5591733b9fe3f7edc4b9785c013414ccdb6a5f422c490606d77e5bca94e7e",
+    "snapshot_date": "Aug 10, 2026",
+    "source_url": "https://dataviz.theanalyst.com/opta-power-rankings/",
+    "temporal_caveat": "snapshot post-dates the 2025/26 season and may include early 2026/27 evidence"
+  },
+  "production_contract_changed": false,
+  "team_count": 236,
+  "uefa": {
+    "interpretation": "five-season European achievement and seeding coefficient",
+    "last_update_date": "2026-07-03T14:22:35+0000",
+    "method_url": "https://www.uefa.com/nationalassociations/uefarankings/club/?year=2026",
+    "normalized_file": "data/external_rankings_2025_26/uefa_club_coefficients_2026.csv",
+    "normalized_sha256": "c3ebfec413d20022df7709be7dffd496c0f26966b6013d9d3a4b034e057cf8f3",
+    "raw_sha256": "410eb994e3a05c8eeb3d4cd304e4b7314f7025057847fabd756da50665ea9c05",
+    "source_url": "https://www.uefa.com/nationalassociations/uefarankings/?year=2026",
+    "target_season_year": 2026
+  }
+}

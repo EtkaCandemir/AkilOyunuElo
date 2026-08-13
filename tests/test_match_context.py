@@ -18,7 +18,11 @@ from ao_elo.match_context import (
     domestic_anchored_start_rating,
     effective_home_advantage,
 )
-from scripts.run_match_context_backtest import derive_aggregate_state, layer_guardrails
+from scripts.run_match_context_backtest import (
+    derive_aggregate_state,
+    layer_guardrails,
+    ranking_difference_uncertainty,
+)
 
 
 def test_aggregate_state_reduces_match_expectation_for_aggregate_leader():
@@ -115,7 +119,7 @@ def test_aggregate_state_is_derived_without_second_leg_lookahead():
     assert result["is_second_leg_derived"].tolist() == [False, True]
 
 
-def test_ranking_gate_requires_every_evaluable_fold_to_be_safe():
+def test_ranking_gate_ignores_one_unreliable_fold_regression():
     fold_rows = []
     for fold in range(1, 7):
         for model in ("candidate", "baseline"):
@@ -159,4 +163,60 @@ def test_ranking_gate_requires_every_evaluable_fold_to_be_safe():
     )
     assert guardrails["ranking_evaluable_folds"] == 5
     assert guardrails["ranking_no_regression_folds"] == 4
+    assert guardrails["ranking_reliable_harm"] is False
+    assert guardrails["ranking_gate"] is True
+
+
+def test_ranking_gate_rejects_dependency_robust_harm():
+    fold_rows = []
+    for fold in range(1, 7):
+        for model in ("candidate", "baseline"):
+            fold_rows.append(
+                {
+                    "fold": fold,
+                    "model": model,
+                    "brier_1x2": 0.49 if model == "candidate" else 0.50,
+                    "log_loss_1x2": 0.69 if model == "candidate" else 0.70,
+                    "ranking_score": (
+                        float("nan")
+                        if fold == 6
+                        else 0.48
+                        if model == "candidate"
+                        else 0.50
+                    ),
+                    "pairwise_accuracy": (
+                        float("nan")
+                        if fold == 6
+                        else 0.48
+                        if model == "candidate"
+                        else 0.50
+                    ),
+                    "max_pair_sum_error": 0.0,
+                }
+            )
+    fold_results = pd.DataFrame(fold_rows)
+    ranking_uncertainty = ranking_difference_uncertainty(
+        fold_results, bootstrap_samples=500
+    )
+    competition = pd.DataFrame(
+        [
+            {
+                "competition": competition,
+                "brier_difference": -0.01,
+                "log_loss_difference": -0.01,
+            }
+            for competition in ("ALL", "UCL", "UEL", "UECL")
+        ]
+    )
+    uncertainty = pd.DataFrame(
+        [{"metric": "brier_1x2", "ci_95_upper": -0.001}]
+    )
+    guardrails = layer_guardrails(
+        fold_results,
+        pd.DataFrame(),
+        competition,
+        uncertainty,
+        ranking_uncertainty,
+    )
+    assert guardrails["ranking_reliable_harm"] is True
     assert guardrails["ranking_gate"] is False
