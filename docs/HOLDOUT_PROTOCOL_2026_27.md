@@ -1,101 +1,176 @@
 # AO European Elo 2026/27 Prospective Holdout Protokolü
 
-Sözleşme revizyonu: 23 Temmuz 2026
+Sözleşme revizyonu: **13 Ağustos 2026**
 
-Model freeze tarihi: 20 Temmuz 2026
+Rating freeze sürümü: `ao-european-elo-v2.0-dev-freeze`
 
-## Kapsam Kararı
+Prediction freeze sürümü: `ao-ml-poisson-ensemble-v1-production`
 
-2026/27 UEFA kulüp sezonunun tamamı untouched holdout değildir. UCL 7 Temmuz,
-UEL 9 Temmuz ve UECL 7 Temmuz 2026'da başlamıştır; bunların bir bölümü model
-freeze tarihinden önce oynanmıştır. Sonuçları bilinen maçlar daha sonra replay
-edilerek prospective kanıta dönüştürülemez.
+## 1. Kapsam Kararı
 
-Temiz 2026/27 holdout kapsamı:
+2026/27 UEFA kulüp sezonunun tamamı untouched holdout değildir. Qualifying
+maçları model ve veri geliştirme sürecine temas etmiştir. Temiz prospective
+değerlendirme şu kapsamla sınırlandırılır:
 
-- UCL, UEL ve UECL lig aşaması ve sonraki maçlar.
-- En erken başlangıç: `2026-09-08T00:00:00Z`.
+- UCL, UEL ve UECL lig aşaması ve sonrası.
+- En erken uygun kickoff: `2026-09-08T00:00:00Z`.
 - Qualifying ve play-off maçları kapsam dışıdır.
-- Yalnızca `generated_at_utc < kickoff_utc` olan kilitler uygundur.
-- `run_dynamic_elo.py` replay çıktıları uygun değildir.
-- 2027/28, bir sonraki tam sezon prospective holdout adayıdır.
+- Yalnız `generated_at_utc < kickoff_utc` olan kilitli tahminler uygundur.
+- Retrospective replay hiçbir koşulda prospective kanıta dönüştürülemez.
+- 2027/28 bir sonraki tam sezon holdout adayıdır.
 
-UEFA'nın yayımladığı 2026 takviminde UCL ilk lig aşaması maçları 8-10 Eylül,
-UEL ilk maçları 16-17 Eylül ve UECL ilk maçı 15 Ekim 2026 olarak yer alır:
+## 2. Dondurulan Production Sözleşmesi
 
-<https://www.uefa.com/news-media/news/02a0-1f71bdf70a9a-b6067bd647f2-1000--2026-european-football-calendar-match-and-draw-dates-for-a/>
-
-## Operasyon Akışı
-
-1. Sonuç içermeyen tek satırlık `fixtures.csv` hazırlanır.
-2. `run_dynamic_live.py lock` maç başlamadan çalıştırılır.
-3. Tahmin, üretim zamanı, kullanılan state ve config kimliğiyle append-only
-   `pre_match_log.csv` ledger'ına yazılır.
-4. Sonuç kesinleşince ayrı `matches.csv` satırı hazırlanır.
-5. `run_dynamic_live.py settle` aynı kilidi doğrular, rating'i günceller ve tam
-   state checkpoint'i kaydeder.
-
-Gol farkı karşılaştırma kolları production state'inden tamamen ayrı çalıştırılır:
-
-1. Lig aşaması katılımcılarının tam AO First Elo dosyası kesinleşince
-   `run_goal_difference_shadow.py initialize` ile bağımsız shadow state kurulur.
-2. Her production `lock` işleminden sonra aynı fixture için shadow `lock`
-   çalıştırılır.
-3. Sonuç geldiğinde production `settle` sonrasında shadow `settle` çalıştırılır.
-4. Shadow ledger ve update dosyaları production rating'ini veya checkpoint'ini
-   hiçbir koşulda değiştiremez.
-
-`PRE_SPECIFIED` production'daki aktif `0.10/300` koludur. Diğer kollar ve
-gol farksız `BASE` yalnız karşılaştırma amaçlıdır:
+### Rating çekirdeği
 
 ```text
-BASE             alpha=0.000, tau=300
-PRE_SPECIFIED    alpha=0.100, tau=300
-PRIOR_GRID_BEST  alpha=0.200, tau=400
-EXTENDED_BEST    alpha=0.125, tau=800
+Scale = 835.5614973262
+H     = 148.5442661913
+K     = 103.9809863339
+power carry = 0
+
+goal alpha = 0.15
+goal tau   = 300
+GD cap     = 4
+
+xG ratio = 0.30
+xG scale = 1.25
+minimum winner gain ratio = 0.70
+
+progression = 12 / 8 / 4
+progression caps = 48 / 32 / 16
+eligible = ROUND_OF_16 / QUARTERFINAL / SEMIFINAL / FINAL
 ```
 
-Bu kollar holdout başladıktan sonra değiştirilemez. Yeni bir aday ancak ayrı bir
-araştırma kohortu olarak eklenebilir; mevcut holdout ile birleştirilemez.
+### Base 1X2
 
-Eşzamanlı maçlar kickoff öncesinde aynı state snapshot'ından ayrı ayrı
-kilitlenebilir. Sonuçlar `kickoff_utc`, sonra `match_id` artan sırasıyla settle
-edilir. Kilitten sonra ilgili takım rating'i değişmişse kayıt geçersiz sayılır.
+```text
+normal/two-leg draw_at_even = 0.24
+single-match draw_at_even   = 0.12
+draw shape                  = 1.00
+```
 
-Ledger SHA-256 hash zinciri eski satır değişikliğini görünür kılar. Hash zinciri
-harici güvenilir zaman damgası değildir. Daha güçlü denetim için gün sonu ledger
-head hash'i salt okunur bir release, commit veya bağımsız kayıt sisteminde
-yayımlanmalıdır.
+### Kullanıcıya sunulan 1X2
 
-## Değerlendirme Kilidi
+```text
+Current ML = LogBlend(Current AO, Structural Logistic, 0.90)
+AO Poisson = LogBlend(Current AO, Domestic Poisson rho=0, 0.50)
+Served 1X2 = LogBlend(Current ML, AO Poisson, 0.50)
+fallback   = CURRENT_AO_1X2
+rating feedback = false
+```
 
-Holdout boyunca sonuçlara bakılarak Scale, H, K, carry, tail beta, goal margin,
-reserve veya turnuva çarpanı değiştirilemez. UCL/UEL/UECL ve zero-exposure
-segmentleri raporlanabilir, fakat ara sonuçlar parametre seçimi için kullanılamaz.
+Parametre otoritesi `contracts/ao_european_elo_v2_production.json`, runtime
+artifact otoritesi `artifacts/production_prediction/manifest.json` dosyasıdır.
 
-Kontrollü `0.10/300` gol farkı katmanı manuel kararla production'da aktiftir.
-En az `300` uygun prospective maç ve bunların en az `75` UCL maçı tamamlanınca
-zorunlu izleme incelemesi yapılır. Katmanın korunması için:
+## 3. Operasyon Akışı
 
-- Brier ve log-loss nokta farkları iyileşme yönünde olmalıdır.
-- Dependency zarfı güvenilir zarar göstermemelidir.
-- Pooled forward Spearman ve pairwise farkı negatif olmamalıdır.
-- Tek bir fold'da Spearman gerilemesi `0.005`, pairwise gerilemesi `0.0025`
-  değerini aşmamalıdır.
-- Gözlenen maksimum gol çarpanı `1.30` güvenlik sınırını aşmamalıdır.
-- Katmanı kapatma veya parametre değiştirme otomatik değil, sürüm değişikliği
-  ve yeni config fingerprint ile manuel yapılmalıdır.
+1. Sonuç içermeyen fixture doğrulanır.
+2. AO Live state üzerinden Current AO 1X2 kickoff'tan önce kilitlenir.
+3. Aynı pre-match feature snapshot ile production ML + Poisson tahmini üretilir.
+4. AO ve served olasılıkları aynı append-only prediction loguna yazılır.
+5. Maç tamamlanınca 90/120 field score ve uygun xG ile Power Elo settle edilir.
+6. Tie tamamlandıysa advanced team ve progression olayı bir kez işlenir.
+7. State checkpoint ve bütün audit hash'leri yazılır.
 
-Bu eşikler 2026/27 başlamadan önce kaydedilmiş prospective izleme kapılarıdır.
-Ara sonuçlara bakılarak `alpha`, `tau` veya cap değiştirilemez. Güvenilir zarar
-görülürse production geri alma kararı ayrıca kaydedilir.
+Aynı kickoff saatindeki bütün maçlar tek pre-match snapshot kullanır. Sonuçlar
+ancak tüm tahminler kaydedildikten sonra `kickoff_utc`, ardından `match_id`
+sırasıyla state'e girer.
 
-Aktif olasılık katmanı standart H/D/A çıktısı üretir. Holdout raporunda:
+## 4. Prediction Log Sözleşmesi
 
-- Ana tahmin metrikleri standart üç sınıflı 1X2 Brier ve log-loss'tur.
-- Legacy expected-score MSE yalnız tarihsel karşılaştırma diagnostikleri için
-  ayrı etiketle korunur.
-- Spearman ve pairwise sonuçları cross-fitted rakip/saha düzeltilmiş sıralama
-  hedefiyle raporlanır.
-- Güven aralıkları tie/match, takım-sezon ve takvim ayı bootstrap görünümleriyle
-  ayrı ayrı ve en geniş zarfla duyarlılık analizi olarak raporlanır.
+Her prospective satır en az şunları saklar:
+
+- `match_id`, sezon, kickoff ve generation UTC,
+- turnuva, tur, stage, format ve neutral bilgisi,
+- iki AO kulüp kimliği,
+- Current AO H/D/A,
+- ham ML ve Current ML H/D/A,
+- ham Poisson ve AO Poisson H/D/A,
+- kullanıcıya sunulan final H/D/A,
+- Domestic Poisson coverage ve fallback nedeni,
+- model/config/contract/manifest/ML/state SHA-256 değerleri,
+- `rating_feedback_applied=false`.
+
+Log append-only'dir. Maç sonucu geldikten sonra eski olasılık satırı overwrite
+edilmez. Hash zinciri değişikliği görünür kılar; mümkünse günlük head hash'i
+bağımsız ve salt okunur kayıt sisteminde yayımlanır.
+
+## 5. Holdout Boyunca Yasak İşlemler
+
+- Sonuca bakarak Scale, H, K, carry veya AO First parametresi değiştirmek.
+- Goal alpha/tau/cap, xG ratio/scale veya progression değerlerini değiştirmek.
+- Draw intercept/shape veya single-match tanımını değiştirmek.
+- ML, Poisson ve üst blend ağırlıklarını yeniden seçmek.
+- Feature schema'yı sonuçtan yararlanacak biçimde genişletmek.
+- Kapalı Dynamic K, Competition K veya Achievement Reserve katmanını açmak.
+- Eski prediction logunu yeni modelle yeniden üretip prospective diye sunmak.
+
+Acil yazılım bug'ı güvenlik için düzeltilmek zorundaysa yeni production revision,
+artifact fingerprint ve etkilenen maç aralığı açıkça kaydedilir. Eski ve yeni
+revision sonuçları tek homojen holdout gibi birleştirilmez.
+
+## 6. Monitoring Metrikleri
+
+### Ana tahmin metrikleri
+
+- Standard multiclass 1X2 Brier.
+- Multiclass log-loss.
+- Accuracy ikincil metrik.
+- Calibration slope/intercept ve ECE.
+- Served ile Current AO arasındaki paired fark.
+
+### Segmentler
+
+- UCL, UEL ve UECL.
+- Lig aşaması ve eleme aşaması.
+- Single-match, two-leg ve normal format.
+- Favori, dengeli ve underdog bantları.
+- Domestic Poisson coverage: BOTH / ONE / NONE.
+- Fallback ve non-fallback satırları.
+
+### Rating ve veri güvenliği
+
+- Maç Power Delta sıfır-toplam kontrolü.
+- Maksimum rating hareketi ve sezon içi volatility.
+- Progression cap, reset ve tek tie uygulaması.
+- xG coverage, scope rejection ve GD fallback oranı.
+- Artifact/schema/state hata ve fallback oranı.
+- Duplicate, chronology ve team identity audit'i.
+
+Belirsizlik tie/match, takım-sezon ve takvim ayı cluster bootstrap görünümleriyle
+ayrı ayrı raporlanır. Fold sayısı bağımsız tekrar sayısı gibi yorumlanmaz.
+
+## 7. Değerlendirme Takvimi
+
+- Her maç: prediction ve settlement audit'i.
+- Aylık: veri kalitesi, coverage, fallback ve calibration diagnostikleri.
+- Lig aşaması tamamlanınca: ilk anlamlı ara rapor; parametre değişikliği yok.
+- Sezon tamamlanınca: full prospective karar raporu.
+
+Ara raporlar hata yakalamak içindir; model seçmek için kullanılmaz.
+
+## 8. Sezon Sonu Kararları
+
+### KEEP
+
+Rating invariantları geçer; served model Current AO'ya karşı güvenilir zarar
+göstermez ve segment/calibration davranışı kabul edilebilirdir.
+
+### RECALIBRATE CANDIDATE
+
+Ranking/rating sağlıklıdır fakat olasılıklarda sistematik calibration sapması
+vardır. Yalnız prediction-only yeni bir sürüm, bir sonraki dönem için ayrıca
+eğitilir; mevcut holdout geriye dönük yeniden yazılmaz.
+
+### FALLBACK / ROLLBACK
+
+Normalize olasılık, leakage, identity, chronology veya artifact güvenliği
+bozulursa served katman Current AO 1X2'ye alınır. Prediction katmanı ratingden
+ayrı olduğu için AO Live state'ini geri almadan güvenli rollback mümkündür.
+
+## 9. Kanıt Yorumu
+
+2018/19-2025/26 walk-forward sonuçları geliştirme kanıtıdır. 2026/27 sonucu ise
+yalnız kickoff öncesi kilitlenmiş kayıtlarla prospective kanıt olacaktır. İki
+kanıt sınıfı raporlarda açıkça ayrı tutulur.

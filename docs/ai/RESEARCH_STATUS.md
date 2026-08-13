@@ -40,9 +40,11 @@ Bir output JSON'da `PROMOTE_CANDIDATE` yazmasi production aktivasyonu degildir.
 Bu modeller AO First/Live ratingi degistirmez; yalniz pre-match 1X2
 olasiliklarini iyilestirmeyi hedefler.
 
-### 3.1 Domestic Dynamic Poisson + AO blend
+### 3.1 Domestic Dynamic Poisson + AO blend araştırması
 
-Durum: **`PROMOTE_CANDIDATE`, production aktif degil**.
+Durum: Full-history `rho=0.15` adayı **`PROMOTE_CANDIDATE`** olarak kalır;
+bu aday production'da aktif değildir. Production ensemble bunun yerine daha
+basit `AO_POISSON_RHO0_CONTROL` kolunu kullanır.
 
 Veri:
 
@@ -80,9 +82,14 @@ AO/Poisson blend weight 0.50
 Dosya:
 `output/domestic_poisson_backtest_2018_2026/selected_candidate.json`.
 
+Aktif production bileşeninde aynı domestic state parametreleri korunur fakat
+`rho=0` kullanılır. Bu ayrım contract ve artifact manifestinde dondurulmuştur.
+
 ### 3.2 Structural ML blend
 
-Durum: **`KEEP_SHADOW`**.
+Standalone tarihsel gate durumu: **`KEEP_SHADOW`**. Dondurulmuş Structural
+Logistic modeli, manuel operasyon kararıyla monitored final ensemble içinde
+`%90` ağırlıklı Current ML bileşeni olarak aktiftir; tek başına servis edilmez.
 
 ```text
 Brier     0.568690   AO'ya fark -0.003402
@@ -90,8 +97,8 @@ Log-loss  0.960458   AO'ya fark -0.003913
 Fold      4/6 Brier, 3/6 log-loss
 ```
 
-Pooled loss guclu olsa da fold gate ve calibration gate tamamlanmadigi icin
-aktif degildir.
+Pooled loss güçlü olsa da standalone fold ve calibration kapıları tamamlanmadığı
+için bağımsız production modeli değildir.
 
 ### 3.3 ML + Poisson final ensemble
 

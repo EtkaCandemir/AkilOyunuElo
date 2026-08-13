@@ -4,11 +4,14 @@ Sürüm: `ao-european-elo-v2.0-dev-freeze`
 
 Dondurma tarihi: 20 Temmuz 2026
 
-Operasyonel sözleşme revizyonu: 6 Ağustos 2026
+Operasyonel sözleşme revizyonu: 13 Ağustos 2026
 
 Durum: Kontrollü `0.15/300` gol farkı, bounded xG performansı, Domestic Surprise
 ve sabit `12/8/4` European Progression Bonus production'da aktiftir; 2026/27
-lig aşaması ve sonrası için prospective izleme yapılacaktır.
+lig aşaması ve sonrası için prospective izleme yapılacaktır. Kullanıcıya sunulan
+1X2 tahmini `%50 Current ML + %50 AO Domestic Poisson (rho=0)` log-probability
+ensemble'ıdır. Bu tahmin katmanı rating state'ine geri beslenmez ve hata halinde
+Current AO 1X2'ye döner.
 
 ## 1. Karar Özeti
 
@@ -42,14 +45,16 @@ Seçilen kararlar:
 | Dynamic Power çekirdeği | Terfi | Scale `835.561497`, H `148.544266`, K `103.980986` |
 | Season Power carry | Kapalı | `0.00` |
 | Standart 1X2 çıktı | Terfi | draw-at-even `0.24`, shape `1.00` |
+| Tek maç format düzeltmesi | Aktif | draw-at-even `0.12` |
 | Kontrollü gol farkı | Aktif | alpha `0.15`, tau `300`, GD cap `4` |
 | Bounded xG performansı | Aktif | ratio `0.30`, scale `1.25`, analitik minimum kazanım oranı `0.70` |
 | Sabit kazanan-only progression | Aktif | R16 ve sonrası `12/8/4`, cap `48/32/16` |
 | Sıfır-toplamlı progression | Kapalı | base `0` |
 | European Achievement Reserve | Kapalı | base `0` |
 | UCL/UEL/UECL normal maç K çarpanı | Kapalı | uygulanmaz |
+| ML + Domestic Poisson 1X2 | Aktif izleme | `%50/%50` log blend, `rho=0`, AO fallback |
 
-Bu sürüm production kanıtı iddia etmez. Parametre seçimi 2018/19-2025/26
+Bu sürüm bağımsız prospective üstünlük kanıtı iddia etmez. Parametre seçimi 2018/19-2025/26
 geliştirme verisinde yapılmıştır. 2026/27 qualifying maçları model freeze
 tarihinden önce başladığı için sezonun tamamı untouched değildir. Prospective
 holdout yalnızca lig aşaması ve sonrasındaki kickoff öncesi kilitlerden oluşur.
@@ -77,10 +82,11 @@ Dönüşüm component seviyesinde uygulanır:
 Hiçbir hesap sonunda `min/max` ile rating kesilmez. Fakat aktif statik config'te
 country/europe/exposure tail beta değerleri `0`, maximum effective exposure
 `0.85` ve erişilebilir maksimum Domestic Achievement `1.08`dir. Bu sınırlar aynı
-takımda doyduğunda AO First Elo'nun teorik maksimumu tam olarak `2000` olur.
-Dolayısıyla `2000`, final clipping sınırı değildir ama aktif AO First Elo için
-yapısal saturation sınırıdır. Research tail adayları ve Dynamic/Live Elo bu
-değeri aşabilir; aktif statik model aşamaz.
+takımda doyduğunda Domestic Surprise öncesi AO First Elo tam olarak `2000` olur.
+Maksimum `+30` Domestic Surprise düzeltmesi exposure ile `%15` ağırlık taşıdığı
+için aktif statik modelin erişilebilir üst değeri `2004.5`tir. Dolayısıyla
+`2000` clipping sınırı değildir. Research tail adayları ve Dynamic/Live Elo da
+bu değeri aşabilir.
 
 Bu affine dönüşüm v1.1 takım sırasını birebir korur. Dinamik `Scale`, saha
 avantajı ve `K` de aynı `M` ile büyütüldüğü için beklenen skorlar ve maç başına
@@ -277,7 +283,7 @@ AO First Elo =
 - Domestic Surprise Adjustment `[-30,+30]` aralığındadır.
 - Rating hesap sonunda 500 veya 2000'e kırpılmaz.
 - Aktif beta `0/0/0` davranışında sürpriz öncesi yapısal üst sınır `2000`,
-  sürpriz dahil üst değer `2030`dur.
+  exposure ile zayıflatılan maksimum sürpriz dahil üst değer `2004.5`tir.
 
 Rating kaynak kategorisi ham exposure ile belirlenir:
 
@@ -805,7 +811,8 @@ Holdout sırasında yasak:
 
 - Sonuca bakarak Scale, H, K veya carry değiştirmek.
 - UCL segmentini düzeltmek için ara parametre eklemek.
-- Goal margin veya reserve katmanını açmak.
+- Goal margin, xG, progression veya prediction blend parametrelerini değiştirmek;
+  kapalı reserve katmanını açmak.
 - Geçmiş tahmin loglarını yeniden üretip eski kaydın üzerine yazmak.
 
 Kapsam:

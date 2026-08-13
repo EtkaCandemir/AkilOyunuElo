@@ -1,606 +1,468 @@
 from __future__ import annotations
 
-from pathlib import Path
-
-from reportlab.lib import colors
-from reportlab.lib.enums import TA_CENTER
-from reportlab.lib.pagesizes import A4
-from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import cm
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import (
-    BaseDocTemplate,
-    Frame,
-    PageBreak,
-    PageTemplate,
-    Paragraph,
-    Spacer,
-    Table,
-    TableStyle,
+
+from pdf_common import (
+    PdfSpec,
+    body,
+    build_pdf,
+    bullets,
+    callout,
+    cover,
+    formula,
+    h1,
+    h2,
+    page_break,
+    styles,
+    table,
 )
 
 
-ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_DIR = ROOT / "output" / "pdf"
-OUTPUT_PDF = OUTPUT_DIR / "AkilOyunu_VeriAnlamlandirma.pdf"
-
-FONT_REGULAR = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf"
+SPEC = PdfSpec(
+    filename="AkilOyunu_VeriAnlamlandirma.pdf",
+    title="AO European Elo",
+    subtitle="Veri İhtiyaçları ve Anlamlandırma Kılavuzu",
+    version="AO European Elo v2 | Veri sözleşmesi revizyonu 2026-08-13",
+    document_date="13 Ağustos 2026",
+    subject="AO First Elo, AO Live Elo ve production 1X2 için veri alanları ve kalite kuralları",
+)
 
 
 def main() -> None:
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    register_fonts()
-    build_pdf()
-    print(f"PDF written: {OUTPUT_PDF}")
+    output_path, docs_path = build_pdf(SPEC, story())
+    print(f"PDF written: {output_path}")
+    print(f"PDF synced:  {docs_path}")
 
 
-def register_fonts() -> None:
-    pdfmetrics.registerFont(TTFont("AORegular", FONT_REGULAR))
-
-
-def build_pdf() -> None:
-    doc = BaseDocTemplate(
-        str(OUTPUT_PDF),
-        pagesize=A4,
-        leftMargin=1.45 * cm,
-        rightMargin=1.45 * cm,
-        topMargin=1.55 * cm,
-        bottomMargin=1.35 * cm,
-        title="AO European Elo Veri İhtiyaçları ve Alan Sözlüğü",
-        author="Akıl Oyunu",
-    )
-    frame = Frame(doc.leftMargin, doc.bottomMargin, doc.width, doc.height, id="main")
-    doc.addPageTemplates(
+def story() -> list[object]:
+    s = styles()
+    out: list[object] = cover(
+        SPEC,
         [
-            PageTemplate(
-                id="normal",
-                frames=[frame],
-                onPage=draw_footer,
-            )
-        ]
-    )
-    doc.build(story())
-
-
-def draw_footer(canvas, doc) -> None:
-    canvas.saveState()
-    canvas.setFont("AORegular", 7.5)
-    canvas.setFillColor(colors.HexColor("#5F6B7A"))
-    canvas.drawString(
-        doc.leftMargin,
-        0.72 * cm,
-        "AO European Elo - Veri İhtiyaçları ve Alan Sözlüğü",
-    )
-    canvas.drawRightString(
-        A4[0] - doc.rightMargin,
-        0.72 * cm,
-        f"Sayfa {doc.page}",
-    )
-    canvas.restoreState()
-
-
-def story() -> list:
-    styles = make_styles()
-    flowables: list = []
-
-    flowables.extend(
-        [
-            Paragraph("AO European Elo", styles["Title"]),
-            Paragraph("Veri İhtiyaçları ve Alan Sözlüğü - v2 / Sözleşme 1.2", styles["Subtitle"]),
-            Spacer(1, 0.35 * cm),
-            Paragraph(
-                "Bu doküman, UEFA kulüp turnuvaları için geliştirilen AO European "
-                "Elo başlangıç puanı modelinde kullanılacak veri setlerini ve her "
-                "alanın ne anlama geldiğini açıklar. Sistem ve model mantığını "
-                "anlatan mevcut iki PDF'in yanına, veri toplama ve CSV hazırlama "
-                "kılavuzu olarak tasarlanmıştır.",
-                styles["Body"],
-            ),
-            Spacer(1, 0.2 * cm),
-            note_box(
-                "Ana fikir",
-                "Ülke puanları lig/ülke gücünü ölçmek için kullanılır. Kulüp "
-                "puanları ise takımın kendi Avrupa geçmişini ölçmek için kullanılır. "
-                "played ve matches alanları performansı değil, bu Avrupa sinyaline "
-                "ne kadar güvenileceğini yani ham European Exposure'i temsil eder. "
-                "Final rating hesabında bunun en fazla 0.85'i kullanılır.",
-                styles,
-            ),
-            Spacer(1, 0.28 * cm),
-            Paragraph("1. Veri Seti Özeti", styles["H1"]),
-            simple_table(
-                [
-                    ["CSV", "Ne işe yarar?", "Modeldeki rol"],
-                    [
-                        "teams.csv",
-                        "Takım kimliği, ülke ve lig bilgisi",
-                        "Diğer tablolarla join için ana takım tablosu",
-                    ],
-                    [
-                        "country_coefficients.csv",
-                        "Son 5 sezon UEFA ülke puanları",
-                        "League Strength ve Domestic Prior",
-                    ],
-                    [
-                        "domestic_context.csv",
-                        "Lig sırası, lig büyüklüğü, kupa ve Avrupa giriş bilgisi",
-                        "Domestic Achievement Score",
-                    ],
-                    [
-                        "club_european_points.csv",
-                        "Kulübün son 5 sezon Avrupa puanı, oynama ve maç bilgisi",
-                        "European Prior, ham ve effective European Exposure",
-                    ],
-                ],
-                styles,
-                col_widths=[3.6 * cm, 6.3 * cm, 6.6 * cm],
-            ),
-            Spacer(1, 0.25 * cm),
-            Paragraph("2. Sezon Notasyonu", styles["H1"]),
-            Paragraph(
-                "Her satır bir hedef sezon için hazırlanır. Örneğin hedef sezon "
-                "2025/26 ise t hedef sezon başlamadan önce tamamlanmış en güncel "
-                "Avrupa sezonunu, t_minus_1 bir önceki sezonu, t_minus_4 ise beş "
-                "yıllık pencerenin en eski sezonunu temsil eder. Hedef sezonun "
-                "henüz oluşmamış verisi kullanılmaz. Aynı notasyon hem ülke "
-                "puanları hem de kulüp puanları için kullanılır.",
-                styles["Body"],
-            ),
-            simple_table(
-                [
-                    ["Alan eki", "Anlam"],
-                    ["t", "Hedef sezondan önce tamamlanmış en güncel sezon"],
-                    ["t_minus_1", "1 sezon önce"],
-                    ["t_minus_2", "2 sezon önce"],
-                    ["t_minus_3", "3 sezon önce"],
-                    ["t_minus_4", "4 sezon önce"],
-                ],
-                styles,
-                col_widths=[4.0 * cm, 12.5 * cm],
-            ),
-            PageBreak(),
-            Paragraph("3. teams.csv", styles["H1"]),
-            Paragraph(
-                "Bu tablo takımlar için tekil kimlik ve temel metadata tablosudur. "
-                "team_id tüm diğer CSV'lerde aynı takımı temsil edecek şekilde sabit "
-                "kalmalıdır.",
-                styles["Body"],
-            ),
-            field_table(
-                [
-                    ["team_id", "Evet", "Bizim sistemde benzersiz takım kimliği", "1001, 1002"],
-                    ["team_name", "Evet", "Takımın standart adı", "Galatasaray"],
-                    ["country", "Evet", "Takımın ülkesi", "Turkey"],
-                    ["country_code", "Evet", "Ülke kodu", "TUR"],
-                    ["domestic_league", "Evet", "Takımın yerel ligi", "Super Lig"],
-                ],
-                styles,
-            ),
-            Paragraph("4. country_coefficients.csv", styles["H1"]),
-            Paragraph(
-                "Bu tablo lig/ülke gücünü ölçmek için kullanılır. UEFA tarafından "
-                "açıklanan ülke katsayıları esas alınır. Model, son 5 sezonu "
-                "ağırlıklandırarak Weighted Country Score üretir.",
-                styles["Body"],
-            ),
-            field_table(
-                [
-                    ["season", "Evet", "Hedef sezon", "2025/26"],
-                    ["country", "Evet", "Ülke adı", "Turkey"],
-                    ["country_code", "Evet", "Ülke kodu", "TUR"],
-                    ["points_t_minus_4", "Evet", "4 sezon önceki UEFA ülke puanı", "6.700"],
-                    ["points_t_minus_3", "Evet", "3 sezon önceki UEFA ülke puanı", "11.800"],
-                    ["points_t_minus_2", "Evet", "2 sezon önceki UEFA ülke puanı", "12.000"],
-                    ["points_t_minus_1", "Evet", "1 sezon önceki UEFA ülke puanı", "8.600"],
-                    ["points_t", "Evet", "En güncel sezon UEFA ülke puanı", "9.900"],
-                    ["official_five_year_total", "Hayır", "Opsiyonel UEFA resmi 5 yıllık toplam kontrol alanı", "49.000"],
-                    ["official_country_rank", "Hayır", "Opsiyonel UEFA resmi ülke sıralaması kontrol alanı", "9"],
-                ],
-                styles,
-            ),
-            note_box(
-                "Modeldeki anlam",
-                "Ülke puanı takımın kendi Avrupa geçmişi değildir. Bu veri, takımın "
-                "geldiği ligin Avrupa seviyesini temsil eder ve Domestic Prior "
-                "içindeki league strength bileşenini besler.",
-                styles,
-            ),
-            PageBreak(),
-            Paragraph("5. domestic_context.csv", styles["H1"]),
-            Paragraph(
-                "Bu tablo takımın Avrupa sezonuna hangi yerel başarı seviyesinden "
-                "geldiğini anlatır. Lig sırası mümkünse normal sezon değil, resmi "
-                "sezon sonu final standings olmalıdır.",
-                styles["Body"],
-            ),
-            field_table(
-                [
-                    ["season", "Evet", "Hedef sezon", "2025/26"],
-                    ["team_id", "Evet", "teams.csv ile aynı takım kimliği", "1001"],
-                    ["domestic_position", "Koşullu", "Final lig sırası. Bilinmiyorsa boş kalabilir", "1, 2, 6"],
-                    ["league_team_count", "Koşullu", "O ligdeki takım sayısı. Bilinmiyorsa boş kalabilir", "18, 20"],
-                    ["is_league_champion", "Evet", "Lig şampiyonu mu?", "true / false"],
-                    ["is_cup_winner", "Evet", "Ulusal kupa şampiyonu mu?", "true / false"],
-                    ["european_entry_type", "Evet", "Avrupa biletinin kazanılma yolu", "League Champion, Cup Winner"],
-                    ["competition", "Önerilir", "Katıldığı UEFA turnuvası", "UCL, UEL, UECL"],
-                    ["entry_round", "Önerilir", "Avrupa'ya başladığı tur", "League Phase, Q2, Playoff"],
-                ],
-                styles,
-            ),
-            note_box(
-                "Modeldeki anlam",
-                "domestic_position ve league_team_count birlikte percentile üretir. "
-                "is_league_champion=true ise pozisyon eksik olsa bile League Finish "
-                "Score 1.00 olur; pozisyon verilmişse 1 olmak zorundadır. Kupa tabanı "
-                "is_cup_winner ile, duble bonusu ise yalnızca takım hem lig hem kupa "
-                "şampiyonuysa uygulanır.",
-                styles,
-            ),
-            Paragraph("6. club_european_points.csv", styles["H1"]),
-            Paragraph(
-                "Bu tablo kulübün kendi Avrupa geçmişini ve bu geçmişin kaç sezon/maç "
-                "veriye dayandığını toplar. Burada mümkünse official club coefficient "
-                "toplamını değil, kulübün sezon sezon kendi Avrupa puanlarını "
-                "kullanmak gerekir. Her hedef takım için satır zorunludur; Avrupa "
-                "geçmişi olmayan takım da açık sıfır satırıyla yazılmalıdır.",
-                styles["Body"],
-            ),
-            PageBreak(),
-            field_table(
-                [
-                    ["season", "Evet", "Hedef sezon", "2025/26"],
-                    ["team_id", "Evet", "teams.csv ile aynı takım kimliği", "1001"],
-                    ["team_name_source", "Evet", "Veri kaynağındaki takım adı", "Galatasaray A.S."],
-                    ["country_code", "Evet", "Ülke kodu", "TUR"],
-                    ["club_points_t_minus_4..t", "Evet", "Kulübün ilgili sezonda kendi Avrupa puanı", "0, 4, 8.5"],
-                    ["played_t_minus_4..t", "Evet", "O sezon Avrupa maçı oynadı mı?", "0 / 1"],
-                    ["matches_t_minus_4..t", "Evet", "O sezon oynanan toplam Avrupa maç sayısı", "0, 6, 8, 12"],
-                    ["match_cap_t_minus_4..t", "Evet", "Exposure için yeterli sezonluk maç eşiği", "6 veya 8"],
-                    ["official_club_coefficient", "Hayır", "Opsiyonel UEFA resmi kulüp katsayısı kontrol alanı", "31.500"],
-                    ["country_part", "Hayır", "Opsiyonel ülke payı kontrol alanı", "9.800"],
-                ],
-                styles,
-            ),
-            note_box(
-                "Kritik ayrim",
-                "club_points performans sinyalidir. played ve matches veri miktarı "
-                "sinyalidir. official_club_coefficient ve country_part ana formülde "
-                "kullanılmaz; veri kontrolü ve olası fallback analizi için tutulur.",
-                styles,
-            ),
-            Paragraph("7. Match Cap Kurali", styles["H1"]),
-            simple_table(
-                [
-                    ["Dönem", "UCL", "UEL", "UECL", "Not"],
-                    ["2023/24 ve öncesi", "6", "6", "6", "Grup formatı dönemi"],
-                    ["2024/25 ve sonrası", "8", "8", "6", "Yeni lig aşaması formatı"],
-                ],
-                styles,
-                col_widths=[4.8 * cm, 2.1 * cm, 2.1 * cm, 2.1 * cm, 5.4 * cm],
-            ),
-            Paragraph(
-                "match_cap maksimum sezon maçı değildir. Exposure açısından yeterli "
-                "sezonluk örneklem eşiğidir. Takım cap'in üzerinde maç oynarsa ilgili "
-                "sezonun match exposure değeri 1.0'da sınırlanır.",
-                styles["Body"],
-            ),
-            PageBreak(),
-            Paragraph("8. Veri Kaynağı Önceliği", styles["H1"]),
-            simple_table(
-                [
-                    ["Veri grubu", "Birincil kaynak", "Kontrol kaynağı"],
-                    ["Ülke katsayıları", "UEFA country rankings", "Kassiesa veya resmi UEFA raporları"],
-                    ["Kulüp sezon puanları", "UEFA club coefficients / club rankings", "Kassiesa club coefficients"],
-                    ["Maç sayıları", "UEFA maç merkezi / turnuva kayıtları", "Football-data kaynakları, manuel kontrol"],
-                    ["Lig sıralaması", "Lig resmi sitesi", "FBref, Transfermarkt, Soccerway"],
-                    ["Kupa şampiyonluğu", "Federasyon veya kupa resmi kayıtları", "UEFA entry list"],
-                    ["Giriş turu", "UEFA access list / entry list", "Turnuva kura ve fikstür kayıtları"],
-                ],
-                styles,
-                col_widths=[4.2 * cm, 6.0 * cm, 6.3 * cm],
-            ),
-            Paragraph("9. Validation ve Hazırlık Kontrol Listesi", styles["H1"]),
-            *bullet_list(
-                [
-                    "Country_Strength_Benchmark ve European_History_Benchmark > 0 olmadan model çalıştırılmaz.",
-                    "Her takım için season + team_id + country_code ile eşleşen açık bir kulüp geçmişi satırı bulunmalıdır.",
-                    "domestic_context.csv tek bir hedef sezon içermelidir.",
-                    "Takım, ülke ve sezon anahtarlarında duplicate satır bulunmamalıdır.",
-                    "Ülke ve kulüp puanları eksik, negatif, sonsuz veya sayısal olmayan değer içeremez.",
-                    "Boolean alanlar yalnızca true/false veya 0/1 olmalıdır.",
-                    "played = 0 ise matches = 0 ve club_points = 0 olmalıdır.",
-                    "played = 1 ise matches en az 1 olmalıdır.",
-                    "match_cap tüm sezonlarda sonlu ve 0'dan büyük olmalıdır.",
-                    "Lig pozisyonu biliniyorsa league_team_count > 1 ve domestic_position bu aralıkta olmalıdır.",
-                    "is_league_champion = true ve domestic_position verilmişse pozisyon 1 olmalıdır; çelişkili kayıt reddedilir.",
-                    "max_european_exposure config değeri [0,1] aralığında olmalıdır; aktif v2 değeri 0.85'tir.",
-                    "Avrupa geçmişi olmayan takımlar için club_points, played ve matches alanları beş sezon boyunca 0 yazılmalıdır.",
-                    "Official club coefficient, kulübün kendi sezon puanlarıyla karıştırılmamalıdır.",
-                ],
-                styles,
-            ),
-            Paragraph("10. Output Exposure Alanları", styles["H1"]),
-            simple_table(
-                [
-                    ["Output alanı", "Tanım", "Modeldeki rol"],
-                    [
-                        "european_exposure",
-                        "Oynanan sezon ve maçlardan türetilen [0,1] ham kanıt miktarı",
-                        "Rating source sınıflandırmasını belirler",
-                    ],
-                    [
-                        "effective_european_exposure",
-                        "min(european_exposure, 0.85)",
-                        "Final rating karışımında kullanılan exposure",
-                    ],
-                    [
-                        "ao_first_elo",
-                        "Domestic Prior + Effective Exposure x (European Prior - Domestic Prior)",
-                        "Kalıcı başlangıç rating kolonu",
-                    ],
-                    [
-                        "ao_first_elo_rank",
-                        "ao_first_elo azalan; eşitlikte team_id artan",
-                        "Deterministik takım sıralaması",
-                    ],
-                    [
-                        "model_version",
-                        "Hesabı üreten frozen model kimliği",
-                        "Config/state uyumu ve yeniden üretilebilirlik",
-                    ],
-                    [
-                        "uncapped norm / tail alanları",
-                        "Benchmark öncesi/sonrası norm, excess ve active bayrakları",
-                        "Hard-cap ve saturation denetimi",
-                    ],
-                    [
-                        "saturation_count",
-                        "Country, achievement, Europe ve exposure cap sayısı",
-                        "Takım bazlı çözünürlük diagnostiği",
-                    ],
-                ],
-                styles,
-                col_widths=[4.6 * cm, 6.7 * cm, 5.2 * cm],
-            ),
-            PageBreak(),
-            Paragraph("11. Dynamic fixtures.csv ve matches.csv", styles["H1"]),
-            Paragraph(
-                "Prospective tahmin önce sonuç içermeyen fixtures.csv satırından "
-                "kickoff öncesi kilitlenir. Maç bittikten sonra aynı metadata'ya "
-                "home_goals, away_goals, decided_on_penalties ve gerektiğinde "
-                "advanced_team_id eklenmiş matches.csv satırı settle edilir. Replay "
-                "komutu tamamlanmış matches.csv verisini geriye dönük işler ve holdout "
-                "kanıtı üretmez. Saha skoru 90 dakika veya uzatma oynandıysa 120 "
-                "dakika sonundaki skordur; penaltı atışı golleri skora eklenmez.",
-                styles["Body"],
-            ),
-            field_table(
-                [
-                    ["match_id", "Evet", "Benzersiz maç kimliği", "ucl-2026-001"],
-                    ["season", "Evet", "Maçın sezonu ve state sezonu", "2026/27"],
-                    ["kickoff_utc", "Evet", "Timezone içeren kesin UTC başlama zamanı", "2026-09-15T19:00:00Z"],
-                    ["competition", "Evet", "UEFA turnuvası", "UCL, UEL, UECL"],
-                    ["round", "Evet", "Kaynak tur adı", "League Stage, Semi Finals"],
-                    ["home_team_id", "Evet", "State'teki ev sahibi takım", "1"],
-                    ["away_team_id", "Evet", "State'teki deplasman takımı", "4"],
-                    ["home_goals", "Result", "90/120 dakika saha golü; fixture'da yok", "0, 1, 2"],
-                    ["away_goals", "Result", "90/120 dakika saha golü; fixture'da yok", "0, 1, 2"],
-                    ["is_neutral", "Evet", "Nötr saha bayrağı", "true / false"],
-                    ["decided_on_penalties", "Result", "Eşleşme penaltıyla mı sonuçlandı?", "true / false"],
-                ],
-                styles,
-            ),
-            Paragraph("12. Eleme ve Tur Metadata'sı", styles["H1"]),
-            field_table(
-                [
-                    ["tie_id", "Koşullu", "is_knockout=true ise zorunlu ortak eşleşme kimliği", "ucl-sf-01"],
-                    ["is_knockout", "Evet", "Canonical fixture'da zorunlu eleme bayrağı", "true / false"],
-                    ["is_tie_decider", "Evet", "Canonical fixture'da zorunlu; turu bitiren maçta true", "true / false"],
-                    ["stage", "Kolon evet", "LEAGUE veya normalize aşama; boşsa round'dan türetilir", "SEMIFINAL, FINAL"],
-                    ["advanced_team_id", "Result/Koşullu", "Decider settle edilirken ilerleyen takım", "1"],
-                ],
-                styles,
-            ),
-            note_box(
-                "Tie kimliği kuralı",
-                "Aynı tie_id farklı takım çifti, turnuva veya stage için yeniden "
-                "kullanılamaz. is_tie_decider=true ise advanced_team_id aynı "
-                "eşleşmedeki takımlardan biri olmalıdır.",
-                styles,
-            ),
-            PageBreak(),
-            Paragraph("13. Dynamic Output Dosyaları", styles["H1"]),
-            simple_table(
-                [
-                    ["Dosya", "Ana alanlar", "Amaç"],
-                    [
-                        "ratings_state.csv",
-                        "AO First, Power, Achievement Reserve, AO Live, son event, model/config id",
-                        "İnsan tarafından okunabilir takım snapshot'ı",
-                    ],
-                    [
-                        "state_checkpoint.json",
-                        "Processed match_id, open ties, global kronoloji ve ratings SHA-256",
-                        "Aynı sezon güvenli resume için tam state",
-                    ],
-                    [
-                        "match_updates.csv",
-                        "Pre/post rating, beklenti, H/D/A olasılıkları, saha skoru, G, Power Delta, reserve eventleri",
-                        "Tam maç audit trail'i",
-                    ],
-                    [
-                        "replay_predictions.csv",
-                        "Maç öncesi ratingler, normalize expected score, H/D/A ve RETROSPECTIVE_REPLAY etiketi",
-                        "Backtest/smoke audit; holdout kanıtı değildir",
-                    ],
-                    [
-                        "pre_match_log.csv",
-                        "generated_at, pre rating, expected score, H/D/A, state/config ve hash zinciri",
-                        "Kickoff öncesi prospective tahmin ledger'ı",
-                    ],
-                ],
-                styles,
-                col_widths=[4.4 * cm, 7.1 * cm, 5.0 * cm],
-            ),
-            *bullet_list(
-                [
-                    "Duplicate match_id reddedilir.",
-                    "Kronoloji gerilemesi reddedilir.",
-                    "State'te olmayan takım ve negatif/tam sayı olmayan skor reddedilir.",
-                    "State model_version/config_id aktif config ile uyuşmak zorundadır.",
-                    "expected_home_score galibiyet olasılığı değil; 1/0.5/0 ölçeğinde normalize beklenen maç puanıdır.",
-                    "home_win_probability, draw_probability ve away_win_probability toplamı 1 olmalıdır.",
-                    "H/D/A çıktısı P(home) + 0.5 x P(draw) = expected_home_score eşitliğini korur.",
-                    "Pre-match lock için generated_at_utc kickoff_utc değerinden önce olmalıdır.",
-                    "Eşzamanlı maç sonuçları match_id artan sırasıyla settle edilmelidir.",
-                    "2026/27 qualifying/play-off holdout kapsamı dışıdır; lig aşaması en erken 8 Eylül 2026'da başlar.",
-                    "Aynı input, state ve config deterministik aynı çıktıyı üretir.",
-                    "Aktif v2'de power carry 0, goal_multiplier her maçta 1 ve reserve değişimi 0'dır.",
-                ],
-                styles,
-            ),
-            note_box(
-                "Sonuç",
-                "Bu veri setleri tamamlandığında model her takım için Domestic Prior, "
-                "European Prior, ham European Exposure, Effective European Exposure "
-                "ve final AO First Elo puanı ile deterministik sırasını "
-                "üretebilir. Dinamik sözleşme bunu exact-UTC maç akışıyla Power Elo'ya "
-                "taşır. Final başlangıç rating kolonunun adı ao_first_elo olarak "
-                "sabittir. Tam kolon sırası contracts/ao_european_elo_v2.json "
-                "dosyasında makinece dondurulmuştur.",
-                styles,
-            ),
-        ]
-    )
-
-    return flowables
-
-
-def make_styles() -> dict[str, ParagraphStyle]:
-    base = getSampleStyleSheet()
-    return {
-        "Title": ParagraphStyle(
-            "Title",
-            parent=base["Title"],
-            fontName="AORegular",
-            fontSize=22,
-            leading=27,
-            textColor=colors.HexColor("#162033"),
-            alignment=TA_CENTER,
-            spaceAfter=6,
-        ),
-        "Subtitle": ParagraphStyle(
-            "Subtitle",
-            parent=base["Normal"],
-            fontName="AORegular",
-            fontSize=13,
-            leading=17,
-            textColor=colors.HexColor("#4A5568"),
-            alignment=TA_CENTER,
-            spaceAfter=12,
-        ),
-        "H1": ParagraphStyle(
-            "H1",
-            parent=base["Heading1"],
-            fontName="AORegular",
-            fontSize=13.5,
-            leading=17,
-            textColor=colors.HexColor("#1B365D"),
-            spaceBefore=9,
-            spaceAfter=6,
-        ),
-        "Body": ParagraphStyle(
-            "Body",
-            parent=base["BodyText"],
-            fontName="AORegular",
-            fontSize=9.2,
-            leading=13.2,
-            textColor=colors.HexColor("#1F2933"),
-            spaceAfter=7,
-        ),
-        "Small": ParagraphStyle(
-            "Small",
-            parent=base["BodyText"],
-            fontName="AORegular",
-            fontSize=7.4,
-            leading=9.4,
-            textColor=colors.HexColor("#1F2933"),
-        ),
-        "NoteTitle": ParagraphStyle(
-            "NoteTitle",
-            parent=base["BodyText"],
-            fontName="AORegular",
-            fontSize=8.6,
-            leading=10.4,
-            textColor=colors.HexColor("#1B365D"),
-            spaceAfter=3,
-        ),
-    }
-
-
-def simple_table(rows: list[list[str]], styles: dict[str, ParagraphStyle], col_widths: list[float]) -> Table:
-    return make_table(rows, styles, col_widths)
-
-
-def field_table(rows: list[list[str]], styles: dict[str, ParagraphStyle]) -> Table:
-    return make_table(
-        [["Alan", "Zorunlu mu?", "Anlam", "Örnek"], *rows],
-        styles,
-        [4.2 * cm, 2.3 * cm, 7.5 * cm, 2.5 * cm],
-    )
-
-
-def make_table(rows: list[list[str]], styles: dict[str, ParagraphStyle], col_widths: list[float]) -> Table:
-    wrapped = [[Paragraph(str(cell), styles["Small"]) for cell in row] for row in rows]
-    table = Table(wrapped, colWidths=col_widths, hAlign="LEFT", repeatRows=1)
-    table.setStyle(
-        TableStyle(
-            [
-                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#E8EEF7")),
-                ("TEXTCOLOR", (0, 0), (-1, 0), colors.HexColor("#162033")),
-                ("GRID", (0, 0), (-1, -1), 0.35, colors.HexColor("#CBD5E1")),
-                ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                ("LEFTPADDING", (0, 0), (-1, -1), 4),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 4),
-                ("TOPPADDING", (0, 0), (-1, -1), 4),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
-                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#F8FAFC")]),
-            ]
-        )
-    )
-    return table
-
-
-def note_box(title: str, body: str, styles: dict[str, ParagraphStyle]) -> Table:
-    table = Table(
-        [
-            [Paragraph(title, styles["NoteTitle"])],
-            [Paragraph(body, styles["Small"])],
+            ["Kapsam", "AO First + AO Live + production 1X2"],
+            ["Kimlik anahtarı", "Kalıcı AO team_id / club_id"],
+            ["Zaman standardı", "Timezone-aware exact UTC"],
+            ["xG davranışı", "Opsiyonel; iki taraflı ve scope doğrulanmış"],
+            ["Eksik veri", "Sessiz sıfır yok; açık fallback veya validation"],
+            ["Ana referans", "docs/ai/DATA_CONTRACTS.md"],
         ],
-        colWidths=[16.5 * cm],
-        hAlign="LEFT",
+        s,
+        summary_title="Veri felsefesi",
+        summary=(
+            "Her alan ya performans, ya kanıt miktarı, ya maç bağlamı ya da audit bilgisi taşır. "
+            "Eksik veri performansın sıfır olduğu anlamına gelmez. Model yalnız açıkça tanımlanmış "
+            "zero-history satırını sıfır kabul eder; diğer eksikler hata veya fallback üretir."
+        ),
     )
-    table.setStyle(
-        TableStyle(
+
+    out += [
+        h1("1. Veri Katmanları", s),
+        table(
             [
-                ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#F4F8FF")),
-                ("BOX", (0, 0), (-1, -1), 0.6, colors.HexColor("#A9BEDA")),
-                ("LEFTPADDING", (0, 0), (-1, -1), 7),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 7),
-                ("TOPPADDING", (0, 0), (-1, -1), 6),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
-            ]
-        )
-    )
-    return table
-
-
-def bullet_list(items: list[str], styles: dict[str, ParagraphStyle]) -> list:
-    flowables: list = []
-    for item in items:
-        flowables.append(Paragraph(f"- {item}", styles["Body"]))
-    return flowables
+                ["Katman", "Ne zaman gerekir?", "Ürettiği sonuç"],
+                ["Static season data", "Sezon başlamadan önce", "AO First Elo"],
+                ["Fixture metadata", "Kickoff'tan önce", "Locked AO ve production 1X2"],
+                ["Match settlement", "Maç bittikten sonra", "Power Elo güncellemesi"],
+                ["xG", "Maç sonrası, uygunsa", "Bounded performans düzeltmesi"],
+                ["Tie/progression", "Eleme eşleşmesi bitince", "Sezonluk progression bonusu"],
+                ["Domestic feature state", "Prediction servisinde", "Domestic Poisson 1X2 bileşeni"],
+                ["Prediction audit", "Her tahminde", "Monitoring ve yeniden üretilebilirlik"],
+            ],
+            [4.1 * cm, 5.4 * cm, 6.95 * cm],
+            s,
+        ),
+        callout(
+            "Rating ve prediction verisi farklıdır",
+            "Structural ML ve Domestic Poisson feature'ları AO First veya AO Live ratingine "
+            "yazılmaz. Bu veriler yalnız 1X2 tahmin servisinde kullanılır.",
+            s,
+            tone="green",
+        ),
+        h1("2. Ortak Kimlik ve Zaman Kuralları", s),
+        *bullets(
+            [
+                "team_id/club_id AO tarafından yönetilen kalıcı kimliktir; ad değişikliği kimliği değiştirmez.",
+                "UEFA, TheSportsDB, FotMob veya başka provider ID'leri ayrı mapping alanıdır.",
+                "season hedef sezonu ifade eder; 2026/27 gibi kararlı formatta tutulur.",
+                "kickoff_utc timezone-aware olmalı; yerel saat metni tek başına kabul edilmez.",
+                "Maç sırası kickoff_utc ve match_id ile deterministiktir.",
+                "Aynı takım aynı kickoff anında iki farklı maçta bulunamaz.",
+            ],
+            s,
+        ),
+        h2("2.1 Beş sezon notasyonu", s),
+        table(
+            [
+                ["Alan eki", "Static puan tablolarında anlamı"],
+                ["t", "Hedef sezondan önce tamamlanan en son sezon"],
+                ["t_minus_1", "Bir önceki tamamlanmış sezon"],
+                ["t_minus_2", "İki sezon önce"],
+                ["t_minus_3", "Üç sezon önce"],
+                ["t_minus_4", "Beş yıllık pencerenin en eski sezonu"],
+            ],
+            [5.0 * cm, 11.45 * cm],
+            s,
+        ),
+        formula("Ağırlıklar: 0.07 / 0.13 / 0.20 / 0.27 / 0.33", s),
+        page_break(),
+        h1("3. teams.csv", s),
+        body(
+            "Takım evreninin ana kimlik tablosudur. Bir team_id yalnız bir kez bulunur ve diğer "
+            "static tablolar bu kimliğe bağlanır.",
+            s,
+        ),
+        table(
+            [
+                ["Alan", "Zorunlu", "Anlam", "Örnek"],
+                ["team_id", "Evet", "Kalıcı AO kulüp kimliği", "AO-UEFA-50067"],
+                ["team_name", "Evet", "Standart görünen takım adı", "Bayern München"],
+                ["country", "Evet", "Ülke adı", "Germany"],
+                ["country_code", "Evet", "Kararlı ülke kodu", "GER"],
+                ["domestic_league", "Evet", "Yerel lig adı", "Bundesliga"],
+            ],
+            [3.3 * cm, 2.2 * cm, 7.0 * cm, 3.95 * cm],
+            s,
+        ),
+        h1("4. country_coefficients.csv", s),
+        body(
+            "UEFA ülke puanları takımın kendi geçmişini değil, takımın geldiği ligin Avrupa "
+            "gücünü besler. Anahtar season + country_code'dur.",
+            s,
+        ),
+        table(
+            [
+                ["Alan", "Zorunlu", "Anlam"],
+                ["season", "Evet", "Ratingin üretildiği hedef sezon"],
+                ["country / country_code", "Evet", "Ülke adı ve join anahtarı"],
+                ["points_t_minus_4 ... points_t", "Evet", "Beş tamamlanmış sezonun UEFA ülke puanı"],
+                ["official_five_year_total", "Hayır", "Resmi toplamı kontrol eden audit alanı"],
+                ["official_country_rank", "Hayır", "Resmi sıra audit alanı"],
+            ],
+            [5.1 * cm, 2.5 * cm, 8.85 * cm],
+            s,
+        ),
+        callout(
+            "Yorum",
+            "Bu puan yüksekse takım otomatik olarak Avrupa'da başarılı sayılmaz. Yalnız Domestic "
+            "Prior içindeki League Strength yükselir; kulübün kendi kanıtı ayrı dosyadan gelir.",
+            s,
+            tone="blue",
+        ),
+        h1("5. domestic_context.csv", s),
+        body(
+            "Takımın hedef Avrupa sezonuna hangi yerel başarıyla geldiğini ve Domestic Surprise "
+            "için son beş lig performansını taşır. Anahtar season + team_id'dir.",
+            s,
+        ),
+        table(
+            [
+                ["Alan", "Zorunlu", "Anlam"],
+                ["season / team_id", "Evet", "Hedef sezon ve kalıcı kulüp anahtarı"],
+                ["domestic_position", "Koşullu", "Resmi final lig sırası"],
+                ["league_team_count", "Koşullu", "O sezon ligdeki takım sayısı; position ile birlikte"],
+                ["is_league_champion", "Evet", "Yalnız true/false veya 0/1"],
+                ["is_cup_winner", "Evet", "Ulusal ana kupa şampiyonu"],
+                ["european_entry_type", "Evet", "Avrupa biletinin yolu; metadata"],
+                ["competition / entry_round", "Önerilir", "UCL/UEL/UECL ve giriş aşaması metadata'sı"],
+                ["history_position_t_minus_5 ... t_minus_1", "Surprise için", "Beş tamamlanmış yerel sezon sırası"],
+                ["history_team_count_t_minus_5 ... t_minus_1", "Surprise için", "Aynı sezonların lig büyüklüğü"],
+            ],
+            [5.4 * cm, 2.6 * cm, 8.45 * cm],
+            s,
+        ),
+        *bullets(
+            [
+                "Position verilmişse 1..league_team_count aralığında tam sayı olmalıdır.",
+                "Champion=true ve bilinen position varsa position tam olarak 1 olmalıdır.",
+                "Kupa şampiyonu tek başına duble bonusu alamaz.",
+                "History position ve team count her sezon için birlikte dolu veya birlikte boş olmalıdır.",
+                "Beş tam history sezonu yoksa Domestic Surprise adjustment sıfır olur.",
+            ],
+            s,
+        ),
+        page_break(),
+        h1("6. club_european_points.csv", s),
+        body(
+            "Kulübün kendi Avrupa performansı ile bu sinyalin veri miktarını aynı satırda fakat "
+            "ayrı alanlarda taşır. Anahtar season + team_id + country_code'dur.",
+            s,
+        ),
+        table(
+            [
+                ["Alan", "Zorunlu", "Anlam"],
+                ["season / team_id / country_code", "Evet", "Tam join anahtarı"],
+                ["team_name_source", "Evet", "Kaynak sistemdeki ad; identity audit"],
+                ["club_points_t_minus_4 ... t", "Evet", "Kulübün sezon bazlı kendi Avrupa puanı"],
+                ["played_t_minus_4 ... t", "Evet", "O sezon Avrupa maçı oynandı mı?"],
+                ["matches_t_minus_4 ... t", "Evet", "O sezon tamamlanan Avrupa maç sayısı"],
+                ["match_cap_t_minus_4 ... t", "Evet", "Exposure için pozitif yeterli örneklem eşiği"],
+                ["official_club_coefficient", "Hayır", "UEFA resmi coefficient audit alanı"],
+                ["country_part", "Hayır", "Ülke payı audit alanı; ana formüle girmez"],
+            ],
+            [5.3 * cm, 2.6 * cm, 8.55 * cm],
+            s,
+        ),
+        callout(
+            "Performans ile güveni karıştırmayın",
+            "club_points European Prior'ı, played ve matches European Exposure'ı besler. Çok maç "
+            "oynamak tek başına güçlü performans değildir; yalnız puan sinyaline güveni artırır.",
+            s,
+            tone="green",
+        ),
+        h2("6.1 Avrupa geçmişi olmayan takım", s),
+        formula(
+            [
+                "club_points_* = 0",
+                "played_* = 0",
+                "matches_* = 0",
+                "match_cap_* > 0 olmalı",
+            ],
+            s,
+        ),
+        body(
+            "Satır atlanmaz. Eksik satır sistem tarafından 'Avrupa geçmişi yok' diye yorumlanmaz; "
+            "validation hatası verir. Bu ayrım sessiz join hatasını önler.",
+            s,
+        ),
+        h1("7. Static Verinin Modeldeki Anlamı", s),
+        table(
+            [
+                ["Sinyal", "Ne ölçer?", "Ne ölçmez?"],
+                ["Country points", "Ligin Avrupa seviyesi", "Kulübün kendi performansı"],
+                ["Domestic position", "Güncel yerel başarı", "Avrupa maç gücü"],
+                ["Historical positions", "Takımın yerel normali ve oynaklığı", "Güncel form"],
+                ["Club points", "Kulübün Avrupa performansı", "Veri güveni"],
+                ["Played/matches", "Avrupa kanıt miktarı", "Performans kalitesi"],
+                ["Official totals", "Kaynak doğrulama", "Ana rating formülü"],
+            ],
+            [4.1 * cm, 6.3 * cm, 6.05 * cm],
+            s,
+        ),
+        page_break(),
+        h1("8. Pre-Match Fixture Verisi", s),
+        body(
+            "Sonuç içermeyen fixture satırı hem Current AO hem production ensemble tahmini için "
+            "kickoff'tan önce doğrulanır ve kilitlenir.",
+            s,
+        ),
+        table(
+            [
+                ["Alan grubu", "Alanlar", "Neden gerekir?"],
+                ["Kimlik", "match_id, season", "Duplicate ve sezon state kontrolü"],
+                ["Zaman", "kickoff_utc", "Pre-match lock ve chronology"],
+                ["Turnuva", "competition, round, stage", "Format ve progression sözleşmesi"],
+                ["Eşleşme", "tie_id, is_knockout, is_tie_decider", "Tek/çift maç state'i"],
+                ["Format", "is_single_match_tie / format_type", "Draw 0.12 veya 0.24 seçimi"],
+                ["Takımlar", "home_team_id, away_team_id", "AO Live state lookup"],
+                ["Saha", "is_neutral", "H=148.544 veya 0"],
+            ],
+            [3.5 * cm, 7.0 * cm, 5.95 * cm],
+            s,
+        ),
+        *bullets(
+            [
+                "generated_at_utc kickoff_utc değerinden küçük olmalıdır.",
+                "is_single_match_tie maç sonucu veya uzatmadan türetilemez; format bilgisidir.",
+                "Tahmin girdisinde home_goals, away_goals, xG veya advanced_team_id bulunmaz.",
+                "Tie/stage alanları turnuva formatıyla tutarlı olmalıdır.",
+            ],
+            s,
+        ),
+        h1("9. Match Settlement Verisi", s),
+        table(
+            [
+                ["Alan", "Anlam / kural"],
+                ["home_goals / away_goals", "90 dakika veya uzatma oynandıysa 120 dakika saha skoru"],
+                ["decided_on_penalties", "Shootout oldu mu? Shootout golleri skora eklenmez"],
+                ["xg_home / xg_away", "Birlikte bulunur veya birlikte boş kalır"],
+                ["xg_analysis_eligible", "Scope ve kalite doğrulanmışsa true"],
+                ["advanced_team_id", "Tie decider sonunda turu geçen takım"],
+                ["stage / tie_id", "Progression bonusunun tek ve doğru aşamada uygulanması"],
+            ],
+            [5.2 * cm, 11.25 * cm],
+            s,
+        ),
+        callout(
+            "Penaltı örneği",
+            "Bir takım rövanşı sahada 2-0 kazanıp aggregate eşitlik sonrası penaltıyla elense bile "
+            "o maç Power Elo için 2-0 galibiyettir. Shootout yalnız GD/xG ek sinyalini kapatır; "
+            "progression bonusunu advanced_team_id belirler.",
+            s,
+            tone="amber",
+        ),
+        page_break(),
+        h1("10. xG Veri Sözleşmesi", s),
+        body(
+            "xG maçın skorunu değiştirmez; skorla kazanılan Elo'yu performans üretimine göre "
+            "kontrollü biçimde artırır veya azaltır.",
+            s,
+        ),
+        table(
+            [
+                ["Kalite alanı", "Kabul koşulu"],
+                ["Provider", "Açık ve aynı metodoloji; maç bazında source ID/URL saklanır"],
+                ["İki taraf", "Home ve away xG birlikte finite ve >=0"],
+                ["Zaman kapsamı", "Field score 90 ise 90; uzatma varsa uyumlu 120 dakika"],
+                ["Maç içi penaltı", "Provider kapsamı belgelenir ve iki taraf için tutarlı olur"],
+                ["Shootout", "Kesinlikle xG toplamına eklenmez"],
+                ["Eksik/şüpheli", "xg_analysis_eligible=false ve iki değer boş"],
+            ],
+            [5.0 * cm, 11.45 * cm],
+            s,
+        ),
+        *bullets(
+            [
+                "Eksik xG sıfırla, lig ortalamasıyla veya tahminle doldurulmaz.",
+                "Farklı provider xG değerleri tek ana kolonda sessizce karıştırılmaz.",
+                "Aynı maç için kaynak snapshot zamanı ve checksum saklanmalıdır.",
+                "xG maçtan sonra gelir; pre-match ML feature olarak hedef maça sızamaz.",
+            ],
+            s,
+        ),
+        h1("11. Structural ML Feature Verisi", s),
+        body(
+            "Production ML modeli yalnız kickoff'tan önce üretilebilen feature'ları okur. Feature "
+            "store satırı match_id ile tektir ve training/inference şeması artifact içinde dondurulur.",
+            s,
+        ),
+        table(
+            [
+                ["Feature grubu", "Örnek alanlar"],
+                ["AO temel", "AO log-odds, expected score, Live/First farkı, exposure farkı"],
+                ["Format", "UCL/UEL/UECL, stage, round, format_type, neutral, leg"],
+                ["Avrupa formu", "Son 3/8 residual, gol atma/yeme, home/away residual"],
+                ["Yoğunluk", "Dinlenme günü, son 14/30 gündeki maç sayısı"],
+                ["Tie durumu", "Önceki leg sayısı ve kickoff öncesi aggregate lead"],
+                ["Eksik veri", "Train medyanı/UNKNOWN ve açık missing davranışı"],
+            ],
+            [4.2 * cm, 12.25 * cm],
+            s,
+        ),
+        callout(
+            "Yasak feature'lar",
+            "Hedef maçın sonucu, golü, xG'si, tur sonucu, post-match Elo'su veya gelecekteki bir "
+            "maçtan gelen bilgi hiçbir pre-match feature'a giremez.",
+            s,
+            tone="red",
+        ),
+        page_break(),
+        h1("12. Domestic Poisson State Verisi", s),
+        body(
+            "Yerel maçlar causal sırayla işlenerek takım hücum, savunma ve reliability state'i "
+            "oluşturur. Eğitim evreninde 45.423 maç ve 19 lig vardır; 171 kulüp AO kimliğiyle "
+            "production artifact'ına eşlenmiştir.",
+            s,
+        ),
+        table(
+            [
+                ["Girdi", "Kural"],
+                ["Domestic match ID", "Lig içinde benzersiz"],
+                ["Kickoff UTC", "Sonuçtan önce state snapshot üretmeye uygun"],
+                ["Home/away source team ID", "AO mapping'den ayrı provider identity"],
+                ["Home/away goals", "Tamamlanmış saha skoru, non-negative integer"],
+                ["League + season", "Aynı lig içi sıfır merkezleme ve season carry"],
+                ["AO mapping", "Yalnız güvenli eşleşmeler Avrupa feature'ına aktarılır"],
+            ],
+            [5.4 * cm, 11.05 * cm],
+            s,
+        ),
+        body(
+            "AO mapping'i olmayan yerel takımlar model state'ini eğitmeye devam eder fakat Avrupa "
+            "fixture'ı için feature üretmez. Yerel geçmiş yoksa Poisson bileşeni AO fallback kullanır.",
+            s,
+        ),
+        h1("13. Production Prediction Input ve Log", s),
+        h2("13.1 Asgari base input", s),
+        formula(
+            [
+                "match_id, season, kickoff_utc, competition, round, stage, format_type",
+                "is_neutral, home_club_id, away_club_id",
+                "ao_home_probability, ao_draw_probability, ao_away_probability",
+                "+ frozen Structural Logistic feature schema",
+            ],
+            s,
+        ),
+        h2("13.2 Her tahminde loglanan audit", s),
+        *bullets(
+            [
+                "AO, ham ML, Current ML, ham Poisson, AO Poisson ve final H/D/A.",
+                "Domestic Poisson coverage: BOTH / ONE / NONE ve component fallback.",
+                "Prediction status, fallback reason ve rating_feedback_applied=false.",
+                "Model/config/contract/manifest/ML/state SHA-256 kimlikleri.",
+                "generated_at_utc ve kickoff_utc; tahminin gerçekten pre-match olduğunun kanıtı.",
+            ],
+            s,
+        ),
+        h1("14. Ana Output Dosyaları", s),
+        table(
+            [
+                ["Dosya", "İçerik", "Kullanım"],
+                ["ao_first_elo.csv", "Static bileşenler, exposure, surprise, final sıra", "Sezon seed'i ve audit"],
+                ["ratings_state.csv", "First, Power, progression, Live, son event", "Güncel state snapshot"],
+                ["state_checkpoint.json", "Processed maç/tie ve checksum", "Güvenli resume"],
+                ["match_updates.csv", "Pre/post rating, E, GD, xG, delta, progression", "Tam settlement audit"],
+                ["pre_match_prediction_log.csv", "AO/ML/Poisson/final 1X2 ve hash'ler", "Prospective monitoring"],
+            ],
+            [4.4 * cm, 7.4 * cm, 4.65 * cm],
+            s,
+        ),
+        page_break(),
+        h1("15. Veri Kaynağı Önceliği", s),
+        table(
+            [
+                ["Veri", "Birincil tercih", "Kontrol"],
+                ["UEFA ülke/kulüp puanı", "UEFA resmi ranking/coefficient", "Dondurulmuş ikinci kaynak"],
+                ["UEFA fixture ve sonuç", "UEFA resmi match endpoint/merkezi", "Bağımsız skor kaynağı"],
+                ["Lig sırası/kupa", "Lig veya federasyon resmi kaydı", "Güvenilir tarihsel veri sağlayıcı"],
+                ["xG", "Tek ve belgelenmiş sağlayıcı", "Ortak maç provider karşılaştırması"],
+                ["Yerel lig maçları", "Lisanslı/API schedule sonucu", "Final tablo maç sayısı uyumu"],
+                ["Takım kimliği", "AO identity registry", "UEFA/provider ID audit"],
+            ],
+            [4.2 * cm, 6.2 * cm, 6.05 * cm],
+            s,
+        ),
+        h1("16. Veri Kalitesi Kabul Listesi", s),
+        table(
+            [
+                ["Kontrol", "Beklenen"],
+                ["Anahtar benzersizliği", "Takım, ülke-sezon, takım-sezon, maç ve tie duplicate yok"],
+                ["Sayısal kalite", "Finite; izin verilmedikçe non-negative"],
+                ["Boolean kalite", "Tanımlı true/false veya 0/1"],
+                ["Kimlik coverage", "Tüm maç takımları AO state/mapping içinde"],
+                ["Chronology", "Exact UTC monoton; aynı kickoff batch leakage yok"],
+                ["Skor", "Field score ile shootout ayrılmış"],
+                ["xG", "İki taraflı, scope uyumlu veya tamamen boş"],
+                ["Olasılık", "Finite, >=0, toplam 1"],
+                ["Rating", "Power zero-sum; exposure/cap/sign invariantları"],
+                ["Artifact", "Contract ve bütün production SHA-256 değerleri uyumlu"],
+            ],
+            [5.3 * cm, 11.15 * cm],
+            s,
+        ),
+        h1("17. Toplama ve Güncelleme Takvimi", s),
+        table(
+            [
+                ["Zaman", "İşlem"],
+                ["Sezon öncesi", "Static dört CSV, AO First snapshot ve initial rank audit"],
+                ["Fixture yayımlandığında", "Kimlik, kickoff, format, neutral ve tie metadata"],
+                ["Kickoff öncesi", "Feature snapshot, Current AO ve production prediction lock"],
+                ["Maç sonrası", "90/120 skor, xG scope, Power settlement"],
+                ["Tie tamamlanınca", "advanced_team_id ve tek progression event"],
+                ["Her batch sonrası", "State checkpoint, checksum ve monitoring log"],
+                ["Aylık/sezon sonu", "Coverage, fallback, loss, calibration ve data-quality raporu"],
+            ],
+            [5.0 * cm, 11.45 * cm],
+            s,
+        ),
+        callout(
+            "Analize hazır veri tanımı",
+            "Bir veri seti yalnız satır sayısı tamamlandığında değil; kimlik, zaman, skor, xG scope, "
+            "duplicate, coverage ve leakage kontrolleri geçtiğinde analize hazırdır.",
+            s,
+            tone="green",
+        ),
+    ]
+    return out
 
 
 if __name__ == "__main__":

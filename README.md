@@ -614,6 +614,15 @@ output/                      Yeniden üretilebilir yerel çıktılar; Git'e girm
 | Aktif/shadow/rejected durumu | [`docs/ai/RESEARCH_STATUS.md`](docs/ai/RESEARCH_STATUS.md) |
 | Çalıştırma adımları | [`docs/ai/RUNBOOK.md`](docs/ai/RUNBOOK.md) |
 
+Sunum ve paylaşım için güncel PDF seti:
+
+| Belge | PDF |
+| --- | --- |
+| Tam teknik model açıklaması | [`docs/pdf/AkilOyunu_Elo_Model_Aciklayici.pdf`](docs/pdf/AkilOyunu_Elo_Model_Aciklayici.pdf) |
+| Kısa model açıklaması | [`docs/pdf/AkilOyunu_Elo_Model_Kisa.pdf`](docs/pdf/AkilOyunu_Elo_Model_Kisa.pdf) |
+| Geliştirme ve production izleme planı | [`docs/pdf/AkilOyunu_Elo_Onaylanan_Gelistirme_Plani.pdf`](docs/pdf/AkilOyunu_Elo_Onaylanan_Gelistirme_Plani.pdf) |
+| Veri ihtiyaçları ve anlamlandırma | [`docs/pdf/AkilOyunu_VeriAnlamlandirma.pdf`](docs/pdf/AkilOyunu_VeriAnlamlandirma.pdf) |
+
 ## 13. Temel Güvenlik Kuralları
 
 - `team_id`, sezonlar boyunca kalıcı olmalıdır.
