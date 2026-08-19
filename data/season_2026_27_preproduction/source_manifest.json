@@ -1,0 +1,76 @@
+{
+  "all_quality_checks_passed": true,
+  "as_of_last_finished_match_utc": "2026-08-14T18:00:00+00:00",
+  "completed_matches": 342,
+  "data_root": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction",
+  "dataset_version": "ao-2026-27-preproduction-inputs-v1",
+  "output_root": "/Users/buycell/Desktop/Akil Oyunu Elo/output/season_2026_27_preproduction",
+  "production_contract_changed": false,
+  "rating_max": 1995.9547232117848,
+  "rating_min": 837.4404216373348,
+  "season": "2026/27",
+  "sources": [
+    {
+      "bytes": 89805,
+      "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/kassiesa/ccoef2022.html",
+      "sha256": "1452f646ad4838b0bf50b697ece68c2ef4584bcad4a31f955619ed8c6b5b8614"
+    },
+    {
+      "bytes": 88911,
+      "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/kassiesa/ccoef2023.html",
+      "sha256": "95700708878068b6f87dbac843aeb3a2b97c66c5ee0759db7a19e09a37faec09"
+    },
+    {
+      "bytes": 89126,
+      "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/kassiesa/ccoef2024.html",
+      "sha256": "8d93c287a0783a883e314894e1184820e4449cc1cdc95b3271d7e66e7c93d24f"
+    },
+    {
+      "bytes": 89686,
+      "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/kassiesa/ccoef2025.html",
+      "sha256": "db552b766366f5acf0fa78c99fa7ed261525ab9c76da8850c3149e30a07b34fd"
+    },
+    {
+      "bytes": 89920,
+      "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/kassiesa/ccoef2026.html",
+      "sha256": "bad1a521ed6b1513d59b46095e49a7506856c283d7ee93f773f39101bd06fef0"
+    },
+    {
+      "bytes": 95792,
+      "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/kassiesa/ccoef2027.html",
+      "sha256": "728b8dad41574a71ea9670fa1f70ed62101e2d6a825f6c1ebe0cfbea0d5d63f6"
+    },
+    {
+      "bytes": 14014,
+      "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/kassiesa/crank2026.html",
+      "sha256": "29b1794bb2e03abe316160436a6fb9ca191612a4d1af28f5fc7d20d2872fe5f0"
+    },
+    {
+      "bytes": 96816,
+      "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/kassiesa/qual2026.html",
+      "sha256": "6fa14a843227046defeafa4d11f5fd433331a72ef89a8a381df27fdff20de969"
+    },
+    {
+      "bytes": 97179,
+      "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/kassiesa/trank2026.html",
+      "sha256": "a11379922faee5a1876e11ae6c7eae0b1bb5f005680945e0cca6100bfbfccbe9"
+    },
+    {
+      "bytes": 3164442,
+      "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/uefa/UCL_2027_offset_0000.json",
+      "sha256": "caa89c9b98f3551576a4af05e112eda1b7ca60b92e31bcf7272ff311bb3881a6"
+    },
+    {
+      "bytes": 8778450,
+      "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/uefa/UECL_2027_offset_0000.json",
+      "sha256": "afad1fd14cad36675d07420db3f8fbafc11cde8bfc7907afc612d32229ec7459"
+    },
+    {
+      "bytes": 2626695,
+      "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/uefa/UEL_2027_offset_0000.json",
+      "sha256": "a29e2c926407c41b2d137dc38660bb014b70e37563b9463fba66f2e0c6cf9c2a"
+    }
+  ],
+  "teams": 237,
+  "upcoming_fixtures": 86
+}

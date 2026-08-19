@@ -1,0 +1,14 @@
+competition,round,matches,xg_covered,xg_analysis_eligible,coverage_rate,missing_xg,identity_rejected,time_scope_rejected
+ALL,ALL,342,88,88,0.2573099415,254,8,0
+UCL,1st Qualifying Round,28,2,2,0.07142857143,26,0,0
+UCL,2nd Qualifying Round,28,6,6,0.2142857143,22,2,0
+UCL,3rd Qualifying Round,20,8,8,0.4,12,2,0
+UCL,ALL,76,16,16,0.2105263158,60,4,0
+UECL,1st Qualifying Round,52,0,0,0,52,0,0
+UECL,2nd Qualifying Round,98,22,22,0.2244897959,76,2,0
+UECL,3rd Qualifying Round,60,24,24,0.4,36,2,0
+UECL,ALL,210,46,46,0.219047619,164,4,0
+UEL,1st Qualifying Round,12,4,4,0.3333333333,8,0,0
+UEL,2nd Qualifying Round,18,10,10,0.5555555556,8,0,0
+UEL,3rd Qualifying Round,26,12,12,0.4615384615,14,0,0
+UEL,ALL,56,26,26,0.4642857143,30,0,0

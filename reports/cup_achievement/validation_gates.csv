@@ -1,0 +1,5 @@
+gate,passed,observed,requirement
+seed_coverage,True,1887,Every active team-season has a candidate seed
+inert_outside_cup_winners,True,0.0,Teams without a domestic cup keep the production seed
+zero_weight_removes_double_bonus,True,-3.9615729276506744,weight=0 cannot raise a champion-and-cup seed
+monotone_in_weight,True,True,Cup-winner seeds never fall as the weight rises

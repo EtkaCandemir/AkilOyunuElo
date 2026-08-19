@@ -20,6 +20,13 @@ from ao_elo.xg_live import (
     XGPerformanceBonusConfig,
     update_match_elo_with_xg,
 )
+from ao_elo.qualification_stage_k import (
+    QualificationStageKConfig,
+    effective_match_k,
+    qualification_round_key,
+    stage_k_multiplier,
+)
+from ao_elo.qualification_transition import apply_qualifier_carry
 
 
 COMPETITIONS = ("UCL", "UEL", "UECL")
@@ -161,6 +168,12 @@ class DynamicEloConfig:
     progression_bonus_enabled: bool = False
     progression_base_bonus: float = 0.0
     progression_stages_per_competition: int = 4
+    qualification_stage_k_enabled: bool = False
+    qualification_q1_multiplier: float = 1.0
+    qualification_q2_multiplier: float = 1.0
+    qualification_q3_multiplier: float = 1.0
+    qualification_playoff_multiplier: float = 1.0
+    qualifier_to_main_carry: float = 1.0
     achievement_reserve: AchievementReserveConfig | None = None
 
     @classmethod
@@ -187,6 +200,12 @@ class DynamicEloConfig:
             progression_bonus_enabled=True,
             progression_base_bonus=12.0,
             progression_stages_per_competition=4,
+            qualification_stage_k_enabled=True,
+            qualification_q1_multiplier=0.20,
+            qualification_q2_multiplier=0.275,
+            qualification_q3_multiplier=0.35,
+            qualification_playoff_multiplier=0.425,
+            qualifier_to_main_carry=1.0,
         )
 
     def validate(self) -> None:
@@ -274,6 +293,23 @@ class DynamicEloConfig:
             raise ValueError(
                 "Disabled progression bonus must have progression_base_bonus=0"
             )
+        if not isinstance(self.qualification_stage_k_enabled, bool):
+            raise ValueError("qualification_stage_k_enabled must be boolean")
+        _require_between_zero_and_one(
+            "qualifier_to_main_carry", self.qualifier_to_main_carry
+        )
+        self.qualification_stage_k_config.validate()
+        if not self.qualification_stage_k_enabled:
+            multipliers = (
+                self.qualification_q1_multiplier,
+                self.qualification_q2_multiplier,
+                self.qualification_q3_multiplier,
+                self.qualification_playoff_multiplier,
+            )
+            if not all(math.isclose(value, 1.0, abs_tol=1e-12) for value in multipliers):
+                raise ValueError("Disabled qualification stage K must use 1.0 multipliers")
+            if not math.isclose(self.qualifier_to_main_carry, 1.0, abs_tol=1e-12):
+                raise ValueError("Disabled qualification transition must use carry=1.0")
         if self.achievement_reserve is not None:
             self.achievement_reserve.validate()
 
@@ -298,6 +334,24 @@ class DynamicEloConfig:
             beta=self.xg_performance_ratio,
             xg_scale=self.xg_performance_scale,
             minimum_winner_gain_ratio=self.minimum_winner_gain_ratio,
+        )
+        config.validate()
+        return config
+
+    @property
+    def qualification_stage_k_config(self) -> QualificationStageKConfig:
+        config = QualificationStageKConfig(
+            profile=(
+                "PRODUCTION_CONTINUOUS_020_0275_035_0425"
+                if self.qualification_stage_k_enabled
+                else "DISABLED_FULL_REFERENCE"
+            ),
+            q1_multiplier=self.qualification_q1_multiplier,
+            q2_multiplier=self.qualification_q2_multiplier,
+            q3_multiplier=self.qualification_q3_multiplier,
+            qualifying_playoff_multiplier=self.qualification_playoff_multiplier,
+            main_multiplier=1.0,
+            selectable=self.qualification_stage_k_enabled,
         )
         config.validate()
         return config
@@ -368,6 +422,8 @@ class SeasonState:
     processed_match_ids: frozenset[str]
     processed_tie_ids: frozenset[str]
     open_ties: Mapping[str, TieState]
+    qualification_participants: frozenset[str]
+    qualification_carry_applied: frozenset[str]
     last_event_utc: datetime | None
     last_match_id: str | None
     model_version: str
@@ -620,6 +676,13 @@ class MatchUpdate:
     away_goals: int
     is_neutral: bool
     decided_on_penalties: bool
+    qualification_round_key: str
+    stage_k_multiplier: float
+    effective_k: float
+    home_qualifier_carry_applied: bool
+    away_qualifier_carry_applied: bool
+    home_qualifier_carry_adjustment: float
+    away_qualifier_carry_adjustment: float
     home_power_pre: float
     away_power_pre: float
     home_reserve_pre: float
@@ -735,6 +798,55 @@ def effective_draw_at_even(
     return float(config.draw_at_even)
 
 
+def _prepare_qualification_transition(
+    state: SeasonState,
+    fixture: MatchFixture,
+    config: DynamicEloConfig,
+) -> tuple[SeasonState, dict[str, tuple[bool, float]]]:
+    """Track qualifier participation and apply legacy carry only when configured."""
+    audit = {
+        fixture.home_team_id: (False, 0.0),
+        fixture.away_team_id: (False, 0.0),
+    }
+    if not config.qualification_stage_k_enabled:
+        return state, audit
+
+    round_key = qualification_round_key(fixture.round)
+    participants = set(state.qualification_participants)
+    applied = set(state.qualification_carry_applied)
+    ratings = dict(state.ratings)
+    team_ids = (fixture.home_team_id, fixture.away_team_id)
+
+    if round_key != "MAIN":
+        participants.update(team_ids)
+        return replace(
+            state,
+            qualification_participants=frozenset(participants),
+        ), audit
+
+    if math.isclose(config.qualifier_to_main_carry, 1.0, abs_tol=1e-12):
+        return state, audit
+
+    for team_id in team_ids:
+        if team_id not in participants or team_id in applied:
+            continue
+        rating = ratings[team_id]
+        carry = apply_qualifier_carry(
+            rating.ao_first_elo,
+            rating.power_elo,
+            config.qualifier_to_main_carry,
+        )
+        ratings[team_id] = replace(rating, power_elo=carry.post_carry_rating)
+        applied.add(team_id)
+        audit[team_id] = (True, carry.carry_adjustment)
+
+    return replace(
+        state,
+        ratings=ratings,
+        qualification_carry_applied=frozenset(applied),
+    ), audit
+
+
 def lock_prediction(
     state: SeasonState,
     fixture: MatchFixture,
@@ -763,8 +875,9 @@ def lock_prediction(
         raise ValueError(f"Missing away team_id in state: {fixture.away_team_id}")
     _validate_chronology_key(state, fixture.kickoff_utc, fixture.match_id)
 
-    home = state.ratings[fixture.home_team_id]
-    away = state.ratings[fixture.away_team_id]
+    prepared_state, _ = _prepare_qualification_transition(state, fixture, config)
+    home = prepared_state.ratings[fixture.home_team_id]
+    away = prepared_state.ratings[fixture.away_team_id]
     stage = fixture.stage or normalize_stage(
         fixture.round,
         fixture.competition,
@@ -884,8 +997,11 @@ def settle_locked_match(
         raise ValueError("State changed after the prediction was locked")
     if match.home_team_id not in state.ratings or match.away_team_id not in state.ratings:
         raise ValueError("Locked match references a team missing from current state")
-    home = state.ratings[match.home_team_id]
-    away = state.ratings[match.away_team_id]
+    prepared_state, _ = _prepare_qualification_transition(
+        state, match.fixture(), config
+    )
+    home = prepared_state.ratings[match.home_team_id]
+    away = prepared_state.ratings[match.away_team_id]
     locked_values = {
         "home_power_pre": home.power_elo,
         "away_power_pre": away.power_elo,
@@ -1011,6 +1127,8 @@ def initialize_season(
         processed_match_ids=frozenset(),
         processed_tie_ids=frozenset(),
         open_ties={},
+        qualification_participants=frozenset(),
+        qualification_carry_applied=frozenset(),
         last_event_utc=None,
         last_match_id=None,
         model_version=config.model_version,
@@ -1083,6 +1201,9 @@ def update_match(
         raise ValueError(f"Missing away team_id in state: {match.away_team_id}")
     _validate_chronology(state, match)
 
+    state, carry_audit = _prepare_qualification_transition(
+        state, match.fixture(), config
+    )
     ratings = dict(state.ratings)
     open_ties = dict(state.open_ties)
     processed_tie_ids = set(state.processed_tie_ids)
@@ -1138,12 +1259,18 @@ def update_match(
     )
     xg_home = match.xg_home if match.xg_analysis_eligible else None
     xg_away = match.xg_away if match.xg_analysis_eligible else None
+    round_key = qualification_round_key(match.round)
+    effective_k = effective_match_k(
+        config.k_factor,
+        match.round,
+        config.qualification_stage_k_config,
+    )
     elo_update = update_match_elo_with_xg(
         home.ao_live_elo,
         away.ao_live_elo,
         match.home_goals,
         match.away_goals,
-        k_factor=config.k_factor,
+        k_factor=effective_k,
         elo_scale=config.elo_scale,
         home_advantage=config.home_advantage,
         is_neutral=match.is_neutral,
@@ -1166,7 +1293,7 @@ def update_match(
     effective_rating_difference = elo_update.effective_rating_difference
     multiplier = elo_update.goal_difference_multiplier
     delta = elo_update.power_delta
-    power_delta_before_xg = config.k_factor * elo_update.result_residual
+    power_delta_before_xg = effective_k * elo_update.result_residual
     xg_power_adjustment = delta - power_delta_before_xg
     # The xG kernel owns eligibility. Reusing its audit signal prevents this
     # wrapper from drifting if the kernel contract changes.
@@ -1308,6 +1435,15 @@ def update_match(
         away_goals=match.away_goals,
         is_neutral=match.is_neutral,
         decided_on_penalties=match.decided_on_penalties,
+        qualification_round_key=round_key,
+        stage_k_multiplier=stage_k_multiplier(
+            match.round, config.qualification_stage_k_config
+        ),
+        effective_k=effective_k,
+        home_qualifier_carry_applied=carry_audit[match.home_team_id][0],
+        away_qualifier_carry_applied=carry_audit[match.away_team_id][0],
+        home_qualifier_carry_adjustment=carry_audit[match.home_team_id][1],
+        away_qualifier_carry_adjustment=carry_audit[match.away_team_id][1],
         home_power_pre=home.power_elo,
         away_power_pre=away.power_elo,
         home_reserve_pre=home.achievement_reserve,
@@ -1525,6 +1661,18 @@ def _validate_state_config(state: SeasonState, config: DynamicEloConfig) -> None
             _require_identifier("state last_match_id", rating.last_match_id)
     for match_id in state.processed_match_ids:
         _require_identifier("processed match_id", match_id)
+    for team_id in state.qualification_participants:
+        _require_identifier("qualification participant team_id", team_id)
+        if team_id not in state.ratings:
+            raise ValueError("Qualification participant references an unknown team")
+    if not state.qualification_carry_applied.issubset(
+        state.qualification_participants
+    ):
+        raise ValueError(
+            "qualification_carry_applied must be a subset of qualification_participants"
+        )
+    for team_id in state.qualification_carry_applied:
+        _require_identifier("qualification carry team_id", team_id)
     for tie_id in state.processed_tie_ids:
         _require_identifier("processed tie_id", tie_id)
         if tie_id in state.open_ties:

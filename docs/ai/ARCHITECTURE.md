@@ -61,6 +61,11 @@ last_match_id
 ```
 
 Aktif `power_carry=0` oldugu icin sezon basi `power_elo=ao_first_elo` olur.
+Bu sezonlar arasi carry'dir. Qualifier base tur onemi
+`0.40/0.55/0.70/0.85`, `%50` delta retention ile her mac update'inde efektif
+`0.20/0.275/0.35/0.425` olur; ana asama `1.00` kullanir. Ilk ana macindan once
+carry veya reset yoktur ve mac olmadan Power degismez. Turnuva dususlerinde
+state sifirlanmaz.
 Progression bakiyeleri sifirdan baslar. Achievement Reserve aktif degildir.
 
 ### Katman D: Pre-Match Prediction
@@ -82,8 +87,9 @@ isler:
 2. `rho=0` Domestic Poisson olasiligi `%50`, AO olasiligi `%50` ile AO Poisson.
 3. Bu iki bilesen log-probability uzayinda `%50/%50` birlestirilir.
 
-Artifact ve state SHA-256 degerleri yukleme sirasinda dogrulanir. Hata veya
-eksik feature satirinda cikti birebir base AO 1X2'ye doner. Ensemble ciktisi
+Artifact ve state SHA-256 degerleri yukleme sirasinda dogrulanir. Yukleme
+tarafi sikidir; satir bazli tahmin tarafi ise totaldir: herhangi bir
+`Exception` o satiri base AO 1X2'ye dusurur ve batch devam eder. Ensemble ciktisi
 settlement veya Power Delta hesabina girmez.
 
 ### Katman E: Match Settlement
@@ -144,6 +150,12 @@ Bu nedenle iki conservation kavramini ayirmak gerekir:
 | `production_prediction.py` | Aktif ML+Poisson tahmini, artifact dogrulama, AO fallback | Rating update |
 | `domestic_poisson.py` | Causal yerel attack/defence state ve snapshot | AO Live mutation |
 
+Domestic state snapshot'i her zaman **ligin kendi sezonundan** okunur, Avrupa
+fikstur sezonundan degil. Bir lig yalnizca kendi maclari islenince ilerler;
+Avrupa sezonu gecilseydi `ensure_season` ileri tasiyip canli servisin
+uygulamadigi bir carry decay'i devreye sokardi. Backtest feature store'u ile
+canli servis bu sayede birebir ayni state'i okur.
+
 ## 5. Public Arayuzler
 
 Static:
@@ -180,6 +192,7 @@ gelmez:
 - `opponent_quintile_context.py`, `relative_opponent_profile.py`
 - `team_venue_context.py`, `match_context.py`, `dynamic_k.py`
 - `scoreline.py`, `scoreline_calibration.py`
+- `cup_achievement.py` (kalici evaluation ablation kolunu besler)
 
 Bu moduller challenger, diagnostic veya shadow calismalarina aittir.
 `domestic_poisson.py` ve `ml_prediction.py` yalniz

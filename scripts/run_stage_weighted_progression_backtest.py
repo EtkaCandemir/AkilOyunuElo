@@ -74,7 +74,14 @@ DOMESTIC_ADJUSTMENTS = (
     / "gamma_sensitivity_cap_30"
     / "selected_candidate_team_adjustments.csv"
 )
-XG_DATA = ROOT / "data" / "xg_2025_26" / "uefa_2025_26_matches_with_xg.csv"
+# The bounded xG layer is revalidated on 2020/21-2025/26, so the shared default
+# must be the six-season map. Feeding the single-season file would replay seven
+# of eight seasons through the goal-margin-only fallback and understate a layer
+# the contract now documents on 2827 eligible matches.
+XG_DATA = ROOT / "data" / "xg_2020_2026" / "uefa_2020_2026_matches_with_xg.csv"
+LEGACY_SINGLE_SEASON_XG_DATA = (
+    ROOT / "data" / "xg_2025_26" / "uefa_2025_26_matches_with_xg.csv"
+)
 OUTPUT_ROOT = ROOT / "output" / "stage_weighted_progression_backtest_2018_2026"
 
 UCL_TOTAL_CAPS = (30.0, 45.0, 60.0, 75.0, 90.0)

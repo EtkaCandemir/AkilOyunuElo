@@ -407,3 +407,75 @@ def test_saved_state_rejects_config_mismatch(tmp_path: Path) -> None:
 
     with pytest.raises(ValueError, match="does not match"):
         state_from_frame(frame, config)
+
+
+# ---------------------------------------------------------------------------
+# knockout fixtures must state their tie format: a missing flag used to default
+# to False, which silently priced every single-match tie - finals included -
+# with the two-leg draw intercept
+# ---------------------------------------------------------------------------
+
+
+PILOT_MATCHES = ROOT / "data" / "pilot_20_teams" / "matches.csv"
+
+
+def write_without_format_flag(frame: pd.DataFrame, path: Path) -> Path:
+    frame.drop(columns=["is_single_match_tie"]).to_csv(path, index=False)
+    return path
+
+
+def test_knockout_row_without_the_format_flag_is_rejected(tmp_path: Path) -> None:
+    source = pd.read_csv(PILOT_MATCHES)
+    target = write_without_format_flag(source, tmp_path / "matches.csv")
+
+    with pytest.raises(ValueError, match="is_single_match_tie is required"):
+        read_matches(target)
+
+
+def test_blank_format_flag_is_rejected_like_a_missing_column(
+    tmp_path: Path,
+) -> None:
+    """An empty cell is just as unknown as an absent column."""
+    source = pd.read_csv(PILOT_MATCHES)
+    source["is_single_match_tie"] = source["is_single_match_tie"].astype(object)
+    source.loc[source["is_knockout"], "is_single_match_tie"] = ""
+    target = tmp_path / "matches.csv"
+    source.to_csv(target, index=False)
+
+    with pytest.raises(ValueError, match="is_single_match_tie is required"):
+        read_matches(target)
+
+
+def test_league_rows_do_not_need_the_format_flag(tmp_path: Path) -> None:
+    """Only knockout ties have a format, so league rows stay unaffected."""
+    source = pd.read_csv(PILOT_MATCHES)
+    league_only = source.loc[~source["is_knockout"].astype(bool)]
+    target = write_without_format_flag(league_only, tmp_path / "matches.csv")
+
+    matches = read_matches(target)
+
+    assert len(matches) == len(league_only)
+    assert not any(match.is_single_match_tie for match in matches)
+
+
+def test_pilot_finals_are_marked_as_single_match_ties() -> None:
+    matches = read_matches(PILOT_MATCHES)
+    single = [match for match in matches if match.is_single_match_tie]
+
+    assert single, "the pilot must exercise the single-match draw intercept"
+    assert all(match.round == "Final" for match in single)
+
+
+def test_single_match_finals_use_the_shorter_draw_intercept() -> None:
+    """The whole point of the flag: finals must not be priced as two-leg ties."""
+    from ao_elo.dynamic import effective_draw_at_even
+
+    config = load_selected_v2_config(MANIFEST)
+    matches = read_matches(PILOT_MATCHES)
+    finals = [match for match in matches if match.is_single_match_tie]
+
+    for match in finals:
+        assert effective_draw_at_even(config, match.is_single_match_tie) == pytest.approx(
+            config.single_match_draw_at_even
+        )
+    assert config.single_match_draw_at_even < config.draw_at_even

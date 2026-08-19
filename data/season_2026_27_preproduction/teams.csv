@@ -1,0 +1,238 @@
+team_id,team_name,country,country_code,domestic_league
+AO-UEFA-50048,AF Elbasani,Albania,ALB,Albania top division
+AO-UEFA-52792,Dinamo Tirana,Albania,ALB,Albania top division
+AO-UEFA-88148,Egnatia Rrogozhinë,Albania,ALB,Albania top division
+AO-UEFA-52878,Vllaznia Shkodër,Albania,ALB,Albania top division
+AO-UEFA-88371,Atlètic Club d'Escaldes,Andorra,AND,Andorra top division
+AO-UEFA-62180,FC Santa Coloma,Andorra,AND,Andorra top division
+AO-UEFA-63401,Inter Club d'Escaldes,Andorra,AND,Andorra top division
+AO-UEFA-2605268,Alashkert FC,Armenia,ARM,Armenia top division
+AO-UEFA-2610304,Ararat-Armenia,Armenia,ARM,Armenia top division
+AO-UEFA-2609987,FC Noah,Armenia,ARM,Armenia top division
+AO-UEFA-77431,Pyunik Yerevan,Armenia,ARM,Armenia top division
+AO-UEFA-50110,Austria Wien,Austria,AUT,Austria top division
+AO-UEFA-50030,FC Salzburg,Austria,AUT,Austria top division
+AO-UEFA-63405,LASK,Austria,AUT,Austria top division
+AO-UEFA-50042,Rapid Wien,Austria,AUT,Austria top division
+AO-UEFA-50111,Sturm Graz,Austria,AUT,Austria top division
+AO-UEFA-59890,Neftchi Baku,Azerbaijan,AZB,Azerbaijan top division
+AO-UEFA-60609,Qarabag FK,Azerbaijan,AZB,Azerbaijan top division
+AO-UEFA-2609356,Sabah FK,Azerbaijan,AZB,Azerbaijan top division
+AO-UEFA-2607480,Zira FK,Azerbaijan,AZB,Azerbaijan top division
+AO-UEFA-66168,BATE Borisov,Belarus,BLS,Belarus top division
+AO-UEFA-50161,Dinamo Minsk,Belarus,BLS,Belarus top division
+AO-UEFA-2613945,ML Vitebsk,Belarus,BLS,Belarus top division
+AO-UEFA-4608,AA Gent,Belgium,BEL,Belgium top division
+AO-UEFA-50074,Anderlecht,Belgium,BEL,Belgium top division
+AO-UEFA-50043,Club Brugge,Belgium,BEL,Belgium top division
+AO-UEFA-52883,Sint-Truiden,Belgium,BEL,Belgium top division
+AO-UEFA-64125,Union Saint-Gilloise,Belgium,BEL,Belgium top division
+AO-UEFA-50104,Borac Banja Luka,Bosnia-Herzegovina,BOS,Bosnia-Herzegovina top division
+AO-UEFA-64378,FK Sarajevo,Bosnia-Herzegovina,BOS,Bosnia-Herzegovina top division
+AO-UEFA-50163,Velez Mostar,Bosnia-Herzegovina,BOS,Bosnia-Herzegovina top division
+AO-UEFA-73390,Zrinjski Mostar,Bosnia-Herzegovina,BOS,Bosnia-Herzegovina top division
+AO-UEFA-2610262,CSKA 1948 Sofia,Bulgaria,BUL,Bulgaria top division
+AO-UEFA-2608297,CSKA Sofia,Bulgaria,BUL,Bulgaria top division
+AO-UEFA-50044,Levski Sofia,Bulgaria,BUL,Bulgaria top division
+AO-UEFA-2603104,Ludogorets Razgrad,Bulgaria,BUL,Bulgaria top division
+AO-UEFA-50164,Dinamo Zagreb,Croatia,CRO,Croatia top division
+AO-UEFA-52359,Hajduk Split,Croatia,CRO,Croatia top division
+AO-UEFA-52356,NK Rijeka,Croatia,CRO,Croatia top division
+AO-UEFA-60514,NK Varazdin,Croatia,CRO,Croatia top division
+AO-UEFA-54191,AEK Larnaca,Cyprus,CYP,Cyprus top division
+AO-UEFA-52741,Apollon Limassol,Cyprus,CYP,Cyprus top division
+AO-UEFA-50077,Omonia Nicosia,Cyprus,CYP,Cyprus top division
+AO-UEFA-2609532,Pafos FC,Cyprus,CYP,Cyprus top division
+AO-UEFA-62169,FK Jablonec,Czechia,CZE,Czechia top division
+AO-UEFA-59878,Hradec Kralove,Czechia,CZE,Czechia top division
+AO-UEFA-52498,Slavia Praha,Czechia,CZE,Czechia top division
+AO-UEFA-50033,Sparta Praha,Czechia,CZE,Czechia top division
+AO-UEFA-64388,Viktoria Plzen,Czechia,CZE,Czechia top division
+AO-UEFA-50019,AGF Aarhus,Denmark,DEN,Denmark top division
+AO-UEFA-52709,FC København,Denmark,DEN,Denmark top division
+AO-UEFA-75795,FC Midtjylland,Denmark,DEN,Denmark top division
+AO-UEFA-79940,FC Nordsjælland,Denmark,DEN,Denmark top division
+AO-UEFA-2601124,AFC Bournemouth,England,ENG,England top division
+AO-UEFA-52280,Arsenal,England,ENG,England top division
+AO-UEFA-52683,Aston Villa,England,ENG,England top division
+AO-UEFA-2601105,Brighton & Hove Albion,England,ENG,England top division
+AO-UEFA-52916,Crystal Palace,England,ENG,England top division
+AO-UEFA-7889,Liverpool,England,ENG,England top division
+AO-UEFA-52919,Manchester City,England,ENG,England top division
+AO-UEFA-52682,Manchester United,England,ENG,England top division
+AO-UEFA-53360,Sunderland AFC,England,ENG,England top division
+AO-UEFA-59341,Flora Tallinn,Estonia,EST,Estonia top division
+AO-UEFA-2600371,Kalju Nomme,Estonia,EST,Estonia top division
+AO-UEFA-77482,Levadia Tallinn,Estonia,EST,Estonia top division
+AO-UEFA-2600598,Paide Linnameeskond,Estonia,EST,Estonia top division
+AO-UEFA-59025,HB Torshavn,Faroe Islands,FAR,Faroe Islands top division
+AO-UEFA-57475,KI Klaksvik,Faroe Islands,FAR,Faroe Islands top division
+AO-UEFA-64150,NSI Runavik,Faroe Islands,FAR,Faroe Islands top division
+AO-UEFA-59325,Víkingur,Faroe Islands,FAR,Faroe Islands top division
+AO-UEFA-50052,HJK Helsinki,Finland,FIN,Finland top division
+AO-UEFA-2602511,Ilves Tampere,Finland,FIN,Finland top division
+AO-UEFA-64161,Inter Turku,Finland,FIN,Finland top division
+AO-UEFA-52350,KuPS Kuopio,Finland,FIN,Finland top division
+AO-UEFA-50023,AS Monaco,France,FRA,France top division
+AO-UEFA-75797,Lille OSC,France,FRA,France top division
+AO-UEFA-5312,Olympique Lyon,France,FRA,France top division
+AO-UEFA-52748,Olympique Marseille,France,FRA,France top division
+AO-UEFA-52747,Paris Saint-Germain,France,FRA,France top division
+AO-UEFA-52277,RC Lens,France,FRA,France top division
+AO-UEFA-55031,Stade Rennais,France,FRA,France top division
+AO-UEFA-64467,Dila Gori,Georgia,GEO,Georgia top division
+AO-UEFA-52705,Dinamo Tbilisi,Georgia,GEO,Georgia top division
+AO-UEFA-2605905,Iberia 1999,Georgia,GEO,Georgia top division
+AO-UEFA-64471,Torpedo Kutaisi,Georgia,GEO,Georgia top division
+AO-UEFA-2600431,1899 Hoffenheim,Germany,GER,Germany top division
+AO-UEFA-50109,Bayer Leverkusen,Germany,GER,Germany top division
+AO-UEFA-50037,Bayern München,Germany,GER,Germany top division
+AO-UEFA-52758,Borussia Dortmund,Germany,GER,Germany top division
+AO-UEFA-2603790,RB Leipzig,Germany,GER,Germany top division
+AO-UEFA-59880,SC Freiburg,Germany,GER,Germany top division
+AO-UEFA-50107,VfB Stuttgart,Germany,GER,Germany top division
+AO-UEFA-2606416,Europa FC,Gibraltar,GIB,Gibraltar top division
+AO-UEFA-2605572,Lincoln Red Imps,Gibraltar,GIB,Gibraltar top division
+AO-UEFA-2605575,St Joseph's FC,Gibraltar,GIB,Gibraltar top division
+AO-UEFA-50129,AEK Athens,Greece,GRE,Greece top division
+AO-UEFA-52953,OFI Heraklion,Greece,GRE,Greece top division
+AO-UEFA-2610,Olympiakos Piraeus,Greece,GRE,Greece top division
+AO-UEFA-50130,PAOK Thessaloniki,Greece,GRE,Greece top division
+AO-UEFA-50084,Panathinaikos,Greece,GRE,Greece top division
+AO-UEFA-52958,DVSC Debrecen,Hungary,HUN,Hungary top division
+AO-UEFA-52287,ETO Györ,Hungary,HUN,Hungary top division
+AO-UEFA-52298,Ferencváros,Hungary,HUN,Hungary top division
+AO-UEFA-93452,Paksi FC,Hungary,HUN,Hungary top division
+AO-UEFA-2610384,IF Vestri,Iceland,ISL,Iceland top division
+AO-UEFA-52308,Stjarnan FC,Iceland,ISL,Iceland top division
+AO-UEFA-50057,Valur Reykjavik,Iceland,ISL,Iceland top division
+AO-UEFA-52697,Vikingur Reykjavik,Iceland,ISL,Iceland top division
+AO-UEFA-52375,Bohemians Dublin,Ireland,IRL,Ireland top division
+AO-UEFA-50086,Derry City,Ireland,IRL,Ireland top division
+AO-UEFA-52381,Shamrock Rovers,Ireland,IRL,Ireland top division
+AO-UEFA-53020,Shelbourne,Ireland,IRL,Ireland top division
+AO-UEFA-59034,Beitar Jerusalem,Israel,ISR,Israel top division
+AO-UEFA-59340,Hapoel Beer-Sheva,Israel,ISR,Israel top division
+AO-UEFA-59869,Hapoel Tel-Aviv,Israel,ISR,Israel top division
+AO-UEFA-57477,Maccabi Tel-Aviv,Israel,ISR,Israel top division
+AO-UEFA-50058,AC Milan,Italy,ITA,Italy top division
+AO-UEFA-50137,AS Roma,Italy,ITA,Italy top division
+AO-UEFA-52816,Atalanta,Italy,ITA,Italy top division
+AO-UEFA-79946,Como 1907,Italy,ITA,Italy top division
+AO-UEFA-50138,Internazionale,Italy,ITA,Italy top division
+AO-UEFA-50139,Juventus,Italy,ITA,Italy top division
+AO-UEFA-50136,Napoli,Italy,ITA,Italy top division
+AO-UEFA-2600605,FK Astana,Kazakhstan,KAZ,Kazakhstan top division
+AO-UEFA-79966,FK Yelimay,Kazakhstan,KAZ,Kazakhstan top division
+AO-UEFA-79970,Kairat Almaty,Kazakhstan,KAZ,Kazakhstan top division
+AO-UEFA-79969,Tobol Kustanai,Kazakhstan,KAZ,Kazakhstan top division
+AO-UEFA-2609552,FC Ballkani,Kosovo,KOS,Kosovo top division
+AO-UEFA-2608290,FC Drita,Kosovo,KOS,Kosovo top division
+AO-UEFA-2608311,KF Dukagjini,Kosovo,KOS,Kosovo top division
+AO-UEFA-2611789,KF Malisheva,Kosovo,KOS,Kosovo top division
+AO-UEFA-79556,FK Auda,Latvia,LAT,Latvia top division
+AO-UEFA-2606320,FK Liepaja,Latvia,LAT,Latvia top division
+AO-UEFA-2609104,RFS Riga,Latvia,LAT,Latvia top division
+AO-UEFA-2607924,Riga FC,Latvia,LAT,Latvia top division
+AO-UEFA-57482,FC Vaduz,Liechtenstein,LIE,Liechtenstein top division
+AO-UEFA-2607108,FC Hegelmann,Lithuania,LIT,Lithuania top division
+AO-UEFA-2608927,FK Panevezys,Lithuania,LIT,Lithuania top division
+AO-UEFA-2605907,Kauno Zalgiris,Lithuania,LIT,Lithuania top division
+AO-UEFA-2602334,Zalgiris Vilnius,Lithuania,LIT,Lithuania top division
+AO-UEFA-2605351,Atert Bissen,Luxembourg,LUX,Luxembourg top division
+AO-UEFA-52309,Differdange 03,Luxembourg,LUX,Luxembourg top division
+AO-UEFA-2603092,UNA Strassen,Luxembourg,LUX,Luxembourg top division
+AO-UEFA-2603085,US Mondorf-les-Bains,Luxembourg,LUX,Luxembourg top division
+AO-UEFA-50092,Floriana,Malta,MLT,Malta top division
+AO-UEFA-50060,Hamrun Spartans,Malta,MLT,Malta top division
+AO-UEFA-79948,Marsaxlokk,Malta,MLT,Malta top division
+AO-UEFA-52641,Valletta FC,Malta,MLT,Malta top division
+AO-UEFA-2600714,Milsami Orhei,Moldova,MOL,Moldova top division
+AO-UEFA-2607112,Petrocub Hîncesti,Moldova,MOL,Moldova top division
+AO-UEFA-69606,Sheriff Tiraspol,Moldova,MOL,Moldova top division
+AO-UEFA-59036,Zimbru Chisinau,Moldova,MOL,Moldova top division
+AO-UEFA-2600105,Decic Tuzi,Montenegro,MON,Montenegro top division
+AO-UEFA-89562,Mornar Bar,Montenegro,MON,Montenegro top division
+AO-UEFA-2600104,OFK Petrovac,Montenegro,MON,Montenegro top division
+AO-UEFA-73936,Sutjeska Niksic,Montenegro,MON,Montenegro top division
+AO-UEFA-52327,AZ Alkmaar,Netherlands,NED,Netherlands top division
+AO-UEFA-50143,Ajax,Netherlands,NED,Netherlands top division
+AO-UEFA-52818,FC Twente Enschede,Netherlands,NED,Netherlands top division
+AO-UEFA-52749,Feyenoord,Netherlands,NED,Netherlands top division
+AO-UEFA-52330,NEC Nijmegen,Netherlands,NED,Netherlands top division
+AO-UEFA-50062,PSV Eindhoven,Netherlands,NED,Netherlands top division
+AO-UEFA-75807,Shkendija Tetovo,North Macedonia,MAC,North Macedonia top division
+AO-UEFA-59871,Sileks Kratovo,North Macedonia,MAC,North Macedonia top division
+AO-UEFA-53080,Vardar Skopje,North Macedonia,MAC,North Macedonia top division
+AO-UEFA-52377,Coleraine,Northern Ireland,NIR,Northern Ireland top division
+AO-UEFA-50056,Glentoran,Northern Ireland,NIR,Northern Ireland top division
+AO-UEFA-85009,Larne FC,Northern Ireland,NIR,Northern Ireland top division
+AO-UEFA-50134,Linfield Belfast,Northern Ireland,NIR,Northern Ireland top division
+AO-UEFA-59333,Bodø/Glimt,Norway,NOR,Norway top division
+AO-UEFA-52314,Lillestrøm SK,Norway,NOR,Norway top division
+AO-UEFA-52770,SK Brann Bergen,Norway,NOR,Norway top division
+AO-UEFA-53001,Tromsø IL,Norway,NOR,Norway top division
+AO-UEFA-52319,Viking Stavanger,Norway,NOR,Norway top division
+AO-UEFA-50145,GKS Katowice,Poland,POL,Poland top division
+AO-UEFA-50063,Górnik Zabrze,Poland,POL,Poland top division
+AO-UEFA-2600277,Jagiellonia Bialystok,Poland,POL,Poland top division
+AO-UEFA-64227,Lech Poznan,Poland,POL,Poland top division
+AO-UEFA-60566,Raków Czestochowa,Poland,POL,Poland top division
+AO-UEFA-50147,Benfica,Portugal,POR,Portugal top division
+AO-UEFA-50064,FC Porto,Portugal,POR,Portugal top division
+AO-UEFA-52336,Sporting Braga,Portugal,POR,Portugal top division
+AO-UEFA-50149,Sporting CP Lisbon,Portugal,POR,Portugal top division
+AO-UEFA-2603107,União Torreense,Portugal,POR,Portugal top division
+AO-UEFA-88131,CFR Cluj,Romania,ROM,Romania top division
+AO-UEFA-50065,FCSB,Romania,ROM,Romania top division
+AO-UEFA-53025,Universitatea Cluj,Romania,ROM,Romania top division
+AO-UEFA-2606501,Universitatea Craiova,Romania,ROM,Romania top division
+AO-UEFA-64516,AC Virtus,San Marino,SMA,San Marino top division
+AO-UEFA-64508,La Fiorita,San Marino,SMA,San Marino top division
+AO-UEFA-64514,Tre Fiori,San Marino,SMA,San Marino top division
+AO-UEFA-50050,Celtic,Scotland,SCO,Scotland top division
+AO-UEFA-50121,Glasgow Rangers,Scotland,SCO,Scotland top division
+AO-UEFA-50120,Hearts FC,Scotland,SCO,Scotland top division
+AO-UEFA-52821,Hibernian,Scotland,SCO,Scotland top division
+AO-UEFA-53035,Motherwell,Scotland,SCO,Scotland top division
+AO-UEFA-50162,Partizan Belgrade,Serbia,SRB,Serbia top division
+AO-UEFA-50069,Red Star Belgrade,Serbia,SRB,Serbia top division
+AO-UEFA-52810,Vojvodina Novi Sad,Serbia,SRB,Serbia top division
+AO-UEFA-77924,Zeleznicar Pancevo,Serbia,SRB,Serbia top division
+AO-UEFA-50156,DAC Dunajska Streda,Slovakia,SVK,Slovakia top division
+AO-UEFA-61601,MSK Zilina,Slovakia,SVK,Slovakia top division
+AO-UEFA-52797,Slovan Bratislava,Slovakia,SVK,Slovakia top division
+AO-UEFA-52904,Spartak Trnava,Slovakia,SVK,Slovakia top division
+AO-UEFA-77916,NK Aluminij,Slovenia,SLO,Slovenia top division
+AO-UEFA-2607248,NK Bravo,Slovenia,SLO,Slovenia top division
+AO-UEFA-59030,NK Celje,Slovenia,SLO,Slovenia top division
+AO-UEFA-69617,NK Koper,Slovenia,SLO,Slovenia top division
+AO-UEFA-50124,Atlético Madrid,Spain,ESP,Spain top division
+AO-UEFA-53043,Celta de Vigo,Spain,ESP,Spain top division
+AO-UEFA-50080,FC Barcelona,Spain,ESP,Spain top division
+AO-UEFA-87960,Getafe,Spain,ESP,Spain top division
+AO-UEFA-52265,Real Betis,Spain,ESP,Spain top division
+AO-UEFA-50051,Real Madrid,Spain,ESP,Spain top division
+AO-UEFA-50123,Real Sociedad,Spain,ESP,Spain top division
+AO-UEFA-70691,Villarreal,Spain,ESP,Spain top division
+AO-UEFA-91862,GAIS Göteborg,Sweden,SWE,Sweden top division
+AO-UEFA-52343,Hammarby IF,Sweden,SWE,Sweden top division
+AO-UEFA-50066,IFK Göteborg,Sweden,SWE,Sweden top division
+AO-UEFA-74233,Mjällby AIF,Sweden,SWE,Sweden top division
+AO-UEFA-8538,FC Lugano,Switzerland,SUI,Switzerland top division
+AO-UEFA-51151,FC Sankt Gallen,Switzerland,SUI,Switzerland top division
+AO-UEFA-52824,FC Sion,Switzerland,SUI,Switzerland top division
+AO-UEFA-80409,FC Thun,Switzerland,SUI,Switzerland top division
+AO-UEFA-50157,Besiktas,Türkiye,TUR,Türkiye top division
+AO-UEFA-52692,Fenerbahçe,Türkiye,TUR,Türkiye top division
+AO-UEFA-50067,Galatasaray,Türkiye,TUR,Türkiye top division
+AO-UEFA-2600288,Istanbul Basaksehir,Türkiye,TUR,Türkiye top division
+AO-UEFA-52731,Trabzonspor,Türkiye,TUR,Türkiye top division
+AO-UEFA-52723,Dynamo Kyiv,Ukraine,UKR,Ukraine top division
+AO-UEFA-2612107,LNZ Cherkasy,Ukraine,UKR,Ukraine top division
+AO-UEFA-2613172,Polissya Zhytomyr,Ukraine,UKR,Ukraine top division
+AO-UEFA-52707,Shakhtar Donetsk,Ukraine,UKR,Ukraine top division
+AO-UEFA-53071,Caernarfon Town,Wales,WAL,Wales top division
+AO-UEFA-64275,Connah's Quay,Wales,WAL,Wales top division
+AO-UEFA-2606314,Penybont,Wales,WAL,Wales top division
+AO-UEFA-60457,The New Saints,Wales,WAL,Wales top division

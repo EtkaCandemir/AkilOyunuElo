@@ -255,3 +255,96 @@ def _feature_frame() -> pd.DataFrame:
             }
         ]
     )
+
+
+# ---------------------------------------------------------------------------
+# the served fallback must be total: the contract promises Current AO 1X2 for
+# any artifact, feature or state problem, so an unexpected exception type must
+# degrade one row rather than take down the whole batch
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize(
+    "failure",
+    [
+        AttributeError("model lost an attribute"),
+        IndexError("positional lookup escaped the frame"),
+        ZeroDivisionError("degenerate scaling term"),
+        RuntimeError("third-party library failure"),
+        FloatingPointError("numpy raised under errstate"),
+    ],
+)
+def test_unexpected_exception_types_fall_back_instead_of_propagating(
+    monkeypatch: pytest.MonkeyPatch, failure: Exception
+) -> None:
+    """None of these inherit from the four types the catch used to list."""
+    service = ProductionPredictionService.from_contract(
+        PRODUCTION, allow_degraded_fallback=False
+    )
+
+    def explode(*args: object, **kwargs: object) -> dict[str, object]:
+        raise failure
+
+    monkeypatch.setattr(service, "_predict_row", explode)
+    result = service.predict(
+        _feature_frame(),
+        generated_at_utc=pd.Timestamp("2026-08-13T10:00:00Z"),
+    )
+
+    assert result.loc[0, "prediction_status"] == "FALLBACK_CURRENT_AO"
+    assert result.loc[0, "fallback_reason"] == (
+        f"FEATURE_OR_STATE_INVALID:{type(failure).__name__}"
+    )
+    assert result.loc[0, "home_probability"] == pytest.approx(0.38)
+    assert result.loc[0, "draw_probability"] == pytest.approx(0.24)
+    assert result.loc[0, "away_probability"] == pytest.approx(0.38)
+
+
+def test_one_bad_row_does_not_lose_the_healthy_rows(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """A batch must survive a single poisoned row."""
+    service = ProductionPredictionService.from_contract(
+        PRODUCTION, allow_degraded_fallback=False
+    )
+    frame = pd.concat([_feature_frame(), _feature_frame()], ignore_index=True)
+    frame.loc[1, "match_id"] = f"{frame.loc[0, 'match_id']}-second"
+
+    original = service._predict_row
+    calls = {"count": 0}
+
+    def flaky(*args: object, **kwargs: object) -> dict[str, object]:
+        calls["count"] += 1
+        if calls["count"] == 1:
+            raise AttributeError("first row explodes")
+        return original(*args, **kwargs)
+
+    monkeypatch.setattr(service, "_predict_row", flaky)
+    result = service.predict(
+        frame,
+        generated_at_utc=pd.Timestamp("2026-08-13T10:00:00Z"),
+    )
+
+    assert len(result) == 2
+    assert result.loc[0, "prediction_status"] == "FALLBACK_CURRENT_AO"
+    assert result.loc[1, "prediction_status"] == "ACTIVE_ENSEMBLE"
+
+
+def test_keyboard_interrupt_still_stops_the_batch(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """BaseException must not be swallowed by the broadened catch."""
+    service = ProductionPredictionService.from_contract(
+        PRODUCTION, allow_degraded_fallback=False
+    )
+
+    def interrupt(*args: object, **kwargs: object) -> dict[str, object]:
+        raise KeyboardInterrupt
+
+    monkeypatch.setattr(service, "_predict_row", interrupt)
+
+    with pytest.raises(KeyboardInterrupt):
+        service.predict(
+            _feature_frame(),
+            generated_at_utc=pd.Timestamp("2026-08-13T10:00:00Z"),
+        )

@@ -74,6 +74,12 @@ def main() -> None:
         description="Build the audited 2025/26 UEFA results and free FotMob xG dataset"
     )
     parser.add_argument("--events", type=Path, default=EVENTS_PATH)
+    parser.add_argument(
+        "--season",
+        action="append",
+        default=None,
+        help="season to build; repeat for several (default 2025/26)",
+    )
     parser.add_argument("--secondary-xg", type=Path, default=SECONDARY_XG_PATH)
     parser.add_argument("--output-root", type=Path, default=OUTPUT_ROOT)
     parser.add_argument("--offline", action="store_true")
@@ -100,7 +106,8 @@ def main() -> None:
 
     events_path = args.events.resolve()
     secondary_path = args.secondary_xg.resolve()
-    events = read_season_events(events_path)
+    seasons = tuple(args.season) if args.season else ("2025/26",)
+    events = read_season_events(events_path, seasons)
     refreshed, uefa_audit = refresh_uefa_results(
         events,
         cache_root / "uefa",
@@ -134,7 +141,9 @@ def main() -> None:
         raise ValueError(f"secondary xG file not found: {secondary_path}")
     master = attach_secondary_xg(master, pd.read_csv(secondary_path))
     master = master.loc[:, MASTER_COLUMNS]
-    validate_master_dataset(master)
+    # The frozen-dataset guarantees (exact match counts, single season, complete
+    # identity resolution) only hold for the original 2025/26 build.
+    validate_master_dataset(master, strict_counts=seasons == ("2025/26",))
 
     audit = uefa_audit.merge(identity_audit, on="match_id", how="left", validate="one_to_one")
     audit = audit.merge(xg_audit, on="match_id", how="left", validate="one_to_one")

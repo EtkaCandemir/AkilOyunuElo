@@ -33,7 +33,7 @@ from ao_elo.dynamic import (
 from ao_elo.tournament_bonus import ELIGIBLE_PROGRESSION_STAGES
 
 
-STATE_CHECKPOINT_SCHEMA_VERSION = "2.0.0"
+STATE_CHECKPOINT_SCHEMA_VERSION = "2.1.0"
 PREDICTION_LEDGER_SCHEMA_VERSION = "1.2.0"
 STATE_CHECKPOINT_FILENAME = "state_checkpoint.json"
 
@@ -112,6 +112,13 @@ MATCH_UPDATE_COLUMNS = [
     "away_goals",
     "is_neutral",
     "decided_on_penalties",
+    "qualification_round_key",
+    "stage_k_multiplier",
+    "effective_k",
+    "home_qualifier_carry_applied",
+    "away_qualifier_carry_applied",
+    "home_qualifier_carry_adjustment",
+    "away_qualifier_carry_adjustment",
     "home_power_pre",
     "away_power_pre",
     "home_reserve_pre",
@@ -180,6 +187,13 @@ REPLAY_PREDICTION_COLUMNS = [
     "round",
     "home_team_id",
     "away_team_id",
+    "qualification_round_key",
+    "stage_k_multiplier",
+    "effective_k",
+    "home_qualifier_carry_applied",
+    "away_qualifier_carry_applied",
+    "home_qualifier_carry_adjustment",
+    "away_qualifier_carry_adjustment",
     "home_power_pre",
     "away_power_pre",
     "home_reserve_pre",
@@ -256,6 +270,20 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
     missing = sorted(required - set(payload))
     if missing:
         raise ValueError(f"Model manifest missing keys: {missing}")
+    if "qualification_transition" not in payload:
+        if payload.get("candidate_status") != "FINAL_MODEL_CANDIDATE":
+            raise ValueError("Model manifest missing keys: ['qualification_transition']")
+        payload["qualification_transition"] = {
+            "active": False,
+            "stage_k_multipliers": {
+                "Q1": 1.0,
+                "Q2": 1.0,
+                "Q3": 1.0,
+                "QUALIFYING_PLAYOFF": 1.0,
+                "MAIN": 1.0,
+            },
+            "qualifier_to_main_carry": 1.0,
+        }
     core = payload["dynamic_core"]
     goal = payload["goal_margin"]
     xg = payload["xg_performance"]
@@ -264,6 +292,7 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
     reserve = payload["achievement_reserve"]
     probability = payload["one_x_two_probability"]
     prediction_layer = payload["prediction_layer"]
+    qualification = payload["qualification_transition"]
     _validate_prediction_layer_contract(prediction_layer)
     probability_active = _manifest_boolean(
         probability.get("active"),
@@ -286,6 +315,62 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
         reserve.get("active"),
         "achievement_reserve.active",
     )
+    if not isinstance(qualification, dict):
+        raise ValueError("qualification_transition must be an object")
+    qualification_active = _manifest_boolean(
+        qualification.get("active"),
+        "qualification_transition.active",
+    )
+    if qualification_active:
+        family = qualification.get("family")
+        if family not in {
+            "STAGE_WEIGHTED_K_WITH_ONE_TIME_MAIN_ENTRY_CARRY",
+            "CONTINUOUS_STAGE_WEIGHTED_K_NO_MAIN_ENTRY_RESET",
+        }:
+            raise ValueError("Production qualification transition family is invalid")
+        if qualification.get("cross_competition_state") != "CONTINUOUS_CLUB_ID_NO_RESET":
+            raise ValueError("Qualification routes must preserve the club state")
+        if not _manifest_boolean(
+            qualification.get("positive_negative_symmetry"),
+            "qualification_transition.positive_negative_symmetry",
+        ):
+            raise ValueError("Qualification carry must be positive/negative symmetric")
+        if family == "STAGE_WEIGHTED_K_WITH_ONE_TIME_MAIN_ENTRY_CARRY":
+            if qualification.get("application") != "ONCE_BEFORE_FIRST_MAIN_MATCH":
+                raise ValueError(
+                    "Qualification carry must run once before the first main match"
+                )
+            if qualification.get("carry_anchor") != "AO_FIRST_ELO":
+                raise ValueError("Qualification carry must use AO First Elo as its anchor")
+        else:
+            if qualification.get("application") != "EMBEDDED_IN_EACH_QUALIFIER_MATCH":
+                raise ValueError(
+                    "Continuous qualifier retention must be embedded in each match"
+                )
+            if qualification.get("carry_anchor") != "NOT_APPLICABLE":
+                raise ValueError("Continuous qualifier retention cannot use a carry anchor")
+            if not math.isclose(
+                float(qualification.get("qualifier_delta_retention", math.nan)),
+                0.50,
+                abs_tol=1e-12,
+            ):
+                raise ValueError("Continuous qualifier delta retention must equal 0.50")
+            if not math.isclose(
+                float(qualification.get("qualifier_to_main_carry", math.nan)),
+                1.0,
+                abs_tol=1e-12,
+            ):
+                raise ValueError("Continuous qualifier transition cannot reset at MAIN")
+            if qualification.get("non_match_rating_change") is not False:
+                raise ValueError("Continuous qualifier transition forbids non-match changes")
+    multipliers = qualification.get("stage_k_multipliers")
+    if not isinstance(multipliers, dict):
+        raise ValueError("qualification_transition.stage_k_multipliers must be an object")
+    expected_multiplier_keys = {"Q1", "Q2", "Q3", "QUALIFYING_PLAYOFF", "MAIN"}
+    if set(multipliers) != expected_multiplier_keys:
+        raise ValueError("Qualification stage K multiplier keys are invalid")
+    if not math.isclose(float(multipliers["MAIN"]), 1.0, abs_tol=1e-12):
+        raise ValueError("Main-stage K multiplier must equal 1.0")
     goal_alpha = float(goal.get("alpha", 0.0))
     if not goal_active and goal_alpha != 0.0:
         raise ValueError("Inactive goal-difference config must have alpha=0")
@@ -472,6 +557,20 @@ def load_selected_v2_config(manifest_path: str | Path) -> DynamicEloConfig:
         progression_bonus_enabled=progression_active,
         progression_base_bonus=progression_base,
         progression_stages_per_competition=progression_stages,
+        qualification_stage_k_enabled=qualification_active,
+        qualification_q1_multiplier=float(
+            qualification["stage_k_multipliers"]["Q1"]
+        ),
+        qualification_q2_multiplier=float(
+            qualification["stage_k_multipliers"]["Q2"]
+        ),
+        qualification_q3_multiplier=float(
+            qualification["stage_k_multipliers"]["Q3"]
+        ),
+        qualification_playoff_multiplier=float(
+            qualification["stage_k_multipliers"]["QUALIFYING_PLAYOFF"]
+        ),
+        qualifier_to_main_carry=float(qualification["qualifier_to_main_carry"]),
     )
     config.validate()
     return config
@@ -635,6 +734,7 @@ def read_matches(path: str | Path) -> tuple[MatchInput, ...]:
 
 def _fixture_from_row(row: dict[str, object]) -> MatchFixture:
     kickoff = pd.to_datetime(row["kickoff_utc"], utc=True, errors="raise")
+    is_knockout = _boolean(row.get("is_knockout", False), "is_knockout")
     return MatchFixture(
         match_id=_required_id(row["match_id"], "match_id"),
         season=_required_text(row["season"], "season"),
@@ -642,15 +742,14 @@ def _fixture_from_row(row: dict[str, object]) -> MatchFixture:
         competition=_required_text(row["competition"], "competition"),
         round=_required_text(row["round"], "round"),
         tie_id=_optional_id(row.get("tie_id")),
-        is_knockout=_boolean(row.get("is_knockout", False), "is_knockout"),
+        is_knockout=is_knockout,
         is_tie_decider=_boolean(
             row.get("is_tie_decider", False),
             "is_tie_decider",
         ),
-        is_single_match_tie=_optional_boolean(
+        is_single_match_tie=_knockout_format_flag(
             row.get("is_single_match_tie"),
-            "is_single_match_tie",
-            default=False,
+            is_knockout=is_knockout,
         ),
         stage=_optional_text(row.get("stage")),
         home_team_id=_required_id(row["home_team_id"], "home_team_id"),
@@ -750,6 +849,8 @@ def state_from_frame(data: pd.DataFrame, config: DynamicEloConfig) -> SeasonStat
         processed_match_ids=frozenset(),
         processed_tie_ids=frozenset(),
         open_ties={},
+        qualification_participants=frozenset(),
+        qualification_carry_applied=frozenset(),
         last_event_utc=last_event,
         last_match_id=last_match,
         model_version=config.model_version,
@@ -778,6 +879,8 @@ def save_state_checkpoint(
         "ratings_state_sha256": hashlib.sha256(ratings_bytes).hexdigest(),
         "processed_match_ids": sorted(state.processed_match_ids),
         "processed_tie_ids": sorted(state.processed_tie_ids),
+        "qualification_participants": sorted(state.qualification_participants),
+        "qualification_carry_applied": sorted(state.qualification_carry_applied),
         "open_ties": [
             asdict(state.open_ties[tie_id]) for tie_id in sorted(state.open_ties)
         ],
@@ -834,6 +937,19 @@ def load_state_checkpoint(
     if len(processed_ties) != len(set(processed_ties)):
         raise ValueError("State checkpoint contains duplicate processed tie_id values")
 
+    qualification_participants = _checkpoint_id_set(
+        metadata.get("qualification_participants"),
+        "qualification_participants",
+    )
+    qualification_carry_applied = _checkpoint_id_set(
+        metadata.get("qualification_carry_applied"),
+        "qualification_carry_applied",
+    )
+    if not qualification_carry_applied.issubset(qualification_participants):
+        raise ValueError(
+            "qualification_carry_applied must be a subset of qualification_participants"
+        )
+
     tie_values = metadata.get("open_ties")
     if not isinstance(tie_values, list):
         raise ValueError("State checkpoint open_ties must be a list")
@@ -864,6 +980,8 @@ def load_state_checkpoint(
         processed_match_ids=frozenset(processed),
         processed_tie_ids=frozenset(processed_ties),
         open_ties=open_ties,
+        qualification_participants=qualification_participants,
+        qualification_carry_applied=qualification_carry_applied,
         last_event_utc=last_event,
         last_match_id=last_match,
         model_version=config.model_version,
@@ -1213,6 +1331,15 @@ def _required_id(value: object, label: str) -> str:
     return result
 
 
+def _checkpoint_id_set(value: object, label: str) -> frozenset[str]:
+    if not isinstance(value, list):
+        raise ValueError(f"State checkpoint {label} must be a list")
+    identifiers = [_required_id(item, label) for item in value]
+    if len(identifiers) != len(set(identifiers)):
+        raise ValueError(f"State checkpoint {label} contains duplicates")
+    return frozenset(identifiers)
+
+
 def _optional_id(value: object) -> str | None:
     if value is None or pd.isna(value) or str(value).strip() == "":
         return None
@@ -1245,6 +1372,26 @@ def _boolean(value: object, label: str) -> bool:
         if normalized in {"false", "0"}:
             return False
     raise ValueError(f"{label} must be true/false or 0/1")
+
+
+def _knockout_format_flag(value: object, *, is_knockout: bool) -> bool:
+    """Read the pre-kickoff tie format, refusing to guess it for knockouts.
+
+    A missing flag is indistinguishable from an explicit two-leg tie, so a
+    default would silently price every single-match tie - finals included -
+    with the two-leg draw intercept. The contract marks this column as
+    required fixture metadata, so absence is an input error, not a default.
+    """
+
+    if value is None or pd.isna(value) or str(value).strip() == "":
+        if is_knockout:
+            raise ValueError(
+                "is_single_match_tie is required for knockout fixtures: "
+                "the tie format must be known before kickoff and cannot be "
+                "derived from the result"
+            )
+        return False
+    return _boolean(value, "is_single_match_tie")
 
 
 def _optional_boolean(value: object, label: str, *, default: bool) -> bool:

@@ -160,6 +160,42 @@ def test_result_free_prediction_is_locked_before_kickoff_and_settled() -> None:
     assert "m1" in final_state.processed_match_ids
 
 
+def test_locked_first_main_prediction_has_no_non_match_qualifier_reset() -> None:
+    selected = config()
+    state = initialize_season("2099/00", seeds(), selected)
+    qualifier = result(
+        "q3",
+        kickoff=KICKOFF - timedelta(days=7),
+        tie_id="q3-tie",
+        knockout=True,
+        decider=True,
+        advanced="A",
+        round_name="3rd Qualifying Round",
+        stage="QUALIFYING",
+    )
+    state, _ = update_match(state, qualifier, selected)
+    pre_main = state.ratings["A"].power_elo
+
+    main_fixture = fixture("main-1")
+    prediction = lock_prediction(
+        state,
+        main_fixture,
+        selected,
+        generated_at_utc=GENERATED,
+    )
+    assert prediction.home_power_pre == pytest.approx(pre_main)
+
+    final_state, update = settle_locked_match(
+        state,
+        result("main-1"),
+        prediction,
+        selected,
+    )
+    assert update.home_qualifier_carry_applied is False
+    assert update.home_power_pre == pytest.approx(prediction.home_power_pre)
+    assert "A" not in final_state.qualification_carry_applied
+
+
 def test_prediction_cannot_be_backfilled_or_settled_against_changed_state() -> None:
     selected = config()
     state = initialize_season("2099/00", seeds(), selected)

@@ -1,6 +1,6 @@
 # AO European Elo Model Durumu
 
-Güncelleme tarihi: 2026-08-13
+Güncelleme tarihi: 2026-08-18
 
 Aktif geliştirme sürümü: `ao-european-elo-v2.0-dev-freeze`
 
@@ -8,9 +8,14 @@ Aktif geliştirme sürümü: `ao-european-elo-v2.0-dev-freeze`
 
 AO First Elo v2 ve Dynamic Power çekirdeği geliştirme verisinde donduruldu.
 Standart 1X2 çıktı, kontrollü gol farkı ve sabit kazanan-only progression
-katmanları aktiftir. Season carry, sıfır-toplamlı progression, turnuva K ve
+katmanları aktiftir. Sezonlar arası carry, sıfır-toplamlı progression, turnuva K ve
 European Achievement Reserve kapalıdır. V1.1 API ve pilot değerleri regresyon
 karşılaştırması olarak korunur.
+
+Qualifier base asama onemi `0.40/0.55/0.70/0.85` ve delta retention `%50`
+aktiftir. Efektif Q1/Q2/Q3/QPO carpanlari `0.20/0.275/0.35/0.425`, ana asama
+`1.00` olur. Ilk ana macindan once carry veya reset yoktur; mac olmadan
+kullaniciya gosterilen Elo degismez.
 
 Pre-match kullanıcı tahmini ayrıca `PROMOTE_WITH_MONITORING` statüsündedir:
 mevcut Structural ML olasılığı ile `rho=0` AO Domestic Poisson olasılığı
@@ -37,7 +42,7 @@ yapılacaktır; qualifying ve play-off kapsam dışıdır.
 
 ```text
 AO First Elo ölçeği      = 500-2000 referans bandı, final clipping yok
-Aktif statik üst sınır   = 2030 (Domestic Surprise +30 dahil)
+Aktif statik üst sınır   = 2006.28 (Domestic Surprise dahil; gözlenen max 1996.45)
 Dynamic/Live hard cap    = yok
 Rating multiplier        = 3.713606654783126
 Country tail beta        = 0
@@ -47,6 +52,10 @@ Dynamic Elo scale        = 835.5614973262
 Home advantage           = 148.5442661913
 Base K                   = 103.9809863339
 Dynamic K                = inactive; fixed K korunuyor
+Qualifier base importance= Q1 0.40 / Q2 0.55 / Q3 0.70 / QPO 0.85
+Qualifier delta retention= 0.50, embedded in every qualifier match
+Effective qualifier K    = Q1 0.20 / Q2 0.275 / Q3 0.35 / QPO 0.425 / Main 1.00
+Main entry reset         = none; no rating change without a match
 Domestic Surprise        = active (theta 0.40, gamma 0.50, cap +/-30)
 Season Power carry       = 0.00
 1X2 draw at even         = 0.24
@@ -54,6 +63,7 @@ Season Power carry       = 0.00
 Single-match tie draw    = 0.12 (format metadata; rating state unchanged)
 Goal difference          = active (alpha 0.15, tau 300, GD cap 4)
 xG performance           = active (ratio 0.30, scale 1.25, analytic minimum gain ratio 0.70; not a runtime clamp)
+xG kanıt tabanı          = 2020/21-2025/26, 2827 uygun maç, conservative envelope reliable
 Progression bonus        = active (R16 ve sonrası 12/8/4; cap 48/32/16)
 Achievement Reserve      = inactive (base 0)
 Competition match K      = inactive
@@ -88,9 +98,20 @@ contracts/ao_european_elo_v2_final_candidate.json
 ```
 
 Final rating'e `min/max` clipping uygulanmaz. Aktif tail beta'ları sıfırken
-Domestic Surprise öncesi AO First Elo yapısal maksimumu `2000`, `+30` sürpriz
-düzeltmesiyle yeni maksimum `2030`dur. Dynamic/Live Elo kırpılmadığı için bu
-değeri aşabilir. Sürpriz kapalıyken V2 affine dönüşümü ve Scale/H/K dönüşümü,
+yapısal maksimum, exposure tavanının `0.85` olmasından türer:
+
+```text
+Domestic Prior max  = 500 + 519.905 * 1.00 + 594.177 * 1.10 * 1.00 = 1673.50
+European Prior max  = 500 + 1559.715                               = 2059.71
+Surprise öncesi max = 0.15 * 1673.50 + 0.85 * 2059.71              = 2001.78
+Surprise katkısı    = (1 - 0.85) * 30                              =    4.50
+Surprise sonrası    =                                                 2006.28
+```
+
+Sürprizin tam `+30`u ratinge geçmez: AO First'e yansıyan pay `(1 - e_eff)` ile
+ölçeklenir ve maksimum exposure'da bu `4.50`dur. `2018/19-2025/26` penceresinde
+gözlenen en yüksek AO First Elo `1996.45`tir. Dynamic/Live Elo kırpılmadığı için
+bu değeri aşabilir; aynı pencerede gözlenen en yüksek Live Elo `2391.79`dur. Sürpriz kapalıyken V2 affine dönüşümü ve Scale/H/K dönüşümü,
 v1.1 sıralamasını ve aynı koşullardaki beklenen puanı yapay biçimde değiştirmez.
 
 ## Kalibrasyon Kararları
@@ -104,6 +125,7 @@ v1.1 sıralamasını ve aynı koşullardaki beklenen puanı yapay biçimde deği
 | Tek maç format düzeltmesi | `ACTIVATE_STRUCTURAL` | Full fit `0.1129`; sabit `0.12` ile pooled Brier `-0.000658`, log-loss `-0.001617`; 200/248 maç 2020/21 olduğundan kanıt sınırlılığı ayrıca işaretli |
 | Alt-1 beraberlik shape | `KEEP_SHADOW` | Full fit `0.24/0.84`; walk-forward Brier `4/6`, log-loss `3/6`, pooled farklar `+0.000036/+0.000243` |
 | Season carry | `DISABLE` | Nested 1X2 seçiminde 5/6 fold; full-data aday 0.85 olsa da kapı geçilmedi |
+| Continuous qualifier retention | `PROMOTE_MANUAL` | Base asama onemi `0.40/0.55/0.70/0.85`, retention `%50`, efektif `0.20/0.275/0.35/0.425`; MAIN reset yok, cross-competition club state korunur |
 | Eski LOG/SQRT goal margin | `DISABLE` | Final 1X2: 3/6 Brier, forward ranking 2/5; CI sıfırı kesiyor |
 | Kontrollü GD (`alpha/tau`) | `PROMOTE` | `0.10/300`: Brier 6/6, iki loss zarfı negatif, pooled ranking pozitif |
 | Sabit kazanan-only progression | `PROMOTE_MANUAL` | R16 ve sonrası `12/8/4`; KPO rota asimetrisi nedeniyle dışarıda, cap `48/32/16` |

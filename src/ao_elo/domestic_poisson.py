@@ -311,11 +311,23 @@ class DynamicDomesticPoisson:
         )
 
     def validate_state(self) -> None:
+        goal_level_min = math.log(float(self.config.lambda_min))
+        goal_level_max = math.log(float(self.config.lambda_max))
         for league_id, league in self.leagues.items():
             if not self.config.league_home_min <= league.home_advantage <= self.config.league_home_max:
                 raise ValueError(f"league home effect cap violated: {league_id}")
             if not math.isfinite(league.goal_level):
                 raise ValueError(f"league goal level is non-finite: {league_id}")
+            # The batch update clips the goal level into the same window, so a
+            # state outside it can only arrive from a corrupt checkpoint. Left
+            # unchecked it would silently pin every rate to a lambda bound
+            # instead of failing the load.
+            if not (
+                goal_level_min - 1e-12
+                <= league.goal_level
+                <= goal_level_max + 1e-12
+            ):
+                raise ValueError(f"league goal level cap violated: {league_id}")
             for parameter, cap in (
                 ("attack", self.config.team_parameter_cap),
                 ("defence", self.config.team_parameter_cap),
@@ -545,8 +557,8 @@ def build_domestic_poisson_feature_store(
             engine._update_records(domestic_groups[domestic_index][1])
             domestic_index += 1
         for match in batch.sort_values("match_id", kind="stable").itertuples(index=False):
-            home = _mapped_snapshot(engine, mapping, str(match.home_club_id), str(match.season))
-            away = _mapped_snapshot(engine, mapping, str(match.away_club_id), str(match.season))
+            home = _mapped_snapshot(engine, mapping, str(match.home_club_id))
+            away = _mapped_snapshot(engine, mapping, str(match.away_club_id))
             row: dict[str, object] = {
                 "match_id": str(match.match_id),
                 "domestic_poisson_config": config.key,
@@ -811,8 +823,16 @@ def _mapped_snapshot(
     engine: DynamicDomesticPoisson,
     mapping: Mapping[str, tuple[str, str]],
     club_id: str,
-    season: str,
 ) -> DomesticTeamSnapshot:
+    """Read one club's causal domestic state at the league's own season.
+
+    The European fixture's season is deliberately not an argument. A domestic
+    league advances only when its own matches are replayed, so passing the
+    European season here would call `ensure_season` forward and apply a carry
+    decay that the live service never applies - the served path reads the same
+    way, and the two must stay identical.
+    """
+
     identity = mapping.get(club_id)
     if identity is None:
         return empty_domestic_snapshot()

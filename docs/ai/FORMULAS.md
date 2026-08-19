@@ -18,7 +18,7 @@ contract ve kaynak koddan alinmistir.
 | `D` | Home-away farki ve saha avantaji dahil effective rating farki |
 | `E` | Ev sahibinin beklenen mac puani |
 | `S` | Ev sahibinin gercek mac puani, `1/0.5/0` |
-| `K` | Match update buyuklugu, `103.9809863339` |
+| `K` | Match update buyuklugu, `103.98098633392752` |
 
 Bes sezon agirliklari:
 
@@ -344,13 +344,31 @@ sorununda `P_served=P_AO` olur ve fallback nedeni audit loguna yazilir.
 
 ## 13. Klasik Result Residual
 
+Once mac asamasina gore effective K secilir:
+
+```text
+K_effective = 103.98098633392752 x BaseStageImportance x QualifierRetention
+
+                         Base    Retention   Effective
+Q1                       0.40       0.50       0.200
+Q2                       0.55       0.50       0.275
+Q3                       0.70       0.50       0.350
+Qualifying Play-off      0.85       0.50       0.425
+League phase ve sonrasi  1.00       1.00       1.000
+```
+
+Preliminary Round `Q1` kullanir. UCL/UEL/UECL arasinda dusus state'i
+sifirlamaz. Retention her qualifier macinin K degerine pozitif/negatif simetrik
+olarak gomuludur. Ana asamaya geciste Power state degismez; mac veya yeni bir
+rating olayi yoksa kullaniciya gosterilen Elo da degisemez.
+
 ```text
 S_home = 1   home field-score win
 S_home = .5  field-score draw
 S_home = 0   away field-score win
 
 r_base = S_home - E_home
-Delta_base = K * r_base
+Delta_base = K_effective * r_base
 ```
 
 ## 14. Kontrollu Gol Farki
@@ -368,7 +386,7 @@ Goal-margin residual:
 
 ```text
 r_GD = r_base * M_GD
-Delta_GD_bonus = K * r_base * (M_GD - 1)
+Delta_GD_bonus = K_effective * r_base * (M_GD - 1)
 ```
 
 `D=0` icin ornek multiplier'lar:
@@ -390,7 +408,7 @@ Yalniz uygun, iki tarafli xG ve decisive field result icin:
 Q_xG = tanh((xG_home - xG_away) / 1.25)
 
 r_xG = 0.30 * abs(r_base) * Q_xG
-Delta_xG = K * r_xG
+Delta_xG = K_effective * r_xG
 ```
 
 Birlesik Power Delta:
@@ -398,7 +416,7 @@ Birlesik Power Delta:
 ```text
 r_final = r_base * M_GD + r_xG
 
-Delta_final = K * r_final
+Delta_final = K_effective * r_final
             = Delta_base + Delta_GD_bonus + Delta_xG
 ```
 

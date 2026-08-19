@@ -1,0 +1,56 @@
+{
+  "benchmark_version": "ao-current-external-benchmark-v1",
+  "changes_production_parameters": false,
+  "prediction_axis": {
+    "any_reliable_difference": false,
+    "ao_rating_core_brier": 0.5878345413361525,
+    "ao_served_brier_skill_vs_climatology": -0.0887146743771545,
+    "ao_served_ensemble_brier": 0.5859409169832166,
+    "clubelo_published_brier": 0.5749830812264415,
+    "max_snapshot_age_days": 31,
+    "paired_matches": 363,
+    "scored_seasons": [
+      "2020/21",
+      "2021/22",
+      "2022/23",
+      "2023/24",
+      "2024/25"
+    ]
+  },
+  "rating_axis": {
+    "comparisons": [
+      {
+        "ao_reliably_better": false,
+        "benchmark_reliably_better": true,
+        "ci_95": [
+          -0.11892737482701848,
+          -0.018840558023190405
+        ],
+        "comparison": "AO_FIRST_ELO_minus_OPTA_PRE_SEASON_POWER_RANKING",
+        "rank_agreement_spearman": 0.9127572843011498,
+        "reference_type": "EXTERNAL",
+        "spearman_difference": -0.07004720756964351
+      },
+      {
+        "ao_reliably_better": true,
+        "benchmark_reliably_better": false,
+        "ci_95": [
+          0.050283281228896526,
+          0.25013600558554405
+        ],
+        "comparison": "AO_FIRST_ELO_minus_UEFA_CLUB_COEFFICIENT_PRE_SEASON",
+        "rank_agreement_spearman": 0.7560112414545098,
+        "reference_type": "OWN_INPUT",
+        "spearman_difference": 0.1470796215572349
+      }
+    ],
+    "season": "2025/26",
+    "spearman_vs_realized": {
+      "AO_FIRST_ELO": 0.4166196469150405,
+      "OPTA_PRE_SEASON_POWER_RANKING": 0.4866178392787856,
+      "UEFA_CLUB_COEFFICIENT_PRE_SEASON": 0.268333567596536
+    },
+    "teams": 236
+  },
+  "rating_feedback": false
+}

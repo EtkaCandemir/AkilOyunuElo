@@ -1,20 +1,22 @@
 {
-  "generated_at": "2026-08-13T09:29:04.862101+00:00",
+  "generated_at": "2026-08-19T10:39:17.642173+00:00",
   "evaluation_only": true,
   "production_files_changed": false,
   "model_version": "ao-european-elo-v2.0-dev-freeze",
-  "production_revision": "2026-08-13-ml-poisson-ensemble-monitoring",
+  "production_revision": "2026-08-19-xg-evidence-revalidated-six-seasons",
   "final_candidate_version": "ao-european-elo-v2.0-final-candidate-2026-08-13",
   "contract_status": {
     "all_active_blocks_exactly_equal": false,
-    "all_active_parameters_equal": true,
-    "production_revision": "2026-08-13-ml-poisson-ensemble-monitoring",
+    "all_active_parameters_equal": false,
+    "core_active_parameters_equal": true,
+    "qualification_override_declared": true,
+    "production_revision": "2026-08-19-xg-evidence-revalidated-six-seasons",
     "candidate_revision": "2026-08-13-ml-poisson-ensemble-monitoring",
     "candidate_status": "FINAL_MODEL_CANDIDATE",
     "candidate_production_activation": true
   },
   "contract_sha256": {
-    "production": "7bea713499b9acd90fc814bea52996ea5be43d6a95de65c94355cc0524f22c30",
+    "production": "b7730bf45c37526cac8ab51542bc4bdf10b7b9175d51fa5c695981016e510c53",
     "final_candidate": "42aa5d282bbee2c38c8eb0f348e1f2dce13c22482a9fba4a9c7d7556654524df"
   },
   "seasons": [
@@ -37,7 +39,7 @@
   ],
   "all_matches": 6340,
   "evaluation_matches": 4884,
-  "xg_rows_available": 606,
+  "xg_rows_available": 2827,
   "bootstrap_samples": 4000,
   "replay_validation": {
     "maximum_abs_expected_home_score_difference": 0.0,

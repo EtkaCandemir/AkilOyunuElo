@@ -240,7 +240,14 @@ class ProductionPredictionService:
                 rows.append(
                     self._predict_row(row, row_frame, pd.Timestamp(generated_at_utc))
                 )
-            except (ValueError, TypeError, KeyError, OverflowError) as exc:
+            except Exception as exc:  # noqa: BLE001 - the contract is total
+                # The contract promises Current AO 1X2 for any artifact,
+                # feature or state problem, so a narrower catch would let an
+                # unexpected exception type take down the whole batch instead
+                # of degrading one row. The type name is kept in the reason so
+                # the breadth costs no diagnostic detail, and the fallback rate
+                # is an operational alarm. BaseException is deliberately not
+                # caught: interrupts and exits must still stop the process.
                 rows.append(
                     self._fallback_row(
                         row,

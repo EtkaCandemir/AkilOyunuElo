@@ -1,8 +1,8 @@
 # AO European Elo - Codex Project Context
 
-Son dogrulama tarihi: **2026-08-13**  
+Son dogrulama tarihi: **2026-08-18**
 Aktif model: **`ao-european-elo-v2.0-dev-freeze`**  
-Production revision: **`2026-08-13-ml-poisson-ensemble-monitoring`**
+Production revision: **`2026-08-18-continuous-qualifier-retention-activation`**
 
 Bu belge yeni bir Codex oturumunun projeyi sohbet gecmisine ihtiyac duymadan
 anlamasi icin ana giris noktasidir. Formul, veri ve metodoloji ayrintilari alt
@@ -62,6 +62,10 @@ Aktivasyon icin production contract ve active config ayni davranisi gostermelidi
 | Global home advantage | `148.5442661913` |
 | K | `103.9809863339` |
 | Season carry | `0` |
+| Qualifier base importance | `Q1 0.40 / Q2 0.55 / Q3 0.70 / QPO 0.85` |
+| Qualifier delta retention | `%50`, her macin efektif K degerine gomulu |
+| Efektif qualifier K | `Q1 0.20 / Q2 0.275 / Q3 0.35 / QPO 0.425 / Main 1.00` |
+| Main entry reset | Yok; mac olmadan Elo degismez |
 | Normal draw-at-even | `0.24` |
 | Single-match knockout draw-at-even | `0.12` |
 | Draw shape | `1.00` |
@@ -104,7 +108,8 @@ flowchart TD
     I --> J["Variance-controlled Domestic Surprise"]
     J --> K["AO First Elo"]
     K --> L["Season Power Elo state"]
-    L --> M["AO pre-match expected score + base 1X2"]
+    L --> L2["Qualifier effective K: 0.20/0.275/0.35/0.425"]
+    L2 --> M["Main gecisinde reset yok; AO pre-match expected score + base 1X2"]
     M --> M2["Current ML + Domestic Poisson log blend"]
     M2 --> M3["Served 1X2 + locked audit log"]
     M --> N["Result + controlled goal margin + optional xG"]
@@ -118,6 +123,10 @@ flowchart TD
 - `AO First Elo`: sezon basi seed; domestic ve European kanitin kontrollu
   karisimidir.
 - `Power Elo`: mac sonucuyla `+Delta/-Delta` degisen sifir-toplamli state.
+- `Qualifier retention`: sezonlar arasi carry degildir. Base tur onemi
+  `0.40/0.55/0.70/0.85`, `%50` retention ile her mac guncellemesinde
+  `0.20/0.275/0.35/0.425` efektif K olur. Ilk ana-asama macindan once reset,
+  carry veya mac disi Elo degisimi uygulanmaz.
 - `Progression Bonus`: R16 ve sonrasi tamamlanan tie kazananina verilen,
   winner-only ve sezonluk ek deger.
 - `Achievement Reserve`: kod yuzeyinde geriye uyumluluk icin bulunur ama aktif
@@ -165,6 +174,10 @@ flowchart TD
 | Domestic Poisson state | `src/ao_elo/domestic_poisson.py` |
 | Frozen prediction artifact builder | `scripts/build_production_prediction_artifacts.py` |
 | Current evaluation | `scripts/run_current_model_evaluation.py` |
+| External benchmark (ClubElo + Opta) | `scripts/run_current_external_benchmark.py` |
+| Cup achievement challenger | `scripts/run_cup_achievement_backtest.py`, `src/ao_elo/cup_achievement.py` |
+| 2026/27 ML feature koprusu | `scripts/build_2026_27_prediction_features.py` |
+| Cok sezonlu xG ve katman dogrulamasi | `scripts/run_xg_multiseason_backtest.py`, `data/xg_2020_2026/` |
 
 ## Yeni Bir Gorevde Uygulanacak Protokol
 

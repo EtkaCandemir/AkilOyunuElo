@@ -42,6 +42,9 @@ rapor veya sohbet metni production parametresi icin otorite degildir.
 - Eksik Avrupa gecmisi sifir varsayilmaz; acik all-zero kulup satiri gerekir.
 - xG yalniz iki takim icin birlikte ve uygun zaman kapsamiyla varsa uygulanir.
 - Ratingler `500-2000` araliginda kirpilmaz; bu yalniz referans bandidir.
+- Qualifier base onemi `Q1/Q2/Q3/QPO = 0.40/0.55/0.70/0.85`, retention
+  `0.50` ve efektif K carpanlari `0.20/0.275/0.35/0.425`tir. MAIN carpanı
+  `1.00`dir; MAIN girisinde carry, reset veya mac disi rating degisimi yoktur.
 - Aktif served 1X2, `%50 Current ML + %50 AO Domestic Poisson (rho=0)` log
   blend'idir; AO Live Elo'ya geri beslenmez ve hata halinde Current AO 1X2'ye
   doner.

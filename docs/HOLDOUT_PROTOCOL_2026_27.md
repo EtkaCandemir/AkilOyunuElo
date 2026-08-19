@@ -1,6 +1,9 @@
 # AO European Elo 2026/27 Prospective Holdout Protokolü
 
-Sözleşme revizyonu: **13 Ağustos 2026**
+Sözleşme revizyonu: **18 Ağustos 2026**
+
+Production revision:
+`2026-08-18-continuous-qualifier-retention-activation`
 
 Rating freeze sürümü: `ao-european-elo-v2.0-dev-freeze`
 
@@ -28,6 +31,12 @@ Scale = 835.5614973262
 H     = 148.5442661913
 K     = 103.9809863339
 power carry = 0
+
+qualifier base importance = Q1 0.40 / Q2 0.55 / Q3 0.70 / QPO 0.85
+qualifier delta retention = 0.50, her qualifier maç güncellemesine gömülü
+effective qualifier K     = Q1 0.20 / Q2 0.275 / Q3 0.35 / QPO 0.425
+MAIN multiplier           = 1.00
+MAIN entry reset/carry    = yok; maç olmadan rating değişmez
 
 goal alpha = 0.15
 goal tau   = 300
@@ -72,6 +81,10 @@ artifact otoritesi `artifacts/production_prediction/manifest.json` dosyasıdır.
 5. Maç tamamlanınca 90/120 field score ve uygun xG ile Power Elo settle edilir.
 6. Tie tamamlandıysa advanced team ve progression olayı bir kez işlenir.
 7. State checkpoint ve bütün audit hash'leri yazılır.
+
+Qualifying boyunca Power state sürekli aynı kalıcı `club_id` üzerinde taşınır.
+Takım turnuva değiştirirse state sıfırlanmaz. MAIN'e giriş yalnız bir aşama
+sınıflandırmasıdır; ratinge ayrı bir carry kesintisi veya reset uygulanmaz.
 
 Aynı kickoff saatindeki bütün maçlar tek pre-match snapshot kullanır. Sonuçlar
 ancak tüm tahminler kaydedildikten sonra `kickoff_utc`, ardından `match_id`

@@ -1,6 +1,6 @@
 {
   "model_version": "ao-european-elo-v2.0-dev-freeze",
-  "production_revision": "2026-08-13-ml-poisson-ensemble-monitoring",
+  "production_revision": "2026-08-19-xg-evidence-revalidated-six-seasons",
   "domestic_surprise": {
     "active": true,
     "family": "FIVE_SEASON_VARIANCE_CONTROLLED_DIRECT_PERCENTILE",
@@ -8,7 +8,13 @@
     "variance_penalty": 0.5,
     "max_abs_adjustment": 30.0,
     "minimum_history_seasons": 5,
-    "season_weights_oldest_to_newest": [0.07, 0.13, 0.20, 0.27, 0.33],
+    "season_weights_oldest_to_newest": [
+      0.07,
+      0.13,
+      0.2,
+      0.27,
+      0.33
+    ],
     "volatility_normalization": "min(1, 2 * weighted_volatility)",
     "consistency_formula": "1 - variance_penalty * normalized_volatility",
     "exposure_formula": "AO adjustment = (1 - effective European exposure) * domestic adjustment",
@@ -20,6 +26,36 @@
     "k_factor": 103.98098633392752
   },
   "active_power_carry": 0.0,
+  "qualification_transition": {
+    "active": true,
+    "family": "CONTINUOUS_STAGE_WEIGHTED_K_NO_MAIN_ENTRY_RESET",
+    "base_stage_importance_multipliers": {
+      "Q1": 0.4,
+      "Q2": 0.55,
+      "Q3": 0.7,
+      "QUALIFYING_PLAYOFF": 0.85,
+      "MAIN": 1.0
+    },
+    "qualifier_delta_retention": 0.5,
+    "stage_k_multipliers": {
+      "Q1": 0.2,
+      "Q2": 0.275,
+      "Q3": 0.35,
+      "QUALIFYING_PLAYOFF": 0.425,
+      "MAIN": 1.0
+    },
+    "preliminary_round_uses": "Q1",
+    "qualifier_to_main_carry": 1.0,
+    "carry_anchor": "NOT_APPLICABLE",
+    "carry_formula": "NO_MAIN_ENTRY_RESET",
+    "application": "EMBEDDED_IN_EACH_QUALIFIER_MATCH",
+    "cross_competition_state": "CONTINUOUS_CLUB_ID_NO_RESET",
+    "direct_entrant_behavior": "NO_CARRY",
+    "positive_negative_symmetry": true,
+    "non_match_rating_change": false,
+    "main_stage_multiplier": 1.0,
+    "progression_bonus_in_qualifying": false
+  },
   "one_x_two_probability": {
     "active": true,
     "draw_at_even": 0.24,
@@ -174,11 +210,12 @@
     "one_x_two_output": "PROMOTE_1X2_OUTPUT",
     "single_match_draw": "ACTIVATE_STRUCTURAL_FORMAT_CORRECTION_0_12",
     "goal_margin": "ACTIVATE_CONTROLLED_GOAL_DIFFERENCE_0_15_300",
-    "xg_performance": "ACTIVATE_BOUNDED_RATIO_0_30_SCALE_1_25_FLOOR_0_70",
+    "xg_performance": "ACTIVATE_BOUNDED_RATIO_0_30_SCALE_1_25_FLOOR_0_70_REVALIDATED_2020_2026",
     "domestic_surprise": "ACTIVATE_THETA_0_40_GAMMA_0_50_CAP_30",
     "progression_bonus": "ACTIVATE_FIXED_12_8_4_CAP_48_32_16_NO_KNOCKOUT_PLAYOFF",
     "achievement_reserve": "DISABLED",
     "competition_k": "DISABLED",
+    "qualification_transition": "ACTIVATE_Q1_040_Q2_055_Q3_070_QPO_085_MAIN_100_CARRY_050",
     "prediction_layer": "PROMOTE_WITH_MONITORING_50_ML_50_AO_POISSON_RHO0"
   },
   "evidence": {
@@ -189,7 +226,7 @@
     "brier_delta_vs_base": -0.00017377775921301186,
     "log_loss_delta_vs_base": -0.00024984982162956637,
     "pooled_spearman_delta_vs_base": 0.0006255255217031963,
-    "pooled_pairwise_delta_vs_base": 0.00009443705331790841,
+    "pooled_pairwise_delta_vs_base": 9.443705331790841e-05,
     "manual_product_decision": true
   },
   "domestic_surprise_evidence": {
@@ -209,8 +246,8 @@
     "development_matches": 4884,
     "brier_fold_wins": "4/6",
     "log_loss_fold_wins": "4/6",
-    "pooled_brier_delta_vs_base": -0.000006941,
-    "pooled_log_loss_delta_vs_base": -0.000011253,
+    "pooled_brier_delta_vs_base": -6.941e-06,
+    "pooled_log_loss_delta_vs_base": -1.1253e-05,
     "replay_bonus_events": 69,
     "replay_total_bonus_added": 552.0,
     "dependency_reliable_improvement": false,
@@ -219,13 +256,71 @@
     "manual_product_decision": true
   },
   "xg_performance_evidence": {
-    "source": "output/bounded_xg_adjustment_walk_forward_2025_26/backtest_report.md",
-    "goal_alpha_source": "output/goal_alpha_with_bounded_xg_backtest_2025_26/backtest_report.md",
-    "full_season_replay": "output/goal_alpha_015_xg_full_season_replay_2025_26/replay_report.md",
-    "full_season_matches": 961,
-    "xg_eligible_matches": 606,
-    "missing_xg_fallback_matches": 355,
-    "manual_product_decision": true
+    "status": "REVALIDATED_ON_SIX_SEASONS",
+    "source": "output/xg_multiseason_backtest_2020_2026/backtest_report.md",
+    "curated_report": "reports/xg_multiseason/",
+    "dataset": "data/xg_2020_2026/uefa_2020_2026_matches_with_xg.csv",
+    "evaluation_window": "2020/21-2025/26",
+    "replay_matches": 6340,
+    "scored_matches": 4884,
+    "xg_eligible_matches": 2827,
+    "missing_xg_fallback_matches": 2057,
+    "coverage_main_stage": 0.987,
+    "coverage_qualifying": 0.11,
+    "brier_vs_no_xg": {
+      "all": -0.000614129,
+      "main_stage": -0.001168595,
+      "xg_present": -0.00138496,
+      "xg_absent": 6.179e-06
+    },
+    "conservative_envelope": {
+      "all_brier": {
+        "mean_difference": -0.000614129,
+        "ci_95": [
+          -0.001149438,
+          -0.000107838
+        ],
+        "reliable_improvement": true
+      },
+      "main_stage_brier": {
+        "mean_difference": -0.001168595,
+        "ci_95": [
+          -0.002103102,
+          -0.000209504
+        ],
+        "reliable_improvement": true
+      },
+      "xg_present_brier": {
+        "mean_difference": -0.00138496,
+        "ci_95": [
+          -0.002465311,
+          -0.00027758
+        ],
+        "reliable_improvement": true
+      },
+      "all_log_loss": {
+        "mean_difference": -0.000870447,
+        "ci_95": [
+          -0.001637757,
+          -0.000134928
+        ],
+        "reliable_improvement": true
+      }
+    },
+    "dependency_reliable_improvement": true,
+    "dependency_reliable_harm": false,
+    "layer_parameters_changed": false,
+    "evidence_interpretation": "The layer itself is unchanged. Widening xG coverage from one season to six raises the eligible sample from 606 to 2827 and clears the conservative dependency envelope on every reported segment. The gain sits where xG exists and is neutral where it does not, so the layer adds no noise in its absence.",
+    "superseded_evidence": {
+      "note": "Original activation record, kept for provenance",
+      "source": "output/bounded_xg_adjustment_walk_forward_2025_26/backtest_report.md",
+      "goal_alpha_source": "output/goal_alpha_with_bounded_xg_backtest_2025_26/backtest_report.md",
+      "full_season_replay": "output/goal_alpha_015_xg_full_season_replay_2025_26/replay_report.md",
+      "full_season_matches": 961,
+      "xg_eligible_matches": 606,
+      "missing_xg_fallback_matches": 355,
+      "manual_product_decision": true
+    }
   },
   "prediction_layer_evidence": {
     "source": "output/final_prediction_ensemble_backtest_2018_2026/selected_candidate.json",

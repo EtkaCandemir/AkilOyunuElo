@@ -4,7 +4,10 @@ Sürüm: `ao-european-elo-v2.0-dev-freeze`
 
 Dondurma tarihi: 20 Temmuz 2026
 
-Operasyonel sözleşme revizyonu: 13 Ağustos 2026
+Operasyonel sözleşme revizyonu: 18 Ağustos 2026
+
+Production revision:
+`2026-08-18-continuous-qualifier-retention-activation`
 
 Durum: Kontrollü `0.15/300` gol farkı, bounded xG performansı, Domestic Surprise
 ve sabit `12/8/4` European Progression Bonus production'da aktiftir; 2026/27
@@ -44,6 +47,8 @@ Seçilen kararlar:
 | Exposure tail | Terfi yok | beta `0` |
 | Dynamic Power çekirdeği | Terfi | Scale `835.561497`, H `148.544266`, K `103.980986` |
 | Season Power carry | Kapalı | `0.00` |
+| Ön eleme aşama ağırlığı | Aktif | efektif Q1/Q2/Q3/QPO `0.20/0.275/0.35/0.425`, MAIN `1.00` |
+| MAIN giriş düzeltmesi | Kapalı | carry/reset yok; maç olmadan rating değişmez |
 | Standart 1X2 çıktı | Terfi | draw-at-even `0.24`, shape `1.00` |
 | Tek maç format düzeltmesi | Aktif | draw-at-even `0.12` |
 | Kontrollü gol farkı | Aktif | alpha `0.15`, tau `300`, GD cap `4` |
@@ -434,6 +439,36 @@ fit `draw_at_even=0.112861` üretmiştir. Sözleşme açıklanabilir yuvarlak de
 2020/21 COVID formatından geldiği için sonuç prospective terfi iddiası olarak
 sunulmaz. Format düzeltmesi açık bir sözleşme düzeltmesi olarak aktiftir ve
 COVID sonrası düşük hacimli segment ayrıca izlenir.
+
+### 12.1 Ön Eleme Aşamasına Göre Efektif K
+
+Aktif sözleşme ön eleme maçlarını ana turnuva maçıyla aynı öğrenme hızında
+işlemez. Önce turun base önem katsayısı seçilir, ardından her qualifier maçında
+kalıcı olacak bölüm `0.50` retention ile aynı güncellemeye gömülür:
+
+```text
+K_effective = K_base x Base Stage Importance x 0.50
+
+Q1                  = 103.9809863339 x 0.40 x 0.50
+Q2                  = 103.9809863339 x 0.55 x 0.50
+Q3                  = 103.9809863339 x 0.70 x 0.50
+Qualifying Play-off = 103.9809863339 x 0.85 x 0.50
+MAIN                = 103.9809863339 x 1.00
+```
+
+| Aşama | Base önem | Retention | Efektif K çarpanı |
+| --- | ---: | ---: | ---: |
+| Preliminary / Q1 | `0.40` | `0.50` | `0.200` |
+| Q2 | `0.55` | `0.50` | `0.275` |
+| Q3 | `0.70` | `0.50` | `0.350` |
+| Qualifying Play-off | `0.85` | `0.50` | `0.425` |
+| Lig aşaması ve sonrası | `1.00` | uygulanmaz | `1.000` |
+
+Retention pozitif ve negatif Power Delta'ya simetrik uygulanır. Takım UCL'den
+UEL'ye veya UECL'ye düşerse aynı kalıcı kulüp state'i devam eder. MAIN girişinde
+toplu `%50` kesinti, carry, reset veya başka bir maç dışı rating olayı yoktur.
+Bu nedenle kullanıcıya gösterilen AO Live Elo tur geçildiği anda sebepsiz yere
+düşmez; yalnız oynanan maç ve uygun progression olayı ratingi değiştirir.
 
 ## 13. Season Power Carry
 

@@ -415,12 +415,16 @@ olarak loglanır. Tahmin katmanı hiçbir durumda rating state'ini değiştirmez
 | Domestic Surprise | `0.40`, variance penalty `0.50`, cap `+/-30` |
 | Dynamic Scale / H / K | `835.5615 / 148.5443 / 103.9810` |
 | Power carry | `0` |
+| Qualifier base importance | `Q1 0.40 / Q2 0.55 / Q3 0.70 / QPO 0.85` |
+| Qualifier delta retention | `%50`, her qualifier macinda |
+| Efektif qualifier K | `Q1 0.20 / Q2 0.275 / Q3 0.35 / QPO 0.425 / Main 1.00` |
+| Main entry reset | Yok; mac olmadan Elo degismez |
 | Beraberlik | `0.24`, tek maç `0.12`, shape `1.00` |
 | Gol farkı | `alpha=0.15`, `tau=300`, cap `4` |
 | xG | ratio `0.30`, scale `1.25`, minimum ratio `0.70` |
 | Progression | `12/8/4`, cap `48/32/16`, dört aşama |
 | Achievement Reserve | Kapalı |
-| Competition K | Kapalı; tüm turnuvalarda `1.0` |
+| Competition K | Kapalı; UCL/UEL/UECL turnuva çarpanı eşit. Eleme aşaması K profili ayrıca aktiftir |
 | Production tahmini | `%50 Current ML + %50 AO Poisson rho=0` |
 | Rating feedback | Kapalı |
 | Fallback | `CURRENT_AO_1X2` |
@@ -620,6 +624,7 @@ Sunum ve paylaşım için güncel PDF seti:
 | --- | --- |
 | Tam teknik model açıklaması | [`docs/pdf/AkilOyunu_Elo_Model_Aciklayici.pdf`](docs/pdf/AkilOyunu_Elo_Model_Aciklayici.pdf) |
 | Kısa model açıklaması | [`docs/pdf/AkilOyunu_Elo_Model_Kisa.pdf`](docs/pdf/AkilOyunu_Elo_Model_Kisa.pdf) |
+| ML + Domestic Poisson tahmin katmanı | [`docs/pdf/AkilOyunu_ML_Tahmin_Katmani_Aciklayici.pdf`](docs/pdf/AkilOyunu_ML_Tahmin_Katmani_Aciklayici.pdf) |
 | Geliştirme ve production izleme planı | [`docs/pdf/AkilOyunu_Elo_Onaylanan_Gelistirme_Plani.pdf`](docs/pdf/AkilOyunu_Elo_Onaylanan_Gelistirme_Plani.pdf) |
 | Veri ihtiyaçları ve anlamlandırma | [`docs/pdf/AkilOyunu_VeriAnlamlandirma.pdf`](docs/pdf/AkilOyunu_VeriAnlamlandirma.pdf) |
 
