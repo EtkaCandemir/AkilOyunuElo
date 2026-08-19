@@ -4,6 +4,12 @@ Bu belge production modelinin son toplu degerlendirmesini ve metodolojik
 sinirlarini ozetler. Sayisal otorite:
 `reports/current_model/current_model_evaluation_report.md`.
 
+Tarihsel replay metrikleri 18 Agustos 2026 continuous qualifier-retention
+aktivasyonundan once uretilmistir. Aktif runtime Q1/Q2/Q3/QPO icin
+`0.20/0.275/0.35/0.425`, MAIN icin `1.00` efektif K carpanlarini kullanir ve
+MAIN girisinde carry/reset uygulamaz. Bu degisiklik 2026/27 prospective
+ledger'da ayri revision olarak izlenecektir.
+
 ## 1. Evaluation Tasarimi
 
 Gelistirme verisi:
@@ -171,6 +177,75 @@ Ana dosyalar:
 output/initial_elo_external_comparison_2025_26/comparison_summary.csv
 output/initial_elo_external_comparison_2025_26/team_comparison.csv
 output/initial_elo_external_comparison_2025_26/comparison_report.md
+```
+
+### 9.1 Guncel Model Dis Benchmark
+
+Yukaridaki karsilastirma yalniz *uyumu* olcer ve mac sonuclarini kullanmaz.
+Aktif contract'in dis referanslara karsi gercek performansi ayri bir pakette
+olculur:
+
+```bash
+python3 scripts/run_current_external_benchmark.py
+```
+
+Eksen 1, servis edilen 1X2'yi ClubElo'ya karsi puanlar. `363` eslesmis mac,
+snapshot yasi `<=31` gun, ClubElo ev sahibi avantaji yalniz onceki sezonlardan
+fit edilir ve iki tarafa ayni beraberlik modeli uygulanir:
+
+```text
+Climatology (walk-forward)   Brier 0.642983  log-loss 1.062634
+ClubElo (yayinlanmis 400)    Brier 0.574983  log-loss 0.966819
+AO rating cekirdegi          Brier 0.587835  log-loss 0.987568
+AO servis edilen ensemble    Brier 0.585941  log-loss 0.982793
+```
+
+Servis edilen kolun tabana karsi becerisi Brier'da `-8.87%`. ClubElo nokta
+tahmininde ondedir fakat dort karsilastirmanin dordunde de conservative zarf
+sifiri keser; yani fark guvenilir degildir. Turnuva kiriliminda AO, UEL ve
+UECL'de ClubElo'yu gecer, acik tamamen UCL'den gelir.
+
+Eksen 2, sezon basi ratingleri gerceklesen 2025/26 performansina karsi puanlar.
+Hedef, hicbir ratingden etkilenmeyen leave-team-out schedule-adjusted skordur:
+
+```text
+rating                            reference_type  Spearman  pairwise
+AO First Elo                      MODEL           0.416620  0.644052
+Opta pre-season                   EXTERNAL        0.486618  0.671870
+UEFA kulup katsayisi (pre-season) OWN_INPUT       0.268334  0.596310
+```
+
+Eslesmis Spearman farklari:
+
+```text
+AO - Opta              -0.070047   95% CI [-0.118927, -0.018841]  Opta guvenilir
+AO - UEFA katsayisi    +0.147080   95% CI [+0.050283, +0.250136]  AO guvenilir
+```
+
+Iki sonuc birlikte modelin yerini kesin olarak konumlandirir. AO First Elo,
+tukettigi ham UEFA katsayisinin `+0.147` Spearman uzerindedir ve bu fark
+guvenilirdir: statik pipeline karmasikligini hak eder. Ayni zamanda ticari Opta
+siralamasinin `-0.070` altindadir ve bu fark da guvenilirdir.
+
+UEFA katsayisi kolu bagimsiz benchmark degildir; `club_points_t_*` girdileri o
+katsayinin bilesenleridir. `reference_type=OWN_INPUT` etiketi bir unit testle
+sabitlenmistir. Yayinlanmis 2026 katsayisi kullanilmaz, cunku penceresi tahmin
+edilen sezonu icerir.
+
+Uc eksen birlikte, olculebilir acigin mac motorunda degil sezon basi seed'inde
+oldugunu gosterir.
+
+Kapsam siniri: ClubElo arsivi agirlikla yerlesik kulupleri kapsar ve 2025/26
+eslesmeleri `31` gunluk tazelik kapisina takildigi icin eksen 1 `2024/25`'te
+biter. Arsivin yeniden cekilmesi benchmark'i guncel sezona tasir.
+
+Ana dosyalar:
+
+```text
+reports/external_benchmark/benchmark_report.md
+reports/external_benchmark/benchmark_manifest.json
+reports/external_benchmark/prediction_uncertainty.csv
+reports/external_benchmark/rating_model_summary.csv
 ```
 
 ## 10. Safety Sonuclari

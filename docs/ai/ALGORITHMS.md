@@ -118,6 +118,17 @@ sira ile deterministik olarak siralanir. Ratingler 500 veya 2000'e kirpilmaz.
 4. Achievement Reserve ve uc progression bakiyesini sifirla.
 5. Processed match/tie setlerini ve chronology pointer'larini bos baslat.
 
+Ucuncu adim sezonlar arasi carry'dir. Sezon icindeki qualifier akisi ayridir
+ve asagidaki adimlar sezon baslatmanin degil, her macin parcasidir:
+
+1. Round'u `Q1/Q2/Q3/QUALIFYING_PLAYOFF/MAIN` anahtarina esle.
+2. Base tur onemini `0.40/0.55/0.70/0.85` olarak sec.
+3. Qualifier macinda `%50` retention'i ayni update'e gomerek efektif
+   `K` carpanini `0.20/0.275/0.35/0.425` yap; MAIN icin `1.00` kullan.
+4. UCL/UEL/UECL arasinda dusen takimda ayni `club_id` Power state'ini koru.
+5. Ilk `MAIN` macindan once Power state'ini degistirme. Ayrica carry veya reset
+   uygulama; dogrudan katilan takim da ayni mac-disinda-degismez kuralina tabidir.
+
 ## 4. Pre-Match Tahmin Algoritmasi
 
 Her fixture icin sonuc gorulmeden once:

@@ -6,7 +6,7 @@
     "precedence": "production_contract_over_final_candidate"
   },
   "model_version": "ao-european-elo-v2.0-dev-freeze",
-  "production_revision": "2026-08-13-ml-poisson-ensemble-monitoring",
+  "production_revision": "2026-08-18-continuous-qualifier-retention-activation",
   "static_initial_elo": {
     "country_strength_benchmark": 25.0,
     "european_history_benchmark": 20.0,
@@ -66,6 +66,30 @@
       "k_factor": 103.98098633392752
     },
     "active_power_carry": 0.0,
+    "qualification_transition": {
+      "active": true,
+      "family": "CONTINUOUS_STAGE_WEIGHTED_K_NO_MAIN_ENTRY_RESET",
+      "base_stage_importance_multipliers": {
+        "Q1": 0.4,
+        "Q2": 0.55,
+        "Q3": 0.7,
+        "QUALIFYING_PLAYOFF": 0.85,
+        "MAIN": 1.0
+      },
+      "qualifier_delta_retention": 0.5,
+      "stage_k_multipliers": {
+        "Q1": 0.2,
+        "Q2": 0.275,
+        "Q3": 0.35,
+        "QUALIFYING_PLAYOFF": 0.425,
+        "MAIN": 1.0
+      },
+      "qualifier_to_main_carry": 1.0,
+      "carry_anchor": "NOT_APPLICABLE",
+      "application": "EMBEDDED_IN_EACH_QUALIFIER_MATCH",
+      "cross_competition_state": "CONTINUOUS_CLUB_ID_NO_RESET",
+      "non_match_rating_change": false
+    },
     "one_x_two_probability": {
       "active": true,
       "draw_at_even": 0.24,
@@ -220,6 +244,8 @@
     "european_prior",
     "effective_european_exposure_blend",
     "domestic_surprise_exposure_adjustment",
+    "continuous_qualifier_retained_stage_k_power_update",
+    "no_main_entry_rating_reset",
     "match_expected_score_with_global_home_advantage",
     "format_aware_single_match_1x2_decomposition",
     "zero_sum_power_update_with_goal_margin_and_optional_xg",

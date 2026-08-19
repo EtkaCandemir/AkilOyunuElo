@@ -264,6 +264,12 @@ is_neutral
 `is_single_match_tie` fixture formatidir. Sonuctan sonra turetilmesi leakage
 olur. `tie_id`, knockout state ve tek uygulama progression icin kararlidir.
 
+Bu kolon `is_knockout=true` satirlarda **zorunludur** ve `dynamic_csv` tarafindan
+zorlanir. Eksik veya bos deger hata verir; varsayilana dusulmez. Sebep: eksik
+bayrak ile acik `false` ayirt edilemez, dolayisiyla bir varsayilan butun tek
+maclik tie'lari (finaller dahil) sessizce iki ayakli beraberlik intercept'iyle
+fiyatlar. Lig/grup asamasi satirlarinda kolon opsiyoneldir.
+
 ## 8. Dynamic Match Input
 
 Settlement girdisi fixture kolonlarina ek olarak:
@@ -324,6 +330,9 @@ Model ve config fingerprint uyusmazligi state devaminda reddedilir.
 `match_updates.csv` her mac icin su gruplari saklar:
 
 - kimlik, chronology, competition/stage/tie,
+- qualification round key, stage K multiplier ve effective K,
+- geriye uyumlu qualifier carry applied/adjustment audit'i; aktif continuous
+  retention sozlesmesinde bu alanlar her zaman `false/0` olur,
 - pre-match Power/Reserve/Progression/Live,
 - effective rating farki, expected score ve H/D/A,
 - field result ve GD parametre/multiplier,
@@ -335,6 +344,11 @@ Model ve config fingerprint uyusmazligi state devaminda reddedilir.
 
 Audit kolonlari, final ratingi yalniz toplu degerden degil bilesenlerden yeniden
 uretmeyi mumkun kilmalidir.
+
+Checkpoint metadata'si ayrica `qualification_participants` ve
+`qualification_carry_applied` takim setlerini saklar. Ikinci set birincinin
+alt kumesi olmalidir. Alan geriye uyumluluk icin korunur; aktif continuous
+retention sozlesmesi MAIN gecisinde carry uygulamadigi icin ikinci set bostur.
 
 ## 11. Locked Prediction Ledger
 

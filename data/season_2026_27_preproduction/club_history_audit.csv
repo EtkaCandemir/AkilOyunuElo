@@ -1,0 +1,238 @@
+season,team_id,team_name,history_row_found,history_source_name,five_year_points,five_year_matches,explicit_all_zero_history,match_source_names
+2026/27,AO-UEFA-50048,AF Elbasani,False,,0.0,0,True,
+2026/27,AO-UEFA-52792,Dinamo Tirana,True,Dinamo Tirana,2.5,6,False,Dinamo Tirana
+2026/27,AO-UEFA-88148,Egnatia Rrogozhinë,True,Egnatia Rrogozhinë,4.5,12,False,Egnatia Rrogozhinë | Egnatia Rrogozhinë | Egnatia Rrogozhinë
+2026/27,AO-UEFA-52878,Vllaznia Shkodër,True,Vllaznia Shkodër,6.5,14,False,Vllaznia Shkodër | Vllaznia Shkodër | Vllaznia Shkodër | Vllaznia Shkodër | Vllaznia Shkodër
+2026/27,AO-UEFA-88371,Atlètic Club d'Escaldes,True,Atlètic Club d'Escaldes,5.0,11,False,Atlètic Club d'Escaldes | Atlètic Club d'Escaldes | Atlètic Club d'Escaldes | Atlètic Club d'Escaldes
+2026/27,AO-UEFA-62180,FC Santa Coloma,True,FC Santa Coloma,5.0,14,False,FC Santa Coloma | FC Santa Coloma | FC Santa Coloma
+2026/27,AO-UEFA-63401,Inter Club d'Escaldes,True,Inter Club d'Escaldes,7.5,20,False,Inter Club d'Escaldes | Inter Club d'Escaldes | Inter Club d'Escaldes | Inter Club d'Escaldes | Inter Club d'Escaldes
+2026/27,AO-UEFA-2605268,Alashkert FC,True,Alashkert FC,5.0,20,False,Alashkert FC | Alashkert FC | Alashkert FC
+2026/27,AO-UEFA-2610304,Ararat-Armenia,True,Ararat-Armenia,7.0,14,False,Ararat-Armenia | Ararat-Armenia | Ararat-Armenia | Ararat-Armenia
+2026/27,AO-UEFA-2609987,FC Noah,True,FC Noah,10.75,32,False,FC Noah | FC Noah | FC Noah
+2026/27,AO-UEFA-77431,Pyunik Yerevan,True,Pyunik Yerevan,10.0,32,False,Pyunik Yerevan | Pyunik Yerevan | Pyunik Yerevan | Pyunik Yerevan
+2026/27,AO-UEFA-50110,Austria Wien,True,Austria Wien,9.5,20,False,Austria Wien | Austria Wien | Austria Wien | Austria Wien | Austria Wien
+2026/27,AO-UEFA-50030,FC Salzburg,True,FC Salzburg,45.0,48,False,FC Salzburg | FC Salzburg | FC Salzburg | FC Salzburg | FC Salzburg
+2026/27,AO-UEFA-63405,LASK,True,LASK,21.0,28,False,LASK | LASK | LASK
+2026/27,AO-UEFA-50042,Rapid Wien,True,Rapid Wien,29.75,52,False,Rapid Wien | Rapid Wien | Rapid Wien | Rapid Wien | Rapid Wien
+2026/27,AO-UEFA-50111,Sturm Graz,True,Sturm Graz,28.0,46,False,Sturm Graz | Sturm Graz | Sturm Graz | Sturm Graz | Sturm Graz
+2026/27,AO-UEFA-59890,Neftchi Baku,True,Neftchi Baku,6.5,16,False,Neftchi Baku | Neftchi Baku | Neftchi Baku
+2026/27,AO-UEFA-60609,Qarabag FK,True,Qarabag FK,42.75,78,False,Qarabag FK | Qarabag FK | Qarabag FK | Qarabag FK | Qarabag FK
+2026/27,AO-UEFA-2609356,Sabah FK,True,Sabah FK,6.0,14,False,Sabah FK | Sabah FK | Sabah FK
+2026/27,AO-UEFA-2607480,Zira FK,True,Zira FK,5.5,12,False,Zira FK | Zira FK | Zira FK
+2026/27,AO-UEFA-66168,BATE Borisov,True,BATE Borisov,5.5,12,False,BATE Borisov | BATE Borisov | BATE Borisov
+2026/27,AO-UEFA-50161,Dinamo Minsk,True,Dinamo Minsk,6.5,24,False,Dinamo Minsk | Dinamo Minsk | Dinamo Minsk | Dinamo Minsk
+2026/27,AO-UEFA-2613945,ML Vitebsk,False,,0.0,0,True,
+2026/27,AO-UEFA-4608,AA Gent,True,AA Gent,39.0,56,False,AA Gent | AA Gent | AA Gent | AA Gent
+2026/27,AO-UEFA-50074,Anderlecht,True,Anderlecht,30.75,38,False,Anderlecht | Anderlecht | Anderlecht | Anderlecht
+2026/27,AO-UEFA-50043,Club Brugge,True,Club Brugge,75.25,58,False,Club Brugge | Club Brugge | Club Brugge | Club Brugge | Club Brugge
+2026/27,AO-UEFA-52883,Sint-Truiden,False,,0.0,0,True,
+2026/27,AO-UEFA-64125,Union Saint-Gilloise,True,Union Saint-Gilloise,48.0,44,False,Union Saint-Gilloise | Union Saint-Gilloise | Union Saint-Gilloise | Union Saint-Gilloise
+2026/27,AO-UEFA-50104,Borac Banja Luka,True,Borac Banja Luka,13.12,28,False,Borac Banja Luka | Borac Banja Luka | Borac Banja Luka | Borac Banja Luka | Borac Banja Luka
+2026/27,AO-UEFA-64378,FK Sarajevo,True,FK Sarajevo,5.0,10,False,FK Sarajevo | FK Sarajevo | FK Sarajevo | FK Sarajevo
+2026/27,AO-UEFA-50163,Velez Mostar,True,Velez Mostar,4.5,10,False,Velez Mostar | Velez Mostar | Velez Mostar
+2026/27,AO-UEFA-73390,Zrinjski Mostar,True,Zrinjski Mostar,13.25,44,False,Zrinjski Mostar | Zrinjski Mostar | Zrinjski Mostar | Zrinjski Mostar
+2026/27,AO-UEFA-2610262,CSKA 1948 Sofia,True,CSKA 1948 Sofia,3.5,6,False,CSKA 1948 Sofia | CSKA 1948 Sofia
+2026/27,AO-UEFA-2608297,CSKA Sofia,True,CSKA Sofia,6.5,20,False,CSKA Sofia | CSKA Sofia | CSKA Sofia
+2026/27,AO-UEFA-50044,Levski Sofia,True,Levski Sofia,7.0,18,False,Levski Sofia | Levski Sofia | Levski Sofia
+2026/27,AO-UEFA-2603104,Ludogorets Razgrad,True,Ludogorets Razgrad,28.75,80,False,Ludogorets Razgrad | Ludogorets Razgrad | Ludogorets Razgrad | Ludogorets Razgrad | Ludogorets Razgrad
+2026/27,AO-UEFA-50164,Dinamo Zagreb,True,Dinamo Zagreb,46.5,64,False,Dinamo Zagreb | Dinamo Zagreb | Dinamo Zagreb | Dinamo Zagreb | Dinamo Zagreb
+2026/27,AO-UEFA-52359,Hajduk Split,True,Hajduk Split,10.0,16,False,Hajduk Split | Hajduk Split | Hajduk Split | Hajduk Split | Hajduk Split
+2026/27,AO-UEFA-52356,NK Rijeka,True,NK Rijeka,18.619999999999997,36,False,NK Rijeka | NK Rijeka | NK Rijeka | NK Rijeka | NK Rijeka
+2026/27,AO-UEFA-60514,NK Varazdin,True,NK Varazdin,1.5,2,False,NK Varazdin
+2026/27,AO-UEFA-54191,AEK Larnaca,True,AEK Larnaca,20.25,38,False,AEK Larnaca | AEK Larnaca | AEK Larnaca | AEK Larnaca
+2026/27,AO-UEFA-52741,Apollon Limassol,True,Apollon Limassol,6.5,12,False,Apollon Limassol | Apollon Limassol
+2026/27,AO-UEFA-50077,Omonia Nicosia,True,Omonia Nicosia,21.259999999999998,52,False,Omonia Nicosia | Omonia Nicosia | Omonia Nicosia | Omonia Nicosia | Omonia Nicosia
+2026/27,AO-UEFA-2609532,Pafos FC,True,Pafos FC,24.119999999999997,32,False,Pafos FC | Pafos FC
+2026/27,AO-UEFA-62169,FK Jablonec,True,FK Jablonec,5.0,10,False,FK Jablonec
+2026/27,AO-UEFA-59878,Hradec Kralove,False,,0.0,0,True,
+2026/27,AO-UEFA-52498,Slavia Praha,True,Slavia Praha,44.0,60,False,Slavia Praha | Slavia Praha | Slavia Praha | Slavia Praha | Slavia Praha
+2026/27,AO-UEFA-50033,Sparta Praha,True,Sparta Praha,38.25,56,False,Sparta Praha | Sparta Praha | Sparta Praha | Sparta Praha | Sparta Praha
+2026/27,AO-UEFA-64388,Viktoria Plzen,True,Viktoria Plzen,50.5,64,False,Viktoria Plzen | Viktoria Plzen | Viktoria Plzen | Viktoria Plzen | Viktoria Plzen
+2026/27,AO-UEFA-50019,AGF Aarhus,True,AGF Aarhus,3.0,4,False,AGF Aarhus | AGF Aarhus
+2026/27,AO-UEFA-52709,FC København,True,FC København,54.38,66,False,FC København | FC København | FC København | FC København | FC København
+2026/27,AO-UEFA-75795,FC Midtjylland,True,FC Midtjylland,48.25,62,False,FC Midtjylland | FC Midtjylland | FC Midtjylland | FC Midtjylland | FC Midtjylland
+2026/27,AO-UEFA-79940,FC Nordsjælland,True,FC Nordsjælland,7.0,10,False,FC Nordsjælland
+2026/27,AO-UEFA-2601124,AFC Bournemouth,False,,0.0,0,True,
+2026/27,AO-UEFA-52280,Arsenal,True,Arsenal,119.0,47,False,Arsenal | Arsenal | Arsenal | Arsenal
+2026/27,AO-UEFA-52683,Aston Villa,True,Aston Villa,83.0,41,False,Aston Villa | Aston Villa | Aston Villa
+2026/27,AO-UEFA-2601105,Brighton & Hove Albion,True,Brighton & Hove Albion,16.0,8,False,Brighton & Hove Albion
+2026/27,AO-UEFA-52916,Crystal Palace,True,Crystal Palace,21.88,17,False,Crystal Palace
+2026/27,AO-UEFA-7889,Liverpool,True,Liverpool,130.0,53,False,Liverpool | Liverpool | Liverpool | Liverpool | Liverpool
+2026/27,AO-UEFA-52919,Manchester City,True,Manchester City,125.5,55,False,Manchester City | Manchester City | Manchester City | Manchester City | Manchester City
+2026/27,AO-UEFA-52682,Manchester United,True,Manchester United,76.5,41,False,Manchester United | Manchester United | Manchester United | Manchester United
+2026/27,AO-UEFA-53360,Sunderland AFC,False,,0.0,0,True,
+2026/27,AO-UEFA-59341,Flora Tallinn,True,Flora Tallinn,10.0,28,False,Flora Tallinn | Flora Tallinn | Flora Tallinn | Flora Tallinn | Flora Tallinn
+2026/27,AO-UEFA-2600371,Kalju Nomme,True,Kalju Nomme,1.5,4,False,Kalju Nomme
+2026/27,AO-UEFA-77482,Levadia Tallinn,True,Levadia Tallinn,7.5,19,False,Levadia Tallinn | Levadia Tallinn | Levadia Tallinn | Levadia Tallinn | Levadia Tallinn
+2026/27,AO-UEFA-2600598,Paide Linnameeskond,True,Paide Linnameeskond,7.5,20,False,Paide Linnameeskond | Paide Linnameeskond | Paide Linnameeskond | Paide Linnameeskond | Paide Linnameeskond
+2026/27,AO-UEFA-59025,HB Torshavn,True,HB Torshavn,7.0,13,False,HB Torshavn | HB Torshavn | HB Torshavn | HB Torshavn | HB Torshavn
+2026/27,AO-UEFA-57475,KI Klaksvik,True,KI Klaksvik,10.5,36,False,KI Klaksvik | KI Klaksvik | KI Klaksvik | KI Klaksvik | KI Klaksvik
+2026/27,AO-UEFA-64150,NSI Runavik,True,NSI Runavik,2.0,4,False,NSI Runavik | NSI Runavik
+2026/27,AO-UEFA-59325,Víkingur,True,Víkingur,6.0,14,False,Víkingur | Víkingur | Víkingur | Víkingur
+2026/27,AO-UEFA-50052,HJK Helsinki,True,HJK Helsinki,14.0,58,False,HJK Helsinki | HJK Helsinki | HJK Helsinki | HJK Helsinki | HJK Helsinki
+2026/27,AO-UEFA-2602511,Ilves Tampere,True,Ilves Tampere,3.5,8,False,Ilves Tampere | Ilves Tampere
+2026/27,AO-UEFA-64161,Inter Turku,True,Inter Turku,2.0,4,False,Inter Turku | Inter Turku
+2026/27,AO-UEFA-52350,KuPS Kuopio,True,KuPS Kuopio,14.0,36,False,KuPS Kuopio | KuPS Kuopio | KuPS Kuopio | KuPS Kuopio | KuPS Kuopio
+2026/27,AO-UEFA-50023,AS Monaco,True,AS Monaco,56.0,42,False,AS Monaco | AS Monaco | AS Monaco | AS Monaco
+2026/27,AO-UEFA-75797,Lille OSC,True,Lille OSC,68.75,46,False,Lille OSC | Lille OSC | Lille OSC | Lille OSC
+2026/27,AO-UEFA-5312,Olympique Lyon,True,Olympique Lyon,65.75,32,False,Olympique Lyon | Olympique Lyon | Olympique Lyon
+2026/27,AO-UEFA-52748,Olympique Marseille,True,Olympique Marseille,54.0,44,False,Olympique Marseille | Olympique Marseille | Olympique Marseille | Olympique Marseille
+2026/27,AO-UEFA-52747,Paris Saint-Germain,True,Paris Saint-Germain,132.0,62,False,Paris Saint-Germain | Paris Saint-Germain | Paris Saint-Germain | Paris Saint-Germain | Paris Saint-Germain
+2026/27,AO-UEFA-52277,RC Lens,True,RC Lens,12.5,10,False,RC Lens | RC Lens
+2026/27,AO-UEFA-55031,Stade Rennais,True,Stade Rennais,35.0,26,False,Stade Rennais | Stade Rennais | Stade Rennais
+2026/27,AO-UEFA-64467,Dila Gori,True,Dila Gori,5.5,14,False,Dila Gori | Dila Gori | Dila Gori | Dila Gori
+2026/27,AO-UEFA-52705,Dinamo Tbilisi,True,Dinamo Tbilisi,5.0,12,False,Dinamo Tbilisi | Dinamo Tbilisi | Dinamo Tbilisi | Dinamo Tbilisi
+2026/27,AO-UEFA-2605905,Iberia 1999,True,Iberia 1999,5.0,12,False,Saburtalo Tbilisi | Saburtalo Tbilisi | Iberia 1999
+2026/27,AO-UEFA-64471,Torpedo Kutaisi,True,Torpedo Kutaisi,4.5,12,False,Torpedo Kutaisi | Torpedo Kutaisi | Torpedo Kutaisi
+2026/27,AO-UEFA-2600431,1899 Hoffenheim,True,1899 Hoffenheim,7.0,8,False,1899 Hoffenheim
+2026/27,AO-UEFA-50109,Bayer Leverkusen,True,Bayer Leverkusen,105.0,57,False,Bayer Leverkusen | Bayer Leverkusen | Bayer Leverkusen | Bayer Leverkusen | Bayer Leverkusen
+2026/27,AO-UEFA-50037,Bayern München,True,Bayern München,147.5,60,False,Bayern München | Bayern München | Bayern München | Bayern München | Bayern München
+2026/27,AO-UEFA-52758,Borussia Dortmund,True,Borussia Dortmund,100.75,53,False,Borussia Dortmund | Borussia Dortmund | Borussia Dortmund | Borussia Dortmund | Borussia Dortmund
+2026/27,AO-UEFA-2603790,RB Leipzig,True,RB Leipzig,61.0,36,False,RB Leipzig | RB Leipzig | RB Leipzig | RB Leipzig
+2026/27,AO-UEFA-59880,SC Freiburg,True,SC Freiburg,56.5,33,False,SC Freiburg | SC Freiburg | SC Freiburg
+2026/27,AO-UEFA-50107,VfB Stuttgart,True,VfB Stuttgart,27.5,20,False,VfB Stuttgart | VfB Stuttgart
+2026/27,AO-UEFA-2606416,Europa FC,True,Europa FC,3.0,6,False,Europa FC | Europa FC | Europa FC
+2026/27,AO-UEFA-2605572,Lincoln Red Imps,True,Lincoln Red Imps,13.5,44,False,Lincoln Red Imps | Lincoln Red Imps | Lincoln Red Imps | Lincoln Red Imps | Lincoln Red Imps
+2026/27,AO-UEFA-2605575,St Joseph's FC,True,St Joseph's FC,5.0,12,False,St Joseph's FC | St Joseph's FC | St Joseph's FC | St Joseph's FC
+2026/27,AO-UEFA-50129,AEK Athens,True,AEK Athens,24.0,32,False,AEK Athens | AEK Athens | AEK Athens | AEK Athens
+2026/27,AO-UEFA-52953,OFI Heraklion,False,,0.0,0,True,
+2026/27,AO-UEFA-2610,Olympiakos Piraeus,True,Olympiakos Piraeus,62.25,65,False,Olympiakos Piraeus | Olympiakos Piraeus | Olympiakos Piraeus | Olympiakos Piraeus | Olympiakos Piraeus
+2026/27,AO-UEFA-50130,PAOK Thessaloniki,True,PAOK Thessaloniki,48.25,64,False,PAOK Thessaloniki | PAOK Thessaloniki | PAOK Thessaloniki | PAOK Thessaloniki | PAOK Thessaloniki
+2026/27,AO-UEFA-50084,Panathinaikos,True,Panathinaikos,29.25,48,False,Panathinaikos | Panathinaikos | Panathinaikos | Panathinaikos
+2026/27,AO-UEFA-52958,DVSC Debrecen,True,DVSC Debrecen,2.0,4,False,DVSC Debrecen
+2026/27,AO-UEFA-52287,ETO Györ,True,ETO Györ,2.5,6,False,ETO Györ
+2026/27,AO-UEFA-52298,Ferencváros,True,Ferencváros,51.25,80,False,Ferencváros | Ferencváros | Ferencváros | Ferencváros | Ferencváros
+2026/27,AO-UEFA-93452,Paksi FC,True,Paksi FC,4.5,14,False,Paksi FC | Paksi FC
+2026/27,AO-UEFA-2610384,IF Vestri,False,,0.0,0,True,
+2026/27,AO-UEFA-52308,Stjarnan FC,True,Stjarnan FC,2.5,6,False,Stjarnan FC | Stjarnan FC
+2026/27,AO-UEFA-50057,Valur Reykjavik,True,Valur Reykjavik,4.5,12,False,Valur Reykjavik | Valur Reykjavik | Valur Reykjavik
+2026/27,AO-UEFA-52697,Vikingur Reykjavik,True,Vikingur Reykjavik,11.75,32,False,Vikingur Reykjavik | Vikingur Reykjavik | Vikingur Reykjavik | Vikingur Reykjavik
+2026/27,AO-UEFA-52375,Bohemians Dublin,True,Bohemians Dublin,2.0,6,False,Bohemians Dublin
+2026/27,AO-UEFA-50086,Derry City,True,Derry City,4.0,10,False,Derry City | Derry City | Derry City
+2026/27,AO-UEFA-52381,Shamrock Rovers,True,Shamrock Rovers,19.380000000000003,52,False,Shamrock Rovers | Shamrock Rovers | Shamrock Rovers | Shamrock Rovers | Shamrock Rovers
+2026/27,AO-UEFA-53020,Shelbourne,True,Shelbourne,4.0,18,False,Shelbourne | Shelbourne
+2026/27,AO-UEFA-59034,Beitar Jerusalem,True,Beitar Jerusalem,3.5,6,False,Beitar Jerusalem | Beitar Jerusalem
+2026/27,AO-UEFA-59340,Hapoel Beer-Sheva,True,Hapoel Beer-Sheva,14.0,30,False,Hapoel Beer-Sheva | Hapoel Beer-Sheva | Hapoel Beer-Sheva | Hapoel Beer-Sheva | Hapoel Beer-Sheva
+2026/27,AO-UEFA-59869,Hapoel Tel-Aviv,False,,0.0,0,True,
+2026/27,AO-UEFA-57477,Maccabi Tel-Aviv,True,Maccabi Tel-Aviv,32.5,62,False,Maccabi Tel-Aviv | Maccabi Tel-Aviv | Maccabi Tel-Aviv | Maccabi Tel-Aviv | Maccabi Tel-Aviv
+2026/27,AO-UEFA-50058,AC Milan,True,AC Milan,66.0,40,False,AC Milan | AC Milan | AC Milan | AC Milan
+2026/27,AO-UEFA-50137,AS Roma,True,AS Roma,97.75,66,False,AS Roma | AS Roma | AS Roma | AS Roma | AS Roma
+2026/27,AO-UEFA-52816,Atalanta,True,Atalanta,84.0,47,False,Atalanta | Atalanta | Atalanta | Atalanta
+2026/27,AO-UEFA-79946,Como 1907,False,,0.0,0,True,
+2026/27,AO-UEFA-50138,Internazionale,True,Internazionale,127.0,54,False,Internazionale | Internazionale | Internazionale | Internazionale | Internazionale
+2026/27,AO-UEFA-50139,Juventus,True,Juventus,72.25,42,False,Juventus | Juventus | Juventus | Juventus
+2026/27,AO-UEFA-50136,Napoli,True,Napoli,63.0,34,False,Napoli | Napoli | Napoli | Napoli
+2026/27,AO-UEFA-2600605,FK Astana,True,FK Astana,12.5,36,False,FK Astana | FK Astana | FK Astana | FK Astana | FK Astana
+2026/27,AO-UEFA-79966,FK Yelimay,False,,0.0,0,True,
+2026/27,AO-UEFA-79970,Kairat Almaty,True,Kairat Almaty,11.0,32,False,Kairat Almaty | Kairat Almaty | Kairat Almaty
+2026/27,AO-UEFA-79969,Tobol Kustanai,True,Tobol Kustanai,8.0,22,False,Tobol Kustanai | Tobol Kustanai | Tobol Kustanai | Tobol Kustanai
+2026/27,AO-UEFA-2609552,FC Ballkani,True,FC Ballkani,10.0,38,False,FC Ballkani | FC Ballkani | FC Ballkani | FC Ballkani
+2026/27,AO-UEFA-2608290,FC Drita,True,FC Drita,13.620000000000001,32,False,FC Drita | FC Drita | FC Drita | FC Drita | FC Drita
+2026/27,AO-UEFA-2608311,KF Dukagjini,True,KF Dukagjini,1.5,4,False,KF Dukagjini
+2026/27,AO-UEFA-2611789,KF Malisheva,True,KF Malisheva,2.0,4,False,KF Malisheva | KF Malisheva
+2026/27,AO-UEFA-79556,FK Auda,True,FK Auda,4.5,10,False,FK Auda | FK Auda | FK Auda
+2026/27,AO-UEFA-2606320,FK Liepaja,True,FK Liepaja,4.0,10,False,FK Liepaja | FK Liepaja | FK Liepaja
+2026/27,AO-UEFA-2609104,RFS Riga,True,RFS Riga,12.5,46,False,RFS Riga | RFS Riga | RFS Riga | RFS Riga | RFS Riga
+2026/27,AO-UEFA-2607924,Riga FC,True,Riga FC,10.5,28,False,Riga FC | Riga FC | Riga FC | Riga FC | Riga FC
+2026/27,AO-UEFA-57482,FC Vaduz,True,FC Vaduz,8.5,22,False,FC Vaduz | FC Vaduz | FC Vaduz | FC Vaduz | FC Vaduz
+2026/27,AO-UEFA-2607108,FC Hegelmann,True,FC Hegelmann,2.0,4,False,FC Hegelmann | FC Hegelmann
+2026/27,AO-UEFA-2608927,FK Panevezys,True,FK Panevezys,6.5,16,False,FK Panevezys | FK Panevezys | FK Panevezys | FK Panevezys
+2026/27,AO-UEFA-2605907,Kauno Zalgiris,True,Kauno Zalgiris,6.0,14,False,Kauno Zalgiris | Kauno Zalgiris | Kauno Zalgiris | Kauno Zalgiris
+2026/27,AO-UEFA-2602334,Zalgiris Vilnius,True,Zalgiris Vilnius,12.0,38,False,Zalgiris Vilnius | Zalgiris Vilnius | Zalgiris Vilnius | Zalgiris Vilnius | Zalgiris Vilnius
+2026/27,AO-UEFA-2605351,Atert Bissen,False,,0.0,0,True,
+2026/27,AO-UEFA-52309,Differdange 03,True,Differdange 03,6.5,16,False,Differdange 03 | Differdange 03 | Differdange 03 | Differdange 03
+2026/27,AO-UEFA-2603092,UNA Strassen,True,UNA Strassen,2.5,4,False,UNA Strassen | UNA Strassen
+2026/27,AO-UEFA-2603085,US Mondorf-les-Bains,False,,0.0,0,True,
+2026/27,AO-UEFA-50092,Floriana,True,Floriana,4.0,10,False,Floriana | Floriana | Floriana
+2026/27,AO-UEFA-50060,Hamrun Spartans,True,Hamrun Spartans,8.5,32,False,Hamrun Spartans | Hamrun Spartans | Hamrun Spartans | Hamrun Spartans
+2026/27,AO-UEFA-79948,Marsaxlokk,True,Marsaxlokk,1.0,2,False,Marsaxlokk
+2026/27,AO-UEFA-52641,Valletta FC,False,,0.0,0,True,
+2026/27,AO-UEFA-2600714,Milsami Orhei,True,Milsami Orhei,7.5,20,False,Milsami Orhei | Milsami Orhei | Milsami Orhei | Milsami Orhei | Milsami Orhei
+2026/27,AO-UEFA-2607112,Petrocub Hîncesti,True,Petrocub Hîncesti,9.0,30,False,Petrocub Hîncesti | Petrocub Hîncesti | Petrocub Hîncesti | Petrocub Hîncesti | Petrocub Hîncesti
+2026/27,AO-UEFA-69606,Sheriff Tiraspol,True,Sheriff Tiraspol,20.0,60,False,Sheriff Tiraspol | Sheriff Tiraspol | Sheriff Tiraspol | Sheriff Tiraspol | Sheriff Tiraspol
+2026/27,AO-UEFA-59036,Zimbru Chisinau,True,Zimbru Chisinau,4.5,8,False,Zimbru Chisinau | Zimbru Chisinau | Zimbru Chisinau
+2026/27,AO-UEFA-2600105,Decic Tuzi,True,Decic Tuzi,5.5,14,False,Decic Tuzi | Decic Tuzi | Decic Tuzi | Decic Tuzi
+2026/27,AO-UEFA-89562,Mornar Bar,True,Mornar Bar,2.0,6,False,Mornar Bar
+2026/27,AO-UEFA-2600104,OFK Petrovac,False,,0.0,0,True,
+2026/27,AO-UEFA-73936,Sutjeska Niksic,True,Sutjeska Niksic,6.0,16,False,Sutjeska Niksic | Sutjeska Niksic | Sutjeska Niksic | Sutjeska Niksic
+2026/27,AO-UEFA-52327,AZ Alkmaar,True,AZ Alkmaar,62.88,68,False,AZ Alkmaar | AZ Alkmaar | AZ Alkmaar | AZ Alkmaar | AZ Alkmaar
+2026/27,AO-UEFA-50143,Ajax,True,Ajax,58.25,54,False,Ajax | Ajax | Ajax | Ajax | Ajax
+2026/27,AO-UEFA-52818,FC Twente Enschede,True,FC Twente Enschede,13.5,22,False,FC Twente Enschede | FC Twente Enschede | FC Twente Enschede
+2026/27,AO-UEFA-52749,Feyenoord,True,Feyenoord,71.0,59,False,Feyenoord | Feyenoord | Feyenoord | Feyenoord | Feyenoord
+2026/27,AO-UEFA-52330,NEC Nijmegen,False,,0.0,0,True,
+2026/27,AO-UEFA-50062,PSV Eindhoven,True,PSV Eindhoven,71.25,62,False,PSV Eindhoven | PSV Eindhoven | PSV Eindhoven | PSV Eindhoven | PSV Eindhoven
+2026/27,AO-UEFA-75807,Shkendija Tetovo,True,Shkendija Tetovo,10.879999999999999,30,False,Shkendija Tetovo | Shkendija Tetovo | Shkendija Tetovo | Shkendija Tetovo | Shkendija Tetovo
+2026/27,AO-UEFA-59871,Sileks Kratovo,True,Sileks Kratovo,2.0,4,False,Sileks Kratovo | Sileks Kratovo
+2026/27,AO-UEFA-53080,Vardar Skopje,True,Vardar Skopje,1.5,4,False,Vardar Skopje
+2026/27,AO-UEFA-52377,Coleraine,True,Coleraine,1.0,2,False,Coleraine
+2026/27,AO-UEFA-50056,Glentoran,True,Glentoran,2.0,4,False,Glentoran | Glentoran
+2026/27,AO-UEFA-85009,Larne FC,True,Larne FC,9.0,30,False,Larne FC | Larne FC | Larne FC | Larne FC | Larne FC
+2026/27,AO-UEFA-50134,Linfield Belfast,True,Linfield Belfast,9.5,28,False,Linfield Belfast | Linfield Belfast | Linfield Belfast | Linfield Belfast | Linfield Belfast
+2026/27,AO-UEFA-59333,Bodø/Glimt,True,Bodø/Glimt,64.0,86,False,Bodø/Glimt | Bodø/Glimt | Bodø/Glimt | Bodø/Glimt | Bodø/Glimt
+2026/27,AO-UEFA-52314,Lillestrøm SK,True,Lillestrøm SK,2.0,4,False,Lillestrøm SK
+2026/27,AO-UEFA-52770,SK Brann Bergen,True,SK Brann Bergen,12.25,26,False,SK Brann Bergen | SK Brann Bergen | SK Brann Bergen
+2026/27,AO-UEFA-53001,Tromsø IL,True,Tromsø IL,2.0,4,False,Tromsø IL
+2026/27,AO-UEFA-52319,Viking Stavanger,True,Viking Stavanger,4.5,10,False,Viking Stavanger | Viking Stavanger
+2026/27,AO-UEFA-50145,GKS Katowice,False,,0.0,0,True,
+2026/27,AO-UEFA-50063,Górnik Zabrze,False,,0.0,0,True,
+2026/27,AO-UEFA-2600277,Jagiellonia Bialystok,True,Jagiellonia Bialystok,22.0,32,False,Jagiellonia Bialystok | Jagiellonia Bialystok
+2026/27,AO-UEFA-64227,Lech Poznan,True,Lech Poznan,27.25,40,False,Lech Poznan | Lech Poznan | Lech Poznan
+2026/27,AO-UEFA-60566,Raków Czestochowa,True,Raków Czestochowa,22.25,40,False,Raków Czestochowa | Raków Czestochowa | Raków Czestochowa | Raków Czestochowa
+2026/27,AO-UEFA-50147,Benfica,True,Benfica,90.0,66,False,Benfica | Benfica | Benfica | Benfica | Benfica
+2026/27,AO-UEFA-50064,FC Porto,True,FC Porto,80.75,48,False,FC Porto | FC Porto | FC Porto | FC Porto | FC Porto
+2026/27,AO-UEFA-52336,Sporting Braga,True,Sporting Braga,63.75,66,False,Sporting Braga | Sporting Braga | Sporting Braga | Sporting Braga | Sporting Braga
+2026/27,AO-UEFA-50149,Sporting CP Lisbon,True,Sporting CP Lisbon,84.0,52,False,Sporting CP Lisbon | Sporting CP Lisbon | Sporting CP Lisbon | Sporting CP Lisbon | Sporting CP Lisbon
+2026/27,AO-UEFA-2603107,União Torreense,False,,0.0,0,True,
+2026/27,AO-UEFA-88131,CFR Cluj,True,CFR Cluj,17.5,46,False,CFR Cluj | CFR Cluj | CFR Cluj | CFR Cluj | CFR Cluj
+2026/27,AO-UEFA-50065,FCSB,True,FCSB,25.5,54,False,FCSB | FCSB | FCSB | FCSB | FCSB
+2026/27,AO-UEFA-53025,Universitatea Cluj,True,Universitatea Cluj,1.5,2,False,Universitatea Cluj
+2026/27,AO-UEFA-2606501,Universitatea Craiova,True,Universitatea Craiova,10.5,22,False,Universitatea Craiova | Universitatea Craiova | Universitatea Craiova | Universitatea Craiova
+2026/27,AO-UEFA-64516,AC Virtus,True,AC Virtus,4.0,10,False,AC Virtus | AC Virtus
+2026/27,AO-UEFA-64508,La Fiorita,True,La Fiorita,6.0,13,False,La Fiorita | La Fiorita | La Fiorita | La Fiorita | La Fiorita
+2026/27,AO-UEFA-64514,Tre Fiori,True,Tre Fiori,2.5,6,False,Tre Fiori | Tre Fiori
+2026/27,AO-UEFA-50050,Celtic,True,Celtic,44.0,48,False,Celtic | Celtic | Celtic | Celtic | Celtic
+2026/27,AO-UEFA-50121,Glasgow Rangers,True,Glasgow Rangers,59.25,69,False,Glasgow Rangers | Glasgow Rangers | Glasgow Rangers | Glasgow Rangers | Glasgow Rangers
+2026/27,AO-UEFA-50120,Hearts FC,True,Hearts FC,11.5,20,False,Hearts FC | Hearts FC | Hearts FC
+2026/27,AO-UEFA-52821,Hibernian,True,Hibernian,7.0,16,False,Hibernian | Hibernian | Hibernian
+2026/27,AO-UEFA-53035,Motherwell,True,Motherwell,1.5,2,False,Motherwell
+2026/27,AO-UEFA-50162,Partizan Belgrade,True,Partizan Belgrade,22.0,44,False,Partizan Belgrade | Partizan Belgrade | Partizan Belgrade | Partizan Belgrade | Partizan Belgrade
+2026/27,AO-UEFA-50069,Red Star Belgrade,True,Red Star Belgrade,46.5,56,False,Red Star Belgrade | Red Star Belgrade | Red Star Belgrade | Red Star Belgrade | Red Star Belgrade
+2026/27,AO-UEFA-52810,Vojvodina Novi Sad,True,Vojvodina Novi Sad,5.5,10,False,Vojvodina Novi Sad | Vojvodina Novi Sad | Vojvodina Novi Sad
+2026/27,AO-UEFA-77924,Zeleznicar Pancevo,False,,0.0,0,True,
+2026/27,AO-UEFA-50156,DAC Dunajska Streda,True,DAC Dunajska Streda,6.0,12,False,DAC Dunajska Streda | DAC Dunajska Streda | DAC Dunajska Streda | DAC Dunajska Streda
+2026/27,AO-UEFA-61601,MSK Zilina,True,MSK Zilina,5.5,14,False,MSK Zilina | MSK Zilina | MSK Zilina
+2026/27,AO-UEFA-52797,Slovan Bratislava,True,Slovan Bratislava,36.0,74,False,Slovan Bratislava | Slovan Bratislava | Slovan Bratislava | Slovan Bratislava | Slovan Bratislava
+2026/27,AO-UEFA-52904,Spartak Trnava,True,Spartak Trnava,10.5,32,False,Spartak Trnava | Spartak Trnava | Spartak Trnava | Spartak Trnava | Spartak Trnava
+2026/27,AO-UEFA-77916,NK Aluminij,False,,0.0,0,True,
+2026/27,AO-UEFA-2607248,NK Bravo,True,NK Bravo,1.5,4,False,NK Bravo
+2026/27,AO-UEFA-59030,NK Celje,True,NK Celje,23.0,44,False,NK Celje | NK Celje | NK Celje
+2026/27,AO-UEFA-69617,NK Koper,True,NK Koper,3.0,6,False,NK Koper | NK Koper
+2026/27,AO-UEFA-50124,Atlético Madrid,True,Atlético Madrid,104.75,52,False,Atlético Madrid | Atlético Madrid | Atlético Madrid | Atlético Madrid | Atlético Madrid
+2026/27,AO-UEFA-53043,Celta de Vigo,True,Celta de Vigo,16.25,14,False,Celta de Vigo
+2026/27,AO-UEFA-50080,FC Barcelona,True,FC Barcelona,113.25,56,False,FC Barcelona | FC Barcelona | FC Barcelona | FC Barcelona | FC Barcelona
+2026/27,AO-UEFA-87960,Getafe,False,,0.0,0,True,
+2026/27,AO-UEFA-52265,Real Betis,True,Real Betis,74.5,55,False,Real Betis | Real Betis | Real Betis | Real Betis | Real Betis
+2026/27,AO-UEFA-50051,Real Madrid,True,Real Madrid,144.5,66,False,Real Madrid | Real Madrid | Real Madrid | Real Madrid | Real Madrid
+2026/27,AO-UEFA-50123,Real Sociedad,True,Real Sociedad,57.0,36,False,Real Sociedad | Real Sociedad | Real Sociedad | Real Sociedad
+2026/27,AO-UEFA-70691,Villarreal,True,Villarreal,59.0,38,False,Villarreal | Villarreal | Villarreal | Villarreal
+2026/27,AO-UEFA-91862,GAIS Göteborg,False,,0.0,0,True,
+2026/27,AO-UEFA-52343,Hammarby IF,True,Hammarby IF,6.0,12,False,Hammarby IF | Hammarby IF | Hammarby IF
+2026/27,AO-UEFA-50066,IFK Göteborg,False,,0.0,0,True,
+2026/27,AO-UEFA-74233,Mjällby AIF,False,,0.0,0,True,
+2026/27,AO-UEFA-8538,FC Lugano,True,FC Lugano,21.25,28,False,FC Lugano | FC Lugano | FC Lugano | FC Lugano
+2026/27,AO-UEFA-51151,FC Sankt Gallen,True,FC Sankt Gallen,4.0,12,False,FC Sankt Gallen
+2026/27,AO-UEFA-52824,FC Sion,False,,0.0,0,True,
+2026/27,AO-UEFA-80409,FC Thun,False,,0.0,0,True,
+2026/27,AO-UEFA-50157,Besiktas,True,Besiktas,15.5,34,False,Besiktas | Besiktas | Besiktas | Besiktas
+2026/27,AO-UEFA-52692,Fenerbahçe,True,Fenerbahçe,57.75,70,False,Fenerbahçe | Fenerbahçe | Fenerbahçe | Fenerbahçe | Fenerbahçe
+2026/27,AO-UEFA-50067,Galatasaray,True,Galatasaray,53.5,52,False,Galatasaray | Galatasaray | Galatasaray | Galatasaray
+2026/27,AO-UEFA-2600288,Istanbul Basaksehir,True,Istanbul Basaksehir,19.5,32,False,Istanbul Basaksehir | Istanbul Basaksehir | Istanbul Basaksehir
+2026/27,AO-UEFA-52731,Trabzonspor,True,Trabzonspor,11.0,20,False,Trabzonspor | Trabzonspor | Trabzonspor
+2026/27,AO-UEFA-52723,Dynamo Kyiv,True,Dynamo Kyiv,17.5,48,False,Dinamo Kiev | Dynamo Kyiv | Dynamo Kyiv | Dynamo Kyiv | Dynamo Kyiv
+2026/27,AO-UEFA-2612107,LNZ Cherkasy,False,,0.0,0,True,
+2026/27,AO-UEFA-2613172,Polissya Zhytomyr,True,Polissya Zhytomyr,4.0,8,False,Polissya Zhytomyr | Polissya Zhytomyr
+2026/27,AO-UEFA-52707,Shakhtar Donetsk,True,Shakhtar Donetsk,56.25,56,False,Shakhtar Donetsk | Shakhtar Donetsk | Shakhtar Donetsk | Shakhtar Donetsk | Shakhtar Donetsk
+2026/27,AO-UEFA-53071,Caernarfon Town,True,Caernarfon Town,1.5,4,False,Caernarfon Town
+2026/27,AO-UEFA-64275,Connah's Quay,True,Connah's Quay,3.5,8,False,Connah's Quay | Connah's Quay | Connah's Quay
+2026/27,AO-UEFA-2606314,Penybont,True,Penybont,2.0,4,False,Penybont | Penybont
+2026/27,AO-UEFA-60457,The New Saints,True,The New Saints,9.0,32,False,The New Saints | The New Saints | The New Saints | The New Saints | The New Saints

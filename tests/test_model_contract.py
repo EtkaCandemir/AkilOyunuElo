@@ -87,6 +87,22 @@ def test_frozen_contract_matches_active_static_and_dynamic_config() -> None:
     assert dynamic.goal_difference_cap == (
         payload["dynamic"]["goal_margin"]["goal_difference_cap"]
     )
+    qualification = payload["dynamic"]["qualification_transition"]
+    assert dynamic.qualification_q1_multiplier == pytest.approx(
+        qualification["q1_multiplier"]
+    )
+    assert dynamic.qualification_q2_multiplier == pytest.approx(
+        qualification["q2_multiplier"]
+    )
+    assert dynamic.qualification_q3_multiplier == pytest.approx(
+        qualification["q3_multiplier"]
+    )
+    assert dynamic.qualification_playoff_multiplier == pytest.approx(
+        qualification["qualifying_playoff_multiplier"]
+    )
+    assert dynamic.qualifier_to_main_carry == pytest.approx(
+        qualification["qualifier_to_main_carry"]
+    )
     assert dynamic.achievement_reserve is None
 
 
@@ -181,6 +197,20 @@ def test_calibration_manifests_match_frozen_layer_decisions() -> None:
         "SEMIFINAL",
         "FINAL",
     ]
+    qualification = production["qualification_transition"]
+    assert qualification["family"] == (
+        "CONTINUOUS_STAGE_WEIGHTED_K_NO_MAIN_ENTRY_RESET"
+    )
+    assert qualification["qualifier_delta_retention"] == pytest.approx(0.50)
+    assert qualification["stage_k_multipliers"] == {
+        "Q1": 0.20,
+        "Q2": 0.275,
+        "Q3": 0.35,
+        "QUALIFYING_PLAYOFF": 0.425,
+        "MAIN": 1.0,
+    }
+    assert qualification["qualifier_to_main_carry"] == pytest.approx(1.0)
+    assert qualification["non_match_rating_change"] is False
 
 
 def test_historical_robustness_remains_immutable_after_manual_goal_decision() -> None:
@@ -188,7 +218,7 @@ def test_historical_robustness_remains_immutable_after_manual_goal_decision() ->
     robustness = json.loads(ROBUSTNESS_MANIFEST.read_text(encoding="utf-8"))
     recommended = robustness["recommended_production_model"]
 
-    assert contract["contract_version"] == "1.8.0"
+    assert contract["contract_version"] == "1.9.0"
     assert contract["prediction_layer"]["active"] is True
     assert contract["prediction_layer"]["decision"] == "PROMOTE_WITH_MONITORING"
     assert contract["prediction_layer"]["rating_feedback"] is False

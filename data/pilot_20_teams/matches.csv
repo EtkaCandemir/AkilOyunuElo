@@ -1,34 +1,34 @@
-match_id,season,kickoff_utc,competition,round,tie_id,is_knockout,is_tie_decider,stage,home_team_id,away_team_id,home_goals,away_goals,is_neutral,decided_on_penalties,advanced_team_id,scenario_group,scenario_note
-pilot20-001,2026/27,2026-09-10T17:00:00Z,UCL,League Stage,,false,false,LEAGUE,T01,T08,4,0,false,false,,favorite_large_win,Elite favorite wins by four
-pilot20-002,2026/27,2026-09-10T17:05:00Z,UCL,League Stage,,false,false,LEAGUE,T02,T07,2,0,false,false,,favorite_two_goal,Strong favorite wins by two
-pilot20-003,2026/27,2026-09-10T17:10:00Z,UCL,League Stage,,false,false,LEAGUE,T03,T06,1,0,false,false,,one_goal_control,One-goal result keeps multiplier at one
-pilot20-004,2026/27,2026-09-10T17:15:00Z,UCL,League Stage,,false,false,LEAGUE,T04,T05,3,0,false,false,,balanced_large_win,Near-strength match ends by three
-pilot20-005,2026/27,2026-09-10T17:20:00Z,UEL,League Stage,,false,false,LEAGUE,T09,T14,5,0,false,false,,goal_cap_test,Five-goal result is capped at GD four
-pilot20-006,2026/27,2026-09-10T17:25:00Z,UEL,League Stage,,false,false,LEAGUE,T10,T13,0,1,false,false,,one_goal_upset,Underdog wins by one with no GD bonus
-pilot20-007,2026/27,2026-09-10T17:30:00Z,UEL,League Stage,,false,false,LEAGUE,T11,T12,2,0,false,false,,balanced_two_goal,Near-strength match ends by two
-pilot20-008,2026/27,2026-09-10T17:35:00Z,UECL,League Stage,,false,false,LEAGUE,T15,T20,4,0,false,false,,favorite_large_win,UECL favorite wins by four
-pilot20-009,2026/27,2026-09-10T17:40:00Z,UECL,League Stage,,false,false,LEAGUE,T16,T19,1,1,false,false,,draw_control,Draw keeps multiplier at one
-pilot20-010,2026/27,2026-09-10T17:45:00Z,UECL,League Stage,,false,false,LEAGUE,T17,T18,0,3,false,false,,underdog_large_win,Away underdog wins by three
-pilot20-011,2026/27,2026-09-17T17:00:00Z,UCL,League Stage,,false,false,LEAGUE,T08,T04,0,2,false,false,,away_favorite_two_goal,Away favorite wins by two
-pilot20-012,2026/27,2026-09-17T17:05:00Z,UCL,League Stage,,false,false,LEAGUE,T07,T03,0,4,false,false,,away_favorite_large_win,Away favorite wins by four
-pilot20-013,2026/27,2026-09-17T17:10:00Z,UCL,League Stage,,false,false,LEAGUE,T06,T02,2,2,false,false,,draw_control,High-scoring draw has no GD bonus
-pilot20-014,2026/27,2026-09-17T17:15:00Z,UCL,League Stage,,false,false,LEAGUE,T05,T01,1,2,false,false,,one_goal_control,Favorite wins by one
-pilot20-015,2026/27,2026-09-17T17:20:00Z,UEL,League Stage,,false,false,LEAGUE,T14,T11,0,4,false,false,,away_favorite_large_win,Away favorite wins by four
-pilot20-016,2026/27,2026-09-17T17:25:00Z,UEL,League Stage,,false,false,LEAGUE,T13,T09,2,0,false,false,,underdog_two_goal,Underdog beats favorite by two
-pilot20-017,2026/27,2026-09-17T17:30:00Z,UEL,League Stage,,false,false,LEAGUE,T12,T10,3,1,false,false,,underdog_two_goal,Lower-rated home side wins by two
-pilot20-018,2026/27,2026-09-17T17:35:00Z,UECL,League Stage,,false,false,LEAGUE,T20,T17,0,1,false,false,,one_goal_control,One-goal away result
-pilot20-019,2026/27,2026-09-17T17:40:00Z,UECL,League Stage,,false,false,LEAGUE,T19,T15,0,3,false,false,,away_favorite_three_goal,Away favorite wins by three
-pilot20-020,2026/27,2026-09-17T17:45:00Z,UECL,League Stage,,false,false,LEAGUE,T18,T16,4,0,false,false,,underdog_large_win,Underdog wins by four
-pilot20-021,2026/27,2026-09-24T17:00:00Z,UCL,League Stage,,false,false,LEAGUE,T01,T03,0,2,false,false,,underdog_two_goal,Strong underdog beats elite favorite
-pilot20-022,2026/27,2026-09-24T17:05:00Z,UCL,League Stage,,false,false,LEAGUE,T02,T04,4,1,false,false,,favorite_three_goal,Favorite wins by three
-pilot20-023,2026/27,2026-09-24T17:10:00Z,UCL,League Stage,,false,false,LEAGUE,T05,T07,1,0,false,false,,one_goal_control,One-goal home result
-pilot20-024,2026/27,2026-09-24T17:15:00Z,UCL,League Stage,,false,false,LEAGUE,T06,T08,5,1,false,false,,goal_cap_test,Four-plus margin uses GD cap
-pilot20-025,2026/27,2026-09-24T17:20:00Z,UEL,League Stage,,false,false,LEAGUE,T09,T11,3,0,false,false,,favorite_three_goal,UEL favorite wins by three
-pilot20-026,2026/27,2026-09-24T17:25:00Z,UEL,League Stage,,false,false,LEAGUE,T10,T12,1,0,false,false,,one_goal_control,One-goal favorite result
-pilot20-027,2026/27,2026-09-24T17:30:00Z,UEL,League Stage,,false,false,LEAGUE,T13,T14,2,2,false,false,,draw_control,Lower-seed draw
-pilot20-028,2026/27,2026-09-24T17:35:00Z,UECL,League Stage,,false,false,LEAGUE,T15,T17,2,1,false,false,,one_goal_control,One-goal UECL favorite result
-pilot20-029,2026/27,2026-09-24T17:40:00Z,UECL,League Stage,,false,false,LEAGUE,T16,T18,0,2,false,false,,underdog_two_goal,Lower-rated away side wins by two
-pilot20-030,2026/27,2026-09-24T17:45:00Z,UECL,League Stage,,false,false,LEAGUE,T19,T20,4,0,false,false,,balanced_large_win,Lowest-band derby ends by four
-pilot20-031,2026/27,2026-10-01T19:00:00Z,UCL,Final,ucl-final,true,true,FINAL,T01,T02,1,1,true,true,T02,penalty_draw,Neutral final decided on penalties
-pilot20-032,2026/27,2026-10-01T19:05:00Z,UEL,Final,uel-final,true,true,FINAL,T09,T10,3,1,true,false,T09,neutral_two_goal_final,Neutral final won by two
-pilot20-033,2026/27,2026-10-01T19:10:00Z,UECL,Final,uecl-final,true,true,FINAL,T15,T16,1,0,true,false,T15,neutral_one_goal_final,Neutral final won by one
+match_id,season,kickoff_utc,competition,round,tie_id,is_knockout,is_single_match_tie,is_tie_decider,stage,home_team_id,away_team_id,home_goals,away_goals,is_neutral,decided_on_penalties,advanced_team_id,scenario_group,scenario_note
+pilot20-001,2026/27,2026-09-10T17:00:00Z,UCL,League Stage,,False,False,False,LEAGUE,T01,T08,4,0,False,False,,favorite_large_win,Elite favorite wins by four
+pilot20-002,2026/27,2026-09-10T17:05:00Z,UCL,League Stage,,False,False,False,LEAGUE,T02,T07,2,0,False,False,,favorite_two_goal,Strong favorite wins by two
+pilot20-003,2026/27,2026-09-10T17:10:00Z,UCL,League Stage,,False,False,False,LEAGUE,T03,T06,1,0,False,False,,one_goal_control,One-goal result keeps multiplier at one
+pilot20-004,2026/27,2026-09-10T17:15:00Z,UCL,League Stage,,False,False,False,LEAGUE,T04,T05,3,0,False,False,,balanced_large_win,Near-strength match ends by three
+pilot20-005,2026/27,2026-09-10T17:20:00Z,UEL,League Stage,,False,False,False,LEAGUE,T09,T14,5,0,False,False,,goal_cap_test,Five-goal result is capped at GD four
+pilot20-006,2026/27,2026-09-10T17:25:00Z,UEL,League Stage,,False,False,False,LEAGUE,T10,T13,0,1,False,False,,one_goal_upset,Underdog wins by one with no GD bonus
+pilot20-007,2026/27,2026-09-10T17:30:00Z,UEL,League Stage,,False,False,False,LEAGUE,T11,T12,2,0,False,False,,balanced_two_goal,Near-strength match ends by two
+pilot20-008,2026/27,2026-09-10T17:35:00Z,UECL,League Stage,,False,False,False,LEAGUE,T15,T20,4,0,False,False,,favorite_large_win,UECL favorite wins by four
+pilot20-009,2026/27,2026-09-10T17:40:00Z,UECL,League Stage,,False,False,False,LEAGUE,T16,T19,1,1,False,False,,draw_control,Draw keeps multiplier at one
+pilot20-010,2026/27,2026-09-10T17:45:00Z,UECL,League Stage,,False,False,False,LEAGUE,T17,T18,0,3,False,False,,underdog_large_win,Away underdog wins by three
+pilot20-011,2026/27,2026-09-17T17:00:00Z,UCL,League Stage,,False,False,False,LEAGUE,T08,T04,0,2,False,False,,away_favorite_two_goal,Away favorite wins by two
+pilot20-012,2026/27,2026-09-17T17:05:00Z,UCL,League Stage,,False,False,False,LEAGUE,T07,T03,0,4,False,False,,away_favorite_large_win,Away favorite wins by four
+pilot20-013,2026/27,2026-09-17T17:10:00Z,UCL,League Stage,,False,False,False,LEAGUE,T06,T02,2,2,False,False,,draw_control,High-scoring draw has no GD bonus
+pilot20-014,2026/27,2026-09-17T17:15:00Z,UCL,League Stage,,False,False,False,LEAGUE,T05,T01,1,2,False,False,,one_goal_control,Favorite wins by one
+pilot20-015,2026/27,2026-09-17T17:20:00Z,UEL,League Stage,,False,False,False,LEAGUE,T14,T11,0,4,False,False,,away_favorite_large_win,Away favorite wins by four
+pilot20-016,2026/27,2026-09-17T17:25:00Z,UEL,League Stage,,False,False,False,LEAGUE,T13,T09,2,0,False,False,,underdog_two_goal,Underdog beats favorite by two
+pilot20-017,2026/27,2026-09-17T17:30:00Z,UEL,League Stage,,False,False,False,LEAGUE,T12,T10,3,1,False,False,,underdog_two_goal,Lower-rated home side wins by two
+pilot20-018,2026/27,2026-09-17T17:35:00Z,UECL,League Stage,,False,False,False,LEAGUE,T20,T17,0,1,False,False,,one_goal_control,One-goal away result
+pilot20-019,2026/27,2026-09-17T17:40:00Z,UECL,League Stage,,False,False,False,LEAGUE,T19,T15,0,3,False,False,,away_favorite_three_goal,Away favorite wins by three
+pilot20-020,2026/27,2026-09-17T17:45:00Z,UECL,League Stage,,False,False,False,LEAGUE,T18,T16,4,0,False,False,,underdog_large_win,Underdog wins by four
+pilot20-021,2026/27,2026-09-24T17:00:00Z,UCL,League Stage,,False,False,False,LEAGUE,T01,T03,0,2,False,False,,underdog_two_goal,Strong underdog beats elite favorite
+pilot20-022,2026/27,2026-09-24T17:05:00Z,UCL,League Stage,,False,False,False,LEAGUE,T02,T04,4,1,False,False,,favorite_three_goal,Favorite wins by three
+pilot20-023,2026/27,2026-09-24T17:10:00Z,UCL,League Stage,,False,False,False,LEAGUE,T05,T07,1,0,False,False,,one_goal_control,One-goal home result
+pilot20-024,2026/27,2026-09-24T17:15:00Z,UCL,League Stage,,False,False,False,LEAGUE,T06,T08,5,1,False,False,,goal_cap_test,Four-plus margin uses GD cap
+pilot20-025,2026/27,2026-09-24T17:20:00Z,UEL,League Stage,,False,False,False,LEAGUE,T09,T11,3,0,False,False,,favorite_three_goal,UEL favorite wins by three
+pilot20-026,2026/27,2026-09-24T17:25:00Z,UEL,League Stage,,False,False,False,LEAGUE,T10,T12,1,0,False,False,,one_goal_control,One-goal favorite result
+pilot20-027,2026/27,2026-09-24T17:30:00Z,UEL,League Stage,,False,False,False,LEAGUE,T13,T14,2,2,False,False,,draw_control,Lower-seed draw
+pilot20-028,2026/27,2026-09-24T17:35:00Z,UECL,League Stage,,False,False,False,LEAGUE,T15,T17,2,1,False,False,,one_goal_control,One-goal UECL favorite result
+pilot20-029,2026/27,2026-09-24T17:40:00Z,UECL,League Stage,,False,False,False,LEAGUE,T16,T18,0,2,False,False,,underdog_two_goal,Lower-rated away side wins by two
+pilot20-030,2026/27,2026-09-24T17:45:00Z,UECL,League Stage,,False,False,False,LEAGUE,T19,T20,4,0,False,False,,balanced_large_win,Lowest-band derby ends by four
+pilot20-031,2026/27,2026-10-01T19:00:00Z,UCL,Final,ucl-final,True,True,True,FINAL,T01,T02,1,1,True,True,T02,penalty_draw,Neutral final decided on penalties
+pilot20-032,2026/27,2026-10-01T19:05:00Z,UEL,Final,uel-final,True,True,True,FINAL,T09,T10,3,1,True,False,T09,neutral_two_goal_final,Neutral final won by two
+pilot20-033,2026/27,2026-10-01T19:10:00Z,UECL,Final,uecl-final,True,True,True,FINAL,T15,T16,1,0,True,False,T15,neutral_one_goal_final,Neutral final won by one

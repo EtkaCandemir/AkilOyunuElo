@@ -91,6 +91,12 @@ def test_calibrated_v2_parameters_match_selected_model() -> None:
     assert config.progression_bonus_enabled is True
     assert config.progression_base_bonus == pytest.approx(12.0)
     assert config.progression_stages_per_competition == 4
+    assert config.qualification_stage_k_enabled is True
+    assert config.qualification_q1_multiplier == pytest.approx(0.20)
+    assert config.qualification_q2_multiplier == pytest.approx(0.275)
+    assert config.qualification_q3_multiplier == pytest.approx(0.35)
+    assert config.qualification_playoff_multiplier == pytest.approx(0.425)
+    assert config.qualifier_to_main_carry == pytest.approx(1.0)
     assert config.fixed_progression_config.increment("UCL") == pytest.approx(12.0)
     assert config.fixed_progression_config.increment("UEL") == pytest.approx(8.0)
     assert config.fixed_progression_config.increment("UECL") == pytest.approx(4.0)
@@ -209,6 +215,88 @@ def test_disabled_season_carry_uses_new_first_elo() -> None:
 
     assert current.ratings["A"].power_elo == pytest.approx(1500.0)
     assert current.ratings["B"].power_elo == pytest.approx(1400.0)
+
+
+def test_cross_competition_qualifier_route_uses_continuous_retention_without_reset() -> None:
+    config = DynamicEloConfig.calibrated_v2()
+    state = initialize_season("2026/27", seeds(), config)
+
+    state, ucl_q3 = update_match(
+        state,
+        match(
+            "ucl-q3",
+            competition="UCL",
+            round_name="3rd Qualifying Round",
+            home="A",
+            away="B",
+            home_goals=0,
+            away_goals=1,
+            tie_id="ucl-q3-tie",
+            knockout=True,
+            decider=True,
+            advanced="B",
+            stage="QUALIFYING",
+        ),
+        config,
+    )
+    assert ucl_q3.stage_k_multiplier == pytest.approx(0.35)
+    assert ucl_q3.effective_k == pytest.approx(config.k_factor * 0.35)
+
+    state, uel_playoff = update_match(
+        state,
+        match(
+            "uel-po",
+            kickoff=KICKOFF + timedelta(days=7),
+            competition="UEL",
+            round_name="Qualifying Play-off Round",
+            home="A",
+            away="C",
+            home_goals=0,
+            away_goals=1,
+            tie_id="uel-po-tie",
+            knockout=True,
+            decider=True,
+            advanced="C",
+            stage="QUALIFYING",
+        ),
+        config,
+    )
+    assert uel_playoff.stage_k_multiplier == pytest.approx(0.425)
+    pre_entry_power = state.ratings["A"].power_elo
+
+    state, first_main = update_match(
+        state,
+        match(
+            "uecl-main-1",
+            kickoff=KICKOFF + timedelta(days=14),
+            competition="UECL",
+            round_name="League Phase",
+            home="A",
+            away="B",
+        ),
+        config,
+    )
+    assert first_main.stage_k_multiplier == pytest.approx(1.0)
+    assert first_main.effective_k == pytest.approx(config.k_factor)
+    assert first_main.home_qualifier_carry_applied is False
+    assert first_main.home_power_pre == pytest.approx(pre_entry_power)
+    assert first_main.home_qualifier_carry_adjustment == pytest.approx(0.0)
+    assert "A" not in state.qualification_carry_applied
+
+    _, second_main = update_match(
+        state,
+        match(
+            "uecl-main-2",
+            kickoff=KICKOFF + timedelta(days=21),
+            competition="UECL",
+            round_name="League Phase",
+            home="A",
+            away="C",
+        ),
+        config,
+    )
+    assert second_main.home_qualifier_carry_applied is False
+    assert second_main.home_qualifier_carry_adjustment == pytest.approx(0.0)
 
 
 def test_penalty_shootout_does_not_replace_field_draw() -> None:

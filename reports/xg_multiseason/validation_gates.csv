@@ -1,0 +1,5 @@
+gate,passed,observed,requirement
+wide_superset_of_legacy,True,2827.0,Six-season map must contain every 2025/26 eligible match
+shared_values_identical,True,606.0,Re-fetched 2025/26 xG must match the frozen dataset
+eligible_sample_grew,True,2827.0,Evidence base must be materially wider than the shipped one
+coverage_concentrated_in_main_stage,True,0.9115670321896003,Documented coverage shape must hold in the loaded map

@@ -1,5 +1,12 @@
 # AO European Elo Güncel Production Model Değerlendirmesi
 
+> Tarihsel metrik notu (2026-08-18): Bu rapordaki replay metrikleri aktif
+> continuous qualifier retention kararından önce üretilmiştir. Aktif runtime
+> Q1/Q2/Q3/QPO efektif K değerleri `0.20/0.275/0.35/0.425` olup MAIN geçişinde
+> reset yoktur. Production contract ve `active_model_snapshot.json` otoritedir;
+> bu rapor yeni qualifier davranışı yeniden değerlendirilene kadar önceki
+> baseline kanıtı olarak okunmalıdır.
+
 ## Teknik özet
 
 - Production contract hesap parametreleri final-candidate ile eşittir: `True`. Birebir JSON eşitliği `False`; fark production'a sonradan eklenen açıklayıcı formül alanlarıdır.

@@ -1,7 +1,7 @@
 # Aktif, Shadow ve Research Durumu
 
 Bu belge repository'deki cok sayidaki deneyin production modeliyle
-karistirilmamasini saglar. Son guncelleme: **2026-08-13**.
+karistirilmamasini saglar. Son guncelleme: **2026-08-18**.
 
 ## 1. Durum Tanimlari
 
@@ -27,7 +27,8 @@ Bir output JSON'da `PROMOTE_CANDIDATE` yazmasi production aktivasyonu degildir.
 | Club European history | `ACTIVE` | benchmark 20, beta 0 |
 | European Exposure | `ACTIVE` | .60 season + .40 match; effective cap .85 |
 | Domestic Surprise | `ACTIVE` | theta .40, variance .50, cap +/-30, 5 seasons |
-| Dynamic Power Elo | `ACTIVE` | Scale 835.561, H 148.544, K 103.981, carry 0 |
+| Dynamic Power Elo | `ACTIVE` | Scale 835.561, H 148.544, K 103.981, season carry 0 |
+| Continuous qualifier retention | `ACTIVE` | Base `0.40/0.55/0.70/0.85`, retention `0.50`, effective `0.20/0.275/0.35/0.425`, MAIN reset yok |
 | Score-preserving 1X2 | `ACTIVE` | draw .24, shape 1 |
 | Single-match draw | `ACTIVE` | format metadata ile draw .12 |
 | Controlled GD | `ACTIVE` | alpha .15, tau 300, cap 4 |
@@ -139,6 +140,7 @@ oldugunda satir Current AO 1X2'ye duser; her fallback loglanir.
 | --- | --- | --- |
 | Team venue context | `KEEP_SHADOW_CANDIDATE` | 5/6 fold ve pooled iyi; dependency CI sifiri kesiyor |
 | Draw shape 0.84 | `KEEP_SHADOW` | Brier 4/6, log 3/6; competition no-harm gecmedi |
+| Genellestirilmis kupa katkisi | `KEEP_SHADOW` | `w=0.05/0.08` icin 6/6 fold; conservative envelope sifiri kesiyor |
 | Forecast Scale ~898-906 | `KEEP_SHADOW` | Pooled loss ve fold kapilari gecmedi |
 | COVID/non-COVID H | `KEEP_SHADOW_PENDING_METADATA` | Closed-door match metadata yok; sezon proxy guvenli degil |
 | Domestic Surprise MOB | `KEEP_DIAGNOSTIC` | Pooled loss iyi; tekrar eden anlamli split yok |
@@ -160,6 +162,45 @@ kapilarini gecmedi. Aktif K sabittir.
 Normal match learning rate'e UCL/UEL/UECL carpanlari uygulanmaz. Rakip gucu
 zaten expected score icindedir; sert turnuva K oranlari loss/ranking faydasi
 vermedi.
+
+### Qualification-stage K
+
+Q1'den qualifying play-off'a dogru artan yedi K profili, butun turlari `1.00`
+kullanan production referansina karsi `2018/19-2025/26` doneminde test edildi.
+Nested kol pooled Brier ve log-loss'u kucuk miktarda iyilestirdi ve qualifier
+giris hareketini azaltti; ancak same-season ranking tum foldlarda geriledi ve
+forward ranking yalniz `3/5` geciste iyilesti. Karar `KEEP_CURRENT_K`; profil
+production'a alinmadi. Ayrintili yerel rapor
+`output/qualification_stage_k_backtest_2018_2026/backtest_report.md` altindadir.
+
+### Qualification-stage K + main-stage carry
+
+Stage-K ile qualifier kazaniminin ana asamaya tasinma oranini birlikte test eden
+ikinci calisma, `FULL/MILD/BALANCED` stage profilleri ile `0.50/0.60/0.75/1.00`
+carry adaylarini karsilastirdi. Ana asama maclari ve forward ranking karar
+hedefi olarak kullanildi; qualifier same-season ranking veto olmadi.
+
+Nested aday qualifier girisindeki P95 mutlak hareketi `203.79` Elo'dan
+`109.14` Elo'ya indirdi. Buna karsilik pooled ana-asama Brier farki
+`+0.000079`, log-loss farki `+0.000200` oldu; UCL iyilesirken UECL geriledi.
+Fold secimi Brier'da `4/6`, log-loss'ta `3/6`, forward ranking'de `4/5`
+kazandi. Karar `KEEP_REFERENCE` oldu ve production degismedi. Full-history
+loss-safe denge adayi `FULL_CARRY_060` olarak kaydedildi; bu sonuc prospective
+aktivasyon kaniti degildir. Daha sonra asama onemi ve urun guvenligi gerekcesiyle
+explicit urun karari verildi: Q1/Q2/Q3/QPO/Main `0.40/0.55/0.70/0.85/1.00`
+ve qualifier-to-main gap carry `0.50` gecici production sozlesmesine aktive
+edildi. Bu gecici davranis daha sonra asagidaki continuous-retention
+sozlesmesiyle supersede edildi. Ayrintili rapor
+`output/qualification_stage_k_carry_backtest_2018_2026/backtest_report.md`
+altindadir.
+
+Sonraki urun incelemesinde tek seferlik MAIN-entry carry'nin takim tur gectigi
+anda mac olmadan gorunen Elo'yu dusurebildigi belirlendi. Kullaniciya gosterilen
+ve tahminde kullanilan tek Power state'ini korumak icin `%50` retention her
+qualifier macinin stage K degerine gomuldu. Aktif efektif carpanlar
+`0.20/0.275/0.35/0.425`; MAIN `1.00` ve geciste reset yoktur. Bu aktivasyon
+acik urun karari olup onceki nested backtest sonucunun yeniden yorumlanmasi
+degildir; 2026/27 monitoring kayitlarinda ayrica izlenecektir.
 
 ### Season Power Carry
 
@@ -209,6 +250,121 @@ mantigi + acik urun karariyla aktiftir:
 
 Bu, katmanlarin testsiz oldugu anlamina gelmez. Ancak prospective kanit
 yorumunda manuel karar olmasi acikca belirtilmelidir.
+
+### Genellestirilmis yerel kupa katkisi
+
+Aktif model lig ve kupa basarisini `max` ile birlestirir, bu da kupayi katki
+degil **taban** yapar. Lig skoru kupa tabaninin (`0.62`) uzerinde olan her kupa
+sahibi kupasindan sifir kredi alir; `2025/26` orneginde `51` kupa sahibinin
+`35`'i (`%69`) bu durumdadir. Duble bonusu ayrica yalniz sampiyon-ve-kupa
+ciftinde calisir.
+
+Test edilen tek parametreli genelleme:
+
+```text
+Achievement = min(cap, max(L, C) + weight * min(L, C))
+```
+
+Kupa kazanmayanda `min(L, C) = 0` oldugu icin katman tanim geregi inerttir.
+`weight = 0.129032` mevcut sampiyon-ve-kupa bonus buyuklugunu korur ve ayni
+mantigi her lig+kupa kombinasyonuna genisletir.
+
+`2018/19-2025/26` walk-forward sonucu:
+
+```text
+Yapisal kapilar            4/4 PASS
+Etkilenen kutle            %19.2 takim-sezon (363 kupa sahibi)
+Brier fold wins            6/6  (w=0.05 ve w=0.08)
+Log-loss fold wins         6/6  (w=0.05 ve w=0.08)
+Pooled Brier delta         -0.000118 (w=0.08)
+Conservative envelope      guvenilir iyilesme YOK, guvenilir zarar YOK
+Rating ekseni              tum CI'lar sifiri kesiyor
+Nested secim               6 foldun 5'i w=0
+```
+
+Karar: **`KEEP_SHADOW`**. Mantiksal boşluk gercektir fakat kapatilmasi sekiz
+sezonda guvenilir bir iyilesme uretmez. Nested secimin `w=0`'a cekmesi ayrica
+bagimsiz bir gozlem tasir: mevcut sampiyon-ve-kupa duble bonusunun da olculebilir
+destegi yoktur.
+
+Kanit profili, contract'ta hali hazirda **aktif** olan kontrollu gol farki
+katmaniyla ayni sinifta olduğu icin bu bir tutarlilik sorusudur; iki katman da
+otomatik kapiyi gecmez, biri manuel urun karariyla aciktir.
+
+Rapor: `reports/cup_achievement/` ve
+`output/cup_achievement_backtest_2018_2026/backtest_report.md`.
+
+Bu sorunun kalici olarak izlenmesi icin `run_current_model_evaluation.py` artik
+`ABLATION_NO_CUP_DOUBLE_BONUS` kolunu tasir. Kol bir olcum aracidir; production
+duble bonusu acik kalir. Her degerlendirme kosusunda su satir uretilir:
+
+```text
+ABLATION_NO_SINGLE_MATCH_DRAW   brier maliyeti  +0.000658
+ABLATION_NO_DOMESTIC_SURPRISE   brier maliyeti  +0.000491
+ABLATION_NO_XG                  brier maliyeti  +0.000242
+ABLATION_NO_GOAL_MARGIN         brier maliyeti  +0.000194
+ABLATION_NO_PROGRESSION         brier maliyeti  -0.00000007
+ABLATION_NO_CUP_DOUBLE_BONUS    brier maliyeti  -0.000057
+```
+
+Pozitif maliyet katmanin faydali oldugunu gosterir. Kupa duble bonusu, aktif
+katmanlar icinde maliyeti **negatif** olan tek katmandir: kapatmak modeli kucuk
+miktarda iyilestirir. Fark conservative envelope'da guvenilir degildir
+(`CI [-0.000123, +0.000019]`), bu yuzden karar `KEEP` olarak kalir ve
+`2026/27` prospective verisiyle kendiliginden netlesecektir.
+
+### Bounded xG katmani: alti sezonluk yeniden dogrulama
+
+Aktif `xg_performance` katmani tek sezonluk kanitla acilmisti (`961` mac,
+`606` uygun, `manual_product_decision`). O karar aninda yalniz `2025/26` xG'si
+vardi. FotMob xG `2020/21`'e kadar uzandigi icin veri seti
+`data/xg_2020_2026/` altinda `4884` mac ve `2827` uygun xG'ye genisletildi.
+
+`2018/19` ve `2019/20` disarida kalir: FotMob bu sezonlar icin xG alanini hic
+dondurmez. Sinir sondajla dogrulanmistir.
+
+```text
+XG_SIX_SEASON     Brier 0.573732   log-loss 0.966444
+XG_2025_26_ONLY   Brier 0.574160   log-loss 0.967043
+NO_XG             Brier 0.574346   log-loss 0.967315
+```
+
+Conservative envelope alti sezonluk kolda **her segmentte** guvenilir iyilesme
+verir:
+
+```text
+ALL          -0.000614   CI [-0.001149, -0.000108]   reliable
+PHASE:MAIN   -0.001169   CI [-0.002103, -0.000210]   reliable
+XG_PRESENT   -0.001385   CI [-0.002465, -0.000278]   reliable
+```
+
+Kazanc xG'nin bulundugu yerde yogunlasir; bulunmadigi yerde etki `+0.000006`,
+yani katman bilgi yokken gurultu eklemez. Kapsam ana asamada `%98.7`, on
+elemede `%11`'dir.
+
+Bu yeni bir katman degildir. Kosu yalniz mevcut kararin kanit tabanini `4.7`
+kat genisletir; asil fark modelden degil veriden gelir.
+
+Acik urun onayiyla contract'in `xg_performance_evidence` alani guncellenmistir
+(`production_revision: 2026-08-19-xg-evidence-revalidated-six-seasons`).
+Katman parametreleri **degismemistir**: `ratio 0.30`, `scale 1.25`,
+`floor 0.70`. Ilk aktivasyon kaydi `superseded_evidence` altinda korunur.
+`tests/test_xg_multiseason.py` hem parametrelerin sabitligini hem kanit
+sayilarinin veri setiyle tutarliligini pinler.
+
+Rapor: `reports/xg_multiseason/` ve
+`output/xg_multiseason_backtest_2020_2026/backtest_report.md`.
+
+Paylasilan `XG_DATA` sabiti bu calismayla birlikte alti sezonluk haritaya
+yonlendirilmistir. Canonical evaluation'da `CURRENT_PRODUCTION` Brier degeri
+`0.572093` -> `0.571537` iner ve katman deger tablosunda xG ucuncu siradan
+**birinci** siraya cikar (`+0.000797`).
+
+Onemli tekrar-uretilebilirlik notu: `domestic_surprise_*`, `opponent_quintile`
+ve benzeri arastirma scriptlerinin daha once uretilmis ciktilari tek sezonluk
+xG haritasiyla hesaplanmistir. Yeniden kosuldugunda farkli deger uretirler.
+Bu bir hata degildir - dogru veriyle hesaplanacaklardir - ancak dondurulmus
+kanitla karsilastirirken bilinmelidir.
 
 ## 7. Siradaki Kanit Onceligi
 

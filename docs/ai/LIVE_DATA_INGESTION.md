@@ -1,6 +1,6 @@
 # Canli Veri Toplama ve Model Calistirma Sozlesmesi
 
-Son guncelleme: **2026-08-13**
+Son guncelleme: **2026-08-18**
 
 Bu belge AO European Elo'nun AkilOyunu.com uzerinde canli calismasi icin gerekli
 verileri, kaynak onceligini, cekim zamanlamasini, veritabani modelini ve rating
@@ -207,7 +207,8 @@ gereklidir.
 Kritik metadata:
 
 - `is_single_match_tie`, beraberlik intercept'ini `0.24`ten `0.12`ye
-  degistirir. Sonuctan turetilemez.
+  degistirir. Sonuctan turetilemez. Knockout satirlarda zorunludur; eksik
+  gelirse ingestion hata vermeli, sessizce `false` varsaymamalidir.
 - `is_neutral`, global ev sahibi avantajini sifirlar.
 - `tie_id`, progression'in bir kez uygulanmasini saglar.
 - `stage`, KPO ile R16 ve sonrasi stage'lerin karismamasini saglar.
@@ -225,6 +226,19 @@ Prediction servisinin cikisi rating settlement girdisi degildir. Artifact,
 feature veya state sorunu halinde final H/D/A Current AO 1X2'ye doner;
 `prediction_status`, `fallback_reason`, coverage ve tum artifact hash'leri
 kickoff oncesi loglanir.
+
+Structural ML yarisinin calisabilmesi icin fikstur kaydina rolling Avrupa form
+feature'lari da eklenmelidir. Bunlar `club_id` bazli, sezonlar arasi uzanan bir
+Avrupa mac deposu ister; tek sezonluk girdi kirpik pencere uretir ve satir
+sessizce Current AO'ya duser. `scripts/build_2026_27_prediction_features.py`
+bu koprunun referans uygulamasidir ve canli servis icin sablondur.
+
+Bu fallback **totaldir**: satir bazli tahmin herhangi bir `Exception` ile
+basarisiz olursa o satir Current AO 1X2'ye duser ve batch'in kalani islenmeye
+devam eder. Exception tipi `fallback_reason` icine yazilir, dolayisiyla genis
+yakalama teshis kaybina yol acmaz. `KeyboardInterrupt` ve `SystemExit`
+yakalanmaz; surec durmaya devam eder. Sistematik bir arizanin gorunur olmasi
+fallback oraninin alarma baglanmasina dayanir.
 
 ## 5. Mac Sonu Zorunlu Sonuc Verileri
 
@@ -452,6 +466,13 @@ Settlement tek transaction icinde sunlari yazmalidir:
 - varsa progression event'i,
 - yeni AO Live Elo,
 - event/config fingerprint.
+
+Qualifier rotasinda competition degisimi state resetlemez. Her fixture'in
+canonical `round` degeri Q1/Q2/Q3/Qualifying Play-off/Main eslemesini belirler.
+Base stage onemi `0.40/0.55/0.70/0.85`, `%50` qualifier retention ile ayni mac
+update'inde `0.20/0.275/0.35/0.425` efektif K'ya donusur. Ilk main fixture
+kilitlenmeden once carry, reset veya baska bir mac-disi rating degisimi yapilmaz;
+prediction lock son gercek mac sonrasindaki AO Live Elo'yu aynen kullanir.
 
 ## 11. Progression Event Akisi
 

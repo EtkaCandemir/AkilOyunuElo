@@ -3,6 +3,12 @@
 Canonical evaluation snapshot for the active AO European Elo production
 contract.
 
+The historical metric tables were generated before the 18 August 2026
+continuous qualifier-retention activation. The current runtime uses effective
+Q1/Q2/Q3/QPO K multipliers `0.20/0.275/0.35/0.425`, MAIN `1.00`, and no
+MAIN-entry carry or reset. For active behavior, the production contract and
+`active_model_snapshot.json` take precedence over replay labels in this report.
+
 The `CURRENT_PRODUCTION` rows in this package are the AO rating-core 1X2 replay.
 The served `%50 Current ML + %50 AO Domestic Poisson` prediction evidence is
 versioned separately under `reports/production_prediction/`.

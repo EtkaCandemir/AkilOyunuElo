@@ -239,3 +239,122 @@ def _transfer_frame(coverage: str) -> pd.DataFrame:
             row[f"{side}_domestic_poisson_{feature}"] = 0.0
             row[f"{side}_domestic_poisson_{feature}_raw_z"] = 0.0
     return pd.DataFrame([row])
+
+
+# ---------------------------------------------------------------------------
+# state invariants: every league-level parameter the batch update clips must
+# also be refused on load, otherwise a corrupt checkpoint degrades silently
+# ---------------------------------------------------------------------------
+
+
+import copy
+import math
+
+import pytest
+
+from ao_elo.domestic_poisson import _mapped_snapshot, empty_domestic_snapshot
+
+
+def _seeded_engine() -> DynamicDomesticPoisson:
+    engine = DynamicDomesticPoisson(
+        DomesticPoissonConfig(0.02, 0.9, 10.0, False)
+    )
+    matches = pd.DataFrame(
+        [
+            {
+                "source_event_id": "e1",
+                "ao_season": "2024/25",
+                "sportsdb_league_id": "L",
+                "kickoff_utc": pd.Timestamp("2024-08-01T18:00:00Z"),
+                "home_source_team_id": "A",
+                "away_source_team_id": "B",
+                "home_goals": 2,
+                "away_goals": 1,
+            }
+        ]
+    )
+    engine.update_batch(matches)
+    return engine
+
+
+@pytest.mark.parametrize("value", [50.0, -50.0])
+def test_out_of_range_goal_level_is_refused_on_load(value: float) -> None:
+    """The update clips the goal level, so a load must not accept more."""
+    engine = _seeded_engine()
+    payload = copy.deepcopy(engine.to_payload())
+    payload["leagues"]["L"]["goal_level"] = value
+
+    with pytest.raises(ValueError, match="goal level cap violated"):
+        DynamicDomesticPoisson.from_payload(payload)
+
+
+def test_goal_level_at_the_bound_still_loads() -> None:
+    """The check must bound the value, not narrow the operating window."""
+    engine = _seeded_engine()
+    payload = copy.deepcopy(engine.to_payload())
+    payload["leagues"]["L"]["goal_level"] = math.log(engine.config.lambda_max)
+
+    restored = DynamicDomesticPoisson.from_payload(payload)
+
+    assert restored.leagues["L"].goal_level == pytest.approx(
+        math.log(engine.config.lambda_max)
+    )
+
+
+def test_every_clipped_league_parameter_is_also_validated() -> None:
+    """Guard the asymmetry that let one of the four invariants through."""
+    engine = _seeded_engine()
+    base = engine.to_payload()
+
+    for field, value in (
+        ("goal_level", 50.0),
+        ("home_advantage", 50.0),
+    ):
+        payload = copy.deepcopy(base)
+        payload["leagues"]["L"][field] = value
+        with pytest.raises(ValueError):
+            DynamicDomesticPoisson.from_payload(payload)
+
+    payload = copy.deepcopy(base)
+    payload["leagues"]["L"]["teams"]["A"]["attack"] = 5.0
+    with pytest.raises(ValueError):
+        DynamicDomesticPoisson.from_payload(payload)
+
+
+# ---------------------------------------------------------------------------
+# the backtest feature store and the live service must read the domestic state
+# the same way, which is why the European season never selects the snapshot
+# ---------------------------------------------------------------------------
+
+
+def test_snapshot_reads_the_league_season_not_the_european_season() -> None:
+    """Passing a later season here would carry the league and diverge from live."""
+    engine = _seeded_engine()
+    mapping = {"club-a": ("L", "A")}
+    before = copy.deepcopy(engine.to_payload())
+
+    snapshot = _mapped_snapshot(engine, mapping, "club-a")
+
+    assert snapshot.covered
+    assert engine.leagues["L"].current_season == "2024/25"
+    assert engine.to_payload() == before, "reading the state must not advance it"
+
+
+def test_mapped_snapshot_takes_no_season_argument() -> None:
+    """Pin the signature: a season parameter here is the divergence hazard."""
+    import inspect
+
+    parameters = list(
+        inspect.signature(_mapped_snapshot).parameters
+    )
+
+    assert parameters == ["engine", "mapping", "club_id"]
+
+
+def test_unmapped_club_returns_the_empty_snapshot() -> None:
+    engine = _seeded_engine()
+
+    snapshot = _mapped_snapshot(engine, {}, "unknown-club")
+
+    assert snapshot == empty_domestic_snapshot()
+    assert not snapshot.covered

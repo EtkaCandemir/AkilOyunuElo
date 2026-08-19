@@ -22,6 +22,10 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from ao_elo.config import AOEuropeanEloConfig  # noqa: E402
+from ao_elo.cup_achievement import (  # noqa: E402
+    cup_variant_seed_map,
+    load_static_achievement_inputs,
+)
 from ao_elo.evaluation import (  # noqa: E402
     dependency_robust_loss_difference_ci,
     schedule_adjusted_team_performance,
@@ -78,6 +82,7 @@ NO_GOAL_MARGIN = "ABLATION_NO_GOAL_MARGIN"
 NO_XG = "ABLATION_NO_XG"
 NO_PROGRESSION = "ABLATION_NO_PROGRESSION"
 NO_FORMAT_DRAW = "ABLATION_NO_SINGLE_MATCH_DRAW"
+NO_CUP_BONUS = "ABLATION_NO_CUP_DOUBLE_BONUS"
 ARMS_IN_ORDER = (
     CURRENT,
     REFERENCE,
@@ -86,6 +91,7 @@ ARMS_IN_ORDER = (
     NO_XG,
     NO_PROGRESSION,
     NO_FORMAT_DRAW,
+    NO_CUP_BONUS,
 )
 COMPETITION_INDEX = {"UCL": 0, "UEL": 1, "UECL": 2}
 
@@ -98,6 +104,7 @@ class EvaluationArm:
     xg: bool
     progression: bool
     format_draw: bool
+    cup_double_bonus: bool = True
 
 
 @dataclass
@@ -118,6 +125,7 @@ def evaluation_arms() -> tuple[EvaluationArm, ...]:
         EvaluationArm(NO_XG, True, True, False, True, True),
         EvaluationArm(NO_PROGRESSION, True, True, True, False, True),
         EvaluationArm(NO_FORMAT_DRAW, True, True, True, True, False),
+        EvaluationArm(NO_CUP_BONUS, True, True, True, True, True, False),
     )
 
 
@@ -131,7 +139,21 @@ def evaluate_arm(
     baseline_domestic: dict[tuple[str, int], float],
     xg_map: dict[str, tuple[float, float]],
     target: pd.DataFrame,
+    cup_bonus_free_domestic: dict[tuple[str, int], float] | None = None,
 ) -> ArmEvaluation:
+    # Resolve the seed map first: a misconfigured arm must fail before any
+    # replay work rather than silently falling back to the production seeds.
+    if not arm.cup_double_bonus:
+        if cup_bonus_free_domestic is None:
+            raise ValueError(
+                "Cup-bonus ablation needs a seed map without the double bonus"
+            )
+        rating_map = cup_bonus_free_domestic
+    elif arm.domestic_surprise:
+        rating_map = current_domestic
+    else:
+        rating_map = baseline_domestic
+
     predictions: list[dict[str, object]] = []
     end_rows: list[dict[str, object]] = []
     season_rows: list[dict[str, object]] = []
@@ -143,7 +165,6 @@ def evaluate_arm(
         float(parameters["xg_scale"]),
         float(parameters["xg_floor"]),
     )
-    rating_map = current_domestic if arm.domestic_surprise else baseline_domestic
 
     for data in datasets:
         reserve = data.reserve
@@ -538,6 +559,7 @@ def build_dependency_uncertainty(
             NO_XG,
             NO_PROGRESSION,
             NO_FORMAT_DRAW,
+            NO_CUP_BONUS,
         )
     )
     for candidate_name, baseline_name in comparisons:
@@ -744,6 +766,7 @@ def contract_audit(production: dict, candidate: dict) -> tuple[pd.DataFrame, dic
         "domestic_surprise",
         "dynamic_core",
         "active_power_carry",
+        "qualification_transition",
         "one_x_two_probability",
         "goal_margin",
         "xg_performance",
@@ -786,6 +809,16 @@ def contract_audit(production: dict, candidate: dict) -> tuple[pd.DataFrame, dic
         ),
         "all_active_parameters_equal": all(
             row["production_parameters_equal_final_candidate"] for row in rows
+        ),
+        "core_active_parameters_equal": all(
+            row["production_parameters_equal_final_candidate"]
+            for row in rows
+            if row["contract_block"] != "qualification_transition"
+        ),
+        "qualification_override_declared": (
+            candidate.get("qualification_transition") is None
+            and production.get("qualification_transition", {}).get("family")
+            == "CONTINUOUS_STAGE_WEIGHTED_K_NO_MAIN_ENTRY_RESET"
         ),
         "production_revision": production.get("production_revision"),
         "candidate_revision": candidate.get("candidate_revision"),
@@ -847,7 +880,8 @@ def data_quality_audit(
         teams = pd.concat([frame["home_team_id"], frame["away_team_id"]], ignore_index=True)
         simultaneous_team_violations += int(teams.duplicated().sum())
     checks = [
-        ("contract_active_parameters_equal", bool(contract_status["all_active_parameters_equal"]), int(not contract_status["all_active_parameters_equal"]), "Production and final-candidate calculation parameters must match"),
+        ("contract_core_parameters_equal", bool(contract_status["core_active_parameters_equal"]), int(not contract_status["core_active_parameters_equal"]), "Production and final-candidate core calculation parameters must match"),
+        ("qualification_production_override_declared", bool(contract_status["qualification_override_declared"]), int(not contract_status["qualification_override_declared"]), "Continuous qualifier retention must be an explicit production-only override"),
         ("production_replay_exact_match", bool(replay_validation["pipeline_exact_match"]), int(not replay_validation["pipeline_exact_match"]), "Independent audit replay must match production pipeline"),
         ("event_match_id_unique", not events["match_id"].duplicated().any(), int(events["match_id"].duplicated().sum()), "One event row per match_id"),
         ("event_season_match_unique", not events.duplicated(["season", "match_id"]).any(), int(events.duplicated(["season", "match_id"]).sum()), "No duplicate season-match records"),
@@ -994,6 +1028,7 @@ def build_report(
             "",
             "## Teknik özet",
             "",
+            "- Qualification uyarisi: bu legacy tarihsel evaluator qualifier stage-K/retention gecisini replay etmez; asagidaki loss/ranking metrikleri yeni `0.20/0.275/0.35/0.425` davranisinin kaniti degildir. Aktif runtime davranisi production contract, dynamic engine testleri ve 2026/27 preproduction replay ile dogrulanir.",
             f"- Production contract hesap parametreleri final-candidate ile eşittir: `{contract_status['all_active_parameters_equal']}`. Birebir JSON eşitliği `{contract_status['all_active_blocks_exactly_equal']}`; fark production'a sonradan eklenen açıklayıcı formül alanlarıdır.",
             f"- Anlamlı karşılaştırma için aynı Scale/H/K üzerinde bütün aktif ek katmanları kapalı `{REFERENCE}` kolu üretildi.",
             f"- `{len(evaluation_seasons)}` unseen/development fold sezonunda `{int(current['matches'])}` maç değerlendirildi. AO rating çekirdeğinin 1X2 çıkışı Brier `{current['brier_1x2']:.6f}`, log-loss `{current['log_loss_1x2']:.6f}`, accuracy `{current['accuracy_1x2']:.4f}` üretti.",
@@ -1009,6 +1044,7 @@ def build_report(
             "- Domestic Prior = 500 + lig gücü bileşeni + lig/kupa başarısının lig gücüyle ölçeklenmiş bileşeni. Şampiyonluk, kupa ve duble kuralları başlangıç ratinginde kullanılır.",
             f"- Domestic Surprise aktiftir: theta `{production['domestic_surprise']['coefficient']}`, variance penalty `{production['domestic_surprise']['variance_penalty']}`, cap `+/-{production['domestic_surprise']['max_abs_adjustment']}`, tam geçmiş `{production['domestic_surprise']['minimum_history_seasons']}` sezon.",
             f"- Dynamic: Scale `{production['dynamic_core']['elo_scale']:.6f}`, H `{production['dynamic_core']['home_advantage']:.6f}`, K `{production['dynamic_core']['k_factor']:.6f}`, carry `{production['active_power_carry']}`.",
+            "- Qualifier: base stage onemi `0.40/0.55/0.70/0.85`, delta retention `%50`, efektif K `0.20/0.275/0.35/0.425`; MAIN gecisinde reset veya mac-disi Elo degisimi yoktur.",
             f"- 1X2: normal ve iki ayaklı maçlarda draw-at-even `{production['one_x_two_probability']['draw_at_even']}`, tek maçta biten eleme eşleşmelerinde `{production['one_x_two_probability']['single_match_draw_at_even']}`; format düzeltmesi Elo state'ini değiştirmez.",
             f"- Gol farkı: alpha `{production['goal_margin']['alpha']}`, tau `{production['goal_margin']['tau']}`, GD cap `{production['goal_margin']['goal_difference_cap']}`.",
             f"- xG: ratio `{production['xg_performance']['max_xg_ratio']}`, scale `{production['xg_performance']['xg_scale']}`, analitik minimum winner gain oranı `{production['xg_performance']['minimum_winner_gain_ratio']}`; iki taraf xG yoksa GD-only fallback.",
@@ -1138,6 +1174,17 @@ def main() -> None:
         for team_id in data.reserve.goal.carry.core.active_team_ids
     }
     xg_map = load_xg_map(XG_DATA, datasets)
+    # weight=0 keeps the max rule but drops the champion-and-cup double bonus,
+    # so this arm measures what that bonus is currently worth.
+    cup_statics = load_static_achievement_inputs(
+        STATIC_DATA_ROOT, static_config, seasons
+    )
+    cup_bonus_free_domestic = cup_variant_seed_map(
+        cup_statics,
+        current_domestic,
+        static_config,
+        0.0,
+    )
 
     evaluations: dict[str, ArmEvaluation] = {}
     for arm in evaluation_arms():
@@ -1151,6 +1198,7 @@ def main() -> None:
             baseline_domestic=baseline_domestic,
             xg_map=xg_map,
             target=target,
+            cup_bonus_free_domestic=cup_bonus_free_domestic,
         )
 
     production_baseline, *_ = load_production_baseline()
@@ -1299,6 +1347,7 @@ def main() -> None:
                 "domestic_surprise",
                 "dynamic_core",
                 "active_power_carry",
+                "qualification_transition",
                 "one_x_two_probability",
                 "goal_margin",
                 "xg_performance",
@@ -1313,6 +1362,8 @@ def main() -> None:
             "european_prior",
             "effective_european_exposure_blend",
             "domestic_surprise_exposure_adjustment",
+            "continuous_qualifier_retained_stage_k_power_update",
+            "no_main_entry_rating_reset",
             "match_expected_score_with_global_home_advantage",
             "format_aware_single_match_1x2_decomposition",
             "zero_sum_power_update_with_goal_margin_and_optional_xg",

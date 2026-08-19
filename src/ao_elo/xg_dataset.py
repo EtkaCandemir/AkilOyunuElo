@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Sequence, Any, Iterable
 
 import pandas as pd
 
@@ -157,14 +157,26 @@ def stable_json_dump(value: object, path: Path) -> None:
     )
 
 
-def read_season_events(path: Path) -> pd.DataFrame:
+def read_season_events(
+    path: Path,
+    seasons: Sequence[str] = ("2025/26",),
+) -> pd.DataFrame:
+    """Return the exact-date event rows for the requested seasons.
+
+    The default keeps the original single-season behaviour so existing callers
+    and the frozen 2025/26 dataset are unaffected.
+    """
+
     events = pd.read_csv(path)
     missing = sorted(set(MASTER_COLUMNS[:30]) - set(events.columns))
     if missing:
         raise ValueError(f"events missing columns: {missing}")
-    events = events.loc[events["season"].astype(str).eq("2025/26")].copy()
+    wanted = tuple(str(season) for season in seasons)
+    if not wanted:
+        raise ValueError("seasons cannot be empty")
+    events = events.loc[events["season"].astype(str).isin(wanted)].copy()
     if events.empty:
-        raise ValueError("events contains no 2025/26 rows")
+        raise ValueError(f"events contains no rows for seasons: {list(wanted)}")
     if events["match_id"].isna().any() or events["match_id"].duplicated().any():
         raise ValueError("events.match_id must be non-null and unique")
     events["kickoff_utc"] = pd.to_datetime(
@@ -639,7 +651,17 @@ def validate_master_dataset(master: pd.DataFrame, *, strict_counts: bool = True)
         raise ValueError("master dataset contains duplicate rows")
     if master["uefa_match_id"].isna().any() or master["uefa_match_id"].duplicated().any():
         raise ValueError("master.uefa_match_id must be non-null and unique")
-    if master["xg_source_match_id"].isna().any() or master["xg_source_match_id"].duplicated().any():
+    # Unresolved rows carry an empty string rather than a null, so blanks have
+    # to be excluded explicitly before the uniqueness check.
+    source_ids = master["xg_source_match_id"].astype("string").str.strip()
+    resolved = source_ids.loc[source_ids.notna() & source_ids.ne("")]
+    if resolved.duplicated().any():
+        raise ValueError("FotMob source match IDs must be unique")
+    if strict_counts and len(resolved) != len(master):
+        # The frozen 2025/26 dataset resolved every match. Wider windows carry a
+        # small unresolved tail, and those rows already record why in
+        # `xg_missing_reason`, so completeness is a frozen-dataset guarantee
+        # rather than a property of the collector.
         raise ValueError("all FotMob source match IDs must be populated and unique")
     if strict_counts:
         if len(master) != EXPECTED_MATCHES:
@@ -650,7 +672,7 @@ def validate_master_dataset(master: pd.DataFrame, *, strict_counts: bool = True)
         teams = pd.unique(pd.concat([master["home_team_id"], master["away_team_id"]]))
         if len(teams) != EXPECTED_TEAMS:
             raise ValueError(f"expected {EXPECTED_TEAMS} teams, found {len(teams)}")
-    if not master["season"].astype(str).eq("2025/26").all():
+    if strict_counts and not master["season"].astype(str).eq("2025/26").all():
         raise ValueError("master dataset contains another season")
     kickoff = pd.to_datetime(master["kickoff_utc"], utc=True, errors="coerce")
     if kickoff.isna().any():
@@ -669,20 +691,33 @@ def validate_master_dataset(master: pd.DataFrame, *, strict_counts: bool = True)
     if not master["kickoff_date"].astype(str).eq(kickoff.dt.date.astype(str)).all():
         raise ValueError("kickoff_date must equal the UTC calendar date")
 
+    # `team_id` is a season-local identifier, so the same value legitimately
+    # names different clubs in different seasons. The bijection therefore has
+    # to be checked inside a season, not across the whole window.
     team_identity = pd.concat(
         [
-            master[["home_team_id", "uefa_home_team_id"]].rename(
+            master[["season", "home_team_id", "uefa_home_team_id"]].rename(
                 columns={"home_team_id": "ao_team_id", "uefa_home_team_id": "uefa_team_id"}
             ),
-            master[["away_team_id", "uefa_away_team_id"]].rename(
+            master[["season", "away_team_id", "uefa_away_team_id"]].rename(
                 columns={"away_team_id": "ao_team_id", "uefa_away_team_id": "uefa_team_id"}
             ),
         ],
         ignore_index=True,
     ).drop_duplicates()
-    if team_identity.groupby("ao_team_id")["uefa_team_id"].nunique().gt(1).any():
+    if (
+        team_identity.groupby(["season", "ao_team_id"])["uefa_team_id"]
+        .nunique()
+        .gt(1)
+        .any()
+    ):
         raise ValueError("an AO team maps to multiple UEFA team IDs")
-    if team_identity.groupby("uefa_team_id")["ao_team_id"].nunique().gt(1).any():
+    if (
+        team_identity.groupby(["season", "uefa_team_id"])["ao_team_id"]
+        .nunique()
+        .gt(1)
+        .any()
+    ):
         raise ValueError("a UEFA team maps to multiple AO team IDs")
 
     expected_score = master.apply(

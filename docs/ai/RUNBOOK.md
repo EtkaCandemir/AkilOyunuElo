@@ -51,6 +51,7 @@ model_version
 production_revision
 domestic_surprise
 dynamic_core
+qualification_transition
 one_x_two_probability
 goal_margin
 xg_performance
@@ -158,6 +159,85 @@ output/initial_elo_external_comparison_2025_26/
 Snapshot tarihi ilk UEFA macindan once olmalidir. Sonradan guncellenmis ranking
 pre-season validation diye kullanilmaz.
 
+Bu kosu yalniz AO/Opta *uyumunu* olcer. Aktif contract'in dis referanslara karsi
+gercek performansi icin iki eksenli benchmark ayri calistirilir:
+
+```bash
+python3 scripts/run_current_external_benchmark.py
+```
+
+Output ve curated kopya:
+
+```text
+output/current_external_benchmark/
+reports/external_benchmark/
+```
+
+Onkosul: `run_current_model_evaluation.py` ve final prediction ensemble backtesti
+daha once kosulmus olmalidir; benchmark bu iki kosunun dondurulmus ciktilarini
+puanlar, model parametresi fit etmez. Dynamic core, 1X2 katmani, prediction
+ensemble veya AO First Elo formulu degisirse yeniden kosulur ve
+`reports/external_benchmark/` guncellenir.
+
+Statik rating tarafinda kupa katkisi challenger'i ayri kosulur:
+
+```bash
+python3 scripts/run_cup_achievement_backtest.py
+```
+
+Output ve curated kopya:
+
+```text
+output/cup_achievement_backtest_2018_2026/
+reports/cup_achievement/
+```
+
+Onkosul: `output/domestic_surprise_variance_backtest_2018_2026/` altindaki
+dondurulmus Domestic Surprise ciktilari. Kosu production parametresi
+degistirmez. Domestic achievement formulu, `cup_base_score` veya
+`cup_double_bonus_multiplier` degisirse yeniden kosulur.
+
+xG kaynagi ve bounded xG katmaninin yeniden dogrulanmasi:
+
+```bash
+python3 scripts/build_2025_26_xg_dataset.py \
+  --season 2020/21 --season 2021/22 --season 2022/23 \
+  --season 2023/24 --season 2024/25 --season 2025/26 \
+  --output-root data/xg_2020_2026
+
+python3 scripts/run_xg_multiseason_backtest.py
+```
+
+Output ve curated kopya:
+
+```text
+data/xg_2020_2026/
+output/xg_multiseason_backtest_2020_2026/
+reports/xg_multiseason/
+```
+
+Cekim FotMob'un herkese acik uc noktasini kullanir ve `_source_cache/` altinda
+onbelleklenir; ayni onbellekle yeniden kosuldugunda deterministiktir. Kamuya
+acik erisim yeniden dagitim lisansi vermez, bu alanlar yayimlanmadan once
+kaynak kosullari kontrol edilmelidir.
+
+`--season` bayragi tekrarlanabilir; varsayilan `2025/26` oldugu icin mevcut
+dondurulmus veri setinin uretimi degismez.
+
+Paylasilan `XG_DATA` sabiti alti sezonluk haritayi gosterir. Tek sezonluk
+dondurulmus dosya `LEGACY_SINGLE_SEASON_XG_DATA` altinda provenance icin
+erisilebilir kalir.
+
+Canli sezon icin xG ayri toplanir ve preproduction sonuclarina baglanir:
+
+```text
+data/xg_2026_27/
+data/season_2026_27_preproduction/matches_completed.csv   (xg_* kolonlari)
+```
+
+Bu baglanti kurulmadan 2026/27 replay'i xG'siz kosar ve motor mevcut sinyali
+gormez.
+
 ## 8. Prediction Challenger'lari
 
 Domestic Poisson:
@@ -181,7 +261,49 @@ python3 scripts/run_final_prediction_ensemble_backtest.py --bootstrap-samples 40
 Bu scriptlerin calismasi production aktivasyonu yapmaz. Her calismadan sonra
 `selected_candidate.json` icindeki `production_activated` okunur.
 
-### 8.1 Aktif Production Prediction
+### 8.1 2026/27 ML Feature Koprusu
+
+Servis edilen 1X2'nin `%50 Current ML` yarisi, sezonlar arasi uzanan rolling
+Avrupa form penceresi ister. 2026/27 preproduction paketi yalniz kendi sezonunu
+tasidigi icin tek basina beslenirse pencereler kirpik kalir ve servis her satirda
+sessizce Current AO'ya duser. Koprü bunu kurar:
+
+```bash
+python3 scripts/build_2026_27_prediction_features.py --predict
+```
+
+Tek fikstur icin:
+
+```bash
+python3 scripts/build_2026_27_prediction_features.py \
+  --match-id UEFA-2049213 --predict
+```
+
+Output:
+
+```text
+output/season_2026_27_prediction_features/
+```
+
+Onkosul: `run_current_model_evaluation.py` ve
+`run_2026_27_preproduction_replay.py` daha once kosulmus olmalidir.
+
+Kritik davranis: script her exact-UTC kickoff grubunu **ayri** kurar. Yaklasan
+bir fikstur, baska bir yaklasan fiksturun rolling penceresine placeholder
+sonucuyla giremez. Bu ozellik `tests/test_2026_27_prediction_features.py`
+icinde iki ayakli tie uzerinden sabitlenmistir.
+
+Izlemede iki ayri sayac gerekir:
+
+```text
+fallback rate                      -> ML/Poisson hic calismadi
+rows_with_imputed_model_input      -> ML calisti ama girdi uydurulmus
+```
+
+Ikincisi `fallback_rate` ile gorunmez: frozen pipeline eksik sayisal girdiyi
+impute eder, satir yine `ACTIVE_ENSEMBLE` doner.
+
+### 8.2 Aktif Production Prediction
 
 Frozen artifact'lari tekrar uretme:
 

@@ -1,0 +1,23 @@
+{
+  "all_gates_passed": true,
+  "brier": {
+    "NO_XG": 0.5743460747615812,
+    "XG_2025_26_ONLY": 0.5741599013472207,
+    "XG_SIX_SEASON": 0.5737319460285929
+  },
+  "changes_production_parameters": false,
+  "conservative_envelope_reliable_harm": false,
+  "conservative_envelope_reliable_improvement": true,
+  "eligible_matches_now": 2827,
+  "eligible_matches_shipped": 606,
+  "layer": "BOUNDED_XG_PERFORMANCE_MULTISEASON_REVALIDATION",
+  "shipped_evidence": {
+    "full_season_matches": 961,
+    "full_season_replay": "output/goal_alpha_015_xg_full_season_replay_2025_26/replay_report.md",
+    "goal_alpha_source": "output/goal_alpha_with_bounded_xg_backtest_2025_26/backtest_report.md",
+    "manual_product_decision": true,
+    "missing_xg_fallback_matches": 355,
+    "source": "output/bounded_xg_adjustment_walk_forward_2025_26/backtest_report.md",
+    "xg_eligible_matches": 606
+  }
+}
