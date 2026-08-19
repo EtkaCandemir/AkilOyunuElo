@@ -147,6 +147,7 @@ oldugunda satir Current AO 1X2'ye duser; her fallback loglanir.
 | Opponent quintile | `KEEP_DIAGNOSTIC` | Persistence Spearman 0.015, cap-hit %36, segment harm |
 | Opponent tercile | `KEEP_DIAGNOSTIC/REJECT` | Pooled loss kotulesti, persistence 0.003 |
 | Scoreline Poisson/DC | Diagnostic | Skor/O-U/BTTS icin yararli; rating feedback yok |
+| xG bilgili gol beklentisi | `KEEP_SHADOW` | xG, gol formunu 4/4 fold gecer; yalniz `XG_PRESENT` segmentinde guvenilir |
 | Format P-advance | Diagnostic | Tie probability; rating state'i degistirmez |
 | New-format calibration | Diagnostic | Yalniz iki sezon, ayri production fit icin az |
 
@@ -366,6 +367,36 @@ xG haritasiyla hesaplanmistir. Yeniden kosuldugunda farkli deger uretirler.
 Bu bir hata degildir - dogru veriyle hesaplanacaklardir - ancak dondurulmus
 kanitla karsilastirirken bilinmelidir.
 
+### xG bilgili gol beklentisi
+
+Aktif skor katmani her iki orani yalniz Elo farkindan turetir; takim formu
+yoktur. Bu calisma her iki tarafa birer form terimi ekler ve ayni yapiyi iki
+kaynakla besler. `GOALS` kolu kontroldur.
+
+```text
+XG        exact_score_nll 3.027008   Elo'ya fark -0.002834
+GOALS     exact_score_nll 3.029642   Elo'ya fark -0.000201
+ELO_ONLY  exact_score_nll 3.029843
+```
+
+Conservative envelope yalniz bir segmentte guvenilir iyilesme verir:
+
+```text
+XG / XG_PRESENT / exact_score_nll   -0.006970   CI [-0.011187, -0.002668]
+```
+
+Gol kontrolunde hicbir segment guvenilir degildir, yani kazanc xG'ye ozgudur.
+xG'nin bulunmadigi maclarda kol hafifce zarar verir (`+0.003065`), bu yuzden
+katman kosullu olmalidir.
+
+**Kritik sinir:** bu kosunun tabani (`ELO_ONLY`) reponun mevcut
+`DOMESTIC_ATTACK_DEFENCE_POISSON` kolundan daha basittir ve o kol daha iyi bir
+`exact_score_nll` (`3.016594`) tutturur. Gosterilen sey "xG basit bir tabana
+eklendiginde yardim eder"dir. Siradaki test xG form terimini domestic
+attack/defence modelinin **uzerine** koymaktir.
+
+Karar `KEEP_SHADOW`. Rapor: `reports/xg_goal_expectation/`.
+
 ## 7. Siradaki Kanit Onceligi
 
 1. 2026/27 lig asamasi ve sonrasi locked prospective AO prediction ledger.
@@ -373,6 +404,8 @@ kanitla karsilastirirken bilinmelidir.
 3. xG icin cok sezonlu tek saglayici ve tutarli 90/120 scope.
 4. Team venue challenger icin pre-match attendance/closed-door metadata.
 5. Progression katmaninin ranking katkisi yoksa kapatma urun karari.
+6. xG form terimini `DOMESTIC_ATTACK_DEFENCE_POISSON` uzerine ekleyen kol;
+   skor katmanini `Diagnostic`'ten cikarmak icin gereken kritik test.
 
 ## 8. Research Sonucu Production'a Alma Protokolu
 
