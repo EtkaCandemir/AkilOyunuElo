@@ -1,0 +1,6 @@
+gate,passed,observed,requirement
+three_arms_scored,True,3.0,"Elo-only baseline, goals control and xG candidate"
+arms_share_one_sample,True,3528.0,Every arm scores the identical held-out matches
+elo_only_carries_no_form,True,0.0,The baseline must stay a two-parameter model
+rates_within_bounds,True,4.5,Rates stay inside the production lambda window
+xg_form_is_sparser_than_goals,True,0.5878684807256236,Documented coverage gap must be visible in the sample

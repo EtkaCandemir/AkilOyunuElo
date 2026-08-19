@@ -178,6 +178,7 @@ flowchart TD
 | Cup achievement challenger | `scripts/run_cup_achievement_backtest.py`, `src/ao_elo/cup_achievement.py` |
 | 2026/27 ML feature koprusu | `scripts/build_2026_27_prediction_features.py` |
 | Cok sezonlu xG ve katman dogrulamasi | `scripts/run_xg_multiseason_backtest.py`, `data/xg_2020_2026/` |
+| xG bilgili gol beklentisi | `src/ao_elo/xg_goal_model.py`, `scripts/run_xg_goal_expectation_backtest.py` |
 
 ## Yeni Bir Gorevde Uygulanacak Protokol
 

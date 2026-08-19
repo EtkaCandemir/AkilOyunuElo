@@ -42,3 +42,11 @@ matches from a single season; the wider sample carries `2827`. It is the one
 layer in this repository that clears the conservative dependency envelope on
 every segment, and the gain sits exactly where xG exists. The package records
 evidence only: the contract was not changed.
+
+## xG-informed goal expectation
+
+`xg_goal_expectation/` tests whether recent xG predicts goals better than
+recent goals do. It clears the conservative envelope only on the segment where
+xG exists, and its baseline is simpler than the repository's best existing
+scoreline arm, so the decision is `KEEP_SHADOW`. The package documents what the
+next test has to be rather than claiming the layer is ready.

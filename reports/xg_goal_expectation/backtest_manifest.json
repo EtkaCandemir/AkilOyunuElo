@@ -1,0 +1,25 @@
+{
+  "all_gates_passed": true,
+  "changes_production_parameters": false,
+  "exact_score_nll": {
+    "ELO_ONLY": 3.0298425261409148,
+    "GOALS": 3.0296417734489367,
+    "XG": 3.0270083869344786
+  },
+  "folds": 4,
+  "layer": "XG_INFORMED_GOAL_EXPECTATION",
+  "over_2_5_brier": {
+    "ELO_ONLY": 0.2471564943218682,
+    "GOALS": 0.24757932775278105,
+    "XG": 0.24665753761904324
+  },
+  "reliable_improvements": [
+    {
+      "arm": "XG",
+      "mean_difference": -0.006969896018012808,
+      "metric": "exact_score_nll",
+      "segment": "XG_PRESENT"
+    }
+  ],
+  "xg_beats_goals_on_exact_score": true
+}

@@ -238,6 +238,22 @@ data/season_2026_27_preproduction/matches_completed.csv   (xg_* kolonlari)
 Bu baglanti kurulmadan 2026/27 replay'i xG'siz kosar ve motor mevcut sinyali
 gormez.
 
+Skor katmani icin xG form challenger'i:
+
+```bash
+python3 scripts/run_xg_goal_expectation_backtest.py
+```
+
+Output ve curated kopya:
+
+```text
+output/xg_goal_expectation_backtest_2020_2026/
+reports/xg_goal_expectation/
+```
+
+Uc kol kosar: `ELO_ONLY` taban, `GOALS` kontrol, `XG` aday. `GOALS` kolu
+kaldirilmamalidir; onsuz xG kazanci ile form terimi kazanci ayirt edilemez.
+
 ## 8. Prediction Challenger'lari
 
 Domestic Poisson:
