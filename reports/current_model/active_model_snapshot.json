@@ -6,7 +6,7 @@
     "precedence": "production_contract_over_final_candidate"
   },
   "model_version": "ao-european-elo-v2.0-dev-freeze",
-  "production_revision": "2026-08-18-continuous-qualifier-retention-activation",
+  "production_revision": "2026-08-19-xg-evidence-revalidated-six-seasons",
   "static_initial_elo": {
     "country_strength_benchmark": 25.0,
     "european_history_benchmark": 20.0,
@@ -84,11 +84,17 @@
         "QUALIFYING_PLAYOFF": 0.425,
         "MAIN": 1.0
       },
+      "preliminary_round_uses": "Q1",
       "qualifier_to_main_carry": 1.0,
       "carry_anchor": "NOT_APPLICABLE",
+      "carry_formula": "NO_MAIN_ENTRY_RESET",
       "application": "EMBEDDED_IN_EACH_QUALIFIER_MATCH",
       "cross_competition_state": "CONTINUOUS_CLUB_ID_NO_RESET",
-      "non_match_rating_change": false
+      "direct_entrant_behavior": "NO_CARRY",
+      "positive_negative_symmetry": true,
+      "non_match_rating_change": false,
+      "main_stage_multiplier": 1.0,
+      "progression_bonus_in_qualifying": false
     },
     "one_x_two_probability": {
       "active": true,

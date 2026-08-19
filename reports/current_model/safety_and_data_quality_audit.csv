@@ -1,5 +1,6 @@
 check,passed,observed,requirement,severity_if_failed
-contract_active_parameters_equal,True,0.0,Production and final-candidate calculation parameters must match,MEDIUM
+contract_core_parameters_equal,True,0.0,Production and final-candidate core calculation parameters must match,MEDIUM
+qualification_production_override_declared,True,0.0,Continuous qualifier retention must be an explicit production-only override,MEDIUM
 production_replay_exact_match,True,0.0,Independent audit replay must match production pipeline,HIGH
 event_match_id_unique,True,0.0,One event row per match_id,HIGH
 event_season_match_unique,True,0.0,No duplicate season-match records,MEDIUM
