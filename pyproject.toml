@@ -2,3 +2,37 @@
 pythonpath = ["src"]
 testpaths = ["tests"]
 
+[tool.ruff]
+# Deliberately narrow. The repository has never been style-linted and a full
+# ruleset reports ~1700 findings, almost all cosmetic. Enabling those would
+# produce an unreviewable diff with no model benefit. `F` (pyflakes) and `B`
+# (bugbear) are the rules that catch actual defects: undefined names, values
+# computed and then dropped, and known bug patterns.
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["F", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# Public API surface: these modules exist to re-export, so an "unused" import
+# is the point. Autofixing them would break the import contract that keeps the
+# research scripts and their tests working.
+"src/ao_elo/__init__.py" = ["F401"]
+"src/ao_elo/cup_achievement.py" = ["F401"]
+
+# Scope note. The production rating and prediction path is clean under this
+# ruleset today:
+#
+#   config, features, scoring, pipeline, dynamic, dynamic_csv, controlled_live,
+#   xg_live, tournament_bonus, draw_probability, qualification_transition,
+#   qualification_stage_k, production_prediction, ml_features, ml_prediction,
+#   european_participation, cup_achievement, domestic_surprise_variance,
+#   validators
+#
+# The research surface (dataset builders, backtest orchestration) still carries
+# a known baseline of ~28 findings in `src/` plus more under `scripts/` and
+# `tests/`. Those are tracked work, not a gate.
+#
+# `B905` must never be bulk-fixed. `zip(xs, xs[1:])` is a pairwise sliding
+# window whose operands differ in length on purpose; `strict=True` would raise
+# on every call. Each occurrence needs its own reading.

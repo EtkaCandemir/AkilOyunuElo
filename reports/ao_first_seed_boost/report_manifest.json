@@ -1,0 +1,20 @@
+{
+  "backtest_command": "python3 scripts/run_ao_first_seed_boost_backtest.py --bootstrap-samples 2000",
+  "bootstrap_samples": 2000,
+  "decision": "KEEP_DIAGNOSTIC",
+  "evaluation_matches": 4884,
+  "evaluation_seasons": [
+    "2020/21",
+    "2021/22",
+    "2022/23",
+    "2023/24",
+    "2024/25",
+    "2025/26"
+  ],
+  "production_activated": false,
+  "production_contract_sha256": "6db3ea2852792adbb1585fbd7871cf05ee109999a9bc6621fa7e8c2a7c2b4589",
+  "research_module": "src/ao_elo/ao_first_seed_boost.py",
+  "runner": "scripts/run_ao_first_seed_boost_backtest.py",
+  "seed_team_seasons": 1887,
+  "untouched_season": "2026/27"
+}

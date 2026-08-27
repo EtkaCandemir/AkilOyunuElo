@@ -36,7 +36,12 @@ from scripts.build_backtest_dataset import (  # noqa: E402
     read_cached_text,
 )
 from scripts.build_backtest_stage_b import (  # noqa: E402
+    NO_DOMESTIC_LEAGUE,
+    build_position_lookup,
+    fetch as fetch_league_page,
     normalize_country,
+    parse_league_urls,
+    read_standings,
     resolve_position,
 )
 from scripts.build_external_elo_benchmark import (  # noqa: E402
@@ -52,7 +57,6 @@ SEASON = "2026/27"
 # Cache years are labelled by the season's closing year, so 2026 is the
 # 2025/26 campaign that decided 2026/27 European entry and 2025 is 2024/25.
 CURRENT_SEASON_VINTAGE = 2026
-CACHE_FALLBACK_VINTAGE = 2025
 END_YEAR = 2027
 DEFAULT_DATA_ROOT = ROOT / "data" / "season_2026_27_preproduction"
 DEFAULT_OUTPUT_ROOT = ROOT / "output" / "season_2026_27_preproduction"
@@ -125,13 +129,29 @@ def main() -> None:
     sources = parse_sources(source_paths)
 
     identity, teams = build_team_identity(sources["clubs_2027"], official)
+    current_standings = prepare_current_domestic_standings(
+        cache_root,
+        source_paths["qual2026"],
+        teams,
+        refresh=args.refresh,
+        offline=args.offline,
+    )
+    for country_key, snapshot in current_standings.items():
+        source_path = snapshot.get("source_path")
+        if isinstance(source_path, Path):
+            source_paths[f"domestic_standings_{country_key}"] = source_path
     qualification = build_qualification_metadata(
         teams,
         sources["qualification_2026"],
         sources["clubs_2027"],
     )
     country = build_country_coefficients(teams, sources["country_rank_2026"])
-    domestic, domestic_audit = build_domestic_context(teams, qualification, identity)
+    domestic, domestic_audit = build_domestic_context(
+        teams,
+        qualification,
+        identity,
+        current_standings,
+    )
     club, club_audit = build_club_history(
         teams,
         identity,
@@ -153,11 +173,23 @@ def main() -> None:
     domestic_audit.to_csv(
         data_root / "domestic_history_audit.csv", index=False, lineterminator="\n"
     )
+    domestic_audit.loc[domestic_audit["route"].eq("CW")].to_csv(
+        data_root / "cw_domestic_evidence_audit.csv",
+        index=False,
+        lineterminator="\n",
+    )
     club_audit.to_csv(
         data_root / "club_history_audit.csv", index=False, lineterminator="\n"
     )
 
+    existing_matches_path = data_root / "matches_completed.csv"
+    existing_matches = (
+        pd.read_csv(existing_matches_path)
+        if existing_matches_path.is_file()
+        else pd.DataFrame()
+    )
     finished, upcoming = build_dynamic_inputs(cache_root, teams)
+    finished = preserve_existing_xg(finished, existing_matches)
     finished.to_csv(
         data_root / "matches_completed.csv", index=False, lineterminator="\n"
     )
@@ -496,20 +528,106 @@ def preferred_position(
     return None, "UNRESOLVED"
 
 
+def prepare_current_domestic_standings(
+    cache_root: Path,
+    qualification_path: Path,
+    teams: pd.DataFrame,
+    *,
+    refresh: bool,
+    offline: bool,
+) -> dict[str, dict[str, object]]:
+    """Load the final domestic season that decided 2026/27 UEFA entry.
+
+    Kassiesa's qualification page links each association to the applicable
+    league season. This matters for calendar-year leagues: their current
+    evidence is the completed 2025 campaign, while autumn-spring leagues use
+    2025/26. The cache key is the AO evidence vintage (2026), not necessarily
+    the season label shown on the source page.
+    """
+    urls = parse_league_urls(read_cached_text(qualification_path))
+    snapshots: dict[str, dict[str, object]] = {}
+    for country in sorted(teams["country"].astype(str).unique()):
+        country_key = normalize_country(country)
+        if country_key in NO_DOMESTIC_LEAGUE:
+            snapshots[country_key] = {
+                "position_lookup": {},
+                "team_count": None,
+                "source_path": None,
+                "source_url": urls.get(country_key, ""),
+                "status": "NO_DOMESTIC_LEAGUE",
+            }
+            continue
+        source_url = urls.get(country_key)
+        if not source_url:
+            raise ValueError(
+                f"Missing current domestic standings URL for {country} ({country_key})"
+            )
+        digest = hashlib.sha1(source_url.encode("utf-8")).hexdigest()[:8]
+        source_path = (
+            cache_root
+            / "domestic_standings"
+            / f"2026_{country_key}_{digest}.html"
+        )
+        source_path.parent.mkdir(parents=True, exist_ok=True)
+        if not source_path.is_file() or refresh:
+            if offline:
+                raise FileNotFoundError(
+                    f"Offline current standings cache is missing: {source_path}"
+                )
+            fetch_league_page(source_url, source_path, refresh=True)
+        tables = read_standings(source_path)
+        primary_table = select_primary_standings(tables, country=country)
+        team_count = len(primary_table)
+        if not 4 <= team_count <= 30:
+            raise ValueError(
+                f"Implausible current league team count for {country}: {team_count}"
+            )
+        snapshots[country_key] = {
+            "position_lookup": build_position_lookup([primary_table]),
+            "team_count": int(team_count),
+            "source_path": source_path,
+            "source_url": source_url,
+            "status": "CURRENT_FINAL_TABLE",
+            "table_selection_method": "LARGEST_SEQUENTIAL_1_TO_N_TABLE",
+            "standings_candidate_count": len(tables),
+        }
+    return snapshots
+
+
+def select_primary_standings(
+    tables: list[pd.DataFrame],
+    *,
+    country: str,
+) -> pd.DataFrame:
+    """Select the full league table and reject position-by-round impostors.
+
+    Season pages often contain home/away, split-round and position-by-round
+    tables. A valid primary league table has one row per rank and is already
+    ordered exactly 1..N. Among those candidates the largest table represents
+    the complete top-flight field; source order is the deterministic tie-break.
+    """
+    sequential = [
+        table
+        for table in tables
+        if table["position"].tolist() == list(range(1, len(table) + 1))
+    ]
+    if not sequential:
+        raise ValueError(f"No sequential 1..N league table found for {country}")
+    return max(sequential, key=len).copy()
+
+
 def build_domestic_context(
     teams: pd.DataFrame,
     qualification: pd.DataFrame,
     identity: pd.DataFrame,
+    current_standings: dict[str, dict[str, object]],
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    # The history window must end one season before whatever vintage the
-    # current position comes from. Route-resolved teams carry the 2025/26
-    # finish, but a cup-route team falls back to the cached 2024/25 table, and
-    # comparing that season against a window containing itself would damp the
-    # Domestic Surprise by exactly its own t_minus_1 weight. Loading one extra
-    # year lets each team get a clean, self-exclusive five-season window.
+    # Every participant now uses the domestic season that actually decided
+    # 2026/27 entry. The five-year window therefore always ends one completed
+    # season earlier; no cup-route team may silently fall back to 2024/25.
     cache = load_standings_cache(
         HISTORICAL_STATIC_ROOT,
-        tuple(range(2020, 2026)),
+        tuple(range(2021, 2026)),
     )
     registry = pd.read_csv(CLUB_REGISTRY_PATH, dtype={"uefa_team_id": "string"})
     q = qualification.set_index("team_id")
@@ -535,27 +653,84 @@ def build_domestic_context(
             )
 
         meta = q.loc[team.team_id]
-        latest_cached = cache.get((2025, country_key))
-        latest_team_count = latest_cached[1] if latest_cached is not None else None
-        latest_position, _, latest_method, latest_source = season_row(2025)
+        snapshot = current_standings.get(country_key)
+        if snapshot is None:
+            raise ValueError(f"Missing current domestic snapshot for {team.country}")
+        current_lookup = snapshot["position_lookup"]
+        if not isinstance(current_lookup, dict):
+            raise ValueError(f"Invalid current domestic lookup for {team.country}")
+        current_team_count = snapshot["team_count"]
+        table_position, table_method = preferred_position(aliases, current_lookup)
         route = str(meta.route)
         route_match = route_position.match(route)
+        route_position_value: int | None = None
         if bool(meta.is_league_champion) or route == "CH":
-            current_position = 1 if latest_team_count is not None else None
-            current_source = "QUALIFICATION_CHAMPION"
-            current_vintage = CURRENT_SEASON_VINTAGE
-        elif route_match and latest_team_count is not None:
-            current_position = int(route_match.group(1))
-            current_source = "QUALIFICATION_ROUTE"
-            current_vintage = CURRENT_SEASON_VINTAGE
+            route_position_value = 1
+        elif route_match:
+            route_position_value = int(route_match.group(1))
+
+        if snapshot["status"] == "NO_DOMESTIC_LEAGUE":
+            current_position = None
+            current_source = "NO_DOMESTIC_LEAGUE"
+            crosscheck = "NOT_APPLICABLE"
+        elif route_position_value is not None:
+            if current_team_count is None:
+                raise ValueError(
+                    f"Current league team count is missing for route-resolved {team.team_name}"
+                )
+            if route_position_value > int(current_team_count):
+                raise ValueError(
+                    f"Qualification route position exceeds current league size for "
+                    f"{team.team_name}: {route_position_value}>{current_team_count}"
+                )
+            current_position = route_position_value
+            if table_position is None:
+                crosscheck = "TABLE_IDENTITY_UNRESOLVED"
+            elif table_position == route_position_value:
+                crosscheck = "MATCH"
+            else:
+                # Split leagues and championship play-offs can make the long
+                # regular-season table disagree with the final UEFA route.
+                # The qualification route is the authoritative entry-season
+                # result; retain the discrepancy as audit evidence.
+                crosscheck = "MISMATCH_ROUTE_AUTHORITATIVE"
+            if route_position_value == 1:
+                current_source = (
+                    "QUALIFICATION_CHAMPION_CURRENT_TABLE_VERIFIED"
+                    if crosscheck == "MATCH"
+                    else "QUALIFICATION_CHAMPION_ROUTE_AUTHORITATIVE"
+                )
+            else:
+                current_source = (
+                    "QUALIFICATION_ROUTE_CURRENT_TABLE_VERIFIED"
+                    if crosscheck == "MATCH"
+                    else "QUALIFICATION_ROUTE_AUTHORITATIVE"
+                )
         else:
-            # No route position is available, so the newest cached table is the
-            # best evidence. It is one season older, and the history window
-            # below shifts with it so the season never scores against itself.
-            current_position = latest_position
-            current_source = latest_method
-            current_vintage = CACHE_FALLBACK_VINTAGE
-        current_count = latest_team_count if current_position is not None else None
+            current_position = table_position
+            current_source = (
+                table_method
+                if table_position is not None
+                else "CURRENT_TOP_DIVISION_UNRESOLVED"
+            )
+            crosscheck = "CURRENT_TABLE_ONLY"
+
+        if current_position is not None:
+            if current_team_count is None:
+                raise ValueError(
+                    f"Current league team count is missing for {team.team_name}"
+                )
+            current_count = int(current_team_count)
+        else:
+            current_count = None
+        current_vintage = CURRENT_SEASON_VINTAGE
+        if bool(meta.is_league_champion) and current_position is not None:
+            if current_position != 1:
+                raise ValueError(
+                    f"League champion must have current position 1: {team.team_name}"
+                )
+        if route == "CW" and current_source == "CURRENT_TOP_DIVISION_UNRESOLVED":
+            current_source = "CW_NOT_RESOLVED_IN_CURRENT_TOP_DIVISION"
         history = [
             season_row(year)
             for year in range(current_vintage - 5, current_vintage)
@@ -588,7 +763,21 @@ def build_domestic_context(
                 "current_position_source": current_source,
                 "current_position_vintage": current_vintage,
                 "history_window": f"{current_vintage - 5}-{current_vintage - 1}",
-                "current_source_cache": latest_source,
+                "current_source_cache": (
+                    str(snapshot["source_path"])
+                    if snapshot["source_path"] is not None
+                    else ""
+                ),
+                "current_source_url": str(snapshot["source_url"]),
+                "current_table_position": table_position,
+                "qualification_route_position": route_position_value,
+                "position_crosscheck": crosscheck,
+                "current_table_selection_method": snapshot.get(
+                    "table_selection_method", "NOT_APPLICABLE"
+                ),
+                "current_standings_candidate_count": snapshot.get(
+                    "standings_candidate_count", 0
+                ),
                 "history_seasons_available": sum(item[0] is not None for item in history),
                 "history_complete": all(item[0] is not None for item in history),
                 **{
@@ -760,6 +949,74 @@ def build_dynamic_inputs(
     return finished, upcoming
 
 
+def preserve_existing_xg(
+    rebuilt: pd.DataFrame,
+    existing: pd.DataFrame,
+) -> pd.DataFrame:
+    """Keep previously audited xG when a static-input rebuild is replayed.
+
+    The UEFA feed does not provide xG, so rebuilding domestic standings must
+    not erase a separately verified FotMob enrichment. Reuse is allowed only
+    when the immutable match identity and field score still agree.
+    """
+    if existing.empty:
+        return rebuilt
+    required = {
+        "match_id",
+        "home_team_id",
+        "away_team_id",
+        "home_goals",
+        "away_goals",
+        "xg_home",
+        "xg_away",
+        "xg_analysis_eligible",
+        "xg_fallback",
+    }
+    missing = sorted(required - set(existing.columns))
+    if missing:
+        raise ValueError(f"Existing match xG snapshot is missing columns: {missing}")
+    if existing["match_id"].duplicated().any():
+        raise ValueError("Existing match xG snapshot contains duplicate match_id")
+    old = existing.set_index("match_id")
+    result = rebuilt.copy()
+    result["xg_home"] = result["xg_home"].astype(object)
+    result["xg_away"] = result["xg_away"].astype(object)
+    for index, row in result.iterrows():
+        match_id = str(row["match_id"])
+        if match_id not in old.index:
+            continue
+        previous = old.loc[match_id]
+        for column in (
+            "home_team_id",
+            "away_team_id",
+            "home_goals",
+            "away_goals",
+        ):
+            if str(previous[column]) != str(row[column]):
+                raise ValueError(
+                    f"Existing xG identity/score mismatch for {match_id}: {column}"
+                )
+        for column in ("home_penalty_goals", "away_penalty_goals"):
+            if column in result.columns and pd.notna(previous.get(column)):
+                result.loc[index, column] = float(previous[column])
+        eligible = previous["xg_analysis_eligible"]
+        if isinstance(eligible, str):
+            eligible = eligible.strip().lower() == "true"
+        if not bool(eligible):
+            continue
+        values = pd.to_numeric(
+            pd.Series([previous["xg_home"], previous["xg_away"]]),
+            errors="coerce",
+        )
+        if values.isna().any() or values.lt(0.0).any():
+            raise ValueError(f"Existing eligible xG is invalid for {match_id}")
+        result.loc[index, "xg_home"] = float(values.iloc[0])
+        result.loc[index, "xg_away"] = float(values.iloc[1])
+        result.loc[index, "xg_analysis_eligible"] = True
+        result.loc[index, "xg_fallback"] = str(previous["xg_fallback"])
+    return result
+
+
 def stable_match_order(frame: pd.DataFrame) -> pd.DataFrame:
     result = frame.copy()
     result["_kickoff"] = pd.to_datetime(result["kickoff_utc"], utc=True, errors="raise")
@@ -780,6 +1037,9 @@ def build_quality_audit(
     upcoming: pd.DataFrame,
     ratings: pd.DataFrame,
 ) -> pd.DataFrame:
+    cup_route = domestic_audit["route"].eq("CW")
+    cached_current = domestic_audit["current_source_cache"].fillna("").ne("")
+    no_domestic = domestic_audit["current_position_source"].eq("NO_DOMESTIC_LEAGUE")
     checks = [
         check("participant_count", len(teams) == 237, len(teams), 237),
         check("team_id_unique", teams["team_id"].is_unique, teams["team_id"].nunique(), 237),
@@ -790,6 +1050,42 @@ def build_quality_audit(
         check("club_history_rows_complete", len(club) == len(teams), len(club), len(teams)),
         check("explicit_zero_history_rows", int(club_audit["explicit_all_zero_history"].sum()) > 0, int(club_audit["explicit_all_zero_history"].sum()), ">0"),
         check("domestic_history_coverage_audited", domestic_audit["history_seasons_available"].between(0, 5).all(), len(domestic_audit), len(teams)),
+        check(
+            "current_domestic_vintage_complete",
+            domestic_audit["current_position_vintage"].eq(CURRENT_SEASON_VINTAGE).all(),
+            int(domestic_audit["current_position_vintage"].eq(CURRENT_SEASON_VINTAGE).sum()),
+            len(teams),
+        ),
+        check(
+            "current_domestic_source_cached",
+            (cached_current | no_domestic).all(),
+            int((cached_current | no_domestic).sum()),
+            len(teams),
+        ),
+        check(
+            "cup_route_stale_fallback_zero",
+            domestic_audit.loc[cup_route, "current_position_vintage"].eq(
+                CURRENT_SEASON_VINTAGE
+            ).all(),
+            int(
+                domestic_audit.loc[cup_route, "current_position_vintage"].ne(
+                    CURRENT_SEASON_VINTAGE
+                ).sum()
+            ),
+            0,
+        ),
+        check(
+            "cup_route_current_source_audited",
+            domestic_audit.loc[cup_route, "current_source_url"].fillna("").ne("").all(),
+            int(domestic_audit.loc[cup_route, "current_source_url"].fillna("").ne("").sum()),
+            int(cup_route.sum()),
+        ),
+        check(
+            "domestic_history_window_current",
+            domestic_audit["history_window"].eq("2021-2025").all(),
+            int(domestic_audit["history_window"].eq("2021-2025").sum()),
+            len(teams),
+        ),
         check("completed_match_count", len(finished) == 342, len(finished), 342),
         check("upcoming_fixture_count", len(upcoming) == 86, len(upcoming), 86),
         check("completed_match_id_unique", finished["match_id"].is_unique, finished["match_id"].nunique(), len(finished)),
@@ -825,7 +1121,7 @@ def build_manifest(
     source_files = sorted(set(source_paths.values()) | set((cache_root / "uefa").glob("*.json")))
     latest_finished = pd.to_datetime(finished["kickoff_utc"], utc=True).max()
     return {
-        "dataset_version": "ao-2026-27-preproduction-inputs-v1",
+        "dataset_version": "ao-2026-27-preproduction-inputs-v2-current-domestic",
         "season": SEASON,
         "as_of_last_finished_match_utc": latest_finished.isoformat(),
         "production_contract_changed": False,
@@ -866,6 +1162,9 @@ def build_readme(
 ) -> str:
     complete_history = int(domestic_audit["history_complete"].sum())
     applied = int(ratings["domestic_surprise_status"].eq("APPLIED").sum())
+    xg_eligible = int(finished["xg_analysis_eligible"].eq(True).sum())
+    cup_routes = domestic_audit.loc[domestic_audit["route"].eq("CW")]
+    cup_routes_resolved = int(cup_routes["current_table_position"].notna().sum())
     return f"""# 2026/27 AO Preproduction Input Snapshot
 
 Bu klasor production contract'ini degistirmeyen, 2026/27 sezonuna ait tarihli
@@ -876,6 +1175,7 @@ bir preproduction veri snapshot'idir.
 - Yaklasan play-off fiksturu: {len(upcoming)}
 - Bes sezon domestic history tam: {complete_history}/{len(teams)}
 - Domestic Surprise uygulanan takim: {applied}
+- CW rotasi current-table eslesmesi: {cup_routes_resolved}/{len(cup_routes)}
 - AO First Elo araligi: {ratings['ao_first_elo'].min():.3f} - {ratings['ao_first_elo'].max():.3f}
 - Kalite kontrolleri: {int(quality['status'].eq('PASS').sum())}/{len(quality)} PASS
 
@@ -891,10 +1191,32 @@ Replay girdileri:
 - `matches_completed.csv`
 - `fixtures_upcoming.csv`
 
+Denetim girdileri:
+
+- `domestic_history_audit.csv`
+- `cw_domestic_evidence_audit.csv`
+- `data_quality_audit.csv`
+- `source_manifest.json`
+
+## Domestic standings sozlesmesi
+
+Tum takimlar icin 2026/27 Avrupa katilimini belirleyen son tamamlanmis yerel
+sezon kullanilir. Sonbahar-ilkbahar liglerinde bu `2025/26`, takvim yili
+liglerinde tamamlanmis `2025` sezonudur. Kassiesa qualification snapshot'inin
+isaret ettigi lig sayfasi checksum'li cache'e alinir; `CW` rotasi artik eski
+`2024/25` tablosuna dusmez.
+
+Guncel ust lig tablosunda bulunmayan kupa sampiyonlarina eski veya tahmini bir
+pozisyon verilmez. Bu takimlar audit dosyasinda acik `N/A` olarak kalir. Yerel
+ligi olmayan Liechtenstein takimlari da ayni sekilde `NO_DOMESTIC_LEAGUE`
+olarak kaydedilir.
+
 Eksik domestic history tahmin edilmez. Bes tam sezonu olmayan takimda aktif
 pipeline Domestic Surprise'i `INSUFFICIENT_HISTORY` olarak sifirlar. Iki tarafli
-ve zaman kapsami dogrulanmis xG henuz bulunmadigi icin tamamlanmis 2026/27
-maclari `GOAL_MARGIN_ONLY` fallback'iyle isaretlenmistir.
+ve zaman kapsami dogrulanmis xG bulunan {xg_eligible} mac korunur; diger
+tamamlanmis maclar `GOAL_MARGIN_ONLY` fallback'iyle isaretlenir. Statik sezon
+verisini yeniden uretmek daha once dogrulanmis xG'yi silmez; match identity ve
+saha skoru degismisse build acik hata verir.
 """
 
 

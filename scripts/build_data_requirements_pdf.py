@@ -174,7 +174,7 @@ def story() -> list[object]:
             [
                 "Position verilmişse 1..league_team_count aralığında tam sayı olmalıdır.",
                 "Champion=true ve bilinen position varsa position tam olarak 1 olmalıdır.",
-                "Kupa şampiyonu tek başına duble bonusu alamaz.",
+                "Kupa bir taban değil katkıdır: 0.129032 * min(lig, kupa). Kupa kazanmayanda sıfırdır.",
                 "History position ve team count her sezon için birlikte dolu veya birlikte boş olmalıdır.",
                 "Beş tam history sezonu yoksa Domestic Surprise adjustment sıfır olur.",
             ],

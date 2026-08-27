@@ -20,5 +20,5 @@ surprise_sign_preserved,True,0.0,Surprise adjustment cannot reverse raw signal s
 surprise_cap,True,0.0,Domestic Surprise must respect +/-30 cap,MEDIUM
 chronology_sorted,True,0.0,event_order must be unique and UTC-monotonic within every season,MEDIUM
 simultaneous_team_collision,True,0.0,A team cannot appear twice at the same kickoff UTC,MEDIUM
-production_prediction_artifacts_load,True,171.0,Checksummed ML artifact and Domestic Poisson state load; 171 AO club mappings expected,HIGH
+production_prediction_artifacts_load,True,311.0,Checksummed ML artifact and Domestic Poisson state load; 311 AO club mappings expected after the UCL/UEL coverage expansion,HIGH
 production_prediction_rating_feedback_disabled,True,0.0,Served prediction cannot feed back into AO Live Elo,HIGH

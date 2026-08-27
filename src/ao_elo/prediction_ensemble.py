@@ -74,6 +74,7 @@ def run_prediction_ensemble_walk_forward_backtest(
     transfer_selections: pd.DataFrame,
     *,
     bootstrap_samples: int = 1000,
+    pinned_poisson_weight: float | None = None,
 ) -> PredictionEnsembleBacktestResult:
     """Blend the existing ML and domestic Poisson OOS candidates without Elo feedback."""
 
@@ -199,6 +200,20 @@ def run_prediction_ensemble_walk_forward_backtest(
         full_sources,
         full_outcomes,
     )
+    if pinned_poisson_weight is not None:
+        # Rebuilding this backtest after an unrelated activation would
+        # otherwise silently re-open the served blend weight, which the
+        # 2026/27 holdout protocol forbids. Pinning keeps the rebuild a
+        # propagation; the surface's own preference is still reported.
+        surface_choice = float(prospective_selection["poisson_weight"])
+        pinned = float(pinned_poisson_weight)
+        if not 0.0 <= pinned <= 1.0:
+            raise ValueError("pinned_poisson_weight must be in [0,1]")
+        prospective_selection = dict(prospective_selection)
+        prospective_selection["poisson_weight"] = pinned
+        prospective_selection["ml_weight"] = 1.0 - pinned
+        prospective_selection["weight_pinned"] = True
+        prospective_selection["surface_would_have_selected"] = surface_choice
     prospective_surface = pd.DataFrame(prospective_rows)
     decision = _decision(
         comparison,
@@ -710,6 +725,16 @@ def _decision(
             "poisson_weight": float(prospective_selection["poisson_weight"]),
             "ml_weight": float(prospective_selection["ml_weight"]),
             "selection_data": "2020/21-2025/26 OOS development predictions",
+            **(
+                {
+                    "weight_pinned": True,
+                    "surface_would_have_selected": float(
+                        prospective_selection["surface_would_have_selected"]
+                    ),
+                }
+                if prospective_selection.get("weight_pinned")
+                else {}
+            ),
         },
         "untouched_holdout": "2026/27",
         "rating_feedback": False,

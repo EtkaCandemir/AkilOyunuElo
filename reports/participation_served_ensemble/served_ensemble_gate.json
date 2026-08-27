@@ -1,0 +1,67 @@
+{
+  "candidate": {
+    "AO_POISSON_BLEND": {
+      "accuracy": 0.5612203112203112,
+      "brier": 0.5642924093468823,
+      "log_loss": 0.9531739704310788
+    },
+    "AO_POISSON_RHO0_CONTROL": {
+      "accuracy": 0.5614250614250614,
+      "brier": 0.564178374243823,
+      "log_loss": 0.952922738789688
+    },
+    "CURRENT_AO": {
+      "accuracy": 0.5585585585585585,
+      "brier": 0.5665120389327867,
+      "log_loss": 0.956393371002758
+    },
+    "CURRENT_ML_BLEND": {
+      "accuracy": 0.55999180999181,
+      "brier": 0.5627341191656594,
+      "log_loss": 0.9511236131147804
+    },
+    "ML_POISSON_ENSEMBLE": {
+      "accuracy": 0.5612203112203112,
+      "brier": 0.5621521139283686,
+      "log_loss": 0.9500224186806232
+    }
+  },
+  "changes_production_parameters": false,
+  "contract_sha256": "974dfd1fcf618b225d724ae8e6184e81fed9c83f1e054f80239d186535e9aae9",
+  "control": {
+    "AO_POISSON_BLEND": {
+      "accuracy": 0.5567158067158067,
+      "brier": 0.5667415616520065,
+      "log_loss": 0.9567940242461812
+    },
+    "AO_POISSON_RHO0_CONTROL": {
+      "accuracy": 0.5565110565110565,
+      "brier": 0.5666474657316769,
+      "log_loss": 0.956597602617364
+    },
+    "CURRENT_AO": {
+      "accuracy": 0.5542588042588042,
+      "brier": 0.5692874200821828,
+      "log_loss": 0.960299027153101
+    },
+    "CURRENT_ML_BLEND": {
+      "accuracy": 0.5571253071253072,
+      "brier": 0.5655438825600546,
+      "log_loss": 0.9551418320147428
+    },
+    "ML_POISSON_ENSEMBLE": {
+      "accuracy": 0.5556920556920557,
+      "brier": 0.5648373058504988,
+      "log_loss": 0.953870058117424
+    }
+  },
+  "gate": "PASS: served layer reliably improves over its own AO base in both arms and no segment shows reliable harm",
+  "matches": 4884,
+  "question": "Does the served ML/Poisson layer stay safe and additive under the participation-normalized seed?",
+  "served_edge_over_own_ao": {
+    "candidate_brier": -0.004359925004418064,
+    "control_brier": -0.004450114231683955
+  },
+  "shrinkage": 0.2,
+  "team_seasons_moved_by_layer": 1008
+}

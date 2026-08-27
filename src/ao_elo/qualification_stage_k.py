@@ -47,7 +47,9 @@ class QualificationStageKConfig:
         if self.selectable:
             if not all(
                 left < right
-                for left, right in zip(qualifier_values, qualifier_values[1:])
+                # Pairwise sliding window: the two operands differ in length by
+                # one by construction, so `strict=True` would raise every call.
+                for left, right in zip(qualifier_values, qualifier_values[1:])  # noqa: B905
             ):
                 raise ValueError("Selectable qualifier multipliers must strictly increase")
             if self.qualifying_playoff_multiplier >= self.main_multiplier:

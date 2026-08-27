@@ -68,6 +68,7 @@ def run_ml_walk_forward_backtest(
     feature_store: pd.DataFrame,
     *,
     bootstrap_samples: int = 1000,
+    pinned_blend_weight: float | None = None,
 ) -> MLBacktestResult:
     validate_feature_store(feature_store)
     if bootstrap_samples < 100:
@@ -240,6 +241,16 @@ def run_ml_walk_forward_backtest(
             weight,
         ),
     )
+    # Rebuilding this backtest after an unrelated activation would otherwise
+    # silently re-open the served AO/ML blend weight, which the 2026/27 holdout
+    # protocol freezes. Pinning keeps the rebuild a propagation; the surface's
+    # own preference stays in `full_history_blend_weight`.
+    if pinned_blend_weight is None:
+        selected_blend_weight = full_blend_weight
+    else:
+        selected_blend_weight = float(pinned_blend_weight)
+        if not 0.0 <= selected_blend_weight <= 1.0:
+            raise ValueError("pinned_blend_weight must be in [0,1]")
     final_model = _fit_quietly(data, full_spec, full_parameters)
     full_importance = raw_feature_importance(final_model, data)
     full_importance.insert(0, "fold", 0)
@@ -271,7 +282,7 @@ def run_ml_walk_forward_backtest(
         competition_segment_summary=segments,
         dependency_uncertainty=uncertainty,
         selected_model=final_model,
-        selected_blend_weight=float(full_blend_weight),
+        selected_blend_weight=float(selected_blend_weight),
         decision=decision,
     )
 

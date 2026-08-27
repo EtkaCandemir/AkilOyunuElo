@@ -1,0 +1,4 @@
+scope,matches,exact_score_nll,difference_vs_this_baseline
+repo_arm_full_sample,4884,3.016594456946233,
+repo_arm_shared_sample,3528,3.0214374501978654,0.0017010187325356974
+this_baseline_shared_sample,3528,3.023138468930401,0.0

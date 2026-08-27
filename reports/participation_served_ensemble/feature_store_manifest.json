@@ -1,0 +1,10 @@
+{
+  "baseline_reproduces_served_seed_elo": 4.547473508864641e-13,
+  "changes_production_parameters": false,
+  "contract_sha256": "974dfd1fcf618b225d724ae8e6184e81fed9c83f1e054f80239d186535e9aae9",
+  "control_seed_drift_elo": 4.547473508864641e-13,
+  "matches": 6340,
+  "shrinkage": 0.2,
+  "team_seasons": 1887,
+  "team_seasons_moved_by_layer": 1008
+}

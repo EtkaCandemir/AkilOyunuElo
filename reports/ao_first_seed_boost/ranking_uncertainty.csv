@@ -1,0 +1,9 @@
+arm,metric,method,mean_difference,ci_95_lower,ci_95_upper,reliable_improvement,reliable_harm
+BOOST_BLIND,seed_spearman_difference,team_season,0.000509062112119009,-0.004244676783649187,0.005582802388482671,False,False
+BOOST_BLIND,seed_spearman_difference,club,0.000509062112119009,-0.005165193781167194,0.00603596104358669,False,False
+BOOST_BLIND,seed_spearman_difference,season,0.000509062112119009,-0.00147420896469435,0.0026910600439685227,False,False
+BOOST_BLIND,seed_spearman_difference,conservative_envelope,0.000509062112119009,-0.005165193781167194,0.00603596104358669,False,False
+BOOST_DOMESTIC_FORM,seed_spearman_difference,team_season,0.0002931720957775472,0.0,0.0011101000373954417,False,False
+BOOST_DOMESTIC_FORM,seed_spearman_difference,club,0.0002931720957775472,0.0,0.001018154484390149,False,False
+BOOST_DOMESTIC_FORM,seed_spearman_difference,season,0.0002931720957775472,0.0,0.0008801391742216874,False,False
+BOOST_DOMESTIC_FORM,seed_spearman_difference,conservative_envelope,0.0002931720957775472,0.0,0.0011101000373954417,False,False

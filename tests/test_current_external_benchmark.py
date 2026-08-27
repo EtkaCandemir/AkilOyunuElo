@@ -185,6 +185,24 @@ def test_exactly_one_rating_arm_is_the_model_under_test() -> None:
     assert len(RATING_ARMS) == len({name for name, _, _ in RATING_ARMS})
 
 
+def test_domestic_surprise_ablation_arm_is_scored_on_the_external_axis() -> None:
+    """The layer is justified on seed quality, not on match loss.
+
+    Without a surprise-off seed on this axis the only available answer is
+    "it beats its own unadjusted prior", which is not the same claim as
+    "it moves the seed toward an independent reference".
+    """
+    reference_types = {name: kind for name, _, kind in RATING_ARMS}
+    columns = {name: column for name, column, _ in RATING_ARMS}
+
+    assert reference_types["AO_FIRST_ELO_NO_DOMESTIC_SURPRISE"] == "MODEL_ABLATION"
+    assert columns["AO_FIRST_ELO_NO_DOMESTIC_SURPRISE"] == (
+        "initial_rating_no_domestic_surprise"
+    )
+    # The ablation must not be mistaken for an independent referee.
+    assert reference_types["AO_FIRST_ELO_NO_DOMESTIC_SURPRISE"] != "EXTERNAL"
+
+
 def test_realized_performance_returns_one_row_per_team(tmp_path: Path) -> None:
     matches = pd.DataFrame(
         {

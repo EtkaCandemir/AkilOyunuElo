@@ -14,7 +14,13 @@
     "variance_penalty": 0.5,
     "max_abs_adjustment": 30.0,
     "minimum_history_seasons": 5,
-    "season_weights_oldest_to_newest": [0.07, 0.13, 0.20, 0.27, 0.33],
+    "season_weights_oldest_to_newest": [
+      0.07,
+      0.13,
+      0.2,
+      0.27,
+      0.33
+    ],
     "volatility_normalization": "min(1, 2 * weighted_volatility)",
     "insufficient_history_behavior": "NO_ADJUSTMENT"
   },
@@ -80,8 +86,16 @@
       "UEL": 0.6666666666666666,
       "UECL": 0.3333333333333333
     },
-    "increments": {"UCL": 12.0, "UEL": 8.0, "UECL": 4.0},
-    "season_caps": {"UCL": 48.0, "UEL": 32.0, "UECL": 16.0},
+    "increments": {
+      "UCL": 12.0,
+      "UEL": 8.0,
+      "UECL": 4.0
+    },
+    "season_caps": {
+      "UCL": 48.0,
+      "UEL": 32.0,
+      "UECL": 16.0
+    },
     "eligible_stages": [
       "ROUND_OF_16",
       "QUARTERFINAL",
@@ -152,7 +166,7 @@
     },
     "artifact_manifest": {
       "path": "artifacts/production_prediction/manifest.json",
-      "sha256": "f37cbe7211c7ef70d00c5581ca4e3e3f569b745afda32495ec3b01eeeac33299"
+      "sha256": "b0d960929d79f79b79c9d5fe03440d8a8c02b337a6e3a642828626908cc94a3a"
     },
     "fallback": "CURRENT_AO_1X2",
     "rating_feedback": false,
@@ -184,8 +198,8 @@
     "full_season_matches": 961,
     "full_season_teams": 236,
     "full_season_xg_eligible_matches": 606,
-    "brier_delta_vs_alpha_010_xg": -0.0000018204130482,
-    "log_loss_delta_vs_alpha_010_xg": 0.000010233859798,
+    "brier_delta_vs_alpha_010_xg": -1.8204130482e-06,
+    "log_loss_delta_vs_alpha_010_xg": 1.0233859798e-05,
     "ranking_delta_vs_alpha_010_xg": 0.0019413742995417,
     "pairwise_delta_vs_alpha_010_xg": 0.0007203364080377,
     "cluster_reliable_improvement": false,
@@ -209,8 +223,8 @@
     "development_matches": 4884,
     "brier_fold_wins": "4/6",
     "log_loss_fold_wins": "4/6",
-    "pooled_brier_delta_vs_base": -0.000006941,
-    "pooled_log_loss_delta_vs_base": -0.000011253,
+    "pooled_brier_delta_vs_base": -6.941e-06,
+    "pooled_log_loss_delta_vs_base": -1.1253e-05,
     "manual_product_decision": true
   },
   "single_match_draw_evidence": {
@@ -233,11 +247,11 @@
     "source": "output/final_prediction_ensemble_backtest_2018_2026/selected_candidate.json",
     "development_matches": 6340,
     "unseen_matches": 4884,
-    "pooled_brier": 0.5680932199564515,
-    "pooled_log_loss": 0.9592418968185772,
-    "pooled_accuracy": 0.5538493038493039,
-    "delta_brier_vs_ao": -0.00399944549914677,
-    "delta_log_loss_vs_ao": -0.00512894042292622,
+    "pooled_brier": 0.561934871096546,
+    "pooled_log_loss": 0.9497915174563584,
+    "pooled_accuracy": 0.5614250614250614,
+    "delta_brier_vs_ao": -0.0044776562076448,
+    "delta_log_loss_vs_ao": -0.0064677297696585,
     "historical_gate_decision": "KEEP_SHADOW",
     "operational_decision": "PROMOTE_WITH_MONITORING",
     "manual_product_decision": true,

@@ -22,6 +22,7 @@ from ao_elo.domestic_poisson import (  # noqa: E402
     build_domestic_club_mapping,
     replay_domestic_poisson_state,
 )
+from ao_elo.domestic_ucl_uel_expansion import merge_domestic_candidate  # noqa: E402
 from ao_elo.ml_prediction import TrainedML1X2  # noqa: E402
 from ao_elo.production_prediction import (  # noqa: E402
     PRODUCTION_PREDICTION_FAMILY,
@@ -60,6 +61,19 @@ def main() -> None:
     parser.add_argument("--ensemble-decision", type=Path, default=ENSEMBLE_DECISION)
     parser.add_argument("--domestic-matches", type=Path, default=DOMESTIC_MATCHES)
     parser.add_argument("--domestic-bridge", type=Path, default=DOMESTIC_BRIDGE)
+    parser.add_argument(
+        "--live-domestic-matches",
+        type=Path,
+        help="Optional causal completed domestic results to append before checkpointing",
+    )
+    parser.add_argument(
+        "--coverage-audit",
+        type=Path,
+        help=(
+            "Optional target coverage audit. Clubs failing candidate_state_eligible "
+            "remain in the identity audit but are disabled for production Poisson."
+        ),
+    )
     parser.add_argument("--output-root", type=Path, default=OUTPUT_ROOT)
     args = parser.parse_args()
 
@@ -119,17 +133,53 @@ def main() -> None:
     )
 
     domestic = pd.read_csv(domestic_path, low_memory=False)
+    live_path = args.live_domestic_matches.resolve() if args.live_domestic_matches else None
+    if live_path is not None:
+        live = pd.read_csv(live_path, low_memory=False)
+        domestic = merge_domestic_candidate(domestic, live)
     bridge = pd.read_csv(bridge_path, low_memory=False)
     engine = replay_domestic_poisson_state(domestic, config.domestic_config)
     identity_map = build_domestic_club_mapping(domestic, bridge)
+    ineligible_club_ids: list[str] = []
+    coverage_audit_path = (
+        args.coverage_audit.resolve() if args.coverage_audit is not None else None
+    )
+    if coverage_audit_path is not None:
+        coverage_audit = pd.read_csv(coverage_audit_path, low_memory=False)
+        required_audit_columns = {"ao_club_id", "candidate_state_eligible"}
+        missing_audit_columns = required_audit_columns - set(coverage_audit.columns)
+        if missing_audit_columns:
+            raise ValueError(
+                "Coverage audit missing columns: "
+                f"{sorted(missing_audit_columns)}"
+            )
+        if coverage_audit["ao_club_id"].isna().any() or coverage_audit[
+            "ao_club_id"
+        ].duplicated().any():
+            raise ValueError("Coverage audit ao_club_id must be unique and non-null")
+        eligible = coverage_audit["candidate_state_eligible"].map(
+            {True: True, False: False, 1: True, 0: False}
+        )
+        if eligible.isna().any():
+            raise ValueError("Coverage audit candidate_state_eligible must be boolean")
+        ineligible_club_ids = sorted(
+            coverage_audit.loc[~eligible, "ao_club_id"].astype(str).tolist()
+        )
     cutoff = pd.to_datetime(domestic["kickoff_utc"], utc=True).max().isoformat()
-    state_output = output / "domestic_poisson_state_2025_26.json"
+    state_suffix = "2026_27" if live_path is not None else "2025_26"
+    state_output = output / f"domestic_poisson_state_{state_suffix}.json"
     state_payload = {
         "artifact_version": "ao-domestic-poisson-state-v1",
         "state_cutoff_utc": cutoff,
         "source_matches": int(len(domestic)),
-        "source_data_sha256": _sha256(domestic_path),
+        "historical_source_data_sha256": _sha256(domestic_path),
+        "live_source_data_sha256": _sha256(live_path) if live_path is not None else None,
+        "live_results_included": live_path is not None,
         "identity_bridge_sha256": _sha256(bridge_path),
+        "coverage_audit_sha256": (
+            _sha256(coverage_audit_path) if coverage_audit_path is not None else None
+        ),
+        "excluded_ao_club_ids": ineligible_club_ids,
         "identity_map": {
             club_id: {
                 "league_id": identity[0],
@@ -172,16 +222,18 @@ def main() -> None:
             "sha256": _sha256(state_output),
             "state_cutoff_utc": cutoff,
             "mapped_ao_clubs": len(identity_map),
+            "production_eligible_ao_clubs": len(identity_map) - len(ineligible_club_ids),
+            "excluded_by_coverage_gate": len(ineligible_club_ids),
         },
         "evidence": {
             "source": "output/final_prediction_ensemble_backtest_2018_2026/selected_candidate.json",
             "development_matches": 6340,
             "unseen_matches": 4884,
-            "pooled_brier": 0.5680932199564515,
-            "pooled_log_loss": 0.9592418968185772,
-            "pooled_accuracy": 0.5538493038493039,
-            "delta_brier_vs_ao": -0.00399944549914677,
-            "delta_log_loss_vs_ao": -0.00512894042292622,
+            "pooled_brier": 0.561934871096546,
+            "pooled_log_loss": 0.9497915174563584,
+            "pooled_accuracy": 0.5614250614250614,
+            "delta_brier_vs_ao": -0.0044776562076448,
+            "delta_log_loss_vs_ao": -0.0064677297696585,
             "manual_operational_decision": True,
             "historical_gate_decision": "KEEP_SHADOW",
         },

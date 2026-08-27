@@ -56,7 +56,7 @@ def weighted_five_season_distribution(
     if len(values) != 5:
         raise ValueError("Exactly five historical finish values are required")
     observed: list[tuple[float, float]] = []
-    for value, weight in zip(values, FIVE_SEASON_WEIGHTS):
+    for value, weight in zip(values, FIVE_SEASON_WEIGHTS, strict=True):
         if value is None:
             continue
         number = float(value)

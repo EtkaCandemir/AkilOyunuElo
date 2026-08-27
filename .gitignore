@@ -13,3 +13,24 @@ data/**/_source_cache/
 
 .env.local
 .env.*.local
+
+.coverage
+
+.coverage.*
+
+data/domestic_league_expansion_ucl_uel/_source_cache/
+
+data/domestic_league_expansion_ucl_uel/_secondary_cache/
+
+data/domestic_league_expansion_ucl_uel/_live_2026_27_cache/
+
+data/domestic_league_expansion_ucl_uel/expansion_matches_primary.csv
+
+data/domestic_league_expansion_ucl_uel/expansion_matches_secondary.csv
+
+data/domestic_league_expansion_ucl_uel/expansion_matches_selected.csv
+
+reports/domestic_poisson_ucl_uel_expansion/unseen_predictions.csv
+
+reports/domestic_poisson_ucl_uel_expansion/domestic_poisson_feature_store.csv
+

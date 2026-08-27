@@ -1,0 +1,80 @@
+{
+  "activation_date": "2026-08-13",
+  "blend_contract": {
+    "ao_domestic_poisson_weight": 0.5,
+    "ao_poisson_internal": {
+      "ao_weight": 0.5,
+      "poisson_weight": 0.5
+    },
+    "current_ml_internal": {
+      "ao_weight": 0.1,
+      "ml_weight": 0.9
+    },
+    "current_ml_weight": 0.5,
+    "space": "LOG_PROBABILITY"
+  },
+  "config_id": "9c2ed2fad929252b",
+  "decision": "PROMOTE_WITH_MONITORING",
+  "domestic_config": {
+    "lambda_max": 4.5,
+    "lambda_min": 0.2,
+    "league_home_max": 0.5,
+    "league_home_min": -0.3,
+    "league_learning_ratio": 0.1,
+    "model_version": "ao-domestic-dynamic-poisson-v1-production-state",
+    "season_carry": 0.9,
+    "shrinkage_matches": 10.0,
+    "team_learning_rate": 0.02,
+    "team_parameter_cap": 1.0,
+    "venue_context": false,
+    "venue_parameter_cap": 0.75
+  },
+  "domestic_state_artifact": {
+    "mapped_ao_clubs": 312,
+    "path": "artifacts/production_prediction_ucl_uel_candidate/domestic_poisson_state_2026_27.json",
+    "sha256": "d06e400aa9f9d21cced126c809321c8e79cc4871f998b1de720a8c5788425dd9",
+    "state_cutoff_utc": "2026-08-20T19:00:00+00:00"
+  },
+  "evidence": {
+    "delta_brier_vs_ao": -0.00399944549914677,
+    "delta_log_loss_vs_ao": -0.00512894042292622,
+    "development_matches": 6340,
+    "historical_gate_decision": "KEEP_SHADOW",
+    "manual_operational_decision": true,
+    "pooled_accuracy": 0.5538493038493039,
+    "pooled_brier": 0.5680932199564515,
+    "pooled_log_loss": 0.9592418968185772,
+    "source": "output/final_prediction_ensemble_backtest_2018_2026/selected_candidate.json",
+    "unseen_matches": 4884
+  },
+  "fallback": "CURRENT_AO_1X2",
+  "family": "ML_DOMESTIC_POISSON_LOG_PROBABILITY_BLEND",
+  "ml_artifact": {
+    "feature_schema_sha256": "05195bc79e003d1d89936153720c487bbf6a62b090d4f98547dda65a79c79cdb",
+    "model_fingerprint": "e7c0cc2f44dd692a",
+    "path": "artifacts/production_prediction_ucl_uel_candidate/structural_logistic_v1.joblib",
+    "sha256": "221b422cc333fa9a65a7148343bbff58eb445bbc2b4df3b0c4f78b297276d0ff"
+  },
+  "model_version": "ao-ml-poisson-ensemble-v1-production",
+  "monitoring_season": "2026/27",
+  "rating_feedback": false,
+  "runtime": {
+    "joblib": "1.5.3",
+    "python": "3.14.0",
+    "scikit_learn": "1.8.0",
+    "scipy": "1.17.1"
+  },
+  "schema_version": "1.0",
+  "transfer_config": {
+    "attack_coefficient": 0.09209745423072817,
+    "defence_coefficient": 0.06065648173017676,
+    "elo_slope": 0.6663036964859297,
+    "l2_strength": 10.0,
+    "model_version": "ao-domestic-poisson-transfer-v1-production-rho0",
+    "mu": 0.28040079791632944,
+    "rho": 0.0,
+    "use_reliability": true,
+    "use_venue": false,
+    "venue_coefficient": 0.0
+  }
+}

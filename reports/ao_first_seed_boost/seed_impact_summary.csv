@@ -1,0 +1,4 @@
+arm,team_seasons,affected_team_seasons,affected_share,mean_boost_all,median_boost_all,mean_boost_affected,median_boost_affected,p90_boost,p95_boost,maximum_boost,cap_hits,negative_surprise_affected,minus_30_surprise_affected
+BASELINE,1413,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0,0,0
+BOOST_BLIND,1413,186,0.1316348195329087,5.700667758274411,0.0,43.30668571205239,38.57249604106619,19.273636118926923,49.254329987265024,150.0,1,43,5
+BOOST_DOMESTIC_FORM,1413,1,0.0007077140835102619,0.10615711252653928,0.0,150.0,150.0,0.0,0.0,150.0,1,1,0

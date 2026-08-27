@@ -1,0 +1,16 @@
+country_code,sportsdb_league_id,league_name,calendar_season,catalogue_verified_at,provider
+ALB,4617,Albanian Superliga,False,2026-08-21,THESPORTSDB_PREMIUM
+ARM,4619,Armenian Premier League,False,2026-08-21,THESPORTSDB_PREMIUM
+AZB,4693,Azerbaijani Premier League,False,2026-08-21,THESPORTSDB_PREMIUM
+BUL,4626,Bulgarian First League,False,2026-08-21,THESPORTSDB_PREMIUM
+CRO,4629,Croatian First Football League,False,2026-08-21,THESPORTSDB_PREMIUM
+GEO,4638,Georgian Erovnuli Liga,True,2026-08-21,THESPORTSDB_PREMIUM
+HUN,4690,Hungarian NB I,False,2026-08-21,THESPORTSDB_PREMIUM
+KAZ,4649,Kazakhstan Premier League,True,2026-08-21,THESPORTSDB_PREMIUM
+LIT,4651,Lithuanian TOPLYGA,True,2026-08-21,THESPORTSDB_PREMIUM
+ROM,4691,Romanian Liga I,False,2026-08-21,THESPORTSDB_PREMIUM
+SCO,4330,Scottish Premier League,False,2026-08-21,THESPORTSDB_PREMIUM
+SLO,4692,Slovenian 1. SNL,False,2026-08-21,THESPORTSDB_PREMIUM
+SRB,4671,Serbian Super Liga,False,2026-08-21,THESPORTSDB_PREMIUM
+SVK,4672,Slovak First Football League,False,2026-08-21,THESPORTSDB_PREMIUM
+UKR,4354,Ukrainian Premier League,False,2026-08-21,THESPORTSDB_PREMIUM

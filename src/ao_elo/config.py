@@ -48,9 +48,17 @@ class AOEuropeanEloConfig:
     percentile_scale: float = 0.70
     percentile_delta: float = 1.00
     champion_base_score: float = 1.00
-    unknown_league_finish_score: float = 0.10
+    # The percentile curve is defined on [percentile_floor, +scale]. An unknown
+    # position must not land below that floor, or absence of evidence would be
+    # punished harder than the worst possible evidence.
+    unknown_league_finish_score: float = 0.15
     cup_base_score: float = 0.62
     cup_double_bonus_multiplier: float = 0.08
+    # `max(L, C)` makes the cup a floor rather than a contribution. When the
+    # contribution is enabled the weaker of the two achievements is added with
+    # this weight, which is inert for non-cup-winners because min(L, C) = 0.
+    cup_contribution_enabled: bool = False
+    cup_contribution_weight: float = 0.0
     achievement_cap: float = 1.10
 
     domestic_surprise_enabled: bool = False
@@ -60,9 +68,17 @@ class AOEuropeanEloConfig:
     domestic_surprise_minimum_history_seasons: int = 5
 
     european_prior_max_boost: float = 420.0
+    # A season the club could not enter contributes zero UEFA points, which is
+    # arithmetically identical to a season it entered and scored nothing. The
+    # normalization renormalizes the weighted history over the participated
+    # weight only; it is neutral by construction at full participation.
+    european_participation_enabled: bool = False
+    european_participation_shrinkage: float = 0.0
     exposure_season_weight: float = 0.60
     exposure_match_weight: float = 0.40
-    max_european_exposure: float = 0.85
+    # The active production cap. A config built without an explicit value must
+    # inherit the shipped contract, not the superseded 0.85 research value.
+    max_european_exposure: float = 0.65
     country_tail_beta: float = 0.0
     european_tail_beta: float = 0.0
     exposure_tail_beta: float = 0.0
@@ -80,6 +96,11 @@ class AOEuropeanEloConfig:
             european_history_benchmark=european_history_benchmark,
             gamma=0.80,
             domestic_league_component=140.0,
+            # Pinned: 0.85 is the historical v1.1 cap, kept so the frozen
+            # regression pilots stay reproducible. Production uses 0.65.
+            max_european_exposure=0.85,
+            # Pinned to the historical v1.1 value for the same reason.
+            unknown_league_finish_score=0.10,
         )
 
     @classmethod
@@ -94,6 +115,9 @@ class AOEuropeanEloConfig:
             european_history_benchmark=european_history_benchmark,
             gamma=2.0,
             domestic_league_component=360.0,
+            # Pinned to the v1.1-era cap this candidate was rejected under.
+            max_european_exposure=0.85,
+            unknown_league_finish_score=0.10,
         )
 
     @classmethod
@@ -119,6 +143,14 @@ class AOEuropeanEloConfig:
             domestic_surprise_variance_penalty=0.50,
             domestic_surprise_max_abs_adjustment=30.0,
             domestic_surprise_minimum_history_seasons=5,
+            european_participation_enabled=True,
+            european_participation_shrinkage=0.20,
+            cup_contribution_enabled=True,
+            # champion_equivalent_weight(): cup_double_bonus_multiplier *
+            # champion_base_score / cup_base_score. Written out because the
+            # helper needs a config, and pinned by a test so it stays derived.
+            cup_contribution_weight=0.12903225806451613,
+            max_european_exposure=0.65,
             country_tail_beta=country_tail_beta,
             european_tail_beta=european_tail_beta,
             exposure_tail_beta=exposure_tail_beta,
@@ -203,6 +235,18 @@ class AOEuropeanEloConfig:
                 "domestic_surprise_max_abs_adjustment",
                 self.domestic_surprise_max_abs_adjustment,
             )
+        if not isinstance(self.european_participation_enabled, bool):
+            raise ValueError("european_participation_enabled must be boolean")
+        if not isinstance(self.cup_contribution_enabled, bool):
+            raise ValueError("cup_contribution_enabled must be boolean")
+        _require_between_zero_and_one(
+            "cup_contribution_weight",
+            self.cup_contribution_weight,
+        )
+        _require_non_negative(
+            "european_participation_shrinkage",
+            self.european_participation_shrinkage,
+        )
         _require_between_zero_and_one(
             "exposure_season_weight",
             self.exposure_season_weight,

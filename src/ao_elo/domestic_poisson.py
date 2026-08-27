@@ -490,10 +490,14 @@ def domestic_candidate_grid() -> tuple[DomesticPoissonConfig, ...]:
 def evaluate_domestic_candidates(
     matches: pd.DataFrame,
     candidates: Sequence[DomesticPoissonConfig] | None = None,
+    *,
+    require_full_grid: bool = True,
 ) -> pd.DataFrame:
     data = _validate_domestic_matches(matches)
     candidates = tuple(candidates or domestic_candidate_grid())
-    if len(candidates) != 54 or len({candidate.key for candidate in candidates}) != 54:
+    if not candidates or len({candidate.key for candidate in candidates}) != len(candidates):
+        raise ValueError("Domestic Poisson candidates must be non-empty and unique")
+    if require_full_grid and (len(candidates) != 54 or len({candidate.key for candidate in candidates}) != 54):
         raise ValueError("Expected 54 unique domestic Poisson candidates")
     rows: list[dict[str, object]] = []
     records = _domestic_records(data)

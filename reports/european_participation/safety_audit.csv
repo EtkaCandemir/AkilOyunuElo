@@ -1,0 +1,10 @@
+gate,passed,observed,requirement
+baseline_reproduces_production,True,4.547473508864641e-13,The baseline arm must reproduce the served seed
+full_participation_unchanged,True,4.547473508864641e-13,Complete five-season evidence must never move
+zero_participation_unchanged,True,0.0,A club that never entered must keep its seed
+control_arm_present,True,3,The blind control cannot be dropped
+candidate_beats_control,True,1.0,The candidate must beat the blind control on folds
+ranking_not_reliably_harmed,True,0.0034500345873881657,"Higher is better, so harm is an upper bound below zero"
+selection_stability,True,0.6666666666666666,Modal fold share at least 0.5
+seed_movement_bounded,True,97.42546727883975,p95 seed movement at most 100.0 Elo
+contract_sha256_unchanged,True,974dfd1fcf618b225d724ae8e6184e81fed9c83f1e054f80239d186535e9aae9,No production file may change during a research run

@@ -1,8 +1,8 @@
 # AO European Elo - Codex Project Context
 
-Son dogrulama tarihi: **2026-08-18**
+Son dogrulama tarihi: **2026-08-27**
 Aktif model: **`ao-european-elo-v2.0-dev-freeze`**  
-Production revision: **`2026-08-18-continuous-qualifier-retention-activation`**
+Production revision: **`2026-08-27-participation-cup-and-unknown-position`**
 
 Bu belge yeni bir Codex oturumunun projeyi sohbet gecmisine ihtiyac duymadan
 anlamasi icin ana giris noktasidir. Formul, veri ve metodoloji ayrintilari alt
@@ -45,12 +45,15 @@ Aktivasyon icin production contract ve active config ayni davranisi gostermelidi
 | Referans bandi | `500-2000`, hard cap degil |
 | Country benchmark | `25` |
 | European history benchmark | `20` |
+| European prior katilim normalizasyonu | Aktif, `k = 0.20` |
+| Kupa katkisi | Aktif, `w = 0.129032`; kupasizda inert |
+| Bilinmeyen lig sirasi | `0.15` = percentile tabani |
 | Bes sezon agirligi | `0.07 / 0.13 / 0.20 / 0.27 / 0.33` |
 | League strength gamma | `0.80` |
 | Domestic league component | `519.9049316696` |
 | Domestic achievement component | `594.1770647653` |
 | European prior max boost | `1559.7147950089` |
-| Effective exposure tavani | `0.85` |
+| Effective exposure tavani | `0.65` |
 | Country/European/exposure tail beta | `0 / 0 / 0` |
 | Domestic Surprise | `theta=0.40`, variance penalty `0.50`, cap `+/-30` |
 
@@ -89,6 +92,7 @@ prediction-only olduğu için rating state'ini değiştirmez.
 | Fallback | `CURRENT_AO_1X2` |
 | AO Live feedback | `false` |
 | Monitoring | `2026/27` |
+| Domestic state coverage | Checkpoint `312` kimlik denetler, runtime `311` uygun state kullanır; UCL/UEL hedef evreninde `79/80`, União Torreense için takım-bazlı Poisson profili kapalı (`ONE/NONE` güvenli davranış) |
 
 ## Hesap Akisi
 
@@ -100,7 +104,8 @@ flowchart TD
     C --> E["Domestic Prior"]
     D --> E
     B --> F["Club European history"]
-    F --> G["European Prior"]
+    F --> F2["Katilim normalizasyonu k=0.20"]
+    F2 --> G["European Prior"]
     B --> H["European Exposure"]
     E --> I["Exposure ile prior blend"]
     G --> I
@@ -177,8 +182,14 @@ flowchart TD
 | External benchmark (ClubElo + Opta) | `scripts/run_current_external_benchmark.py` |
 | Cup achievement challenger | `scripts/run_cup_achievement_backtest.py`, `src/ao_elo/cup_achievement.py` |
 | 2026/27 ML feature koprusu | `scripts/build_2026_27_prediction_features.py` |
+| 2026/27 sezon seed ve CW veri snapshot'i | `scripts/build_2026_27_preproduction_inputs.py`, `data/season_2026_27_preproduction/domestic_history_audit.csv`, `data/season_2026_27_preproduction/cw_domestic_evidence_audit.csv` |
 | Cok sezonlu xG ve katman dogrulamasi | `scripts/run_xg_multiseason_backtest.py`, `data/xg_2020_2026/` |
 | xG bilgili gol beklentisi | `src/ao_elo/xg_goal_model.py`, `scripts/run_xg_goal_expectation_backtest.py` |
+| xG formu domestic attack/defence uzerinde | `src/ao_elo/xg_domestic_goal_model.py`, `scripts/run_xg_domestic_goal_expectation_backtest.py` |
+| Domestic Surprise guclendirme | `src/ao_elo/domestic_surprise_amplification.py`, `scripts/run_domestic_surprise_amplification_backtest.py` |
+| European prior katilim normalizasyonu | `src/ao_elo/european_participation.py`, `scripts/run_european_participation_backtest.py` |
+| Exposure cap x katilim etkilesimi | `scripts/run_participation_exposure_interaction.py` |
+| AO First seed asimetrisi arastirmasi | `src/ao_elo/ao_first_seed_boost.py`, `scripts/run_ao_first_seed_boost_backtest.py` |
 
 ## Yeni Bir Gorevde Uygulanacak Protokol
 
@@ -197,8 +208,12 @@ flowchart TD
   prospective holdout degildir.
 - 2026/27 eleme maclari freeze oncesi basladigi icin prospective ledger lig
   asamasi ve sonrasinda kilitlenecektir.
-- Cok sezonlu xG kapsami yoktur; 2025/26'da 606 uygun mac, digerlerinde buyuk
-  olcude goal-margin fallback vardir.
+- Cok sezonlu xG kapsami 2020/21-2025/26 doneminde 2.827 uygun maca ulasir.
+  Kapsama ana asamada `%98,7`, on elemelerde yalniz `%11` oldugu icin qualifier
+  maclarinin buyuk bolumunde goal-margin fallback devam eder.
 - Global ev sahibi avantaji sabittir; takim bazli home-context aktif degildir.
 - Progression katmaninin pooled loss katkisi pratikte sifira yakindir ve manuel
   urun karariyla aktiftir.
+- 2026/27 seed verisinde yerel pozisyon ve takim sayisi, katilimi belirleyen son
+  tamamlanmis domestic sezondan gelir. `CW` rotasi eski sezon tablosuna fallback
+  yapamaz; bulunamayan takim `N/A` ve acik audit status'u ile tutulur.

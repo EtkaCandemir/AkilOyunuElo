@@ -93,13 +93,23 @@ Ek kurallar:
 | Durum | Değer |
 | --- | ---: |
 | Lig şampiyonu | En az `1.00` |
-| Lig sırası bilinmiyor | `0.10` |
+| Lig sırası bilinmiyor | `0.15` (percentile tabanı) |
 | Kupa şampiyonu | `0.62` |
-| Gerçek lig + kupa dublesi | `0.08 * League Finish Score` |
+| Kupa katkısı | `0.129032 * min(League Finish, Cup Base)` |
 | Achievement güvenlik tavanı | `1.10` |
 
-Yalnız kupa kazanan takım duble bonusu almaz. Şampiyonluk bilgisi ile lig
-sırası çelişemez.
+`max` tek başına kupayı bir **taban** yapar: lig skoru `0.62`'nin üstünde olan
+kupa şampiyonu kupasından hiç kredi almaz. Katkı terimi bu boşluğu kapatır ve
+iki başarının zayıf olanını gerçek bir katkı olarak ekler.
+
+Ağırlık türetilmiştir: `0.08 * 1.00 / 0.62 = 0.129032`. Bu seçim önceki kuralın
+zaten ödüllendirdiği grubu **birebir korur** — şampiyon+kupa toplamı iki kuralda
+da `1.0800`. Kupa kazanmayan takımda `min(L, C) = 0` olduğu için katman inerttir
+ve achievement'ı asla düşürmez.
+
+Bilinmeyen lig sırası percentile eğrisinin tabanında (`0.15`) durur; daha düşük
+bir değer kanıt yokluğunu bilinen son sıradan ağır cezalandırırdı.
+Şampiyonluk bilgisi ile lig sırası çelişemez.
 
 ```text
 Achievement Scale = 0.40 + 0.60 * League Strength
@@ -142,7 +152,27 @@ Kulübün kendi beş sezonluk Avrupa puanı ülke puanından ayrı hesaplanır:
 
 ```text
 Weighted European History = sum(w_i * club_points_i)
-u_europe = log(1 + Weighted European History) / log(1 + 20)
+```
+
+**Katılım normalizasyonu.** Avrupa'ya girilmeyen sezon `0` puan katkısı yapar
+ve bu, girilip hiç puan alınamayan sezonla aritmetik olarak aynıdır. Prior bu
+ikisini ayırt edemediği için ağırlıklı toplam, kulübün gerçekten girebildiği
+ağırlığa göre normalize edilir:
+
+```text
+pw = sum(w_i * played_i)
+
+European History Rate = Weighted European History * (1 + 0.20) / (pw + 0.20)
+European History Rate = 0,  pw = 0 ise
+```
+
+`(1 + k)` çarpanı bölünende durduğu için `pw = 1` olduğunda oran yayınlanmış
+history'nin birebir aynısı olur: beş sezonun tamamında oynamış kulüp **tanım
+gereği hiç hareket etmez**. Düzeltme yalnız gerçek katılım boşluğu kadardır ve
+ratingi asla düşüremez. Exposure ağırlığına dokunulmaz.
+
+```text
+u_europe = log(1 + European History Rate) / log(1 + 20)
 European History Norm = min(u_europe, 1)
 
 European Prior = 500 + 1559.7147950089 * European History Norm
@@ -161,11 +191,11 @@ Season Exposure = sum(w_i * played_i)
 Match Exposure  = sum(w_i * min(1, matches_i / match_cap_i))
 
 European Exposure = 0.60 * Season Exposure + 0.40 * Match Exposure
-Effective Exposure = min(European Exposure, 0.85)
+Effective Exposure = min(European Exposure, 0.65)
 ```
 
-`0.85` tavanı, Avrupa geçmişi çok güçlü olsa bile Domestic Prior'ın en az
-%15'inin final ratingde kalmasını sağlar.
+`0.65` tavanı, Avrupa geçmişi çok güçlü olsa bile Domestic Prior'ın en az
+%35'inin final ratingde kalmasını sağlar.
 
 ### 1.6 Nihai Başlangıç Ratingi
 
@@ -372,9 +402,13 @@ Hedef maçın sonucu, skoru veya maç sonrası ratingi feature değildir.
 
 #### Domestic Poisson
 
-Yerel lig katmanı, `45.423` maç, `19` lig ve `508` kaynak takım üzerinde
-takım hücum/savunma profilleri öğrenmiştir. `171` kulüp AO kimliğine güvenle
-eşlenmiştir.
+Yerel lig katmanı, tarihsel 19-lig çekirdeği ile UCL/UEL kapsama genişletmesini
+birlikte kullanır. Checkpoint `312` doğrulanmış AO kulüp kimliğini denetim
+amacıyla saklar; production runtime bunların `311`ini Poisson için uygun kabul
+eder. Güncel UCL/UEL hedef evreninde `79/80` kulüp yeterli yerel kanıta
+sahiptir. União Torreense iki sezon/40 maç güvenlik eşiğini geçmediği için
+takım-bazlı Poisson profili kapalıdır; ilgili maç `ONE` veya `NONE` coverage
+ile güvenli AO ağırlıklı fallback davranışına döner.
 
 Aktif yerel state parametreleri:
 
@@ -410,8 +444,11 @@ olarak loglanır. Tahmin katmanı hiçbir durumda rating state'ini değiştirmez
 | Sezon ağırlıkları | `0.07 / 0.13 / 0.20 / 0.27 / 0.33` |
 | Country benchmark / gamma / tail | `25 / 0.80 / 0` |
 | European benchmark / tail | `20 / 0` |
+| Katılım normalizasyonu | Aktif, `k = 0.20`; tam katılımda nötr |
+| Kupa katkısı | Aktif, `w = 0.129032`; kupasızda inert |
+| Bilinmeyen lig sırası | `0.15` = percentile tabanı |
 | Exposure birleşimi | `%60 sezon + %40 maç` |
-| Effective exposure tavanı | `0.85` |
+| Effective exposure tavanı | `0.65` |
 | Domestic Surprise | `0.40`, variance penalty `0.50`, cap `+/-30` |
 | Dynamic Scale / H / K | `835.5615 / 148.5443 / 103.9810` |
 | Power carry | `0` |
@@ -436,24 +473,32 @@ Avrupa maçında değerlendirilmiştir:
 
 | Model | Brier | Log-loss | Accuracy | Spearman | Pairwise |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Reference core | `0.573699` | `0.967369` | `0.547297` | `0.668059` | `0.752024` |
-| Current AO rating core | `0.572093` | `0.964371` | `0.550164` | `0.672160` | `0.753519` |
+| Reference core | `0.568053` | `0.959174` | `0.554464` | `0.681487` | `0.758195` |
+| Current AO rating core | `0.566413` | `0.956259` | `0.559173` | `0.683258` | `0.759421` |
 
-Production tahmin katmanı aynı unseen maçlarda:
+Referans kolu da aktif `0.65` exposure cap'iyle seed'lenir. Daha önce
+yayımlanan `0.573699` referans değeri, bayat bir manifest üzerinden `0.85` cap
+ile üretilmişti ve exposure kararının kazancını feature katkısı gibi
+gösteriyordu.
+
+Production tahmin katmanı aynı unseen maçlarda. Bu tablo
+`reports/production_prediction/` paketinden gelir. İki paketin AO kolu artık
+aynı sayıdır (`0.566413`): ensemble paketi katılım normalizasyonu
+aktivasyonuyla birlikte yeniden üretilmiştir.
 
 | Tahmin | Brier | Log-loss | Accuracy |
 | --- | ---: | ---: | ---: |
-| Current AO 1X2 | `0.572093` | `0.964371` | `0.550164` |
-| Current ML | `0.568690` | `0.960458` | `0.552007` |
-| AO Poisson | `0.569044` | `0.960298` | `0.553235` |
-| Production ML + Poisson | **`0.568093`** | **`0.959242`** | **`0.553849`** |
+| Current AO 1X2 | `0.566413` | `0.956259` | `0.559173` |
+| Current ML | `0.562524` | `0.950903` | `0.560606` |
+| AO Poisson | `0.564199` | `0.953042` | `0.560606` |
+| Production ML + Poisson | **`0.561935`** | **`0.949792`** | **`0.561425`** |
 
 Production ensemble'ın Current AO'ya farkı:
 
 ```text
-Brier     -0.003999
-Log-loss  -0.005129
-Accuracy  +0.003686
+Brier     -0.004478
+Log-loss  -0.006468
+Accuracy  +0.002252
 ```
 
 Bu sonuçlar geliştirme dönemi walk-forward kanıtıdır; bağımsız 2026/27

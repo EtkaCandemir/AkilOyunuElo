@@ -64,6 +64,19 @@ def main() -> None:
     parser.add_argument("--feature-root", type=Path, default=FEATURE_ROOT)
     parser.add_argument("--output-root", type=Path, default=OUTPUT_ROOT)
     parser.add_argument("--bootstrap-samples", type=int, default=4000)
+    parser.add_argument(
+        "--variance-penalty",
+        type=float,
+        default=None,
+        help=(
+            "Pin the emitted candidate to this variance penalty instead of "
+            "re-selecting one from the surface. Rebuilding the seed after an "
+            "unrelated activation would otherwise silently re-open this "
+            "parameter; pinning it to the value the production contract "
+            "declares keeps the rebuild a propagation rather than a new "
+            "selection. Default preserves the automatic choice."
+        ),
+    )
     args = parser.parse_args()
 
     features_path = args.feature_root.resolve() / "domestic_surprise_features.csv"
@@ -195,8 +208,24 @@ def main() -> None:
     )
     distribution = adjustment_distribution(adjustments, candidates)
     selected_gamma = select_gamma(decisions)
+    if args.variance_penalty is not None:
+        requested = float(args.variance_penalty)
+        available = sorted({config.variance_penalty for config in candidates})
+        if not any(abs(requested - value) <= 1e-12 for value in available):
+            raise ValueError(
+                f"--variance-penalty {requested} is not on the evaluated surface {available}"
+            )
+        if abs(requested - selected_gamma) > 1e-12:
+            print(
+                f"Pinning variance penalty to {requested:g}; the surface would "
+                f"have selected {selected_gamma:g}",
+                flush=True,
+            )
+        selected_gamma = requested
     selected_config = next(
-        config for config in candidates if config.variance_penalty == selected_gamma
+        config
+        for config in candidates
+        if abs(config.variance_penalty - selected_gamma) <= 1e-12
     )
     selected_adjustments = adjustments[selected_config].copy()
 

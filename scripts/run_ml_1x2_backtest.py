@@ -49,6 +49,17 @@ def main() -> None:
     parser.add_argument("--output-root", type=Path, default=OUTPUT_ROOT)
     parser.add_argument("--bootstrap-samples", type=int, default=4000)
     parser.add_argument("--reuse-feature-store", action="store_true")
+    parser.add_argument(
+        "--blend-weight",
+        type=float,
+        default=None,
+        help=(
+            "Pin the served AO/ML blend weight instead of re-selecting one. "
+            "Rebuilding after an unrelated activation would otherwise "
+            "silently re-open a parameter the 2026/27 holdout protocol "
+            "freezes. Default preserves the automatic choice."
+        ),
+    )
     args = parser.parse_args()
     output = args.output_root.resolve()
     output.mkdir(parents=True, exist_ok=True)
@@ -79,6 +90,7 @@ def main() -> None:
     result = run_ml_walk_forward_backtest(
         features,
         bootstrap_samples=args.bootstrap_samples,
+        pinned_blend_weight=args.blend_weight,
     )
     result.candidate_surface.to_csv(output / "candidate_surface.csv", index=False)
     result.fold_selections.to_csv(output / "fold_selections.csv", index=False)

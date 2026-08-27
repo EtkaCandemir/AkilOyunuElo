@@ -1045,7 +1045,7 @@ def settle_locked_match(
     )
     if any(
         not math.isclose(locked, current, rel_tol=0.0, abs_tol=1e-12)
-        for locked, current in zip(locked_1x2, current_1x2)
+        for locked, current in zip(locked_1x2, current_1x2, strict=True)
     ):
         raise ValueError("Locked 1X2 probabilities do not match current state")
 
@@ -1064,7 +1064,7 @@ def settle_locked_match(
     )
     if any(
         not math.isclose(locked, settled, rel_tol=0.0, abs_tol=1e-12)
-        for locked, settled in zip(locked_1x2, update_1x2)
+        for locked, settled in zip(locked_1x2, update_1x2, strict=True)
     ):
         raise ValueError("Settlement changed the locked 1X2 probabilities")
     return updated_state, update

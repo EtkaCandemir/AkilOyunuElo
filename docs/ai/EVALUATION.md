@@ -48,21 +48,35 @@ engeller.
 
 | Model | Mac | Brier | Log-loss | Accuracy | Spearman | Pairwise |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| AO rating core 1X2 | 4,884 | `0.572093` | `0.964371` | `0.5502` | `0.672160` | `0.753519` |
-| Reference core | 4,884 | `0.573699` | `0.967369` | `0.5473` | `0.668059` | `0.752024` |
-| Current - reference | | `-0.001606` | `-0.002999` | `+0.0029` | `+0.004101` | `+0.001495` |
+| AO rating core 1X2 | 4,884 | `0.566413` | `0.956259` | `0.5592` | `0.683258` | `0.759421` |
+| Reference core | 4,884 | `0.568053` | `0.959174` | `0.5545` | `0.681487` | `0.758195` |
+| Current - reference | | `-0.001640` | `-0.002915` | `+0.0047` | `+0.001771` | `+0.001226` |
 
-Dusuk Brier/log-loss daha iyidir. Current model Brier, log-loss, same-season
-Spearman ve pairwise metriklerinde `6/6` fold yon kazanimi uretmistir.
+Dusuk Brier/log-loss daha iyidir. Current model Brier ve log-loss'ta `6/6`,
+same-season Spearman ve pairwise metriklerinde `5/6` fold yon kazanimi
+uretmistir.
+
+Referans kolu da aktif `0.65` exposure cap'iyle seed'lenir. Onceki yayimlanmis
+referans (`0.573699`, fark `-0.004411`) bayat bir static manifest uzerinden
+`0.85` cap ile uretiliyordu; bu, `§2`'nin acikca engellemek istedigi seyi
+yapiyor ve exposure kararinin kendi kazancini feature katkisi gibi
+gosteriyordu. Manifest duzeltildikten sonra `CURRENT_PRODUCTION` degerleri
+degismedi; yalniz referans ve no-surprise kollari duzeldi.
 
 Bu tablo rating motorunun kendi 1X2 ayrisimini degerlendirir. Kullaniciya
 sunulan aktif prediction-only ensemble ayri backtestte:
 
 | Model | Mac | Brier | Log-loss | Accuracy |
 | --- | ---: | ---: | ---: | ---: |
-| AO rating core 1X2 | 4,884 | `0.572093` | `0.964371` | `0.550164` |
-| %50 Current ML + %50 AO Domestic Poisson | 4,884 | `0.568093` | `0.959242` | `0.553849` |
-| Ensemble - AO | | `-0.003999` | `-0.005129` | `+0.003686` |
+| AO rating core 1X2 | 4,884 | `0.566413` | `0.956259` | `0.559173` |
+| %50 Current ML + %50 AO Domestic Poisson | 4,884 | `0.561935` | `0.949792` | `0.561425` |
+| Ensemble - AO | | `-0.004478` | `-0.006468` | `+0.002252` |
+
+Iki tablonun AO kolu artik ayni sayidir (`0.566413`): ensemble paketi
+katilim normalizasyonu aktivasyonuyla birlikte yeniden uretilmistir. Servis
+edilen katmanin AO'ya kattigi deger aktivasyondan once `-0.004450`, sonra
+`-0.004478` olarak olculmustur; yani seed degisimi katmanin faydasini
+korumaktadir. Ayrinti: `reports/participation_served_ensemble/`.
 
 Ensemble Current ML'ye karsi Brier ve log-loss'ta `4/6` fold kazanmistir.
 Dependency uncertainty otomatik terfi kapisini gecmedigi icin tarihsel karar
@@ -73,27 +87,30 @@ Dependency-robust pooled farklar:
 
 | Metrik | Ortalama fark | %95 CI | Yorum |
 | --- | ---: | --- | --- |
-| Brier | `-0.001606` | `[-0.002646,-0.000720]` | Guvenilir iyilesme |
-| Log-loss | `-0.002999` | `[-0.005207,-0.001124]` | Guvenilir iyilesme |
+| Brier | `-0.001640` | `[-0.002905,-0.000538]` | Guvenilir iyilesme |
+| Log-loss | `-0.002915` | `[-0.005270,-0.000946]` | Guvenilir iyilesme |
 
 ## 4. Fold Sonuclari
 
 | Test sezonu | Mac | Brier farki | Log-loss farki | Accuracy farki |
 | --- | ---: | ---: | ---: | ---: |
-| 2020/21 | 540 | `-0.005449` | `-0.012849` | `0.0000` |
-| 2021/22 | 816 | `-0.000657` | `-0.001050` | `0.0000` |
-| 2022/23 | 804 | `-0.001255` | `-0.001857` | `+0.0050` |
-| 2023/24 | 806 | `-0.001041` | `-0.002031` | `0.0000` |
-| 2024/25 | 957 | `-0.000766` | `-0.001406` | `+0.0042` |
-| 2025/26 | 961 | `-0.001858` | `-0.002471` | `+0.0062` |
+| 2020/21 | 540 | `-0.006610` | `-0.013642` | `+0.0037` |
+| 2021/22 | 816 | `-0.000565` | `-0.000950` | `-0.0012` |
+| 2022/23 | 804 | `-0.003059` | `-0.004303` | `+0.0050` |
+| 2023/24 | 806 | `-0.000243` | `-0.000908` | `0.0000` |
+| 2024/25 | 957 | `-0.000343` | `-0.000687` | `+0.0021` |
+| 2025/26 | 961 | `-0.001036` | `-0.001293` | `+0.0166` |
+
+Brier ve log-loss `6/6` foldda olumlu yondedir. Accuracy `4/6` foldda
+olumlu, birinde notr, 2021/22'de hafif negatiftir.
 
 ## 5. Turnuva Segmentleri
 
 | Turnuva | Mac | Current Brier | Current log-loss | Brier farki | Log-loss farki |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| UCL | 1,384 | `0.553089` | `0.935921` | `-0.001803` | `-0.003785` |
-| UEL | 1,427 | `0.576234` | `0.970406` | `-0.002860` | `-0.005165` |
-| UECL | 2,073 | `0.581929` | `0.979211` | `-0.000611` | `-0.000982` |
+| UCL | 1,384 | `0.550058` | `0.932333` | `-0.002542` | `-0.004804` |
+| UEL | 1,427 | `0.566628` | `0.956206` | `-0.002455` | `-0.004253` |
+| UECL | 2,073 | `0.577183` | `0.972269` | `-0.000477` | `-0.000732` |
 
 Uc turnuvada da pooled yon olumludur. UCL mutlak loss olarak en guclu,
 UECL en zor segmenttir.
@@ -103,16 +120,53 @@ UECL en zor segmenttir.
 Pozitif `cost_when_disabled`, katman kapatildiginda loss'un arttigini ve aktif
 katmanin fayda sagladigini gosterir.
 
-| Kapatilan katman | Brier maliyeti | Log-loss maliyeti |
-| --- | ---: | ---: |
-| Single-match draw | `+0.000658` | `+0.001617` |
-| Domestic Surprise | `+0.000491` | `+0.000722` |
-| xG performance | `+0.000242` | `+0.000353` |
-| Goal margin | `+0.000194` | `+0.000274` |
-| Progression | `-0.0000001` | `-0.0000005` |
+| Kapatilan katman | Brier maliyeti | Log-loss maliyeti | Brier %95 CI | Guvenilir zarar |
+| --- | ---: | ---: | --- | :--: |
+| Single-match draw | `+0.000714` | `+0.001602` | `[+0.000003,+0.001688]` | evet |
+| xG performance | `+0.000674` | `+0.000971` | `[+0.000036,+0.001369]` | evet |
+| Domestic Surprise | `+0.000132` | `+0.000186` | `[-0.000189,+0.000401]` | hayir |
+| Goal margin | `+0.000061` | `+0.000079` | `[-0.000126,+0.000234]` | hayir |
+| Kupa katkisi | `+0.000022` | `+0.000041` | `[-0.000202,+0.000217]` | hayir |
+| Progression | `-0.0000003` | `-0.0000008` | `[-0.000006,+0.000005]` | hayir |
 
-Progression prediction loss'a olculebilir katkida bulunmamistir; aktif kalmasi
-istatistiksel terfiden cok manuel urun/achievement kararidir.
+Bu tablo alti sezonluk xG haritasiyla ve her iki kolda ayni `0.65` exposure
+cap'iyle uretilmistir. Iki eski kopya sinifi stale kabul edilmelidir: tek
+sezonluk xG haritasiyla uretilenlerde xG `+0.000242` gorunur, bayat `0.85`
+referans seed'iyle uretilenlerde Domestic Surprise `+0.002726` ile birinci
+sirada gorunur. Ikinci sayinin `+0.00225`lik fazlasi exposure cap kararinin
+kendi kazancidir, katmanin degeri degildir.
+
+Brier ekseninde kapatilmasi guvenilir zarar veren **iki** katman vardir: tek
+mac beraberlik format duzeltmesi ve bounded xG. Ikisinde de log-loss ekseni
+ayni sonucu vermez; tek mac katmaninin log-loss CI'si sifiri keser.
+
+**Tek mac beraberlik katmani icin onemli bir kanit siniri vardir ve bu sinir
+yukaridaki "evet" isaretinden daha belirleyicidir.** Katmanin ornekleminde
+`224` tek mac vardir ve bunlarin `200`'u (`%89`) yalniz `2020/21` COVID
+sezonundan gelir; COVID sonrasi segment (`2021/22+`) yalnizca `24` mactir.
+Brier CI'sinin alt siniri `+0.000003`, yani sifiri yedinci hanede keser -
+mumkun olan en zayif "guvenilir" verdikt. COVID sonrasi segment ayni yonu
+gosterir (`-0.016` Brier) ama `24` macla. Bu katmani `2827` uygun maca
+dayanan bounded xG ile ayni guven sinifinda sunmak yaniltici olur; format
+duzeltmesi yapisal gerekceyle aktiftir, orneklem gucuyle degil. Segment
+ayrintisi `reports/single_match_draw_backtest/segment_summary.csv`
+icindedir.
+
+Domestic Surprise'in maliyeti pozitif fakat CI'si sifiri kesiyor; katman
+`ACTIVE` kalir cunku aktivasyonu zaten manuel urun karariydi, ancak
+"olculebilir en degerli katman" iddiasi gecerli degildir. Katilim
+normalizasyonu aktive edilince Surprise'in maliyeti `+0.000287` ->
+`+0.000132`ye iner: iki katman kismen ayni kutleye - Avrupa kaniti ince
+kulupler - dokunur, dolayisiyla katilim duzeltmesi Surprise'in tasidigi isin
+bir kismini ustlenir.
+
+Kupa katkisi genellestirildikten sonra o kolun maliyeti **isaret degistirdi**:
+duble bonusu doneminde `-0.000080` (kapatmak iyilestiriyordu) iken simdi
+`+0.000022` (kapatmak hafifce kotulestiriyor). Fark hala guvenilir degildir,
+ama katmanin artik modele karsi degil lehine calistigini gosterir.
+
+Progression prediction loss'a olculebilir katkida bulunmamistir. Ayrintili
+tartisma `RESEARCH_STATUS` `§6`'dadir.
 
 ## 7. AO First Elo Etkisi
 
@@ -121,27 +175,28 @@ Domestic Surprise'in 1,887 takim-sezonundaki etkisi:
 | Olcu | Deger |
 | --- | ---: |
 | Degisen takim-sezon | 1,412 (`%74.8`) |
-| Ortalama mutlak AO First farki | `5.68` |
-| Medyan mutlak fark | `2.02` |
+| Ortalama mutlak AO First farki | `6.58` |
+| Medyan mutlak fark | `3.68` |
 | P90 | `19.94` |
 | P95 | `25.09` |
 | Maksimum pozitif | `+30.00` |
 | Maksimum negatif | `-28.19` |
-| Ortalama mutlak rank degisimi | `2.13` |
+| Ortalama mutlak rank degisimi | `2.29` |
 
 Exposure arttikca AO First'e yansiyan Surprise azalir. Ortalama mutlak etki
-exposure `0` bandinda `7.90`, `(0.75,1]` bandinda `1.72` Elo'dur.
+exposure `0` bandinda `7.90`, `(0.50,0.75]` bandinda `4.29` Elo'dur. Aktif
+cap `0.65` oldugu icin `(0.75,1]` bandi bostur.
 
 ## 8. Forward Ranking
 
 Bes sezon gecisinde:
 
 ```text
-Current forward Spearman = 0.468478
-Reference               = 0.467063
+Current forward Spearman = 0.475864
+Reference                = 0.472581
 
-Current forward pairwise = 0.658162
-Reference                = 0.657936
+Current forward pairwise = 0.661164
+Reference                = 0.659794
 ```
 
 Same-season ranking diagnostiktir; forward ranking sezon sonu ratingini bir
@@ -196,21 +251,23 @@ fit edilir ve iki tarafa ayni beraberlik modeli uygulanir:
 ```text
 Climatology (walk-forward)   Brier 0.642983  log-loss 1.062634
 ClubElo (yayinlanmis 400)    Brier 0.574983  log-loss 0.966819
-AO rating cekirdegi          Brier 0.587835  log-loss 0.987568
-AO servis edilen ensemble    Brier 0.585941  log-loss 0.982793
+AO rating cekirdegi          Brier 0.577244  log-loss 0.972194
+AO servis edilen ensemble    Brier 0.578708  log-loss 0.972945
 ```
 
-Servis edilen kolun tabana karsi becerisi Brier'da `-8.87%`. ClubElo nokta
-tahmininde ondedir fakat dort karsilastirmanin dordunde de conservative zarf
-sifiri keser; yani fark guvenilir degildir. Turnuva kiriliminda AO, UEL ve
-UECL'de ClubElo'yu gecer, acik tamamen UCL'den gelir.
+ClubElo nokta tahmininde hala ondedir fakat acik katilim normalizasyonu
+aktivasyonuyla belirgin sekilde daralmistir: AO cekirdeginin ClubElo'ya
+Brier farki `+0.012852` -> `+0.002261`, servis edilen kolunki `+0.010958`
+-> `+0.003725`. Dort karsilastirmanin dordunde de conservative zarf sifiri
+keser; yani hicbir yonde guvenilir fark yoktur.
 
 Eksen 2, sezon basi ratingleri gerceklesen 2025/26 performansina karsi puanlar.
 Hedef, hicbir ratingden etkilenmeyen leave-team-out schedule-adjusted skordur:
 
 ```text
 rating                            reference_type  Spearman  pairwise
-AO First Elo                      MODEL           0.416620  0.644052
+AO First Elo                      MODEL           0.423272  0.647167
+AO First Elo, Surprise kapali     MODEL_ABLATION  0.421493  0.646262
 Opta pre-season                   EXTERNAL        0.486618  0.671870
 UEFA kulup katsayisi (pre-season) OWN_INPUT       0.268334  0.596310
 ```
@@ -218,14 +275,40 @@ UEFA kulup katsayisi (pre-season) OWN_INPUT       0.268334  0.596310
 Eslesmis Spearman farklari:
 
 ```text
-AO - Opta              -0.070047   95% CI [-0.118927, -0.018841]  Opta guvenilir
-AO - UEFA katsayisi    +0.147080   95% CI [+0.050283, +0.250136]  AO guvenilir
+AO - Opta                        -0.063319   95% CI [-0.106158, -0.020041]  Opta guvenilir
+AO - UEFA katsayisi              +0.153808   95% CI [+0.056536, +0.257488]  AO guvenilir
+AO - AO(Surprise kapali)         +0.001779   95% CI [-0.004942, +0.008528]  guvenilir degil
+AO(Surprise kapali) - Opta       -0.065098   95% CI [-0.107604, -0.022454]  Opta guvenilir
 ```
 
+#### Domestic Surprise seed ekseninde
+
+`MODEL_ABLATION` kolu, katmanin gerekcesi olan ekseni olcer: mac tahmini degil,
+sezon basi seed kalitesi. Katman `236` takimin `181`ini oynatir, ortalama
+mutlak hareket `8.90` Elo, maksimum `30.00` Elo.
+
+Yon olumludur - gerceklesen performansa karsi `+0.001779` Spearman, ve Opta
+acigini `-0.065098`den `-0.063319`e daraltir - fakat CI sifiri kesiyor. Iki
+seed `0.998326` Spearman ile ortusuyor, dolayisiyla eslesmis testin ayirt
+edebilecegi alan zaten dardir: CI genisligi (`~0.013`) etkinin kendisinden
+(`~0.0018`) cok buyuktur. Tek sezon ve `236` takimla bu buyuklukte bir etki
+olculemez; sonuc katmanin degersiz oldugunu degil, mevcut orneklemin karar
+vermeye yetmedigini gosterir.
+
+Not: bu sayi katilim normalizasyonu aktive edilmeden once `+0.002517` idi.
+Iki katman kismen ayni kutleye dokundugu icin, katilim duzeltmesi devreye
+girince Surprise'in seed ekseninde tasidigi pay kuculdu.
+
+Bu, mac loss ekseniyle ayni sonucu verir (`§6`): isaret pozitif, buyukluk
+kucuk, guvenilirlik yok. Katmanin lehine ve aleyhine karar `2026/27`
+prospective veriye birakilmistir.
+
 Iki sonuc birlikte modelin yerini kesin olarak konumlandirir. AO First Elo,
-tukettigi ham UEFA katsayisinin `+0.147` Spearman uzerindedir ve bu fark
+tukettigi ham UEFA katsayisinin `+0.154` Spearman uzerindedir ve bu fark
 guvenilirdir: statik pipeline karmasikligini hak eder. Ayni zamanda ticari Opta
-siralamasinin `-0.070` altindadir ve bu fark da guvenilirdir.
+siralamasinin `-0.063` altindadir ve bu fark da guvenilirdir. Katilim
+normalizasyonu ve kupa katkisi aktivasyonlari bu acigi `-0.069`dan
+`-0.063`e daraltmistir.
 
 UEFA katsayisi kolu bagimsiz benchmark degildir; `club_points_t_*` girdileri o
 katsayinin bilesenleridir. `reference_type=OWN_INPUT` etiketi bir unit testle

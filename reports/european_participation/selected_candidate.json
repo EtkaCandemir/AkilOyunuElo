@@ -1,0 +1,13 @@
+{
+  "all_gates_passed": true,
+  "baseline_seed_spearman": 0.4597681129660161,
+  "candidate_seed_spearman": 0.46920211125177935,
+  "candidate_vs_baseline": 0.009433998285763245,
+  "control_seed_spearman": 0.45730335014826706,
+  "control_vs_baseline": -0.0024647628177490444,
+  "decision": "PROMOTE_CANDIDATE",
+  "production_change": false,
+  "production_contract_sha256": "974dfd1fcf618b225d724ae8e6184e81fed9c83f1e054f80239d186535e9aae9",
+  "ranking_reliable_improvement_vs_baseline": true,
+  "ranking_reliable_improvement_vs_control": true
+}

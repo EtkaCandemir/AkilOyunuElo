@@ -92,18 +92,50 @@ def elo_z(
     return math.log(10.0) * difference / float(elo_scale)
 
 
+def form_prior(frame: pd.DataFrame, source: FormSource) -> float:
+    """Return the centering level `build_form_features` would derive itself.
+
+    Exposed so a walk-forward caller can compute it from training rows only
+    and hand it back in, keeping the one global constant out of the test
+    season.
+    """
+
+    if source == "none":
+        return 0.0
+    if source == "goals":
+        if frame.empty:
+            raise ValueError("goal form requires at least one match")
+        return float(
+            (frame["home_goals"].sum() + frame["away_goals"].sum()) / (2.0 * len(frame))
+        )
+    if source != "xg":
+        raise ValueError(f"unknown form source: {source}")
+    eligible = frame.loc[frame["xg_analysis_eligible"].astype(bool)]
+    if eligible.empty:
+        raise ValueError("xG form requires at least one eligible match")
+    return float(
+        (eligible["xg_home"].sum() + eligible["xg_away"].sum()) / (2.0 * len(eligible))
+    )
+
+
 def build_form_features(
     frame: pd.DataFrame,
     source: FormSource,
     *,
     window: int = DEFAULT_WINDOW,
     shrinkage: float = DEFAULT_SHRINKAGE,
+    prior: float | None = None,
 ) -> pd.DataFrame:
     """Return causal, centered scoring and conceding rates per side.
 
     Rows are processed in kickoff order and a match is scored from history
     that closes strictly before it. Shrinkage pulls a short history toward the
     competition mean so an early-season team is not judged on one result.
+
+    `prior` is the centering level a team with no history is pulled toward.
+    Left unset it is the mean of `frame`, which is convenient but reads rows
+    the caller may not have been allowed to see yet. A walk-forward caller
+    should pass the mean of its training rows instead.
     """
 
     if source not in ("none", "goals", "xg"):
@@ -116,7 +148,11 @@ def build_form_features(
 
     ordered = result.sort_values(["kickoff_utc", "match_id"], kind="stable")
     scored: dict[str, list[tuple[float, float]]] = {}
-    if source == "goals":
+    if prior is not None:
+        prior = float(prior)
+        if not math.isfinite(prior):
+            raise ValueError("prior must be finite")
+    elif source == "goals":
         prior = float(
             (ordered["home_goals"].sum() + ordered["away_goals"].sum())
             / (2.0 * len(ordered))

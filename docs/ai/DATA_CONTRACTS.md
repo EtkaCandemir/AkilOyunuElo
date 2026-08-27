@@ -108,6 +108,38 @@ Semantik kurallar:
 - Bir takimlik lig gecersizdir.
 - Kupa kazanmak tek basina double bonus uretmez.
 
+### 4.1 Sezon bootstrap kaynak kaniti
+
+`domestic_context.csv` hesap girdisidir; kaynak kaniti ayrica
+`domestic_history_audit.csv` dosyasinda tutulur. Kupa sampiyonu rotalari icin
+filtrelenmis `cw_domestic_evidence_audit.csv` ayni satirlarin kolay denetlenen
+alt kumesidir. Audit en az su bilgileri korur:
+
+```text
+route
+current_position_vintage
+current_position_source
+current_source_url
+current_source_cache
+current_table_position
+qualification_route_position
+position_crosscheck
+current_table_selection_method
+current_standings_candidate_count
+history_window
+```
+
+Hedef sezon `2026/27` ise current vintage `2026` olur: sonbahar-ilkbahar
+liglerinde tamamlanan `2025/26`, takvim yili liglerinde cutoff'ta tamamlanmis
+`2025` kampanyasi kullanilir. `CW` rotasi icin eski sezon fallback'i gecersizdir.
+Guncel ust ligde bulunamayan takimda `domestic_position` bos kalir; eski veya
+tahmini pozisyon yazilmaz.
+
+Kaynak sayfasinda birden cok siralama tablosu varsa yalniz siralari benzersiz ve
+sirali bicimde tam `1..N` olan tablo adaylari kabul edilir. En buyuk aday ana ust
+lig tablosudur; boylece "position by round" veya kismi play-off tablosu current
+position kaynagi olamaz.
+
 ## 5. Static Input: `club_european_points.csv`
 
 Anahtar:
@@ -184,6 +216,8 @@ country_tail_active
 domestic_position_percentile
 league_finish_score
 cup_base_score
+cup_contribution_enabled
+cup_contribution_weight
 cup_double_bonus
 domestic_achievement_uncapped_score
 domestic_achievement_score
@@ -214,6 +248,9 @@ adjusted_domestic_prior
 
 ```text
 weighted_european_history
+european_participation_enabled
+european_participation_shrinkage
+european_history_rate
 european_history_uncapped_norm
 european_history_norm
 european_prior
@@ -404,11 +441,16 @@ Artifact manifesti, frozen ML modeli ve Domestic Poisson state'i:
 ```text
 artifacts/production_prediction/manifest.json
 artifacts/production_prediction/structural_logistic_v1.joblib
-artifacts/production_prediction/domestic_poisson_state_2025_26.json
+artifacts/production_prediction/domestic_poisson_state_2026_27.json
 ```
 
 Artifact veya gerekli feature bozulursa servis sonucu tahmin etmez ya da sifir
 doldurmaz; ayni satir icin final H/D/A'yi Current AO 1X2 olarak kaydeder.
+
+2026/27 aktif checkpoint'i, UCL/UEL domestic coverage genisletmesinden gelen
+79 uygun hedef kulubu ve sadece ilgili Avrupa kickoff'undan once tamamlanmis
+yerel maclari icerir. União Torreense, iki sezon/40 mac esigini gecmedigi icin
+Poisson `NONE/ONE` kurallarindan guvenli fallback alir.
 
 ## 12. Veri Kalitesi Kontrol Listesi
 

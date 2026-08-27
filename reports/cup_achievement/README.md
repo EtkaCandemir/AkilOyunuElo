@@ -1,6 +1,12 @@
 # Genelleştirilmiş Yerel Kupa Katkısı Backtest
 
-Karar: **`KEEP_SHADOW`** — production contract değişmedi.
+Karar: **`KEEP_SHADOW`** → **`ACTIVE` (2026-08-27)**.
+
+Bu paket aktivasyonun kanıtıdır ve **aktivasyondan önce** ölçülmüştür.
+Katman `w = 0.129032` ile production'a alınmıştır. Aktivasyon istatistiksel
+terfi değil tasarım kararıdır: nested seçim ağırlığı `0`'a çeker, yani veri
+katkı eklemeyi tercih etmez. Gerekçe kuralın yapısal olarak yanlış olmasıdır.
+Aktivasyon sonrası güncel metrikler `reports/current_model/` altındadır.
 
 Bu paket `scripts/run_cup_achievement_backtest.py` çıktısının küratörlü
 kopyasıdır. Ham çıktı `output/cup_achievement_backtest_2018_2026/` altındadır.

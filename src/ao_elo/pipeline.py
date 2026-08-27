@@ -12,8 +12,10 @@ from ao_elo.domestic_surprise_variance import (
     calculate_variance_domestic_surprise_adjustment,
 )
 from ao_elo.features import (
+    CupContributionConfig,
     as_bool,
     compute_domestic_achievement,
+    generalized_domestic_achievement,
     compute_league_strength,
     compute_weighted_country_score,
     compute_weighted_european_history,
@@ -26,6 +28,7 @@ from ao_elo.scoring import (
     compute_effective_european_exposure,
     compute_european_prior,
     apply_upper_tail,
+    participation_normalized_history,
     normalize_log_score_uncapped,
     rating_source_type,
 )
@@ -61,6 +64,8 @@ OUTPUT_COLUMNS = [
     "domestic_position_percentile",
     "league_finish_score",
     "cup_base_score",
+    "cup_contribution_enabled",
+    "cup_contribution_weight",
     "cup_double_bonus",
     "domestic_achievement_uncapped_score",
     "domestic_achievement_score",
@@ -81,6 +86,9 @@ OUTPUT_COLUMNS = [
     "domestic_surprise_domestic_adjustment",
     "adjusted_domestic_prior",
     "weighted_european_history",
+    "european_participation_enabled",
+    "european_participation_shrinkage",
+    "european_history_rate",
     "european_history_uncapped_norm",
     "european_history_norm",
     "european_prior",
@@ -192,15 +200,40 @@ def compute_ao_first_elo(
             + ", ".join(sorted(missing.astype(str).unique()))
         )
 
-    domestic_features = data.apply(
-        lambda row: compute_domestic_achievement(
-            row["domestic_position"],
-            row["league_team_count"],
-            row["is_league_champion"],
-            row["is_cup_winner"],
-            config,
-        ),
-        axis=1,
+    # The generalized rule adds the weaker of the league and cup achievements
+    # instead of discarding it. It delegates to `compute_domestic_achievement`
+    # and is inert for non-cup-winners, so the two branches agree everywhere
+    # except where the cup actually carries information.
+    if config.cup_contribution_enabled:
+        cup_config = CupContributionConfig(config.cup_contribution_weight)
+        cup_config.validate()
+        domestic_features = data.apply(
+            lambda row: generalized_domestic_achievement(
+                row["domestic_position"],
+                row["league_team_count"],
+                row["is_league_champion"],
+                row["is_cup_winner"],
+                config,
+                cup_config,
+            ),
+            axis=1,
+        )
+    else:
+        domestic_features = data.apply(
+            lambda row: compute_domestic_achievement(
+                row["domestic_position"],
+                row["league_team_count"],
+                row["is_league_champion"],
+                row["is_cup_winner"],
+                config,
+            ),
+            axis=1,
+        )
+    data["cup_contribution_enabled"] = config.cup_contribution_enabled
+    data["cup_contribution_weight"] = (
+        float(config.cup_contribution_weight)
+        if config.cup_contribution_enabled
+        else 0.0
     )
     data["domestic_position_percentile"] = domestic_features.apply(
         lambda item: item.domestic_position_percentile
@@ -241,7 +274,32 @@ def compute_ao_first_elo(
         axis=1,
         config=config,
     )
-    data["european_history_uncapped_norm"] = data["weighted_european_history"].apply(
+    # The participation weight has to exist before the prior, because the
+    # normalization divides the history by it. Match exposure is only needed
+    # later, for the blend weight, and stays where it was.
+    data["weighted_season_exposure"] = data.apply(
+        compute_weighted_season_exposure,
+        axis=1,
+        config=config,
+    )
+    data["european_participation_enabled"] = config.european_participation_enabled
+    data["european_participation_shrinkage"] = (
+        float(config.european_participation_shrinkage)
+        if config.european_participation_enabled
+        else 0.0
+    )
+    if config.european_participation_enabled:
+        data["european_history_rate"] = data.apply(
+            lambda row: participation_normalized_history(
+                row["weighted_european_history"],
+                row["weighted_season_exposure"],
+                config.european_participation_shrinkage,
+            ),
+            axis=1,
+        )
+    else:
+        data["european_history_rate"] = data["weighted_european_history"]
+    data["european_history_uncapped_norm"] = data["european_history_rate"].apply(
         lambda value: normalize_log_score_uncapped(
             value,
             float(config.european_history_benchmark),
@@ -263,11 +321,6 @@ def compute_ao_first_elo(
         lambda norm: compute_european_prior(norm, config)
     )
 
-    data["weighted_season_exposure"] = data.apply(
-        compute_weighted_season_exposure,
-        axis=1,
-        config=config,
-    )
     data["weighted_match_exposure"] = data.apply(
         compute_weighted_match_exposure,
         axis=1,

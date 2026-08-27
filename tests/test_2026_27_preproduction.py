@@ -21,6 +21,8 @@ from ao_elo.dynamic_csv import (
 from ao_elo.pipeline import compute_ao_first_elo_from_csv
 from scripts.build_2026_27_preproduction_inputs import (
     entry_competition,
+    preserve_existing_xg,
+    select_primary_standings,
     stable_match_order,
 )
 from scripts.run_2026_27_preproduction_replay import (
@@ -55,6 +57,80 @@ def test_stable_match_order_uses_kickoff_then_match_id() -> None:
     ordered = stable_match_order(frame)
     assert ordered["match_id"].tolist() == ["m1", "m2", "m3"]
     assert ordered["event_order"].tolist() == [1, 2, 3]
+
+
+def test_primary_standings_rejects_position_by_round_table() -> None:
+    position_by_round = pd.DataFrame(
+        {
+            "position": [3, 1, 2, 4],
+            "team_name": ["A", "B", "C", "D"],
+            "team_key": ["a", "b", "c", "d"],
+        }
+    )
+    final_table = pd.DataFrame(
+        {
+            "position": [1, 2, 3, 4],
+            "team_name": ["B", "C", "A", "D"],
+            "team_key": ["b", "c", "a", "d"],
+        }
+    )
+
+    selected = select_primary_standings(
+        [position_by_round, final_table], country="Testland"
+    )
+
+    assert selected["team_name"].tolist() == ["B", "C", "A", "D"]
+
+
+def test_static_rebuild_preserves_only_verified_existing_xg() -> None:
+    rebuilt = pd.DataFrame(
+        {
+            "match_id": ["m1", "m2"],
+            "home_team_id": ["a", "c"],
+            "away_team_id": ["b", "d"],
+            "home_goals": [2, 0],
+            "away_goals": [1, 0],
+            "xg_home": [pd.NA, pd.NA],
+            "xg_away": [pd.NA, pd.NA],
+            "xg_analysis_eligible": [False, False],
+            "xg_fallback": ["GOAL_MARGIN_ONLY", "GOAL_MARGIN_ONLY"],
+        }
+    )
+    existing = rebuilt.copy()
+    existing.loc[0, ["xg_home", "xg_away"]] = [1.8, 0.7]
+    existing.loc[0, "xg_analysis_eligible"] = True
+    existing.loc[0, "xg_fallback"] = "FOTMOB_PRIMARY"
+
+    result = preserve_existing_xg(rebuilt, existing)
+
+    assert result.loc[0, "xg_home"] == pytest.approx(1.8)
+    assert result.loc[0, "xg_away"] == pytest.approx(0.7)
+    assert bool(result.loc[0, "xg_analysis_eligible"])
+    assert result.loc[0, "xg_fallback"] == "FOTMOB_PRIMARY"
+    assert not bool(result.loc[1, "xg_analysis_eligible"])
+
+
+def test_static_rebuild_rejects_stale_xg_identity() -> None:
+    rebuilt = pd.DataFrame(
+        {
+            "match_id": ["m1"],
+            "home_team_id": ["a"],
+            "away_team_id": ["b"],
+            "home_goals": [2],
+            "away_goals": [1],
+            "xg_home": [pd.NA],
+            "xg_away": [pd.NA],
+            "xg_analysis_eligible": [False],
+            "xg_fallback": ["GOAL_MARGIN_ONLY"],
+        }
+    )
+    existing = rebuilt.copy()
+    existing.loc[0, "home_goals"] = 3
+    existing.loc[0, ["xg_home", "xg_away"]] = [1.8, 0.7]
+    existing.loc[0, "xg_analysis_eligible"] = True
+
+    with pytest.raises(ValueError, match="identity/score mismatch"):
+        preserve_existing_xg(rebuilt, existing)
 
 
 def test_curated_2026_27_input_snapshot_contract() -> None:
@@ -105,6 +181,7 @@ def test_preproduction_q1_q3_replay_obeys_active_contract(tmp_path: Path) -> Non
     )
     frame = updates_to_frame(updates)
     initial = pd.read_csv(ratings_path)
+    assert initial["effective_european_exposure"].max() == pytest.approx(0.65)
     final = state_to_frame(final_state).merge(
         initial[["team_id", "ao_first_elo_rank"]],
         on="team_id",
@@ -192,12 +269,6 @@ def test_markdown_table_has_no_optional_dependency() -> None:
 # ---------------------------------------------------------------------------
 
 
-# Only the qualification route and the champion flag carry the season that
-# decided 2026/27 entry. Everything else falls back to the newest cached table,
-# which is one season older, so its history window has to shift with it.
-CURRENT_SEASON_SOURCES = {"QUALIFICATION_CHAMPION", "QUALIFICATION_ROUTE"}
-
-
 @pytest.fixture(name="history_audit")
 def fixture_history_audit() -> pd.DataFrame:
     return pd.read_csv(DATA_ROOT / "domestic_history_audit.csv")
@@ -217,34 +288,94 @@ def test_history_window_ends_before_the_current_position_vintage(
 def test_vintage_follows_the_position_source(
     history_audit: pd.DataFrame,
 ) -> None:
-    """Route and champion positions are current; every fallback is older."""
-    for row in history_audit.itertuples(index=False):
-        current = row.current_position_source in CURRENT_SEASON_SOURCES
-        expected = 2026 if current else 2025
-
-        assert int(row.current_position_vintage) == expected
-
-    assert history_audit["current_position_vintage"].isin({2025, 2026}).all()
+    """Every route uses the completed season that decided 2026/27 entry."""
+    assert history_audit["current_position_vintage"].eq(2026).all()
+    assert history_audit["history_window"].eq("2021-2025").all()
 
 
-def test_cache_fallback_teams_are_not_scored_against_themselves(
+def test_cup_routes_never_use_a_stale_domestic_fallback(
     history_audit: pd.DataFrame,
 ) -> None:
-    """The regression signature was every fallback team matching t_minus_1."""
+    """Cup winners must use current evidence or an explicit unavailable state."""
     context = pd.read_csv(DATA_ROOT / "domestic_context.csv")
     merged = history_audit.merge(context, on="team_id", suffixes=("", "_context"))
-    fallback = merged.loc[
-        ~merged["current_position_source"].isin(CURRENT_SEASON_SOURCES)
-    ].dropna(subset=["domestic_position", "history_position_t_minus_1"])
+    cup = merged.loc[merged["route"].eq("CW")]
 
-    assert not fallback.empty
-    repeated = fallback["domestic_position"].eq(
-        fallback["history_position_t_minus_1"]
-    )
+    assert len(cup) == 36
+    assert cup["current_position_vintage"].eq(2026).all()
+    assert cup["current_source_url"].fillna("").ne("").all()
+    assert not cup["current_position_source"].str.contains("FALLBACK").any()
+    assert set(cup.loc[cup["domestic_position"].isna(), "team_name"]) == {
+        "FC Vaduz",
+        "Lillestrøm SK",
+        "União Torreense",
+    }
 
-    # Consecutive seasons repeat a finishing position often enough that a low
-    # rate is expected; a perfect match across the group is the defect.
-    assert repeated.mean() < 0.5
+    dedicated_audit = pd.read_csv(DATA_ROOT / "cw_domestic_evidence_audit.csv")
+    assert len(dedicated_audit) == 36
+    assert dedicated_audit["team_id"].is_unique
+    assert set(dedicated_audit["team_id"]) == set(cup["team_id"])
+
+
+def test_trabzonspor_uses_the_completed_2025_26_final_table() -> None:
+    context = pd.read_csv(DATA_ROOT / "domestic_context.csv")
+    audit = pd.read_csv(DATA_ROOT / "domestic_history_audit.csv")
+    team_id = "AO-UEFA-52731"
+    row = context.loc[context["team_id"].eq(team_id)].iloc[0]
+    evidence = audit.loc[audit["team_id"].eq(team_id)].iloc[0]
+
+    assert float(row["domestic_position"]) == 3.0
+    assert float(row["league_team_count"]) == 18.0
+    assert int(evidence["current_position_vintage"]) == 2026
+    assert "2025" in str(evidence["current_source_url"])
+
+
+def test_all_cup_winner_domestic_positions_match_the_frozen_snapshot() -> None:
+    expected = {
+        "Dinamo Tirana": (4, 10),
+        "Atlètic Club d'Escaldes": (5, 10),
+        "FC Noah": (2, 10),
+        "BATE Borisov": (10, 16),
+        "Zrinjski Mostar": (2, 10),
+        "CSKA Sofia": (4, 16),
+        "Pafos FC": (4, 14),
+        "FC Midtjylland": (2, 12),
+        "HJK Helsinki": (3, 12),
+        "Dila Gori": (2, 10),
+        "OFI Heraklion": (6, 14),
+        "Ferencváros": (2, 12),
+        "IF Vestri": (9, 12),
+        "Maccabi Tel-Aviv": (3, 14),
+        "Tobol Kustanai": (3, 14),
+        "KF Dukagjini": (4, 10),
+        "FK Auda": (5, 10),
+        "FC Vaduz": (None, None),
+        "FK Panevezys": (6, 10),
+        "Differdange 03": (2, 16),
+        "Valletta FC": (3, 12),
+        "Sheriff Tiraspol": (3, 8),
+        "Mornar Bar": (2, 10),
+        "AZ Alkmaar": (7, 18),
+        "Sileks Kratovo": (4, 12),
+        "Coleraine": (3, 12),
+        "Lillestrøm SK": (None, None),
+        "União Torreense": (None, None),
+        "La Fiorita": (4, 16),
+        "MSK Zilina": (3, 12),
+        "NK Aluminij": (7, 10),
+        "Real Sociedad": (10, 20),
+        "FC Sankt Gallen": (2, 12),
+        "Trabzonspor": (3, 18),
+        "Dynamo Kyiv": (4, 16),
+        "Caernarfon Town": (4, 12),
+    }
+    audit = pd.read_csv(DATA_ROOT / "cw_domestic_evidence_audit.csv")
+
+    assert set(audit["team_name"]) == set(expected)
+    for row in audit.itertuples(index=False):
+        actual_position = None if pd.isna(row.current_position) else int(row.current_position)
+        actual_count = None if pd.isna(row.current_team_count) else int(row.current_team_count)
+        assert (actual_position, actual_count) == expected[row.team_name]
 
 
 def test_self_reference_rate_stays_in_the_backtest_range() -> None:

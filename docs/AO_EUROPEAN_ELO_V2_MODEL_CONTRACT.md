@@ -4,10 +4,10 @@ Sürüm: `ao-european-elo-v2.0-dev-freeze`
 
 Dondurma tarihi: 20 Temmuz 2026
 
-Operasyonel sözleşme revizyonu: 18 Ağustos 2026
+Operasyonel sözleşme revizyonu: 19 Ağustos 2026
 
 Production revision:
-`2026-08-18-continuous-qualifier-retention-activation`
+`2026-08-27-participation-cup-and-unknown-position`
 
 Durum: Kontrollü `0.15/300` gol farkı, bounded xG performansı, Domestic Surprise
 ve sabit `12/8/4` European Progression Bonus production'da aktiftir; 2026/27
@@ -86,12 +86,11 @@ Dönüşüm component seviyesinde uygulanır:
 
 Hiçbir hesap sonunda `min/max` ile rating kesilmez. Fakat aktif statik config'te
 country/europe/exposure tail beta değerleri `0`, maximum effective exposure
-`0.85` ve erişilebilir maksimum Domestic Achievement `1.08`dir. Bu sınırlar aynı
-takımda doyduğunda Domestic Surprise öncesi AO First Elo tam olarak `2000` olur.
-Maksimum `+30` Domestic Surprise düzeltmesi exposure ile `%15` ağırlık taşıdığı
-için aktif statik modelin erişilebilir üst değeri `2004.5`tir. Dolayısıyla
-`2000` clipping sınırı değildir. Research tail adayları ve Dynamic/Live Elo da
-bu değeri aşabilir.
+`0.65` ve erişilebilir maksimum Domestic Achievement `1.08`dir. Bu sınırlar aynı
+takımda doyduğunda Domestic Surprise öncesi AO First Elo `1920.3802733215` olur.
+Maksimum `+30` Domestic Surprise düzeltmesi exposure ile `%35` ağırlık taşıdığı
+için aktif statik modelin erişilebilir üst değeri `1930.8802733215`tir. `2000`
+yine clipping sınırı değildir; Dynamic/Live Elo bu değeri aşabilir.
 
 Bu affine dönüşüm v1.1 takım sırasını birebir korur. Dinamik `Scale`, saha
 avantajı ve `K` de aynı `M` ile büyütüldüğü için beklenen skorlar ve maç başına
@@ -191,6 +190,28 @@ takımlı lig örneğinde bu basamak v2 ölçeğinde yaklaşık `89` puan Domest
 farkı doğurabilir. Bu süreksizlik validation veya hesaplama bug'ı değildir;
 ileride değiştirilmesi ancak ayrı bir ranking-first backtest ile mümkündür.
 
+
+### 6.1 Kupa katkısı ve bilinmeyen sıra sözleşmesi
+
+```text
+CupContribution = w * min(LeagueFinish, CupBase),   aktif w = 0.129032258065
+Achievement     = min(1.10, max(LeagueFinish, CupBase) + CupContribution)
+
+LeagueFinish (pozisyon bilinmiyor, şampiyon değil) = 0.15
+```
+
+Sözleşme invariantları:
+
+- Kupa kazanmayan takımda `min(L, C) = 0`; katman **inerttir**.
+- Şampiyon-ve-kupa toplamı `1.0800`dir ve önceki kuralla **birebir aynıdır**;
+  ağırlık `cup_double_bonus_multiplier * champion_base_score / cup_base_score`
+  ile türetilmiştir.
+- Katman achievement'ı asla düşürmez.
+- Bilinmeyen lig sırası percentile tabanının (`0.15`) altına inemez; kanıt
+  yokluğu bilinen son sıradan ağır cezalandırılamaz.
+- `achievement_cap = 1.10` bu ağırlıkta bağlayıcı değildir (maksimum `1.0800`).
+- `w` ve bilinmeyen sıra değeri holdout boyunca yeniden seçilemez.
+
 ## 7. Domestic Prior
 
 ```text
@@ -209,12 +230,34 @@ sağlar. Zayıf ligde de yerel başarı katkısının yüzde 40'ı korunur.
 
 ```text
 Weighted European History = sum(w_i x club_points_i)
+pw = Weighted Season Exposure = sum(w_i x played_i)
 
-u_europe = log(1 + Weighted European History) / log(1 + 20)
+European History Rate = Weighted European History x (1 + k) / (pw + k)   , pw > 0
+European History Rate = 0                                                , pw = 0
+
+u_europe = log(1 + European History Rate) / log(1 + 20)
 European History Norm = Tail(u_europe, european_tail_beta)
 
 European Prior = 500 + 1559.7147950089 x European History Norm
+
+aktif k = 0.20
 ```
+
+**Katılım normalizasyonu.** Girilmeyen sezon `club_points = 0` katkısı yapar ve
+bu, girilip hiç puan alınamayan sezonla aritmetik olarak aynıdır. "Avrupa'ya
+girebildin mi" sorusu Domestic Prior'ın zaten sahiplendiği bir olgudur; katman
+o sorunun European Prior'a ikinci kez faturalanmasını kaldırır.
+
+Sözleşme invariantları:
+
+- `pw = 1` olan kulüpte oran yayınlanmış history'nin birebir aynısıdır; tam
+  kanıtlı kulüp **tanım gereği hareket etmez**.
+- `pw = 0` olan kulüpte oran sıfırdır. O satırlarda `european_exposure = 0`
+  olduğu için prior blend'e zaten girmez.
+- Katman ratingi asla düşürmez.
+- `european_exposure` ve `effective_european_exposure` değişmez; düzeltme
+  yalnız prior'ın **girdisine** uygulanır, blend ağırlığına değil.
+- `k` holdout boyunca yeniden seçilemez.
 
 Aktif `european_tail_beta = 0` olduğu için benchmark üzerindeki kulüp geçmişi
 mevcut hard-cap davranışını korur. `official_club_coefficient` ana formüle
@@ -237,12 +280,12 @@ Ham exposure `e` için:
 
 ```text
 Effective Exposure =
-    e                                      , e <= 0.85
-    0.85 + beta_exp x (e - 0.85)           , e > 0.85
+    e                                      , e <= 0.65
+    0.65 + beta_exp x (e - 0.65)           , e > 0.65
 ```
 
 Aktif `beta_exp = 0` olduğundan tam exposure'ın final karışımdaki değeri
-`0.85`tir. Böylece çok güçlü Avrupa kanıtında bile Domestic Prior'ın yüzde 15'i
+`0.65`tir. Böylece çok güçlü Avrupa kanıtında bile Domestic Prior'ın yüzde 35'i
 korunur.
 
 ## 10. Domestic Surprise ve Final AO First Elo

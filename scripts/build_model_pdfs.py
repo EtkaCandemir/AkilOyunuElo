@@ -19,7 +19,7 @@ from pdf_common import (
 )
 
 
-DOCUMENT_DATE = "13 Ağustos 2026"
+DOCUMENT_DATE = "20 Ağustos 2026"
 MODEL_VERSION = "ao-european-elo-v2.0-dev-freeze"
 PREDICTION_VERSION = "ao-ml-poisson-ensemble-v1-production"
 
@@ -27,7 +27,7 @@ DETAILED_SPEC = PdfSpec(
     filename="AkilOyunu_Elo_Model_Aciklayici.pdf",
     title="AO European Elo",
     subtitle="Tam Teknik Model Açıklaması",
-    version="AO European Elo v2 | Production revizyonu 2026-08-13",
+    version="AO European Elo v2 | Production revizyonu 2026-08-20",
     document_date=DOCUMENT_DATE,
     subject="AO First Elo, AO Live Elo ve production 1X2 tahmin modelinin tam açıklaması",
 )
@@ -189,6 +189,8 @@ def detailed_story() -> list[object]:
                 "Position Percentile = (N - position) / (N - 1)",
                 "Percentile Score = 0.15 + 0.70 * Position Percentile",
                 "League Finish = max(Percentile Score, Champion Base)",
+                "Cup Contribution = 0.129032 * min(League Finish, Cup Base)",
+                "Achievement = min(1.10, max(League Finish, Cup Base) + Cup Contribution)",
                 "Achievement Scale = 0.40 + 0.60 * League Strength",
             ],
             s,
@@ -197,10 +199,10 @@ def detailed_story() -> list[object]:
             [
                 ["Yerel durum", "Model davranışı"],
                 ["Lig şampiyonu", "Champion Base = 1.00"],
-                ["Lig sırası bilinmiyor", "League Finish = 0.10"],
+                ["Lig sırası bilinmiyor", "League Finish = 0.15 (percentile tabanı)"],
                 ["Kupa şampiyonu", "Cup Base = 0.62"],
-                ["Lig + kupa dublesi", "+0.08 * League Finish"],
-                ["Achievement safety cap", "1.10"],
+                ["Kupa katkısı", "+0.129032 * min(League Finish, Cup Base)"],
+                ["Achievement safety cap", "1.10 (ulaşılabilir maksimum 1.08)"],
             ],
             [7.5 * cm, 8.95 * cm],
             s,
@@ -216,7 +218,10 @@ def detailed_story() -> list[object]:
         callout(
             "Şampiyonluk basamağı",
             "Şampiyonun 1.00 tabanı ile ikinci sıra arasındaki sıçrama bilinçli domain kararıdır. "
-            "Kupa tek başına duble bonusu üretmez.",
+            "Kupa artık taban değil katkıdır: ağırlık 0.08 * 1.00 / 0.62 = 0.129032 olarak "
+            "türetilmiştir ve şampiyon+kupa toplamını 1.0800'de birebir korur. Kupa "
+            "kazanmayanda terim sıfırdır. Bilinmeyen lig sırası percentile tabanının "
+            "(0.15) altına inemez.",
             s,
             tone="amber",
         ),
@@ -249,19 +254,33 @@ def detailed_story() -> list[object]:
         formula(
             [
                 "Weighted European History = sum(w_i * club_points_i)",
-                "European Norm = min(ln(1 + history) / ln(1 + 20), 1)",
+                "pw = sum(w_i * played_i)",
+                "History Rate = History * (1 + 0.20) / (pw + 0.20),  pw > 0",
+                "European Norm = min(ln(1 + History Rate) / ln(1 + 20), 1)",
                 "European Prior = 500 + 1559.7147950089 * European Norm",
                 "Season Exposure = sum(w_i * played_i)",
                 "Match Exposure = sum(w_i * min(1, matches_i / match_cap_i))",
                 "e = 0.60 * Season Exposure + 0.40 * Match Exposure",
-                "e_eff = min(e, 0.85)",
+                "e_eff = min(e, 0.65)",
             ],
             s,
         ),
         body(
             "European points performansı, exposure ise bu performansa ne kadar güvenileceğini "
-            "ölçer. 0.85 tavanı tam Avrupa kanıtında bile Domestic Prior'ın en az %15'ini korur.",
+            "ölçer. 0.65 tavanı tam Avrupa kanıtında bile Domestic Prior'ın en az %35'ini korur. "
+            "Katılım normalizasyonu, Avrupa'ya girilmeyen sezonun 'girdim ve puan alamadım' "
+            "gibi sayılmasını kaldırır: ağırlıklı geçmiş, kulübün gerçekten girebildiği "
+            "ağırlığa bölünür. Beş sezonun tamamında oynayan kulüp tanım gereği hiç hareket "
+            "etmez ve katman ratingi asla düşürmez. Exposure ağırlığına dokunulmaz.",
             s,
+        ),
+        callout(
+            "Exposure kararı",
+            "Aktif çekirdek 4.884 unseen maçta Brier 0.566413, log-loss 0.956259 ve "
+            "accuracy %55.917 üretir; referans ablation koluna karşı iki loss metriği de "
+            "6/6 foldda iyileşir.",
+            s,
+            tone="green",
         ),
         formula(
             [
@@ -444,7 +463,7 @@ def detailed_story() -> list[object]:
                 ["Season weights", "0.07 / 0.13 / 0.20 / 0.27 / 0.33"],
                 ["Country", "benchmark 25, gamma 0.80, tail beta 0"],
                 ["European history", "benchmark 20, tail beta 0"],
-                ["Exposure", "%60 season + %40 match; effective cap 0.85"],
+                ["Exposure", "%60 season + %40 match; effective cap 0.65"],
                 ["Domestic Surprise", "theta 0.40, variance 0.50, cap +/-30, 5 sezon"],
                 ["Dynamic core", "Scale 835.5615, H 148.5443, K 103.9810, carry 0"],
                 ["Draw", "0.24; single-match 0.12; shape 1.00"],
@@ -466,8 +485,8 @@ def detailed_story() -> list[object]:
             [
                 ["Model", "Brier", "Log-loss", "Accuracy", "Spearman", "Pairwise"],
                 ["Reference core", "0.573699", "0.967369", "0.547297", "0.668059", "0.752024"],
-                ["Current AO rating core", "0.572093", "0.964371", "0.550164", "0.672160", "0.753519"],
-                ["Production ML + Poisson", "0.568093", "0.959242", "0.553849", "-", "-"],
+                ["Current AO rating core", "0.566413", "0.956259", "0.559173", "0.683258", "0.759421"],
+                ["Production ML + Poisson", "0.561935", "0.949792", "0.561425", "-", "-"],
             ],
             [4.4 * cm, 2.4 * cm, 2.7 * cm, 2.4 * cm, 2.3 * cm, 2.25 * cm],
             s,
@@ -565,7 +584,7 @@ def short_story() -> list[object]:
             [
                 "Beş sezon ağırlığı: 0.07 / 0.13 / 0.20 / 0.27 / 0.33.",
                 "Country benchmark 25; European benchmark 20.",
-                "Exposure = %60 oynanan sezon + %40 maç kanıtı; effective cap 0.85.",
+                "Exposure = %60 oynanan sezon + %40 maç kanıtı; effective cap 0.65.",
                 "Domestic Surprise: katsayı 0.40, variance penalty 0.50, cap +/-30; beş tam sezon gerekir.",
                 "500-2000 referans bandıdır; clipping yoktur.",
             ],
@@ -628,8 +647,8 @@ def short_story() -> list[object]:
         table(
             [
                 ["Tahmin", "Brier", "Log-loss", "Accuracy"],
-                ["Current AO", "0.572093", "0.964371", "0.550164"],
-                ["Production ML + Poisson", "0.568093", "0.959242", "0.553849"],
+                ["Current AO", "0.566413", "0.956259", "0.559173"],
+                ["Production ML + Poisson", "0.561935", "0.949792", "0.561425"],
                 ["Fark", "-0.003999", "-0.005129", "+0.003686"],
             ],
             [6.1 * cm, 3.45 * cm, 3.45 * cm, 3.45 * cm],

@@ -1,0 +1,74 @@
+{
+  "baseline_calibration": {
+    "calibration_intercept": -0.0622467834152463,
+    "calibration_slope": 0.9278545859062918,
+    "ece": 0.009766089259861886,
+    "mean_max_probability": 0.5585114512288251
+  },
+  "candidate_arm": "AO_POISSON_BLEND",
+  "candidate_calibration": {
+    "calibration_intercept": -0.04638484434132956,
+    "calibration_slope": 0.938620910772821,
+    "ece": 0.007354127770674733,
+    "mean_max_probability": 0.5511886365028245
+  },
+  "candidate_domestic_matches": 74395,
+  "candidate_mapped_clubs": 310,
+  "decision": "REJECT",
+  "delta_brier_vs_ao": -0.0002639128607171415,
+  "delta_brier_vs_current_ml": 0.0031383269762474963,
+  "delta_log_loss_vs_ao": -1.5688925959045363e-05,
+  "delta_log_loss_vs_current_ml": 0.003897597680977194,
+  "gates": {
+    "beats_current_ml_brier": false,
+    "beats_current_ml_log_loss": false,
+    "brier_fold_wins": 4,
+    "calibration_gate": true,
+    "fold_gate": true,
+    "log_loss_fold_wins": 4,
+    "pooled_loss_gate": true,
+    "probability_gate": true,
+    "rating_state_identity_gate": true,
+    "scoreline_improvement": true,
+    "segment_no_harm_gate": false,
+    "uncertainty_gate": false
+  },
+  "pooled_brier": 0.5718287525948811,
+  "pooled_log_loss": 0.9643551483155444,
+  "production_activated": false,
+  "production_contract_sha256": "8bd87e88dab505c6177cbe20bd6a15fb6cc2a3a5fc1b005582519f995dd33e57",
+  "rating_feedback": false,
+  "selected_domestic_config": {
+    "lambda_max": 4.5,
+    "lambda_min": 0.2,
+    "league_home_max": 0.5,
+    "league_home_min": -0.3,
+    "league_learning_ratio": 0.1,
+    "model_version": "ao-domestic-dynamic-poisson-v1-shadow",
+    "season_carry": 0.9,
+    "shrinkage_matches": 10.0,
+    "team_learning_rate": 0.02,
+    "team_parameter_cap": 1.0,
+    "venue_context": false,
+    "venue_parameter_cap": 0.75
+  },
+  "selected_poisson_blend_weight": 0.7,
+  "selected_transfer_config": {
+    "attack_coefficient": 0.08185191950377577,
+    "defence_coefficient": 0.042188358625595786,
+    "elo_slope": 0.6663829340708688,
+    "l2_strength": 10.0,
+    "model_version": "ao-domestic-poisson-transfer-v1-shadow",
+    "mu": 0.2583428014606781,
+    "rho": 0.15,
+    "use_reliability": true,
+    "use_venue": false,
+    "venue_coefficient": 0.0
+  },
+  "status": "CANDIDATE_EVALUATION_ONLY",
+  "target_coverage": {
+    "covered": 79,
+    "total": 80
+  },
+  "untouched_holdout": "2026/27"
+}

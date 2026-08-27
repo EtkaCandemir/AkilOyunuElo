@@ -29,105 +29,31 @@ Properties that make the family safe to test against production:
   active champion-and-cup magnitude while extending the same logic to every
   other league-and-cup combination.
 
-This module is research surface. It does not change `AOEuropeanEloConfig`,
-the production pipeline, or the active contract.
+The combination rule itself now lives in `features.py` because it is part of
+the active production pipeline. This module re-exports it and keeps the
+backtest-only helpers, so the research scripts and tests here are unchanged.
 """
 
 import math
 import re
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, Mapping, Sequence
 
 import pandas as pd
 
 from ao_elo.config import AOEuropeanEloConfig
-from ao_elo.features import DomesticAchievement, compute_domestic_achievement
+from ao_elo.features import (
+    CupContributionConfig,
+    DomesticAchievement,
+    champion_equivalent_weight,
+    compute_domestic_achievement,
+    generalized_domestic_achievement,
+)
 from ao_elo.pipeline import compute_ao_first_elo_from_csv
 
 
 PRODUCTION_FAMILY = "MAX_WITH_CHAMPION_ONLY_DOUBLE_BONUS"
 GENERALIZED_FAMILY = "MAX_PLUS_WEIGHTED_MINIMUM"
-
-
-@dataclass(frozen=True, order=True)
-class CupContributionConfig:
-    """Weight applied to the weaker of the league and cup achievements."""
-
-    weight: float
-
-    def validate(self) -> None:
-        if isinstance(self.weight, bool) or not isinstance(
-            self.weight, (int, float)
-        ):
-            raise ValueError("weight must be numeric")
-        if not math.isfinite(float(self.weight)):
-            raise ValueError("weight must be finite")
-        if float(self.weight) < 0.0:
-            raise ValueError("weight must be non-negative")
-        if float(self.weight) > 1.0:
-            raise ValueError("weight must not exceed one")
-
-    @property
-    def key(self) -> str:
-        self.validate()
-        return f"cup_w{float(self.weight):g}"
-
-
-def champion_equivalent_weight(config: AOEuropeanEloConfig) -> float:
-    """Weight that preserves the active champion-and-cup bonus magnitude.
-
-    The active model adds `cup_double_bonus_multiplier * L` when a champion
-    also wins the cup. For a champion `L = champion_base_score` and the
-    weaker achievement is the cup base, so matching the two expressions gives
-    this weight.
-    """
-
-    cup_base = float(config.cup_base_score)
-    if cup_base <= 0.0:
-        raise ValueError("cup_base_score must be positive to derive the weight")
-    return (
-        float(config.cup_double_bonus_multiplier)
-        * float(config.champion_base_score)
-        / cup_base
-    )
-
-
-def generalized_domestic_achievement(
-    domestic_position: object,
-    league_team_count: object,
-    is_league_champion: object,
-    is_cup_winner: object,
-    config: AOEuropeanEloConfig,
-    cup_config: CupContributionConfig,
-) -> DomesticAchievement:
-    """Return the achievement score with a weighted cup contribution.
-
-    The league finish, the cup base and the cap are taken from the active
-    static config so that only the combination rule changes.
-    """
-
-    cup_config.validate()
-    base = compute_domestic_achievement(
-        domestic_position,
-        league_team_count,
-        is_league_champion,
-        is_cup_winner,
-        config,
-    )
-    league_finish = float(base.league_finish_score)
-    cup_base = float(base.cup_base_score)
-    contribution = float(cup_config.weight) * min(league_finish, cup_base)
-    uncapped = max(league_finish, cup_base) + contribution
-    score = min(float(config.achievement_cap), uncapped)
-    return DomesticAchievement(
-        domestic_position_percentile=base.domestic_position_percentile,
-        league_finish_score=league_finish,
-        cup_base_score=cup_base,
-        cup_double_bonus=contribution,
-        domestic_achievement_uncapped_score=uncapped,
-        domestic_achievement_score=score,
-    )
 
 
 def achievement_delta_to_ao_first_elo(

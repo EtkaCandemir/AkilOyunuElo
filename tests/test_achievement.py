@@ -16,11 +16,19 @@ def config() -> AOEuropeanEloConfig:
 
 
 def test_unknown_domestic_finish_uses_unknown_score(config: AOEuropeanEloConfig) -> None:
+    """Unknown sits at the percentile floor, not below it.
+
+    The curve floors a known last place at `percentile_floor`, so anything
+    lower would rank absence of evidence beneath the worst possible evidence.
+    """
     result = compute_domestic_achievement(None, None, False, False, config)
+    last_place = compute_domestic_achievement(20, 20, False, False, config)
 
     assert result.domestic_position_percentile is None
-    assert result.league_finish_score == pytest.approx(0.10)
-    assert result.domestic_achievement_score == pytest.approx(0.10)
+    assert result.league_finish_score == pytest.approx(0.15)
+    assert result.domestic_achievement_score == pytest.approx(0.15)
+    assert result.league_finish_score == pytest.approx(config.percentile_floor)
+    assert result.league_finish_score >= last_place.league_finish_score
 
 
 def test_unknown_finish_plus_cup_gets_no_double_bonus(
@@ -28,7 +36,7 @@ def test_unknown_finish_plus_cup_gets_no_double_bonus(
 ) -> None:
     result = compute_domestic_achievement(None, None, False, True, config)
 
-    assert result.league_finish_score == pytest.approx(0.10)
+    assert result.league_finish_score == pytest.approx(0.15)
     assert result.cup_base_score == pytest.approx(0.62)
     assert result.cup_double_bonus == pytest.approx(0.0)
     assert result.domestic_achievement_score == pytest.approx(0.62)
@@ -83,8 +91,8 @@ def test_champion_without_position_keeps_champion_base(
         (2, 6, False, False, 0.71, 0.0, 0.71),
         (6, 6, False, False, 0.15, 0.0, 0.15),
         (15, 20, False, True, 0.3342105263, 0.0, 0.62),
-        (None, None, False, False, 0.10, 0.0, 0.10),
-        (None, None, False, True, 0.10, 0.0, 0.62),
+        (None, None, False, False, 0.15, 0.0, 0.15),
+        (None, None, False, True, 0.15, 0.0, 0.62),
         (None, None, True, False, 1.0, 0.0, 1.0),
         (None, None, True, True, 1.0, 0.08, 1.08),
     ],

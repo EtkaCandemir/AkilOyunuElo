@@ -1,6 +1,6 @@
 # AO European Elo Model Durumu
 
-Güncelleme tarihi: 2026-08-18
+Güncelleme tarihi: 2026-08-27
 
 Aktif geliştirme sürümü: `ao-european-elo-v2.0-dev-freeze`
 
@@ -23,10 +23,28 @@ log-probability uzayında `%50/%50` birleştirilir. Bu katman ratinge geri
 beslenmez; artifact, feature veya state sorunu olduğunda Current AO 1X2'ye
 döner ve 2026/27 boyunca her tahmin karşılaştırmalı kaydedilir.
 
+Aktif Domestic Poisson checkpoint'i UCL/UEL yerel lig kapsama genişletmesini
+icerir: dondurulmus 80 hedef kulubun 79'u iki sezon ve 40 mac esigini gecmistir.
+União Torreense yetersiz tarihce nedeniyle Poisson fallback'inde kalir. Bu
+genisletme Elo rating state'ine geri besleme yapmaz.
+
 Beş sezonluk varyans kontrollü Domestic Surprise manuel ürün kararıyla AO First
 Elo production pipeline'ına alınmıştır. Aktif değerler `theta=0.40`,
 `gamma=0.50`, Domestic Prior tavanı `+/-30` ve minimum tarihçe `5` tam sezondur.
 Eksik tarihçe düzeltme üretmez.
+
+European evidence blend tavanı altı fold ve `4.884` unseen maçlık sabit aday
+karşılaştırmasının ardından `0.85`ten `0.65`e indirilmiştir. European History
+benchmark `20`, European Prior ölçeği `1.00` ve turnuva kalite çarpanları
+`1/1/1` kalır. Böylece yüksek kanıtta Domestic Prior ağırlığı en az `%35`tir.
+
+`2026-08-27` tarihinde European Prior girdisine katılım normalizasyonu
+eklenmiştir: `rate = history × (1 + 0.20) / (pw + 0.20)`. Girilmeyen sezonun
+"girdim ve puan alamadım" gibi sayılması kaldırılır. Tam katılımlı kulüp tanım
+gereği hareket etmez, hiç girmemiş kulübün oranı sıfırdır ve exposure ağırlığı
+değişmez. Seed Spearman `+0.009434` (kör kontrole karşı `+0.011925`), Brier
+`-0.002051`; dördü de güvenilir, dokuz güvenlik kapısı geçti. Cap ve servis
+edilen tahmin katmanı kapıları ayrıca koşuldu ve ikisi de geçti.
 
 Manuel ürün kararıyla `goal_alpha=0.15` ve bounded xG
 `ratio=0.30/scale=1.25` birleşimi production runtime'a alınmıştır. İki tarafın
@@ -42,12 +60,16 @@ yapılacaktır; qualifying ve play-off kapsam dışıdır.
 
 ```text
 AO First Elo ölçeği      = 500-2000 referans bandı, final clipping yok
-Aktif statik üst sınır   = 2006.28 (Domestic Surprise dahil; gözlenen max 1996.45)
+Aktif statik üst sınır   = 1930.88 (Domestic Surprise dahil; clipping yok)
 Dynamic/Live hard cap    = yok
 Rating multiplier        = 3.713606654783126
 Country tail beta        = 0
 European tail beta       = 0
 Exposure tail beta       = 0
+Effective exposure cap   = 0.65 (minimum Domestic Prior weight 0.35)
+European katilim norm.   = active (k = 0.20; neutral at full participation)
+Kupa katkisi             = active (w = 0.129032; inert for non-cup-winners)
+Bilinmeyen lig sirasi    = 0.15 (percentile floor; never below last place)
 Dynamic Elo scale        = 835.5614973262
 Home advantage           = 148.5442661913
 Base K                   = 103.9809863339
@@ -98,26 +120,29 @@ contracts/ao_european_elo_v2_final_candidate.json
 ```
 
 Final rating'e `min/max` clipping uygulanmaz. Aktif tail beta'ları sıfırken
-yapısal maksimum, exposure tavanının `0.85` olmasından türer:
+yapısal maksimum, exposure tavanının `0.65` olmasından türer:
 
 ```text
-Domestic Prior max  = 500 + 519.905 * 1.00 + 594.177 * 1.10 * 1.00 = 1673.50
+Domestic Prior max  = 500 + 519.905 + 594.177 * 1.08                 = 1661.62
 European Prior max  = 500 + 1559.715                               = 2059.71
-Surprise öncesi max = 0.15 * 1673.50 + 0.85 * 2059.71              = 2001.78
-Surprise katkısı    = (1 - 0.85) * 30                              =    4.50
-Surprise sonrası    =                                                 2006.28
+Surprise öncesi max = 0.35 * 1661.62 + 0.65 * 2059.71              = 1920.38
+Surprise katkısı    = (1 - 0.65) * 30                              =   10.50
+Surprise sonrası    =                                                 1930.88
 ```
 
 Sürprizin tam `+30`u ratinge geçmez: AO First'e yansıyan pay `(1 - e_eff)` ile
-ölçeklenir ve maksimum exposure'da bu `4.50`dur. `2018/19-2025/26` penceresinde
-gözlenen en yüksek AO First Elo `1996.45`tir. Dynamic/Live Elo kırpılmadığı için
-bu değeri aşabilir; aynı pencerede gözlenen en yüksek Live Elo `2391.79`dur. Sürpriz kapalıyken V2 affine dönüşümü ve Scale/H/K dönüşümü,
+ölçeklenir ve maksimum exposure'da bu `10.50`dir. Dynamic/Live Elo kırpılmadığı
+için statik yapısal maksimum aşılabilir. Sürpriz kapalıyken V2 affine dönüşümü ve Scale/H/K dönüşümü,
 v1.1 sıralamasını ve aynı koşullardaki beklenen puanı yapay biçimde değiştirmez.
 
 ## Kalibrasyon Kararları
 
+Kanıt sütunundaki loss değerleri her katmanın kendi karar anında ölçülmüştür;
+güncel model metrikleri için `reports/current_model/` kullanılmalıdır.
+
 | Katman | Sonuç | Ana kanıt |
 | --- | --- | --- |
+| European exposure cap | `PROMOTE_FIXED_0.65` | 4.884 unseen maçta Brier `0.569287`, log-loss `0.960299`, accuracy `%55.426`; iki loss 6/6 fold, üç turnuva olumlu, ranking zararı güvenilir değil |
 | 100 tail kombinasyonu | `NO_PROMOTION` | Adjusted hedefte 0/6 fold her iki ranking metriğinde iyileşti |
 | Domestic Surprise | `PROMOTE_MANUAL` | Cap-30 gamma testinde gamma 0.50 sıralamayı 6/6 korudu; 2025/26 replay Brier `-0.000622`, log-loss `-0.000910`, pooled ranking `+0.001303` |
 | Dynamic Power | `PROMOTE` | Standart 1X2 ile 6/6; Brier farkı `-0.008929`, envelope CI tamamen negatif |
@@ -136,7 +161,7 @@ v1.1 sıralamasını ve aynı koşullardaki beklenen puanı yapay biçimde deği
 | xG goal-bonus guard | `SHADOW_ONLY` | Yalnız GD bonusunu düzenledi; Brier `+0.000027`, pairwise `+0.000103`, güvenilir zarar yok fakat terfi kapısı geçilmedi |
 | xG çift yönlü performans bonusu | `SHADOW_CANDIDATE` | Beş nested foldun tamamında seçildi; pooled Brier `-0.005023`, log-loss `-0.007137` ve sıralama olumlu, fakat UECL geriledi ve cluster CI sıfırı kesti |
 | Kontrollü xG düzeltmesi | `PROMOTE_MANUAL` | `%30` etki tavanlı `ratio=0.30/scale=1.25`; sabit unseen Brier `-0.002542`, log-loss `-0.003828`, üç turnuva olumlu; production'da aktif |
-| ML + Domestic Poisson 1X2 | `PROMOTE_WITH_MONITORING` | 4.884 unseen maçta Brier `0.568093`, log-loss `0.959242`; AO'ya fark `-0.003999/-0.005129`; `%50/%50`, `rho=0`, AO fallback, rating feedback kapalı |
+| ML + Domestic Poisson 1X2 | `PROMOTE_WITH_MONITORING` | 4.884 unseen maçta Brier `0.561935`, log-loss `0.949792`; AO'ya fark `-0.004478/-0.006468`; `%50/%50`, `rho=0`, AO fallback, rating feedback kapalı |
 | Takım belirsizliğine göre Dynamic K | `KEEP_FIXED_K` | Nested ΔBrier `+0.000085`, Δlog-loss `+0.000112`; forward ranking güvenli 1/5 |
 | Format-duyarlı `P_advance` | `SHADOW_ONLY` | Tie Brier `-0.003531`, log-loss `-0.009814`; bazı turnuva/format segmentleri geriledi |
 | Sıfır-toplamlı progression | `REJECT` | Nested ΔBrier `-0.000014`; pratik fayda yok, forward ranking 3/5 |

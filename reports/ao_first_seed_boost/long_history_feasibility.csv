@@ -1,0 +1,2 @@
+arm,status,required_signal,available_local_source,reason,minimum_future_contract
+BOOST_LONG_HISTORY,UNAVAILABLE_NOT_RUN,pre-season club reputation older than the active five-season window,NONE,The repository has no dated 10-20 year UEFA/Opta club-rating snapshots or audited long-run title table. Reusing 2013-2026 domestic goals would duplicate BOOST_DOMESTIC_FORM rather than create independent reputation.,"dated pre-season snapshot, stable club_id crosswalk, source license, coverage audit and at least two historical outer-fold training seasons"
