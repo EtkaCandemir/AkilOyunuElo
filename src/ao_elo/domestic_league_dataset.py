@@ -40,13 +40,37 @@ PILOT_LEAGUES: tuple[DomesticLeagueSpec, ...] = (
     DomesticLeagueSpec("NOR", "4358", "Norwegian Eliteserien", True),
     DomesticLeagueSpec("GRE", "4336", "Greek Super League 1"),
     DomesticLeagueSpec("AUT", "4621", "Austrian Bundesliga"),
-    DomesticLeagueSpec("SCO", "5173", "Scottish Premiership"),
+    DomesticLeagueSpec("SCO", "4330", "Scottish Premier League"),
     DomesticLeagueSpec("POL", "4422", "Polish Ekstraklasa"),
     DomesticLeagueSpec("DEN", "4340", "Danish Superliga"),
     DomesticLeagueSpec("SUI", "4675", "Swiss Super League"),
     DomesticLeagueSpec("ISR", "4644", "Israeli Premier League"),
     DomesticLeagueSpec("CYP", "4630", "Cypriot First Division"),
     DomesticLeagueSpec("SWE", "4347", "Swedish Allsvenskan", True),
+)
+
+
+# These are the additional first-tier leagues required to give the frozen
+# 2026/27 UCL/UEL participant snapshot full domestic-Poisson coverage.  The
+# provider IDs were resolved from TheSportsDB's Soccer league catalogue on
+# 2026-08-21.  Keep this set separate from PILOT_LEAGUES: it is a candidate
+# data expansion, not an implicit change to the canonical production dataset.
+UCL_UEL_EXPANSION_LEAGUES: tuple[DomesticLeagueSpec, ...] = (
+    DomesticLeagueSpec("ALB", "4617", "Albanian Superliga"),
+    DomesticLeagueSpec("ARM", "4619", "Armenian Premier League"),
+    DomesticLeagueSpec("AZB", "4693", "Azerbaijani Premier League"),
+    DomesticLeagueSpec("BUL", "4626", "Bulgarian First League"),
+    DomesticLeagueSpec("CRO", "4629", "Croatian First Football League"),
+    DomesticLeagueSpec("GEO", "4638", "Georgian Erovnuli Liga", True),
+    DomesticLeagueSpec("HUN", "4690", "Hungarian NB I"),
+    DomesticLeagueSpec("KAZ", "4649", "Kazakhstan Premier League", True),
+    DomesticLeagueSpec("LIT", "4651", "Lithuanian TOPLYGA", True),
+    DomesticLeagueSpec("ROM", "4691", "Romanian Liga I"),
+    DomesticLeagueSpec("SCO", "4330", "Scottish Premier League"),
+    DomesticLeagueSpec("SLO", "4692", "Slovenian 1. SNL"),
+    DomesticLeagueSpec("SRB", "4671", "Serbian Super Liga"),
+    DomesticLeagueSpec("SVK", "4672", "Slovak First Football League"),
+    DomesticLeagueSpec("UKR", "4354", "Ukrainian Premier League"),
 )
 
 SCHEDULE_COLUMNS = (

@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-08-19T10:39:17.642173+00:00",
+  "generated_at": "2026-08-27T18:04:14.960068+00:00",
   "evaluation_only": true,
   "production_files_changed": false,
   "model_version": "ao-european-elo-v2.0-dev-freeze",
-  "production_revision": "2026-08-19-xg-evidence-revalidated-six-seasons",
+  "production_revision": "2026-08-27-participation-cup-and-unknown-position",
   "final_candidate_version": "ao-european-elo-v2.0-final-candidate-2026-08-13",
   "contract_status": {
     "all_active_blocks_exactly_equal": false,
     "all_active_parameters_equal": false,
     "core_active_parameters_equal": true,
     "qualification_override_declared": true,
-    "production_revision": "2026-08-19-xg-evidence-revalidated-six-seasons",
+    "production_revision": "2026-08-27-participation-cup-and-unknown-position",
     "candidate_revision": "2026-08-13-ml-poisson-ensemble-monitoring",
     "candidate_status": "FINAL_MODEL_CANDIDATE",
     "candidate_production_activation": true
   },
   "contract_sha256": {
-    "production": "b7730bf45c37526cac8ab51542bc4bdf10b7b9175d51fa5c695981016e510c53",
-    "final_candidate": "42aa5d282bbee2c38c8eb0f348e1f2dce13c22482a9fba4a9c7d7556654524df"
+    "production": "9fe612f3451693e4e9edce49864a591f2146fd21588686dc5cb69f369034c7c8",
+    "final_candidate": "3479ccbabb76fc49d121e7f3fb791b08a30c2f508bcaad3be8f9f1926d158d15"
   },
   "seasons": [
     "2018/19",
@@ -52,9 +52,9 @@
   "decision": "KEEP",
   "prediction_layer_decision": "PROMOTE_WITH_MONITORING",
   "served_prediction_metrics": {
-    "pooled_brier": 0.5680932199564515,
-    "pooled_log_loss": 0.9592418968185772,
-    "pooled_accuracy": 0.5538493038493039
+    "pooled_brier": 0.561934871096546,
+    "pooled_log_loss": 0.9497915174563584,
+    "pooled_accuracy": 0.5614250614250614
   },
   "caveat": "Development-window replay; not an untouched prospective holdout."
 }

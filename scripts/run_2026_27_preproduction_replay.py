@@ -19,6 +19,8 @@ from ao_elo.dynamic_csv import (  # noqa: E402
     state_to_frame,
     updates_to_frame,
 )
+from ao_elo.config import AOEuropeanEloConfig  # noqa: E402
+from ao_elo.pipeline import compute_ao_first_elo_from_csv  # noqa: E402
 
 
 DEFAULT_DATA_ROOT = ROOT / "data" / "season_2026_27_preproduction"
@@ -45,6 +47,14 @@ def main() -> None:
     replay_root.mkdir(parents=True, exist_ok=True)
 
     initial_path = output_root / "ao_first_elo_2026_27.csv"
+    compute_ao_first_elo_from_csv(
+        data_root / "teams.csv",
+        data_root / "country_coefficients.csv",
+        data_root / "domestic_context.csv",
+        data_root / "club_european_points.csv",
+        AOEuropeanEloConfig.active(),
+        initial_path,
+    )
     matches_path = data_root / "matches_completed.csv"
     fixtures_path = data_root / "fixtures_upcoming.csv"
     config = load_selected_v2_config(args.contract.resolve())

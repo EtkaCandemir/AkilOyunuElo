@@ -108,7 +108,7 @@ def validate_country_coefficients(country_coefficients: pd.DataFrame) -> None:
         "country_coefficients.csv",
     )
 
-    for index, row in country_coefficients.iterrows():
+    for _index, row in country_coefficients.iterrows():
         key = _row_key(row, ["season", "country_code"])
         for season_key in SEASON_KEYS:
             _require_number(

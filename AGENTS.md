@@ -40,6 +40,12 @@ rapor veya sohbet metni production parametresi icin otorite degildir.
   gol farki ve xG ek sinyallerini kapatir.
 - Ayni kickoff UTC batch'indeki tahminler, batch sonucu islenmeden kilitlenir.
 - Eksik Avrupa gecmisi sifir varsayilmaz; acik all-zero kulup satiri gerekir.
+- European Prior girdisi katilim agirligina gore normalize edilir
+  (`k = 0.20`). Tam katilimda deger degismez, hic girmemis kulupte oran
+  sifirdir ve exposure agirligina dokunulmaz.
+- Kupa bir taban degil katkidir: `w * min(L, C)`, aktif `w = 0.129032`.
+  Kupa kazanmayanda terim sifirdir ve katman achievement'i asla dusurmez.
+- Bilinmeyen lig sirasi percentile tabaninin (`0.15`) altina inemez.
 - xG yalniz iki takim icin birlikte ve uygun zaman kapsamiyla varsa uygulanir.
 - Ratingler `500-2000` araliginda kirpilmaz; bu yalniz referans bandidir.
 - Qualifier base onemi `Q1/Q2/Q3/QPO = 0.40/0.55/0.70/0.85`, retention

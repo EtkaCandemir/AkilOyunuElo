@@ -1,6 +1,61 @@
 {
   "model_version": "ao-european-elo-v2.0-dev-freeze",
-  "production_revision": "2026-08-19-xg-evidence-revalidated-six-seasons",
+  "production_revision": "2026-08-27-participation-cup-and-unknown-position",
+  "static_initial_elo": {
+    "max_european_exposure": 0.65,
+    "minimum_domestic_prior_weight": 0.35,
+    "european_history_benchmark": 20.0,
+    "european_prior_scale": 1.0,
+    "competition_quality_multipliers": {
+      "UCL": 1.0,
+      "UEL": 1.0,
+      "UECL": 1.0
+    },
+    "selection": "RANKING_FIRST_FIXED_CANDIDATE",
+    "evidence_window": "2018/19-2025/26",
+    "unseen_matches": 4884,
+    "brier": 0.569287,
+    "log_loss": 0.960299,
+    "accuracy": 0.554259,
+    "brier_fold_wins": 6,
+    "log_loss_fold_wins": 6,
+    "rating_feedback": true,
+    "research_report": "output/european_exposure_cap_backtest_2018_2026/backtest_report.md",
+    "european_participation_enabled": true,
+    "european_participation_shrinkage": 0.2,
+    "cup_contribution_enabled": true,
+    "cup_contribution_weight": 0.12903225806451613,
+    "unknown_league_finish_score": 0.15,
+    "evidence_note": "brier/log_loss/accuracy in this block are the exposure-cap decision's own measurement (2026-08-20), not the current model. Current metrics live in reports/current_model/model_summary.csv."
+  },
+  "european_participation": {
+    "active": true,
+    "family": "PARTICIPATION_WEIGHT_RENORMALIZED_EUROPEAN_HISTORY",
+    "shrinkage": 0.2,
+    "formula": "rate = weighted_european_history * (1 + shrinkage) / (weighted_season_exposure + shrinkage)",
+    "zero_participation_behavior": "RATE_ZERO_PRIOR_IGNORED_BY_BLEND",
+    "full_participation_behavior": "NEUTRAL_BY_CONSTRUCTION",
+    "exposure_weight_changed": false,
+    "applies_to": "EUROPEAN_PRIOR_INPUT_ONLY"
+  },
+  "domestic_cup_contribution": {
+    "active": true,
+    "family": "MAX_PLUS_WEIGHTED_MINIMUM",
+    "weight": 0.12903225806451613,
+    "formula": "min(cap, max(L, C) + weight * min(L, C))",
+    "weight_derivation": "cup_double_bonus_multiplier * champion_base_score / cup_base_score; preserves the active champion-and-cup total of 1.0800 exactly",
+    "non_cup_winner_behavior": "IDENTICAL_TO_PREVIOUS_RULE",
+    "champion_and_cup_behavior": "UNCHANGED_BY_CONSTRUCTION",
+    "never_lowers_achievement": true,
+    "supersedes": "cup as a floor via max(L, C) with champion-only double bonus"
+  },
+  "unknown_domestic_position": {
+    "unknown_league_finish_score": 0.15,
+    "rule": "UNKNOWN_IS_NEVER_BELOW_THE_PERCENTILE_FLOOR",
+    "previous_value": 0.1,
+    "reason": "The percentile curve floors at 0.15, so 0.10 punished absence of evidence harder than finishing last.",
+    "affected_team_seasons_2018_2026": 1
+  },
   "domestic_surprise": {
     "active": true,
     "family": "FIVE_SEASON_VARIANCE_CONTROLLED_DIRECT_PERCENTILE",
@@ -193,7 +248,7 @@
     },
     "artifact_manifest": {
       "path": "artifacts/production_prediction/manifest.json",
-      "sha256": "f37cbe7211c7ef70d00c5581ca4e3e3f569b745afda32495ec3b01eeeac33299"
+      "sha256": "b0d960929d79f79b79c9d5fe03440d8a8c02b337a6e3a642828626908cc94a3a"
     },
     "fallback": "CURRENT_AO_1X2",
     "rating_feedback": false,
@@ -215,8 +270,11 @@
     "progression_bonus": "ACTIVATE_FIXED_12_8_4_CAP_48_32_16_NO_KNOCKOUT_PLAYOFF",
     "achievement_reserve": "DISABLED",
     "competition_k": "DISABLED",
-    "qualification_transition": "ACTIVATE_Q1_040_Q2_055_Q3_070_QPO_085_MAIN_100_CARRY_050",
-    "prediction_layer": "PROMOTE_WITH_MONITORING_50_ML_50_AO_POISSON_RHO0"
+    "qualification_transition": "ACTIVATE_Q1_040_Q2_055_Q3_070_QPO_085_MAIN_100_CONTINUOUS_RETENTION_050",
+    "prediction_layer": "PROMOTE_WITH_MONITORING_50_ML_50_AO_POISSON_RHO0",
+    "european_participation": "ACTIVATE_PARTICIPATION_NORMALIZED_HISTORY_SHRINKAGE_0_20",
+    "domestic_cup_contribution": "ACTIVATE_GENERALIZED_CUP_CONTRIBUTION_CHAMPION_EQUIVALENT_WEIGHT",
+    "unknown_domestic_position": "RAISE_UNKNOWN_FINISH_TO_PERCENTILE_FLOOR_0_15"
   },
   "evidence": {
     "source": "output/goal_shadow_parameter_search_2018_2026/parameter_search_report.md",
@@ -326,16 +384,68 @@
     "source": "output/final_prediction_ensemble_backtest_2018_2026/selected_candidate.json",
     "development_matches": 6340,
     "unseen_matches": 4884,
-    "pooled_brier": 0.5680932199564515,
-    "pooled_log_loss": 0.9592418968185772,
-    "pooled_accuracy": 0.5538493038493039,
-    "delta_brier_vs_ao": -0.00399944549914677,
-    "delta_log_loss_vs_ao": -0.00512894042292622,
+    "pooled_brier": 0.561934871096546,
+    "pooled_log_loss": 0.9497915174563584,
+    "pooled_accuracy": 0.5614250614250614,
+    "delta_brier_vs_ao": -0.0044776562076448,
+    "delta_log_loss_vs_ao": -0.0064677297696585,
     "historical_gate_decision": "KEEP_SHADOW",
     "operational_decision": "PROMOTE_WITH_MONITORING",
     "manual_product_decision": true,
     "rating_feedback": false
   },
   "development_data_through": "2025/26",
-  "prospective_monitoring": "2026/27 league phase and later"
+  "prospective_monitoring": "2026/27 league phase and later",
+  "european_participation_evidence": {
+    "source": "output/european_participation_backtest_2018_2026/",
+    "curated_report": "reports/european_participation/",
+    "development_window": "2018/19-2025/26",
+    "team_seasons": 1413,
+    "team_seasons_moved": 1008,
+    "seed_spearman_delta_vs_baseline": 0.009462,
+    "seed_spearman_ci_95": [
+      0.004316,
+      0.015733
+    ],
+    "seed_spearman_delta_vs_blind_control": 0.011925,
+    "seed_spearman_ci_95_vs_blind_control": [
+      0.006652,
+      0.017587
+    ],
+    "blind_control_delta": -0.002465,
+    "brier_delta": -0.002051,
+    "log_loss_delta": -0.002904,
+    "fold_wins_vs_baseline": "6/6",
+    "fold_wins_vs_blind_control": "6/6",
+    "safety_gates_passed": 9,
+    "shrinkage_selection": "modal fold choice 0.20, modal share 0.667",
+    "exposure_cap_gate": {
+      "source": "reports/participation_exposure_interaction/",
+      "decision": "KEEP_CURRENT_CAP_0_65",
+      "caps_reliably_better_than_active": 0,
+      "best_replayed_loss_cap": 0.65
+    },
+    "served_layer_gate": {
+      "source": "reports/participation_served_ensemble/",
+      "decision": "PASS",
+      "served_edge_over_own_ao_brier_control": -0.00445,
+      "served_edge_over_own_ao_brier_candidate": -0.00436,
+      "reliable_harm_any_segment": false
+    },
+    "manual_product_decision": true
+  },
+  "cup_contribution_evidence": {
+    "source": "output/cup_achievement_backtest_2018_2026/backtest_report.md",
+    "curated_report": "reports/cup_achievement/",
+    "evidence_predates_activation": true,
+    "structural_gates": "4/4 PASS",
+    "brier_fold_wins": "6/6 at w=0.05 and w=0.08",
+    "pooled_brier_delta": -0.000118,
+    "conservative_envelope_reliable_improvement": false,
+    "conservative_envelope_reliable_harm": false,
+    "nested_selection": "5 of 6 folds selected w=0",
+    "affected_share_of_team_seasons": 0.192,
+    "evidence_interpretation": "This is a design decision, not a statistical promotion. The nested selection pulls the weight to zero, meaning the data would prefer removing the champion-and-cup double bonus over adding a general cup contribution. The activation rests on the rule being structurally wrong - 74% of 2026/27 cup winners received no credit for the trophy - and not on a measured gain, which is indistinguishable from zero. Same evidence class as Domestic Surprise and the progression bonus.",
+    "manual_product_decision": true
+  }
 }

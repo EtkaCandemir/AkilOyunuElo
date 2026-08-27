@@ -30,20 +30,22 @@
     "venue_parameter_cap": 0.75
   },
   "domestic_state_artifact": {
-    "mapped_ao_clubs": 171,
-    "path": "artifacts/production_prediction/domestic_poisson_state_2025_26.json",
-    "sha256": "e48adf6e70e248b0b965a400d05ace2c3fa12735e6a54c810726d3e6beca3aa2",
-    "state_cutoff_utc": "2026-05-31T16:30:00+00:00"
+    "excluded_by_coverage_gate": 1,
+    "mapped_ao_clubs": 312,
+    "path": "artifacts/production_prediction/domestic_poisson_state_2026_27.json",
+    "production_eligible_ao_clubs": 311,
+    "sha256": "66ba8206dd4affd1f6acb3b375e66a870bd00c1c090ad43ac5ddbdff7e91db7f",
+    "state_cutoff_utc": "2026-08-20T19:00:00+00:00"
   },
   "evidence": {
-    "delta_brier_vs_ao": -0.00399944549914677,
-    "delta_log_loss_vs_ao": -0.00512894042292622,
+    "delta_brier_vs_ao": -0.0044776562076448,
+    "delta_log_loss_vs_ao": -0.0064677297696585,
     "development_matches": 6340,
     "historical_gate_decision": "KEEP_SHADOW",
     "manual_operational_decision": true,
-    "pooled_accuracy": 0.5538493038493039,
-    "pooled_brier": 0.5680932199564515,
-    "pooled_log_loss": 0.9592418968185772,
+    "pooled_accuracy": 0.5614250614250614,
+    "pooled_brier": 0.561934871096546,
+    "pooled_log_loss": 0.9497915174563584,
     "source": "output/final_prediction_ensemble_backtest_2018_2026/selected_candidate.json",
     "unseen_matches": 4884
   },
@@ -51,9 +53,9 @@
   "family": "ML_DOMESTIC_POISSON_LOG_PROBABILITY_BLEND",
   "ml_artifact": {
     "feature_schema_sha256": "05195bc79e003d1d89936153720c487bbf6a62b090d4f98547dda65a79c79cdb",
-    "model_fingerprint": "e7c0cc2f44dd692a",
+    "model_fingerprint": "fb08a95958d8e603",
     "path": "artifacts/production_prediction/structural_logistic_v1.joblib",
-    "sha256": "221b422cc333fa9a65a7148343bbff58eb445bbc2b4df3b0c4f78b297276d0ff"
+    "sha256": "b8f6f24cefc43e1e38bfdac66dfd584168dcb1d872b6d623a9fc90c4ad0fbfc6"
   },
   "model_version": "ao-ml-poisson-ensemble-v1-production",
   "monitoring_season": "2026/27",

@@ -7,7 +7,7 @@ import hashlib
 import json
 import math
 import sys
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from pathlib import Path
 
 import numpy as np
@@ -1157,6 +1157,31 @@ def main() -> None:
     dynamic = json.loads(DYNAMIC_MANIFEST.read_text(encoding="utf-8"))
     static_config = AOEuropeanEloConfig(**dynamic["static_config"])
     static_config.validate()
+    # This static config seeds the reference and no-surprise arms, while the
+    # production arm reads the rebuilt Domestic Surprise artifact. Any field
+    # where the two disagree turns into a silent extra difference inside every
+    # ablation, so the manifest must mirror the active config. Domestic
+    # Surprise is excluded on purpose: the research chain applies that layer
+    # from the artifact rather than from this config.
+    active_static = AOEuropeanEloConfig.active()
+    ignored = {
+        name for name in asdict(active_static) if name.startswith("domestic_surprise")
+    }
+    drifted = {
+        name: (value, getattr(static_config, name))
+        for name, value in asdict(active_static).items()
+        if name not in ignored and getattr(static_config, name) != value
+    }
+    if drifted:
+        detail = ", ".join(
+            f"{name}: contract={expected!r} manifest={found!r}"
+            for name, (expected, found) in sorted(drifted.items())
+        )
+        raise ValueError(
+            "Static manifest drifted from the active config "
+            f"({detail}); ablation arms would confound that difference with "
+            "the layer under test"
+        )
     events = read_events(EVENTS_PATH)
     reserve, tie_audit = load_reserve_data(STATIC_DATA_ROOT, EVENTS_PATH, static_config)
     datasets = prepare_controlled_data(reserve, events)
@@ -1242,9 +1267,9 @@ def main() -> None:
                 [
                     {
                         "check": "production_prediction_artifacts_load",
-                        "passed": len(prediction_runtime.domestic_identity_map) == 171,
+                        "passed": len(prediction_runtime.domestic_identity_map) == 311,
                         "observed": len(prediction_runtime.domestic_identity_map),
-                        "requirement": "Checksummed ML artifact and Domestic Poisson state load; 171 AO club mappings expected",
+                        "requirement": "Checksummed ML artifact and Domestic Poisson state load; 311 AO club mappings expected after the UCL/UEL coverage expansion",
                         "severity_if_failed": "HIGH",
                     },
                     {

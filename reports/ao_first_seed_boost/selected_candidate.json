@@ -1,0 +1,40 @@
+{
+  "arms": {
+    "BOOST_BLIND": {
+      "affected_team_seasons": 186,
+      "effective_test_folds": 6,
+      "forward_pairwise_delta": 4.1320715504777894e-05,
+      "forward_spearman_delta": -7.594189335546897e-06,
+      "opta_gap": -0.07272197276312102,
+      "ranking_ci_95": [
+        -0.005165193781167194,
+        0.00603596104358669
+      ],
+      "reliable_loss_harm": false,
+      "seed_spearman_delta": 0.0005090621121189853,
+      "selected_non_baseline_folds": 6,
+      "status": "KEEP_DIAGNOSTIC_CONTROL"
+    },
+    "BOOST_DOMESTIC_FORM": {
+      "affected_team_seasons": 1,
+      "effective_test_folds": 1,
+      "forward_pairwise_delta": -2.068293611068306e-05,
+      "forward_spearman_delta": -9.614753186953928e-05,
+      "opta_gap": -0.06954542618755352,
+      "ranking_ci_95": [
+        0.0,
+        0.0011101000373954417
+      ],
+      "reliable_loss_harm": false,
+      "seed_spearman_delta": 0.00029317209577761627,
+      "selected_non_baseline_folds": 2,
+      "status": "KEEP_DIAGNOSTIC"
+    }
+  },
+  "decision": "KEEP_DIAGNOSTIC",
+  "interpretation": "BOOST_BLIND is a diagnostic control and cannot be selected for production. Only BOOST_DOMESTIC_FORM is eligible as a product candidate. No production file or active parameter was changed.",
+  "long_history_status": "UNAVAILABLE_NOT_RUN",
+  "production_activated": false,
+  "production_contract_sha256": "6db3ea2852792adbb1585fbd7871cf05ee109999a9bc6621fa7e8c2a7c2b4589",
+  "selected_arm": "BOOST_DOMESTIC_FORM"
+}

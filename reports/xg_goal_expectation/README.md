@@ -63,11 +63,15 @@ eklendiginde yardim eder" **gosterilmemistir**.
 +0.000275]` sifiri keser. Skor dagilimi duzelir, ust/alt ve KG var climatology
 sinirinda kalir.
 
-## Siradaki adim
+## Siradaki adim: yapildi
 
-xG form terimini `DOMESTIC_ATTACK_DEFENCE_POISSON` uzerine koymak, onun yerine
-degil. Bu, skor katmanini `Diagnostic`'ten cikarmak icin gereken tek kritik
-testtir.
+xG form terimi `DOMESTIC_ATTACK_DEFENCE_POISSON` uzerine kondu (2026-08-19).
+Kazancin yaklasik `%76`'si daha guclu tabanda hayatta kalir
+(`-0.002834` -> `-0.002149`) ve xG kolu gol kontrolunu `PHASE:MAIN` ve
+`XG_PRESENT` segmentlerinde guvenilir gecer. Yukaridaki 1. sinir bu kosuyla
+kalkmistir; 2. sinir (turev pazarlar) durmaktadir.
+
+Rapor: `reports/xg_domestic_goal_expectation/`.
 
 ## Yeniden uretim
 

@@ -130,6 +130,7 @@ from ao_elo.team_venue_context import (
 from ao_elo.domestic_league_dataset import (
     DomesticLeagueSpec,
     PILOT_LEAGUES,
+    UCL_UEL_EXPANSION_LEAGUES,
     assess_league_season,
     attach_domestic_club_ids,
     build_domestic_team_bridge,
@@ -213,6 +214,7 @@ __all__ = [
     "EuropeanPoissonTransferConfig",
     "RelativeOpponentProfileConfig",
     "PILOT_LEAGUES",
+    "UCL_UEL_EXPANSION_LEAGUES",
     "STRONG_OPPONENT",
     "EVEN_OPPONENT",
     "WEAK_OPPONENT",

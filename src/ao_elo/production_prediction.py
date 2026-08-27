@@ -433,6 +433,12 @@ def load_production_prediction_runtime(
     if engine.config != config.domestic_config:
         raise ValueError("Production domestic state config mismatch")
     identity_map: dict[str, tuple[str, str]] = {}
+    excluded_club_ids = state_artifact.get("excluded_ao_club_ids", [])
+    if not isinstance(excluded_club_ids, list) or not all(
+        isinstance(club_id, str) and club_id for club_id in excluded_club_ids
+    ):
+        raise ValueError("Production domestic state excluded_ao_club_ids is invalid")
+    excluded_club_ids = set(excluded_club_ids)
     for club_id, identity in identity_payload.items():
         if not isinstance(identity, Mapping):
             raise ValueError("Domestic identity map entry is invalid")
@@ -440,7 +446,8 @@ def load_production_prediction_runtime(
         source_team_id = identity.get("source_team_id")
         if not all(isinstance(value, str) and value for value in (league_id, source_team_id)):
             raise ValueError("Domestic identity map values must be non-empty strings")
-        identity_map[str(club_id)] = (league_id, source_team_id)
+        if str(club_id) not in excluded_club_ids:
+            identity_map[str(club_id)] = (league_id, source_team_id)
     return ProductionPredictionRuntime(
         config=config,
         ml_model=model,

@@ -1,9 +1,9 @@
 # AO European Elo 2026/27 Prospective Holdout Protokolü
 
-Sözleşme revizyonu: **18 Ağustos 2026**
+Sözleşme kanıt revizyonu: **27 Ağustos 2026**
 
 Production revision:
-`2026-08-18-continuous-qualifier-retention-activation`
+`2026-08-27-participation-cup-and-unknown-position`
 
 Rating freeze sürümü: `ao-european-elo-v2.0-dev-freeze`
 
@@ -23,6 +23,16 @@ değerlendirme şu kapsamla sınırlandırılır:
 - 2027/28 bir sonraki tam sezon holdout adayıdır.
 
 ## 2. Dondurulan Production Sözleşmesi
+
+### AO First seed
+
+```text
+effective European exposure cap = 0.65
+European prior katilim normalizasyonu = aktif, k = 0.20
+Kupa katkisi = aktif, w = 0.129032
+Bilinmeyen lig sirasi = 0.15
+Domestic Surprise = theta 0.40 / gamma 0.50 / cap +/-30
+```
 
 ### Rating çekirdeği
 
@@ -112,6 +122,8 @@ bağımsız ve salt okunur kayıt sisteminde yayımlanır.
 ## 5. Holdout Boyunca Yasak İşlemler
 
 - Sonuca bakarak Scale, H, K, carry veya AO First parametresi değiştirmek.
+- Exposure cap'i, katılım normalizasyonu `k` değerini, kupa katkısı ağırlığını
+  veya bilinmeyen lig sırası değerini yeniden seçmek.
 - Goal alpha/tau/cap, xG ratio/scale veya progression değerlerini değiştirmek.
 - Draw intercept/shape veya single-match tanımını değiştirmek.
 - ML, Poisson ve üst blend ağırlıklarını yeniden seçmek.

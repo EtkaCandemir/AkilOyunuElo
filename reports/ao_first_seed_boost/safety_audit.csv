@@ -1,0 +1,9 @@
+check,passed,observed,requirement
+unique_seed_team_season_arm,True,0,zero duplicates
+zero_exposure_never_boosted,True,0,zero
+boost_non_negative_and_capped,True,150.0,"[0,150] Elo"
+ineligible_rows_unchanged,True,0.0,0 Elo
+production_contract_hash_unchanged,True,6db3ea2852792adbb1585fbd7871cf05ee109999a9bc6621fa7e8c2a7c2b4589,6db3ea2852792adbb1585fbd7871cf05ee109999a9bc6621fa7e8c2a7c2b4589
+power_zero_sum_BASELINE,True,5.820766091346741e-11,<=1e-9
+power_zero_sum_BOOST_BLIND,True,1.1641532182693481e-10,<=1e-9
+power_zero_sum_BOOST_DOMESTIC_FORM,True,5.820766091346741e-11,<=1e-9

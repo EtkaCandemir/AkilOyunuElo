@@ -1,0 +1,10 @@
+gate,passed,observed,requirement
+three_arms_scored,True,3.0,"Domestic baseline, goals control and xG candidate"
+arms_share_one_sample,True,3528.0,Every arm scores the identical held-out matches
+arms_share_every_fold,True,4.0,No arm may skip or add a fold
+baseline_carries_no_form,True,0.0,The baseline stays the published domestic arm
+selection_never_sees_test_season,True,4.0,Training and inner validation close before the test season
+arms_share_domestic_configuration,True,2.0,"One domestic state per fold, shared by all three arms"
+rates_within_bounds,True,4.5,Rates stay inside the production lambda window
+xg_form_is_sparser_than_goals,True,0.5878684807256236,Documented coverage gap must be visible in the sample
+baseline_matches_published_arm,True,0.0017010187325356974,"Baseline within 0.01 nats of the published domestic arm on the shared matches, so the candidate is not beating a weakened stand-in"

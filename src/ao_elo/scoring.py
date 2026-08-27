@@ -43,6 +43,35 @@ def compute_domestic_prior(
     )
 
 
+def participation_normalized_history(
+    weighted_european_history: float,
+    weighted_season_exposure: float,
+    shrinkage: float,
+) -> float:
+    """Renormalize club European history over the seasons it could enter.
+
+    The `(1 + shrinkage)` numerator is what makes the layer safe: at full
+    participation the rate equals the published history exactly, so a club with
+    five complete seasons of evidence cannot move. The correction is
+    proportional to the real participation gap and nothing else.
+
+    A club that never entered keeps a zero rate. Those rows carry
+    `european_exposure = 0`, so the prior is ignored by the blend anyway and
+    inventing a rate there would be noise on an empty denominator.
+    """
+
+    history = max(float(weighted_european_history), 0.0)
+    played_weight = float(weighted_season_exposure)
+    shrinkage = float(shrinkage)
+    if shrinkage < 0.0:
+        raise ValueError("shrinkage must be non-negative")
+    if not 0.0 <= played_weight <= 1.0:
+        raise ValueError("weighted_season_exposure must be in [0,1]")
+    if played_weight <= 0.0:
+        return 0.0
+    return history * (1.0 + shrinkage) / (played_weight + shrinkage)
+
+
 def compute_european_prior(
     european_history_norm: float,
     config: AOEuropeanEloConfig,

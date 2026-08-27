@@ -126,6 +126,35 @@ def test_holdout_contract_forbids_parameter_selection() -> None:
     assert holdout["qualifying_and_playoffs_included"] is False
 
 
+def test_research_manifests_declare_the_active_exposure_cap() -> None:
+    """Every static config a research arm can be seeded from must use 0.65.
+
+    The canonical evaluation seeds its reference and no-surprise arms from the
+    dynamic manifest while the production arm reads the rebuilt Domestic
+    Surprise artifact. When the manifest lagged at the superseded 0.85 cap,
+    949 of 1887 team-seasons differed between the two arms and the exposure
+    decision was scored as a feature contribution.
+    """
+
+    production = json.loads(PRODUCTION_MANIFEST.read_text(encoding="utf-8"))
+    contract_cap = production["static_initial_elo"]["max_european_exposure"]
+    active_cap = AOEuropeanEloConfig.active().max_european_exposure
+
+    assert contract_cap == pytest.approx(0.65)
+    assert active_cap == pytest.approx(contract_cap)
+    assert production["static_initial_elo"]["minimum_domestic_prior_weight"] == (
+        pytest.approx(0.35)
+    )
+
+    for name in ("ranking", "dynamic"):
+        manifest = json.loads(MANIFEST_ROOTS[name].read_text(encoding="utf-8"))
+        static_payload = manifest.get("static_config") or manifest.get("config")
+        assert static_payload is not None, name
+        assert static_payload["max_european_exposure"] == pytest.approx(
+            contract_cap
+        ), name
+
+
 def test_calibration_manifests_match_frozen_layer_decisions() -> None:
     manifests = {
         name: json.loads(path.read_text(encoding="utf-8"))
@@ -151,6 +180,7 @@ def test_calibration_manifests_match_frozen_layer_decisions() -> None:
 
     evaluation = json.loads(EVALUATION_MANIFEST.read_text(encoding="utf-8"))
     production = json.loads(PRODUCTION_MANIFEST.read_text(encoding="utf-8"))
+    static = AOEuropeanEloConfig.active()
     assert evaluation["ranking_target"]["static_tail_decision"] == "NO_PROMOTION"
     assert evaluation["probability_contract"]["decision"] == "PROMOTE_1X2_OUTPUT"
     assert evaluation["layer_revalidation"]["dynamic_core"]["decision"] == (
@@ -160,6 +190,12 @@ def test_calibration_manifests_match_frozen_layer_decisions() -> None:
         "DISABLE_CARRY_1X2"
     )
     assert production["model_version"] == AO_MODEL_V2_VERSION
+    assert production["static_initial_elo"]["max_european_exposure"] == pytest.approx(
+        static.max_european_exposure
+    )
+    assert production["static_initial_elo"]["minimum_domestic_prior_weight"] == (
+        pytest.approx(1.0 - static.max_european_exposure)
+    )
     assert production["active_power_carry"] == 0.0
     assert production["one_x_two_probability"]["draw_at_even"] == pytest.approx(
         0.24
@@ -218,7 +254,7 @@ def test_historical_robustness_remains_immutable_after_manual_goal_decision() ->
     robustness = json.loads(ROBUSTNESS_MANIFEST.read_text(encoding="utf-8"))
     recommended = robustness["recommended_production_model"]
 
-    assert contract["contract_version"] == "1.9.0"
+    assert contract["contract_version"] == "1.10.0"
     assert contract["prediction_layer"]["active"] is True
     assert contract["prediction_layer"]["decision"] == "PROMOTE_WITH_MONITORING"
     assert contract["prediction_layer"]["rating_feedback"] is False

@@ -1,0 +1,19 @@
+{
+  "active_cap": 0.65,
+  "baseline_peak_cap": 0.825,
+  "caps_reliably_better_than_active": [],
+  "caps_reliably_worse_than_active": [],
+  "loss_replayed_caps": [
+    0.65,
+    0.7,
+    0.775,
+    0.825
+  ],
+  "participation_gain_at_active_cap": 0.009433998285763245,
+  "participation_gain_max": 0.009952744867524899,
+  "participation_gain_min": 0.007260388010589924,
+  "participation_peak_cap": 0.775,
+  "peak_shift": -0.04999999999999993,
+  "production_change": false,
+  "production_contract_sha256": "974dfd1fcf618b225d724ae8e6184e81fed9c83f1e054f80239d186535e9aae9"
+}

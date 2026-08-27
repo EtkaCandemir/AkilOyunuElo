@@ -91,20 +91,47 @@ Pozisyon bilinmiyorsa:
 
 ```text
 LeagueFinish = 1.00, is_league_champion=true ise
-LeagueFinish = 0.10, aksi halde
+LeagueFinish = 0.15, aksi halde
 ```
 
-Kupa ve duble:
+Bilinmeyen pozisyon percentile egrisinin **tabaninda** durur. Daha dusuk bir
+deger, kanit yoklugunu mumkun olan en kotu kanittan (bilinen son siradan, ki o
+da `0.15`tir) daha agir cezalandirirdi. Onceki `0.10` bu monotonlugu bozuyordu.
+
+Kupa katkisi:
 
 ```text
 CupBase = 0.62, is_cup_winner=true ise; aksi halde 0
 
-DoubleBonus = 0.08 * LeagueFinish,
-              yalniz champion AND cup_winner ise
+CupContribution = w * min(LeagueFinish, CupBase),   aktif w = 0.129032258065
 
-AchievementUncapped = max(LeagueFinish, CupBase) + DoubleBonus
+AchievementUncapped = max(LeagueFinish, CupBase) + CupContribution
 DomesticAchievement = min(1.10, AchievementUncapped)
 ```
+
+`max` tek basina kupayi bir **taban** yapar: lig skoru kupa tabaninin uzerinde
+olan kupa sahibi kupasindan sifir kredi alir. Katki terimi bu boslugu kapatir
+ve iki basarinin zayif olanini gercek bir katki olarak ekler.
+
+Aktif agirlik turetilmistir:
+
+```text
+w = cup_double_bonus_multiplier * champion_base_score / cup_base_score
+  = 0.08 * 1.00 / 0.62
+  = 0.129032258065
+```
+
+Bu secim, onceki kuralin **zaten odullendirdigi** grubu birebir korur:
+sampiyon-ve-kupa toplami `1.00 + 0.08 = 1.0800`, yeni kuralda
+`1.00 + 0.129032 * 0.62 = 1.0800`. Degisiklik saf bicimde "ayni mantigi
+sampiyon olmayanlara da uygula" demektir.
+
+Invariantlar:
+
+- Kupa kazanmayan takimda `min(L, C) = 0`, dolayisiyla katman **inerttir**.
+- Katman achievement'i asla dusurmez.
+- `achievement_cap = 1.10` bu agirlikta baglayici degildir; ulasilabilir
+  maksimum `1.0800`dir.
 
 Sampiyonluk egride bilincli bir step'tir. Sampiyon olmayan lig birincisi
 verisi validation tarafinda tutarsiz sayilmalidir; champion flag bilinen
@@ -129,8 +156,48 @@ Guclu ligde scale `1.00`a ulasir.
 
 ```text
 WeightedEuropeanHistory = sum_i(w_i * club_points_i)
+```
 
-u_europe = ln(1 + WeightedEuropeanHistory) / ln(1 + 20)
+### 6.1 Katilim normalizasyonu
+
+Girilmeyen sezon `club_points = 0` katkisi yapar ve bu, girilip hic puan
+alinamayan sezonla aritmetik olarak aynidir. Prior bu ikisini ayirt edemedigi
+icin agirlikli toplam, kulubun gercekten girebildigi agirliga gore
+normalize edilir:
+
+```text
+pw = WeightedSeasonExposure = sum_i(w_i * Played_i)
+
+EuropeanHistoryRate = WeightedEuropeanHistory * (1 + k) / (pw + k),  pw > 0
+EuropeanHistoryRate = 0,                                             pw = 0
+
+active k = 0.20
+```
+
+`(1 + k)` payda degil **pay**dadir; bu yuzden `pw = 1` iken oran yayinlanmis
+history'nin birebir aynisidir ve bes sezonluk tam kaniti olan kulup **tanim
+geregi hic hareket etmez**. Duzeltme yalniz gercek katilim boslugu kadardir ve
+ratingi asla dusuremez.
+
+`pw = 0` olan kulup sifir oran tasir. O satirlarda `european_exposure = 0`
+oldugu icin prior blend'e zaten girmez; bos paydada bir oran uretmek gurultu
+olurdu.
+
+`k`, kucuk paydada carpanin patlamasini engelleyen emniyet sabitidir:
+
+| `pw` | `k=0` | `k=0.20` | `k=0.75` |
+| ---: | ---: | ---: | ---: |
+| 0.07 | `14.29x` | `4.44x` | `2.13x` |
+| 0.20 | `5.00x` | `3.00x` | `1.84x` |
+| 0.53 | `1.89x` | `1.64x` | `1.37x` |
+| 1.00 | `1.00x` | `1.00x` | `1.00x` |
+
+Katman kapaliyken `EuropeanHistoryRate = WeightedEuropeanHistory`.
+
+### 6.2 Normalizasyon ve prior
+
+```text
+u_europe = ln(1 + EuropeanHistoryRate) / ln(1 + 20)
 ```
 
 Aktif `european_tail_beta=0`:
@@ -141,6 +208,9 @@ EuropeanHistoryNorm = min(u_europe, 1)
 EuropeanPrior = 500
               + 1559.714795008913 * EuropeanHistoryNorm
 ```
+
+Exposure agirligina dokunulmaz: katilim yalniz prior'in **girdisini** duzeltir,
+blend agirligini degil.
 
 ## 7. European Exposure
 
@@ -163,14 +233,14 @@ e = 0.60 * SeasonExposure + 0.40 * MatchExposure
 Genel tail:
 
 ```text
-e_eff = e                                      , e <= 0.85
-        0.85 + beta_exp * (e - 0.85)           , e > 0.85
+e_eff = e                                      , e <= 0.65
+        0.65 + beta_exp * (e - 0.65)           , e > 0.65
 ```
 
 Aktif `beta_exp=0`:
 
 ```text
-e_eff = min(e, 0.85)
+e_eff = min(e, 0.65)
 ```
 
 Rating source etiketi ham `e` ile belirlenir:

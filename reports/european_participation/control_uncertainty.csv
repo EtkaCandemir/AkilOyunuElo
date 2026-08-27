@@ -1,0 +1,3 @@
+metric,method,folds,mean_difference,ci_95_lower,ci_95_upper,reliable_improvement,reliable_harm
+seed_spearman,season_block_bootstrap,6,0.01192463249156391,0.006651930715938688,0.017586668649547166,True,False
+seed_pairwise_accuracy,season_block_bootstrap,6,0.004514810420244893,0.002498207037349678,0.006556773687556583,True,False

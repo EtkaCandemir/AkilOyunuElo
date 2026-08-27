@@ -70,6 +70,19 @@ def main() -> None:
     parser.add_argument("--production-contract", type=Path, default=PRODUCTION_CONTRACT)
     parser.add_argument("--output-root", type=Path, default=OUTPUT_ROOT)
     parser.add_argument("--bootstrap-samples", type=int, default=4000)
+    parser.add_argument(
+        "--prospective-poisson-weight",
+        type=float,
+        default=None,
+        help=(
+            "Pin the served blend weight instead of re-selecting one from the "
+            "surface. Rebuilding this backtest after an unrelated activation "
+            "would otherwise silently re-open a parameter the 2026/27 holdout "
+            "protocol freezes; pinning it to the production contract value "
+            "keeps the rebuild a propagation. Default preserves the automatic "
+            "choice."
+        ),
+    )
     args = parser.parse_args()
 
     output = args.output_root.resolve()
@@ -105,6 +118,7 @@ def main() -> None:
         domestic_selections,
         transfer_selections,
         bootstrap_samples=args.bootstrap_samples,
+        pinned_poisson_weight=args.prospective_poisson_weight,
     )
     contract_after = hashlib.sha256(contract_path.read_bytes()).hexdigest()
     if contract_after != contract_before:

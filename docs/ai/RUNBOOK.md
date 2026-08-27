@@ -197,6 +197,24 @@ dondurulmus Domestic Surprise ciktilari. Kosu production parametresi
 degistirmez. Domestic achievement formulu, `cup_base_score` veya
 `cup_double_bonus_multiplier` degisirse yeniden kosulur.
 
+AO First seed asimetrisi ve bagimsiz domestic-form boost arastirmasi:
+
+```bash
+python3 scripts/run_ao_first_seed_boost_backtest.py --bootstrap-samples 2000
+```
+
+Output ve curated kopya:
+
+```text
+output/ao_first_seed_boost_backtest_2018_2026/
+reports/ao_first_seed_boost/
+```
+
+Bu kosuda `BOOST_BLIND` yalniz diagnostik kontroldur ve secilebilir production
+adayi degildir. `BOOST_DOMESTIC_FORM` form snapshot'ini her sezonun ilk UEFA
+kickoff'undan hemen once dondurur. `2026/27` kullanilmaz; production contract
+baslangicta ve bitiste SHA-256 ile kontrol edilir.
+
 xG kaynagi ve bounded xG katmaninin yeniden dogrulanmasi:
 
 ```bash
@@ -253,6 +271,106 @@ reports/xg_goal_expectation/
 
 Uc kol kosar: `ELO_ONLY` taban, `GOALS` kontrol, `XG` aday. `GOALS` kolu
 kaldirilmamalidir; onsuz xG kazanci ile form terimi kazanci ayirt edilemez.
+
+Ayni form terimini reponun en iyi skor kolunun uzerine koyan takip kosusu:
+
+```bash
+python3 scripts/run_xg_domestic_goal_expectation_backtest.py
+```
+
+Egitim penceresi duyarliligi:
+
+```bash
+python3 scripts/run_xg_domestic_goal_expectation_backtest.py \
+  --training-window xg \
+  --output-root output/xg_domestic_goal_expectation_backtest_2020_2026/sensitivity_xg_training_window
+```
+
+Output ve curated kopya:
+
+```text
+output/xg_domestic_goal_expectation_backtest_2020_2026/
+reports/xg_domestic_goal_expectation/
+```
+
+Kollar `DOMESTIC_AD` taban, `DOMESTIC_AD_GOALS_FORM` kontrol ve
+`DOMESTIC_AD_XG_FORM` adaydir. Taban, yayinlanmis
+`DOMESTIC_ATTACK_DEFENCE_POISSON` kolunun aynisidir; kosu bunu her calismada
+`baseline_matches_published_arm` kapisiyla dogrular. Onkosul olarak
+`output/domestic_poisson_backtest_2018_2026/domestic_prequential_results.csv`
+ve `output/ml_1x2_backtest_2018_2026/pre_match_feature_store.csv` bulunmalidir.
+Kosu production contract'i yalniz hash'lemek icin okur ve cikista hash'in
+degismedigini dogrular.
+
+European prior katilim normalizasyonu:
+
+```bash
+python3 scripts/run_european_participation_backtest.py
+```
+
+Yalniz seed ekseni (mac replay'ini atlar, dakikalar kazandirir):
+
+```bash
+python3 scripts/run_european_participation_backtest.py --skip-loss-axis
+```
+
+Output ve curated kopya:
+
+```text
+output/european_participation_backtest_2018_2026/
+reports/european_participation/
+```
+
+Uc kol: `BASELINE`, `PARTICIPATION_BLIND_LIFT` kontrol, `PARTICIPATION_NORMALIZED`
+aday. Kor kontrol kaldirilmamalidir; onsuz kazancin katilim yapisindan mi yoksa
+dusuk exposure'lu kulupleri topluca itmekten mi geldigi ayirt edilemez.
+
+`baseline_reproduces_production` kapisi her kosuda dondurulmus seed
+artifact'inin guncel contract'la uyumunu dogrular. Artifact bayatsa kosu
+`162` Elo hatayla durur - bu kapi `2026-08-21` cap yayilimindaki staleness'i
+bu sekilde yakalamistir.
+
+Exposure cap x katilim etkilesimi:
+
+```bash
+python3 scripts/run_participation_exposure_interaction.py --loss-caps 0.70
+```
+
+Output ve curated kopya:
+
+```text
+output/participation_exposure_interaction_2018_2026/
+reports/participation_exposure_interaction/
+```
+
+`14` cap degerini hem production prior'i hem katilim-normalize prior uzerinde
+tarar ve her cap'i aktif `0.65`e karsi sezon-blogu bootstrap ile karsilastirir.
+`--skip-loss-axis` mac replay'ini atlar. Katilim katmani aktive edilirse bu
+kosu yeniden uretilmelidir.
+
+Domestic Surprise guclendirme kolu:
+
+```bash
+python3 scripts/run_domestic_surprise_amplification_backtest.py \
+  --baseline-source rebuilt_current_contract \
+  --output-root output/domestic_surprise_amplification_backtest_2018_2026_rebuilt_065
+```
+
+Output ve curated kopya:
+
+```text
+output/domestic_surprise_amplification_backtest_2018_2026_rebuilt_065/
+reports/domestic_surprise_amplification/
+```
+
+`--baseline-source` mutlaka `rebuilt_current_contract` olmalidir. `stored`
+kolu, exposure cap `0.85`'ten `0.65`'e indigi icin artik production olmayan bir
+tabana karsi olcer ve kazanci `53` kat abartir.
+
+Kosu dort kapi tasir: dependency-robust loss envelope, sezon blogu ranking
+veto'su (**ranking skorlarinda yuksek iyidir, zarar `upper < 0`**), fold secim
+modal payi (`>= 0.50`), ve iki parcali kontrol-artifact uzlastirmasi. Ranking
+zarari ile secim kararsizligi her iki terfi kademesini de veto eder.
 
 ## 8. Prediction Challenger'lari
 
@@ -327,6 +445,23 @@ Frozen artifact'lari tekrar uretme:
 python3 scripts/build_production_prediction_artifacts.py
 ```
 
+UCL/UEL domestic coverage checkpoint'ini ayni sabit production parametreleriyle
+yeniden kurma:
+
+```bash
+python3 scripts/build_production_prediction_artifacts.py \
+  --domestic-matches data/domestic_league_expansion_ucl_uel/domestic_matches_candidate.csv \
+  --domestic-bridge data/domestic_league_expansion_ucl_uel/domestic_team_bridge_with_live_candidate.csv \
+  --live-domestic-matches data/domestic_league_expansion_ucl_uel/live_2026_27_matches.csv \
+  --coverage-audit data/domestic_league_expansion_ucl_uel/target_coverage_audit.csv
+```
+
+`--coverage-audit` **zorunludur**. Bayragi atlamak kapiyi tamamen kapatir:
+`excluded_by_coverage_gate` `0` olur ve iki sezon/40 mac esigini gecemeyen
+kulup (`União Torreense`) sessizce production Poisson'a dahil edilir. Dogru
+kosuda `production_eligible_ao_clubs = 311` ve `excluded_by_coverage_gate = 1`
+gorulmelidir.
+
 Ayni inputlarla uretilen uc artifact SHA-256 degeri contract ile ayni
 kalmalidir. Fark varsa contract kendiliginden guncellenmez; once neden audit
 edilir.
@@ -353,6 +488,50 @@ Brier ve log-loss: served vs Current AO
 UCL / UEL / UECL segmentleri
 calibration ve probability normalization
 ```
+
+## 8.3 Aktivasyon Sonrasi Seed Zinciri Yayilimi
+
+AO First formulunu degistiren her aktivasyon donmus artifact zincirini yukari
+kosmak zorundadir. Sira ve **pin bayraklari** onemlidir; pin atlanirsa kosu
+ilgili parametreyi sessizce yeniden secer ve yayilim gizli bir model
+degisikligine doner.
+
+```bash
+python3 scripts/run_domestic_surprise_variance_backtest.py
+python3 scripts/run_domestic_surprise_gamma_sensitivity.py --variance-penalty 0.5
+python3 scripts/run_current_model_evaluation.py --bootstrap-samples 4000
+python3 scripts/run_ml_1x2_backtest.py --blend-weight 0.9 --bootstrap-samples 4000
+python3 scripts/run_domestic_poisson_backtest.py --bootstrap-samples 4000
+python3 scripts/run_final_prediction_ensemble_backtest.py \
+  --bootstrap-samples 4000 --prospective-poisson-weight 0.5
+python3 scripts/run_current_external_benchmark.py
+python3 scripts/run_2026_27_preproduction_replay.py
+python3 scripts/run_2026_27_playoff_first_leg_ranking.py
+```
+
+Uc pin ve neden gerekli oldugu:
+
+| Bayrak | Contract degeri | Pin yoksa yuzeyin sectigi |
+| --- | --- | --- |
+| `--variance-penalty` | `0.5` | `0.85` |
+| `--blend-weight` | `0.9` | `1.0` |
+| `--prospective-poisson-weight` | `0.5` | `0.4` |
+
+Ucu de `HOLDOUT_PROTOCOL_2026_27.md` `§5` tarafindan donduruldugu icin
+yeniden secilemez. Pin uygulandiginda yuzeyin kendi tercihi cikti dosyasina
+`surface_would_have_selected` olarak yazilir.
+
+Ayrica `output/v2_dynamic_calibration_2018_2026/selected_dynamic_model.json`
+ve `output/v2_ranking_calibration_2018_2026/selected_model.json` icindeki
+`static_config`, `AOEuropeanEloConfig.active()` ile alan alan ayni olmalidir
+(`domestic_surprise_*` haric; o katman artifact uzerinden uygulanir). Bu iki
+manifest butun arastirma zincirinin de-facto static config'idir ve eksik alan
+sessizce dataclass default'una duser. `run_current_model_evaluation.py` her
+kosuda bunu dogrular ve sapma varsa durur.
+
+Zincir sonunda `contracts/ao_european_elo_v2_production.json` icindeki
+`prediction_layer.artifact_manifest.sha256` yeni manifest degeriyle
+guncellenmelidir.
 
 ## 9. Production Degisikligi Kontrol Listesi
 

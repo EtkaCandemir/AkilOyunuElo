@@ -1,0 +1,63 @@
+{
+  "decision": "KEEP_CURRENT",
+  "production_change": false,
+  "baseline_source": "rebuilt_current_contract",
+  "most_frequent_fold_candidate": {
+    "theta": 0.6,
+    "domestic_cap": 150.0,
+    "variance_penalty": 0.0,
+    "exposure_family": "LINEAR",
+    "final_effect_cap": 75.0,
+    "minimum_history_seasons": 5
+  },
+  "fold_brier_wins": 4,
+  "fold_log_loss_wins": 4,
+  "pooled_brier_difference": -1.0503935474832483e-05,
+  "pooled_log_loss_difference": -3.227727371845606e-05,
+  "loss_conservative_ci_reliable_improvement": false,
+  "loss_conservative_ci_reliable_harm": false,
+  "ranking_reliable_harm": true,
+  "ranking_harmed_metrics": [
+    "same_season_pairwise_accuracy",
+    "same_season_spearman"
+  ],
+  "selection_stability": {
+    "folds": 6,
+    "distinct_candidates": 5,
+    "modal_fold_share": 0.3333333333333333,
+    "distinct_exposure_families": 3,
+    "theta_min": 0.4,
+    "theta_max": 1.75,
+    "domestic_cap_min": 30.0,
+    "domestic_cap_max": 150.0,
+    "variance_penalty_min": 0.0,
+    "variance_penalty_max": 0.75
+  },
+  "selection_is_stable": false,
+  "rebuilt_control_matches_stored_artifact_below_exposure_cap": true,
+  "rebuilt_control_max_effect_difference_below_cap": 5.364597654988756e-13,
+  "contract_migration_delta_confined_to_capped_exposure": true,
+  "contract_migration_max_effect_difference": 6.000000000000227,
+  "current_ao_core": {
+    "matches": 4884,
+    "brier_1x2": 0.5692874200821828,
+    "log_loss_1x2": 0.960299027153101,
+    "accuracy_1x2": 0.5542588042588042,
+    "same_season_spearman": 0.6811010509748233,
+    "same_season_pairwise_accuracy": 0.7576804901804453,
+    "forward_spearman": 0.4731802226574321,
+    "forward_pairwise_accuracy": 0.6613606244294143
+  },
+  "candidate_ao_core": {
+    "matches": 4884,
+    "brier_1x2": 0.5690579758401253,
+    "log_loss_1x2": 0.9599665106284913,
+    "accuracy_1x2": 0.5524160524160524,
+    "same_season_spearman": 0.6790832491396542,
+    "same_season_pairwise_accuracy": 0.756054863593497,
+    "forward_spearman": 0.47240274647115954,
+    "forward_pairwise_accuracy": 0.660677635949731
+  },
+  "served_ml_poisson": "NOT_REOPTIMIZED: candidate selection and promotion evidence use AO_CORE_1X2; served ML/Poisson requires a separate frozen-artifact replay.",
+  "contract_sha256": "974dfd1fcf618b225d724ae8e6184e81fed9c83f1e054f80239d186535e9aae9"
+}

@@ -30,7 +30,10 @@ def test_production_runtime_loads_frozen_artifacts() -> None:
     assert runtime.config.transfer_config.rho == pytest.approx(0.0)
     assert runtime.config.rating_feedback is False
     assert runtime.ml_model.arm_name == "STRUCTURAL_LOGISTIC"
-    assert len(runtime.domestic_identity_map) == 171
+    assert len(runtime.domestic_identity_map) == 311
+    assert "AO-UEFA-52298" in runtime.domestic_identity_map  # Ferencvaros
+    assert "AO-UEFA-2605907" in runtime.domestic_identity_map  # Kauno Zalgiris
+    assert "AO-UEFA-2603107" not in runtime.domestic_identity_map  # Torreense
 
 
 def test_production_prediction_is_normalized_and_prediction_only() -> None:
@@ -50,6 +53,23 @@ def test_production_prediction_is_normalized_and_prediction_only() -> None:
     assert result.loc[0, "home_probability"] != pytest.approx(
         result.loc[0, "ao_home_probability"]
     )
+
+
+def test_production_coverage_gate_disables_insufficient_team_profile() -> None:
+    service = ProductionPredictionService.from_contract(
+        PRODUCTION, allow_degraded_fallback=False
+    )
+    frame = _feature_frame()
+    frame["home_club_id"] = "AO-UEFA-2603107"  # Uniao Torreense: below gate
+    frame["away_club_id"] = "AO-UEFA-2605907"  # Kauno Zalgiris: eligible
+
+    result = service.predict(
+        frame,
+        generated_at_utc=pd.Timestamp("2026-08-13T10:00:00Z"),
+    )
+
+    assert result.loc[0, "prediction_status"] == "ACTIVE_ENSEMBLE"
+    assert result.loc[0, "domestic_poisson_coverage"] == "ONE"
 
 
 def test_production_prediction_uses_frozen_nested_log_blends_without_state_mutation(

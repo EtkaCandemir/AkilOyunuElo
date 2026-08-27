@@ -134,6 +134,23 @@ Kaynak onceligi:
 TheSportsDB otomatik kaynak olarak kullanilsa bile champion/cup ve takim sayisi
 sezon bootstrap audit'inde resmi kaynakla karsilastirilmalidir.
 
+2026/27 preproduction snapshot'inda her ulke icin Kassiesa qualification
+sayfasinin isaret ettigi uygulanabilir son tamamlanmis lig tablosu tarihli ve
+checksum'li kaynak olarak saklanir. Qualification route `CH` veya `N` ise route
+pozisyonu birincil, lig tablosu bagimsiz cross-check'tir. `CW` rotasinda ise
+guncel final tablo zorunludur; eski sezon tablosuna fallback yasaktir. Takim
+guncel ust ligde yoksa pozisyon tahmin edilmez ve `N/A` kaydedilir.
+
+Bu kararlar iki audit dosyasinda izlenir:
+
+```text
+domestic_history_audit.csv
+cw_domestic_evidence_audit.csv
+```
+
+Audit satirinda kaynak URL, cache dosyasi, kaynak sezonu, kaynak pozisyonu,
+qualification route pozisyonu ve cross-check status'u birlikte bulunur.
+
 Takvim yili ligi kullanan ulkelerde "son tamamlanan sezon" UEFA hedef sezonunun
 baslangic cutoff zamaninda tamamlanmis en yeni domestic kampanyadir. Gelecekte
 tamamlanacak domestic sezon sonucu geriye donuk seed'e sizdirilmaz.
@@ -221,6 +238,11 @@ state sezon basinda `artifacts/production_prediction/` altindaki checkpoint'ten
 yuklenir, tamamlanan yerel lig maclariyla exact-UTC sirasinda ilerletilir.
 Karsiligi olmayan kulup neutral/no-coverage snapshot alir; sonucu gormeden
 once uydurma attack/defence degeri uretilmez.
+
+2026/27 aktif checkpoint'i UCL/UEL kapsam genisletmesini icerir. 80 hedef
+kulubun 79'u dogrulanmis domestic state'e sahiptir; União Torreense yetersiz
+tarihce nedeniyle fallback'te kalir. Yerel sonuc ancak kendi kickoff'u Avrupa
+fiksturunden kesin olarak onceyse state'e uygulanir.
 
 Prediction servisinin cikisi rating settlement girdisi degildir. Artifact,
 feature veya state sorunu halinde final H/D/A Current AO 1X2'ye doner;

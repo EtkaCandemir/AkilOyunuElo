@@ -50,11 +50,12 @@ gucu sinyalidir.
 1. Lig sirasi biliniyorsa position percentile hesapla.
 2. Percentile'i floor/scale egrisine cevir.
 3. Sampiyonluk bayragi varsa finish score'u en az `1.00` yap.
-4. Lig sirasi bilinmiyorsa normal finish score `0.10`; sampiyonsa `1.00` kullan.
+4. Lig sirasi bilinmiyorsa normal finish score `0.15`; sampiyonsa `1.00` kullan.
+   Bilinmeyen, percentile tabaninin altina inemez.
 5. Kupa kazananina cup base `0.62` ver.
-6. Yalniz lig ve kupa birlikte kazanildiysa `0.08 * league_finish_score`
-   double bonusu ekle.
-7. `max(league_finish, cup_base) + double_bonus` degerini safety cap `1.10`
+6. Kupa kazanildiysa iki basarinin zayif olanini `w = 0.129032` ile katki olarak
+   ekle: `w * min(league_finish, cup_base)`. Kupa kazanmayanda bu terim sifirdir.
+7. `max(league_finish, cup_base) + cup_contribution` degerini safety cap `1.10`
    altinda tut.
 
 ### 2.4 Domestic Prior
@@ -66,12 +67,22 @@ achievement component toplanir.
 ### 2.5 European Prior
 
 1. Kulubun kendi bes sezonluk Avrupa puanlarini agirlikli topla.
-2. Benchmark `20` ile log normalize et.
-3. Aktif `european_tail_beta=0` nedeniyle normu `1` uzerinde cap et.
-4. Base `500` uzerine European boost ekle.
+2. Ayni agirliklarla katilim agirligini (`pw`) hesapla.
+3. Agirlikli toplami katilim agirligina gore normalize et:
+   `rate = history * (1 + 0.20) / (pw + 0.20)`. `pw = 0` ise `rate = 0`.
+4. Benchmark `20` ile log normalize et.
+5. Aktif `european_tail_beta=0` nedeniyle normu `1` uzerinde cap et.
+6. Base `500` uzerine European boost ekle.
+
+Ucuncu adim, girilmeyen sezonu "girdim ve puan alamadim" gibi saymayi
+engeller. `pw = 1` olan kulup tanim geregi hic hareket etmez; duzeltme yalniz
+katilim boslugu kadardir ve ratingi asla dusurmez. Exposure agirligina
+dokunulmaz.
 
 Country score ile club score ayni sey degildir. Birincisi lig gucu, ikincisi
-takimin kendi Avrupa kanitidir.
+takimin kendi Avrupa kanitidir. "Avrupa'ya girebildin mi" sorusu ise Domestic
+Prior'in sahiplendigi bir olgudur; katilim normalizasyonu o sorunun European
+Prior'a ikinci kez faturalanmasini kaldirir.
 
 ### 2.6 European Exposure
 
@@ -82,13 +93,13 @@ Iki kanit miktari hesaplanir:
 
 Bu ikisi `0.60/0.40` ile birlestirilir. Ham exposure aciklama/rating source icin
 korunur. Rating blend'inde aktif tavan nedeniyle effective exposure en fazla
-`0.85` olur. Boylece tam Avrupa gecmisinde bile Domestic Prior'in en az `%15`
+`0.65` olur. Boylece tam Avrupa gecmisinde bile Domestic Prior'in en az `%35`
 agirligi kalir.
 
 ### 2.7 Prior blend
 
 Domestic Prior ile European Prior arasinda effective exposure kadar ilerle.
-Exposure sifirsa sonuc Domestic Prior; `0.85` ise `%15 domestic + %85 European`
+Exposure sifirsa sonuc Domestic Prior; `0.65` ise `%35 domestic + %65 European`
 olur.
 
 ### 2.8 Domestic Surprise

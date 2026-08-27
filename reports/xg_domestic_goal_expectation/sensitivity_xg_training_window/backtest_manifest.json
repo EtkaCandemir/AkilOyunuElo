@@ -1,0 +1,195 @@
+{
+  "all_gates_passed": true,
+  "baseline_reconciliation": [
+    {
+      "difference_vs_this_baseline": null,
+      "exact_score_nll": 3.016594456946233,
+      "matches": 4884,
+      "scope": "repo_arm_full_sample"
+    },
+    {
+      "difference_vs_this_baseline": 0.0017010187325356974,
+      "exact_score_nll": 3.0214374501978654,
+      "matches": 3528,
+      "scope": "repo_arm_shared_sample"
+    },
+    {
+      "difference_vs_this_baseline": 0.0,
+      "exact_score_nll": 3.023138468930401,
+      "matches": 3528,
+      "scope": "this_baseline_shared_sample"
+    }
+  ],
+  "bootstrap_seed": 20260819,
+  "changes_production_parameters": false,
+  "exact_score_fold_record": {
+    "DOMESTIC_AD_GOALS_FORM_vs_DOMESTIC_AD": "3/4",
+    "DOMESTIC_AD_XG_FORM_vs_DOMESTIC_AD": "3/4",
+    "DOMESTIC_AD_XG_FORM_vs_DOMESTIC_AD_GOALS_FORM": "4/4"
+  },
+  "exact_score_nll": {
+    "DOMESTIC_AD": 3.023138468930401,
+    "DOMESTIC_AD_GOALS_FORM": 3.023492660418661,
+    "DOMESTIC_AD_XG_FORM": 3.020817722500276
+  },
+  "folds": 4,
+  "layer": "XG_FORM_ON_DOMESTIC_ATTACK_DEFENCE",
+  "matches_per_arm": 3528,
+  "over_2_5_brier": {
+    "DOMESTIC_AD": 0.24624948798185964,
+    "DOMESTIC_AD_GOALS_FORM": 0.24672845885634956,
+    "DOMESTIC_AD_XG_FORM": 0.24595114521582712
+  },
+  "production_contract_sha256": "6db3ea2852792adbb1585fbd7871cf05ee109999a9bc6621fa7e8c2a7c2b4589",
+  "python_version": "3.14.0",
+  "question": "Does the xG form term still improve goal expectation once the domestic attack/defence transfer is already in the model?",
+  "reliable_harms": [],
+  "reliable_improvements": [
+    {
+      "arm": "DOMESTIC_AD_XG_FORM",
+      "ci_95_lower": -0.0103081142115524,
+      "ci_95_upper": -0.003175262399911707,
+      "mean_difference": -0.00674584759109298,
+      "metric": "exact_score_nll",
+      "reference": "DOMESTIC_AD",
+      "segment": "PHASE:MAIN"
+    },
+    {
+      "arm": "DOMESTIC_AD_XG_FORM",
+      "ci_95_lower": -0.009076028475485914,
+      "ci_95_upper": -0.0021164403072749627,
+      "mean_difference": -0.005615247671187367,
+      "metric": "exact_score_nll",
+      "reference": "DOMESTIC_AD",
+      "segment": "XG_PRESENT"
+    },
+    {
+      "arm": "DOMESTIC_AD_XG_FORM",
+      "ci_95_lower": -0.00970987832356812,
+      "ci_95_upper": -0.002046015297133748,
+      "mean_difference": -0.00602223573343599,
+      "metric": "exact_score_nll",
+      "reference": "DOMESTIC_AD_GOALS_FORM",
+      "segment": "PHASE:MAIN"
+    },
+    {
+      "arm": "DOMESTIC_AD_XG_FORM",
+      "ci_95_lower": -0.0024169354885822517,
+      "ci_95_upper": -0.00026376899055952156,
+      "mean_difference": -0.0013227282981991158,
+      "metric": "over_2_5_brier",
+      "reference": "DOMESTIC_AD_GOALS_FORM",
+      "segment": "PHASE:MAIN"
+    },
+    {
+      "arm": "DOMESTIC_AD_XG_FORM",
+      "ci_95_lower": -0.008723363822136461,
+      "ci_95_upper": -0.0013750269298608176,
+      "mean_difference": -0.005147044191466545,
+      "metric": "exact_score_nll",
+      "reference": "DOMESTIC_AD_GOALS_FORM",
+      "segment": "XG_PRESENT"
+    },
+    {
+      "arm": "DOMESTIC_AD_XG_FORM",
+      "ci_95_lower": -0.0020740004378194195,
+      "ci_95_upper": -8.881028293098494e-05,
+      "mean_difference": -0.0011050767607648257,
+      "metric": "over_2_5_brier",
+      "reference": "DOMESTIC_AD_GOALS_FORM",
+      "segment": "XG_PRESENT"
+    }
+  ],
+  "scipy_version": "1.17.1",
+  "test_seasons": [
+    "2022/23",
+    "2023/24",
+    "2024/25",
+    "2025/26"
+  ],
+  "training_window": "xg",
+  "xg_beats_baseline_on_exact_score": true,
+  "xg_beats_goals_on_exact_score": true,
+  "xg_vs_goals_envelope": [
+    {
+      "ci_95_lower": -0.0062271542756642635,
+      "ci_95_upper": 0.0004851396717433217,
+      "mean_difference": -0.002674937918384758,
+      "metric": "exact_score_nll",
+      "reliable_improvement": false,
+      "segment": "ALL"
+    },
+    {
+      "ci_95_lower": -0.001646789781957422,
+      "ci_95_upper": 8.648091671611574e-05,
+      "mean_difference": -0.0007773136405224153,
+      "metric": "over_2_5_brier",
+      "reliable_improvement": false,
+      "segment": "ALL"
+    },
+    {
+      "ci_95_lower": -0.00970987832356812,
+      "ci_95_upper": -0.002046015297133748,
+      "mean_difference": -0.00602223573343599,
+      "metric": "exact_score_nll",
+      "reliable_improvement": true,
+      "segment": "PHASE:MAIN"
+    },
+    {
+      "ci_95_lower": -0.0024169354885822517,
+      "ci_95_upper": -0.00026376899055952156,
+      "mean_difference": -0.0013227282981991158,
+      "metric": "over_2_5_brier",
+      "reliable_improvement": true,
+      "segment": "PHASE:MAIN"
+    },
+    {
+      "ci_95_lower": -0.003897917364829742,
+      "ci_95_upper": 0.005406162573373672,
+      "mean_difference": 0.0011262307868429107,
+      "metric": "exact_score_nll",
+      "reliable_improvement": false,
+      "segment": "PHASE:QUALIFYING"
+    },
+    {
+      "ci_95_lower": -0.0015328210054875496,
+      "ci_95_upper": 0.0010836343964189276,
+      "mean_difference": -0.0001579444529912472,
+      "metric": "over_2_5_brier",
+      "reliable_improvement": false,
+      "segment": "PHASE:QUALIFYING"
+    },
+    {
+      "ci_95_lower": -0.008723363822136461,
+      "ci_95_upper": -0.0013750269298608176,
+      "mean_difference": -0.005147044191466545,
+      "metric": "exact_score_nll",
+      "reliable_improvement": true,
+      "segment": "XG_PRESENT"
+    },
+    {
+      "ci_95_lower": -0.0020740004378194195,
+      "ci_95_upper": -8.881028293098494e-05,
+      "mean_difference": -0.0011050767607648257,
+      "metric": "over_2_5_brier",
+      "reliable_improvement": true,
+      "segment": "XG_PRESENT"
+    },
+    {
+      "ci_95_lower": -0.004353998158844105,
+      "ci_95_upper": 0.00512633943544238,
+      "mean_difference": 0.0008512989525723433,
+      "metric": "exact_score_nll",
+      "reliable_improvement": false,
+      "segment": "XG_ABSENT"
+    },
+    {
+      "ci_95_lower": -0.0019011262853071158,
+      "ci_95_upper": 0.001037819933440195,
+      "mean_difference": -0.00030978907973647397,
+      "metric": "over_2_5_brier",
+      "reliable_improvement": false,
+      "segment": "XG_ABSENT"
+    }
+  ]
+}

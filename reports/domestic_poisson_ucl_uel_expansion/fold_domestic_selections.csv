@@ -1,0 +1,7 @@
+fold,test_season,validation_season,team_learning_rate,season_carry,shrinkage_matches,venue_context,lambda_min,lambda_max,team_parameter_cap,venue_parameter_cap,league_home_min,league_home_max,league_learning_ratio,model_version,candidate_key
+1,2020/21,2019/20,0.02,0.75,10.0,True,0.2,4.5,1.0,0.75,-0.3,0.5,0.1,ao-domestic-dynamic-poisson-v1-shadow,lr0.02_carry0.75_shrink10_venue1
+2,2021/22,2020/21,0.02,0.9,10.0,True,0.2,4.5,1.0,0.75,-0.3,0.5,0.1,ao-domestic-dynamic-poisson-v1-shadow,lr0.02_carry0.9_shrink10_venue1
+3,2022/23,2021/22,0.02,0.9,10.0,True,0.2,4.5,1.0,0.75,-0.3,0.5,0.1,ao-domestic-dynamic-poisson-v1-shadow,lr0.02_carry0.9_shrink10_venue1
+4,2023/24,2022/23,0.02,0.9,10.0,True,0.2,4.5,1.0,0.75,-0.3,0.5,0.1,ao-domestic-dynamic-poisson-v1-shadow,lr0.02_carry0.9_shrink10_venue1
+5,2024/25,2023/24,0.02,0.9,10.0,False,0.2,4.5,1.0,0.75,-0.3,0.5,0.1,ao-domestic-dynamic-poisson-v1-shadow,lr0.02_carry0.9_shrink10_venue0
+6,2025/26,2024/25,0.02,0.9,10.0,True,0.2,4.5,1.0,0.75,-0.3,0.5,0.1,ao-domestic-dynamic-poisson-v1-shadow,lr0.02_carry0.9_shrink10_venue1

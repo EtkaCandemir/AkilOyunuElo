@@ -76,6 +76,13 @@ def test_v2_multiplier_matches_the_config(
     assert repr(V2_RATING_MULTIPLIER) in document
 
 
+def test_active_exposure_cap_matches_the_formula_document(
+    document: str, static: AOEuropeanEloConfig
+) -> None:
+    assert static.max_european_exposure == pytest.approx(0.65)
+    assert "e_eff = min(e, 0.65)" in document
+
+
 @pytest.mark.parametrize(
     "attribute",
     [

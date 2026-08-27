@@ -1,15 +1,15 @@
 {
-  "contract_version": "1.9.0",
+  "contract_version": "1.10.0",
   "model_version": "ao-european-elo-v2.0-dev-freeze",
   "freeze_date": "2026-07-20",
-  "runtime_contract_revision_date": "2026-08-18",
+  "runtime_contract_revision_date": "2026-08-20",
   "production_status": "AO_ELO_WITH_ML_DOMESTIC_POISSON_PREDICTION_LAYER_AND_PROSPECTIVE_MONITORING",
   "reference_band": {
     "minimum": 500.0,
     "maximum": 2000.0,
     "post_calculation_clipping": false,
-    "active_static_structural_maximum": 2030.0000000000002,
-    "active_static_can_exceed_reference_maximum": true,
+    "active_static_structural_maximum": 1930.8802733214502,
+    "active_static_can_exceed_reference_maximum": false,
     "dynamic_live_hard_cap": false,
     "research_tail_candidates_can_exceed_reference_maximum": true,
     "v1_reference_max": 903.92,
@@ -34,9 +34,11 @@
     "percentile_scale": 0.7,
     "percentile_delta": 1.0,
     "champion_base_score": 1.0,
-    "unknown_league_finish_score": 0.1,
+    "unknown_league_finish_score": 0.15,
     "cup_base_score": 0.62,
     "cup_double_bonus_multiplier": 0.08,
+    "cup_contribution_enabled": true,
+    "cup_contribution_weight": 0.12903225806451613,
     "achievement_cap": 1.1,
     "domestic_surprise_enabled": true,
     "domestic_surprise_coefficient": 0.4,
@@ -44,9 +46,11 @@
     "domestic_surprise_max_abs_adjustment": 30.0,
     "domestic_surprise_minimum_history_seasons": 5,
     "european_prior_max_boost": 1559.714795008913,
+    "european_participation_enabled": true,
+    "european_participation_shrinkage": 0.2,
     "exposure_season_weight": 0.6,
     "exposure_match_weight": 0.4,
-    "max_european_exposure": 0.85,
+    "max_european_exposure": 0.65,
     "country_tail_beta": 0.0,
     "european_tail_beta": 0.0,
     "exposure_tail_beta": 0.0,
@@ -128,8 +132,16 @@
         "UEL": 0.6666666666666666,
         "UECL": 0.3333333333333333
       },
-      "increments": {"UCL": 12.0, "UEL": 8.0, "UECL": 4.0},
-      "season_caps": {"UCL": 48.0, "UEL": 32.0, "UECL": 16.0},
+      "increments": {
+        "UCL": 12.0,
+        "UEL": 8.0,
+        "UECL": 4.0
+      },
+      "season_caps": {
+        "UCL": 48.0,
+        "UEL": 32.0,
+        "UECL": 16.0
+      },
       "eligible_stages": [
         "ROUND_OF_16",
         "QUARTERFINAL",
@@ -253,7 +265,7 @@
         "brier_delta_vs_base": -0.00017377775921301186,
         "log_loss_delta_vs_base": -0.00024984982162956637,
         "pooled_spearman_delta_vs_base": 0.0006255255217031963,
-        "pooled_pairwise_delta_vs_base": 0.00009443705331790841,
+        "pooled_pairwise_delta_vs_base": 9.443705331790841e-05,
         "manual_product_decision": true
       },
       "domestic_surprise_override": {

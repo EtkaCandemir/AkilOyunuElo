@@ -99,6 +99,8 @@ SERVED_POISSON_WEIGHT = 0.50
 BOOTSTRAP_SAMPLES = 4000
 BOOTSTRAP_SEED = 20260813
 
+NO_DOMESTIC_SURPRISE_MODEL = "ABLATION_NO_DOMESTIC_SURPRISE"
+
 AO_ARMS = ("AO_RATING_CORE_1X2", "AO_SERVED_ENSEMBLE_50_50")
 CLUBELO_ARMS = ("CLUBELO_PUBLISHED_SCALE_400", "CLUBELO_TUNED_SCALE_AND_H")
 
@@ -604,11 +606,29 @@ def build_rating_table(
     identity = identity.loc[identity["season"].eq(season)].copy()
     identity["local_team_id"] = identity["local_team_id"].astype(str)
 
-    ratings = pd.read_csv(model_ratings_path)
-    ratings = ratings.loc[
-        ratings["model"].eq("CURRENT_PRODUCTION") & ratings["season"].eq(season)
+    all_ratings = pd.read_csv(model_ratings_path)
+    all_ratings["team_id"] = all_ratings["team_id"].astype(str)
+    ratings = all_ratings.loc[
+        all_ratings["model"].eq("CURRENT_PRODUCTION")
+        & all_ratings["season"].eq(season)
     ].copy()
-    ratings["team_id"] = ratings["team_id"].astype(str)
+
+    # The Domestic Surprise ablation seed lets the external axis answer the
+    # question the layer was actually justified on: does the correction move
+    # the season-start seed toward realized performance and toward the
+    # independent reference, or only away from the unadjusted prior?
+    no_surprise = all_ratings.loc[
+        all_ratings["model"].eq(NO_DOMESTIC_SURPRISE_MODEL)
+        & all_ratings["season"].eq(season)
+    ].copy()
+    if no_surprise.empty:
+        raise ValueError(
+            f"Model ratings carry no {NO_DOMESTIC_SURPRISE_MODEL} arm for {season}; "
+            "re-run run_current_model_evaluation.py first"
+        )
+    no_surprise = no_surprise.rename(
+        columns={"initial_rating": "initial_rating_no_domestic_surprise"}
+    )
 
     coefficients = pd.read_csv(club_coefficients_path)
     coefficients = coefficients.loc[coefficients["season"].eq(season)].copy()
@@ -623,6 +643,11 @@ def build_rating_table(
             how="inner",
         )
         .merge(ratings[["team_id", "initial_rating"]], on="team_id", how="inner")
+        .merge(
+            no_surprise[["team_id", "initial_rating_no_domestic_surprise"]],
+            on="team_id",
+            how="inner",
+        )
         .merge(opta[["club_id", "opta_power_rating"]], on="club_id", how="inner")
         .merge(
             coefficients[["team_id", "official_club_coefficient"]],
@@ -632,6 +657,9 @@ def build_rating_table(
     )
     if table.empty:
         raise ValueError("Rating axis produced no joined teams")
+    table["domestic_surprise_seed_delta"] = (
+        table["initial_rating"] - table["initial_rating_no_domestic_surprise"]
+    )
     return table.drop(columns=["local_team_id"]).reset_index(drop=True)
 
 
@@ -667,6 +695,11 @@ def paired_spearman_difference_ci(
 
 RATING_ARMS = (
     ("AO_FIRST_ELO", "initial_rating", "MODEL"),
+    (
+        "AO_FIRST_ELO_NO_DOMESTIC_SURPRISE",
+        "initial_rating_no_domestic_surprise",
+        "MODEL_ABLATION",
+    ),
     ("OPTA_PRE_SEASON_POWER_RANKING", "opta_power_rating", "EXTERNAL"),
     ("UEFA_CLUB_COEFFICIENT_PRE_SEASON", "official_club_coefficient", "OWN_INPUT"),
 )
@@ -725,10 +758,47 @@ def run_rating_axis(
                 ),
             }
         )
+
+    # Same external references, scored against the seed with Domestic Surprise
+    # switched off. Comparing this row with the AO row above says whether the
+    # layer narrows or widens the gap to an independent reference, which is a
+    # different question from whether it beats its own unadjusted prior.
+    ablation_values = table["initial_rating_no_domestic_surprise"].to_numpy(float)
+    for label, column, reference_type in RATING_ARMS[2:]:
+        benchmark_values = table[column].to_numpy(float)
+        mean_difference, lower, upper = paired_spearman_difference_ci(
+            ablation_values, benchmark_values, realized
+        )
+        comparison_rows.append(
+            {
+                "comparison": f"AO_FIRST_ELO_NO_DOMESTIC_SURPRISE_minus_{label}",
+                "reference_type": reference_type,
+                "teams": int(len(table)),
+                "spearman_difference": mean_difference,
+                "ci_95_lower": lower,
+                "ci_95_upper": upper,
+                "ao_reliably_better": bool(lower > 0.0),
+                "benchmark_reliably_better": bool(upper < 0.0),
+                "rank_agreement_spearman": float(
+                    spearmanr(ablation_values, benchmark_values).statistic
+                ),
+            }
+        )
+
+    delta = table["domestic_surprise_seed_delta"].to_numpy(float)
+    moved = np.abs(delta) > 1e-9
+    surprise_effect = {
+        "season": RATING_SEASON,
+        "teams": int(len(table)),
+        "teams_moved_by_layer": int(moved.sum()),
+        "mean_abs_seed_delta": float(np.abs(delta[moved]).mean()) if moved.any() else 0.0,
+        "max_abs_seed_delta": float(np.abs(delta).max()),
+    }
     return {
         "summary": summary,
         "comparisons": pd.DataFrame(comparison_rows),
         "team_table": table,
+        "domestic_surprise_effect": surprise_effect,
     }
 
 
@@ -784,6 +854,7 @@ def build_manifest(
                 }
                 for _, row in rating["comparisons"].iterrows()
             ],
+            "domestic_surprise_effect": rating["domestic_surprise_effect"],
         },
         "rating_feedback": False,
         "changes_production_parameters": False,
@@ -850,10 +921,23 @@ def write_report(
         "  sezon performansidir.",
         "- `reference_type` kolonu kanit degerini belirler: `EXTERNAL` bagimsiz hakemdir,",
         "  `OWN_INPUT` modelin kendi girdisidir ve yalnizca value-added tabanini olcer.",
+        "- `MODEL_ABLATION`, Domestic Surprise kapali seed'dir. Katmanin gerekcesi mac",
+        "  tahmini degil sezon basi seed kalitesi oldugu icin dogru eksen budur.",
         "",
         "```text",
         rating["summary"].to_string(index=False),
         "```",
+        "",
+        "### Domestic Surprise'in seed uzerindeki etkisi",
+        "",
+        f"- Layer'in oynattigi takim: "
+        f"`{manifest['rating_axis']['domestic_surprise_effect']['teams_moved_by_layer']}`"
+        f" / `{manifest['rating_axis']['domestic_surprise_effect']['teams']}`.",
+        f"- Ortalama mutlak seed hareketi: "
+        f"`{manifest['rating_axis']['domestic_surprise_effect']['mean_abs_seed_delta']:.3f}` Elo.",
+        f"- Maksimum mutlak seed hareketi: "
+        f"`{manifest['rating_axis']['domestic_surprise_effect']['max_abs_seed_delta']:.3f}` Elo.",
+        "- Tek sezon ve tek dis referans; bu bir diagnostiktir, terfi/kapatma kapisi degildir.",
         "",
         "Eslesmis Spearman farklari:",
         "",

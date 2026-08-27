@@ -1,0 +1,81 @@
+ao_club_id,team_name,country,country_code,domestic_league,selection_reason,is_expansion_target_country
+AO-UEFA-88148,Egnatia Rrogozhinë,Albania,ALB,Albania top division,UPCOMING_UEL_PLAYOFF,True
+AO-UEFA-2610304,Ararat-Armenia,Armenia,ARM,Armenia top division,UPCOMING_UEL_PLAYOFF,True
+AO-UEFA-50030,FC Salzburg,Austria,AUT,Austria top division,UPCOMING_UEL_PLAYOFF,False
+AO-UEFA-63405,LASK,Austria,AUT,Austria top division,UPCOMING_UCL_PLAYOFF,False
+AO-UEFA-2609356,Sabah FK,Azerbaijan,AZB,Azerbaijan top division,UPCOMING_UCL_PLAYOFF,True
+AO-UEFA-50074,Anderlecht,Belgium,BEL,Belgium top division,UPCOMING_UEL_PLAYOFF,False
+AO-UEFA-50043,Club Brugge,Belgium,BEL,Belgium top division,DIRECT_CL-LS,False
+AO-UEFA-52883,Sint-Truiden,Belgium,BEL,Belgium top division,UPCOMING_UEL_PLAYOFF,False
+AO-UEFA-2608297,CSKA Sofia,Bulgaria,BUL,Bulgaria top division,UPCOMING_UEL_PLAYOFF,True
+AO-UEFA-50044,Levski Sofia,Bulgaria,BUL,Bulgaria top division,UPCOMING_UCL_PLAYOFF,True
+AO-UEFA-50164,Dinamo Zagreb,Croatia,CRO,Croatia top division,UPCOMING_UCL_PLAYOFF,True
+AO-UEFA-50077,Omonia Nicosia,Cyprus,CYP,Cyprus top division,UPCOMING_UEL_PLAYOFF,False
+AO-UEFA-52498,Slavia Praha,Czechia,CZE,Czechia top division,DIRECT_CL-LS,False
+AO-UEFA-64388,Viktoria Plzen,Czechia,CZE,Czechia top division,UPCOMING_UEL_PLAYOFF,False
+AO-UEFA-50019,AGF Aarhus,Denmark,DEN,Denmark top division,UPCOMING_UEL_PLAYOFF,False
+AO-UEFA-2601124,AFC Bournemouth,England,ENG,England top division,DIRECT_EL-LS,False
+AO-UEFA-52280,Arsenal,England,ENG,England top division,DIRECT_CL-LS,False
+AO-UEFA-52683,Aston Villa,England,ENG,England top division,DIRECT_CL-LS,False
+AO-UEFA-52916,Crystal Palace,England,ENG,England top division,DIRECT_EL-LS,False
+AO-UEFA-7889,Liverpool,England,ENG,England top division,DIRECT_CL-LS,False
+AO-UEFA-52919,Manchester City,England,ENG,England top division,DIRECT_CL-LS,False
+AO-UEFA-52682,Manchester United,England,ENG,England top division,DIRECT_CL-LS,False
+AO-UEFA-53360,Sunderland AFC,England,ENG,England top division,DIRECT_EL-LS,False
+AO-UEFA-50124,Atlético Madrid,Spain,ESP,Spain top division,DIRECT_CL-LS,False
+AO-UEFA-53043,Celta de Vigo,Spain,ESP,Spain top division,DIRECT_EL-LS,False
+AO-UEFA-50080,FC Barcelona,Spain,ESP,Spain top division,DIRECT_CL-LS,False
+AO-UEFA-52265,Real Betis,Spain,ESP,Spain top division,DIRECT_CL-LS,False
+AO-UEFA-50051,Real Madrid,Spain,ESP,Spain top division,DIRECT_CL-LS,False
+AO-UEFA-50123,Real Sociedad,Spain,ESP,Spain top division,DIRECT_EL-LS,False
+AO-UEFA-70691,Villarreal,Spain,ESP,Spain top division,DIRECT_CL-LS,False
+AO-UEFA-75797,Lille OSC,France,FRA,France top division,DIRECT_CL-LS,False
+AO-UEFA-5312,Olympique Lyon,France,FRA,France top division,UPCOMING_UCL_PLAYOFF,False
+AO-UEFA-52748,Olympique Marseille,France,FRA,France top division,DIRECT_EL-LS,False
+AO-UEFA-52747,Paris Saint-Germain,France,FRA,France top division,DIRECT_CL-LS,False
+AO-UEFA-52277,RC Lens,France,FRA,France top division,DIRECT_CL-LS,False
+AO-UEFA-55031,Stade Rennais,France,FRA,France top division,DIRECT_EL-LS,False
+AO-UEFA-2605905,Iberia 1999,Georgia,GEO,Georgia top division,UPCOMING_UEL_PLAYOFF,True
+AO-UEFA-2600431,1899 Hoffenheim,Germany,GER,Germany top division,DIRECT_EL-LS,False
+AO-UEFA-50109,Bayer Leverkusen,Germany,GER,Germany top division,DIRECT_EL-LS,False
+AO-UEFA-50037,Bayern München,Germany,GER,Germany top division,DIRECT_CL-LS,False
+AO-UEFA-52758,Borussia Dortmund,Germany,GER,Germany top division,DIRECT_CL-LS,False
+AO-UEFA-2603790,RB Leipzig,Germany,GER,Germany top division,DIRECT_CL-LS,False
+AO-UEFA-50107,VfB Stuttgart,Germany,GER,Germany top division,DIRECT_CL-LS,False
+AO-UEFA-50129,AEK Athens,Greece,GRE,Greece top division,UPCOMING_UCL_PLAYOFF,False
+AO-UEFA-52953,OFI Heraklion,Greece,GRE,Greece top division,UPCOMING_UEL_PLAYOFF,False
+AO-UEFA-52298,Ferencváros,Hungary,HUN,Hungary top division,UPCOMING_UEL_PLAYOFF,True
+AO-UEFA-59340,Hapoel Beer-Sheva,Israel,ISR,Israel top division,UPCOMING_UCL_PLAYOFF,False
+AO-UEFA-50058,AC Milan,Italy,ITA,Italy top division,DIRECT_EL-LS,False
+AO-UEFA-50137,AS Roma,Italy,ITA,Italy top division,DIRECT_CL-LS,False
+AO-UEFA-79946,Como 1907,Italy,ITA,Italy top division,DIRECT_CL-LS,False
+AO-UEFA-50138,Internazionale,Italy,ITA,Italy top division,DIRECT_CL-LS,False
+AO-UEFA-50139,Juventus,Italy,ITA,Italy top division,DIRECT_EL-LS,False
+AO-UEFA-50136,Napoli,Italy,ITA,Italy top division,DIRECT_CL-LS,False
+AO-UEFA-79970,Kairat Almaty,Kazakhstan,KAZ,Kazakhstan top division,UPCOMING_UEL_PLAYOFF,True
+AO-UEFA-2605907,Kauno Zalgiris,Lithuania,LIT,Lithuania top division,UPCOMING_UEL_PLAYOFF,True
+AO-UEFA-52327,AZ Alkmaar,Netherlands,NED,Netherlands top division,DIRECT_EL-LS,False
+AO-UEFA-52749,Feyenoord,Netherlands,NED,Netherlands top division,DIRECT_CL-LS,False
+AO-UEFA-52330,NEC Nijmegen,Netherlands,NED,Netherlands top division,UPCOMING_UCL_PLAYOFF,False
+AO-UEFA-50062,PSV Eindhoven,Netherlands,NED,Netherlands top division,DIRECT_CL-LS,False
+AO-UEFA-59333,Bodø/Glimt,Norway,NOR,Norway top division,UPCOMING_UCL_PLAYOFF,False
+AO-UEFA-52314,Lillestrøm SK,Norway,NOR,Norway top division,UPCOMING_UEL_PLAYOFF,False
+AO-UEFA-52319,Viking Stavanger,Norway,NOR,Norway top division,UPCOMING_UCL_PLAYOFF,False
+AO-UEFA-2600277,Jagiellonia Bialystok,Poland,POL,Poland top division,UPCOMING_UEL_PLAYOFF,False
+AO-UEFA-64227,Lech Poznan,Poland,POL,Poland top division,UPCOMING_UEL_PLAYOFF,False
+AO-UEFA-50147,Benfica,Portugal,POR,Portugal top division,UPCOMING_UEL_PLAYOFF,False
+AO-UEFA-50064,FC Porto,Portugal,POR,Portugal top division,DIRECT_CL-LS,False
+AO-UEFA-50149,Sporting CP Lisbon,Portugal,POR,Portugal top division,DIRECT_CL-LS,False
+AO-UEFA-2603107,União Torreense,Portugal,POR,Portugal top division,DIRECT_EL-LS,False
+AO-UEFA-2606501,Universitatea Craiova,Romania,ROM,Romania top division,UPCOMING_UEL_PLAYOFF,True
+AO-UEFA-50050,Celtic,Scotland,SCO,Scotland top division,UPCOMING_UCL_PLAYOFF,True
+AO-UEFA-59030,NK Celje,Slovenia,SLO,Slovenia top division,UPCOMING_UCL_PLAYOFF,True
+AO-UEFA-50069,Red Star Belgrade,Serbia,SRB,Serbia top division,UPCOMING_UEL_PLAYOFF,True
+AO-UEFA-80409,FC Thun,Switzerland,SUI,Switzerland top division,UPCOMING_UEL_PLAYOFF,False
+AO-UEFA-52797,Slovan Bratislava,Slovakia,SVK,Slovakia top division,UPCOMING_UCL_PLAYOFF,True
+AO-UEFA-74233,Mjällby AIF,Sweden,SWE,Sweden top division,UPCOMING_UEL_PLAYOFF,False
+AO-UEFA-50157,Besiktas,Türkiye,TUR,Türkiye top division,UPCOMING_UEL_PLAYOFF,False
+AO-UEFA-52692,Fenerbahçe,Türkiye,TUR,Türkiye top division,UPCOMING_UCL_PLAYOFF,False
+AO-UEFA-50067,Galatasaray,Türkiye,TUR,Türkiye top division,DIRECT_CL-LS,False
+AO-UEFA-52731,Trabzonspor,Türkiye,TUR,Türkiye top division,UPCOMING_UEL_PLAYOFF,False
+AO-UEFA-52707,Shakhtar Donetsk,Ukraine,UKR,Ukraine top division,DIRECT_CL-LS,True
