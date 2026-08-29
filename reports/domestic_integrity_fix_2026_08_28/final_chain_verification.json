@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "production_manifest_hash": true,
+    "final_candidate_manifest_hash": true,
+    "ml_artifact_hash": true,
+    "domestic_state_artifact_hash": true,
+    "measured_evidence_matches_source": true,
+    "state_input_hashes": true,
+    "checkpoint_event_count": true,
+    "data_manifest_csv_hashes": true,
+    "snapshot_and_evaluation_hashes": true
+  },
+  "hashes": {
+    "production_contract": "e6ed6a74610ec650153a48b5c2929d4904d8ac88611bc686dd1ce7c35ced57fd",
+    "final_candidate_contract": "81f100387c582aaeeb801e9804c5a3692361786ffc6e3f94b2ee8ec1eed5d5a0",
+    "manifest": "62672c2074809db21286cec54b3a3713485ef9669a8d45d5f4db6ca6a63c6404",
+    "ml_artifact": "6f2fdb189ecab7e6bdebc254f46c119b1cc69577c19f5f8a966ba04510a0bb86",
+    "domestic_state": "0b82dc133e9f67f5459fd42eca969560b786a872e6ca37d644010f1e96d333d1"
+  }
+}

@@ -1,9 +1,9 @@
 # AO European Elo 2026/27 Prospective Holdout Protokolü
 
-Sözleşme kanıt revizyonu: **27 Ağustos 2026**
+Sözleşme kanıt revizyonu: **28 Ağustos 2026**
 
 Production revision:
-`2026-08-27-participation-cup-and-unknown-position`
+`2026-08-28-domestic-provider-season-and-fixture-integrity-fixes`
 
 Rating freeze sürümü: `ao-european-elo-v2.0-dev-freeze`
 
@@ -17,10 +17,23 @@ değerlendirme şu kapsamla sınırlandırılır:
 
 - UCL, UEL ve UECL lig aşaması ve sonrası.
 - En erken uygun kickoff: `2026-09-08T00:00:00Z`.
-- Qualifying ve play-off maçları kapsam dışıdır.
+- Ön eleme maçları (`Preliminary Round`, Q1/Q2/Q3 ve qualifying play-off)
+  kapsam dışıdır. Buradaki play-off, `Qualifying Play-off Round` turudur.
+- Lig aşamasından sonraki `Knockout round play-offs` (`KNOCKOUT_PLAYOFF`)
+  kapsam içindedir; aynı kickoff ve tahmin kilidi koşullarına tabidir.
 - Yalnız `generated_at_utc < kickoff_utc` olan kilitli tahminler uygundur.
 - Retrospective replay hiçbir koşulda prospective kanıta dönüştürülemez.
 - 2027/28 bir sonraki tam sezon holdout adayıdır.
+
+Bu ayrım, [production contract](../contracts/ao_european_elo_v2_production.json)
+`prospective_monitoring = "2026/27 league phase and later"` kapsamını açıklar.
+[normalize_stage()](../src/ao_elo/dynamic.py) qualifying play-off'u `QUALIFYING`,
+lig sonrası play-off'u `KNOCKOUT_PLAYOFF` olarak sınıflandırır;
+[qualification_round_key()](../src/ao_elo/qualification_stage_k.py) ise ikinci
+turu `MAIN` kabul eder. Ayrım
+[mevcut round-mapping testiyle](../tests/test_qualification_stage_k.py) korunur.
+`KNOCKOUT_PLAYOFF` turunda progression bonusu olmaması, maçın prospective
+tahmin değerlendirmesinden çıkarıldığı anlamına gelmez.
 
 ## 2. Dondurulan Production Sözleşmesi
 
@@ -130,6 +143,27 @@ bağımsız ve salt okunur kayıt sisteminde yayımlanır.
 - Feature schema'yı sonuçtan yararlanacak biçimde genişletmek.
 - Kapalı Dynamic K, Competition K veya Achievement Reserve katmanını açmak.
 - Eski prediction logunu yeni modelle yeniden üretip prospective diye sunmak.
+
+### Guard'ın kod tarafındaki karşılığı
+
+Yukarıdaki yasakların üçü — 2026/27'yi eğitime, seçime veya cross-fitting'e
+almak — artık `src/ao_elo/holdout_window.py` tarafından uygulanır. Üç artifact
+üreticisi (`ml_backtest`, `domestic_poisson_backtest`, `prediction_ensemble`)
+pencereyi `validate_development_window` ile doğrular: sezon dizisi
+`2018/19-2025/26` ile **birebir** eşleşmeli ve hiçbir kickoff
+`2026-07-01T00:00:00Z`'den sonra olmamalıdır.
+
+Bu, önceki durumdan farklıdır. `ml_backtest` yalnız sekiz sezon **sayıyordu**;
+`2019/20-2026/27` penceresi kabul ediliyor, final model 2026/27 satırlarıyla
+eğitiliyor ve metadata'ya yine `2026/27_UNTOUCHED` yazılıyordu. Diğer ikisi
+`seasons[-1] != "2026/27"` kontrolüyle yalnız son etikete bakıyordu; yanlış
+etiketli bir satır ikisini de geçerdi.
+
+"Dokunulmamış holdout" iddiası artık sabit metin değildir:
+`untouched_holdout_label()` iddiayı yazmadan önce doğrulamayı yeniden koşar,
+böylece iddia tanımladığı koşuldan uzun yaşayamaz. Bozuk pencere filtrelenmez,
+**reddedilir** — sessizce satır düşürmek yanlış etiketli girdinin fark
+edilmeden farklı bir eğitim kümesi üretmesine izin verirdi.
 
 Acil yazılım bug'ı güvenlik için düzeltilmek zorundaysa yeni production revision,
 artifact fingerprint ve etkilenen maç aralığı açıkça kaydedilir. Eski ve yeni

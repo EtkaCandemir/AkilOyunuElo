@@ -538,6 +538,14 @@ class MatchInput:
             raise ValueError("advanced_team_id is only valid on a tie decider")
         if self.decided_on_penalties and not self.is_tie_decider:
             raise ValueError("decided_on_penalties requires a deciding knockout match")
+        if (
+            self.is_single_match_tie
+            and not self.decided_on_penalties
+            and self.home_goals != self.away_goals
+        ):
+            winner = self.home_team_id if self.home_goals > self.away_goals else self.away_team_id
+            if self.advanced_team_id != winner:
+                raise ValueError("Single-match advanced_team_id must be the field-score winner")
         if not isinstance(self.xg_analysis_eligible, bool):
             raise ValueError("xg_analysis_eligible must be boolean")
         if (self.xg_home is None) != (self.xg_away is None):
@@ -874,6 +882,7 @@ def lock_prediction(
     if fixture.away_team_id not in state.ratings:
         raise ValueError(f"Missing away team_id in state: {fixture.away_team_id}")
     _validate_chronology_key(state, fixture.kickoff_utc, fixture.match_id)
+    _validate_team_kickoff(state, fixture)
 
     prepared_state, _ = _prepare_qualification_transition(state, fixture, config)
     home = prepared_state.ratings[fixture.home_team_id]
@@ -1717,6 +1726,14 @@ def _validate_existing_tie(
 
 def _validate_chronology(state: SeasonState, match: MatchInput) -> None:
     _validate_chronology_key(state, match.kickoff_utc, match.match_id)
+    _validate_team_kickoff(state, match.fixture())
+
+
+def _validate_team_kickoff(state: SeasonState, fixture: MatchFixture) -> None:
+    for team_id in (fixture.home_team_id, fixture.away_team_id):
+        rating = state.ratings.get(team_id)
+        if rating is not None and rating.last_event_utc == fixture.kickoff_utc:
+            raise ValueError(f"Team {team_id} cannot play twice at the same kickoff")
 
 
 def _validate_chronology_key(

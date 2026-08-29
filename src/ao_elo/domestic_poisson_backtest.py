@@ -20,6 +20,10 @@ from ao_elo.domestic_poisson import (
     select_dixon_coles_rho,
 )
 from ao_elo.evaluation import dependency_robust_loss_difference_ci
+from ao_elo.holdout_window import (
+    untouched_holdout_label,
+    validate_development_window,
+)
 from ao_elo.ml_features import FEATURE_SCHEMAS, FeatureSchema, validate_feature_store
 from ao_elo.ml_prediction import (
     blend_probabilities,
@@ -116,9 +120,7 @@ def run_domestic_poisson_walk_forward_backtest(
     if bootstrap_samples < 100:
         raise ValueError("bootstrap_samples must be at least 100")
     base = feature_store.sort_values(["kickoff_utc", "match_id"], kind="stable").reset_index(drop=True)
-    seasons = tuple(dict.fromkeys(base["season"].astype(str)))
-    if len(seasons) != 8 or seasons[-1] == "2026/27":
-        raise ValueError("Expected 2018/19-2025/26 development seasons only")
+    seasons = validate_development_window(base, label="domestic poisson backtest")
     current_ml = _validate_current_ml_predictions(current_ml_predictions, seasons[2:])
     candidates = {candidate.key: candidate for candidate in domestic_candidate_grid()}
     _validate_domestic_surface(domestic_candidate_surface, candidates)
@@ -242,6 +244,7 @@ def run_domestic_poisson_walk_forward_backtest(
         final_domestic,
         final_transfer,
         final_selection,
+        untouched_holdout_label(base, label="domestic poisson decision"),
     )
     return DomesticPoissonBacktestResult(
         domestic_prequential_results=domestic_candidate_surface.copy(),
@@ -882,6 +885,7 @@ def _decision(
     final_domestic: DomesticPoissonConfig,
     final_transfer: EuropeanPoissonTransferConfig,
     final_selection: Mapping[str, object],
+    holdout: str,
 ) -> dict[str, object]:
     baseline = comparison[comparison["model"].eq(CURRENT_AO)].iloc[0]
     candidate = comparison[comparison["model"].eq(AO_POISSON_BLEND)].iloc[0]
@@ -976,7 +980,7 @@ def _decision(
         "selected_domestic_config": asdict(final_domestic),
         "selected_transfer_config": asdict(final_transfer),
         "selected_poisson_blend_weight": float(final_selection["poisson_blend_weight"]),
-        "untouched_holdout": "2026/27",
+        "untouched_holdout": holdout,
         "rating_feedback": False,
     }
 

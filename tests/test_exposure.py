@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from itertools import product
+
 import pandas as pd
 import pytest
 
@@ -7,8 +9,21 @@ from ao_elo.config import AOEuropeanEloConfig, SEASON_KEYS
 from ao_elo.features import (
     compute_weighted_match_exposure,
     compute_weighted_season_exposure,
+    weighted_sum,
 )
 from ao_elo.scoring import rating_source_type
+
+
+def test_all_participation_patterns_preserve_numeric_accumulation_exactly() -> None:
+    config = AOEuropeanEloConfig.active()
+    for flags in product((0, 1), repeat=len(SEASON_KEYS)):
+        numeric = club_row(list(flags), list(flags), [10] * len(flags))
+        strings = numeric.copy().astype(object)
+        for key, value in zip(SEASON_KEYS, flags, strict=True):
+            strings[f"played_{key}"] = "true" if value else "false"
+        expected = weighted_sum(numeric, "played", config)
+        assert compute_weighted_season_exposure(numeric, config) == expected
+        assert compute_weighted_season_exposure(strings, config) == expected
 
 
 @pytest.fixture

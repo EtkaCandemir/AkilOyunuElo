@@ -5,14 +5,47 @@ import pytest
 
 from ao_elo.domestic_league_dataset import (
     DomesticLeagueSpec,
+    DomesticFixtureConflictError,
     ao_season_for_provider_event,
     assess_league_season,
     attach_domestic_club_ids,
     build_domestic_team_bridge,
     normalize_schedule,
+    reconcile_domestic_fixture_observations,
     table_expected_matches,
     validate_domestic_dataset,
 )
+
+
+def test_identical_source_observations_are_audited_not_silently_dropped() -> None:
+    payload = schedule_payload()
+    payload["schedule"].append({**payload["schedule"][0], "idEvent": "12", "strTimestamp": "2020-08-01T17:00:00+03:00"})
+    with pytest.raises(ValueError, match="duplicate domestic fixture"):
+        normalize_schedule(payload, SPEC, "2020-2021")
+    audit = []
+    result = normalize_schedule(payload, SPEC, "2020-2021", reconciliation_audit=audit)
+    assert len(result) == 2
+    assert [(row["source_event_id"], row["action"]) for row in audit] == [("10", "KEEP"), ("12", "REMOVE_OBSERVATION")]
+    payload["schedule"][-1]["intAwayScore"] = "3"
+    with pytest.raises(DomesticFixtureConflictError, match="Unresolved"):
+        normalize_schedule(payload, SPEC, "2020-2021", reconciliation_audit=[])
+
+
+@pytest.mark.parametrize("league,date,home,away,keep,reject,score,bad_score", [
+    ("4336", "2021-02-15T15:15:00Z", "135709", "133753", "1068057", "1091502", (2, 4), (2, 3)),
+    ("4649", "2020-10-17T10:00:00Z", "138041", "138038", "1039304", "1039365", (2, 2), (0, 0)),
+    ("4339", "2021-01-31T13:00:00Z", "135676", "133806", "1049070", "1084686", (3, 1), (3, 2)),
+])
+def test_official_score_resolution_checks_exact_evidence(league, date, home, away, keep, reject, score, bad_score) -> None:
+    frame = pd.DataFrame([{"source_event_id": event, "sportsdb_league_id": league, "kickoff_utc": date, "home_source_team_id": home, "away_source_team_id": away, "home_goals": goals[0], "away_goals": goals[1]} for event, goals in [(reject, bad_score), (keep, score)]])
+    audit = []
+    result = reconcile_domestic_fixture_observations(frame, audit)
+    assert result.source_event_id.tolist() == [keep]
+    assert tuple(result[["home_goals", "away_goals"]].iloc[0]) == score
+    assert all(row["source_url"].startswith("https://") for row in audit)
+    frame.loc[0, "away_goals"] = 99
+    with pytest.raises(DomesticFixtureConflictError, match="Unresolved"):
+        reconcile_domestic_fixture_observations(frame, [])
 
 
 SPEC = DomesticLeagueSpec("ENG", "4328", "English Premier League")

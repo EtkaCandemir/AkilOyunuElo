@@ -15,12 +15,42 @@ from ao_elo.dynamic import (
     expected_score,
     expected_1x2_probabilities,
     initialize_season,
+    lock_prediction,
     run_season,
     update_match,
 )
 
 
 KICKOFF = datetime(2026, 9, 1, 19, 0, tzinfo=timezone.utc)
+
+
+def test_same_team_cannot_play_twice_at_one_kickoff() -> None:
+    config = DynamicEloConfig.calibrated_v2()
+    initial = initialize_season("2026/27", seeds(), config)
+    first = match("a", home_goals=3, away_goals=0)
+    second = match("b", away="C", home_goals=0, away_goals=0)
+    state, _ = update_match(initial, first, config)
+    with pytest.raises(ValueError, match="same kickoff"):
+        update_match(state, second, config)
+    with pytest.raises(ValueError):
+        lock_prediction(state, second.fixture(), config, generated_at_utc=KICKOFF - timedelta(minutes=1))
+    with pytest.raises(ValueError, match="same kickoff"):
+        run_season(initial, [first, second], config)
+
+
+@pytest.mark.parametrize("single", [True, False])
+def test_advancer_must_match_field_winner_only_for_single_match_tie(single) -> None:
+    config = DynamicEloConfig.calibrated_v2()
+    initial = initialize_season("2026/27", seeds(), config)
+    final = replace(match(home_goals=3, away_goals=0, knockout=True, decider=True,
+                          round_name="Final", stage="FINAL", tie_id="final", advanced="B"),
+                    is_single_match_tie=single)
+    if single:
+        with pytest.raises(ValueError, match="field-score winner"):
+            update_match(initial, final, config)
+    else:
+        _, update = update_match(initial, final, config)
+        assert update.progression_bonus_recipient_id == "B"
 
 
 def seeds() -> tuple[TeamSeed, ...]:

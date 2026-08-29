@@ -1,13 +1,77 @@
 from __future__ import annotations
 
 import math
+import json
 from dataclasses import dataclass
 from difflib import SequenceMatcher
+from pathlib import Path
 from typing import Any, Iterable, Mapping
 
 import pandas as pd
 
 from ao_elo.xg_dataset import normalize_name
+from ao_elo.validators import DOMESTIC_FIXTURE_COLUMNS, domestic_fixture_keys, validate_domestic_fixture_uniqueness
+
+
+FIXTURE_RECONCILIATIONS = Path(__file__).resolve().parents[2] / "data/domestic_fixture_reconciliations.json"
+FIXTURE_AUDIT_COLUMNS = [*DOMESTIC_FIXTURE_COLUMNS, "source_event_id", "home_goals", "away_goals", "action", "retained_source_event_id", "reason", "source_url"]
+
+
+class DomesticFixtureConflictError(ValueError):
+    """Unresolved observations must abort a build, not hide an entire season."""
+
+
+def reconcile_domestic_fixture_observations(
+    matches: pd.DataFrame, audit: list[dict[str, object]],
+) -> pd.DataFrame:
+    """Audit identical observations and apply only reviewed score resolutions.
+
+    This is a source-normalization operation, never a replay/merge dedup policy.
+    A new conflict, or changed evidence for a reviewed conflict, fails closed.
+    """
+    if matches.empty:
+        return matches.copy()
+    keys = domestic_fixture_keys(matches)
+    duplicates = keys.duplicated(keep=False)
+    if not duplicates.any():
+        return matches.copy()
+    resolutions = json.loads(FIXTURE_RECONCILIATIONS.read_text(encoding="utf-8"))["resolutions"]
+    remove: list[int] = []
+    for key, group in keys.loc[duplicates].groupby(list(DOMESTIC_FIXTURE_COLUMNS), sort=True):
+        observations = matches.loc[group.index].sort_values("source_event_id", kind="stable")
+        scores = {
+            str(row.source_event_id): [int(row.home_goals), int(row.away_goals)]
+            for row in observations.itertuples(index=False)
+        }
+        keep = str(observations.iloc[0]["source_event_id"])
+        reason = "IDENTICAL_FIXTURE_AND_SCORE"
+        source_url = ""
+        if len({tuple(score) for score in scores.values()}) > 1:
+            rule = next((rule for rule in resolutions if (
+                str(rule["sportsdb_league_id"]), pd.Timestamp(rule["kickoff_utc"]),
+                str(rule["home_source_team_id"]), str(rule["away_source_team_id"]),
+            ) == key), None)
+            if rule is None or rule["observed_scores"] != scores:
+                raise DomesticFixtureConflictError(f"Unresolved domestic fixture score conflict: {key}, {scores}")
+            keep = rule["keep_source_event_id"]
+            if scores[keep] != rule["verified_score"]:
+                raise DomesticFixtureConflictError("Reviewed fixture score and retained observation disagree")
+            reason = "OFFICIAL_SOURCE_RECONCILIATION"
+            source_url = rule["source_url"]
+        for index, row in observations.iterrows():
+            retained = str(row["source_event_id"]) == keep
+            audit.append({
+                **{column: row[column] for column in DOMESTIC_FIXTURE_COLUMNS},
+                "source_event_id": str(row["source_event_id"]),
+                "home_goals": row["home_goals"], "away_goals": row["away_goals"],
+                "action": "KEEP" if retained else "REMOVE_OBSERVATION",
+                "retained_source_event_id": keep, "reason": reason, "source_url": source_url,
+            })
+            if not retained:
+                remove.append(index)
+    result = matches.drop(index=remove).reset_index(drop=True)
+    validate_domestic_fixture_uniqueness(result, "reconciled source schedule")
+    return result
 
 
 CALENDAR_SEASON_COUNTRIES = frozenset({"NOR", "SWE"})
@@ -105,6 +169,8 @@ def normalize_schedule(
     payload: Mapping[str, Any],
     spec: DomesticLeagueSpec,
     provider_season: str,
+    *,
+    reconciliation_audit: list[dict[str, object]] | None = None,
 ) -> pd.DataFrame:
     """Normalize one provider season without accepting incomplete match results."""
 
@@ -159,6 +225,10 @@ def normalize_schedule(
         raise ValueError(f"{spec.country_code} {provider_season}: duplicate match_id")
     if result["home_source_team_id"].eq(result["away_source_team_id"]).any():
         raise ValueError(f"{spec.country_code} {provider_season}: same home and away team")
+    if reconciliation_audit is not None:
+        result = reconcile_domestic_fixture_observations(result, reconciliation_audit)
+    else:
+        validate_domestic_fixture_uniqueness(result, "source schedule")
     return result.sort_values(["kickoff_utc", "match_id"], kind="stable").reset_index(drop=True)
 
 

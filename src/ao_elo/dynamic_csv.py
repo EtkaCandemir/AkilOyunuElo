@@ -31,6 +31,7 @@ from ao_elo.dynamic import (
     validate_state,
 )
 from ao_elo.tournament_bonus import ELIGIBLE_PROGRESSION_STAGES
+from ao_elo.validators import require_utc_timestamp
 
 
 STATE_CHECKPOINT_SCHEMA_VERSION = "2.1.0"
@@ -733,12 +734,12 @@ def read_matches(path: str | Path) -> tuple[MatchInput, ...]:
 
 
 def _fixture_from_row(row: dict[str, object]) -> MatchFixture:
-    kickoff = pd.to_datetime(row["kickoff_utc"], utc=True, errors="raise")
+    kickoff = _required_datetime(row["kickoff_utc"], "kickoff_utc")
     is_knockout = _boolean(row.get("is_knockout", False), "is_knockout")
     return MatchFixture(
         match_id=_required_id(row["match_id"], "match_id"),
         season=_required_text(row["season"], "season"),
-        kickoff_utc=kickoff.to_pydatetime().astimezone(timezone.utc),
+        kickoff_utc=kickoff.astimezone(timezone.utc),
         competition=_required_text(row["competition"], "competition"),
         round=_required_text(row["round"], "round"),
         tie_id=_optional_id(row.get("tie_id")),
@@ -1464,7 +1465,7 @@ def _required_datetime(value: object, label: str) -> datetime:
 def _optional_datetime(value: object) -> datetime | None:
     if value is None or pd.isna(value) or not str(value).strip():
         return None
-    return pd.to_datetime(value, utc=True, errors="raise").to_pydatetime()
+    return require_utc_timestamp(value, "timestamp").to_pydatetime()
 
 
 def _atomic_write_bytes(path: Path, contents: bytes) -> None:

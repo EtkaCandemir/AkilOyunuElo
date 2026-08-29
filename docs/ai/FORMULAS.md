@@ -3,6 +3,11 @@
 Bu belge production modelinin matematiksel referansidir. Tum degerler aktif
 contract ve kaynak koddan alinmistir.
 
+28 Agustos 2026 bugfix revision'u bu belgedeki sayisal formulleri veya donmus
+parametreleri degistirmez. `played_*` icin canonical string boolean once 0/1
+olarak okunur; agirlikli exposure toplami aynidir. Gecersiz zaman/skor/metadata
+girdilerinin ret ve fallback kurallari `DATA_CONTRACTS.md` icindedir.
+
 ## 1. Notasyon
 
 | Sembol | Anlam |
@@ -411,6 +416,13 @@ rho                 = 0
 Bu olasilik katmani `E_home`, Power Delta veya AO Live Elo state'ini
 degistirmez. Herhangi bir artifact, model feature'i veya Domestic Poisson state
 sorununda `P_served=P_AO` olur ve fallback nedeni audit loguna yazilir.
+
+### 12.2 Domestic veri kabul beklentisi
+
+Domestic veri kabul notu: secondary sezonsal mac sayisi icin tekrar eden mod
+varsa o deger, yoksa `ceil(median(counts))` beklenen sayimdir; kabul icin
+`count / expected >= 0.95` gerekir. Bu bir coverage tahminidir, rating veya
+Poisson parametresi degildir. Kaynak/provider sezonu AO sezonundan turetilmez.
 
 ## 13. Klasik Result Residual
 

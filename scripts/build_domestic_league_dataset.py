@@ -25,6 +25,9 @@ if str(SRC) not in sys.path:
 
 from ao_elo.domestic_league_dataset import (  # noqa: E402
     PILOT_LEAGUES,
+    DomesticFixtureConflictError,
+    FIXTURE_RECONCILIATIONS,
+    FIXTURE_AUDIT_COLUMNS,
     assess_league_season,
     attach_domestic_club_ids,
     build_domestic_team_bridge,
@@ -179,6 +182,7 @@ def main() -> None:
     quality_rows: list[dict[str, object]] = []
     accepted_frames: list[pd.DataFrame] = []
     raw_frames: list[pd.DataFrame] = []
+    fixture_audit: list[dict[str, object]] = []
     total = len(specs) * (args.end_year - args.start_year + 1)
     completed = 0
     for spec in specs:
@@ -199,7 +203,7 @@ def main() -> None:
                     refresh=args.refresh,
                     offline=args.offline,
                 )
-                matches = normalize_schedule(schedule, spec, provider_season)
+                matches = normalize_schedule(schedule, spec, provider_season, reconciliation_audit=fixture_audit)
                 expected = table_expected_matches(table)
                 assessment = assess_league_season(
                     matches,
@@ -210,6 +214,8 @@ def main() -> None:
                 raw_frames.append(matches.assign(quality_status=assessment["quality_status"]))
                 if assessment["quality_status"] == "ACCEPTED":
                     accepted_frames.append(matches)
+            except DomesticFixtureConflictError:
+                raise
             except Exception as error:
                 assessment = {
                     "country_code": spec.country_code,
@@ -268,6 +274,7 @@ def main() -> None:
     quality.to_csv(output / "league_season_quality.csv", index=False)
     bridge.to_csv(output / "domestic_team_bridge.csv", index=False)
     identity_audit.to_csv(output / "identity_audit.csv", index=False)
+    pd.DataFrame(fixture_audit, columns=FIXTURE_AUDIT_COLUMNS).to_csv(output / "fixture_reconciliation_audit.csv", index=False)
     manifest = build_manifest(args, specs, output, quality, accepted)
     stable_json_dump(manifest, output / "source_manifest.json")
     (output / "README.md").write_text(build_readme(quality, accepted, identity_audit), encoding="utf-8")
@@ -298,6 +305,7 @@ def build_manifest(args: argparse.Namespace, specs, output: Path, quality: pd.Da
         "pilot_countries": [spec.country_code for spec in specs],
         "request_delay_seconds": args.request_delay,
         "quality_gate": "valid UTC and score, unique IDs, final-table coverage >=95%",
+        "fixture_reconciliations_sha256": sha256_file(FIXTURE_RECONCILIATIONS),
         "accepted_league_seasons": int(quality["quality_status"].eq("ACCEPTED").sum()),
         "accepted_matches": int(len(matches)),
         "files": {

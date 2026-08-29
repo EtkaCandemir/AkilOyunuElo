@@ -19,7 +19,7 @@ from pdf_common import (
 )
 
 
-DOCUMENT_DATE = "20 Ağustos 2026"
+DOCUMENT_DATE = "28 Ağustos 2026"
 MODEL_VERSION = "ao-european-elo-v2.0-dev-freeze"
 PREDICTION_VERSION = "ao-ml-poisson-ensemble-v1-production"
 
@@ -27,7 +27,7 @@ DETAILED_SPEC = PdfSpec(
     filename="AkilOyunu_Elo_Model_Aciklayici.pdf",
     title="AO European Elo",
     subtitle="Tam Teknik Model Açıklaması",
-    version="AO European Elo v2 | Production revizyonu 2026-08-20",
+    version="AO European Elo v2 | Production revizyonu 2026-08-28",
     document_date=DOCUMENT_DATE,
     subject="AO First Elo, AO Live Elo ve production 1X2 tahmin modelinin tam açıklaması",
 )
@@ -428,7 +428,7 @@ def detailed_story() -> list[object]:
         table(
             [
                 ["Parametre", "Aktif değer"],
-                ["Eğitim kapsamı", "45.423 yerel maç, 19 lig, 508 kaynak takım"],
+                ["Eğitim kapsamı", "45.419 yerel maç, 19 lig, 508 kaynak takım"],
                 ["AO ile eşleşen kulüp", "171"],
                 ["Team learning rate / carry / shrinkage", "0.02 / 0.90 / 10"],
                 ["Team venue context", "Kapalı"],
@@ -449,6 +449,13 @@ def detailed_story() -> list[object]:
         *bullets(
             [
                 "ML artifact, feature schema ve Domestic Poisson state SHA-256 ile doğrulanır.",
+                "28 Ağustos revision'u parametreleri değiştirmez; giriş ve state hatalarını düzeltir.",
+                "Domestic checkpoint 2.0 olay ID'lerini ve lig başına son kickoff'u saklar; tekrar ve eski batch reddedilir.",
+                "Provider sezonu kaynak sezonundan veya takvim liglerinde UTC yılından gelir; AO sezonundan geri türetilmez.",
+                "Kanonik lig/takım + UTC fikstürü merge/replay girişinde benzersizdir. Skor çelişkisi resmi kaynak kararı gerektirir.",
+                "Domestic cutoff üretim zamanını aşamaz ve fixture kickoff'undan önce olmalıdır; aksi halde AO fallback kullanılır.",
+                "Timezone'suz tarih, kesirli gol ve çelişen metadata reddedilir. Canonical true/false ile 0/1 aynı hesaplanır.",
+                "Aynı takım aynı kickoff'ta iki kez oynayamaz. Tek maçta shootout yoksa tur atlayan, eşit olmayan field score'un galibidir.",
                 "Startup artifact hatası strict modda servisi durdurur.",
                 "Satır bazlı feature/state hatası final tahmini Current AO 1X2'ye döndürür.",
                 "Fallback nedeni ve bütün model fingerprint'leri pre-match loga yazılır.",
@@ -484,17 +491,18 @@ def detailed_story() -> list[object]:
         table(
             [
                 ["Model", "Brier", "Log-loss", "Accuracy", "Spearman", "Pairwise"],
-                ["Reference core", "0.573699", "0.967369", "0.547297", "0.668059", "0.752024"],
+                ["Reference core", "0.568053", "0.959174", "0.554464", "0.681487", "0.758195"],
                 ["Current AO rating core", "0.566413", "0.956259", "0.559173", "0.683258", "0.759421"],
-                ["Production ML + Poisson", "0.561935", "0.949792", "0.561425", "-", "-"],
+                ["Tarihsel nested ensemble", "0.562065", "0.949965", "0.561220", "-", "-"],
             ],
             [4.4 * cm, 2.4 * cm, 2.7 * cm, 2.4 * cm, 2.3 * cm, 2.25 * cm],
             s,
         ),
         callout(
             "Prediction kazancı",
-            "Production ensemble, Current AO 1X2'ye karşı Brier'ı 0.003999 ve log-loss'u "
-            "0.005129 azaltmış, accuracy'yi 0.003686 artırmıştır.",
+            "Tarihsel nested ensemble, Current AO'ya göre Brier'ı 0.004348 ve log-loss'u "
+            "0.006294 azaltmış, accuracy'yi 0.002048 artırmıştır. Fold başına kaynak/ağırlık "
+            "seçen bu ölçüm, sabit production %50/%50 karışımının birebir replay'i değildir.",
             s,
             tone="green",
         ),
@@ -607,6 +615,7 @@ def short_story() -> list[object]:
                 "H geçici saha etkisidir; ratinge kalıcı eklenmez, nötr sahada sıfırdır.",
                 "Tek farklı sonuçta gol farkı bonusu yoktur; GD 4'te tavanlanır.",
                 "xG yalnız iki taraflı ve scope uyumluysa kullanılır; eksikte GD fallback'i vardır.",
+                "28 Ağustos giriş/state düzeltmeleri parametreleri değiştirmez. Domestic checkpoint 2.0 tekrar ve eski batch'i reddeder; tahmin gelecekteki state'i kullanmaz.",
                 "Beraberlik ve penaltı shootout xG/GD ek sinyali üretmez.",
                 "Power Elo her maçta sıfır toplamlıdır.",
             ],
@@ -640,7 +649,7 @@ def short_story() -> list[object]:
         ),
         body(
             "Structural Logistic AO ratingi, Avrupa formu, turnuva formatı, dinlenme ve yoğunluk "
-            "feature'larını kullanır. Domestic Poisson 45.423 yerel maçtan hücum-savunma profili "
+            "feature'larını kullanır. Domestic Poisson 45.419 yerel maçtan hücum-savunma profili "
             "öğrenir. Bu katmanlar AO Live Elo'yu değiştirmez.",
             s,
         ),
@@ -648,14 +657,15 @@ def short_story() -> list[object]:
             [
                 ["Tahmin", "Brier", "Log-loss", "Accuracy"],
                 ["Current AO", "0.566413", "0.956259", "0.559173"],
-                ["Production ML + Poisson", "0.561935", "0.949792", "0.561425"],
-                ["Fark", "-0.003999", "-0.005129", "+0.003686"],
+                ["Tarihsel nested ensemble", "0.562065", "0.949965", "0.561220"],
+                ["Fark", "-0.004348", "-0.006294", "+0.002048"],
             ],
             [6.1 * cm, 3.45 * cm, 3.45 * cm, 3.45 * cm],
             s,
         ),
         callout(
             "Fallback",
+            "Yukarıdaki ölçüm fold başına seçilen nested ensemble'dır, sabit %50/%50 production replay'i değildir. "
             "Artifact, feature veya Domestic Poisson state problemi oluşursa prediction Current AO "
             "1X2'ye döner ve neden loglanır. Rating feedback her durumda kapalıdır.",
             s,

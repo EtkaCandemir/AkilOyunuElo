@@ -1,6 +1,12 @@
 # AO European Elo Model Durumu
 
-Güncelleme tarihi: 2026-08-27
+Güncelleme tarihi: 2026-08-28
+
+Production revision: `2026-08-28-domestic-provider-season-and-fixture-integrity-fixes`.
+Önceki on giriş/state düzeltmesine ek olarak provider sezonu, fikstür tekilliği,
+üç resmî skor uzlaştırması ve tekrar etmeyen mod düzeltildi. Checkpoint
+76.327 tekil maçtan yeniden üretildi. Donmuş parametreler ve aktif katmanlar
+değişmedi. Kanıt: `reports/domestic_integrity_fix_2026_08_28.md`.
 
 Aktif geliştirme sürümü: `ao-european-elo-v2.0-dev-freeze`
 
@@ -161,7 +167,7 @@ güncel model metrikleri için `reports/current_model/` kullanılmalıdır.
 | xG goal-bonus guard | `SHADOW_ONLY` | Yalnız GD bonusunu düzenledi; Brier `+0.000027`, pairwise `+0.000103`, güvenilir zarar yok fakat terfi kapısı geçilmedi |
 | xG çift yönlü performans bonusu | `SHADOW_CANDIDATE` | Beş nested foldun tamamında seçildi; pooled Brier `-0.005023`, log-loss `-0.007137` ve sıralama olumlu, fakat UECL geriledi ve cluster CI sıfırı kesti |
 | Kontrollü xG düzeltmesi | `PROMOTE_MANUAL` | `%30` etki tavanlı `ratio=0.30/scale=1.25`; sabit unseen Brier `-0.002542`, log-loss `-0.003828`, üç turnuva olumlu; production'da aktif |
-| ML + Domestic Poisson 1X2 | `PROMOTE_WITH_MONITORING` | 4.884 unseen maçta Brier `0.561935`, log-loss `0.949792`; AO'ya fark `-0.004478/-0.006468`; `%50/%50`, `rho=0`, AO fallback, rating feedback kapalı |
+| ML + Domestic Poisson 1X2 | `PROMOTE_WITH_MONITORING` | Tarihsel nested ensemble: 4.884 unseen maç, Brier `0.562065`, log-loss `0.949965`; AO'ya fark `-0.004348/-0.006294`. Sabit served `%50/%50`, `rho=0` ayrı operational karardır; AO fallback, rating feedback kapalı |
 | Takım belirsizliğine göre Dynamic K | `KEEP_FIXED_K` | Nested ΔBrier `+0.000085`, Δlog-loss `+0.000112`; forward ranking güvenli 1/5 |
 | Format-duyarlı `P_advance` | `SHADOW_ONLY` | Tie Brier `-0.003531`, log-loss `-0.009814`; bazı turnuva/format segmentleri geriledi |
 | Sıfır-toplamlı progression | `REJECT` | Nested ΔBrier `-0.000014`; pratik fayda yok, forward ranking 3/5 |

@@ -452,6 +452,12 @@ Ayni UTC aninda baslayan maclar icin:
 Bir takim ayni kickoff aninda iki fixture'da bulunamaz. Bu durum high-severity
 veri hatasidir.
 
+Domestic merge/replay ayrica kanonik lig + ev/deplasman takimlari + normalize
+UTC anahtarinin tekilligini zorunlu tutar. Yeni provider event ID ayni maci
+ikinci sonuca donusturemez. Builder skor celiskisini otomatik dedup ile cozmez;
+versiyonlu resmi kaynak karari ve gozlem audit'i gerekir. Bu repo guard'i,
+canli identity servisi veya append-only prediction ledger yerine gecmez.
+
 ## 10. Settlement State Machine
 
 Onerilen durumlar:
@@ -674,6 +680,14 @@ Ham response URI, fetch zamani, HTTP status, checksum, parser version, kalite
 kontrolleri ve hata nedenleri saklanir. API key veya secret payload'a yazilmaz.
 
 ## 13. Idempotency ve Concurrency
+
+Model cekirdegi (28 Agustos 2026 bugfix) Domestic Poisson icin islenmis
+`source_event_id`'leri ve lig bazinda son kickoff'u checkpoint `2.0` icinde
+korur. Tekrar, geri tarih ve bolunmus ayni-kickoff batch'i mutasyondan once
+reddedilir. Tahmin ilgili lig cutoff'unu hem uretim hem fikstur zamanina gore
+sinirlar. Bu, worker/DB transaction veya concurrency lock saglamaz; ayni state
+nesnesine yazma isleri servis tarafinda siralanmalidir. Sonucun edinilme zamani
+ve prospective kaydin degistirilemezligi hala dis servis sorumlulugudur.
 
 - `match_id` normal settlement icin yalniz bir kez Power event'i uretir.
 - `tie_id` yalniz bir kez progression event'i uretir.

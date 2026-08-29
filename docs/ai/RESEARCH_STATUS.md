@@ -69,7 +69,7 @@ basit `AO_POISSON_RHO0_CONTROL` kolunu kullanır.
 Veri:
 
 ```text
-45,423 yerel lig maci
+45,419 yerel lig maci (28 Agustos kaynak/fikstur duzeltmesi sonrasi)
 19 lig
 508 source takim
 Tarihsel backtest cekirdegi 171 AO kulubunu guvenle eslestirir. Canli
@@ -78,16 +78,18 @@ runtime kalite kapisindan gecen 311 kimligi kullanir. 2026/27 hedef evreninde
 79/80 kulup yeterli yerel kanita sahiptir. União Torreense iki sezon/40 mac
 esigini gecmedigi icin takim-bazli Poisson profili kapali; ilgili maclarda
 `ONE/NONE` coverage kuraliyla guvenli davranis uygulanir.
+Lig-sezon coverage kapisi GEO 2014 ve LIT 2020'yi disarida birakir; kabul
+edilmis kapsam boslugudur (bkz. `DATA_CONTRACTS.md` §11.2).
 4,884 unseen Avrupa maci
 ```
 
 Pooled sonuc:
 
 ```text
-AO baseline Brier     0.572093
-AO+Poisson Brier      0.569044   delta -0.003049
-AO baseline log-loss  0.964371
-AO+Poisson log-loss   0.960298   delta -0.004073
+AO baseline Brier     0.566413
+AO+Poisson Brier      0.564201   delta -0.002212
+AO baseline log-loss  0.956259
+AO+Poisson log-loss   0.953045   delta -0.003214
 Fold wins             5/6 Brier, 5/6 log-loss
 ```
 
@@ -98,17 +100,18 @@ team learning rate 0.02
 season carry 0.90
 shrinkage 10
 team venue context false
-attack coefficient 0.09210
-defence coefficient 0.06066
+attack coefficient 0.08635
+defence coefficient 0.04995
 rho 0.15
-AO/Poisson blend weight 0.50
+AO/Poisson blend weight 0.40 (research; production 0.50 kalir)
 ```
 
 Dosya:
 `output/domestic_poisson_backtest_2018_2026/selected_candidate.json`.
 
 Aktif production bileşeninde aynı domestic state parametreleri korunur fakat
-`rho=0` kullanılır. Bu ayrım contract ve artifact manifestinde dondurulmuştur.
+`rho=0` kullanılır. Research transfer fit'i production'a kopyalanmaz;
+production attack/defence katsayilari `0.0920974542/0.0606564817` kalir. Bu ayrım contract ve artifact manifestinde dondurulmuştur.
 
 ### 3.2 Structural ML blend
 
@@ -117,12 +120,12 @@ Logistic modeli, manuel operasyon kararıyla monitored final ensemble içinde
 `%90` ağırlıklı Current ML bileşeni olarak aktiftir; tek başına servis edilmez.
 
 ```text
-Brier     0.568690   AO'ya fark -0.003402
-Log-loss  0.960458   AO'ya fark -0.003913
-Fold      4/6 Brier, 3/6 log-loss
+Brier     0.562750   AO'ya fark -0.003663
+Log-loss  0.951215   AO'ya fark -0.005045
+Fold      5/6 Brier, 5/6 log-loss
 ```
 
-Pooled loss güçlü olsa da standalone fold ve calibration kapıları tamamlanmadığı
+Pooled loss ve fold kapisi olumlu olsa da standalone calibration kapisi gecilmedigi
 için bağımsız production modeli değildir.
 
 ### 3.3 ML + Poisson final ensemble
@@ -132,18 +135,33 @@ Tarihsel otomatik gate: **`KEEP_SHADOW`**. Guncel operasyonel karar:
 fakat AO First/Live rating state'ine geri beslenmez.
 
 ```text
-Brier     0.562152   AO'ya fark -0.004360
-Log-loss  0.950022   AO'ya fark -0.006371
-Accuracy  0.561220   AO'ya fark +0.002662
+Brier     0.562065   AO'ya fark -0.004348
+Log-loss  0.949965   AO'ya fark -0.006294
+Accuracy  0.561220   AO'ya fark +0.002048
 ```
 
-Bu degerler `2026-08-27` katilim normalizasyonu aktivasyonundan sonra
-yeniden uretilmistir.
+Bu degerler `2026-08-28` domestic kaynak/fikstur duzeltmesinin kanit zinciri yeniden
+uretildikten sonraki **nested walk-forward** `ML_POISSON_ENSEMBLE` koluna
+aittir: `2020/21-2025/26`, alti fold, `4884` mac. Kaynak
+[model_comparison.csv](../../reports/production_prediction/model_comparison.csv).
+Onceki `0.562152/0.950022/0.561220` degerleri katilim gate'inin
+[aday snapshot'inda](../../reports/participation_served_ensemble/model_comparison_candidate.csv)
+korunur; guncel zincirin sonucu olarak kullanilmaz.
 
-Current ML'ye karsi `4/6` Brier ve `4/6` log-loss fold kazanmistir. Pooled ve
+Current ML'ye karsi `4/6` Brier ve `5/6` log-loss fold kazanmistir; `2024/25`
+iki metrikte de iyilesmistir
+([fold_results.csv](../../reports/production_prediction/fold_results.csv)). Pooled ve
 kalibrasyon sonuclari iyidir; ancak dependency uncertainty gate gecmedigi ve
 bazi sezon/coverage segmentleri hafif ters yone gittigi icin otomatik terfi
 almamistir.
+
+Tarihsel kolda Poisson kaynagi ve agirligi fold icinde secilir; agirliklar
+`0.6/0.9/0.7/0.3/0.1/0.2`dir
+([fold_selections.csv](../../reports/production_prediction/fold_selections.csv)).
+Yukaridaki metrikler, asagidaki sabit production politikasinin birebir
+replay olcumu degildir. Pooled/segment CI'lari
+[dependency_uncertainty.csv](../../reports/production_prediction/dependency_uncertainty.csv)
+dosyasinda, iki farkli baseline acikca ayrilarak tutulur.
 
 2026/27 icin dondurulan production tahmini:
 

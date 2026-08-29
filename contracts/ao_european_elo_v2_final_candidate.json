@@ -166,7 +166,7 @@
     },
     "artifact_manifest": {
       "path": "artifacts/production_prediction/manifest.json",
-      "sha256": "b0d960929d79f79b79c9d5fe03440d8a8c02b337a6e3a642828626908cc94a3a"
+      "sha256": "62672c2074809db21286cec54b3a3713485ef9669a8d45d5f4db6ca6a63c6404"
     },
     "fallback": "CURRENT_AO_1X2",
     "rating_feedback": false,
@@ -247,11 +247,11 @@
     "source": "output/final_prediction_ensemble_backtest_2018_2026/selected_candidate.json",
     "development_matches": 6340,
     "unseen_matches": 4884,
-    "pooled_brier": 0.561934871096546,
-    "pooled_log_loss": 0.9497915174563584,
-    "pooled_accuracy": 0.5614250614250614,
-    "delta_brier_vs_ao": -0.0044776562076448,
-    "delta_log_loss_vs_ao": -0.0064677297696585,
+    "pooled_brier": 0.5620648106445707,
+    "pooled_log_loss": 0.9499653430263244,
+    "pooled_accuracy": 0.5612203112203112,
+    "delta_brier_vs_ao": -0.004347716659620193,
+    "delta_log_loss_vs_ao": -0.006293904199692668,
     "historical_gate_decision": "KEEP_SHADOW",
     "operational_decision": "PROMOTE_WITH_MONITORING",
     "manual_product_decision": true,

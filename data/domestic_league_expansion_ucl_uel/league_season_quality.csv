@@ -1,456 +1,456 @@
-country_code,sportsdb_league_id,league_name,provider_season,schedule_matches,table_expected_matches,coverage_rate,unique_events,unique_teams,timestamps_valid,scores_valid,quality_status,quality_reason,error_detail,source_selection,source_provider
-AUT,4621,Austrian Bundesliga,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/AUT/2013-2014.json,EXISTING_ACCEPTED,
-AUT,4621,Austrian Bundesliga,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/AUT/2014-2015.json,EXISTING_ACCEPTED,
-AUT,4621,Austrian Bundesliga,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/AUT/2015-2016.json,EXISTING_ACCEPTED,
-AUT,4621,Austrian Bundesliga,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/AUT/2016-2017.json,EXISTING_ACCEPTED,
-AUT,4621,Austrian Bundesliga,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/AUT/2017-2018.json,EXISTING_ACCEPTED,
-AUT,4621,Austrian Bundesliga,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/AUT/2018-2019.json,EXISTING_ACCEPTED,
-AUT,4621,Austrian Bundesliga,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/AUT/2019-2020.json,EXISTING_ACCEPTED,
-AUT,4621,Austrian Bundesliga,2020-2021,199,132.0,1.5075757575757576,199,13,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-AUT,4621,Austrian Bundesliga,2021-2022,195,132.0,1.4772727272727273,195,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-AUT,4621,Austrian Bundesliga,2022-2023,194,132.0,1.4696969696969695,194,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-AUT,4621,Austrian Bundesliga,2023-2024,195,132.0,1.4772727272727273,195,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-AUT,4621,Austrian Bundesliga,2024-2025,195,132.0,1.4772727272727273,195,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-AUT,4621,Austrian Bundesliga,2025-2026,195,132.0,1.4772727272727273,195,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-BEL,4338,Belgian Pro League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2013-2014.json,EXISTING_ACCEPTED,
-BEL,4338,Belgian Pro League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2014-2015.json,EXISTING_ACCEPTED,
-BEL,4338,Belgian Pro League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2015-2016.json,EXISTING_ACCEPTED,
-BEL,4338,Belgian Pro League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2016-2017.json,EXISTING_ACCEPTED,
-BEL,4338,Belgian Pro League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2017-2018.json,EXISTING_ACCEPTED,
-BEL,4338,Belgian Pro League,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2018-2019.json,EXISTING_ACCEPTED,
-BEL,4338,Belgian Pro League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2019-2020.json,EXISTING_ACCEPTED,
-BEL,4338,Belgian Pro League,2020-2021,332,306.0,1.0849673202614378,332,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-BEL,4338,Belgian Pro League,2021-2022,332,306.0,1.0849673202614378,332,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-BEL,4338,Belgian Pro League,2022-2023,330,306.0,1.0784313725490196,330,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-BEL,4338,Belgian Pro League,2023-2024,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2023-2024.json,EXISTING_ACCEPTED,
-BEL,4338,Belgian Pro League,2024-2025,315,240.0,1.3125,315,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-BEL,4338,Belgian Pro League,2025-2026,321,282.0,1.1382978723404256,321,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-CYP,4630,Cypriot First Division,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CYP/2013-2014.json,EXISTING_ACCEPTED,
-CYP,4630,Cypriot First Division,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CYP/2014-2015.json,EXISTING_ACCEPTED,
-CYP,4630,Cypriot First Division,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CYP/2015-2016.json,EXISTING_ACCEPTED,
-CYP,4630,Cypriot First Division,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CYP/2016-2017.json,EXISTING_ACCEPTED,
-CYP,4630,Cypriot First Division,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CYP/2017-2018.json,EXISTING_ACCEPTED,
-CYP,4630,Cypriot First Division,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CYP/2018-2019.json,EXISTING_ACCEPTED,
-CYP,4630,Cypriot First Division,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CYP/2019-2020.json,EXISTING_ACCEPTED,
-CYP,4630,Cypriot First Division,2020-2021,268,182.0,1.4725274725274726,268,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-CYP,4630,Cypriot First Division,2021-2022,192,132.0,1.4545454545454546,192,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-CYP,4630,Cypriot First Division,2022-2023,267,181.0,1.4751381215469612,267,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-CYP,4630,Cypriot First Division,2023-2024,268,182.0,1.4725274725274726,268,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-CYP,4630,Cypriot First Division,2024-2025,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-CYP,4630,Cypriot First Division,2025-2026,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-CZE,4631,Czech First League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2013-2014.json,EXISTING_ACCEPTED,
-CZE,4631,Czech First League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2014-2015.json,EXISTING_ACCEPTED,
-CZE,4631,Czech First League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2015-2016.json,EXISTING_ACCEPTED,
-CZE,4631,Czech First League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2016-2017.json,EXISTING_ACCEPTED,
-CZE,4631,Czech First League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2017-2018.json,EXISTING_ACCEPTED,
-CZE,4631,Czech First League,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2018-2019.json,EXISTING_ACCEPTED,
-CZE,4631,Czech First League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2019-2020.json,EXISTING_ACCEPTED,
-CZE,4631,Czech First League,2020-2021,307,306.0,1.0032679738562091,307,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-CZE,4631,Czech First League,2021-2022,280,240.0,1.1666666666666667,280,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-CZE,4631,Czech First League,2022-2023,280,240.0,1.1666666666666667,280,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-CZE,4631,Czech First League,2023-2024,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2023-2024.json,EXISTING_ACCEPTED,
-CZE,4631,Czech First League,2024-2025,280,240.0,1.1666666666666667,280,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-CZE,4631,Czech First League,2025-2026,280,270.0,1.037037037037037,280,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-DEN,4340,Danish Superliga,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/DEN/2013-2014.json,EXISTING_ACCEPTED,
-DEN,4340,Danish Superliga,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/DEN/2014-2015.json,EXISTING_ACCEPTED,
-DEN,4340,Danish Superliga,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/DEN/2015-2016.json,EXISTING_ACCEPTED,
-DEN,4340,Danish Superliga,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/DEN/2016-2017.json,EXISTING_ACCEPTED,
-DEN,4340,Danish Superliga,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/DEN/2017-2018.json,EXISTING_ACCEPTED,
-DEN,4340,Danish Superliga,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/DEN/2018-2019.json,EXISTING_ACCEPTED,
-DEN,4340,Danish Superliga,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/DEN/2019-2020.json,EXISTING_ACCEPTED,
-DEN,4340,Danish Superliga,2020-2021,193,220.0,0.8772727272727273,193,12,True,True,REJECTED,TABLE_COVERAGE_BELOW_95_PCT,,EXISTING_ACCEPTED,
-DEN,4340,Danish Superliga,2021-2022,193,132.0,1.4621212121212122,193,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-DEN,4340,Danish Superliga,2022-2023,193,132.0,1.4621212121212122,193,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-DEN,4340,Danish Superliga,2023-2024,193,132.0,1.4621212121212122,193,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-DEN,4340,Danish Superliga,2024-2025,193,132.0,1.4621212121212122,193,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-DEN,4340,Danish Superliga,2025-2026,193,162.0,1.191358024691358,193,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ENG,4328,English Premier League,2013-2014,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ENG,4328,English Premier League,2014-2015,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ENG,4328,English Premier League,2015-2016,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ENG,4328,English Premier League,2016-2017,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ENG,4328,English Premier League,2017-2018,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ENG,4328,English Premier League,2018-2019,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ENG,4328,English Premier League,2019-2020,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ENG,4328,English Premier League,2020-2021,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ENG,4328,English Premier League,2021-2022,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ENG,4328,English Premier League,2022-2023,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ENG,4328,English Premier League,2023-2024,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ENG,4328,English Premier League,2024-2025,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ENG,4328,English Premier League,2025-2026,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ESP,4335,Spanish La Liga,2013-2014,368,380.0,0.968421052631579,368,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ESP,4335,Spanish La Liga,2014-2015,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ESP,4335,Spanish La Liga,2015-2016,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ESP,4335,Spanish La Liga,2016-2017,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ESP,4335,Spanish La Liga,2017-2018,380,229.0,1.6593886462882097,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ESP,4335,Spanish La Liga,2018-2019,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ESP,4335,Spanish La Liga,2019-2020,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ESP,4335,Spanish La Liga,2020-2021,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ESP,4335,Spanish La Liga,2021-2022,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ESP,4335,Spanish La Liga,2022-2023,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ESP,4335,Spanish La Liga,2023-2024,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ESP,4335,Spanish La Liga,2024-2025,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ESP,4335,Spanish La Liga,2025-2026,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-FRA,4334,French Ligue 1,2013-2014,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-FRA,4334,French Ligue 1,2014-2015,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-FRA,4334,French Ligue 1,2015-2016,342,380.0,0.9,342,19,True,True,REJECTED,TABLE_COVERAGE_BELOW_95_PCT,,EXISTING_ACCEPTED,
-FRA,4334,French Ligue 1,2016-2017,381,422.0,0.9028436018957346,381,20,True,True,REJECTED,TABLE_COVERAGE_BELOW_95_PCT,,EXISTING_ACCEPTED,
-FRA,4334,French Ligue 1,2017-2018,380,249.0,1.5261044176706828,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-FRA,4334,French Ligue 1,2018-2019,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-FRA,4334,French Ligue 1,2019-2020,280,270.0,1.037037037037037,280,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-FRA,4334,French Ligue 1,2020-2021,382,380.0,1.0052631578947369,382,21,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-FRA,4334,French Ligue 1,2021-2022,382,380.0,1.0052631578947369,382,21,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-FRA,4334,French Ligue 1,2022-2023,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-FRA,4334,French Ligue 1,2023-2024,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-FRA,4334,French Ligue 1,2024-2025,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-FRA,4334,French Ligue 1,2025-2026,310,305.0,1.0163934426229508,310,21,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GER,4331,German Bundesliga,2013-2014,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GER,4331,German Bundesliga,2014-2015,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GER,4331,German Bundesliga,2015-2016,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GER,4331,German Bundesliga,2016-2017,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GER,4331,German Bundesliga,2017-2018,306,198.0,1.5454545454545454,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GER,4331,German Bundesliga,2018-2019,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GER,4331,German Bundesliga,2019-2020,307,306.0,1.0032679738562091,307,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GER,4331,German Bundesliga,2020-2021,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GER,4331,German Bundesliga,2021-2022,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GER,4331,German Bundesliga,2022-2023,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GER,4331,German Bundesliga,2023-2024,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GER,4331,German Bundesliga,2024-2025,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GER,4331,German Bundesliga,2025-2026,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GRE,4336,Greek Super League 1,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/GRE/2013-2014.json,EXISTING_ACCEPTED,
-GRE,4336,Greek Super League 1,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/GRE/2014-2015.json,EXISTING_ACCEPTED,
-GRE,4336,Greek Super League 1,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/GRE/2015-2016.json,EXISTING_ACCEPTED,
-GRE,4336,Greek Super League 1,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/GRE/2016-2017.json,EXISTING_ACCEPTED,
-GRE,4336,Greek Super League 1,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/GRE/2017-2018.json,EXISTING_ACCEPTED,
-GRE,4336,Greek Super League 1,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/GRE/2018-2019.json,EXISTING_ACCEPTED,
-GRE,4336,Greek Super League 1,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/GRE/2019-2020.json,EXISTING_ACCEPTED,
-GRE,4336,Greek Super League 1,2020-2021,243,182.0,1.335164835164835,243,15,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GRE,4336,Greek Super League 1,2021-2022,242,182.0,1.3296703296703296,242,15,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GRE,4336,Greek Super League 1,2022-2023,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GRE,4336,Greek Super League 1,2023-2024,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GRE,4336,Greek Super League 1,2024-2025,236,182.0,1.2967032967032968,236,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-GRE,4336,Greek Super League 1,2025-2026,236,182.0,1.2967032967032968,236,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ISR,4644,Israeli Premier League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2013-2014.json,EXISTING_ACCEPTED,
-ISR,4644,Israeli Premier League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2014-2015.json,EXISTING_ACCEPTED,
-ISR,4644,Israeli Premier League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2015-2016.json,EXISTING_ACCEPTED,
-ISR,4644,Israeli Premier League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2016-2017.json,EXISTING_ACCEPTED,
-ISR,4644,Israeli Premier League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2017-2018.json,EXISTING_ACCEPTED,
-ISR,4644,Israeli Premier League,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2018-2019.json,EXISTING_ACCEPTED,
-ISR,4644,Israeli Premier League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2019-2020.json,EXISTING_ACCEPTED,
-ISR,4644,Israeli Premier League,2020-2021,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ISR,4644,Israeli Premier League,2021-2022,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ISR,4644,Israeli Premier League,2022-2023,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ISR,4644,Israeli Premier League,2023-2024,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2023-2024.json,EXISTING_ACCEPTED,
-ISR,4644,Israeli Premier League,2024-2025,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ISR,4644,Israeli Premier League,2025-2026,239,240.0,0.9958333333333332,239,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ITA,4332,Italian Serie A,2013-2014,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ITA,4332,Italian Serie A,2014-2015,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ITA,4332,Italian Serie A,2015-2016,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ITA,4332,Italian Serie A,2016-2017,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ITA,4332,Italian Serie A,2017-2018,380,240.0,1.5833333333333333,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ITA,4332,Italian Serie A,2018-2019,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ITA,4332,Italian Serie A,2019-2020,381,380.0,1.0026315789473683,381,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ITA,4332,Italian Serie A,2020-2021,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ITA,4332,Italian Serie A,2021-2022,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ITA,4332,Italian Serie A,2022-2023,381,380.0,1.0026315789473683,381,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ITA,4332,Italian Serie A,2023-2024,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ITA,4332,Italian Serie A,2024-2025,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ITA,4332,Italian Serie A,2025-2026,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NED,4337,Dutch Eredivisie,2013-2014,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NED,4337,Dutch Eredivisie,2014-2015,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NED,4337,Dutch Eredivisie,2015-2016,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NED,4337,Dutch Eredivisie,2016-2017,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NED,4337,Dutch Eredivisie,2017-2018,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NED,4337,Dutch Eredivisie,2018-2019,308,306.0,1.0065359477124185,308,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NED,4337,Dutch Eredivisie,2019-2020,232,232.0,1.0,232,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NED,4337,Dutch Eredivisie,2020-2021,315,306.0,1.0294117647058822,315,24,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NED,4337,Dutch Eredivisie,2021-2022,324,306.0,1.0588235294117647,324,24,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NED,4337,Dutch Eredivisie,2022-2023,324,306.0,1.0588235294117647,324,24,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NED,4337,Dutch Eredivisie,2023-2024,321,306.0,1.0490196078431373,321,24,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NED,4337,Dutch Eredivisie,2024-2025,321,306.0,1.0490196078431373,321,24,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NED,4337,Dutch Eredivisie,2025-2026,317,306.0,1.0359477124183007,317,24,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NOR,4358,Norwegian Eliteserien,2013,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/NOR/2013.json,EXISTING_ACCEPTED,
-NOR,4358,Norwegian Eliteserien,2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/NOR/2014.json,EXISTING_ACCEPTED,
-NOR,4358,Norwegian Eliteserien,2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/NOR/2015.json,EXISTING_ACCEPTED,
-NOR,4358,Norwegian Eliteserien,2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/NOR/2016.json,EXISTING_ACCEPTED,
-NOR,4358,Norwegian Eliteserien,2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/NOR/2017.json,EXISTING_ACCEPTED,
-NOR,4358,Norwegian Eliteserien,2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/NOR/2018.json,EXISTING_ACCEPTED,
-NOR,4358,Norwegian Eliteserien,2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/NOR/2019.json,EXISTING_ACCEPTED,
-NOR,4358,Norwegian Eliteserien,2020,241,210.0,1.1476190476190475,241,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NOR,4358,Norwegian Eliteserien,2021,241,240.0,1.0041666666666669,241,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NOR,4358,Norwegian Eliteserien,2022,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NOR,4358,Norwegian Eliteserien,2023,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NOR,4358,Norwegian Eliteserien,2024,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-NOR,4358,Norwegian Eliteserien,2025,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-POL,4422,Polish Ekstraklasa,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POL/2013-2014.json,EXISTING_ACCEPTED,
-POL,4422,Polish Ekstraklasa,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POL/2014-2015.json,EXISTING_ACCEPTED,
-POL,4422,Polish Ekstraklasa,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POL/2015-2016.json,EXISTING_ACCEPTED,
-POL,4422,Polish Ekstraklasa,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POL/2016-2017.json,EXISTING_ACCEPTED,
-POL,4422,Polish Ekstraklasa,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POL/2017-2018.json,EXISTING_ACCEPTED,
-POL,4422,Polish Ekstraklasa,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POL/2018-2019.json,EXISTING_ACCEPTED,
-POL,4422,Polish Ekstraklasa,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POL/2019-2020.json,EXISTING_ACCEPTED,
-POL,4422,Polish Ekstraklasa,2020-2021,240,240.0,1.0,240,16,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-POL,4422,Polish Ekstraklasa,2021-2022,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-POL,4422,Polish Ekstraklasa,2022-2023,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-POL,4422,Polish Ekstraklasa,2023-2024,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-POL,4422,Polish Ekstraklasa,2024-2025,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-POL,4422,Polish Ekstraklasa,2025-2026,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-POR,4344,Portuguese Primeira Liga,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POR/2013-2014.json,EXISTING_ACCEPTED,
-POR,4344,Portuguese Primeira Liga,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POR/2014-2015.json,EXISTING_ACCEPTED,
-POR,4344,Portuguese Primeira Liga,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POR/2015-2016.json,EXISTING_ACCEPTED,
-POR,4344,Portuguese Primeira Liga,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POR/2016-2017.json,EXISTING_ACCEPTED,
-POR,4344,Portuguese Primeira Liga,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POR/2017-2018.json,EXISTING_ACCEPTED,
-POR,4344,Portuguese Primeira Liga,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POR/2018-2019.json,EXISTING_ACCEPTED,
-POR,4344,Portuguese Primeira Liga,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POR/2019-2020.json,EXISTING_ACCEPTED,
-POR,4344,Portuguese Primeira Liga,2020-2021,307,306.0,1.0032679738562091,307,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-POR,4344,Portuguese Primeira Liga,2021-2022,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-POR,4344,Portuguese Primeira Liga,2022-2023,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-POR,4344,Portuguese Primeira Liga,2023-2024,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-POR,4344,Portuguese Primeira Liga,2024-2025,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-POR,4344,Portuguese Primeira Liga,2025-2026,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-SCO,5173,Scottish Premiership,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2013-2014.json,EXISTING_ACCEPTED,
-SCO,5173,Scottish Premiership,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2014-2015.json,EXISTING_ACCEPTED,
-SCO,5173,Scottish Premiership,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2015-2016.json,EXISTING_ACCEPTED,
-SCO,5173,Scottish Premiership,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2016-2017.json,EXISTING_ACCEPTED,
-SCO,5173,Scottish Premiership,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2017-2018.json,EXISTING_ACCEPTED,
-SCO,5173,Scottish Premiership,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2018-2019.json,EXISTING_ACCEPTED,
-SCO,5173,Scottish Premiership,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2019-2020.json,EXISTING_ACCEPTED,
-SCO,5173,Scottish Premiership,2020-2021,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2020-2021.json,EXISTING_ACCEPTED,
-SCO,5173,Scottish Premiership,2021-2022,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2021-2022.json,EXISTING_ACCEPTED,
-SCO,5173,Scottish Premiership,2022-2023,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2022-2023.json,EXISTING_ACCEPTED,
-SCO,5173,Scottish Premiership,2023-2024,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2023-2024.json,EXISTING_ACCEPTED,
-SCO,5173,Scottish Premiership,2024-2025,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2024-2025.json,EXISTING_ACCEPTED,
-SCO,5173,Scottish Premiership,2025-2026,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2025-2026.json,EXISTING_ACCEPTED,
-SUI,4675,Swiss Super League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2013-2014.json,EXISTING_ACCEPTED,
-SUI,4675,Swiss Super League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2014-2015.json,EXISTING_ACCEPTED,
-SUI,4675,Swiss Super League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2015-2016.json,EXISTING_ACCEPTED,
-SUI,4675,Swiss Super League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2016-2017.json,EXISTING_ACCEPTED,
-SUI,4675,Swiss Super League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2017-2018.json,EXISTING_ACCEPTED,
-SUI,4675,Swiss Super League,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2018-2019.json,EXISTING_ACCEPTED,
-SUI,4675,Swiss Super League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2019-2020.json,EXISTING_ACCEPTED,
-SUI,4675,Swiss Super League,2020-2021,182,180.0,1.011111111111111,182,11,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-SUI,4675,Swiss Super League,2021-2022,182,180.0,1.011111111111111,182,11,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-SUI,4675,Swiss Super League,2022-2023,182,180.0,1.011111111111111,182,11,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-SUI,4675,Swiss Super League,2023-2024,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2023-2024.json,EXISTING_ACCEPTED,
-SUI,4675,Swiss Super League,2024-2025,230,198.0,1.1616161616161615,230,13,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-SUI,4675,Swiss Super League,2025-2026,230,198.0,1.1616161616161615,230,13,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-SWE,4347,Swedish Allsvenskan,2013,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2013.json,EXISTING_ACCEPTED,
-SWE,4347,Swedish Allsvenskan,2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2014.json,EXISTING_ACCEPTED,
-SWE,4347,Swedish Allsvenskan,2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2015.json,EXISTING_ACCEPTED,
-SWE,4347,Swedish Allsvenskan,2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2016.json,EXISTING_ACCEPTED,
-SWE,4347,Swedish Allsvenskan,2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2017.json,EXISTING_ACCEPTED,
-SWE,4347,Swedish Allsvenskan,2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2018.json,EXISTING_ACCEPTED,
-SWE,4347,Swedish Allsvenskan,2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2019.json,EXISTING_ACCEPTED,
-SWE,4347,Swedish Allsvenskan,2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2020.json,EXISTING_ACCEPTED,
-SWE,4347,Swedish Allsvenskan,2021,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-SWE,4347,Swedish Allsvenskan,2022,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-SWE,4347,Swedish Allsvenskan,2023,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-SWE,4347,Swedish Allsvenskan,2024,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-SWE,4347,Swedish Allsvenskan,2025,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-TUR,4339,Turkish Super Lig,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/TUR/2013-2014.json,EXISTING_ACCEPTED,
-TUR,4339,Turkish Super Lig,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/TUR/2014-2015.json,EXISTING_ACCEPTED,
-TUR,4339,Turkish Super Lig,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/TUR/2015-2016.json,EXISTING_ACCEPTED,
-TUR,4339,Turkish Super Lig,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/TUR/2016-2017.json,EXISTING_ACCEPTED,
-TUR,4339,Turkish Super Lig,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/TUR/2017-2018.json,EXISTING_ACCEPTED,
-TUR,4339,Turkish Super Lig,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/TUR/2018-2019.json,EXISTING_ACCEPTED,
-TUR,4339,Turkish Super Lig,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/TUR/2019-2020.json,EXISTING_ACCEPTED,
-TUR,4339,Turkish Super Lig,2020-2021,421,420.0,1.0023809523809524,421,21,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-TUR,4339,Turkish Super Lig,2021-2022,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-TUR,4339,Turkish Super Lig,2022-2023,342,342.0,1.0,342,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-TUR,4339,Turkish Super Lig,2023-2024,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-TUR,4339,Turkish Super Lig,2024-2025,342,342.0,1.0,342,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-TUR,4339,Turkish Super Lig,2025-2026,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,
-ALB,4617,Albanian Superliga,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ALB/2013-2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-ALB,4617,Albanian Superliga,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ALB/2014-2015.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-ALB,4617,Albanian Superliga,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ALB/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-ALB,4617,Albanian Superliga,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ALB/2016-2017.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-ALB,4617,Albanian Superliga,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ALB/2017-2018.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-ALB,4617,Albanian Superliga,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ALB/2018-2019.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-ALB,4617,Albanian Superliga,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ALB/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-ALB,4617,Albanian Superliga,2020-2021,182,180,1.011111111111111,182,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ALB,4617,Albanian Superliga,2021-2022,181,180,1.0055555555555555,181,11,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ALB,4617,Albanian Superliga,2022-2023,181,180,1.0055555555555555,181,11,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ALB,4617,Albanian Superliga,2023-2024,187,180,1.038888888888889,187,11,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ALB,4617,Albanian Superliga,2024-2025,185,180,1.0277777777777777,185,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ALB,4617,Albanian Superliga,2025-2026,190,180,1.0555555555555556,190,14,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ARM,HF:144,Armenian Premier League,2013-2014,112,112,1.0,112,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-ARM,HF:144,Armenian Premier League,2014-2015,112,112,1.0,112,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-ARM,HF:144,Armenian Premier League,2015-2016,112,112,1.0,112,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-ARM,4619,Armenian Premier League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ARM/2016-2017.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-ARM,4619,Armenian Premier League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ARM/2017-2018.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-ARM,HF:144,Armenian Premier League,2018-2019,144,112,1.2857142857142858,144,9,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-ARM,HF:144,Armenian Premier League,2019-2020,120,112,1.0714285714285714,120,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-ARM,4619,Armenian Premier League,2020-2021,125,108,1.1574074074074074,125,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ARM,4619,Armenian Premier League,2021-2022,157,108,1.4537037037037037,157,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ARM,4619,Armenian Premier League,2022-2023,180,178,1.0112359550561798,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ARM,4619,Armenian Premier League,2023-2024,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ARM,4619,Armenian Premier League,2024-2025,164,165,0.9939393939393939,164,11,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ARM,4619,Armenian Premier League,2025-2026,137,135,1.0148148148148148,137,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-AZB,HF:59,Azerbaijani Premier League,2013-2014,180,112,1.6071428571428572,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-AZB,HF:59,Azerbaijani Premier League,2014-2015,144,112,1.2857142857142858,144,9,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-AZB,HF:59,Azerbaijani Premier League,2015-2016,180,112,1.6071428571428572,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-AZB,HF:59,Azerbaijani Premier League,2016-2017,112,112,1.0,112,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-AZB,HF:59,Azerbaijani Premier League,2017-2018,112,112,1.0,112,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-AZB,HF:59,Azerbaijani Premier League,2018-2019,112,112,1.0,112,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-AZB,4693,Azerbaijani Premier League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/AZB/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-AZB,4693,Azerbaijani Premier League,2020-2021,114,112,1.0178571428571428,114,8,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-AZB,4693,Azerbaijani Premier League,2021-2022,112,112,1.0,112,8,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-AZB,4693,Azerbaijani Premier League,2022-2023,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-AZB,4693,Azerbaijani Premier League,2023-2024,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-AZB,4693,Azerbaijani Premier League,2024-2025,182,180,1.011111111111111,182,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-AZB,4693,Azerbaijani Premier League,2025-2026,201,198,1.0151515151515151,201,13,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-BUL,4626,Bulgarian First League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/BUL/2013-2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-BUL,4626,Bulgarian First League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/BUL/2014-2015.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-BUL,4626,Bulgarian First League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/BUL/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-BUL,4626,Bulgarian First League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/BUL/2016-2017.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-BUL,4626,Bulgarian First League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/BUL/2017-2018.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-BUL,4626,Bulgarian First League,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/BUL/2018-2019.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-BUL,4626,Bulgarian First League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/BUL/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-BUL,4626,Bulgarian First League,2020-2021,223,182,1.2252747252747254,223,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-BUL,4626,Bulgarian First League,2021-2022,223,182,1.2252747252747254,223,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-BUL,HF:66,Bulgarian First League,2022-2023,284,284,1.0,284,17,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-BUL,HF:66,Bulgarian First League,2023-2024,284,284,1.0,284,17,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-BUL,4626,Bulgarian First League,2024-2025,295,240,1.2291666666666667,295,18,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-BUL,4626,Bulgarian First League,2025-2026,294,240,1.225,294,17,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-CRO,4629,Croatian First Football League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/CRO/2013-2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-CRO,4629,Croatian First Football League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/CRO/2014-2015.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-CRO,4629,Croatian First Football League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/CRO/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-CRO,HF:43,Croatian First Football League,2016-2017,180,180,1.0,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-CRO,HF:43,Croatian First Football League,2017-2018,180,180,1.0,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-CRO,HF:43,Croatian First Football League,2018-2019,180,180,1.0,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-CRO,4629,Croatian First Football League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/CRO/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-CRO,4629,Croatian First Football League,2020-2021,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-CRO,4629,Croatian First Football League,2021-2022,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-CRO,4629,Croatian First Football League,2022-2023,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-CRO,4629,Croatian First Football League,2023-2024,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-CRO,4629,Croatian First Football League,2024-2025,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-CRO,4629,Croatian First Football League,2025-2026,188,180,1.0444444444444445,188,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-GEO,4638,Georgian Erovnuli Liga,2013,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/GEO/2013.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-GEO,HF:71,Georgian Erovnuli Liga,2014,238,179,1.329608938547486,238,16,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-GEO,HF:71,Georgian Erovnuli Liga,2015,239,179,1.335195530726257,239,16,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-GEO,HF:71,Georgian Erovnuli Liga,2016,185,179,1.0335195530726258,185,14,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-GEO,HF:71,Georgian Erovnuli Liga,2017,175,179,0.9776536312849162,175,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-GEO,HF:71,Georgian Erovnuli Liga,2018,195,179,1.089385474860335,195,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-GEO,4638,Georgian Erovnuli Liga,2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/GEO/2019.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-GEO,4638,Georgian Erovnuli Liga,2020,92,72,1.2777777777777777,92,11,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-GEO,4638,Georgian Erovnuli Liga,2021,184,180,1.0222222222222221,184,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-GEO,4638,Georgian Erovnuli Liga,2022,184,180,1.0222222222222221,184,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-GEO,4638,Georgian Erovnuli Liga,2023,184,180,1.0222222222222221,184,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-GEO,4638,Georgian Erovnuli Liga,2024,184,180,1.0222222222222221,184,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-GEO,4638,Georgian Erovnuli Liga,2025,184,180,1.0222222222222221,184,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-HUN,HF:47,Hungarian NB I,2013-2014,240,198,1.2121212121212122,240,16,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-HUN,HF:47,Hungarian NB I,2014-2015,240,198,1.2121212121212122,240,16,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-HUN,HF:47,Hungarian NB I,2015-2016,198,198,1.0,198,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-HUN,HF:47,Hungarian NB I,2016-2017,198,198,1.0,198,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-HUN,HF:47,Hungarian NB I,2017-2018,198,198,1.0,198,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-HUN,HF:47,Hungarian NB I,2018-2019,198,198,1.0,198,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-HUN,HF:47,Hungarian NB I,2019-2020,198,198,1.0,198,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-HUN,4690,Hungarian NB I,2020-2021,198,198,1.0,198,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-HUN,4690,Hungarian NB I,2021-2022,198,198,1.0,198,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-HUN,4690,Hungarian NB I,2022-2023,198,198,1.0,198,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-HUN,HF:47,Hungarian NB I,2023-2024,198,198,1.0,198,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-HUN,4690,Hungarian NB I,2024-2025,198,198,1.0,198,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-HUN,4690,Hungarian NB I,2025-2026,201,198,1.0151515151515151,201,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-KAZ,HF:132,Kazakhstan Premier League,2013,197,204,0.9656862745098039,197,14,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-KAZ,4649,Kazakhstan Premier League,2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/KAZ/2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-KAZ,4649,Kazakhstan Premier League,2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/KAZ/2015.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-KAZ,4649,Kazakhstan Premier League,2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/KAZ/2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-KAZ,4649,Kazakhstan Premier League,2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/KAZ/2017.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-KAZ,HF:132,Kazakhstan Premier League,2018,204,204,1.0,204,14,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-KAZ,4649,Kazakhstan Premier League,2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/KAZ/2019.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-KAZ,4649,Kazakhstan Premier League,2020,113,100,1.13,113,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-KAZ,4649,Kazakhstan Premier League,2021,182,182,1.0,182,14,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-KAZ,4649,Kazakhstan Premier League,2022,182,182,1.0,182,14,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-KAZ,4649,Kazakhstan Premier League,2023,182,182,1.0,182,14,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-KAZ,4649,Kazakhstan Premier League,2024,156,156,1.0,156,13,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-KAZ,4649,Kazakhstan Premier League,2025,183,182,1.0054945054945055,183,14,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-LIT,HF:134,Lithuanian TOPLYGA,2013,159,84,1.8928571428571428,159,11,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-LIT,HF:134,Lithuanian TOPLYGA,2014,174,84,2.0714285714285716,174,13,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-LIT,HF:134,Lithuanian TOPLYGA,2015,155,84,1.8452380952380953,155,11,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-LIT,HF:134,Lithuanian TOPLYGA,2016,127,84,1.5119047619047619,127,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-LIT,HF:134,Lithuanian TOPLYGA,2017,133,84,1.5833333333333333,133,9,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-LIT,HF:134,Lithuanian TOPLYGA,2018,121,84,1.4404761904761905,121,9,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-LIT,HF:134,Lithuanian TOPLYGA,2019,84,84,1.0,84,9,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-LIT,HF:134,Lithuanian TOPLYGA,2020,129,84,1.5357142857142858,129,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-LIT,HF:134,Lithuanian TOPLYGA,2021,175,84,2.0833333333333335,175,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-LIT,HF:134,Lithuanian TOPLYGA,2022,192,84,2.2857142857142856,192,11,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-LIT,HF:134,Lithuanian TOPLYGA,2023,187,84,2.2261904761904763,187,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-LIT,HF:134,Lithuanian TOPLYGA,2024,170,84,2.0238095238095237,170,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-LIT,HF:134,Lithuanian TOPLYGA,2025,189,84,2.25,189,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-ROM,HF:32,Romanian Liga I,2013-2014,307,307,1.0,307,19,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-ROM,HF:32,Romanian Liga I,2014-2015,306,307,0.996742671009772,306,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-ROM,4691,Romanian Liga I,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ROM/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-ROM,HF:32,Romanian Liga I,2016-2017,434,307,1.4136807817589576,434,20,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-ROM,HF:32,Romanian Liga I,2017-2018,406,307,1.3224755700325732,406,19,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-ROM,HF:32,Romanian Liga I,2018-2019,374,307,1.218241042345277,374,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-ROM,HF:32,Romanian Liga I,2019-2020,307,307,1.0,307,19,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-ROM,4691,Romanian Liga I,2020-2021,321,240,1.3375,321,18,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ROM,4691,Romanian Liga I,2021-2022,316,240,1.3166666666666667,316,16,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ROM,4691,Romanian Liga I,2022-2023,321,240,1.3375,321,18,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ROM,4691,Romanian Liga I,2023-2024,321,240,1.3375,321,18,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ROM,4691,Romanian Liga I,2024-2025,319,240,1.3291666666666666,319,18,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-ROM,4691,Romanian Liga I,2025-2026,321,75,4.28,321,18,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-SCO,HF:17,Scottish Premier League,2013-2014,228,234,0.9743589743589743,228,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SCO,HF:17,Scottish Premier League,2014-2015,228,234,0.9743589743589743,228,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SCO,HF:17,Scottish Premier League,2015-2016,228,234,0.9743589743589743,228,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SCO,HF:17,Scottish Premier League,2016-2017,266,234,1.1367521367521367,266,13,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SCO,HF:17,Scottish Premier League,2017-2018,266,234,1.1367521367521367,266,13,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SCO,HF:17,Scottish Premier League,2018-2019,267,234,1.141025641025641,267,13,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SCO,4330,Scottish Premier League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SCO/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SCO,4330,Scottish Premier League,2020-2021,233,198,1.1767676767676767,233,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-SCO,4330,Scottish Premier League,2021-2022,234,198,1.1818181818181819,234,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-SCO,4330,Scottish Premier League,2022-2023,234,198,1.1818181818181819,234,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-SCO,4330,Scottish Premier League,2023-2024,234,198,1.1818181818181819,234,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-SCO,4330,Scottish Premier League,2024-2025,234,114,2.0526315789473686,234,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-SCO,4330,Scottish Premier League,2025-2026,234,198,1.1818181818181819,234,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
-SLO,4692,Slovenian 1. SNL,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SLO/2013-2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SLO,4692,Slovenian 1. SNL,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SLO/2014-2015.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SLO,4692,Slovenian 1. SNL,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SLO/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SLO,4692,Slovenian 1. SNL,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SLO/2016-2017.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SLO,4692,Slovenian 1. SNL,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SLO/2017-2018.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SLO,HF:55,Slovenian 1. SNL,2018-2019,180,182,0.989010989010989,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SLO,4692,Slovenian 1. SNL,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SLO/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SLO,HF:55,Slovenian 1. SNL,2020-2021,214,182,1.1758241758241759,214,13,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SLO,HF:55,Slovenian 1. SNL,2021-2022,182,182,1.0,182,11,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SLO,HF:55,Slovenian 1. SNL,2022-2023,182,182,1.0,182,11,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SLO,HF:55,Slovenian 1. SNL,2023-2024,180,182,0.989010989010989,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SLO,HF:55,Slovenian 1. SNL,2024-2025,182,182,1.0,182,11,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SLO,4692,Slovenian 1. SNL,2025-2026,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SLO/2025-2026.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SRB,4671,Serbian Super Liga,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SRB/2013-2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SRB,4671,Serbian Super Liga,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SRB/2014-2015.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SRB,4671,Serbian Super Liga,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SRB/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SRB,HF:63,Serbian Super Liga,2016-2017,296,296,1.0,296,16,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SRB,HF:63,Serbian Super Liga,2017-2018,296,296,1.0,296,16,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SRB,HF:63,Serbian Super Liga,2018-2019,296,296,1.0,296,16,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SRB,4671,Serbian Super Liga,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SRB/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SRB,HF:63,Serbian Super Liga,2020-2021,380,296,1.2837837837837838,380,20,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SRB,HF:63,Serbian Super Liga,2021-2022,300,296,1.0135135135135136,300,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SRB,HF:63,Serbian Super Liga,2022-2023,300,296,1.0135135135135136,300,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SRB,HF:63,Serbian Super Liga,2023-2024,300,296,1.0135135135135136,300,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SRB,HF:63,Serbian Super Liga,2024-2025,300,296,1.0135135135135136,300,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SRB,HF:63,Serbian Super Liga,2025-2026,296,296,1.0,296,16,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SVK,4672,Slovak First Football League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SVK/2013-2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SVK,4672,Slovak First Football League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SVK/2014-2015.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SVK,4672,Slovak First Football League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SVK/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SVK,4672,Slovak First Football League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SVK/2016-2017.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SVK,4672,Slovak First Football League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SVK/2017-2018.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SVK,HF:54,Slovak First Football League,2018-2019,192,192,1.0,192,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SVK,4672,Slovak First Football League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SVK/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-SVK,HF:54,Slovak First Football League,2020-2021,215,192,1.1197916666666667,215,14,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SVK,HF:54,Slovak First Football League,2021-2022,195,192,1.015625,195,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SVK,HF:54,Slovak First Football League,2022-2023,197,192,1.0260416666666667,197,13,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SVK,HF:54,Slovak First Football League,2023-2024,194,192,1.0104166666666667,194,13,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SVK,HF:54,Slovak First Football League,2024-2025,197,192,1.0260416666666667,197,13,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-SVK,HF:54,Slovak First Football League,2025-2026,192,192,1.0,192,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-UKR,4354,Ukrainian Premier League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2013-2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-UKR,4354,Ukrainian Premier League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2014-2015.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-UKR,4354,Ukrainian Premier League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-UKR,4354,Ukrainian Premier League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2016-2017.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-UKR,4354,Ukrainian Premier League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2017-2018.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-UKR,4354,Ukrainian Premier League,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2018-2019.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-UKR,4354,Ukrainian Premier League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-UKR,4354,Ukrainian Premier League,2020-2021,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2020-2021.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-UKR,4354,Ukrainian Premier League,2021-2022,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2021-2022.json,UNAVAILABLE,THESPORTSDB_PREMIUM
-UKR,HF:61,Ukrainian Premier League,2022-2023,244,244,1.0,244,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-UKR,HF:61,Ukrainian Premier League,2023-2024,244,244,1.0,244,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-UKR,HF:61,Ukrainian Premier League,2024-2025,247,244,1.0122950819672132,247,20,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE
-UKR,4354,Ukrainian Premier League,2025-2026,244,240,1.0166666666666666,244,18,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM
+country_code,sportsdb_league_id,league_name,provider_season,schedule_matches,table_expected_matches,coverage_rate,unique_events,unique_teams,timestamps_valid,scores_valid,quality_status,quality_reason,error_detail,source_selection,source_provider,format_expectation_method
+AUT,4621,Austrian Bundesliga,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/AUT/2013-2014.json,EXISTING_ACCEPTED,,
+AUT,4621,Austrian Bundesliga,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/AUT/2014-2015.json,EXISTING_ACCEPTED,,
+AUT,4621,Austrian Bundesliga,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/AUT/2015-2016.json,EXISTING_ACCEPTED,,
+AUT,4621,Austrian Bundesliga,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/AUT/2016-2017.json,EXISTING_ACCEPTED,,
+AUT,4621,Austrian Bundesliga,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/AUT/2017-2018.json,EXISTING_ACCEPTED,,
+AUT,4621,Austrian Bundesliga,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/AUT/2018-2019.json,EXISTING_ACCEPTED,,
+AUT,4621,Austrian Bundesliga,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/AUT/2019-2020.json,EXISTING_ACCEPTED,,
+AUT,4621,Austrian Bundesliga,2020-2021,199,132.0,1.5075757575757576,199,13,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+AUT,4621,Austrian Bundesliga,2021-2022,195,132.0,1.4772727272727273,195,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+AUT,4621,Austrian Bundesliga,2022-2023,194,132.0,1.4696969696969695,194,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+AUT,4621,Austrian Bundesliga,2023-2024,195,132.0,1.4772727272727273,195,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+AUT,4621,Austrian Bundesliga,2024-2025,195,132.0,1.4772727272727273,195,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+AUT,4621,Austrian Bundesliga,2025-2026,195,132.0,1.4772727272727273,195,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+BEL,4338,Belgian Pro League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2013-2014.json,EXISTING_ACCEPTED,,
+BEL,4338,Belgian Pro League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2014-2015.json,EXISTING_ACCEPTED,,
+BEL,4338,Belgian Pro League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2015-2016.json,EXISTING_ACCEPTED,,
+BEL,4338,Belgian Pro League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2016-2017.json,EXISTING_ACCEPTED,,
+BEL,4338,Belgian Pro League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2017-2018.json,EXISTING_ACCEPTED,,
+BEL,4338,Belgian Pro League,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2018-2019.json,EXISTING_ACCEPTED,,
+BEL,4338,Belgian Pro League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2019-2020.json,EXISTING_ACCEPTED,,
+BEL,4338,Belgian Pro League,2020-2021,332,306.0,1.0849673202614378,332,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+BEL,4338,Belgian Pro League,2021-2022,332,306.0,1.0849673202614378,332,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+BEL,4338,Belgian Pro League,2022-2023,330,306.0,1.0784313725490196,330,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+BEL,4338,Belgian Pro League,2023-2024,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/BEL/2023-2024.json,EXISTING_ACCEPTED,,
+BEL,4338,Belgian Pro League,2024-2025,315,240.0,1.3125,315,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+BEL,4338,Belgian Pro League,2025-2026,321,282.0,1.1382978723404256,321,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+CYP,4630,Cypriot First Division,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CYP/2013-2014.json,EXISTING_ACCEPTED,,
+CYP,4630,Cypriot First Division,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CYP/2014-2015.json,EXISTING_ACCEPTED,,
+CYP,4630,Cypriot First Division,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CYP/2015-2016.json,EXISTING_ACCEPTED,,
+CYP,4630,Cypriot First Division,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CYP/2016-2017.json,EXISTING_ACCEPTED,,
+CYP,4630,Cypriot First Division,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CYP/2017-2018.json,EXISTING_ACCEPTED,,
+CYP,4630,Cypriot First Division,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CYP/2018-2019.json,EXISTING_ACCEPTED,,
+CYP,4630,Cypriot First Division,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CYP/2019-2020.json,EXISTING_ACCEPTED,,
+CYP,4630,Cypriot First Division,2020-2021,268,182.0,1.4725274725274726,268,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+CYP,4630,Cypriot First Division,2021-2022,192,132.0,1.4545454545454546,192,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+CYP,4630,Cypriot First Division,2022-2023,267,181.0,1.4751381215469612,267,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+CYP,4630,Cypriot First Division,2023-2024,268,182.0,1.4725274725274726,268,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+CYP,4630,Cypriot First Division,2024-2025,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+CYP,4630,Cypriot First Division,2025-2026,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+CZE,4631,Czech First League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2013-2014.json,EXISTING_ACCEPTED,,
+CZE,4631,Czech First League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2014-2015.json,EXISTING_ACCEPTED,,
+CZE,4631,Czech First League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2015-2016.json,EXISTING_ACCEPTED,,
+CZE,4631,Czech First League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2016-2017.json,EXISTING_ACCEPTED,,
+CZE,4631,Czech First League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2017-2018.json,EXISTING_ACCEPTED,,
+CZE,4631,Czech First League,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2018-2019.json,EXISTING_ACCEPTED,,
+CZE,4631,Czech First League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2019-2020.json,EXISTING_ACCEPTED,,
+CZE,4631,Czech First League,2020-2021,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+CZE,4631,Czech First League,2021-2022,280,240.0,1.1666666666666667,280,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+CZE,4631,Czech First League,2022-2023,280,240.0,1.1666666666666667,280,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+CZE,4631,Czech First League,2023-2024,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/CZE/2023-2024.json,EXISTING_ACCEPTED,,
+CZE,4631,Czech First League,2024-2025,280,240.0,1.1666666666666667,280,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+CZE,4631,Czech First League,2025-2026,280,270.0,1.037037037037037,280,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+DEN,4340,Danish Superliga,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/DEN/2013-2014.json,EXISTING_ACCEPTED,,
+DEN,4340,Danish Superliga,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/DEN/2014-2015.json,EXISTING_ACCEPTED,,
+DEN,4340,Danish Superliga,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/DEN/2015-2016.json,EXISTING_ACCEPTED,,
+DEN,4340,Danish Superliga,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/DEN/2016-2017.json,EXISTING_ACCEPTED,,
+DEN,4340,Danish Superliga,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/DEN/2017-2018.json,EXISTING_ACCEPTED,,
+DEN,4340,Danish Superliga,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/DEN/2018-2019.json,EXISTING_ACCEPTED,,
+DEN,4340,Danish Superliga,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/DEN/2019-2020.json,EXISTING_ACCEPTED,,
+DEN,4340,Danish Superliga,2020-2021,193,220.0,0.8772727272727273,193,12,True,True,REJECTED,TABLE_COVERAGE_BELOW_95_PCT,,EXISTING_ACCEPTED,,
+DEN,4340,Danish Superliga,2021-2022,193,132.0,1.4621212121212122,193,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+DEN,4340,Danish Superliga,2022-2023,193,132.0,1.4621212121212122,193,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+DEN,4340,Danish Superliga,2023-2024,193,132.0,1.4621212121212122,193,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+DEN,4340,Danish Superliga,2024-2025,193,132.0,1.4621212121212122,193,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+DEN,4340,Danish Superliga,2025-2026,193,162.0,1.191358024691358,193,12,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ENG,4328,English Premier League,2013-2014,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ENG,4328,English Premier League,2014-2015,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ENG,4328,English Premier League,2015-2016,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ENG,4328,English Premier League,2016-2017,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ENG,4328,English Premier League,2017-2018,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ENG,4328,English Premier League,2018-2019,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ENG,4328,English Premier League,2019-2020,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ENG,4328,English Premier League,2020-2021,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ENG,4328,English Premier League,2021-2022,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ENG,4328,English Premier League,2022-2023,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ENG,4328,English Premier League,2023-2024,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ENG,4328,English Premier League,2024-2025,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ENG,4328,English Premier League,2025-2026,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ESP,4335,Spanish La Liga,2013-2014,368,380.0,0.968421052631579,368,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ESP,4335,Spanish La Liga,2014-2015,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ESP,4335,Spanish La Liga,2015-2016,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ESP,4335,Spanish La Liga,2016-2017,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ESP,4335,Spanish La Liga,2017-2018,380,229.0,1.6593886462882097,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ESP,4335,Spanish La Liga,2018-2019,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ESP,4335,Spanish La Liga,2019-2020,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ESP,4335,Spanish La Liga,2020-2021,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ESP,4335,Spanish La Liga,2021-2022,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ESP,4335,Spanish La Liga,2022-2023,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ESP,4335,Spanish La Liga,2023-2024,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ESP,4335,Spanish La Liga,2024-2025,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ESP,4335,Spanish La Liga,2025-2026,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+FRA,4334,French Ligue 1,2013-2014,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+FRA,4334,French Ligue 1,2014-2015,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+FRA,4334,French Ligue 1,2015-2016,342,380.0,0.9,342,19,True,True,REJECTED,TABLE_COVERAGE_BELOW_95_PCT,,EXISTING_ACCEPTED,,
+FRA,4334,French Ligue 1,2016-2017,381,422.0,0.9028436018957346,381,20,True,True,REJECTED,TABLE_COVERAGE_BELOW_95_PCT,,EXISTING_ACCEPTED,,
+FRA,4334,French Ligue 1,2017-2018,380,249.0,1.5261044176706828,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+FRA,4334,French Ligue 1,2018-2019,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+FRA,4334,French Ligue 1,2019-2020,279,270.0,1.0333333333333334,279,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+FRA,4334,French Ligue 1,2020-2021,382,380.0,1.0052631578947369,382,21,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+FRA,4334,French Ligue 1,2021-2022,382,380.0,1.0052631578947369,382,21,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+FRA,4334,French Ligue 1,2022-2023,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+FRA,4334,French Ligue 1,2023-2024,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+FRA,4334,French Ligue 1,2024-2025,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+FRA,4334,French Ligue 1,2025-2026,310,305.0,1.0163934426229508,310,21,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GER,4331,German Bundesliga,2013-2014,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GER,4331,German Bundesliga,2014-2015,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GER,4331,German Bundesliga,2015-2016,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GER,4331,German Bundesliga,2016-2017,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GER,4331,German Bundesliga,2017-2018,306,198.0,1.5454545454545454,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GER,4331,German Bundesliga,2018-2019,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GER,4331,German Bundesliga,2019-2020,307,306.0,1.0032679738562091,307,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GER,4331,German Bundesliga,2020-2021,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GER,4331,German Bundesliga,2021-2022,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GER,4331,German Bundesliga,2022-2023,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GER,4331,German Bundesliga,2023-2024,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GER,4331,German Bundesliga,2024-2025,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GER,4331,German Bundesliga,2025-2026,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GRE,4336,Greek Super League 1,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/GRE/2013-2014.json,EXISTING_ACCEPTED,,
+GRE,4336,Greek Super League 1,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/GRE/2014-2015.json,EXISTING_ACCEPTED,,
+GRE,4336,Greek Super League 1,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/GRE/2015-2016.json,EXISTING_ACCEPTED,,
+GRE,4336,Greek Super League 1,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/GRE/2016-2017.json,EXISTING_ACCEPTED,,
+GRE,4336,Greek Super League 1,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/GRE/2017-2018.json,EXISTING_ACCEPTED,,
+GRE,4336,Greek Super League 1,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/GRE/2018-2019.json,EXISTING_ACCEPTED,,
+GRE,4336,Greek Super League 1,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/GRE/2019-2020.json,EXISTING_ACCEPTED,,
+GRE,4336,Greek Super League 1,2020-2021,242,182.0,1.3296703296703296,242,15,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GRE,4336,Greek Super League 1,2021-2022,242,182.0,1.3296703296703296,242,15,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GRE,4336,Greek Super League 1,2022-2023,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GRE,4336,Greek Super League 1,2023-2024,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GRE,4336,Greek Super League 1,2024-2025,236,182.0,1.2967032967032968,236,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+GRE,4336,Greek Super League 1,2025-2026,236,182.0,1.2967032967032968,236,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ISR,4644,Israeli Premier League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2013-2014.json,EXISTING_ACCEPTED,,
+ISR,4644,Israeli Premier League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2014-2015.json,EXISTING_ACCEPTED,,
+ISR,4644,Israeli Premier League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2015-2016.json,EXISTING_ACCEPTED,,
+ISR,4644,Israeli Premier League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2016-2017.json,EXISTING_ACCEPTED,,
+ISR,4644,Israeli Premier League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2017-2018.json,EXISTING_ACCEPTED,,
+ISR,4644,Israeli Premier League,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2018-2019.json,EXISTING_ACCEPTED,,
+ISR,4644,Israeli Premier League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2019-2020.json,EXISTING_ACCEPTED,,
+ISR,4644,Israeli Premier League,2020-2021,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ISR,4644,Israeli Premier League,2021-2022,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ISR,4644,Israeli Premier League,2022-2023,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ISR,4644,Israeli Premier League,2023-2024,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/ISR/2023-2024.json,EXISTING_ACCEPTED,,
+ISR,4644,Israeli Premier League,2024-2025,240,182.0,1.3186813186813189,240,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ISR,4644,Israeli Premier League,2025-2026,239,240.0,0.9958333333333332,239,14,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ITA,4332,Italian Serie A,2013-2014,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ITA,4332,Italian Serie A,2014-2015,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ITA,4332,Italian Serie A,2015-2016,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ITA,4332,Italian Serie A,2016-2017,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ITA,4332,Italian Serie A,2017-2018,380,240.0,1.5833333333333333,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ITA,4332,Italian Serie A,2018-2019,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ITA,4332,Italian Serie A,2019-2020,381,380.0,1.0026315789473683,381,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ITA,4332,Italian Serie A,2020-2021,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ITA,4332,Italian Serie A,2021-2022,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ITA,4332,Italian Serie A,2022-2023,381,380.0,1.0026315789473683,381,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ITA,4332,Italian Serie A,2023-2024,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ITA,4332,Italian Serie A,2024-2025,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ITA,4332,Italian Serie A,2025-2026,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NED,4337,Dutch Eredivisie,2013-2014,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NED,4337,Dutch Eredivisie,2014-2015,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NED,4337,Dutch Eredivisie,2015-2016,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NED,4337,Dutch Eredivisie,2016-2017,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NED,4337,Dutch Eredivisie,2017-2018,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NED,4337,Dutch Eredivisie,2018-2019,308,306.0,1.0065359477124185,308,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NED,4337,Dutch Eredivisie,2019-2020,232,232.0,1.0,232,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NED,4337,Dutch Eredivisie,2020-2021,315,306.0,1.0294117647058822,315,24,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NED,4337,Dutch Eredivisie,2021-2022,324,306.0,1.0588235294117647,324,24,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NED,4337,Dutch Eredivisie,2022-2023,324,306.0,1.0588235294117647,324,24,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NED,4337,Dutch Eredivisie,2023-2024,321,306.0,1.0490196078431373,321,24,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NED,4337,Dutch Eredivisie,2024-2025,321,306.0,1.0490196078431373,321,24,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NED,4337,Dutch Eredivisie,2025-2026,317,306.0,1.0359477124183007,317,24,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NOR,4358,Norwegian Eliteserien,2013,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/NOR/2013.json,EXISTING_ACCEPTED,,
+NOR,4358,Norwegian Eliteserien,2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/NOR/2014.json,EXISTING_ACCEPTED,,
+NOR,4358,Norwegian Eliteserien,2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/NOR/2015.json,EXISTING_ACCEPTED,,
+NOR,4358,Norwegian Eliteserien,2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/NOR/2016.json,EXISTING_ACCEPTED,,
+NOR,4358,Norwegian Eliteserien,2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/NOR/2017.json,EXISTING_ACCEPTED,,
+NOR,4358,Norwegian Eliteserien,2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/NOR/2018.json,EXISTING_ACCEPTED,,
+NOR,4358,Norwegian Eliteserien,2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/NOR/2019.json,EXISTING_ACCEPTED,,
+NOR,4358,Norwegian Eliteserien,2020,241,210.0,1.1476190476190475,241,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NOR,4358,Norwegian Eliteserien,2021,241,240.0,1.0041666666666669,241,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NOR,4358,Norwegian Eliteserien,2022,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NOR,4358,Norwegian Eliteserien,2023,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NOR,4358,Norwegian Eliteserien,2024,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+NOR,4358,Norwegian Eliteserien,2025,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+POL,4422,Polish Ekstraklasa,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POL/2013-2014.json,EXISTING_ACCEPTED,,
+POL,4422,Polish Ekstraklasa,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POL/2014-2015.json,EXISTING_ACCEPTED,,
+POL,4422,Polish Ekstraklasa,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POL/2015-2016.json,EXISTING_ACCEPTED,,
+POL,4422,Polish Ekstraklasa,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POL/2016-2017.json,EXISTING_ACCEPTED,,
+POL,4422,Polish Ekstraklasa,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POL/2017-2018.json,EXISTING_ACCEPTED,,
+POL,4422,Polish Ekstraklasa,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POL/2018-2019.json,EXISTING_ACCEPTED,,
+POL,4422,Polish Ekstraklasa,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POL/2019-2020.json,EXISTING_ACCEPTED,,
+POL,4422,Polish Ekstraklasa,2020-2021,240,240.0,1.0,240,16,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+POL,4422,Polish Ekstraklasa,2021-2022,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+POL,4422,Polish Ekstraklasa,2022-2023,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+POL,4422,Polish Ekstraklasa,2023-2024,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+POL,4422,Polish Ekstraklasa,2024-2025,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+POL,4422,Polish Ekstraklasa,2025-2026,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+POR,4344,Portuguese Primeira Liga,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POR/2013-2014.json,EXISTING_ACCEPTED,,
+POR,4344,Portuguese Primeira Liga,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POR/2014-2015.json,EXISTING_ACCEPTED,,
+POR,4344,Portuguese Primeira Liga,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POR/2015-2016.json,EXISTING_ACCEPTED,,
+POR,4344,Portuguese Primeira Liga,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POR/2016-2017.json,EXISTING_ACCEPTED,,
+POR,4344,Portuguese Primeira Liga,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POR/2017-2018.json,EXISTING_ACCEPTED,,
+POR,4344,Portuguese Primeira Liga,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POR/2018-2019.json,EXISTING_ACCEPTED,,
+POR,4344,Portuguese Primeira Liga,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/POR/2019-2020.json,EXISTING_ACCEPTED,,
+POR,4344,Portuguese Primeira Liga,2020-2021,307,306.0,1.0032679738562091,307,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+POR,4344,Portuguese Primeira Liga,2021-2022,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+POR,4344,Portuguese Primeira Liga,2022-2023,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+POR,4344,Portuguese Primeira Liga,2023-2024,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+POR,4344,Portuguese Primeira Liga,2024-2025,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+POR,4344,Portuguese Primeira Liga,2025-2026,308,306.0,1.0065359477124185,308,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+SCO,4330,Scottish Premier League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2013-2014.json,EXISTING_ACCEPTED,,
+SCO,4330,Scottish Premier League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2014-2015.json,EXISTING_ACCEPTED,,
+SCO,4330,Scottish Premier League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2015-2016.json,EXISTING_ACCEPTED,,
+SCO,4330,Scottish Premier League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2016-2017.json,EXISTING_ACCEPTED,,
+SCO,4330,Scottish Premier League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2017-2018.json,EXISTING_ACCEPTED,,
+SCO,4330,Scottish Premier League,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2018-2019.json,EXISTING_ACCEPTED,,
+SCO,4330,Scottish Premier League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2019-2020.json,EXISTING_ACCEPTED,,
+SCO,4330,Scottish Premier League,2020-2021,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2020-2021.json,EXISTING_ACCEPTED,,
+SCO,4330,Scottish Premier League,2021-2022,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2021-2022.json,EXISTING_ACCEPTED,,
+SCO,4330,Scottish Premier League,2022-2023,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2022-2023.json,EXISTING_ACCEPTED,,
+SCO,4330,Scottish Premier League,2023-2024,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2023-2024.json,EXISTING_ACCEPTED,,
+SCO,4330,Scottish Premier League,2024-2025,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2024-2025.json,EXISTING_ACCEPTED,,
+SCO,4330,Scottish Premier League,2025-2026,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2025-2026.json,EXISTING_ACCEPTED,,
+SUI,4675,Swiss Super League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2013-2014.json,EXISTING_ACCEPTED,,
+SUI,4675,Swiss Super League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2014-2015.json,EXISTING_ACCEPTED,,
+SUI,4675,Swiss Super League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2015-2016.json,EXISTING_ACCEPTED,,
+SUI,4675,Swiss Super League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2016-2017.json,EXISTING_ACCEPTED,,
+SUI,4675,Swiss Super League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2017-2018.json,EXISTING_ACCEPTED,,
+SUI,4675,Swiss Super League,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2018-2019.json,EXISTING_ACCEPTED,,
+SUI,4675,Swiss Super League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2019-2020.json,EXISTING_ACCEPTED,,
+SUI,4675,Swiss Super League,2020-2021,182,180.0,1.011111111111111,182,11,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+SUI,4675,Swiss Super League,2021-2022,182,180.0,1.011111111111111,182,11,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+SUI,4675,Swiss Super League,2022-2023,182,180.0,1.011111111111111,182,11,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+SUI,4675,Swiss Super League,2023-2024,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2023-2024.json,EXISTING_ACCEPTED,,
+SUI,4675,Swiss Super League,2024-2025,230,198.0,1.1616161616161615,230,13,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+SUI,4675,Swiss Super League,2025-2026,230,198.0,1.1616161616161615,230,13,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+SWE,4347,Swedish Allsvenskan,2013,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2013.json,EXISTING_ACCEPTED,,
+SWE,4347,Swedish Allsvenskan,2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2014.json,EXISTING_ACCEPTED,,
+SWE,4347,Swedish Allsvenskan,2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2015.json,EXISTING_ACCEPTED,,
+SWE,4347,Swedish Allsvenskan,2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2016.json,EXISTING_ACCEPTED,,
+SWE,4347,Swedish Allsvenskan,2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2017.json,EXISTING_ACCEPTED,,
+SWE,4347,Swedish Allsvenskan,2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2018.json,EXISTING_ACCEPTED,,
+SWE,4347,Swedish Allsvenskan,2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2019.json,EXISTING_ACCEPTED,,
+SWE,4347,Swedish Allsvenskan,2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SWE/2020.json,EXISTING_ACCEPTED,,
+SWE,4347,Swedish Allsvenskan,2021,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+SWE,4347,Swedish Allsvenskan,2022,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+SWE,4347,Swedish Allsvenskan,2023,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+SWE,4347,Swedish Allsvenskan,2024,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+SWE,4347,Swedish Allsvenskan,2025,242,240.0,1.0083333333333333,242,17,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+TUR,4339,Turkish Super Lig,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/TUR/2013-2014.json,EXISTING_ACCEPTED,,
+TUR,4339,Turkish Super Lig,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/TUR/2014-2015.json,EXISTING_ACCEPTED,,
+TUR,4339,Turkish Super Lig,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/TUR/2015-2016.json,EXISTING_ACCEPTED,,
+TUR,4339,Turkish Super Lig,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/TUR/2016-2017.json,EXISTING_ACCEPTED,,
+TUR,4339,Turkish Super Lig,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/TUR/2017-2018.json,EXISTING_ACCEPTED,,
+TUR,4339,Turkish Super Lig,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/TUR/2018-2019.json,EXISTING_ACCEPTED,,
+TUR,4339,Turkish Super Lig,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/TUR/2019-2020.json,EXISTING_ACCEPTED,,
+TUR,4339,Turkish Super Lig,2020-2021,420,420.0,1.0,420,21,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+TUR,4339,Turkish Super Lig,2021-2022,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+TUR,4339,Turkish Super Lig,2022-2023,342,342.0,1.0,342,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+TUR,4339,Turkish Super Lig,2023-2024,380,380.0,1.0,380,20,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+TUR,4339,Turkish Super Lig,2024-2025,342,342.0,1.0,342,19,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+TUR,4339,Turkish Super Lig,2025-2026,306,306.0,1.0,306,18,True,True,ACCEPTED,ACCEPTED,,EXISTING_ACCEPTED,,
+ALB,4617,Albanian Superliga,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ALB/2013-2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+ALB,4617,Albanian Superliga,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ALB/2014-2015.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+ALB,4617,Albanian Superliga,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ALB/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+ALB,4617,Albanian Superliga,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ALB/2016-2017.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+ALB,4617,Albanian Superliga,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ALB/2017-2018.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+ALB,4617,Albanian Superliga,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ALB/2018-2019.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+ALB,4617,Albanian Superliga,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ALB/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+ALB,4617,Albanian Superliga,2020-2021,182,180,1.011111111111111,182,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ALB,4617,Albanian Superliga,2021-2022,181,180,1.0055555555555555,181,11,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ALB,4617,Albanian Superliga,2022-2023,181,180,1.0055555555555555,181,11,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ALB,4617,Albanian Superliga,2023-2024,185,180,1.0277777777777777,185,11,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ALB,4617,Albanian Superliga,2024-2025,185,180,1.0277777777777777,185,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ALB,4617,Albanian Superliga,2025-2026,190,180,1.0555555555555556,190,14,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ARM,HF:144,Armenian Premier League,2013-2014,112,112,1.0,112,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+ARM,HF:144,Armenian Premier League,2014-2015,112,112,1.0,112,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+ARM,HF:144,Armenian Premier League,2015-2016,112,112,1.0,112,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+ARM,4619,Armenian Premier League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ARM/2016-2017.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+ARM,4619,Armenian Premier League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ARM/2017-2018.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+ARM,HF:144,Armenian Premier League,2018-2019,144,112,1.2857142857142858,144,9,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+ARM,HF:144,Armenian Premier League,2019-2020,120,112,1.0714285714285714,120,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+ARM,4619,Armenian Premier League,2020-2021,125,108,1.1574074074074074,125,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ARM,4619,Armenian Premier League,2021-2022,157,108,1.4537037037037037,157,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ARM,4619,Armenian Premier League,2022-2023,180,178,1.0112359550561798,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ARM,4619,Armenian Premier League,2023-2024,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ARM,4619,Armenian Premier League,2024-2025,164,165,0.9939393939393939,164,11,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ARM,4619,Armenian Premier League,2025-2026,137,135,1.0148148148148148,137,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+AZB,HF:59,Azerbaijani Premier League,2013-2014,180,112,1.6071428571428572,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+AZB,HF:59,Azerbaijani Premier League,2014-2015,144,112,1.2857142857142858,144,9,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+AZB,HF:59,Azerbaijani Premier League,2015-2016,180,112,1.6071428571428572,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+AZB,HF:59,Azerbaijani Premier League,2016-2017,112,112,1.0,112,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+AZB,HF:59,Azerbaijani Premier League,2017-2018,112,112,1.0,112,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+AZB,HF:59,Azerbaijani Premier League,2018-2019,112,112,1.0,112,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+AZB,4693,Azerbaijani Premier League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/AZB/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+AZB,4693,Azerbaijani Premier League,2020-2021,112,112,1.0,112,8,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+AZB,4693,Azerbaijani Premier League,2021-2022,112,112,1.0,112,8,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+AZB,4693,Azerbaijani Premier League,2022-2023,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+AZB,4693,Azerbaijani Premier League,2023-2024,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+AZB,4693,Azerbaijani Premier League,2024-2025,182,180,1.011111111111111,182,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+AZB,4693,Azerbaijani Premier League,2025-2026,201,198,1.0151515151515151,201,13,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+BUL,4626,Bulgarian First League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/BUL/2013-2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+BUL,4626,Bulgarian First League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/BUL/2014-2015.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+BUL,4626,Bulgarian First League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/BUL/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+BUL,4626,Bulgarian First League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/BUL/2016-2017.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+BUL,4626,Bulgarian First League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/BUL/2017-2018.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+BUL,4626,Bulgarian First League,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/BUL/2018-2019.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+BUL,4626,Bulgarian First League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/BUL/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+BUL,4626,Bulgarian First League,2020-2021,223,182,1.2252747252747254,223,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+BUL,4626,Bulgarian First League,2021-2022,223,182,1.2252747252747254,223,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+BUL,HF:66,Bulgarian First League,2022-2023,284,284,1.0,284,17,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+BUL,HF:66,Bulgarian First League,2023-2024,284,284,1.0,284,17,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+BUL,4626,Bulgarian First League,2024-2025,295,240,1.2291666666666667,295,18,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+BUL,4626,Bulgarian First League,2025-2026,294,240,1.225,294,17,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+CRO,4629,Croatian First Football League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/CRO/2013-2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+CRO,4629,Croatian First Football League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/CRO/2014-2015.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+CRO,4629,Croatian First Football League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/CRO/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+CRO,HF:43,Croatian First Football League,2016-2017,180,180,1.0,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+CRO,HF:43,Croatian First Football League,2017-2018,180,180,1.0,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+CRO,HF:43,Croatian First Football League,2018-2019,180,180,1.0,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+CRO,4629,Croatian First Football League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/CRO/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+CRO,4629,Croatian First Football League,2020-2021,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+CRO,4629,Croatian First Football League,2021-2022,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+CRO,4629,Croatian First Football League,2022-2023,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+CRO,4629,Croatian First Football League,2023-2024,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+CRO,4629,Croatian First Football League,2024-2025,180,180,1.0,180,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+CRO,4629,Croatian First Football League,2025-2026,188,180,1.0444444444444445,188,10,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+GEO,4638,Georgian Erovnuli Liga,2013,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/GEO/2013.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+GEO,4638,Georgian Erovnuli Liga,2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/GEO/2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+GEO,HF:71,Georgian Erovnuli Liga,2015,238,184,1.2934782608695652,238,19,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+GEO,HF:71,Georgian Erovnuli Liga,2016,214,184,1.1630434782608696,214,16,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+GEO,HF:71,Georgian Erovnuli Liga,2017,180,184,0.9782608695652174,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+GEO,HF:71,Georgian Erovnuli Liga,2018,180,184,0.9782608695652174,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+GEO,HF:71,Georgian Erovnuli Liga,2019,180,184,0.9782608695652174,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+GEO,4638,Georgian Erovnuli Liga,2020,92,72,1.2777777777777777,92,11,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+GEO,4638,Georgian Erovnuli Liga,2021,184,180,1.0222222222222221,184,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+GEO,4638,Georgian Erovnuli Liga,2022,184,180,1.0222222222222221,184,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+GEO,4638,Georgian Erovnuli Liga,2023,184,180,1.0222222222222221,184,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+GEO,4638,Georgian Erovnuli Liga,2024,184,180,1.0222222222222221,184,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+GEO,4638,Georgian Erovnuli Liga,2025,184,180,1.0222222222222221,184,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+HUN,HF:47,Hungarian NB I,2013-2014,240,198,1.2121212121212122,240,16,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+HUN,HF:47,Hungarian NB I,2014-2015,240,198,1.2121212121212122,240,16,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+HUN,HF:47,Hungarian NB I,2015-2016,198,198,1.0,198,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+HUN,HF:47,Hungarian NB I,2016-2017,198,198,1.0,198,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+HUN,HF:47,Hungarian NB I,2017-2018,198,198,1.0,198,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+HUN,HF:47,Hungarian NB I,2018-2019,198,198,1.0,198,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+HUN,HF:47,Hungarian NB I,2019-2020,198,198,1.0,198,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+HUN,4690,Hungarian NB I,2020-2021,198,198,1.0,198,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+HUN,4690,Hungarian NB I,2021-2022,198,198,1.0,198,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+HUN,4690,Hungarian NB I,2022-2023,198,198,1.0,198,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+HUN,HF:47,Hungarian NB I,2023-2024,198,198,1.0,198,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+HUN,4690,Hungarian NB I,2024-2025,198,198,1.0,198,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+HUN,4690,Hungarian NB I,2025-2026,201,198,1.0151515151515151,201,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+KAZ,HF:132,Kazakhstan Premier League,2013,192,182,1.054945054945055,192,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+KAZ,HF:132,Kazakhstan Premier League,2014,189,182,1.0384615384615385,189,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+KAZ,HF:132,Kazakhstan Premier League,2015,192,182,1.054945054945055,192,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+KAZ,HF:132,Kazakhstan Premier League,2016,192,182,1.054945054945055,192,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+KAZ,HF:132,Kazakhstan Premier League,2017,198,182,1.0879120879120878,198,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+KAZ,HF:132,Kazakhstan Premier League,2018,198,182,1.0879120879120878,198,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+KAZ,HF:132,Kazakhstan Premier League,2019,198,182,1.0879120879120878,198,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+KAZ,4649,Kazakhstan Premier League,2020,111,100,1.11,111,12,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+KAZ,4649,Kazakhstan Premier League,2021,182,182,1.0,182,14,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+KAZ,4649,Kazakhstan Premier League,2022,182,182,1.0,182,14,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+KAZ,4649,Kazakhstan Premier League,2023,182,182,1.0,182,14,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+KAZ,4649,Kazakhstan Premier League,2024,156,156,1.0,156,13,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+KAZ,4649,Kazakhstan Premier League,2025,183,182,1.0054945054945055,183,14,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+LIT,HF:134,Lithuanian TOPLYGA,2013,144,127,1.1338582677165354,144,9,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+LIT,HF:134,Lithuanian TOPLYGA,2014,180,127,1.4173228346456692,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+LIT,HF:134,Lithuanian TOPLYGA,2015,180,127,1.4173228346456692,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+LIT,HF:134,Lithuanian TOPLYGA,2016,127,127,1.0,127,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+LIT,HF:134,Lithuanian TOPLYGA,2017,127,127,1.0,127,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+LIT,HF:134,Lithuanian TOPLYGA,2018,127,127,1.0,127,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+LIT,HF:134,Lithuanian TOPLYGA,2019,127,127,1.0,127,8,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+LIT,4651,Lithuanian TOPLYGA,2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/LIT/2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+LIT,HF:134,Lithuanian TOPLYGA,2021,180,127,1.4173228346456692,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+LIT,HF:134,Lithuanian TOPLYGA,2022,180,127,1.4173228346456692,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+LIT,HF:134,Lithuanian TOPLYGA,2023,182,127,1.4330708661417322,182,11,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+LIT,HF:134,Lithuanian TOPLYGA,2024,182,127,1.4330708661417322,182,11,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+LIT,HF:134,Lithuanian TOPLYGA,2025,182,127,1.4330708661417322,182,11,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+ROM,HF:32,Romanian Liga I,2013-2014,307,307,1.0,307,19,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+ROM,HF:32,Romanian Liga I,2014-2015,306,307,0.996742671009772,306,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+ROM,4691,Romanian Liga I,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/ROM/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+ROM,HF:32,Romanian Liga I,2016-2017,434,307,1.4136807817589576,434,20,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+ROM,HF:32,Romanian Liga I,2017-2018,406,307,1.3224755700325732,406,19,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+ROM,HF:32,Romanian Liga I,2018-2019,374,307,1.218241042345277,374,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+ROM,HF:32,Romanian Liga I,2019-2020,307,307,1.0,307,19,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+ROM,4691,Romanian Liga I,2020-2021,321,240,1.3375,321,18,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ROM,4691,Romanian Liga I,2021-2022,316,240,1.3166666666666667,316,16,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ROM,4691,Romanian Liga I,2022-2023,321,240,1.3375,321,18,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ROM,4691,Romanian Liga I,2023-2024,321,240,1.3375,321,18,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ROM,4691,Romanian Liga I,2024-2025,319,240,1.3291666666666666,319,18,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+ROM,4691,Romanian Liga I,2025-2026,321,75,4.28,321,18,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+SCO,HF:17,Scottish Premier League,2013-2014,228,234,0.9743589743589743,228,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SCO,HF:17,Scottish Premier League,2014-2015,228,234,0.9743589743589743,228,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SCO,HF:17,Scottish Premier League,2015-2016,228,234,0.9743589743589743,228,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SCO,HF:17,Scottish Premier League,2016-2017,266,234,1.1367521367521367,266,13,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SCO,HF:17,Scottish Premier League,2017-2018,266,234,1.1367521367521367,266,13,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SCO,HF:17,Scottish Premier League,2018-2019,267,234,1.141025641025641,267,13,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SCO,4330,Scottish Premier League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SCO/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SCO,4330,Scottish Premier League,2020-2021,233,198,1.1767676767676767,233,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+SCO,4330,Scottish Premier League,2021-2022,234,198,1.1818181818181819,234,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+SCO,4330,Scottish Premier League,2022-2023,234,198,1.1818181818181819,234,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+SCO,4330,Scottish Premier League,2023-2024,234,198,1.1818181818181819,234,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+SCO,4330,Scottish Premier League,2024-2025,234,114,2.0526315789473686,234,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+SCO,4330,Scottish Premier League,2025-2026,234,198,1.1818181818181819,234,15,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,
+SLO,4692,Slovenian 1. SNL,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SLO/2013-2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SLO,4692,Slovenian 1. SNL,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SLO/2014-2015.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SLO,4692,Slovenian 1. SNL,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SLO/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SLO,4692,Slovenian 1. SNL,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SLO/2016-2017.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SLO,4692,Slovenian 1. SNL,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SLO/2017-2018.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SLO,HF:55,Slovenian 1. SNL,2018-2019,180,182,0.989010989010989,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SLO,4692,Slovenian 1. SNL,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SLO/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SLO,HF:55,Slovenian 1. SNL,2020-2021,214,182,1.1758241758241759,214,13,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SLO,HF:55,Slovenian 1. SNL,2021-2022,182,182,1.0,182,11,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SLO,HF:55,Slovenian 1. SNL,2022-2023,182,182,1.0,182,11,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SLO,HF:55,Slovenian 1. SNL,2023-2024,180,182,0.989010989010989,180,10,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SLO,HF:55,Slovenian 1. SNL,2024-2025,182,182,1.0,182,11,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SLO,4692,Slovenian 1. SNL,2025-2026,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SLO/2025-2026.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SRB,4671,Serbian Super Liga,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SRB/2013-2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SRB,4671,Serbian Super Liga,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SRB/2014-2015.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SRB,4671,Serbian Super Liga,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SRB/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SRB,HF:63,Serbian Super Liga,2016-2017,296,296,1.0,296,16,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SRB,HF:63,Serbian Super Liga,2017-2018,296,296,1.0,296,16,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SRB,HF:63,Serbian Super Liga,2018-2019,296,296,1.0,296,16,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SRB,4671,Serbian Super Liga,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SRB/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SRB,HF:63,Serbian Super Liga,2020-2021,380,296,1.2837837837837838,380,20,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SRB,HF:63,Serbian Super Liga,2021-2022,300,296,1.0135135135135136,300,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SRB,HF:63,Serbian Super Liga,2022-2023,300,296,1.0135135135135136,300,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SRB,HF:63,Serbian Super Liga,2023-2024,300,296,1.0135135135135136,300,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SRB,HF:63,Serbian Super Liga,2024-2025,300,296,1.0135135135135136,300,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SRB,HF:63,Serbian Super Liga,2025-2026,296,296,1.0,296,16,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SVK,4672,Slovak First Football League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SVK/2013-2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SVK,4672,Slovak First Football League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SVK/2014-2015.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SVK,4672,Slovak First Football League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SVK/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SVK,4672,Slovak First Football League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SVK/2016-2017.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SVK,4672,Slovak First Football League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SVK/2017-2018.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SVK,HF:54,Slovak First Football League,2018-2019,192,192,1.0,192,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SVK,4672,Slovak First Football League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/SVK/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+SVK,HF:54,Slovak First Football League,2020-2021,215,192,1.1197916666666667,215,14,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SVK,HF:54,Slovak First Football League,2021-2022,195,192,1.015625,195,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SVK,HF:54,Slovak First Football League,2022-2023,197,192,1.0260416666666667,197,13,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SVK,HF:54,Slovak First Football League,2023-2024,194,192,1.0104166666666667,194,13,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SVK,HF:54,Slovak First Football League,2024-2025,197,192,1.0260416666666667,197,13,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+SVK,HF:54,Slovak First Football League,2025-2026,192,192,1.0,192,12,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+UKR,4354,Ukrainian Premier League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2013-2014.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+UKR,4354,Ukrainian Premier League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2014-2015.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+UKR,4354,Ukrainian Premier League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2015-2016.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+UKR,4354,Ukrainian Premier League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2016-2017.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+UKR,4354,Ukrainian Premier League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2017-2018.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+UKR,4354,Ukrainian Premier League,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2018-2019.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+UKR,4354,Ukrainian Premier League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2019-2020.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+UKR,4354,Ukrainian Premier League,2020-2021,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2020-2021.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+UKR,4354,Ukrainian Premier League,2021-2022,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_expansion_ucl_uel/_source_cache/table/UKR/2021-2022.json,UNAVAILABLE,THESPORTSDB_PREMIUM,
+UKR,HF:61,Ukrainian Premier League,2022-2023,244,244,1.0,244,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+UKR,HF:61,Ukrainian Premier League,2023-2024,244,244,1.0,244,18,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+UKR,HF:61,Ukrainian Premier League,2024-2025,247,244,1.0122950819672132,247,20,True,True,ACCEPTED,SECONDARY_INFERRED_FORMAT_ACCEPTED,,SECONDARY_ACCEPTED,HF_API_FOOTBALL_ARCHIVE,RECURRING_MODE
+UKR,4354,Ukrainian Premier League,2025-2026,244,240,1.0166666666666666,244,18,True,True,ACCEPTED,ACCEPTED,,PRIMARY_ACCEPTED,THESPORTSDB_PREMIUM,

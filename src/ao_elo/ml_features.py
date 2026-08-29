@@ -8,6 +8,7 @@ from typing import Iterable, Mapping
 
 import numpy as np
 import pandas as pd
+from ao_elo.validators import require_utc_timestamp
 
 
 PROBABILITY_EPSILON = 1e-12
@@ -134,7 +135,25 @@ def build_pre_match_feature_store(
     baseline = _validated_baseline(production_predictions)
     metadata = _validated_metadata(match_metadata)
     if metadata is not None:
-        baseline = baseline.merge(metadata, on="match_id", how="left", validate="one_to_one")
+        # Align explicitly: pandas' implicit _x/_y suffixes would hide both
+        # supplied values from the defaults below.
+        metadata = metadata.set_index("match_id")
+        for column in metadata.columns:
+            supplied = baseline["match_id"].map(metadata[column])
+            if column not in baseline:
+                baseline[column] = supplied
+                continue
+            current = baseline[column]
+            both = current.notna() & supplied.notna()
+            left, right = current[both], supplied[both]
+            if column == "is_knockout":
+                left, right = left.map(_as_bool), right.map(_as_bool)
+            elif column in {"round_sequence", "leg_number"}:
+                left = pd.to_numeric(left, errors="raise")
+                right = pd.to_numeric(right, errors="raise")
+            if not left.eq(right).all():
+                raise ValueError(f"Conflicting match metadata: {column}")
+            baseline[column] = current.where(current.notna(), supplied)
     for column, default in (
         ("round", "UNKNOWN"),
         ("round_sequence", -1.0),
@@ -144,6 +163,8 @@ def build_pre_match_feature_store(
         if column not in baseline:
             baseline[column] = default
         baseline[column] = baseline[column].fillna(default)
+    for column in ("is_single_match_tie", "is_neutral", "is_knockout"):
+        baseline[column] = baseline[column].map(_as_bool)
 
     initial = _build_initial_context(baseline, initial_context)
     domestic_snapshots = build_domestic_snapshots(domestic_matches)
@@ -296,7 +317,9 @@ def build_domestic_snapshots(
     if missing:
         raise ValueError(f"domestic_matches missing columns: {missing}")
     data = domestic_matches.copy()
-    data["kickoff_utc"] = pd.to_datetime(data["kickoff_utc"], utc=True, errors="coerce")
+    data["kickoff_utc"] = data["kickoff_utc"].map(
+        lambda value: require_utc_timestamp(value, "domestic_matches.kickoff_utc")
+    )
     if data["kickoff_utc"].isna().any():
         raise ValueError("domestic_matches.kickoff_utc contains invalid timestamps")
     if data["source_event_id"].isna().any() or data["source_event_id"].duplicated().any():
@@ -369,7 +392,9 @@ def validate_feature_store(frame: pd.DataFrame, *, expected_rows: int | None = N
         raise ValueError(f"feature_store rows={len(frame)} expected={expected_rows}")
     if frame["match_id"].isna().any() or frame["match_id"].duplicated().any():
         raise ValueError("feature_store.match_id must be non-null and unique")
-    kickoff = pd.to_datetime(frame["kickoff_utc"], utc=True, errors="coerce")
+    kickoff = frame["kickoff_utc"].map(
+        lambda value: require_utc_timestamp(value, "feature_store.kickoff_utc")
+    )
     if kickoff.isna().any() or not kickoff.is_monotonic_increasing:
         raise ValueError("feature_store must have valid monotonic kickoff_utc")
     probabilities = frame[
@@ -421,7 +446,9 @@ def _validated_baseline(frame: pd.DataFrame) -> pd.DataFrame:
     if missing:
         raise ValueError(f"production_predictions missing columns: {missing}")
     result = frame.copy()
-    result["kickoff_utc"] = pd.to_datetime(result["kickoff_utc"], utc=True, errors="coerce")
+    result["kickoff_utc"] = result["kickoff_utc"].map(
+        lambda value: require_utc_timestamp(value, "production_predictions.kickoff_utc")
+    )
     if result["kickoff_utc"].isna().any():
         raise ValueError("production_predictions.kickoff_utc contains invalid values")
     if result["match_id"].isna().any() or result["match_id"].duplicated().any():

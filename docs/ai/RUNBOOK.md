@@ -439,6 +439,14 @@ impute eder, satir yine `ACTIVE_ENSEMBLE` doner.
 
 ### 8.2 Aktif Production Prediction
 
+28 Agustos 2026'dan itibaren domestic engine checkpoint semasi `2.0`'dir.
+`1.0` state yuklenmez; asagidaki komutlarla sonuc kaynagindan replay edilir.
+Checkpoint'te provider event ID listesi ve lig bazinda son kickoff saklanir.
+Duplicate, eski sonuc veya ayni lig/kickoff'u bolen yeni batch reddedilir.
+Bu durumlarda state'i elle duzenlemek yerine onceki checkpoint'ten tam replay
+yapilir. Tahmin uretim zamani ilgili lig cutoff'unu geride birakamaz;
+fikstur cutoff'a esit veya eskiyse satir AO fallback'e duser.
+
 Frozen artifact'lari tekrar uretme:
 
 ```bash
@@ -456,11 +464,42 @@ python3 scripts/build_production_prediction_artifacts.py \
   --coverage-audit data/domestic_league_expansion_ucl_uel/target_coverage_audit.csv
 ```
 
+`--coverage-audit` artik CLI tarafindan da **zorunlu kilinir**:
+`--live-domestic-matches` verilip bu bayrak verilmezse build hicbir dosya
+yazmadan durur.  Onceden yalnizca bu belgede zorunluydu, argparse optional
+kabul ediyordu.
+
 `--coverage-audit` **zorunludur**. Bayragi atlamak kapiyi tamamen kapatir:
 `excluded_by_coverage_gate` `0` olur ve iki sezon/40 mac esigini gecemeyen
 kulup (`União Torreense`) sessizce production Poisson'a dahil edilir. Dogru
 kosuda `production_eligible_ao_clubs = 311` ve `excluded_by_coverage_gate = 1`
 gorulmelidir.
+
+Lig-sezon seviyesindeki coverage kapisi ayri bir kapidir ve iki lig-sezonunu
+bilerek disarida birakir: **GEO 2014** (`120/184 = 0.652`) ve **LIT 2020**
+(`60/127 = 0.472`). Bu satirlar `league_season_quality.csv` icinde
+`REJECTED / UNAVAILABLE` olarak gorunur -- etiket primary kaynagin hatasini
+tasir, gercek sebep secondary'nin coverage reddidir.  Durum **beklenen
+davranistir**;
+kabul edilmis kapsam boslugu olarak `docs/ai/DATA_CONTRACTS.md` §11.2'de
+belgelidir. Bu iki sezonu geri almak icin %95 esigini dusurmeyin veya kapiyi
+kapatmayin; dogru mudahale beklenen mac sayisini resmi fikstur kaydindan
+pinlemektir. Bu listeye **yeni** bir lig-sezonu eklenirse once nedeni audit edilir.
+
+Kapinin kararinin kaynak-bagimli oldugunu unutmayin: GEO 2020 secondary olcusune
+gore (`94/184 = 0.511`) GEO 2014'ten daha kotudur ama primary fallback'i
+(`92/72 = 1.278`) sayesinde production'a girer.  `ACCEPTED` bir satir sezonun
+tam oldugunu kanitlamaz.  Ayrinti icin `DATA_CONTRACTS.md` §11.2.
+
+**Her artifact build'i temiz, bos bir `--output-root` dizinine kosulmalidir.**
+Builder girdileri dogrulamadan once ML artifact'ini yazar; girdi hatasi
+downstream'de yakalanirsa dizinde yeni bir `structural_logistic_v1.joblib`
+kalir, manifest ve state kalmaz.  Mevcut bir release dizini yeniden
+kullanilirsa bu yeni ML dosyasi eski state/manifest ile yan yana durur.
+Strict runtime checksum bunu reddeder, ama dizin yine de bozulur.  Ayni kural
+`build_2026_27_prediction_features.py` icin de gecerlidir: prediction kilidi
+dogrulanmadan once `prediction_features.csv` ve `validation_gates.csv`
+yazilir.  Atomik yayinlama (temp dizin + rename) henuz uygulanmadi.
 
 Ayni inputlarla uretilen uc artifact SHA-256 degeri contract ile ayni
 kalmalidir. Fark varsa contract kendiliginden guncellenmez; once neden audit
@@ -532,6 +571,37 @@ kosuda bunu dogrular ve sapma varsa durur.
 Zincir sonunda `contracts/ao_european_elo_v2_production.json` icindeki
 `prediction_layer.artifact_manifest.sha256` yeni manifest degeriyle
 guncellenmelidir.
+Final-candidate contract'taki ayni artifact referansi da eslenmelidir.
+Son hash guncellemesinden sonra current evaluation/snapshot yeniden uretilip
+`reports/current_model/` altindaki curated kopyalar yenilenir; snapshot eski
+contract hash'inde birakilmaz.
+
+## 8.4 Domestic veri/state onarimi (AO First degismiyorsa)
+
+Once kaynak hata duzeltilir; sonra kanitli skor uzlastirmasi ve tekillik guard'i
+ile veri yeniden uretilir. Ham cache degistirilmez; onceki artifactlar
+karsilastirma icin saklanir. 28 Agustos 2026 onarim sirasi:
+
+```bash
+python3 scripts/build_domestic_league_dataset.py --offline
+python3 scripts/build_ucl_uel_domestic_expansion.py --offline
+python3 scripts/build_ucl_uel_live_domestic_state.py --offline
+python3 scripts/run_ml_1x2_backtest.py --blend-weight 0.9 --bootstrap-samples 4000
+python3 scripts/run_domestic_poisson_backtest.py --rebuild-domestic-surface --bootstrap-samples 4000
+python3 scripts/run_final_prediction_ensemble_backtest.py --prospective-poisson-weight 0.5 --bootstrap-samples 4000
+```
+
+Bu sirada eski feature store ve Poisson secim yuzeyi kullanilmaz. Genisletilmis
+coverage kaniti `evaluate_ucl_uel_domestic_expansion.py` ile `--reuse-surface`
+olmadan yenilenir. Ardindan §8.2'deki iki artifact build'i (tarihsel ve coverage
+audit'li live), iki contract'taki manifest hash'i, current evaluation/snapshot,
+external benchmark ve 2026/27 replay/tahmin raporlari yenilenir. Model config'i,
+AO First ve sayisal blend/transfer parametreleri degistirilmez. 2026/27 ciktilari
+yalniz replay'dir; gecmiste kickoff'tan once kayit uretildigini kanitlamaz.
+
+`fixture_reconciliation_audit.csv`, source manifest, kanonik fikstur tekilligi
+ve checkpoint `processed_event_ids` birlikte dogrulanir. Skor celiskisine yeni
+bir provider gozlemi eklenirse kayitli karar otomatik genisletilmez; build durur.
 
 ## 9. Production Degisikligi Kontrol Listesi
 

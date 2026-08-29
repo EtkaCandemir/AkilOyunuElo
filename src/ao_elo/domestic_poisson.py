@@ -6,7 +6,7 @@ import json
 import math
 from collections import defaultdict
 from dataclasses import asdict, dataclass, field
-from typing import Iterable, Mapping, Sequence
+from typing import Mapping, Sequence
 
 import numpy as np
 import pandas as pd
@@ -20,12 +20,13 @@ from ao_elo.scoreline import (
     scoreline_matrix,
     scoreline_to_1x2,
 )
+from ao_elo.validators import require_utc_timestamp, validate_domestic_fixture_uniqueness
 
 
 DEFAULT_GOAL_LEVEL = math.log(1.35)
 DEFAULT_HOME_ADVANTAGE = math.log(1.12)
 PROBABILITY_EPSILON = 1e-15
-DOMESTIC_STATE_SCHEMA_VERSION = "1.0"
+DOMESTIC_STATE_SCHEMA_VERSION = "2.0"
 
 
 @dataclass(frozen=True)
@@ -87,6 +88,7 @@ class DomesticLeagueState:
     goal_level: float = DEFAULT_GOAL_LEVEL
     home_advantage: float = DEFAULT_HOME_ADVANTAGE
     current_season: str | None = None
+    last_kickoff_utc: pd.Timestamp | None = None
     teams: dict[str, DomesticTeamState] = field(default_factory=dict)
 
 
@@ -151,6 +153,7 @@ class DynamicDomesticPoisson:
         config.validate()
         self.config = config
         self.leagues: dict[str, DomesticLeagueState] = {}
+        self.processed_event_ids: set[str] = set()
 
     def ensure_season(self, league_id: str, season: str) -> None:
         league = self.leagues.setdefault(str(league_id), DomesticLeagueState())
@@ -215,6 +218,48 @@ class DynamicDomesticPoisson:
             raise ValueError("Domestic update records cannot be empty")
         if len({record[3] for record in records}) != 1:
             raise ValueError("Domestic update records must share one kickoff timestamp")
+        kickoff = require_utc_timestamp(records[0][3], "domestic kickoff_utc")
+        event_ids = [record[0] for record in records]
+        if any(
+            not isinstance(event_id, str)
+            or not event_id.strip()
+            or event_id in self.processed_event_ids
+            for event_id in event_ids
+        ) or len(set(event_ids)) != len(event_ids):
+            raise ValueError("Duplicate or invalid domestic source_event_id")
+        # Preflight the entire batch before predict_match can create teams or
+        # advance a season. Split batches in one league would use changed
+        # league-relative parameters, so equal kickoff must also be rejected.
+        batch_seasons: dict[str, str] = {}
+        batch_fixtures: set[tuple[str, str, str]] = set()
+        for _, league_id, season, _, home_id, away_id, home_goals, away_goals in records:
+            fixture = (str(league_id).strip(), str(home_id).strip(), str(away_id).strip())
+            if fixture in batch_fixtures:
+                raise ValueError("Duplicate domestic fixture in kickoff batch")
+            batch_fixtures.add(fixture)
+            target = _season_start(season)
+            if league_id in batch_seasons and batch_seasons[league_id] != season:
+                raise ValueError("Domestic batch contains conflicting league seasons")
+            batch_seasons[league_id] = season
+            if home_id == away_id:
+                raise ValueError("Domestic home and away teams must differ")
+            for goals in (home_goals, away_goals):
+                if not math.isfinite(goals) or goals < 0 or goals != int(goals):
+                    raise ValueError("Domestic goals must be non-negative integers")
+            league = self.leagues.get(league_id)
+            if league is not None:
+                if (
+                    league.last_kickoff_utc is not None
+                    and kickoff <= league.last_kickoff_utc
+                ):
+                    raise ValueError(
+                        f"Domestic chronology regression or split kickoff batch: {league_id}"
+                    )
+                if (
+                    league.current_season is not None
+                    and target < _season_start(league.current_season)
+                ):
+                    raise ValueError(f"Domestic chronology regressed for league={league_id}")
         predictions: list[dict[str, object]] = []
         gradients: dict[tuple[str, str, str], float] = defaultdict(float)
         league_gradients: dict[tuple[str, str], float] = defaultdict(float)
@@ -276,6 +321,8 @@ class DynamicDomesticPoisson:
             setattr(league, parameter, value)
         for league_id in {record[1] for record in records}:
             self._center_league(self.leagues[league_id])
+            self.leagues[league_id].last_kickoff_utc = kickoff
+        self.processed_event_ids.update(event_ids)
         return predictions
 
     def snapshot(
@@ -314,6 +361,12 @@ class DynamicDomesticPoisson:
         goal_level_min = math.log(float(self.config.lambda_min))
         goal_level_max = math.log(float(self.config.lambda_max))
         for league_id, league in self.leagues.items():
+            if league.last_kickoff_utc is not None:
+                require_utc_timestamp(league.last_kickoff_utc, "domestic state last_kickoff_utc")
+                if not self.processed_event_ids:
+                    raise ValueError("Domestic state is missing processed event IDs")
+            elif any(team.effective_matches > 0 for team in league.teams.values()):
+                raise ValueError("Domestic state is missing its kickoff cutoff; rebuild checkpoint")
             if not self.config.league_home_min <= league.home_advantage <= self.config.league_home_max:
                 raise ValueError(f"league home effect cap violated: {league_id}")
             if not math.isfinite(league.goal_level):
@@ -352,11 +405,16 @@ class DynamicDomesticPoisson:
         return {
             "schema_version": DOMESTIC_STATE_SCHEMA_VERSION,
             "config": asdict(self.config),
+            "processed_event_ids": sorted(self.processed_event_ids),
             "leagues": {
                 league_id: {
                     "goal_level": league.goal_level,
                     "home_advantage": league.home_advantage,
                     "current_season": league.current_season,
+                    "last_kickoff_utc": (
+                        league.last_kickoff_utc.isoformat()
+                        if league.last_kickoff_utc is not None else None
+                    ),
                     "teams": {
                         team_id: asdict(team)
                         for team_id, team in sorted(league.teams.items())
@@ -370,7 +428,7 @@ class DynamicDomesticPoisson:
     def from_payload(cls, payload: Mapping[str, object]) -> "DynamicDomesticPoisson":
         """Restore a trusted, versioned state checkpoint and re-run invariants."""
         if payload.get("schema_version") != DOMESTIC_STATE_SCHEMA_VERSION:
-            raise ValueError("Unsupported domestic Poisson state schema")
+            raise ValueError("Unsupported domestic Poisson state schema; rebuild checkpoint from results")
         config_payload = payload.get("config")
         leagues_payload = payload.get("leagues")
         if not isinstance(config_payload, Mapping) or not isinstance(
@@ -382,6 +440,14 @@ class DynamicDomesticPoisson:
         except TypeError as exc:
             raise ValueError("Domestic Poisson state config is invalid") from exc
         engine = cls(config)
+        event_ids = payload.get("processed_event_ids")
+        if (
+            not isinstance(event_ids, list)
+            or any(not isinstance(value, str) or not value.strip() for value in event_ids)
+            or len(set(event_ids)) != len(event_ids)
+        ):
+            raise ValueError("Domestic state processed_event_ids must be a unique list of IDs")
+        engine.processed_event_ids = set(event_ids)
         for league_id, raw_league in sorted(leagues_payload.items()):
             if not isinstance(raw_league, Mapping):
                 raise ValueError("Domestic Poisson league state must be an object")
@@ -400,6 +466,10 @@ class DynamicDomesticPoisson:
                     raw_league.get("home_advantage"),
                 ),
                 current_season=season,
+                last_kickoff_utc=(
+                    require_utc_timestamp(raw_league["last_kickoff_utc"], "domestic state last_kickoff_utc")
+                    if raw_league.get("last_kickoff_utc") is not None else None
+                ),
             )
             for team_id, raw_team in sorted(teams_payload.items()):
                 if not isinstance(raw_team, Mapping):
@@ -950,7 +1020,9 @@ def _validate_domestic_matches(matches: pd.DataFrame) -> pd.DataFrame:
     if missing:
         raise ValueError(f"domestic_matches missing columns: {missing}")
     result = matches.copy()
-    result["kickoff_utc"] = pd.to_datetime(result["kickoff_utc"], utc=True, errors="coerce")
+    result["kickoff_utc"] = result["kickoff_utc"].map(
+        lambda value: require_utc_timestamp(value, "domestic_matches.kickoff_utc")
+    )
     if result["kickoff_utc"].isna().any():
         raise ValueError("domestic_matches.kickoff_utc contains invalid timestamps")
     if result["source_event_id"].isna().any() or result["source_event_id"].duplicated().any():
@@ -959,11 +1031,15 @@ def _validate_domestic_matches(matches: pd.DataFrame) -> pd.DataFrame:
         raise ValueError("domestic match identity fields cannot be missing")
     if result["home_source_team_id"].astype(str).eq(result["away_source_team_id"].astype(str)).any():
         raise ValueError("Domestic home and away teams must differ")
+    validate_domestic_fixture_uniqueness(result, "domestic replay")
     for column in ("home_goals", "away_goals"):
         result[column] = pd.to_numeric(result[column], errors="coerce")
-        if result[column].isna().any() or (result[column] < 0).any():
+        if not np.isfinite(result[column]).all() or (result[column] < 0).any():
             raise ValueError(f"domestic_matches.{column} must be non-negative numeric")
-        if not np.allclose(result[column], np.round(result[column])):
+        if (
+            not result[column].eq(np.floor(result[column])).all()
+            or (result[column] >= 2**63).any()
+        ):
             raise ValueError(f"domestic_matches.{column} must contain integers")
         result[column] = result[column].astype(int)
     return result.sort_values(["kickoff_utc", "source_event_id"], kind="stable").reset_index(drop=True)
@@ -975,7 +1051,9 @@ def _validate_european_matches(matches: pd.DataFrame) -> pd.DataFrame:
     if missing:
         raise ValueError(f"european_matches missing columns: {missing}")
     result = matches.copy()
-    result["kickoff_utc"] = pd.to_datetime(result["kickoff_utc"], utc=True, errors="coerce")
+    result["kickoff_utc"] = result["kickoff_utc"].map(
+        lambda value: require_utc_timestamp(value, "european_matches.kickoff_utc")
+    )
     if result["kickoff_utc"].isna().any():
         raise ValueError("european_matches.kickoff_utc contains invalid timestamps")
     if result["match_id"].isna().any() or result["match_id"].duplicated().any():

@@ -6,7 +6,7 @@
     "precedence": "production_contract_over_final_candidate"
   },
   "model_version": "ao-european-elo-v2.0-dev-freeze",
-  "production_revision": "2026-08-27-participation-cup-and-unknown-position",
+  "production_revision": "2026-08-28-domestic-provider-season-and-fixture-integrity-fixes",
   "static_initial_elo": {
     "country_strength_benchmark": 25.0,
     "european_history_benchmark": 20.0,
@@ -43,6 +43,27 @@
     "european_participation_shrinkage": 0.2,
     "cup_contribution_enabled": true,
     "cup_contribution_weight": 0.12903225806451613
+  },
+  "runtime_input_guards": {
+    "revision_kind": "BUGFIX_NO_PARAMETER_RETUNING",
+    "domestic_state_schema_version": "2.0",
+    "domestic_event_id_policy": "PERSIST_IDS_REJECT_REAPPLICATION",
+    "domestic_fixture_identity": "CANONICAL_LEAGUE_HOME_AWAY_AND_NORMALIZED_UTC_REJECT_DUPLICATES_AT_MERGE_AND_REPLAY",
+    "secondary_provider_season": "SOURCE_SEASON_ELSE_UTC_CALENDAR_YEAR_FOR_CALENDAR_LEAGUES",
+    "secondary_format_expectation": "RECURRING_MODE_ELSE_CEIL_MEDIAN_INFERRED_NOT_VERIFIED",
+    "domestic_score_conflicts": "REVIEWED_SOURCE_EVIDENCE_ONLY_UNKNOWN_CONFLICT_ABORTS_BUILD",
+    "domestic_fixture_reconciliations": "data/domestic_fixture_reconciliations.json",
+    "domestic_chronology": "STRICTLY_INCREASING_KICKOFF_PER_LEAGUE_COMPLETE_BATCH",
+    "domestic_invalid_batch": "REJECT_BEFORE_STATE_MUTATION",
+    "domestic_prediction_cutoff": "LEAGUE_LAST_KICKOFF_LE_GENERATED_AT_AND_LT_FIXTURE_KICKOFF",
+    "legacy_domestic_checkpoint": "REBUILD_FROM_RESULTS_NO_INFERRED_CUTOFF",
+    "same_team_same_kickoff": "REJECT",
+    "single_match_advancer": "MUST_MATCH_UNEQUAL_FIELD_SCORE_WINNER_UNLESS_SHOOTOUT",
+    "timestamp_input": "REQUIRE_EXPLICIT_TIMEZONE_THEN_NORMALIZE_UTC",
+    "domestic_goals": "FINITE_NON_NEGATIVE_EXACT_INTEGERS",
+    "overlapping_match_metadata": "COALESCE_EQUAL_OR_MISSING_REJECT_CONFLICT",
+    "boolean_input": "CANONICAL_TRUE_FALSE_OR_0_1_EQUIVALENT",
+    "missing_contract": "CURRENT_AO_FALLBACK_ONLY_WHEN_DEGRADED_LOADING_ALLOWED"
   },
   "active_runtime_contract": {
     "domestic_surprise": {
@@ -237,7 +258,7 @@
       },
       "artifact_manifest": {
         "path": "artifacts/production_prediction/manifest.json",
-        "sha256": "b0d960929d79f79b79c9d5fe03440d8a8c02b337a6e3a642828626908cc94a3a"
+        "sha256": "62672c2074809db21286cec54b3a3713485ef9669a8d45d5f4db6ca6a63c6404"
       },
       "fallback": "CURRENT_AO_1X2",
       "rating_feedback": false,

@@ -17,6 +17,10 @@ from ao_elo.domestic_poisson import (
     predict_european_poisson_transfer,
 )
 from ao_elo.evaluation import dependency_robust_loss_difference_ci
+from ao_elo.holdout_window import (
+    untouched_holdout_label,
+    validate_development_window,
+)
 from ao_elo.ml_backtest import spec_by_name
 from ao_elo.ml_features import validate_feature_store
 from ao_elo.ml_prediction import (
@@ -84,9 +88,7 @@ def run_prediction_ensemble_walk_forward_backtest(
     base = feature_store.sort_values(
         ["kickoff_utc", "match_id"], kind="stable"
     ).reset_index(drop=True)
-    seasons = tuple(dict.fromkeys(base["season"].astype(str)))
-    if len(seasons) != 8 or seasons[-1] == "2026/27":
-        raise ValueError("Expected 2018/19-2025/26 development seasons only")
+    seasons = validate_development_window(base, label="prediction ensemble backtest")
 
     source = _validate_and_align_source_predictions(
         domestic_predictions, seasons[2:]
@@ -222,6 +224,7 @@ def run_prediction_ensemble_walk_forward_backtest(
         uncertainty,
         prospective_selection,
         pd.DataFrame(selection_rows),
+        untouched_holdout_label(base, label="prediction ensemble decision"),
     )
     return PredictionEnsembleBacktestResult(
         inner_weight_surface=pd.DataFrame(surface_rows),
@@ -625,6 +628,7 @@ def _decision(
     uncertainty: pd.DataFrame,
     prospective_selection: Mapping[str, object],
     fold_selections: pd.DataFrame,
+    holdout: str,
 ) -> dict[str, object]:
     candidate = comparison[comparison["model"].eq(ML_POISSON_ENSEMBLE)].iloc[0]
     current_ml = comparison[comparison["model"].eq(CURRENT_ML_BLEND)].iloc[0]
@@ -736,7 +740,7 @@ def _decision(
                 else {}
             ),
         },
-        "untouched_holdout": "2026/27",
+        "untouched_holdout": holdout,
         "rating_feedback": False,
     }
 

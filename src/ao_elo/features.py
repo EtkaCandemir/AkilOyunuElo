@@ -133,7 +133,11 @@ def compute_weighted_season_exposure(
     config: AOEuropeanEloConfig,
 ) -> float:
     """European Exposure season-count component."""
-    return weighted_sum(club_row, "played", config)
+    # The input validator accepts canonical string booleans as well as 0/1.
+    total = 0.0
+    for key in SEASON_KEYS:
+        total += config.season_weights[key] * float(as_bool(club_row.get(f"played_{key}", 0)))
+    return total
 
 
 def compute_weighted_match_exposure(

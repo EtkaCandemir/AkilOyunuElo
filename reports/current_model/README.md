@@ -3,14 +3,18 @@
 Canonical evaluation snapshot for the active AO European Elo production
 contract.
 
-Regenerated on 27 August 2026 against the active contract, so the tables
-reflect continuous qualifier retention (effective Q1/Q2/Q3/QPO K multipliers
-`0.20/0.275/0.35/0.425`, MAIN `1.00`, no MAIN-entry carry or reset), the
-six-season xG map, and the three static changes activated in this revision:
-the European prior participation normalization, the generalized domestic cup
-contribution, and the unknown-position floor. For active behavior the
-production contract and `active_model_snapshot.json` still take precedence
-over replay labels here.
+Regenerated on 28 August 2026 for the domestic provider-season and fixture-integrity
+revision. The repaired checkpoint contains 76,327 unique fixtures. Numeric
+parameters are unchanged; the tables still include the six-season xG map and
+the three static changes activated on 27 August: participation normalization,
+generalized cup contribution and the unknown-position floor.
+
+This legacy historical evaluator does **not** replay continuous qualifier
+retention. Its metrics do not establish the active Q1/Q2/Q3/QPO multipliers
+`0.20/0.275/0.35/0.425` or the no-reset MAIN transition. Those are checked in
+the production kernel tests and 2026/27 preproduction replay. For active
+behavior the production contract and `active_model_snapshot.json` take
+precedence over replay labels here.
 
 The AO rating core scores Brier `0.566413`, log-loss
 `0.956259` and accuracy `0.559173` on `4884` unseen
@@ -31,6 +35,10 @@ before it also treat the cup as a floor.
 The `CURRENT_PRODUCTION` rows in this package are the AO rating-core 1X2 replay.
 The served `%50 Current ML + %50 AO Domestic Poisson` prediction evidence is
 versioned separately under `reports/production_prediction/`.
+
+The domestic repair leaves the rating-core summary, folds, segments and
+uncertainty tables byte-identical to the previous snapshot. It changes domestic
+state and prediction evidence; see `reports/domestic_integrity_fix_2026_08_28.md`.
 
 - `current_model_evaluation_report.md`: primary human-readable report.
 - `active_model_snapshot.json`: resolved active parameters and layer order.

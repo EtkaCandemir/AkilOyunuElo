@@ -19,6 +19,9 @@ if str(ROOT) not in sys.path:
 
 from ao_elo.domestic_league_dataset import (  # noqa: E402
     UCL_UEL_EXPANSION_LEAGUES,
+    DomesticFixtureConflictError,
+    FIXTURE_RECONCILIATIONS,
+    FIXTURE_AUDIT_COLUMNS,
     assess_league_season,
     attach_domestic_club_ids,
     build_domestic_team_bridge,
@@ -96,6 +99,7 @@ def main() -> None:
     client = SportsDbClient(api_key, RequestLimiter(args.request_delay))
     quality_rows: list[dict[str, object]] = []
     frames: list[pd.DataFrame] = []
+    fixture_audit: list[dict[str, object]] = []
     total = len(UCL_UEL_EXPANSION_LEAGUES) * (args.end_year - args.start_year + 1)
     completed = 0
     for spec in UCL_UEL_EXPANSION_LEAGUES:
@@ -116,7 +120,7 @@ def main() -> None:
                     refresh=args.refresh,
                     offline=args.offline,
                 )
-                matches = normalize_schedule(schedule, spec, provider_season)
+                matches = normalize_schedule(schedule, spec, provider_season, reconciliation_audit=fixture_audit)
                 expected = _table_expected_matches(table)
                 assessment = assess_league_season(
                     matches,
@@ -138,6 +142,8 @@ def main() -> None:
                 assessment["source_selection"] = (
                     "PRIMARY_ACCEPTED" if assessment["quality_status"] == "ACCEPTED" else "SECONDARY_REQUIRED"
                 )
+            except DomesticFixtureConflictError:
+                raise
             except Exception as exc:  # noqa: BLE001 - source failures are audited data
                 assessment = {
                     "country_code": spec.country_code,
@@ -227,14 +233,19 @@ def main() -> None:
     base_matches = pd.read_csv(base_root / "domestic_matches.csv", low_memory=False)
     base_bridge = pd.read_csv(base_root / "domestic_team_bridge.csv", low_memory=False)
     base_matches = base_matches.assign(source_provider="THESPORTSDB_PREMIUM_EXISTING")
-    candidate = merge_domestic_candidate(base_matches, expansion)
     candidate_bridge = _merge_bridges(base_bridge, expansion_bridge)
     candidate_bridge, alias_audit = apply_verified_target_aliases(candidate_bridge, targets)
-    candidate, candidate_bridge = canonicalize_candidate_domestic_state(
-        candidate,
+    canonical_base, _ = canonicalize_candidate_domestic_state(
+        base_matches,
         candidate_bridge,
         source_switch_countries=(spec.country_code for spec in UCL_UEL_EXPANSION_LEAGUES),
     )
+    canonical_expansion, candidate_bridge = canonicalize_candidate_domestic_state(
+        expansion,
+        candidate_bridge,
+        source_switch_countries=(spec.country_code for spec in UCL_UEL_EXPANSION_LEAGUES),
+    )
+    candidate = merge_domestic_candidate(canonical_base, canonical_expansion)
     candidate = candidate.drop(
         columns=["home_ao_club_id", "away_ao_club_id"], errors="ignore"
     )
@@ -288,6 +299,7 @@ def main() -> None:
     _write_csv(targets, output / "target_team_audit.csv")
     _write_csv(_league_registry_frame(), output / "league_registry.csv")
     _write_csv(primary_expansion, output / "expansion_matches_primary.csv")
+    _write_csv(pd.DataFrame(fixture_audit, columns=FIXTURE_AUDIT_COLUMNS), output / "fixture_reconciliation_audit.csv")
     _write_csv(secondary_expansion, output / "expansion_matches_secondary.csv")
     _write_csv(expansion, output / "expansion_matches_selected.csv")
     _write_csv(expansion_bridge, output / "expansion_team_bridge.csv")
@@ -380,6 +392,7 @@ def _write_manifest(
         "secondary_provider": "Hugging Face eatpizzanot/soccer-dataset (API-Football historical fixture archive)",
         "request_delay_seconds": args.request_delay,
         "quality_gate": "valid UTC/scores, unique events, final-table coverage >=95%",
+        "fixture_reconciliations_sha256": sha256_file(FIXTURE_RECONCILIATIONS),
         "accepted_primary_league_seasons": int(quality["quality_status"].eq("ACCEPTED").sum()),
         "expansion_matches": int(len(expansion)),
         "candidate_matches": int(len(candidate)),

@@ -1,14 +1,16 @@
 {
   "accepted_league_seasons": 148,
-  "accepted_matches": 45423,
+  "accepted_matches": 45419,
   "dataset": "AO domestic league schedule pilot",
   "files": {
-    "domestic_matches.csv": "4a789394f9602e041fcad802e2cf897316a22cd3667106645923d6207891d4da",
+    "domestic_matches.csv": "3cf5f6bda103115367363f2edcf34f130d2805939e9534ee6ad38ae3ae1e5411",
     "domestic_team_bridge.csv": "a6a56274be0e76e1d1d7c2ec72a3d4ce8e4747d8975403c11467295fd666ccfa",
+    "fixture_reconciliation_audit.csv": "1495fef6bca0136ad51c534019d77ecbf82dcff1355cf59e7d832d020c4c8ecb",
     "identity_audit.csv": "dbdfecdb0763220f81e2d64cbed662261c160158ae32efb194454b48608f493b",
-    "league_season_quality.csv": "a8f3a26094c74a49c3d2e0a4144e93c1d8a2eb2448d742256d23fb8fc47db672",
-    "raw_schedule_matches.csv": "cef26f2b4ad13bde3144d6f55a3de0c76cae13ba9961b5067881f19a3abdb032"
+    "league_season_quality.csv": "8652a547f135450d394f4e031f750a4db7952c68c6acc176ce838fe9ddf57ace",
+    "raw_schedule_matches.csv": "4d3182f4ed3ef7dd7d85c42a82434512f6b3b8719304edda73605279dee0414b"
   },
+  "fixture_reconciliations_sha256": "af42bc4e9fe281c21aade8b5f2b8f6dcba2dc8fea3cb0659bd730a50c8de1799",
   "period": "2013/14-2025/26",
   "pilot_countries": [
     "ENG",
