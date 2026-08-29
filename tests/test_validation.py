@@ -7,6 +7,19 @@ from ao_elo.config import AOEuropeanEloConfig, DEFAULT_SEASON_WEIGHTS, SEASON_KE
 from ao_elo.pipeline import OUTPUT_COLUMNS, compute_ao_first_elo
 
 
+@pytest.mark.parametrize("played", [False, True])
+def test_validated_string_participation_matches_numeric_pipeline(played) -> None:
+    inputs = valid_inputs()
+    for key in SEASON_KEYS:
+        inputs["club_european_points"][f"played_{key}"] = int(played)
+        inputs["club_european_points"][f"matches_{key}"] = int(played)
+        inputs["club_european_points"][f"club_points_{key}"] = int(played)
+    expected = compute_ao_first_elo(**inputs, config=AOEuropeanEloConfig.active())
+    for key in SEASON_KEYS:
+        inputs["club_european_points"][f"played_{key}"] = str(played).lower()
+    pd.testing.assert_frame_equal(compute_ao_first_elo(**inputs, config=AOEuropeanEloConfig.active()), expected)
+
+
 def test_explicit_zero_history_row_and_output_contract() -> None:
     output = run_model(valid_inputs())
     row = output.iloc[0]

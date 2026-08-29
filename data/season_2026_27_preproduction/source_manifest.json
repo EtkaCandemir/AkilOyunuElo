@@ -1,279 +1,279 @@
 {
   "all_quality_checks_passed": true,
-  "as_of_last_finished_match_utc": "2026-08-14T18:00:00+00:00",
-  "completed_matches": 342,
+  "as_of_last_finished_match_utc": "2026-08-27T19:00:00+00:00",
+  "completed_matches": 428,
   "data_root": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction",
   "dataset_version": "ao-2026-27-preproduction-inputs-v2-current-domestic",
   "output_root": "/Users/buycell/Desktop/Akil Oyunu Elo/output/season_2026_27_preproduction",
   "production_contract_changed": false,
-  "rating_max": 1995.9547232117848,
-  "rating_min": 837.4404216373348,
+  "rating_max": 1910.9412941489468,
+  "rating_min": 877.5281370862152,
   "season": "2026/27",
   "sources": [
     {
-      "bytes": 396508,
+      "bytes": 397876,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_albania_7e46b959.html",
-      "sha256": "62e3cac58f16606e8fc2f7900fef9d26b7d2756d5bdb5bb2deba0b1fb30d019f"
+      "sha256": "f51ffaa2c534b3af58a0083a72ce84c548f85895d9110cd97e1febb430591306"
     },
     {
-      "bytes": 232129,
+      "bytes": 232272,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_andorra_84697753.html",
-      "sha256": "1eda40feda0045b810575afa3d195499bab22e44eaa245c043893c7b048487f8"
+      "sha256": "07d3802bc4b4cb73076fd962e3ce44e5d7a4ef21a04e949aaadd3f0c75431a45"
     },
     {
-      "bytes": 411403,
+      "bytes": 412495,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_armenia_0268cace.html",
-      "sha256": "3dfe8a39f69eb98a42ce47913d4a8214c7299e2eedc61ee3af2f0cca514cb058"
+      "sha256": "4ac331c38516a29f13a1792010be17bcf4c6b50dd2fe7be4b37b7be71d04c372"
     },
     {
-      "bytes": 468473,
+      "bytes": 469499,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_austria_f53de988.html",
-      "sha256": "ba8e36ca191738a69b7d7f33a1ddfda710dd2bf65a086f982dd5046233bdccd9"
+      "sha256": "017cdbb86cc70ab90e7dd9a9614d2c2c700ec3b194797b7a5b8d1f3c33fb490a"
     },
     {
-      "bytes": 523315,
+      "bytes": 526512,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_azerbaijan_77859621.html",
-      "sha256": "eb249307177670c07259a217f7f491a8f53bc6e8b1834a101d9497696ac2a0a6"
+      "sha256": "eff530aa97c535f87e552aa94ba0ca501654c29f81c13dd7b99cc80ea6b5faf7"
     },
     {
-      "bytes": 407475,
+      "bytes": 408245,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_belarus_412b6024.html",
-      "sha256": "902749aae95fce6e85d7541a3e4b7f4010db6db1e3897179c677a648d86fe2e6"
+      "sha256": "888ec3dae46cab69277fbf8514d27a62edadeb6363a1245aaea5192124fe9d2c"
     },
     {
-      "bytes": 835114,
+      "bytes": 833576,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_belgium_3de22988.html",
-      "sha256": "fc3054030729f22c6a5dc49beed1855f3a4b3379a5dbec729027c9b8ba7323ee"
+      "sha256": "f68c9b29a8454b3a9f3b619abd8f4df7cd347d6160b253bff12358d3b76a28a5"
     },
     {
-      "bytes": 409490,
+      "bytes": 410444,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_bosniaherzegovina_b005680e.html",
-      "sha256": "f99fa2008cbc751fbbcf7f24413088605605c0d1653b14271356d1720d8705e3"
+      "sha256": "2488ad1bae2bc51a9887ec79437042419d630240e32f3f893a1c4414c833a863"
     },
     {
-      "bytes": 877265,
+      "bytes": 880295,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_bulgaria_791dbafa.html",
-      "sha256": "1d9cc294c72e3b065fd95b35280d9df4bd3db085ffd25405c53078d03b37261d"
+      "sha256": "fedcbf5bccc5569f705b5f7849e4616e905e65f65f9da533976fe9f61d02e939"
     },
     {
-      "bytes": 433177,
+      "bytes": 434980,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_croatia_f79124dc.html",
-      "sha256": "c8a3c138baab920d95ac6055cf2a60794d1d9c78a70f6c61ec073ffa19c70030"
+      "sha256": "91bc45a44baa41f9094f6ca63013aeb96295dfcc43af14c608f2a27bfc369005"
     },
     {
-      "bytes": 377755,
+      "bytes": 378085,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_cyprus_d667358a.html",
-      "sha256": "4c8c1af04aec118575f798812979d93e2aec7d028db08d2ffb455d1dd47a3907"
+      "sha256": "56f071a762ccc5c4e11c17e3d85dc82acc673a0e14ba7b2ec834f55210fc0e2c"
     },
     {
-      "bytes": 559960,
+      "bytes": 559590,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_czechrepublic_0d25f6fe.html",
-      "sha256": "cdf3c7f29836c090e3e8c641be65940947d8d10c21d5cdc3f0a6f8e71a1d495e"
+      "sha256": "63e91302914242d91a57ef21b8653c8754162e4fdc56ea4dce4d7870a7bca6e7"
     },
     {
-      "bytes": 564595,
+      "bytes": 566400,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_denmark_2b6cc8de.html",
-      "sha256": "8d904be8b7ed32bc573128db9b1b8e3b49daac9448c526622392a7a448d60eb3"
+      "sha256": "5ed89a3581a26ea33485101272e0e014e0d83144de89c8d3dfd5d52e69d56afc"
     },
     {
-      "bytes": 1165566,
+      "bytes": 1188801,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_england_b2039c39.html",
-      "sha256": "d5017d92213babd350880f3e3551b7f8c9209cec846b7cd5f6a6a1ce00a9e111"
+      "sha256": "f264cb81cf88007d9dcbccb88a2ecbeb068a6de821600ce67086b5785015d1fe"
     },
     {
-      "bytes": 534256,
+      "bytes": 535825,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_estonia_e553701b.html",
-      "sha256": "d83bb2009f8b522344fe584566e951fdf751971af1323aaea1c5a88351271ee4"
+      "sha256": "08b9a6fb42eb76a50d5230b1704ca5122bdde026fc54c2baa4b66fc1c8abf6bd"
     },
     {
-      "bytes": 304659,
+      "bytes": 305087,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_faroeislands_8027df1e.html",
-      "sha256": "ee033a1a3610cd12e2e4c5d6e1151e59faa61d415172a812bb10509041777c47"
+      "sha256": "0982fcb76a53f4e4c6bb2059179ddf7490e950146beb7b4cf977e804231569e4"
     },
     {
-      "bytes": 470646,
+      "bytes": 471808,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_finland_203442be.html",
-      "sha256": "013f18e2b433849944d917781989d2350aee6718be975c9fedfd11422e603db1"
+      "sha256": "c26c7457220d99271f2d8a8162413faa2717afad551dd254dc9bf4d2b69f0ecc"
     },
     {
-      "bytes": 686032,
+      "bytes": 685661,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_france_fb717c8f.html",
-      "sha256": "bed428585f57a2c2a9385d7e266508a250d2b725da1b5825ba768bc61a946e61"
+      "sha256": "7a150a53b500147696ce59e433831039b2f52b6d2b3d73e4630d10547d7ddc06"
     },
     {
-      "bytes": 441746,
+      "bytes": 443161,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_georgia_a14668aa.html",
-      "sha256": "dcc34288c99103510c02ee562508350f1aaa106939f1454a0096e3c8f3d25fe0"
+      "sha256": "4fe12d1f7e6e3511b050a9fa71ff648f49fd6e30b1e94222af4346faa527d751"
     },
     {
-      "bytes": 751033,
+      "bytes": 756101,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_germany_050dc26c.html",
-      "sha256": "8bb54ef1dd13b4fdb18fa26b512bde01b543837e0d4186ccf516ed71b1fb8e62"
+      "sha256": "eb8d7e5e5053a72f2418a845e44ffe23985726c2202051aa2acf4479907f50ed"
     },
     {
-      "bytes": 370475,
+      "bytes": 371691,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_gibraltar_521dcaf5.html",
-      "sha256": "b7cd6fc0fb01d41995262ebbaecaa2bc8e2657eb1748b41d714a70b4c136ff50"
+      "sha256": "2503f7a5e9235d453219d47d0d6e013f385f5ac33816864a6336c3de7566e862"
     },
     {
-      "bytes": 863159,
+      "bytes": 862984,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_greece_c0b33138.html",
-      "sha256": "cf0c82ba4fcb0494e7f2b0b1c302ccc920477f3933e7ad21c6304707820059d6"
+      "sha256": "f072f413b723e4159c57af278fb09526db340638ad15da3acfedfad02615da4f"
     },
     {
-      "bytes": 602197,
+      "bytes": 604676,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_hungary_558f9a4b.html",
-      "sha256": "f196e3aff2560806e3034dc02245a5272f0ad3d3eb6f5d9203ee3173c2b31ed5"
+      "sha256": "716c03d048b822ac1213b1a1239eeae6dfd13fb9d01167571149741c14c8bfb4"
     },
     {
-      "bytes": 411476,
+      "bytes": 412657,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_iceland_75618f97.html",
-      "sha256": "6849fc09fee982b49ff91f5522865685cb54a3563daf9d65d970429cde5e6645"
+      "sha256": "e32e57aacce72a6eb25a4db43415768d03428c183b7344e04a0414f8af2ecc10"
     },
     {
-      "bytes": 615693,
+      "bytes": 617405,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_ireland_89e7d229.html",
-      "sha256": "5f81a456c0a5266d68bf4c343cfde4f8d36b1901b74a84eccf3bb1025bf88d1b"
+      "sha256": "d4280b0e92451ae91c8bb873e5691c70be5fa1e4561d1709fd9a594c3ac8a37b"
     },
     {
-      "bytes": 648957,
+      "bytes": 651952,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_israel_b8f5f43f.html",
-      "sha256": "514c6998cb57ee2dd0288ce8f466a1d0ab941e659155ade9358a78e35de73ce8"
+      "sha256": "705eca4ec1a851c9b3a12cc7eef36758f13cbc483a9e0d924fb95ff14f2d17e0"
     },
     {
-      "bytes": 861024,
+      "bytes": 861023,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_italy_9ea9884b.html",
-      "sha256": "908288b8fc7c34ce1b436d1f68a90929597e3417489f602aeb0db3e79896d1cc"
+      "sha256": "7f8c3596cdfdb5d955cf601786db18bf6dbc1b8bfc9d01d772fec78651738809"
     },
     {
-      "bytes": 837232,
+      "bytes": 841124,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_kazakhstan_90f9e81c.html",
-      "sha256": "ce599dc584c40e65b806cc8db3c5a9f93b8d5f4a176b13c1f3eb890cd38c5e09"
+      "sha256": "df234ecb3a90c7580f704c37773e4a9a4f2b7493e50c12590572a5c20a8db381"
     },
     {
-      "bytes": 517217,
+      "bytes": 519452,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_kosovo_ebf5d0fc.html",
-      "sha256": "1f655a8fc2d5b60b4228780ac7e28ffae4a75d1530a055774727015dfbe55283"
+      "sha256": "b49ea1b48a6623e543f1d1cc3378169860e5c21ea2fe513cb9b4805f7992eb82"
     },
     {
-      "bytes": 391340,
+      "bytes": 392737,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_latvia_bf0910cf.html",
-      "sha256": "6546c506970d3a31cce5151fd7fbdf4231f95d4c503c0a212a624cee6d3c2704"
+      "sha256": "c263db1fdb0b4158638d878e67182b511180337ce79465b9a415445209651f46"
     },
     {
-      "bytes": 354810,
+      "bytes": 354629,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_lithuania_3f40a443.html",
-      "sha256": "e6a60863643db06390b78f51524e5d51126474534037fcfcabac9d1e4dfcd10d"
+      "sha256": "269d9eff8247ee710500f6fd8bcbbac308170cecd82b0a84c71183b28623c2ce"
     },
     {
-      "bytes": 327114,
+      "bytes": 326853,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_luxembourg_fc3360bf.html",
-      "sha256": "0028c50f542c290f38ee0ee144e33e9cac8f397d85db3685899a9c9505768e75"
+      "sha256": "8deb1d785b96c35b8c94c691dc48cbd0c02df843a796800910cdeecbe00dce45"
     },
     {
-      "bytes": 550146,
+      "bytes": 550780,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_malta_9b5de77f.html",
-      "sha256": "1df57b4118c0d7435d2402da49e4e5a985b6f75598ff289caeea438c52e65291"
+      "sha256": "8baf67537e42ccbcd80ec7197651fc2763f6b184e179eb1a91a91e23c653845b"
     },
     {
-      "bytes": 541767,
+      "bytes": 541636,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_moldova_0c671a66.html",
-      "sha256": "0802132ed900d6523b4e31ec06676d2c3b3b94c15137e828ecd979506618a1a5"
+      "sha256": "306cd4df40ac3f43f5abe14ae98780f59da4263a3c83750d04cd2371975d8b84"
     },
     {
-      "bytes": 314914,
+      "bytes": 314736,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_montenegro_3dc6e409.html",
-      "sha256": "eabcd0913a1e1cda44d2e98594419f3823aeac67c2e87468bfb9cadeb649ba78"
+      "sha256": "64d45d8f0ef4aad97e7f99fe9323695803dad2678912f4b3285a06cdd6b88634"
     },
     {
-      "bytes": 818501,
+      "bytes": 833199,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_netherlands_afb1045a.html",
-      "sha256": "ea5f44f005f431a862ad26e45a2729ac50f8ce93f1a254fa54fb22708339cf6e"
+      "sha256": "584233410fae9ed472ca376e168ec48aece895bbaff375fda8032fa9c671b4c3"
     },
     {
-      "bytes": 436034,
+      "bytes": 437037,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_northernireland_ccd56613.html",
-      "sha256": "2f3799fe4a2e42e802d74f3e722954d9aa2c93b007c1d7f03946b609867cbaf8"
+      "sha256": "fafcd5ab567515ce5df66009e9d0fd474f3b2ac61d5070ee0fcef696c343bf16"
     },
     {
-      "bytes": 351772,
+      "bytes": 352925,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_northmacedonia_ac732d4a.html",
-      "sha256": "aae6182996260d80e7a604f1555446c119f15c1aafaa533837db7c214c34a8df"
+      "sha256": "910b6dd6aab0e5a190e4b7a893a7026bb1959b3399d2bc09ce4a7940f1574912"
     },
     {
-      "bytes": 806923,
+      "bytes": 808850,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_norway_7d10e6b9.html",
-      "sha256": "69735dcd3b3f0f41192f1b325db4fc3a3477bd5c979f1ac6fdb027ef1dab564e"
+      "sha256": "b59e4d062afbcddf197756e86efe2271cd4eaffa5878f3bb9f67d81b866daa14"
     },
     {
-      "bytes": 812042,
+      "bytes": 815305,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_poland_d97b9665.html",
-      "sha256": "383adfa4c2f83a6e90136f0a1470f6787542016688b6f90d5ea92889ab7b5368"
+      "sha256": "21ec847f7c0f94a8389e5fc36a9643040fa18035a751cb0007338977564af3b3"
     },
     {
-      "bytes": 1063050,
+      "bytes": 1062718,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_portugal_d1d975fc.html",
-      "sha256": "5d4d09b70347a3e47c7839e6f2a3f965974045d64b02735ab3656c1491827648"
+      "sha256": "51be4c804d1c79e0c509339b30729889baa16b0d42ef45c9612bb4a4e4f20d54"
     },
     {
-      "bytes": 744480,
+      "bytes": 745183,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_romania_23f4cfc5.html",
-      "sha256": "b8c531a8aa53d10ad4429247e411739ad4692bc1addb77615c636af452107855"
+      "sha256": "18463ff2de76873541a45dfecf266fd1a935ffc8c48ee1f2004fe2cec0bf74d4"
     },
     {
-      "bytes": 342702,
+      "bytes": 343017,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_sanmarino_9014c053.html",
-      "sha256": "d21eec0cf147f72f63822918e8d395e67d569bb3427102371a55841319ec180f"
+      "sha256": "aa54bc517629ce435cba1e0120710a9c1c70bf034cad0bf22ffc9a29b66f6f8e"
     },
     {
-      "bytes": 680941,
+      "bytes": 682753,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_scotland_e41f4106.html",
-      "sha256": "dbff45fc10661f2a8fd2cb43fe17f233aba2ce9cb219202cfc4a0136558dc477"
+      "sha256": "8aa7f65371bdc9e000c501d7ac142c64b1f4848c508ca2af08df79e001535813"
     },
     {
-      "bytes": 580892,
+      "bytes": 582996,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_serbia_62e883b3.html",
-      "sha256": "49899869e910b82aad9402e4055caa7ac4db60e41bf46a97152195b85708da00"
+      "sha256": "5f48dbd6ba3c675e3c92b1d10649d42ed4947730ea6b7c9ef218aac7cf251669"
     },
     {
-      "bytes": 551469,
+      "bytes": 554017,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_slovakia_5908e844.html",
-      "sha256": "89ac47bf1dd5c48e1662a448c752b9579359088d56349586df8e66ae72dafa48"
+      "sha256": "af1682993b1457536f9bd88302c8754b55ae2dc8da82c81b257db608fa5e66b2"
     },
     {
-      "bytes": 267565,
+      "bytes": 267738,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_slovenia_607d1115.html",
-      "sha256": "e11c0263631e8849860b832d2621f4bd084f113aefeb110d947bf40ac5e010ab"
+      "sha256": "1ec561c22888025f423c9ee765f367b62d313605fd0d75af79b8568ea0ee3218"
     },
     {
-      "bytes": 906607,
+      "bytes": 906341,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_spain_64a30399.html",
-      "sha256": "3d3808b9a1ee1df4d470eeda08ac490710d4f29cc5d552d8f91237cc85b67480"
+      "sha256": "86d65535aa3bf59f7e753df91f087f93f65e70fd40e810e631817dba4c93f664"
     },
     {
-      "bytes": 646970,
+      "bytes": 646775,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_sweden_487cbcd2.html",
-      "sha256": "b6d903885bbff04db04dea456c9256152c1851a8e4322f8842f2f0efe31b419e"
+      "sha256": "975212f8d113b9a68bc0bf0ff89046600a781ae0f591d724a7f0f899bc2dfae2"
     },
     {
-      "bytes": 502722,
+      "bytes": 503791,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_switzerland_13246b9b.html",
-      "sha256": "a9cda5d548cfa8a8f0b57ed80b362e10d926e061b17279b37291d19fbe9dd0f2"
+      "sha256": "9a3d6e7053bec2dfce970348dcb9c7d8c2e67a4309792884b0381177451a9a25"
     },
     {
-      "bytes": 925890,
+      "bytes": 949643,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_turkey_2f78afe4.html",
-      "sha256": "1f12b1caaa95c641ccb6b4e46be126f9509a06e8a51a9144012712186bfb594f"
+      "sha256": "80ffd7d03256a3a51425b39fa5021f534b905489bb168e9fe7d7fced218642d4"
     },
     {
-      "bytes": 1165134,
+      "bytes": 1164933,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_ukraine_73f560ca.html",
-      "sha256": "30e47321ff4051a73acca62855b4eed206ce9df994cc078b4d8cf833631ff17d"
+      "sha256": "893153f7e7cb9349f393a7845928d477148e08168a0e6ba826f4a950f8337829"
     },
     {
-      "bytes": 490677,
+      "bytes": 492694,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/domestic_standings/2026_wales_458b9636.html",
-      "sha256": "430a5129736235f497cbd7bc81ea715107b41ae21ef6f6a27a2b9c169ffdeac8"
+      "sha256": "b3373160c32aaccd7ee1593037a9ca41cf98de5a283ed475b864a38c7bc881c9"
     },
     {
       "bytes": 89805,
@@ -301,41 +301,41 @@
       "sha256": "bad1a521ed6b1513d59b46095e49a7506856c283d7ee93f773f39101bd06fef0"
     },
     {
-      "bytes": 95792,
+      "bytes": 95325,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/kassiesa/ccoef2027.html",
-      "sha256": "728b8dad41574a71ea9670fa1f70ed62101e2d6a825f6c1ebe0cfbea0d5d63f6"
+      "sha256": "ab593be801dc5f2a1b74b73e2b0d9abcee1d4e3f7a6ea87b202ac86948c77bce"
     },
     {
       "bytes": 14014,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/kassiesa/crank2026.html",
-      "sha256": "29b1794bb2e03abe316160436a6fb9ca191612a4d1af28f5fc7d20d2872fe5f0"
+      "sha256": "0ccadb1bbf6a7f8600c3a4b279b3800d3b8e1ceeff7a9c8fc300f487cf68784d"
     },
     {
-      "bytes": 96816,
+      "bytes": 96805,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/kassiesa/qual2026.html",
-      "sha256": "6fa14a843227046defeafa4d11f5fd433331a72ef89a8a381df27fdff20de969"
+      "sha256": "e8b4e238080cf0f173b772ab94fe1bb489dbfd0b7ce74f5357efd1c226092c56"
     },
     {
       "bytes": 97179,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/kassiesa/trank2026.html",
-      "sha256": "a11379922faee5a1876e11ae6c7eae0b1bb5f005680945e0cca6100bfbfccbe9"
+      "sha256": "d30855b678f7aead8347edceebb063ff4e89addb9280532de4e47eeed06e41af"
     },
     {
-      "bytes": 3164442,
+      "bytes": 4801153,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/uefa/UCL_2027_offset_0000.json",
-      "sha256": "caa89c9b98f3551576a4af05e112eda1b7ca60b92e31bcf7272ff311bb3881a6"
+      "sha256": "4df61f000dc99d59d420d1c17584011b176f1f48ad4fe1e76357cbcd63d643a1"
     },
     {
-      "bytes": 8778450,
+      "bytes": 10455979,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/uefa/UECL_2027_offset_0000.json",
-      "sha256": "afad1fd14cad36675d07420db3f8fbafc11cde8bfc7907afc612d32229ec7459"
+      "sha256": "cb7b82156429b80342eecb0612cb993e8c7940f3396196e42ff9ec0c9d831e65"
     },
     {
-      "bytes": 2626695,
+      "bytes": 2977517,
       "path": "/Users/buycell/Desktop/Akil Oyunu Elo/data/season_2026_27_preproduction/_source_cache/uefa/UEL_2027_offset_0000.json",
-      "sha256": "a29e2c926407c41b2d137dc38660bb014b70e37563b9463fba66f2e0c6cf9c2a"
+      "sha256": "6c96fe47aa2173bfc0be85c09734f63d943a196747bfeba637a37d2f5c2291c6"
     }
   ],
   "teams": 237,
-  "upcoming_fixtures": 86
+  "upcoming_fixtures": 243
 }

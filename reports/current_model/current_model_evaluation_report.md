@@ -3,17 +3,18 @@
 ## Teknik özet
 
 - Qualification uyarisi: bu legacy tarihsel evaluator qualifier stage-K/retention gecisini replay etmez; asagidaki loss/ranking metrikleri yeni `0.20/0.275/0.35/0.425` davranisinin kaniti degildir. Aktif runtime davranisi production contract, dynamic engine testleri ve 2026/27 preproduction replay ile dogrulanir.
-- Production contract hesap parametreleri final-candidate ile eşittir: `False`. Birebir JSON eşitliği `False`; fark production'a sonradan eklenen açıklayıcı formül alanlarıdır.
+- Production/final-candidate aktif blok eşitliği: `False`; qualifier dışı çekirdek eşitliği: `True`. Qualification production override beyanı: `True`. Açıklayıcı formül alanları sayısal karşılaştırmadan çıkarılır.
 - Anlamlı karşılaştırma için aynı Scale/H/K üzerinde bütün aktif ek katmanları kapalı `REFERENCE_CORE_NO_ACTIVE_EXTRAS` kolu üretildi.
 - `6` unseen/development fold sezonunda `4884` maç değerlendirildi. AO rating çekirdeğinin 1X2 çıkışı Brier `0.566413`, log-loss `0.956259`, accuracy `0.5592` üretti.
 - Referansa karşı farklar: Brier `-0.001640`, log-loss `-0.002915`, accuracy `+0.0047`.
 - Fold kazanımları Brier `6/6`, log-loss `6/6`, aynı-sezon Spearman `6/6`, pairwise `6/6`.
-- Kullanıcıya sunulan production tahmini `%50 Current ML + %50 AO Domestic Poisson (rho=0)` log-probability ensemble'dır: Brier `0.561935`, log-loss `0.949792`, accuracy `0.5614`.
+- Kullanıcıya sunulan production tahmini `%50 Current ML + %50 AO Domestic Poisson (rho=0)` log-probability ensemble'dır.
+- Contract'ta donmus aktivasyon kaniti olarak kayitli tarihsel nested `ML_POISSON_ENSEMBLE` kolu Brier `0.562065`, log-loss `0.949965`, accuracy `0.5612` uretmistir. Bu degerler contract'in `prediction_layer_evidence` blogundan gelir; veri yenilemesiyle tekrar kosulan `reports/production_prediction/` metrikleri degildir. Kol her fold icin Poisson kaynagi ve agirligi secer; sabit production karisiminin birebir replay olcumu degildir.
 - Kararlar: rating çekirdeği **KEEP**; prediction katmanı **PROMOTE_WITH_MONITORING**. Prediction yalnız olasılık üretir, AO Live Elo'ya geri beslenmez ve sorun halinde Current AO 1X2'ye döner.
 
 ## Güncel sözleşme ve aktif mimari
 
-- Model: `ao-european-elo-v2.0-dev-freeze`; production revision `2026-08-27-participation-cup-and-unknown-position`; final candidate `ao-european-elo-v2.0-final-candidate-2026-08-13`.
+- Model: `ao-european-elo-v2.0-dev-freeze`; production revision `2026-08-28-domestic-provider-season-and-fixture-integrity-fixes`; final candidate `ao-european-elo-v2.0-final-candidate-2026-08-13`.
 - Statik: country benchmark `25`, European history benchmark `20`, sezon ağırlıkları `0.07/0.13/0.20/0.27/0.33`, country/european/exposure tail beta `0/0/0`.
 - Domestic Prior = 500 + lig gücü bileşeni + lig/kupa başarısının lig gücüyle ölçeklenmiş bileşeni. Şampiyonluk, kupa ve duble kuralları başlangıç ratinginde kullanılır.
 - Domestic Surprise aktiftir: theta `0.4`, variance penalty `0.5`, cap `+/-30.0`, tam geçmiş `5` sezon.

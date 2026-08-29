@@ -4,10 +4,10 @@ Sürüm: `ao-european-elo-v2.0-dev-freeze`
 
 Dondurma tarihi: 20 Temmuz 2026
 
-Operasyonel sözleşme revizyonu: 19 Ağustos 2026
+Operasyonel sözleşme revizyonu: 28 Ağustos 2026
 
 Production revision:
-`2026-08-27-participation-cup-and-unknown-position`
+`2026-08-28-causal-state-and-input-validation-fixes`
 
 Durum: Kontrollü `0.15/300` gol farkı, bounded xG performansı, Domestic Surprise
 ve sabit `12/8/4` European Progression Bonus production'da aktiftir; 2026/27

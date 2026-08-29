@@ -26,6 +26,7 @@ from ao_elo.pipeline import compute_ao_first_elo_from_csv  # noqa: E402
 DEFAULT_DATA_ROOT = ROOT / "data" / "season_2026_27_preproduction"
 DEFAULT_OUTPUT_ROOT = ROOT / "output" / "season_2026_27_preproduction"
 DEFAULT_CONTRACT = ROOT / "contracts" / "ao_european_elo_v2_production.json"
+QUALIFIER_PHASES = ("Q1", "Q2", "Q3", "QUALIFYING_PLAYOFF")
 
 
 def main() -> None:
@@ -115,7 +116,7 @@ def main() -> None:
         encoding="utf-8",
     )
 
-    print("AO 2026/27 preproduction Q1-Q3 replay")
+    print("AO 2026/27 preproduction completed-qualifier replay")
     print(f"Matches: {len(update_frame)}")
     print(f"Teams: {len(final)}")
     print(f"Average absolute movement: {final['elo_change'].abs().mean():.3f}")
@@ -190,7 +191,7 @@ def build_phase_summary(
     ).sort_values(["_kickoff", "match_id"], kind="stable")
     phase_cutoffs = {
         phase: ordered.loc[ordered["qualification_round_key"].eq(phase), "_kickoff"].max()
-        for phase in ("Q1", "Q2", "Q3")
+        for phase in QUALIFIER_PHASES
     }
     initial_rating = initial.set_index("team_id")["ao_first_elo"].astype(float)
     snapshots: dict[str, dict[str, float]] = {}
@@ -202,7 +203,7 @@ def build_phase_summary(
         snapshots[phase] = ratings
 
     match_counts: dict[str, dict[str, int]] = {}
-    for phase in ("Q1", "Q2", "Q3"):
+    for phase in QUALIFIER_PHASES:
         phase_matches = ordered.loc[ordered["qualification_round_key"].eq(phase)]
         participants = pd.concat(
             [phase_matches["home_team_id"], phase_matches["away_team_id"]],
@@ -229,7 +230,7 @@ def build_phase_summary(
             "ao_first_elo": float(team.ao_first_elo),
             "ao_first_rank": int(team.ao_first_elo_rank),
         }
-        for phase in ("Q1", "Q2", "Q3"):
+        for phase in QUALIFIER_PHASES:
             phase_rating = float(snapshots[phase][team.team_id])
             row[f"{phase.lower()}_matches"] = match_counts[phase].get(team.team_id, 0)
             row[f"{phase.lower()}_end_live_elo"] = phase_rating
@@ -240,7 +241,7 @@ def build_phase_summary(
             {
                 "completed_qualifier_matches": sum(
                     match_counts[phase].get(team.team_id, 0)
-                    for phase in ("Q1", "Q2", "Q3")
+                    for phase in QUALIFIER_PHASES
                 ),
                 "played_qualifier_to_date": team.team_id in completed_participants,
                 "upcoming_playoff_participant": team.team_id in upcoming_participants,
@@ -293,7 +294,8 @@ def build_summary(
         "evidence_class": "RETROSPECTIVE_PREPRODUCTION_REPLAY",
         "prospective_holdout_evidence": False,
         "season": "2026/27",
-        "cutoff": "AFTER_COMPLETED_Q3_BEFORE_QUALIFYING_PLAYOFF",
+        "cutoff": "AFTER_COMPLETED_QUALIFYING_PLAYOFF_BEFORE_LEAGUE_PHASE",
+        "latest_completed_kickoff_utc": str(updates["kickoff_utc"].max()),
         "matches": len(updates),
         "teams": len(final),
         "config_id": config_id,
@@ -316,8 +318,8 @@ def build_summary(
         ),
         "initial_rating_min": float(initial["ao_first_elo"].min()),
         "initial_rating_max": float(initial["ao_first_elo"].max()),
-        "q3_end_rating_min": float(final["ao_live_elo"].min()),
-        "q3_end_rating_max": float(final["ao_live_elo"].max()),
+        "cutoff_end_rating_min": float(final["ao_live_elo"].min()),
+        "cutoff_end_rating_max": float(final["ao_live_elo"].max()),
     }
 
 
@@ -349,12 +351,12 @@ def build_report(
         .reset_index()
     )
     stage = markdown_table(stage_frame, float_digits=3)
-    return f"""# AO 2026/27 Q1-Q3 Preproduction Replay
+    return f"""# AO 2026/27 Completed Qualifier Preproduction Replay
 
 Bu calisma production degisikligi degildir. {summary['matches']} tamamlanmis
 UEFA eleme maci, aktif production stage-K sozlesmesiyle kronolojik olarak replay
-edilmistir. Play-off maclari henuz sonuclanmadigi icin bu snapshot Q3 sonunu
-gosterir. `%50` qualifier delta retention efektif stage-K degerlerine gomuludur;
+edilmistir. Q1, Q2, Q3 ve eleme play-off sonuclari dahildir; snapshot lig
+asamasindan oncedir. `%50` qualifier delta retention efektif stage-K degerlerine gomuludur;
 ana asamaya geciste ayri carry veya mekanik rating degisimi yoktur.
 
 ## Veri Davranisi

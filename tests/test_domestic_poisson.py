@@ -5,6 +5,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,7 +19,23 @@ from ao_elo.domestic_poisson import (
     build_domestic_poisson_feature_store,
     domestic_candidate_grid,
     predict_european_poisson_transfer,
+    replay_domestic_poisson_state,
 )
+
+
+def test_fixture_repetition_with_new_event_id_is_rejected_before_replay_or_update() -> None:
+    matches = _matches(("a", "2020-01-01T12:00:00Z", "A", "B", 2, 1), ("b", "2020-01-01T15:00:00+03:00", "A", "B", 2, 1))
+    with pytest.raises(ValueError, match="duplicate domestic fixture"):
+        replay_domestic_poisson_state(matches, _config(venue=False))
+    engine = DynamicDomesticPoisson(_config(venue=False))
+    before = engine.to_payload()
+    with pytest.raises(ValueError, match="duplicate domestic fixture"):
+        engine.update_batch(matches)
+    assert engine.to_payload() == before
+    records = [(event, "L", "2020/21", pd.Timestamp("2020-01-01T12:00:00Z"), "A", "B", 2, 1) for event in ("a", "b")]
+    with pytest.raises(ValueError, match="Duplicate domestic fixture"):
+        engine._update_records(records)
+    assert engine.to_payload() == before
 
 
 def test_candidate_grid_contains_54_unique_configs() -> None:
@@ -40,13 +57,76 @@ def test_same_kickoff_batch_uses_one_pre_match_snapshot() -> None:
     engine.validate_state()
 
 
+@pytest.mark.parametrize("restore", [False, True])
+@pytest.mark.parametrize("kind", ["duplicate", "earlier", "split_batch"])
+def test_result_replay_and_chronology_are_rejected_atomically(restore, kind) -> None:
+    engine = DynamicDomesticPoisson(_config(venue=False))
+    engine.update_batch(_matches(("m1", "2020-01-02T12:00:00Z", "A", "B", 3, 0)))
+    if restore:
+        engine = DynamicDomesticPoisson.from_payload(engine.to_payload())
+    before = engine.to_payload()
+    event_id = "m1" if kind == "duplicate" else "m2"
+    kickoff = {"duplicate": "2020-01-03T12:00:00Z", "earlier": "2020-01-01T12:00:00Z", "split_batch": "2020-01-02T12:00:00Z"}[kind]
+    with pytest.raises(ValueError):
+        engine.update_batch(_matches((event_id, kickoff, "C", "D", 4, 0)))
+    assert engine.to_payload() == before
+
+
+def test_invalid_later_record_does_not_partially_advance_a_batch() -> None:
+    engine = _seeded_engine()
+    before = engine.to_payload()
+    batch = _matches(
+        ("new-a", "2025-01-01T12:00:00Z", "C", "D", 3, 0),
+        ("new-b", "2025-01-01T12:00:00Z", "A", "B", 3, 0),
+    )
+    batch.loc[0, "sportsdb_league_id"] = "NEW"
+    batch.loc[0, "ao_season"] = "2025/26"
+    # The second row regresses L's season after the first row creates NEW.
+    with pytest.raises(ValueError):
+        engine.update_batch(batch)
+    assert engine.to_payload() == before
+
+
+@pytest.mark.parametrize("corruption", ["legacy", "missing_ids", "missing_cutoff", "naive_cutoff"])
+def test_checkpoint_requires_persistent_causal_metadata(corruption) -> None:
+    payload = _seeded_engine().to_payload()
+    if corruption == "legacy":
+        payload["schema_version"] = "1.0"
+    elif corruption == "missing_ids":
+        del payload["processed_event_ids"]
+    elif corruption == "missing_cutoff":
+        del payload["leagues"]["L"]["last_kickoff_utc"]
+    else:
+        payload["leagues"]["L"]["last_kickoff_utc"] = "2024-08-01 18:00:00"
+    with pytest.raises(ValueError):
+        DynamicDomesticPoisson.from_payload(payload)
+
+
+def test_domestic_naive_kickoff_is_rejected_before_update() -> None:
+    engine = DynamicDomesticPoisson(_config(venue=False))
+    before = engine.to_payload()
+    with pytest.raises(ValueError, match="timezone-aware"):
+        engine.update_batch(_matches(("m1", "2020-01-01 12:00:00", "A", "B", 1, 0)))
+    assert engine.to_payload() == before
+
+
+@pytest.mark.parametrize("goals", [0.999999, 1.000001, float("inf")])
+def test_non_integer_goals_are_rejected_without_mutation(goals) -> None:
+    engine = DynamicDomesticPoisson(_config(venue=False))
+    before = engine.to_payload()
+    with pytest.raises(ValueError):
+        engine.update_batch(_matches(("m1", "2020-01-01T12:00:00Z", "A", "B", goals, 0)))
+    assert engine.to_payload() == before
+
+
 def test_attack_and_defence_signals_recover_known_direction() -> None:
     engine = DynamicDomesticPoisson(_config(venue=False))
     for index in range(30):
+        kickoff = (pd.Timestamp("2020-02-01T12:00:00Z") + pd.Timedelta(days=index)).isoformat()
         if index % 2 == 0:
-            match = (f"m{index}", f"2020-02-{index % 27 + 1:02d}T12:00:00Z", "A", "B", 3, 0)
+            match = (f"m{index}", kickoff, "A", "B", 3, 0)
         else:
-            match = (f"m{index}", f"2020-03-{index % 27 + 1:02d}T12:00:00Z", "B", "A", 0, 2)
+            match = (f"m{index}", kickoff, "B", "A", 0, 2)
         engine.update_batch(_matches(match))
     a = engine.snapshot("L", "2020/21", "A")
     b = engine.snapshot("L", "2020/21", "B")
@@ -249,8 +329,6 @@ def _transfer_frame(coverage: str) -> pd.DataFrame:
 
 import copy
 import math
-
-import pytest
 
 from ao_elo.domestic_poisson import _mapped_snapshot, empty_domestic_snapshot
 

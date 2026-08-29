@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pandas as pd
 import pytest
+import joblib
 
 from ao_elo.domestic_poisson import DynamicDomesticPoisson
 from ao_elo.ml_features import FEATURE_SCHEMAS
@@ -19,6 +20,33 @@ from ao_elo.production_prediction import (
 
 ROOT = Path(__file__).resolve().parents[1]
 PRODUCTION = ROOT / "contracts" / "ao_european_elo_v2_production.json"
+
+
+def test_artifact_builder_copies_current_measured_evidence(tmp_path, monkeypatch) -> None:
+    from scripts import build_production_prediction_artifacts as builder
+
+    model = joblib.load(ROOT / "artifacts/production_prediction/structural_logistic_v1.joblib")["model"]
+    source = tmp_path / "source.joblib"
+    joblib.dump({"model": model, "blend_weight": 0.9}, source)
+    decision = {
+        "prospective_2026_27_selection": {"poisson_source": "AO_POISSON_RHO0_CONTROL", "poisson_weight": .5, "ml_weight": .5},
+        "decision": "KEEP_SHADOW", "development_matches": 20, "unseen_matches": 10,
+        "pooled_brier": .42, "pooled_log_loss": .71, "pooled_accuracy": .6,
+        "delta_brier_vs_ao": -.03, "delta_log_loss_vs_ao": -.02,
+    }
+    decision_path = tmp_path / "decision.json"
+    decision_path.write_text(json.dumps(decision))
+    matches_path = tmp_path / "matches.csv"
+    pd.DataFrame([{"source_event_id": "a", "sportsdb_league_id": "L", "ao_season": "2025/26", "kickoff_utc": "2025-08-01T12:00:00Z", "home_source_team_id": "A", "away_source_team_id": "B", "home_goals": 1, "away_goals": 0}]).to_csv(matches_path, index=False)
+    bridge_path = tmp_path / "bridge.csv"
+    pd.DataFrame([{"source_team_id": "A", "ao_club_id": "AO-A", "identity_ambiguous": False}]).to_csv(bridge_path, index=False)
+    output = tmp_path / "artifacts"
+    monkeypatch.setattr(builder, "ROOT", tmp_path)
+    monkeypatch.setattr("sys.argv", ["build", "--source-ml-artifact", str(source), "--ensemble-decision", str(decision_path), "--domestic-matches", str(matches_path), "--domestic-bridge", str(bridge_path), "--output-root", str(output)])
+    builder.main()
+    manifest = json.loads((output / "manifest.json").read_text())
+    assert {key: manifest["evidence"][key] for key in decision if key not in ("decision", "prospective_2026_27_selection")} == {key: value for key, value in decision.items() if key not in ("decision", "prospective_2026_27_selection")}
+    assert manifest["evidence"]["source_sha256"] == builder._sha256(decision_path)
 
 
 def test_production_runtime_loads_frozen_artifacts() -> None:
@@ -42,7 +70,7 @@ def test_production_prediction_is_normalized_and_prediction_only() -> None:
     )
     result = service.predict(
         _feature_frame(),
-        generated_at_utc=pd.Timestamp("2026-08-13T10:00:00Z"),
+        generated_at_utc=pd.Timestamp("2026-08-31T10:00:00Z"),
     )
 
     assert tuple(result.columns) == PRODUCTION_PREDICTION_LOG_COLUMNS
@@ -65,7 +93,7 @@ def test_production_coverage_gate_disables_insufficient_team_profile() -> None:
 
     result = service.predict(
         frame,
-        generated_at_utc=pd.Timestamp("2026-08-13T10:00:00Z"),
+        generated_at_utc=pd.Timestamp("2026-08-31T10:00:00Z"),
     )
 
     assert result.loc[0, "prediction_status"] == "ACTIVE_ENSEMBLE"
@@ -81,7 +109,7 @@ def test_production_prediction_uses_frozen_nested_log_blends_without_state_mutat
     state_before = service.domestic_state_payload()
     result = service.predict(
         _feature_frame(),
-        generated_at_utc=pd.Timestamp("2026-08-13T10:00:00Z"),
+        generated_at_utc=pd.Timestamp("2026-08-31T10:00:00Z"),
     )
     ao = result[
         ["ao_home_probability", "ao_draw_probability", "ao_away_probability"]
@@ -127,7 +155,7 @@ def test_missing_model_feature_falls_back_exactly_to_current_ao() -> None:
     frame = _feature_frame().drop(columns=["home_euro_residual_h3"])
     result = service.predict(
         frame,
-        generated_at_utc=pd.Timestamp("2026-08-13T10:00:00Z"),
+        generated_at_utc=pd.Timestamp("2026-08-31T10:00:00Z"),
     )
 
     assert result.loc[0, "prediction_status"] == "FALLBACK_CURRENT_AO"
@@ -149,7 +177,7 @@ def test_invalid_artifact_checksum_enters_degraded_ao_fallback(tmp_path: Path) -
     )
     result = service.predict(
         _feature_frame(),
-        generated_at_utc=pd.Timestamp("2026-08-13T10:00:00Z"),
+        generated_at_utc=pd.Timestamp("2026-08-31T10:00:00Z"),
     )
 
     assert service.runtime is None
@@ -209,7 +237,7 @@ def test_same_team_match_is_rejected() -> None:
     with pytest.raises(ValueError, match="must differ"):
         service.predict(
             frame,
-            generated_at_utc=pd.Timestamp("2026-08-13T10:00:00Z"),
+            generated_at_utc=pd.Timestamp("2026-08-31T10:00:00Z"),
         )
 
 
@@ -223,7 +251,7 @@ def test_invalid_neutral_flag_is_rejected() -> None:
     with pytest.raises(ValueError, match="boolean or 0/1"):
         service.predict(
             frame,
-            generated_at_utc=pd.Timestamp("2026-08-13T10:00:00Z"),
+            generated_at_utc=pd.Timestamp("2026-08-31T10:00:00Z"),
         )
 
 
@@ -234,6 +262,42 @@ def test_domestic_state_serialization_round_trip() -> None:
 
     assert restored.config == runtime.domestic_engine.config
     assert restored.to_payload() == payload
+
+
+@pytest.mark.parametrize("kickoff", ["2026-08-31T11:00:00Z", "2026-09-01T19:00:00Z", "2026-09-02T19:00:00Z"])
+def test_prediction_rejects_domestic_state_after_generation_or_at_fixture(kickoff) -> None:
+    service = ProductionPredictionService.from_contract(PRODUCTION, allow_degraded_fallback=False)
+    assert service.runtime is not None
+    league_id, team_id = service.runtime.domestic_identity_map["AO-UEFA-50030"]
+    service.apply_domestic_results(pd.DataFrame([{
+        "source_event_id": "future-result", "sportsdb_league_id": league_id,
+        "ao_season": "2026/27", "kickoff_utc": kickoff,
+        "home_source_team_id": team_id, "away_source_team_id": "other-team",
+        "home_goals": 4, "away_goals": 0,
+    }]))
+    before = service.domestic_state_payload()
+    result = service.predict(_feature_frame(), generated_at_utc=pd.Timestamp("2026-08-31T10:00:00Z"))
+    assert result.loc[0, "prediction_status"] == "FALLBACK_CURRENT_AO"
+    assert result.loc[0, "home_probability"] == pytest.approx(0.38)
+    assert service.domestic_state_payload() == before
+
+
+def test_missing_contract_can_degrade_but_strict_loading_still_fails(tmp_path) -> None:
+    path = tmp_path / "missing.json"
+    service = ProductionPredictionService.from_contract(path, allow_degraded_fallback=True)
+    result = service.predict(_feature_frame(), generated_at_utc=pd.Timestamp("2026-08-31T10:00:00Z"))
+    assert result.loc[0, "prediction_status"] == "FALLBACK_CURRENT_AO"
+    assert service.contract_sha256 == "UNAVAILABLE"
+    with pytest.raises(FileNotFoundError):
+        ProductionPredictionService.from_contract(path, allow_degraded_fallback=False)
+
+
+def test_prediction_rejects_naive_kickoff() -> None:
+    service = ProductionPredictionService(None)
+    frame = _feature_frame()
+    frame["kickoff_utc"] = "2026-09-01 19:00:00"
+    with pytest.raises(ValueError, match="timezone-aware"):
+        service.predict(frame, generated_at_utc=pd.Timestamp("2026-08-31T10:00:00Z"))
 
 
 def _feature_frame() -> pd.DataFrame:
@@ -308,7 +372,7 @@ def test_unexpected_exception_types_fall_back_instead_of_propagating(
     monkeypatch.setattr(service, "_predict_row", explode)
     result = service.predict(
         _feature_frame(),
-        generated_at_utc=pd.Timestamp("2026-08-13T10:00:00Z"),
+        generated_at_utc=pd.Timestamp("2026-08-31T10:00:00Z"),
     )
 
     assert result.loc[0, "prediction_status"] == "FALLBACK_CURRENT_AO"
@@ -342,7 +406,7 @@ def test_one_bad_row_does_not_lose_the_healthy_rows(
     monkeypatch.setattr(service, "_predict_row", flaky)
     result = service.predict(
         frame,
-        generated_at_utc=pd.Timestamp("2026-08-13T10:00:00Z"),
+        generated_at_utc=pd.Timestamp("2026-08-31T10:00:00Z"),
     )
 
     assert len(result) == 2
@@ -366,5 +430,5 @@ def test_keyboard_interrupt_still_stops_the_batch(
     with pytest.raises(KeyboardInterrupt):
         service.predict(
             _feature_frame(),
-            generated_at_utc=pd.Timestamp("2026-08-13T10:00:00Z"),
+            generated_at_utc=pd.Timestamp("2026-08-31T10:00:00Z"),
         )

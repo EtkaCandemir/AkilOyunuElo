@@ -13,11 +13,12 @@ current_domestic_source_cached,PASS,237,237
 cup_route_stale_fallback_zero,PASS,0,0
 cup_route_current_source_audited,PASS,36,36
 domestic_history_window_current,PASS,237,237
-completed_match_count,PASS,342,342
-upcoming_fixture_count,PASS,86,86
-completed_match_id_unique,PASS,342,342
-upcoming_match_id_unique,PASS,86,86
-match_team_identity_coverage,PASS,181,subset
+completed_match_count_positive,PASS,428,>0
+upcoming_fixture_count_positive,PASS,243,>0
+completed_match_id_unique,PASS,428,428
+upcoming_match_id_unique,PASS,243,243
+completed_upcoming_match_ids_disjoint,PASS,0,0
+match_team_identity_coverage,PASS,195,subset
 rating_rows_complete,PASS,237,237
 rating_finite,PASS,237,237
 validation_warnings_zero,PASS,0,0

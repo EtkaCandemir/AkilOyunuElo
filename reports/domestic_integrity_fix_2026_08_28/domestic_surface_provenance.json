@@ -1,0 +1,7 @@
+{
+  "source_path": "data/domestic_league_matches_2013_2026/domestic_matches.csv",
+  "source_sha256": "3cf5f6bda103115367363f2edcf34f130d2805939e9534ee6ad38ae3ae1e5411",
+  "surface_path": "output/domestic_poisson_backtest_2018_2026/domestic_prequential_results.csv",
+  "surface_sha256": "2dbd8f635584577b668e7ecdaa3b99c84cee799ad7db241221f2f53b17a5882f",
+  "surface_rows": 702
+}

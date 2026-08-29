@@ -260,10 +260,25 @@ Guvenli batch akisi:
 4. Sonuclari deterministik `match_id` sirasiyla settle et.
 
 Bir macin sonucu ayni anda baslayan baska macin pre-match tahminine giremez.
+Ayni takim ayni kickoff'ta ikinci mac oynayamaz; Power kernel'i bu girdiyi
+reddeder. Birbirinden bagimsiz takimlarin eszamanli maclari gecerlidir.
+Tek maclik decider'da esit olmayan field score ve shootout yoksa
+`advanced_team_id` skor galibi olmalidir. Iki ayakli tie'da bu kontrol
+uygulanmaz: ikinci ayagi kaybeden aggregate'te tur atlayabilir.
 
 ## 7. Idempotency ve Replay
 
 - Ayni `match_id` ikinci kez islenemez.
+- Domestic Poisson ayni `source_event_id`'yi restore sonrasinda da reddeder.
+  Farkli event ID'li ayni kanonik lig/takim/UTC fiksturu de merge ve replay
+  girisinde reddedilir. Sira: kaynak sezonunu belirle -> kaynak gozlemlerini
+  kanit/audit ile uzlastir -> coverage kapisi -> alias kanoniklestirme ->
+  tekillik kontrollu merge -> UTC batch replay. Dedup replay'in parcasi degildir.
+  Her ligde kickoff kesin artar; bir kickoff'un tum lig maclari tek batch'tir.
+  Gecersiz kayit batch'in sonraki satirinda olsa bile onceki satir state'i
+  degistiremez. Duzeltme/backfill icin onceki checkpoint'ten replay gerekir.
+- Production Poisson snapshot'i yalniz lig cutoff'u uretim zamanini asmiyor
+  ve fixture kickoff'undan kesin onceyse kullanilir; aksi halde AO fallback.
 - Chronology geriye gidemez.
 - Locked prediction state/config ile uyusmazsa settlement reddedilir.
 - Ayni input, config ve siralama ayni sayisal sonucu uretmelidir.

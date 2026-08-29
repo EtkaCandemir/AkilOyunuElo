@@ -6,6 +6,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,6 +16,7 @@ if str(ROOT) not in sys.path:
 from ao_elo.ml_features import (
     FEATURE_SCHEMAS,
     build_pre_match_feature_store,
+    build_domestic_snapshots,
     validate_feature_store,
 )
 from ao_elo.ml_prediction import (
@@ -24,6 +26,60 @@ from ao_elo.ml_prediction import (
     predict_ml_1x2,
 )
 from scripts.run_thesportsdb_stats_quality_pilot import stratified_sample
+
+
+def test_overlapping_metadata_is_coalesced_without_feature_loss() -> None:
+    baseline = _baseline_fixture().assign(round="Round of 16", round_sequence=6, leg_number=2, is_knockout=True)
+    metadata = baseline[["match_id", "round", "round_sequence", "leg_number", "is_knockout"]].copy()
+    expected = build_pre_match_feature_store(baseline, _empty_domestic())
+    result = build_pre_match_feature_store(baseline, _empty_domestic(), match_metadata=metadata)
+    pd.testing.assert_frame_equal(result, expected)
+    baseline["round"] = None
+    pd.testing.assert_frame_equal(build_pre_match_feature_store(baseline, _empty_domestic(), match_metadata=metadata), expected)
+
+
+@pytest.mark.parametrize("column,value", [("round", "Final"), ("round_sequence", 7), ("leg_number", 1), ("is_knockout", False)])
+def test_conflicting_metadata_is_rejected(column, value) -> None:
+    baseline = _baseline_fixture().assign(round="Round of 16", round_sequence=6, leg_number=2, is_knockout=True)
+    metadata = baseline[["match_id", column]].copy()
+    metadata[column] = value
+    with pytest.raises(ValueError, match="Conflicting match metadata"):
+        build_pre_match_feature_store(baseline, _empty_domestic(), match_metadata=metadata)
+
+
+@pytest.mark.parametrize("flag", [False, True])
+def test_string_boolean_flags_match_boolean_features(flag) -> None:
+    baseline = _baseline_fixture().assign(is_single_match_tie=flag, is_neutral=flag, is_knockout=flag)
+    expected = build_pre_match_feature_store(baseline, _empty_domestic())
+    strings = baseline.assign(is_single_match_tie=str(flag).lower(), is_neutral=str(flag).lower(), is_knockout=str(flag).lower())
+    pd.testing.assert_frame_equal(build_pre_match_feature_store(strings, _empty_domestic()), expected)
+
+
+@pytest.mark.parametrize("column", ["is_single_match_tie", "is_neutral", "is_knockout"])
+def test_invalid_model_boolean_is_rejected(column) -> None:
+    baseline = _baseline_fixture()
+    baseline[column] = "sometimes"
+    with pytest.raises(ValueError, match="boolean"):
+        build_pre_match_feature_store(baseline, _empty_domestic())
+
+
+def test_feature_inputs_and_store_reject_naive_kickoff() -> None:
+    baseline = _baseline_fixture()
+    valid = build_pre_match_feature_store(baseline, _empty_domestic())
+    baseline["kickoff_utc"] = "2020-01-01 12:00:00"
+    with pytest.raises(ValueError, match="timezone-aware"):
+        build_pre_match_feature_store(baseline, _empty_domestic())
+    valid["kickoff_utc"] = "2020-01-01 12:00:00"
+    with pytest.raises(ValueError, match="timezone-aware"):
+        validate_feature_store(valid, expected_rows=3)
+    domestic = _empty_domestic()
+    domestic.loc[0] = ["d1", "L", "2020-01-01 12:00:00", "A", "B", 1, 0, "CLUB-A", "CLUB-B"]
+    with pytest.raises(ValueError, match="timezone-aware"):
+        build_domestic_snapshots(domestic)
+
+
+def _empty_domestic() -> pd.DataFrame:
+    return pd.DataFrame(columns=["source_event_id", "sportsdb_league_id", "kickoff_utc", "home_source_team_id", "away_source_team_id", "home_goals", "away_goals", "home_ao_club_id", "away_ao_club_id"])
 
 
 def test_feature_store_is_causal_with_same_kickoff_batch() -> None:

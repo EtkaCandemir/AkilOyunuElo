@@ -1,0 +1,18 @@
+{
+  "old_matches": 75496,
+  "old_duplicate_rows": 142,
+  "old_duplicate_fixtures": 71,
+  "old_lit_duplicate_rows": 122,
+  "new_historical_matches": 75226,
+  "new_live_matches": 1101,
+  "new_matches": 76327,
+  "new_duplicate_fixtures": 0,
+  "fresh_replay_equals_checkpoint": true,
+  "eligible_clubs_compared": 311,
+  "duplicate_only_changed_clubs_gt_1e_12": 71,
+  "full_fix_changed_clubs_gt_1e_12": 81,
+  "frozen_numeric_config_equal": true,
+  "after_checkpoint": "artifacts/production_prediction/domestic_poisson_state_2026_27.json",
+  "old_input_rejected_at_merge_and_replay": true,
+  "calendar_provider_year_correct": true
+}

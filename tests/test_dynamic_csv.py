@@ -29,6 +29,24 @@ MANIFEST = (
 )
 
 
+@pytest.mark.parametrize("kickoff", ["2026-09-01 19:00:00", "2026-09-01T19:00:00"])
+def test_csv_rejects_naive_kickoff(tmp_path, kickoff) -> None:
+    _, path = write_inputs(tmp_path)
+    frame = pd.read_csv(path)
+    frame.loc[0, "kickoff_utc"] = kickoff
+    frame.to_csv(path, index=False)
+    with pytest.raises(ValueError, match="timezone-aware"):
+        read_matches(path)
+
+
+def test_csv_normalizes_explicit_offset(tmp_path) -> None:
+    _, path = write_inputs(tmp_path)
+    frame = pd.read_csv(path)
+    frame.loc[0, "kickoff_utc"] = "2026-09-01T22:00:00+03:00"
+    frame.to_csv(path, index=False)
+    assert read_matches(path)[0].kickoff_utc.isoformat() == "2026-09-01T19:00:00+00:00"
+
+
 def write_inputs(root: Path) -> tuple[Path, Path]:
     ratings_path = root / "initial_ratings.csv"
     matches_path = root / "matches.csv"

@@ -4,13 +4,13 @@ Bu klasor production contract'ini degistirmeyen, 2026/27 sezonuna ait tarihli
 bir preproduction veri snapshot'idir.
 
 - Katilimci: 237
-- Tamamlanmis UEFA maci: 342
-- Yaklasan play-off fiksturu: 86
+- Tamamlanmis UEFA maci: 428
+- Yaklasan play-off fiksturu: 243
 - Bes sezon domestic history tam: 193/237
 - Domestic Surprise uygulanan takim: 191
 - CW rotasi current-table eslesmesi: 33/36
-- AO First Elo araligi: 837.440 - 1995.955
-- Kalite kontrolleri: 22/22 PASS
+- AO First Elo araligi: 877.528 - 1910.941
+- Kalite kontrolleri: 23/23 PASS
 
 Ana inputlar:
 

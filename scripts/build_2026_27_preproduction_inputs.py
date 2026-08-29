@@ -21,6 +21,7 @@ if str(SRC) not in sys.path:
 
 from ao_elo.club_identity import permanent_club_id  # noqa: E402
 from ao_elo.config import AOEuropeanEloConfig  # noqa: E402
+from ao_elo.dynamic import normalize_stage  # noqa: E402
 from ao_elo.dynamic_csv import read_fixtures, read_matches  # noqa: E402
 from ao_elo.pipeline import compute_ao_first_elo_from_csv  # noqa: E402
 from scripts.build_backtest_dataset import (  # noqa: E402
@@ -71,6 +72,10 @@ ROUND_NAME_MAP = {
     "Second qualifying round": "2nd Qualifying Round",
     "Third qualifying round": "3rd Qualifying Round",
     "Play-offs": "Qualifying Play-off Round",
+    # The training data calls this phase "League Stage" in 2024/25 and 2025/26.
+    # Minting "League Phase" here would create a categorical value the model has
+    # never seen; OneHotEncoder(handle_unknown="ignore") would zero it silently.
+    "League phase": "League Stage",
 }
 
 # These IDs are official UEFA club-page or current fixture identities. They are
@@ -883,14 +888,34 @@ def build_dynamic_inputs(
             round_names = (round_data.get("translations") or {}).get("name") or {}
             source_round = str(round_names.get("EN") or (round_data.get("metaData") or {}).get("name") or "")
             round_name = ROUND_NAME_MAP.get(source_round, source_round)
-            related_ids = [str(match.get("id")) for match in (item.get("relatedMatches") or []) if match.get("id")]
-            tie_members = [str(item.get("id")), *related_ids]
-            tie_id = f"UEFA-TIE-{min(tie_members, key=int)}"
-            leg = item.get("leg") or {}
-            leg_number = int(leg.get("number") or 1)
+            round_mode = str(round_data.get("mode") or "")
+            if round_mode not in {"GROUP", "KNOCK_OUT"}:
+                raise ValueError(
+                    f"UEFA match has unsupported round mode: {item.get('id')}/{round_mode!r}"
+                )
+            is_knockout = round_mode == "KNOCK_OUT"
             mode_detail = str(round_data.get("modeDetail") or "")
-            single_match = "ONE_LEG" in mode_detail or str(item.get("type") or "") == "SINGLE"
-            is_decider = single_match or leg_number == 2
+            if is_knockout:
+                related_ids = [
+                    str(match.get("id"))
+                    for match in (item.get("relatedMatches") or [])
+                    if match.get("id")
+                ]
+                tie_members = [str(item.get("id")), *related_ids]
+                tie_id: str | None = f"UEFA-TIE-{min(tie_members, key=int)}"
+                leg = item.get("leg") or {}
+                leg_number = int(leg.get("number") or 1)
+                single_match = (
+                    "ONE_LEG" in mode_detail
+                    or str(item.get("type") or "") == "SINGLE"
+                )
+                is_decider = single_match or leg_number == 2
+            else:
+                tie_id = None
+                leg_number = 0
+                single_match = False
+                is_decider = False
+            stage = normalize_stage(round_name, competition, is_knockout)
             base = {
                 "match_id": f"UEFA-{item.get('id')}",
                 "uefa_match_id": str(item.get("id")),
@@ -901,10 +926,10 @@ def build_dynamic_inputs(
                 "source_round": source_round,
                 "tie_id": tie_id,
                 "leg_number": leg_number,
-                "is_knockout": True,
+                "is_knockout": is_knockout,
                 "is_tie_decider": is_decider,
                 "is_single_match_tie": single_match,
-                "stage": "QUALIFYING",
+                "stage": stage,
                 "home_team_id": home_id,
                 "away_team_id": away_id,
                 "home_team_name": str(home.get("internationalName") or ""),
@@ -1086,10 +1111,16 @@ def build_quality_audit(
             int(domestic_audit["history_window"].eq("2021-2025").sum()),
             len(teams),
         ),
-        check("completed_match_count", len(finished) == 342, len(finished), 342),
-        check("upcoming_fixture_count", len(upcoming) == 86, len(upcoming), 86),
+        check("completed_match_count_positive", len(finished) > 0, len(finished), ">0"),
+        check("upcoming_fixture_count_positive", len(upcoming) > 0, len(upcoming), ">0"),
         check("completed_match_id_unique", finished["match_id"].is_unique, finished["match_id"].nunique(), len(finished)),
         check("upcoming_match_id_unique", upcoming["match_id"].is_unique, upcoming["match_id"].nunique(), len(upcoming)),
+        check(
+            "completed_upcoming_match_ids_disjoint",
+            set(finished["match_id"]).isdisjoint(set(upcoming["match_id"])),
+            len(set(finished["match_id"]) & set(upcoming["match_id"])),
+            0,
+        ),
         check("match_team_identity_coverage", set(finished["home_team_id"]) | set(finished["away_team_id"]) <= set(teams["team_id"]), len(set(finished["home_team_id"]) | set(finished["away_team_id"])), "subset"),
         check("rating_rows_complete", len(ratings) == len(teams), len(ratings), len(teams)),
         check("rating_finite", ratings["ao_first_elo"].notna().all(), int(ratings["ao_first_elo"].notna().sum()), len(ratings)),

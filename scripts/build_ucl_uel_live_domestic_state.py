@@ -18,6 +18,8 @@ if str(ROOT) not in sys.path:
 
 from ao_elo.domestic_league_dataset import (  # noqa: E402
     PILOT_LEAGUES,
+    DomesticFixtureConflictError,
+    FIXTURE_AUDIT_COLUMNS,
     UCL_UEL_EXPANSION_LEAGUES,
     attach_domestic_club_ids,
     build_domestic_team_bridge,
@@ -78,6 +80,7 @@ def main() -> None:
 
     specs = {spec.country_code: spec for spec in (*PILOT_LEAGUES, *UCL_UEL_EXPANSION_LEAGUES)}
     live_frames: list[pd.DataFrame] = []
+    fixture_audit: list[dict[str, object]] = []
     audit_rows: list[dict[str, object]] = []
     for code, spec in sorted(specs.items()):
         provider_season = spec.provider_season(2026)
@@ -88,7 +91,7 @@ def main() -> None:
                 refresh=args.refresh,
                 offline=args.offline,
             )
-            normalized = normalize_schedule(payload, spec, provider_season)
+            normalized = normalize_schedule(payload, spec, provider_season, reconciliation_audit=fixture_audit)
             normalized = select_causal_domestic_results(normalized, args.cutoff_utc)
             if not normalized.empty:
                 live_frames.append(
@@ -109,6 +112,8 @@ def main() -> None:
                     "status": "ACCEPTED" if not normalized.empty else "NO_COMPLETED_MATCHES",
                 }
             )
+        except DomesticFixtureConflictError:
+            raise
         except Exception as exc:  # noqa: BLE001 - audited provider issue
             audit_rows.append(
                 {
@@ -121,11 +126,31 @@ def main() -> None:
                 }
             )
 
+    pd.DataFrame(fixture_audit, columns=FIXTURE_AUDIT_COLUMNS).to_csv(data_root / "live_fixture_reconciliation_audit.csv", index=False)
+    # A single failed league used to be recorded in the audit and skipped, so the
+    # build still exited 0 and published a checkpoint that was quietly short of
+    # that league's completed results.  Only a total failure stopped it.
+    failed = [
+        f"{row['country_code']} {row['provider_season']}: {row['status']}"
+        for row in audit_rows
+        if str(row["status"]).startswith("FETCH_OR_PARSE_ERROR")
+    ]
+    if failed:
+        raise ValueError(
+            "Refusing to write a domestic state with unresolved league failures: "
+            + "; ".join(failed)
+        )
+
     live = pd.concat(live_frames, ignore_index=True, sort=False) if live_frames else pd.DataFrame()
     if live.empty:
         raise ValueError("No 2026/27 completed domestic results were retrieved")
     live = live.sort_values(["kickoff_utc", "match_id"], kind="stable").reset_index(drop=True)
     live_bridge = build_domestic_team_bridge(live, registry)
+    live_bridge = _restrict_live_bridge_to_production_universe(
+        live_bridge,
+        bridge,
+        targets,
+    )
     combined_bridge = _merge_bridges(bridge, live_bridge)
     combined_bridge, alias_audit = apply_verified_target_aliases(combined_bridge, targets)
     live, combined_bridge = canonicalize_candidate_domestic_state(
@@ -143,6 +168,17 @@ def main() -> None:
     _write_csv(combined_bridge, data_root / "domestic_team_bridge_with_live_candidate.csv")
     _write_csv(pd.DataFrame(audit_rows), data_root / "live_2026_27_quality.csv")
     _write_csv(alias_audit, data_root / "live_target_identity_alias_audit.csv")
+    # The historical manifest also inventories live CSVs. Refresh it only after
+    # all live outputs exist, otherwise a rebuild leaves stale bridge/audit hashes.
+    manifest_path = data_root / "source_manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["files"] = {path.name: sha256_file(path) for path in sorted(data_root.glob("*.csv"))}
+    manifest["live_cutoff_utc"] = pd.Timestamp(args.cutoff_utc).isoformat()
+    manifest["live_raw_response_sha256"] = {
+        str(path.relative_to(data_root)): sha256_file(path)
+        for path in sorted(cache.rglob("*.json"))
+    }
+    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     state_path = report_root / "candidate_domestic_poisson_state_2026_27.json"
     state_path.write_text(
         json.dumps(
@@ -178,13 +214,66 @@ def main() -> None:
 
 
 def _merge_bridges(existing: pd.DataFrame, extra: pd.DataFrame) -> pd.DataFrame:
+    """Combine the candidate bridge with identities rebuilt from live schedules.
+
+    `keep="first"` alone discards a newly resolved AO id whenever the candidate
+    row for the same provider key has a null one: the conflict check only rejects
+    two *different* non-null values, so old-null beat new-mapped and the identity
+    was silently lost.  Conflicts still raise; agreement now coalesces.
+    """
+
     result = pd.concat([existing, extra], ignore_index=True, sort=False)
     key = ["country_code", "source_team_id"]
-    for _, group in result.loc[result.duplicated(key, keep=False)].groupby(key, sort=False):
+    resolved: dict[tuple[object, ...], object] = {}
+    for group_key, group in result.loc[result.duplicated(key, keep=False)].groupby(key, sort=False):
         clubs = group["ao_club_id"].fillna("").astype(str)
-        if clubs[clubs.ne("")].nunique() > 1:
+        present = clubs[clubs.ne("")]
+        if present.nunique() > 1:
             raise ValueError("Live domestic provider identity conflicts with candidate bridge")
-    return result.drop_duplicates(key, keep="first").sort_values(key, kind="stable").reset_index(drop=True)
+        if not present.empty:
+            resolved[tuple(group_key) if isinstance(group_key, tuple) else (group_key,)] = present.iloc[0]
+    merged = result.drop_duplicates(key, keep="first").copy()
+    if resolved:
+        merged["ao_club_id"] = [
+            resolved.get((country, team_id), club)
+            if (pd.isna(club) or not str(club).strip())
+            else club
+            for country, team_id, club in zip(
+                merged["country_code"], merged["source_team_id"], merged["ao_club_id"], strict=True
+            )
+        ]
+    return merged.sort_values(key, kind="stable").reset_index(drop=True)
+
+
+def _restrict_live_bridge_to_production_universe(
+    live_bridge: pd.DataFrame,
+    existing_bridge: pd.DataFrame,
+    targets: pd.DataFrame,
+) -> pd.DataFrame:
+    """Do not activate unaudited AO identities discovered in live schedules.
+
+    Live results must still update league and opponent state, but the coverage
+    audit only evaluates the explicit UCL/UEL target universe.  A registry name
+    match outside that universe would otherwise become production-eligible
+    without the two-season/40-match gate ever seeing it.  Existing mappings are
+    retained and target mappings may still repair an old null bridge row.
+    """
+
+    required_bridge = {"ao_club_id", "identity_method"}
+    missing = required_bridge.difference(live_bridge.columns)
+    if missing:
+        raise ValueError(f"Live bridge missing columns: {sorted(missing)}")
+    if "ao_club_id" not in existing_bridge or "ao_club_id" not in targets:
+        raise ValueError("Production identity universe requires ao_club_id columns")
+    allowed = set(existing_bridge["ao_club_id"].dropna().astype(str)) | set(
+        targets["ao_club_id"].dropna().astype(str)
+    )
+    result = live_bridge.copy()
+    mapped = result["ao_club_id"].notna()
+    outside = mapped & ~result["ao_club_id"].astype(str).isin(allowed)
+    result.loc[outside, "ao_club_id"] = pd.NA
+    result.loc[outside, "identity_method"] = "OUTSIDE_PRODUCTION_TARGET_UNIVERSE"
+    return result
 
 
 def _write_csv(frame: pd.DataFrame, path: Path) -> None:

@@ -1029,12 +1029,13 @@ def build_report(
             "## Teknik özet",
             "",
             "- Qualification uyarisi: bu legacy tarihsel evaluator qualifier stage-K/retention gecisini replay etmez; asagidaki loss/ranking metrikleri yeni `0.20/0.275/0.35/0.425` davranisinin kaniti degildir. Aktif runtime davranisi production contract, dynamic engine testleri ve 2026/27 preproduction replay ile dogrulanir.",
-            f"- Production contract hesap parametreleri final-candidate ile eşittir: `{contract_status['all_active_parameters_equal']}`. Birebir JSON eşitliği `{contract_status['all_active_blocks_exactly_equal']}`; fark production'a sonradan eklenen açıklayıcı formül alanlarıdır.",
+            f"- Production/final-candidate aktif blok eşitliği: `{contract_status['all_active_parameters_equal']}`; qualifier dışı çekirdek eşitliği: `{contract_status['core_active_parameters_equal']}`. Qualification production override beyanı: `{contract_status['qualification_override_declared']}`. Açıklayıcı formül alanları sayısal karşılaştırmadan çıkarılır.",
             f"- Anlamlı karşılaştırma için aynı Scale/H/K üzerinde bütün aktif ek katmanları kapalı `{REFERENCE}` kolu üretildi.",
             f"- `{len(evaluation_seasons)}` unseen/development fold sezonunda `{int(current['matches'])}` maç değerlendirildi. AO rating çekirdeğinin 1X2 çıkışı Brier `{current['brier_1x2']:.6f}`, log-loss `{current['log_loss_1x2']:.6f}`, accuracy `{current['accuracy_1x2']:.4f}` üretti.",
             f"- Referansa karşı farklar: Brier `{current['brier_1x2']-reference['brier_1x2']:+.6f}`, log-loss `{current['log_loss_1x2']-reference['log_loss_1x2']:+.6f}`, accuracy `{current['accuracy_1x2']-reference['accuracy_1x2']:+.4f}`.",
             f"- Fold kazanımları Brier `{brier_wins}/6`, log-loss `{log_wins}/6`, aynı-sezon Spearman `{rank_wins}/6`, pairwise `{pair_wins}/6`.",
-            f"- Kullanıcıya sunulan production tahmini `%50 Current ML + %50 AO Domestic Poisson (rho=0)` log-probability ensemble'dır: Brier `{prediction_evidence['pooled_brier']:.6f}`, log-loss `{prediction_evidence['pooled_log_loss']:.6f}`, accuracy `{prediction_evidence['pooled_accuracy']:.4f}`.",
+            "- Kullanıcıya sunulan production tahmini `%50 Current ML + %50 AO Domestic Poisson (rho=0)` log-probability ensemble'dır.",
+            f"- Contract'ta donmus aktivasyon kaniti olarak kayitli tarihsel nested `ML_POISSON_ENSEMBLE` kolu Brier `{prediction_evidence['pooled_brier']:.6f}`, log-loss `{prediction_evidence['pooled_log_loss']:.6f}`, accuracy `{prediction_evidence['pooled_accuracy']:.4f}` uretmistir. Bu degerler contract'in `prediction_layer_evidence` blogundan gelir; veri yenilemesiyle tekrar kosulan `reports/production_prediction/` metrikleri degildir. Kol her fold icin Poisson kaynagi ve agirligi secer; sabit production karisiminin birebir replay olcumu degildir.",
             f"- Kararlar: rating çekirdeği **{rating_decision}**; prediction katmanı **{prediction_decision}**. Prediction yalnız olasılık üretir, AO Live Elo'ya geri beslenmez ve sorun halinde Current AO 1X2'ye döner.",
             "",
             "## Güncel sözleşme ve aktif mimari",
@@ -1366,6 +1367,7 @@ def main() -> None:
         "model_version": production["model_version"],
         "production_revision": production["production_revision"],
         "static_initial_elo": dynamic["static_config"],
+        "runtime_input_guards": production.get("runtime_input_guards", {}),
         "active_runtime_contract": {
             key: production[key]
             for key in (

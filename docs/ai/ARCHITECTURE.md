@@ -92,6 +92,18 @@ tarafi sikidir; satir bazli tahmin tarafi ise totaldir: herhangi bir
 `Exception` o satiri base AO 1X2'ye dusurur ve batch devam eder. Ensemble ciktisi
 settlement veya Power Delta hesabina girmez.
 
+Domestic state'in sahibi `DynamicDomesticPoisson`'dur: lig bazinda son kickoff
+ve global provider event ID kumesini checkpoint `2.0` icinde tutar. Batch'in
+kimlik/kronoloji/sezon kontrolleri mutasyondan once tamamlanir. Prediction,
+ilgili iki ligin cutoff'unu uretim ve fixture zamanina gore kontrol eder;
+lig sezonunu fixture sezonuna tasimaz. Eski tarih icin en yeni state kullanilmaz.
+
+Domestic builder kaynak sezonu/coverage kararinin sahibidir. Kanoniklestirme
+merge'den once yapilir; ortak fikstur tekilligi guard'i `validators.py` icindedir
+ve merge ile replay tarafinda kullanilir. Resmi skor uzlastirmalari versiyonlu
+`data/domestic_fixture_reconciliations.json` ile denetlenir; runtime kaynak
+skorlari arasindan secim yapmaz.
+
 ### Katman E: Match Settlement
 
 `update_match()` sonucu isler:
@@ -187,18 +199,48 @@ yeniden yazmak drift riski yaratir.
 Asagidaki modullerin repository'de bulunmasi production aktivasyonu anlamina
 gelmez:
 
-- `prediction_ensemble.py` ve backtest orchestration kodu
 - `model_based_partitioning.py`
 - `opponent_quintile_context.py`, `relative_opponent_profile.py`
 - `team_venue_context.py`, `match_context.py`, `dynamic_k.py`
-- `scoreline.py`, `scoreline_calibration.py`
-- `cup_achievement.py` (kalici evaluation ablation kolunu besler)
+- `scoreline_calibration.py`
 
 Bu moduller challenger, diagnostic veya shadow calismalarina aittir.
 `domestic_poisson.py` ve `ml_prediction.py` yalniz
 `production_prediction.py` icindeki checksum'lu artifact yolu uzerinden aktif
 prediction'a katilir. Production davranisi contract + runtime loader +
 production testleriyle belirlenir.
+
+Asagidaki uc grup listede **degildir**, cunku production ile iliskileri
+shadow calismasindan farklidir ve karistirilmamalidir.
+
+**Paylasilan matematik saglayan modul.** `scoreline.py` hem diagnostic skor
+katmanini hem de production Domestic Poisson bileseninin ihtiyac duydugu
+Poisson/Dixon-Coles cekirdegini tasir. `domestic_poisson.py` ondan
+`scoreline_matrix`, `scoreline_to_1x2`, `exact_score_probability`,
+`ScorelineModelConfig` ve `DEFAULT_RHO_GRID` (yaklasik `102` satir) import
+eder: iki lambda'yi H/D/A olasiligina ceviren adim budur. Modulun geri kalani
+research yuzeyidir. Bu bes ismi degistirmek **production davranisini
+degistirir**.
+
+**Kombinasyon kurali `features.py`'ye tasindi.** `cup_achievement.py` artik
+`CupContributionConfig`, `generalized_domestic_achievement` ve
+`champion_equivalent_weight` tanimlamaz; onlari `features.py`'den yeniden
+export eder ve aktif domestic achievement kuralinin parcasidirlar. Modulde
+kalan `achievement_delta_to_ao_first_elo`, `candidate_weights`,
+`load_static_achievement_inputs` ve `cup_variant_seed_map` backtest
+yardimcilaridir ve kalici evaluation ablation kolunu besler.
+
+`holdout_window.py` bu uc motorun paylastigi donmus gelistirme penceresi
+guard'idir (`2018/19-2025/26` kimlik kontrolu + `2026-07-01T00:00:00Z` kickoff
+siniri).  Canlida calismaz; production yolu onu import etmez.
+
+**Artifact ureten offline motorlar.** `prediction_ensemble.py`,
+`ml_backtest.py`, `domestic_poisson_backtest.py` ve
+`domestic_ucl_uel_expansion.py` canlida calismaz, fakat ciktilari
+`artifacts/production_prediction/` altina ve servis edilen blend agirliklarina
+gider. "Repository'de bulunmasi aktivasyon anlamina gelmez" kurali bunlar icin
+de gecerlidir, ancak buradaki bir hata donmus artifact'a pisip servis edilir;
+bu yuzden research yuzeyiyle ayni risk sinifinda degillerdir.
 
 ## 7. Degisiklik Etki Matrisi
 

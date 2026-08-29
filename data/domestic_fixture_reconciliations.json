@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "reviewed_on": "2026-08-28",
+  "policy": "Only the listed provider observations may resolve conflicting scores. Unknown conflicts fail. Raw responses are preserved.",
+  "resolutions": [
+    {
+      "country_code": "GRE",
+      "sportsdb_league_id": "4336",
+      "kickoff_utc": "2021-02-15T15:15:00Z",
+      "home_source_team_id": "135709",
+      "away_source_team_id": "133753",
+      "observed_scores": {"1068057": [2, 4], "1091502": [2, 3]},
+      "keep_source_event_id": "1068057",
+      "verified_score": [2, 4],
+      "source_url": "https://www.aekfc.gr/newsdetails/aaa-217-126092.htm?lang=el&path=-2068606472",
+      "source_title": "AEΛ-ΑΕΚ 2-4 — AEK F.C. official match report, 15 February 2021"
+    },
+    {
+      "country_code": "KAZ",
+      "sportsdb_league_id": "4649",
+      "kickoff_utc": "2020-10-17T10:00:00Z",
+      "home_source_team_id": "138041",
+      "away_source_team_id": "138038",
+      "observed_scores": {"1039304": [2, 2], "1039365": [0, 0]},
+      "keep_source_event_id": "1039304",
+      "verified_score": [2, 2],
+      "source_url": "https://qfl.kz/news/protokolnye-dannye-13-go-tura-olimpbet-chempionata-kazakhstana-5806/",
+      "source_title": "QFL official 13th-round protocol — Taraz–Kaisar 2:2, 17 October 2020",
+      "note": "This decision resolves the final score; it does not independently certify the provider kickoff timestamp."
+    },
+    {
+      "country_code": "TUR",
+      "sportsdb_league_id": "4339",
+      "kickoff_utc": "2021-01-31T13:00:00Z",
+      "home_source_team_id": "135676",
+      "away_source_team_id": "133806",
+      "observed_scores": {"1049070": [3, 1], "1084686": [3, 2]},
+      "keep_source_event_id": "1049070",
+      "verified_score": [3, 1],
+      "source_url": "https://www.tff.org/Default.aspx?macId=219183&pageID=29",
+      "source_title": "TFF official match protocol — Alanyaspor–Sivasspor 3–1, 31 January 2021",
+      "note": "Match began on 30 January and resumed on 31 January after a weather suspension."
+    }
+  ]
+}

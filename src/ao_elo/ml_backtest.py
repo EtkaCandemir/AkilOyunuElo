@@ -12,6 +12,10 @@ import pandas as pd
 from sklearn.exceptions import ConvergenceWarning
 
 from ao_elo.evaluation import dependency_robust_loss_difference_ci
+from ao_elo.holdout_window import (
+    untouched_holdout_label,
+    validate_development_window,
+)
 from ao_elo.ml_features import FEATURE_SCHEMAS, FeatureSchema, validate_feature_store
 from ao_elo.ml_prediction import (
     TrainedML1X2,
@@ -74,9 +78,7 @@ def run_ml_walk_forward_backtest(
     if bootstrap_samples < 100:
         raise ValueError("bootstrap_samples must be at least 100")
     data = feature_store.sort_values(["kickoff_utc", "match_id"], kind="stable").reset_index(drop=True)
-    seasons = tuple(dict.fromkeys(data["season"].astype(str)))
-    if len(seasons) != 8:
-        raise ValueError(f"Expected eight seasons, found {len(seasons)}")
+    seasons = validate_development_window(data, label="ml walk-forward backtest")
     outer_tests = seasons[2:]
     if len(outer_tests) != 6:
         raise ValueError("Expected six outer test seasons")
@@ -269,6 +271,7 @@ def run_ml_walk_forward_backtest(
         full_parameters,
         full_blend_weight,
         final_model,
+        untouched_holdout_label(data, label="ml decision"),
     )
     return MLBacktestResult(
         candidate_surface=pd.DataFrame(surface_rows),
@@ -560,6 +563,7 @@ def _decision(
     full_parameters: Mapping[str, float | int],
     full_blend_weight: float,
     final_model: TrainedML1X2,
+    holdout: str,
 ) -> dict[str, object]:
     baseline = comparison[comparison["model"].eq(CURRENT_AO)].iloc[0]
     candidate = comparison[comparison["model"].eq(AO_ML_BLEND)].iloc[0]
@@ -629,5 +633,5 @@ def _decision(
         "delta_brier_vs_ao": float(candidate["brier_1x2"] - baseline["brier_1x2"]),
         "delta_log_loss_vs_ao": float(candidate["log_loss_1x2"] - baseline["log_loss_1x2"]),
         "gates": gates,
-        "holdout": "2026/27_UNTOUCHED",
+        "holdout": f"{holdout}_UNTOUCHED",
     }

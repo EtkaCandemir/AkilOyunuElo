@@ -34,6 +34,8 @@ import sys
 from pathlib import Path
 
 import numpy as np
+from collections.abc import Mapping
+
 import pandas as pd
 
 
@@ -110,9 +112,19 @@ def main() -> None:
     output_root.mkdir(parents=True, exist_ok=True)
 
     completed = load_completed_matches(arguments.history, arguments.identity)
-    metadata = load_metadata()
+    metadata = load_metadata(arguments.fixtures)
     fixtures = load_upcoming_fixtures(arguments.fixtures, arguments.match_id)
     domestic = load_domestic_matches(arguments.domestic_matches)
+
+    missing_metadata = sorted(
+        set(fixtures["match_id"].astype(str))
+        - set(metadata["match_id"].astype(str))
+    )
+    if missing_metadata:
+        raise ValueError(
+            "Fixtures without round/leg metadata cannot be served: "
+            f"{missing_metadata[:5]}"
+        )
 
     features, batches = build_features(completed, metadata, fixtures, domestic)
     gates = validation_gates(features, fixtures, completed, batches)
@@ -245,17 +257,74 @@ def _club_lookup() -> dict[str, str]:
     return dict(zip(audit["team_id"].astype(str), audit["club_id"].astype(str)))
 
 
-def load_metadata() -> pd.DataFrame:
-    historical = pd.read_csv(ROOT / "data" / "dynamic_backtest_2018_2026" / "matches.csv")
-    historical = historical[list(METADATA_COLUMNS)]
+def load_metadata(fixtures_path: Path = DEFAULT_FIXTURES) -> pd.DataFrame:
+    """Round/leg metadata for completed matches and the fixtures being served.
+
+    `fixtures_path` must be the same file the baseline rows come from.  While
+    this read was pinned to DEFAULT_FIXTURES a `--fixtures` override produced
+    baselines from the override and metadata from the default file, so an
+    overridden fixture silently became `round=UNKNOWN, leg_number=0` and was
+    scored as `LEAGUE_OR_GROUP` instead of `TWO_LEG`.
+    """
+
+    history = pd.read_csv(ROOT / "data" / "dynamic_backtest_2018_2026" / "matches.csv")
+    historical = history[list(METADATA_COLUMNS)]
+    sequence_by_round = _round_sequence_lookup(history)
     current = pd.read_csv(PREPRODUCTION / "matches_completed.csv")
-    upcoming = pd.read_csv(DEFAULT_FIXTURES)
+    upcoming = pd.read_csv(fixtures_path)
     rows = []
     for frame in (current, upcoming):
         block = frame[["match_id", "round", "leg_number", "is_knockout"]].copy()
-        block["round_sequence"] = -1.0
+        block["round_sequence"] = _lookup_round_sequence(frame, sequence_by_round)
         rows.append(block[list(METADATA_COLUMNS)])
     return pd.concat([historical, *rows], ignore_index=True).drop_duplicates("match_id")
+
+
+def _round_sequence_lookup(history: pd.DataFrame) -> dict[tuple[str, str], float]:
+    """(competition, round) -> round_sequence from the most recent full season.
+
+    `round_sequence` is a within-season ordinal assigned over the rounds that
+    season actually contains, so it cannot be computed for a season still being
+    played.  The served fixtures previously took a fixed `-1.0`, a value absent
+    from every training row; the model then extrapolated outside the range it
+    was fitted on for every prediction it has ever served.  The competition
+    format is unchanged from the latest completed season, so its ordinals are
+    the defensible values to carry forward.
+    """
+
+    latest = str(history["season"].astype(str).max())
+    recent = history[history["season"].astype(str).eq(latest)]
+    grouped = recent.groupby(["competition", "round"])["round_sequence"]
+    ambiguous = sorted(key for key, count in grouped.nunique().items() if count > 1)
+    if ambiguous:
+        raise ValueError(f"{latest} round_sequence is ambiguous for: {ambiguous}")
+    return {
+        (str(competition), str(round_name)): float(value)
+        for (competition, round_name), value in grouped.min().items()
+    }
+
+
+def _lookup_round_sequence(
+    frame: pd.DataFrame, sequence_by_round: Mapping[tuple[str, str], float]
+) -> list[float]:
+    """Refuse an unmapped round rather than serving the old `-1.0` sentinel."""
+
+    missing = sorted(
+        {
+            (str(competition), str(round_name))
+            for competition, round_name in zip(frame["competition"], frame["round"])
+            if (str(competition), str(round_name)) not in sequence_by_round
+        }
+    )
+    if missing:
+        raise ValueError(
+            "No round_sequence for these competition/round pairs; the round name "
+            f"must match the training vocabulary: {missing}"
+        )
+    return [
+        sequence_by_round[(str(competition), str(round_name))]
+        for competition, round_name in zip(frame["competition"], frame["round"])
+    ]
 
 
 def load_upcoming_fixtures(

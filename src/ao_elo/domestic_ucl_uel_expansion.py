@@ -17,7 +17,12 @@ import pandas as pd
 from ao_elo.domestic_league_dataset import (
     DomesticLeagueSpec,
     SCHEDULE_COLUMNS,
-    ao_season_from_kickoff,
+    ao_season_for_provider_event,
+)
+from ao_elo.validators import (
+    require_utc_column,
+    require_utc_timestamp,
+    validate_domestic_fixture_uniqueness,
 )
 from ao_elo.xg_dataset import normalize_name
 
@@ -197,10 +202,11 @@ def normalize_secondary_fixtures(
         away_goals = _strict_integer(row.goals_away)
         if pd.isna(kickoff) or home_goals is None or away_goals is None:
             continue
-        ao_season = ao_season_from_kickoff(kickoff)
-        season_start = int(ao_season[:4])
+        provider_season = _secondary_provider_season(row, spec, kickoff)
+        season_start = int(provider_season[:4])
         if not start_year <= season_start <= end_year:
             continue
+        ao_season = ao_season_for_provider_event(spec, provider_season, kickoff)
         home_id = f"HF:{row.home_team_id}"
         away_id = f"HF:{row.away_team_id}"
         if home_id == away_id or home_goals < 0 or away_goals < 0:
@@ -213,7 +219,7 @@ def normalize_secondary_fixtures(
                 "sportsdb_league_id": f"HF:{league_id}",
                 "league_name": spec.league_name,
                 "country_code": spec.country_code,
-                "provider_season": _provider_season_for_ao(spec, ao_season),
+                "provider_season": provider_season,
                 "ao_season": ao_season,
                 "kickoff_utc": kickoff.isoformat(),
                 "home_source_team_id": home_id,
@@ -242,8 +248,10 @@ def assess_secondary_league_seasons(
     """Apply a source-wide 95% completeness gate without mixing providers.
 
     The public archive has no final-table endpoint.  For each archived league,
-    its modal completed-season fixture count is the independently verifiable
-    schedule-format expectation.  Each accepted season must reach 95% of that
+    a recurring modal fixture count is an inferred format expectation. When no
+    count recurs, use the ceiling of the median, not the smallest singleton.
+    This is a heuristic, not independently verified competition-format data.
+    Each accepted season must reach 95% of that
     expectation and satisfy the same event, timestamp, score, and team checks.
     """
 
@@ -251,7 +259,7 @@ def assess_secondary_league_seasons(
         "country_code", "sportsdb_league_id", "league_name", "provider_season",
         "schedule_matches", "table_expected_matches", "coverage_rate", "unique_events",
         "unique_teams", "timestamps_valid", "scores_valid", "quality_status",
-        "quality_reason", "source_provider", "source_selection",
+        "quality_reason", "source_provider", "source_selection", "format_expectation_method",
     ]
     if matches.empty:
         return pd.DataFrame(columns=columns)
@@ -259,9 +267,13 @@ def assess_secondary_league_seasons(
     # A count must recur to be a format expectation; isolated counts retain the
     # conservative median to avoid silently accepting partial archived seasons.
     counts = season_counts.astype(int).tolist()
-    expected = int(pd.Series(counts).mode().iloc[0]) if counts else 0
-    if expected <= 0:
+    frequencies = pd.Series(counts).value_counts()
+    if int(frequencies.max()) >= 2:
+        expected = int(pd.Series(counts).mode().iloc[0])
+        expectation_method = "RECURRING_MODE"
+    else:
         expected = int(math.ceil(float(pd.Series(counts).median())))
+        expectation_method = "MEDIAN_NO_RECURRING_MODE"
     rows: list[dict[str, object]] = []
     for provider_season, group in matches.groupby("provider_season", sort=True):
         count = int(len(group))
@@ -291,6 +303,7 @@ def assess_secondary_league_seasons(
                 "quality_reason": "SECONDARY_INFERRED_FORMAT_ACCEPTED" if accepted else "SECONDARY_INFERRED_FORMAT_BELOW_95_PCT",
                 "source_provider": "HF_API_FOOTBALL_ARCHIVE",
                 "source_selection": "SECONDARY_ACCEPTED" if accepted else "UNAVAILABLE",
+                "format_expectation_method": expectation_method,
             }
         )
     return pd.DataFrame(rows, columns=columns)
@@ -312,18 +325,53 @@ def select_source_safe_seasons(
     selected_quality: list[pd.DataFrame] = []
     primary = primary_quality.copy()
     secondary = secondary_quality.copy()
+
+    def _counterpart(frame: pd.DataFrame, country: str, season: str, prefix: str) -> dict[str, object]:
+        """Carry the losing source's own verdict into the published audit row.
+
+        Only one row survives per country/season, so without this the reason a
+        fallback was refused is lost: a season the secondary rejected on coverage
+        is published carrying the primary's fetch error instead.  It also makes
+        the gate's source dependence visible -- the same league can hold two
+        different `table_expected_matches`, so `ACCEPTED` alone never proves a
+        season is complete.
+        """
+
+        match = frame.loc[
+            frame["country_code"].eq(country) & frame["provider_season"].eq(season)
+        ]
+        if match.empty:
+            return {
+                f"{prefix}_quality_status": "ABSENT",
+                f"{prefix}_quality_reason": pd.NA,
+                f"{prefix}_schedule_matches": pd.NA,
+                f"{prefix}_table_expected_matches": pd.NA,
+                f"{prefix}_coverage_rate": pd.NA,
+            }
+        row = match.iloc[0]
+        return {
+            f"{prefix}_quality_status": row.get("quality_status", pd.NA),
+            f"{prefix}_quality_reason": row.get("quality_reason", pd.NA),
+            f"{prefix}_schedule_matches": row.get("schedule_matches", pd.NA),
+            f"{prefix}_table_expected_matches": row.get("table_expected_matches", pd.NA),
+            f"{prefix}_coverage_rate": row.get("coverage_rate", pd.NA),
+        }
+
     keys = sorted(set(zip(primary["country_code"], primary["provider_season"])))
     for country, season in keys:
-        primary_row = primary.loc[
+        primary_slice = primary.loc[
             primary["country_code"].eq(country) & primary["provider_season"].eq(season)
-        ].iloc[0]
+        ]
+        primary_row = primary_slice.iloc[0]
+        secondary_audit = _counterpart(secondary, country, season, "secondary")
+        primary_audit = _counterpart(primary, country, season, "primary")
         if str(primary_row["quality_status"]) == "ACCEPTED":
             selected_frames.append(primary_matches.loc[
                 primary_matches["country_code"].eq(country) & primary_matches["provider_season"].eq(season)
             ])
-            selected_quality.append(primary.loc[
-                primary["country_code"].eq(country) & primary["provider_season"].eq(season)
-            ].assign(source_selection="PRIMARY_ACCEPTED"))
+            selected_quality.append(
+                primary_slice.assign(source_selection="PRIMARY_ACCEPTED", **secondary_audit)
+            )
             continue
         alternate = secondary.loc[
             secondary["country_code"].eq(country) & secondary["provider_season"].eq(season)
@@ -333,11 +381,13 @@ def select_source_safe_seasons(
             selected_frames.append(secondary_matches.loc[
                 secondary_matches["country_code"].eq(country) & secondary_matches["provider_season"].eq(season)
             ])
-            selected_quality.append(alternate.assign(source_selection="SECONDARY_ACCEPTED"))
+            selected_quality.append(
+                alternate.assign(source_selection="SECONDARY_ACCEPTED", **primary_audit)
+            )
         else:
-            selected_quality.append(primary.loc[
-                primary["country_code"].eq(country) & primary["provider_season"].eq(season)
-            ].assign(source_selection="UNAVAILABLE"))
+            selected_quality.append(
+                primary_slice.assign(source_selection="UNAVAILABLE", **secondary_audit)
+            )
     selected = pd.concat(selected_frames, ignore_index=True, sort=False) if selected_frames else pd.DataFrame(columns=SCHEDULE_COLUMNS)
     quality = pd.concat(selected_quality, ignore_index=True, sort=False)
     if not selected.empty:
@@ -359,9 +409,13 @@ def select_causal_domestic_results(
         {"match_id", "kickoff_utc", "home_goals", "away_goals"},
         "live domestic matches",
     )
-    cutoff = pd.to_datetime(cutoff_utc, utc=True, errors="raise")
+    # A naive value here would be assumed UTC and could shift a match across the
+    # causal cutoff, letting a result played after kickoff reach the prediction.
+    cutoff = require_utc_timestamp(cutoff_utc, "live domestic cutoff_utc")
     result = matches.copy()
-    result["kickoff_utc"] = pd.to_datetime(result["kickoff_utc"], utc=True, errors="raise")
+    result["kickoff_utc"] = require_utc_column(
+        result["kickoff_utc"], "live domestic matches kickoff_utc"
+    )
     if result["match_id"].astype(str).duplicated().any():
         raise ValueError("live domestic matches contain duplicate match_id values")
     if not result[["home_goals", "away_goals"]].notna().all().all():
@@ -414,6 +468,7 @@ def canonicalize_candidate_domestic_state(
             else str(team_id)
             for country, team_id in zip(result["country_code"], result[column], strict=True)
         ]
+    result["sportsdb_league_id"] = result["sportsdb_league_id"].astype(str)
     mask = result["country_code"].astype(str).isin(countries)
     result.loc[mask, "sportsdb_league_id"] = (
         "AO-DOMESTIC:" + result.loc[mask, "country_code"].astype(str)
@@ -438,9 +493,27 @@ def canonicalize_candidate_domestic_state(
     )
 
 
-def _provider_season_for_ao(spec: DomesticLeagueSpec, ao_season: str) -> str:
-    start = int(str(ao_season)[:4])
-    return str(start) if spec.calendar_season else f"{start}-{start + 1}"
+def _secondary_provider_season(row: object, spec: DomesticLeagueSpec, kickoff: pd.Timestamp) -> str:
+    """Source season wins; a missing calendar season uses the UTC calendar year.
+
+    The archive currently lacks season metadata. For winter leagues only, the
+    fallback is a July boundary; an explicit source season preserves delayed
+    fixtures in their actual competition season.
+    """
+    for field in ("provider_season", "season"):
+        value = getattr(row, field, None)
+        if value is None or pd.isna(value):
+            continue
+        raw = str(value).strip()
+        if not raw:
+            continue
+        first = raw.replace("/", "-").split("-", 1)[0]
+        start = _strict_integer(first)
+        if start is None or not 1900 <= start <= 2200:
+            raise ValueError(f"Invalid secondary provider season: {value!r}")
+        return spec.provider_season(start)
+    start = kickoff.year if spec.calendar_season or kickoff.month >= 7 else kickoff.year - 1
+    return spec.provider_season(start)
 
 
 def _strict_integer(value: object) -> int | None:
@@ -605,7 +678,12 @@ def merge_domestic_candidate(
         duplicate = result.duplicated(["sportsdb_league_id", "source_event_id"])
         if duplicate.any():
             raise ValueError("candidate merge has duplicate provider event IDs within a league")
-    result["kickoff_utc"] = pd.to_datetime(result["kickoff_utc"], utc=True, errors="raise")
+    # `replay_domestic_poisson_state` refuses naive timestamps, but coercing them
+    # to UTC here defeated that guard: the merge is what feeds the checkpoint.
+    result["kickoff_utc"] = require_utc_column(
+        result["kickoff_utc"], "candidate merge kickoff_utc"
+    )
+    validate_domestic_fixture_uniqueness(result, "candidate merge")
     return result.sort_values(["kickoff_utc", "match_id"], kind="stable").reset_index(drop=True)
 
 

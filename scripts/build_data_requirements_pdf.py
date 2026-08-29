@@ -22,8 +22,8 @@ SPEC = PdfSpec(
     filename="AkilOyunu_VeriAnlamlandirma.pdf",
     title="AO European Elo",
     subtitle="Veri İhtiyaçları ve Anlamlandırma Kılavuzu",
-    version="AO European Elo v2 | Veri sözleşmesi revizyonu 2026-08-13",
-    document_date="13 Ağustos 2026",
+    version="AO European Elo v2 | Veri sözleşmesi revizyonu 2026-08-28",
+    document_date="28 Ağustos 2026",
     subject="AO First Elo, AO Live Elo ve production 1X2 için veri alanları ve kalite kuralları",
 )
 
@@ -349,14 +349,16 @@ def story() -> list[object]:
         h1("12. Domestic Poisson State Verisi", s),
         body(
             "Yerel maçlar causal sırayla işlenerek takım hücum, savunma ve reliability state'i "
-            "oluşturur. Eğitim evreninde 45.423 maç ve 19 lig vardır; 171 kulüp AO kimliğiyle "
-            "production artifact'ına eşlenmiştir.",
+            "oluşturur. Tarihsel eğitim evreni 45.419 maç ve 19 ligdir. Düzeltilmiş checkpoint "
+            "76.327 maç ve 34 lig içerir; 311 AO kulübü production coverage gate'ini geçer. "
+            "Provider sezonu kaynak sezonu/UTC takvim yılıyla belirlenir. Tekrarlanmayan mod "
+            "yerine medyan coverage eşiği kullanılır; bu resmi format doğrulaması değildir.",
             s,
         ),
         table(
             [
                 ["Girdi", "Kural"],
-                ["Domestic match ID", "Lig içinde benzersiz"],
+                ["Domestic match ID", "Provider event ID; state boyunca benzersiz"],
                 ["Kickoff UTC", "Sonuçtan önce state snapshot üretmeye uygun"],
                 ["Home/away source team ID", "AO mapping'den ayrı provider identity"],
                 ["Home/away goals", "Tamamlanmış saha skoru, non-negative integer"],
@@ -383,13 +385,20 @@ def story() -> list[object]:
             s,
         ),
         h2("13.2 Her tahminde loglanan audit", s),
+        body(
+            "Timestamp açık timezone içermelidir; eksik offset'e UTC atanmaz. Domestic goller tam sayıdır: "
+            "0.999999 reddedilir. Boolean true/false metni 0/1 ile aynı hesaplanır. Ortak ML metadata "
+            "alanları eşitse korunur, eksikse tamamlanır, çelişiyorsa reddedilir. Domestic checkpoint 2.0 "
+            "işlenmiş olay ID'lerini ve lig cutoff'unu saklar; eski checkpoint sonuçlardan yeniden üretilir.",
+            s,
+        ),
         *bullets(
             [
                 "AO, ham ML, Current ML, ham Poisson, AO Poisson ve final H/D/A.",
                 "Domestic Poisson coverage: BOTH / ONE / NONE ve component fallback.",
                 "Prediction status, fallback reason ve rating_feedback_applied=false.",
                 "Model/config/contract/manifest/ML/state SHA-256 kimlikleri.",
-                "generated_at_utc ve kickoff_utc; tahminin gerçekten pre-match olduğunun kanıtı.",
+                "generated_at_utc ve kickoff_utc; tek başına prospective kanıt değildir, değiştirilemez ledger gerekir.",
             ],
             s,
         ),

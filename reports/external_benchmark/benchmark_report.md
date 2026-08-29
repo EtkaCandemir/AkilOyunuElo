@@ -19,7 +19,7 @@ dondurulmus tahmin ve rating artefact'lari puanlanir.
 CLUBELO_PUBLISHED_SCALE_400      363   0.574983      0.966819      0.537190                   -0.105757                      -0.090167
   CLUBELO_TUNED_SCALE_AND_H      363   0.574890      0.966486      0.531680                   -0.105902                      -0.090481
          AO_RATING_CORE_1X2      363   0.577244      0.972194      0.553719                   -0.102241                      -0.085109
-   AO_SERVED_ENSEMBLE_50_50      363   0.578708      0.972945      0.550964                   -0.099964                      -0.084402
+   AO_SERVED_ENSEMBLE_50_50      363   0.580864      0.975477      0.556474                   -0.096611                      -0.082020
 ```
 
 ### Bagimliliga dayanikli guven zarfi
@@ -32,10 +32,10 @@ Pozitif fark ClubElo'nun onde oldugunu gosterir.
       AO_RATING_CORE_1X2 CLUBELO_PUBLISHED_SCALE_400 log_loss_1x2      363                0.005375    -0.032010     0.046298               False                     False
       AO_RATING_CORE_1X2   CLUBELO_TUNED_SCALE_AND_H    brier_1x2      363                0.002355    -0.023640     0.031312               False                     False
       AO_RATING_CORE_1X2   CLUBELO_TUNED_SCALE_AND_H log_loss_1x2      363                0.005708    -0.030970     0.046474               False                     False
-AO_SERVED_ENSEMBLE_50_50 CLUBELO_PUBLISHED_SCALE_400    brier_1x2      363                0.003725    -0.023803     0.033440               False                     False
-AO_SERVED_ENSEMBLE_50_50 CLUBELO_PUBLISHED_SCALE_400 log_loss_1x2      363                0.006126    -0.032767     0.047342               False                     False
-AO_SERVED_ENSEMBLE_50_50   CLUBELO_TUNED_SCALE_AND_H    brier_1x2      363                0.003818    -0.023392     0.032982               False                     False
-AO_SERVED_ENSEMBLE_50_50   CLUBELO_TUNED_SCALE_AND_H log_loss_1x2      363                0.006460    -0.032464     0.047016               False                     False
+AO_SERVED_ENSEMBLE_50_50 CLUBELO_PUBLISHED_SCALE_400    brier_1x2      363                0.005881    -0.021982     0.035393               False                     False
+AO_SERVED_ENSEMBLE_50_50 CLUBELO_PUBLISHED_SCALE_400 log_loss_1x2      363                0.008658    -0.030001     0.049454               False                     False
+AO_SERVED_ENSEMBLE_50_50   CLUBELO_TUNED_SCALE_AND_H    brier_1x2      363                0.005974    -0.021124     0.034916               False                     False
+AO_SERVED_ENSEMBLE_50_50   CLUBELO_TUNED_SCALE_AND_H log_loss_1x2      363                0.008991    -0.028909     0.048615               False                     False
 ```
 
 ### Turnuva kirilimi
@@ -43,17 +43,17 @@ AO_SERVED_ENSEMBLE_50_50   CLUBELO_TUNED_SCALE_AND_H log_loss_1x2      363      
 ```text
 competition                   model_arm  matches  brier_1x2  log_loss_1x2  accuracy_1x2
         UCL          AO_RATING_CORE_1X2      171   0.591809      0.989656      0.538012
-        UCL    AO_SERVED_ENSEMBLE_50_50      171   0.591962      0.990148      0.549708
+        UCL    AO_SERVED_ENSEMBLE_50_50      171   0.596204      0.994412      0.555556
         UCL    CLIMATOLOGY_WALK_FORWARD      171   0.643057      1.062010      0.432749
         UCL CLUBELO_PUBLISHED_SCALE_400      171   0.566977      0.957281      0.578947
         UCL   CLUBELO_TUNED_SCALE_AND_H      171   0.567515      0.957320      0.573099
        UECL          AO_RATING_CORE_1X2       90   0.549725      0.933618      0.566667
-       UECL    AO_SERVED_ENSEMBLE_50_50       90   0.544277      0.919129      0.555556
+       UECL    AO_SERVED_ENSEMBLE_50_50       90   0.543788      0.919136      0.555556
        UECL    CLIMATOLOGY_WALK_FORWARD       90   0.644603      1.064520      0.433333
        UECL CLUBELO_PUBLISHED_SCALE_400       90   0.567717      0.952306      0.500000
        UECL   CLUBELO_TUNED_SCALE_AND_H       90   0.567646      0.952964      0.488889
         UEL          AO_RATING_CORE_1X2      102   0.577107      0.976956      0.568627
-        UEL    AO_SERVED_ENSEMBLE_50_50      102   0.586869      0.991589      0.549020
+        UEL    AO_SERVED_ENSEMBLE_50_50      102   0.587860      0.993445      0.558824
         UEL    CLIMATOLOGY_WALK_FORWARD      102   0.641429      1.062015      0.519608
         UEL CLUBELO_PUBLISHED_SCALE_400      102   0.594816      0.995614      0.500000
         UEL   CLUBELO_TUNED_SCALE_AND_H      102   0.593644      0.993783      0.500000

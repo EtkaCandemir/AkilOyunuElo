@@ -10,6 +10,79 @@ from ao_elo.config import SEASON_KEYS
 from ao_elo.features import is_missing
 
 
+def require_utc_timestamp(value: Any, label: str) -> pd.Timestamp:
+    """Require an explicit timezone, then normalize it without guessing one."""
+    try:
+        timestamp = pd.Timestamp(value)
+    except (TypeError, ValueError, OverflowError) as exc:
+        raise ValueError(f"{label} must be a timezone-aware timestamp") from exc
+    if pd.isna(timestamp) or timestamp.tzinfo is None:
+        raise ValueError(f"{label} must be a timezone-aware timestamp")
+    return timestamp.tz_convert("UTC")
+
+
+def require_utc_column(values: Any, label: str) -> pd.Series:
+    """Column form of `require_utc_timestamp`, for CSV boundaries.
+
+    `pd.to_datetime(..., utc=True)` stamps UTC onto a naive value rather than
+    refusing it, which launders a local-time row past guards that correctly
+    demand an explicit offset.  Parse without `utc=True` first so a missing
+    timezone stays visible, then convert.
+    """
+
+    series = values if isinstance(values, pd.Series) else pd.Series(values)
+    try:
+        parsed = pd.to_datetime(series, errors="raise", utc=False)
+    except ValueError as exc:
+        if "Mixed timezones" not in str(exc):
+            raise
+        # Rows carry different offsets, which is legitimate; validate each one.
+        return pd.Series(
+            [
+                require_utc_timestamp(item, f"{label} row {position}")
+                for position, item in enumerate(series)
+            ],
+            index=series.index,
+        )
+    if isinstance(parsed.dtype, pd.DatetimeTZDtype):
+        return parsed.dt.tz_convert("UTC")
+    raise ValueError(f"{label} must be timezone-aware; the column carries no offset")
+
+
+DOMESTIC_FIXTURE_COLUMNS = (
+    "sportsdb_league_id", "kickoff_utc", "home_source_team_id", "away_source_team_id",
+)
+
+
+def domestic_fixture_keys(matches: pd.DataFrame) -> pd.DataFrame:
+    """Fixture identity after the caller has resolved provider aliases.
+
+    Source event IDs and seasons are deliberately excluded: neither can make a
+    second observation of the same fixture a new match.
+    """
+    keys = matches.loc[:, list(DOMESTIC_FIXTURE_COLUMNS)].copy()
+    keys["kickoff_utc"] = keys["kickoff_utc"].map(
+        lambda value: require_utc_timestamp(value, "domestic fixture kickoff_utc")
+    )
+    for column in DOMESTIC_FIXTURE_COLUMNS:
+        if column == "kickoff_utc":
+            continue
+        if keys[column].isna().any():
+            raise ValueError(f"Domestic fixture {column} cannot be missing")
+        keys[column] = keys[column].astype(str).str.strip()
+        if keys[column].eq("").any():
+            raise ValueError(f"Domestic fixture {column} cannot be blank")
+    return keys
+
+
+def validate_domestic_fixture_uniqueness(matches: pd.DataFrame, label: str) -> None:
+    keys = domestic_fixture_keys(matches)
+    duplicate = keys.duplicated(keep=False)
+    if duplicate.any():
+        examples = keys.loc[duplicate].head(4).to_dict("records")
+        raise ValueError(f"{label}: duplicate domestic fixture (canonical league/teams + UTC): {examples}")
+
+
 TEAM_COLUMNS = {
     "team_id",
     "team_name",

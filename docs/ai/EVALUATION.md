@@ -4,6 +4,21 @@ Bu belge production modelinin son toplu degerlendirmesini ve metodolojik
 sinirlarini ozetler. Sayisal otorite:
 `reports/current_model/current_model_evaluation_report.md`.
 
+28 Agustos 2026 revision'u parametre retuning'i degildir. On giris/state hatasi
+regresyon senaryolariyla ele alinmistir; bu sentetik kontrollerin gecmesi yeni
+bir performans veya prospective holdout kaniti sayilmaz. Domestic checkpoint
+`2.0` gecisi sonuc gecmisinden yeniden uretim gerektirir. Dogrulama komutlari
+ve yeniden uretilen artifact kanitlari `reports/production_bugfix_2026_08_28.md`
+icinde tutulur.
+
+Ayni gunun domestic veri butunlugu duzeltmesi ayrica
+`reports/domestic_integrity_fix_2026_08_28.md` icinde izlenir. Onceki checkpoint
+61 adet LIT 2026 fiksturunu history ve live tarafinda iki kez isliyordu.
+Provider sezonu ve coverage duzeltmesinden sonra veri/state ve etkilenen
+tahmin kaniti yeniden uretilir; sadece hash yenilemek yeterli degildir.
+Bu duzeltme ertelenen UTC fold-siniri bulgusunu veya prospective ledger eksigini
+kapatmaz; tarihsel testlere untouched holdout denemez.
+
 Tarihsel replay metrikleri 18 Agustos 2026 continuous qualifier-retention
 aktivasyonundan once uretilmistir. Aktif runtime Q1/Q2/Q3/QPO icin
 `0.20/0.275/0.35/0.425`, MAIN icin `1.00` efektif K carpanlarini kullanir ve
@@ -53,8 +68,10 @@ engeller.
 | Current - reference | | `-0.001640` | `-0.002915` | `+0.0047` | `+0.001771` | `+0.001226` |
 
 Dusuk Brier/log-loss daha iyidir. Current model Brier ve log-loss'ta `6/6`,
-same-season Spearman ve pairwise metriklerinde `5/6` fold yon kazanimi
-uretmistir.
+same-season Spearman ve pairwise metriklerinde `6/6` fold yon kazanimi
+uretmistir. Kaynak [fold_summary.csv](../../reports/current_model/fold_summary.csv):
+`CURRENT_PRODUCTION`, ayni foldun `REFERENCE_CORE_NO_ACTIVE_EXTRAS` satiriyla
+karsilastirilir; iki ranking metriginin de alti farki pozitiftir.
 
 Referans kolu da aktif `0.65` exposure cap'iyle seed'lenir. Onceki yayimlanmis
 referans (`0.573699`, fark `-0.004411`) bayat bir static manifest uzerinden
@@ -63,27 +80,49 @@ yapiyor ve exposure kararinin kendi kazancini feature katkisi gibi
 gosteriyordu. Manifest duzeltildikten sonra `CURRENT_PRODUCTION` degerleri
 degismedi; yalniz referans ve no-surprise kollari duzeldi.
 
-Bu tablo rating motorunun kendi 1X2 ayrisimini degerlendirir. Kullaniciya
-sunulan aktif prediction-only ensemble ayri backtestte:
+Bu tablo rating motorunun kendi 1X2 ayrisimini degerlendirir. Prediction-only
+ensemble'in ayri **nested walk-forward** backtesti asagidadir. Her foldun
+Poisson kaynagi ve ust blend agirligi yalniz o foldun onceki sezonlarindan
+secilir; bu tarihsel kol, production'daki sabit `%50/%50`, `rho=0` politikasinin
+birebir replay'i degildir.
 
 | Model | Mac | Brier | Log-loss | Accuracy |
 | --- | ---: | ---: | ---: | ---: |
 | AO rating core 1X2 | 4,884 | `0.566413` | `0.956259` | `0.559173` |
-| %50 Current ML + %50 AO Domestic Poisson | 4,884 | `0.561935` | `0.949792` | `0.561425` |
-| Ensemble - AO | | `-0.004478` | `-0.006468` | `+0.002252` |
+| Nested ML + Poisson (`ML_POISSON_ENSEMBLE`) | 4,884 | `0.562065` | `0.949965` | `0.561220` |
+| Ensemble - AO | | `-0.004348` | `-0.006294` | `+0.002048` |
 
-Iki tablonun AO kolu artik ayni sayidir (`0.566413`): ensemble paketi
-katilim normalizasyonu aktivasyonuyla birlikte yeniden uretilmistir. Servis
-edilen katmanin AO'ya kattigi deger aktivasyondan once `-0.004450`, sonra
-`-0.004478` olarak olculmustur; yani seed degisimi katmanin faydasini
-korumaktadir. Ayrinti: `reports/participation_served_ensemble/`.
+Iki tablonun AO kolu aynidir (`0.566413`). Guncel sayilar, `2026-08-28` domestic kaynak/fikstur duzeltmesinden sonraki
+[model_comparison.csv](../../reports/production_prediction/model_comparison.csv)
+dosyasindan gelir. Katilim gate'inin ayri
+[aday snapshot'i](../../reports/participation_served_ensemble/model_comparison_candidate.csv)
+`0.562152` Brier ve AO'ya `-0.004360` fark tasir; guncel nested kolun degerleri
+`0.562065` ve `-0.004348`dir. Iki snapshot birbirinin yerine kullanilmaz.
 
-Ensemble Current ML'ye karsi Brier ve log-loss'ta `4/6` fold kazanmistir.
+Nested ensemble Current ML'ye karsi Brier'da `4/6`, log-loss'ta `5/6` fold
+kazanmistir; `2024/25` iki metrikte de iyilesmistir. Kaynak
+[fold_results.csv](../../reports/production_prediction/fold_results.csv).
 Dependency uncertainty otomatik terfi kapisini gecmedigi icin tarihsel karar
 `KEEP_SHADOW`dur; operasyonel karar kullanici onayiyla, AO fallback ve 2026/27
 izleme kosullari altinda `PROMOTE_WITH_MONITORING` olmustur.
 
-Dependency-robust pooled farklar:
+Nested kolda Poisson agirliklari fold sirasiyla `0.6/0.9/0.7/0.3/0.1/0.2`dir;
+kaynak da foldlar arasinda degisir
+([fold_selections.csv](../../reports/production_prediction/fold_selections.csv)).
+`--prospective-poisson-weight 0.5` yalniz ileriye donuk secimi pinler; bu
+tarihsel satirlari sabit agirlikla yeniden hesaplamaz. Aktif production
+politikasi `%50 Current ML + %50 AO Domestic Poisson (rho=0)` olarak korunur.
+
+Nested ensemble icin dependency-robust pooled farklar
+([dependency_uncertainty.csv](../../reports/production_prediction/dependency_uncertainty.csv),
+`scope=ALL`, `method=conservative_envelope`):
+
+| Baseline | Brier farki [%95 CI] | Log-loss farki [%95 CI] |
+| --- | --- | --- |
+| Current AO | `-0.004348 [-0.006442,-0.002186]` | `-0.006294 [-0.009636,-0.002765]` |
+| Current ML | `-0.000685 [-0.001662,+0.000218]` | `-0.001249 [-0.002901,+0.000265]` |
+
+AO rating core - reference core icin dependency-robust pooled farklar:
 
 | Metrik | Ortalama fark | %95 CI | Yorum |
 | --- | ---: | --- | --- |
@@ -252,13 +291,13 @@ fit edilir ve iki tarafa ayni beraberlik modeli uygulanir:
 Climatology (walk-forward)   Brier 0.642983  log-loss 1.062634
 ClubElo (yayinlanmis 400)    Brier 0.574983  log-loss 0.966819
 AO rating cekirdegi          Brier 0.577244  log-loss 0.972194
-AO servis edilen ensemble    Brier 0.578708  log-loss 0.972945
+AO servis edilen ensemble    Brier 0.579166  log-loss 0.973577
 ```
 
 ClubElo nokta tahmininde hala ondedir fakat acik katilim normalizasyonu
 aktivasyonuyla belirgin sekilde daralmistir: AO cekirdeginin ClubElo'ya
 Brier farki `+0.012852` -> `+0.002261`, servis edilen kolunki `+0.010958`
--> `+0.003725`. Dort karsilastirmanin dordunde de conservative zarf sifiri
+-> `+0.004183` (28 Agustos domestic veri onarimi sonrasi). Dort karsilastirmanin dordunde de conservative zarf sifiri
 keser; yani hicbir yonde guvenilir fark yoktur.
 
 Eksen 2, sezon basi ratingleri gerceklesen 2025/26 performansina karsi puanlar.

@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
-from dataclasses import dataclass
+from dataclasses import dataclass, fields
 from datetime import datetime
 from pathlib import Path
 from typing import Mapping
@@ -25,6 +25,7 @@ from ao_elo.ml_prediction import (
     blend_probabilities,
     predict_ml_1x2,
 )
+from ao_elo.validators import require_utc_timestamp
 
 
 PRODUCTION_PREDICTION_STATUS = "PROMOTE_WITH_MONITORING"
@@ -202,8 +203,9 @@ class ProductionPredictionService:
         allow_degraded_fallback: bool = True,
     ) -> "ProductionPredictionService":
         path = Path(contract_path).resolve()
-        contract_sha = _sha256(path)
+        contract_sha = "UNAVAILABLE"
         try:
+            contract_sha = _sha256(path)
             runtime = load_production_prediction_runtime(
                 path, repository_root=repository_root
             )
@@ -284,7 +286,7 @@ class ProductionPredictionService:
             raw_ml,
             runtime.config.raw_ml_within_component_weight,
         )
-        transfer = _build_poisson_transfer_row(runtime, row, ao)
+        transfer = _build_poisson_transfer_row(runtime, row, ao, generated_at)
         poisson_prediction = predict_european_poisson_transfer(
             transfer,
             runtime.config.transfer_config,
@@ -522,10 +524,10 @@ def _config_from_contract(layer: Mapping[str, object]) -> ProductionPredictionCo
     if monitoring.get("compare_against_current_ao") is not True:
         raise ValueError("Production monitoring must retain the current AO comparator")
     domestic = DomesticPoissonConfig(
-        **dict(_mapping(poisson.get("domestic_config"), "domestic_config"))
+        **_complete_config(poisson.get("domestic_config"), DomesticPoissonConfig, "domestic_config")
     )
     transfer = EuropeanPoissonTransferConfig(
-        **dict(_mapping(poisson.get("transfer_config"), "transfer_config"))
+        **_complete_config(poisson.get("transfer_config"), EuropeanPoissonTransferConfig, "transfer_config")
     )
     return ProductionPredictionConfig(
         model_version=str(layer.get("model_version")),
@@ -549,9 +551,14 @@ def _build_poisson_transfer_row(
     runtime: ProductionPredictionRuntime,
     row: object,
     ao: np.ndarray,
+    generated_at: pd.Timestamp,
 ) -> pd.DataFrame:
-    home = _domestic_snapshot(runtime, str(row.home_club_id))
-    away = _domestic_snapshot(runtime, str(row.away_club_id))
+    home = _domestic_snapshot(
+        runtime, str(row.home_club_id), generated_at, row.kickoff_utc
+    )
+    away = _domestic_snapshot(
+        runtime, str(row.away_club_id), generated_at, row.kickoff_utc
+    )
     coverage = (
         "BOTH"
         if home.covered and away.covered
@@ -583,6 +590,8 @@ def _build_poisson_transfer_row(
 def _domestic_snapshot(
     runtime: ProductionPredictionRuntime,
     club_id: str,
+    generated_at: pd.Timestamp,
+    kickoff: pd.Timestamp,
 ) -> DomesticTeamSnapshot:
     identity = runtime.domestic_identity_map.get(club_id)
     if identity is None:
@@ -590,6 +599,11 @@ def _domestic_snapshot(
     league = runtime.domestic_engine.leagues.get(identity[0])
     if league is None or league.current_season is None:
         return empty_domestic_snapshot()
+    cutoff = league.last_kickoff_utc
+    if cutoff is None and any(team.effective_matches > 0 for team in league.teams.values()):
+        raise ValueError("Domestic state is missing its kickoff cutoff")
+    if cutoff is not None and (cutoff > generated_at or cutoff >= kickoff):
+        raise ValueError("Domestic state cutoff is not causal for this prediction")
     return runtime.domestic_engine.snapshot(
         identity[0],
         league.current_season,
@@ -641,11 +655,10 @@ def _validate_base_prediction_frame(
         result["is_neutral"] = result["is_neutral"].map(_coerce_boolean)
     except ValueError as exc:
         raise ValueError("is_neutral must be boolean or 0/1") from exc
-    kickoff = pd.to_datetime(result["kickoff_utc"], utc=True, errors="coerce")
-    generated = pd.Timestamp(generated_at_utc)
-    if generated.tzinfo is None:
-        raise ValueError("generated_at_utc must be timezone-aware")
-    generated = generated.tz_convert("UTC")
+    kickoff = result["kickoff_utc"].map(
+        lambda value: require_utc_timestamp(value, "kickoff_utc")
+    )
+    generated = require_utc_timestamp(generated_at_utc, "generated_at_utc")
     if kickoff.isna().any() or (kickoff <= generated).any():
         raise ValueError("Every production prediction must be locked before kickoff")
     result["kickoff_utc"] = kickoff
@@ -791,6 +804,28 @@ def _mapping(value: object, name: str) -> Mapping[str, object]:
     if not isinstance(value, Mapping):
         raise ValueError(f"{name} must be an object")
     return value
+
+
+def _complete_config(value: object, config_type: type, name: str) -> dict[str, object]:
+    """Require the contract to state every field of a frozen config block.
+
+    Splatting the mapping straight into the dataclass let a missing key fall back
+    to the source-code default: deleting `lambda_max` still loaded, still gave
+    `4.5`, and still produced the same `config_id`.  The contract is the top
+    authority, so a field it no longer states must fail loudly rather than be
+    reconstructed from the code it is supposed to govern.
+    """
+
+    mapping = _mapping(value, name)
+    expected = {field.name for field in fields(config_type)}
+    provided = set(mapping)
+    missing = sorted(expected - provided)
+    unknown = sorted(provided - expected)
+    if missing:
+        raise ValueError(f"{name} is missing contract fields: {missing}")
+    if unknown:
+        raise ValueError(f"{name} has unknown contract fields: {unknown}")
+    return dict(mapping)
 
 
 def _repository_path(root: Path, value: object) -> Path:

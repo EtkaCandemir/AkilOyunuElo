@@ -70,12 +70,24 @@ def main() -> None:
         "--coverage-audit",
         type=Path,
         help=(
-            "Optional target coverage audit. Clubs failing candidate_state_eligible "
-            "remain in the identity audit but are disabled for production Poisson."
+            "Target coverage audit, required whenever --live-domestic-matches is "
+            "given. Clubs failing candidate_state_eligible remain in the identity "
+            "audit but are disabled for production Poisson."
         ),
     )
     parser.add_argument("--output-root", type=Path, default=OUTPUT_ROOT)
     args = parser.parse_args()
+
+    # RUNBOOK section 8.2 declares --coverage-audit mandatory for a live build.
+    # argparse treated it as optional, and skipping it does not fail loudly: the
+    # gate is simply absent, so a club that never cleared the two-season/40-match
+    # threshold is published as production-eligible.  Refuse before any file is
+    # written rather than after the ML artifact already landed.
+    if args.live_domestic_matches is not None and args.coverage_audit is None:
+        parser.error(
+            "--coverage-audit is required with --live-domestic-matches; without it "
+            "the production Poisson eligibility gate is silently disabled"
+        )
 
     source_ml = args.source_ml_artifact.resolve()
     decision_path = args.ensemble_decision.resolve()
@@ -226,16 +238,16 @@ def main() -> None:
             "excluded_by_coverage_gate": len(ineligible_club_ids),
         },
         "evidence": {
-            "source": "output/final_prediction_ensemble_backtest_2018_2026/selected_candidate.json",
-            "development_matches": 6340,
-            "unseen_matches": 4884,
-            "pooled_brier": 0.561934871096546,
-            "pooled_log_loss": 0.9497915174563584,
-            "pooled_accuracy": 0.5614250614250614,
-            "delta_brier_vs_ao": -0.0044776562076448,
-            "delta_log_loss_vs_ao": -0.0064677297696585,
+            "source": str(decision_path.relative_to(ROOT)),
+            "source_sha256": _sha256(decision_path),
+            "measurement": "NESTED_OOS_NOT_FIXED_PRODUCTION_REPLAY",
+            **{key: decision[key] for key in (
+                "development_matches", "unseen_matches", "pooled_brier",
+                "pooled_log_loss", "pooled_accuracy", "delta_brier_vs_ao",
+                "delta_log_loss_vs_ao",
+            )},
             "manual_operational_decision": True,
-            "historical_gate_decision": "KEEP_SHADOW",
+            "historical_gate_decision": decision["decision"],
         },
         "runtime": {
             "python": platform.python_version(),

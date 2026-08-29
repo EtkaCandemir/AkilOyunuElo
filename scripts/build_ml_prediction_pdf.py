@@ -18,7 +18,7 @@ from pdf_common import (
 )
 
 
-DOCUMENT_DATE = "15 Ağustos 2026"
+DOCUMENT_DATE = "28 Ağustos 2026"
 RATING_VERSION = "ao-european-elo-v2.0-dev-freeze"
 PREDICTION_VERSION = "ao-ml-poisson-ensemble-v1-production"
 
@@ -26,7 +26,7 @@ SPEC = PdfSpec(
     filename="AkilOyunu_ML_Tahmin_Katmani_Aciklayici.pdf",
     title="AO ML Tahmin Katmanı",
     subtitle="Structural Logistic + Domestic Poisson Teknik Açıklaması",
-    version="AO ML Tahmin Katmanı | Production revizyonu 2026-08-13",
+    version="AO ML Tahmin Katmanı | Runtime revizyonu 2026-08-28",
     document_date=DOCUMENT_DATE,
     subject="AO European Elo production ML ve Domestic Poisson 1X2 tahmin katmanı",
 )
@@ -274,10 +274,10 @@ def story() -> list[object]:
         ),
         table(
             [
-                ["Kapsam / parametre", "Aktif değer"],
-                ["Yerel maç", "45.423"],
-                ["Lig / source takım", "19 / 508"],
-                ["AO'ya güvenle eşleşen kulüp", "171"],
+                ["Kapsam / parametre", "Değer"],
+                ["Tarihsel eğitim: maç / lig / takım", "45.419 / 19 / 508"],
+                ["Güncel checkpoint: maç / lig", "76.327 / 34"],
+                ["Production'a uygun AO kulübü", "311 (Torreense coverage gate dışında)"],
                 ["Team learning rate", "0.02"],
                 ["Season carry", "0.90"],
                 ["Shrinkage matches", "10"],
@@ -427,16 +427,17 @@ def story() -> list[object]:
         body(
             "Model geliştirme penceresinde 6.340 Avrupa maçı kullanılmış, 2020/21-2025/26 "
             "arasındaki altı unseen fold içinde 4.884 maç değerlendirilmiştir. Her test sezonunun "
-            "model ve ağırlık seçimi yalnız daha eski sezonlardan yapılmıştır.",
+            "model ve ağırlık seçimi yalnız daha eski sezonlardan yapılmıştır. Final kol tarihsel "
+            "nested ensemble'dır; sabit production %50/%50 karışımının birebir replay'i değildir.",
             s,
         ),
         table(
             [
                 ["Model", "Brier", "Log-loss", "Accuracy", "AO'ya Brier farkı"],
                 ["Current AO", "0.566413", "0.956259", "%55.917", "0"],
-                ["Current ML", "0.562524", "0.950903", "%56.061", "-0.003889"],
-                ["AO Poisson rho=0", "0.564087", "0.952790", "%56.102", "-0.002325"],
-                ["Final ML + Poisson", "0.561935", "0.949792", "%56.143", "-0.004478"],
+                ["Current ML", "0.562750", "0.951215", "%56.020", "-0.003663"],
+                ["AO Poisson rho=0", "0.564089", "0.952793", "%56.122", "-0.002323"],
+                ["Nested ML + Poisson", "0.562065", "0.949965", "%56.122", "-0.004348"],
             ],
             [4.6 * cm, 2.8 * cm, 3.1 * cm, 2.85 * cm, 3.1 * cm],
             s,
@@ -445,12 +446,12 @@ def story() -> list[object]:
         table(
             [
                 ["Test sezonu", "Maç", "Brier", "Log-loss", "Accuracy", "Current ML'ye loss yönü"],
-                ["2020/21", "540", "0.531981", "0.903835", "%59.444", "İyi / iyi"],
-                ["2021/22", "816", "0.572171", "0.966765", "%55.147", "İyi / iyi"],
-                ["2022/23", "804", "0.581384", "0.977980", "%52.488", "Kötü / kötü"],
-                ["2023/24", "806", "0.556752", "0.943075", "%56.452", "İyi / iyi"],
-                ["2024/25", "957", "0.568649", "0.961743", "%55.904", "İyi / iyi"],
-                ["2025/26", "961", "0.582762", "0.979379", "%54.318", "Kötü / kötü"],
+                ["2020/21", "540", "0.521320", "0.889508", "%62.037", "İyi / iyi"],
+                ["2021/22", "816", "0.570690", "0.963739", "%54.902", "İyi / iyi"],
+                ["2022/23", "804", "0.573972", "0.966409", "%53.234", "Kötü / iyi"],
+                ["2023/24", "806", "0.552351", "0.935675", "%56.576", "İyi / iyi"],
+                ["2024/25", "957", "0.562454", "0.951404", "%56.322", "İyi / iyi"],
+                ["2025/26", "961", "0.575434", "0.969038", "%55.671", "Kötü / kötü"],
             ],
             [3.2 * cm, 2.0 * cm, 2.65 * cm, 2.8 * cm, 2.7 * cm, 3.1 * cm],
             s,
@@ -459,24 +460,24 @@ def story() -> list[object]:
         table(
             [
                 ["Model", "ECE", "Calibration slope", "Mean max probability"],
-                ["Current AO", "0.009766", "0.927855", "0.558511"],
-                ["Current ML", "0.015590", "0.966811", "0.550279"],
-                ["Final ensemble", "0.013066", "0.975041", "0.551092"],
+                ["Current AO", "0.014042", "1.114606", "0.545131"],
+                ["Current ML", "0.015876", "1.043793", "0.546343"],
+                ["Nested ensemble", "0.012597", "1.056235", "0.548623"],
             ],
             [4.7 * cm, 3.4 * cm, 4.1 * cm, 4.25 * cm],
             s,
         ),
         body(
             "Calibration slope'un 1'e yaklaşması olasılık yayılımının daha dengeli olduğunu "
-            "gösterir. Buna karşılık ECE Current AO'dan düşük değildir; dolayısıyla bütün "
-            "kalibrasyon ölçülerinin aynı anda iyileştiği iddia edilmez.",
+            "gösterir. Nested ensemble ECE ve slope'ta AO'dan iyidir; slope'ta Current ML'den "
+            "iyi değildir. Bütün kalibrasyon ölçülerinin aynı anda iyileştiği iddia edilmez.",
             s,
         ),
         page_break(),
         h1("10. Karar, Sınırlamalar ve Monitoring", s),
         callout(
             "Production durumu",
-            "Tarihsel otomatik gate sonucu KEEP_SHADOW'dur. Pooled loss, 4/6 fold sonucu ve "
+            "Tarihsel otomatik gate sonucu KEEP_SHADOW'dur. Pooled loss, fold sonuçları ve "
             "kalibrasyon sinyali üzerine açık ürün kararıyla PROMOTE_WITH_MONITORING olarak "
             "aktive edilmiştir. Bu ayrım bilimsel raporda saklanır.",
             s,
@@ -485,7 +486,7 @@ def story() -> list[object]:
         h2("10.1 Neden monitoring zorunlu?", s),
         *bullets(
             [
-                "Final ensemble Current ML'ye karşı Brier ve log-loss'ta 4/6 fold kazanmıştır; iki fold gerilemiştir.",
+                "Nested ensemble Current ML'ye karşı Brier'da 4/6, log-loss'ta 5/6 fold kazanmıştır; 2024/25 iki loss'ta da iyidir.",
                 "Dependency uncertainty gate tarihsel değerlendirmede geçmemiştir.",
                 "UECL ve yerel geçmişi olmayan coverage segmentinde Current ML'ye karşı küçük ters yönler vardır.",
                 "2018/19-2025/26 tekrar kullanılan geliştirme penceresidir; bağımsız prospective kanıt değildir.",
@@ -499,6 +500,11 @@ def story() -> list[object]:
                 ["Kontrol", "Davranış"],
                 ["Artifact checksum", "ML model, feature schema ve state SHA-256 doğrulanır"],
                 ["Startup hatası", "Strict modda servis durur; degraded mod yalnız açık fallback ile çalışır"],
+                ["Eksik contract dosyası", "Yalnız degraded yüklemeye izin varsa AO fallback; hash UNAVAILABLE"],
+                ["Domestic checkpoint 2.0", "İşlenmiş ID ve lig cutoff'u kalıcı; tekrar, eski veya bölünmüş batch ret"],
+                ["Fikstür tekilliği", "Kanonik lig/takım + normalize UTC; farklı event ID ikinci maç sayılmaz"],
+                ["Causal snapshot", "Lig cutoff'u üretim zamanını aşamaz ve fixture kickoff'undan önce olmalıdır"],
+                ["ML metadata/boolean", "Ortak alanlar uzlaştırılır, çelişki reddedilir; string false, 0 demektir"],
                 ["Satır feature/state hatası", "Served 1X2 birebir Current AO olur"],
                 ["Olasılık invariantı", "Finite, negatif olmayan ve toplamı 1"],
                 ["Prediction ledger", "Ara olasılıklar, hash'ler, coverage ve fallback nedeni loglanır"],
@@ -523,11 +529,12 @@ def story() -> list[object]:
         body(
             "AO Elo takımın temel gücünü hesaplıyor. Structural Logistic maçın formatını, Avrupa "
             "formunu, dinlenme ve yoğunluk koşullarını kullanarak AO olasılığını kalibre ediyor. "
-            "Domestic Poisson ise 45.423 yerel lig maçından öğrenilen lig-relative hücum ve "
+            "Domestic Poisson ise yerel lig maçlarından öğrenilen lig-relative hücum ve "
             "savunma profilleriyle gol dağılımı oluşturuyor. Bu üç bilgi log-probability "
             "uzayında birleşiyor. ML ve Poisson ratingi değiştirmiyor; yalnız kullanıcıya "
             "gösterilen Home/Draw/Away yüzdelerini iyileştiriyor. Unseen backtestte Brier "
-            "0.5721'den 0.5681'e, log-loss 0.9644'ten 0.9592'ye indi. Katman 2026/27'de "
+            "0.566413'ten 0.562065'e, log-loss 0.956259'dan 0.949965'ye indi. Bu tarihsel nested "
+            "ölçümdür, sabit production karışımının birebir replay'i değildir. Katman 2026/27'de "
             "Current AO fallback ile birlikte izleniyor.",
             s,
         ),

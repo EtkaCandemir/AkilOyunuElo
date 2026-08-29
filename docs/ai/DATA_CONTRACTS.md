@@ -12,6 +12,13 @@ sema `validators.py`, `pipeline.py` ve `dynamic_csv.py` dosyalaridir.
 - `season`, rating'in uretildigi hedef sezon veya macin ait oldugu sezondur.
 - UTC timestamp timezone-aware olmali ve chronology `kickoff_utc + match_id`
   ile deterministik tutulmalidir.
+  CSV ve prediction girisi eksik timezone'a UTC atamaz; acik offset'i UTC'ye
+  donusturur. Domestic gol alanlari tam sayi olmalidir: `1.0` kabul,
+  `0.999999` ve `1.000001` ret; toleransla kabul edip asagi kesme yoktur.
+- `played_*`, ML `is_single_match_tie`, `is_neutral`, `is_knockout` icin
+  canonical `true/false` metni boolean/0/1 ile ayni sonucu verir.
+- ML baseline ve metadata'da ortak tur/leg kolonlari esitse korunur, eksik
+  taraf digerinden tamamlanir; dolu ve celisen degerler reddedilir.
 - Eksik kanit sifirla doldurulmaz. Yalniz model sozlesmesinin acik sifir kabul
   ettigi satirlar sifir olabilir.
 
@@ -451,6 +458,137 @@ doldurmaz; ayni satir icin final H/D/A'yi Current AO 1X2 olarak kaydeder.
 79 uygun hedef kulubu ve sadece ilgili Avrupa kickoff'undan once tamamlanmis
 yerel maclari icerir. União Torreense, iki sezon/40 mac esigini gecmedigi icin
 Poisson `NONE/ONE` kurallarindan guvenli fallback alir.
+
+Domestic engine checkpoint semasi `2.0`, `processed_event_ids` listesini ve
+her lig icin `last_kickoff_utc` alanini saklar. Eski `1.0` checkpoint otomatik
+migrate edilmez; kaynak sonuclardan yeniden uretilir. Event tekrar uygulama,
+lig icinde geri tarih ve ayni lig/kickoff'u birden fazla batch'e bolme ret
+sebebidir. Gecersiz batch state degismeden reddedilir.
+Snapshot'in cutoff'u `<= generated_at_utc` ve `< fixture kickoff_utc` olmali;
+aksi halde satir `FALLBACK_CURRENT_AO` olur. Bu kontrol sonucun gercekten ne
+zaman edinildigini kanitlamaz; provider availability ve append-only ledger
+ingestion katmaninin ayrica saglamasi gereken kosullardir.
+
+### 11.2 Domestic kaynak sezonu ve fikstur uzlastirmasi
+
+Secondary archive'de `provider_season`/`season` varsa kaynak sezonu kullanilir.
+Yoksa takvim liglerinde kickoff'un UTC yili kullanilir; AO'nun Temmuz siniri
+provider yilini degistirmez. Tarihsel `start_year/end_year` filtresi provider
+sezonuna uygulanir. Kis liglerinde kaynak sezonu olmayan arsiv icin Temmuz
+siniri tahmini kullanilir; acik kaynak sezonu gec oynanan maclarda onceliklidir.
+
+Merge'den once lig/takim provider alias'lari kanoniklestirilir. Fikstur anahtari
+`(sportsdb_league_id, normalized kickoff_utc, home_source_team_id, away_source_team_id)`
+benzersizdir; farkli event ID veya AO sezonu ikinci mac yaratmaz. Merge ve replay
+tekrarli fiksturu reddeder. Replay'de otomatik dedup yoktur.
+
+Kaynak normalizasyonu ayni fikstur/ayni skoru tek gozleme indirirken her KEEP ve
+REMOVE_OBSERVATION kararini `fixture_reconciliation_audit.csv`'ye yazar.
+Celisen skorlar yalniz `data/domestic_fixture_reconciliations.json` icindeki
+resmi kaynak karari ve birebir eslesen gozlemlerle uzlastirilir. Bilinmeyen
+celiski butun build'i durdurur; sezon sessizce atlanmaz. Ham cache degismez.
+
+Secondary coverage beklentisi en az iki kez gorulen moddur; hicbir sayim tekrar
+etmiyorsa `ceil(median(season_counts))` kullanilir. Audit'teki
+`format_expectation_method` bu ayrimi saklar. Her iki yontem de tahminidir;
+resmi fikstur formati veya eksiksizlik kaniti degildir. Kabul esigi yine %95'tir.
+
+#### Bilinen kapsam bosluklari
+
+Kaynak sezonu duzeltildikten sonra iki lig-sezonu production girdisinin disinda
+kalir. Bu karar `FROZEN_ACCEPTED_COVERAGE_GAPS` ile pinlidir; provider'in daha
+sonra farkli bir tablo dondurmesi sezona sessizce production girisi vermez:
+
+| Lig-sezon | Arsivdeki oynanmis mac | Beklenen (mod) | Coverage | Sonuc |
+| --- | ---: | ---: | ---: | --- |
+| GEO 2014 | 120 | 184 | 0.652 | REJECTED |
+| LIT 2020 | 60 | 127 | 0.472 | REJECTED / FROZEN |
+
+Ikisi de secondary arsivde tam olarak mevcuttur ve `is_played` degeri dogrudur;
+kapi eksik veri gordugu icin degil, sezonun mac sayisi ligin tekrar eden format
+sayisindan materyal olarak farkli oldugu icin reddeder. Bu iki sezon onceki
+revision'da **yanlislikla** dahildi: bozuk provider-sezon turetmesi onlari gecerli
+bir sezon kovasina karistiriyordu. Duzeltme etiketi dogrulttu, kapi da tasarlandigi
+gibi calisti.
+
+Yayimlanan `league_season_quality.csv` bu iki satiri
+`REJECTED / UNAVAILABLE / FROZEN_ACCEPTED_COVERAGE_GAP` olarak gosterir. Kaynak
+secimi audit'i diger provider'in kendi verdictini de korur. 2026-08-29
+yenilemesinde primary LIT 2020 icin `60/60` kabul sonucu dondurdu; pin bu yeni
+kaynak sonucunun daha once kabul edilmis coverage politikasini sessizce
+degistirmesini engelledi. Secondary olcumu `60/127 = 0.472441` olarak audit'te
+ayrica gorunur.
+
+#### Kickoff timezone siniri
+
+Normalize edilmis domestic CSV sinirinda `kickoff_utc` **acik offset tasimak
+zorundadir**.  `merge_domestic_candidate` ve `select_causal_domestic_results`
+artik `validators.require_utc_column`, causal cutoff ise
+`require_utc_timestamp` kullanir; timezone-naive bir kolon reddedilir, farkli
+offset'ler tek tek dogrulanip UTC'ye cevrilir.
+
+Bu sinir onemlidir cunku `replay_domestic_poisson_state` naive timestamp'i zaten
+dogru reddeder; merge onu once UTC'ye damgalayinca o guard etkisiz kaliyordu.
+`select_causal_domestic_results` tarafinda ayni damgalama cutoff'u kaydirip
+kickoff'tan sonra oynanmis bir sonucun tahmine girmesine yol acabilirdi.
+
+Ham provider arsivinin kendi schema'sinda UTC olarak tanimlanmis
+timezone-naive alani ayri bir adapter sozlesmesidir
+(`normalize_secondary_fixtures`); o sinir bu kuralin disindadir.
+
+#### Kapi kararinin kaynak-bagimliligi
+
+Coverage kapisi bir eksiksizlik olcusu **degildir**: verdigi karar hangi
+kaynagin sectirildigine baglidir.  Ayni denetimde ortaya cikan karsi ornek:
+
+| Lig-sezon | Secondary | Primary | Production sonucu |
+| --- | --- | --- | --- |
+| GEO 2014 | `120/184 = 0.652` REJECTED | UNAVAILABLE | disarida |
+| LIT 2020 | `60/127 = 0.472` REJECTED | `60/60 = 1.000` ACCEPTED | **frozen pin nedeniyle disarida** |
+| GEO 2020 | `94/184 = 0.511` REJECTED | `92/72 = 1.278` ACCEPTED | **iceride** |
+
+GEO 2020 secondary'nin kendi olcusune gore GEO 2014'ten **daha kotudur**
+(`0.511 < 0.652`), ama production'a girer; cunku primary'nin kendi beklentisi
+`72`, secondary'nin cikardigi lig formati ise `184`.  Iki sezonun dusmesinin
+sebebi daha eksik olmalari degil, daha gevsek beklentiye sahip bir primary
+fallback'lerinin olmamasidir.
+
+Kaynak secimi artik kaybeden kaynagin kendi verdictini de yazar.  Her satirda
+su bes alan bulunur (kabul edilen kaynak primary ise `secondary_*`, secondary
+ise `primary_*` onekiyle):
+
+```text
+<other>_quality_status          ACCEPTED / REJECTED / ABSENT
+<other>_quality_reason
+<other>_schedule_matches
+<other>_table_expected_matches
+<other>_coverage_rate
+```
+
+Boylece LIT 2020 satiri frozen policy kararini tasirken
+`secondary_quality_reason = SECONDARY_INFERRED_FORMAT_BELOW_95_PCT` ve
+`secondary_coverage_rate = 0.472441` de gorunur; GEO 2020 satirinda ise
+`table_expected_matches = 72` ile `secondary_table_expected_matches = 184`
+yan yana durur.  Bu kolonlar 2026-08-29 expansion build'inde yayimlanan CSV'de
+mevcuttur.
+
+Bu tekil bir durum degildir: `league_season_quality.csv` icinde **26 ulke** ayni
+lig icin birden fazla `table_expected_matches` degeri tasir.  Dolayisiyla
+"coverage kapisindan gecti" ifadesi sezonun tam oldugunu gostermez.  Kapinin
+kaynak-bagimsiz hale gelmesi, beklenen mac sayisinin resmi fikstur kaydindan
+pinlenmesini gerektirir; bu yapilmamistir.
+
+Mevcut kanitla "gercekten kisa sezon" ile "eksik arsiv" ayirt edilemez; ayrim
+resmi lig fikstur kaydi gerektirir. Bu yuzden beklenen sayi elle pinlenmemis,
+bosluk **bilinen ve kabul edilmis** olarak kayda gecirilmistir. Etki yalnizca
+domestic Poisson gecmisidir: hicbir AO First parametresi, exposure cap'i,
+katilim k'si veya served blend agirligi bu iki sezondan turetilmez. Iki sezon
+2026/27'ye sirasiyla 12 ve 6 sezon uzaklikta oldugu icin `season_carry` ile
+sonumlenmis halde tasinir.
+
+Bu kabul bir kalite iddiasi degildir. Beklenen sayiyi resmi kaynaktan pinlemek
+veya takim sayisindan turetmek dogru cozumdur; holdout kilidinden sonraki bakim
+turuna birakilmistir. Kapi kaldirilmamali, esik dusurulmemelidir.
 
 ## 12. Veri Kalitesi Kontrol Listesi
 

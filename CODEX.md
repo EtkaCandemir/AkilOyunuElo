@@ -1,8 +1,21 @@
 # AO European Elo - Codex Project Context
 
-Son dogrulama tarihi: **2026-08-27**
+Son dogrulama tarihi: **2026-08-28**
 Aktif model: **`ao-european-elo-v2.0-dev-freeze`**  
-Production revision: **`2026-08-27-participation-cup-and-unknown-position`**
+Production revision: **`2026-08-28-domestic-provider-season-and-fixture-integrity-fixes`**
+
+Bu revision parametre secimi degil, domestic kaynak sezonu ve fikstur tekilligi
+duzeltmesidir; onceki on giris/state duzeltmesini de korur. Provider sezonu
+AO sezonundan geri turetilmez. Kanonik lig/takim + UTC fikstur anahtari merge
+ve replay girisinde benzersizdir. Skor celiskileri yalniz kayitli resmi kaynak
+karariyla uzlastirilir. Secondary format esigi tekrar eden mod, yoksa medyandir;
+dogrulanmis format olarak sunulmaz. Domestic Poisson checkpoint semasi `2.0`: islenmis event ID'leri
+ve lig bazinda son kickoff kalicidir. Duplicate/eski/bolunmus kickoff batch'i
+reddedilir; tahminde kullanilan lig state'i uretim zamanindan ileri veya fixture
+kickoff'una esit/ileri olamaz. Eski checkpoint sonuc replay'iyle yeniden kurulur.
+Timezone'suz timestamp, kesirli gol, celisen ML metadata ve tek maclik skor
+galibiyle uyusmayan advancer reddedilir. Canonical string boolean'lar 0/1 ile
+esdegerdir. Donmus model agirliklari ve aktif katmanlar degismemistir.
 
 Bu belge yeni bir Codex oturumunun projeyi sohbet gecmisine ihtiyac duymadan
 anlamasi icin ana giris noktasidir. Formul, veri ve metodoloji ayrintilari alt

@@ -19,6 +19,9 @@ if str(ROOT) not in sys.path:
 
 from ao_elo.domestic_league_dataset import (  # noqa: E402
     UCL_UEL_EXPANSION_LEAGUES,
+    DomesticFixtureConflictError,
+    FIXTURE_RECONCILIATIONS,
+    FIXTURE_AUDIT_COLUMNS,
     assess_league_season,
     attach_domestic_club_ids,
     build_domestic_team_bridge,
@@ -35,6 +38,7 @@ from ao_elo.domestic_ucl_uel_expansion import (  # noqa: E402
     select_source_safe_seasons,
     target_domestic_coverage_audit,
 )
+from ao_elo.validators import require_utc_column  # noqa: E402
 from scripts.build_domestic_league_dataset import (  # noqa: E402
     RequestLimiter,
     SportsDbClient,
@@ -49,6 +53,7 @@ OUTPUT_ROOT = ROOT / "data" / "domestic_league_expansion_ucl_uel"
 REGISTRY_PATH = ROOT / "data" / "club_identity" / "club_registry.csv"
 PREPRODUCTION = ROOT / "data" / "season_2026_27_preproduction"
 ENV_PATH = ROOT / ".env.local"
+FROZEN_ACCEPTED_COVERAGE_GAPS = frozenset({("GEO", "2014"), ("LIT", "2020")})
 
 
 def main() -> None:
@@ -96,6 +101,7 @@ def main() -> None:
     client = SportsDbClient(api_key, RequestLimiter(args.request_delay))
     quality_rows: list[dict[str, object]] = []
     frames: list[pd.DataFrame] = []
+    fixture_audit: list[dict[str, object]] = []
     total = len(UCL_UEL_EXPANSION_LEAGUES) * (args.end_year - args.start_year + 1)
     completed = 0
     for spec in UCL_UEL_EXPANSION_LEAGUES:
@@ -116,7 +122,7 @@ def main() -> None:
                     refresh=args.refresh,
                     offline=args.offline,
                 )
-                matches = normalize_schedule(schedule, spec, provider_season)
+                matches = normalize_schedule(schedule, spec, provider_season, reconciliation_audit=fixture_audit)
                 expected = _table_expected_matches(table)
                 assessment = assess_league_season(
                     matches,
@@ -124,7 +130,11 @@ def main() -> None:
                     provider_season=provider_season,
                     expected_matches=expected,
                 )
-                if assessment["quality_status"] == "ACCEPTED":
+                if (
+                    assessment["quality_status"] == "ACCEPTED"
+                    and (spec.country_code, str(provider_season))
+                    not in FROZEN_ACCEPTED_COVERAGE_GAPS
+                ):
                     frames.append(
                         matches.assign(
                             source_provider="THESPORTSDB_PREMIUM",
@@ -138,6 +148,8 @@ def main() -> None:
                 assessment["source_selection"] = (
                     "PRIMARY_ACCEPTED" if assessment["quality_status"] == "ACCEPTED" else "SECONDARY_REQUIRED"
                 )
+            except DomesticFixtureConflictError:
+                raise
             except Exception as exc:  # noqa: BLE001 - source failures are audited data
                 assessment = {
                     "country_code": spec.country_code,
@@ -157,6 +169,10 @@ def main() -> None:
                     "source_provider": "THESPORTSDB_PREMIUM",
                     "source_selection": "SECONDARY_REQUIRED",
                 }
+            if (spec.country_code, str(provider_season)) in FROZEN_ACCEPTED_COVERAGE_GAPS:
+                assessment["quality_status"] = "REJECTED"
+                assessment["quality_reason"] = "FROZEN_ACCEPTED_COVERAGE_GAP"
+                assessment["source_selection"] = "UNAVAILABLE"
             quality_rows.append(assessment)
             completed += 1
             if completed % 10 == 0 or completed == total:
@@ -227,14 +243,23 @@ def main() -> None:
     base_matches = pd.read_csv(base_root / "domestic_matches.csv", low_memory=False)
     base_bridge = pd.read_csv(base_root / "domestic_team_bridge.csv", low_memory=False)
     base_matches = base_matches.assign(source_provider="THESPORTSDB_PREMIUM_EXISTING")
-    candidate = merge_domestic_candidate(base_matches, expansion)
     candidate_bridge = _merge_bridges(base_bridge, expansion_bridge)
     candidate_bridge, alias_audit = apply_verified_target_aliases(candidate_bridge, targets)
-    candidate, candidate_bridge = canonicalize_candidate_domestic_state(
-        candidate,
+    canonical_base, _ = canonicalize_candidate_domestic_state(
+        base_matches,
         candidate_bridge,
         source_switch_countries=(spec.country_code for spec in UCL_UEL_EXPANSION_LEAGUES),
     )
+    canonical_expansion, candidate_bridge = canonicalize_candidate_domestic_state(
+        expansion,
+        candidate_bridge,
+        source_switch_countries=(spec.country_code for spec in UCL_UEL_EXPANSION_LEAGUES),
+    )
+    canonical_expansion, base_overlap_audit = _prefer_base_for_identical_overlap(
+        canonical_base,
+        canonical_expansion,
+    )
+    candidate = merge_domestic_candidate(canonical_base, canonical_expansion)
     candidate = candidate.drop(
         columns=["home_ao_club_id", "away_ao_club_id"], errors="ignore"
     )
@@ -288,6 +313,8 @@ def main() -> None:
     _write_csv(targets, output / "target_team_audit.csv")
     _write_csv(_league_registry_frame(), output / "league_registry.csv")
     _write_csv(primary_expansion, output / "expansion_matches_primary.csv")
+    _write_csv(pd.DataFrame(fixture_audit, columns=FIXTURE_AUDIT_COLUMNS), output / "fixture_reconciliation_audit.csv")
+    _write_csv(base_overlap_audit, output / "base_expansion_overlap_audit.csv")
     _write_csv(secondary_expansion, output / "expansion_matches_secondary.csv")
     _write_csv(expansion, output / "expansion_matches_selected.csv")
     _write_csv(expansion_bridge, output / "expansion_team_bridge.csv")
@@ -341,6 +368,107 @@ def _merge_bridges(existing: pd.DataFrame, expansion: pd.DataFrame) -> pd.DataFr
     return result.sort_values(key, kind="stable").reset_index(drop=True)
 
 
+BASE_EXPANSION_OVERLAP_AUDIT_COLUMNS = (
+    "match_id",
+    "action",
+    "reason",
+    "source_event_id",
+    "sportsdb_league_id",
+    "country_code",
+    "provider_season",
+    "ao_season",
+    "kickoff_utc",
+    "home_source_team_id",
+    "away_source_team_id",
+    "home_goals",
+    "away_goals",
+)
+
+
+def _prefer_base_for_identical_overlap(
+    base: pd.DataFrame,
+    expansion: pd.DataFrame,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Keep one explicitly audited copy of the same provider observation.
+
+    A league can be present in the canonical base and in the coverage expansion.
+    The general merge guard must continue to reject duplicate match IDs.  Before
+    reaching it, this source-selection step permits only a byte-equivalent state
+    observation: provenance identity, canonical fixture and field score must all
+    agree.  Any disagreement remains a hard error and no row is dropped.
+    """
+
+    required = {
+        "match_id",
+        "source_event_id",
+        "sportsdb_league_id",
+        "country_code",
+        "provider_season",
+        "ao_season",
+        "kickoff_utc",
+        "home_source_team_id",
+        "away_source_team_id",
+        "home_goals",
+        "away_goals",
+    }
+    for label, frame in (("base", base), ("expansion", expansion)):
+        missing = sorted(required.difference(frame.columns))
+        if missing:
+            raise ValueError(f"{label} overlap input missing columns: {missing}")
+        if frame["match_id"].astype(str).duplicated().any():
+            raise ValueError(f"{label} overlap input has duplicate match_id values")
+
+    overlap = sorted(
+        set(base["match_id"].astype(str)).intersection(
+            expansion["match_id"].astype(str)
+        )
+    )
+    if not overlap:
+        return (
+            expansion.copy(),
+            pd.DataFrame(columns=BASE_EXPANSION_OVERLAP_AUDIT_COLUMNS),
+        )
+
+    left = base.assign(match_id=base["match_id"].astype(str)).set_index("match_id").loc[overlap]
+    right = (
+        expansion.assign(match_id=expansion["match_id"].astype(str))
+        .set_index("match_id")
+        .loc[overlap]
+    )
+    compare_columns = sorted(required.difference({"match_id", "kickoff_utc"}))
+    conflicts: dict[str, list[str]] = {}
+    for column in compare_columns:
+        equal = left[column].fillna("<NA>").astype(str).eq(
+            right[column].fillna("<NA>").astype(str)
+        )
+        if not equal.all():
+            conflicts[column] = equal.index[~equal].tolist()[:5]
+    left_kickoff = require_utc_column(
+        left["kickoff_utc"], "base overlap kickoff_utc"
+    )
+    right_kickoff = require_utc_column(
+        right["kickoff_utc"], "expansion overlap kickoff_utc"
+    )
+    kickoff_equal = left_kickoff.eq(right_kickoff)
+    if not kickoff_equal.all():
+        conflicts["kickoff_utc"] = kickoff_equal.index[~kickoff_equal].tolist()[:5]
+    if conflicts:
+        raise ValueError(
+            "base/expansion overlapping observations conflict: "
+            + "; ".join(
+                f"{column}={match_ids}" for column, match_ids in conflicts.items()
+            )
+        )
+
+    audit = left.reset_index()[list(BASE_EXPANSION_OVERLAP_AUDIT_COLUMNS[3:])]
+    audit.insert(0, "reason", "IDENTICAL_PROVIDER_OBSERVATION")
+    audit.insert(0, "action", "KEEP_BASE_REMOVE_EXPANSION")
+    audit.insert(0, "match_id", overlap)
+    audit = audit[list(BASE_EXPANSION_OVERLAP_AUDIT_COLUMNS)]
+    filtered = expansion.loc[~expansion["match_id"].astype(str).isin(overlap)].copy()
+    return filtered.reset_index(drop=True), audit.reset_index(drop=True)
+
+
 def _league_registry_frame() -> pd.DataFrame:
     return pd.DataFrame(
         [
@@ -380,6 +508,7 @@ def _write_manifest(
         "secondary_provider": "Hugging Face eatpizzanot/soccer-dataset (API-Football historical fixture archive)",
         "request_delay_seconds": args.request_delay,
         "quality_gate": "valid UTC/scores, unique events, final-table coverage >=95%",
+        "fixture_reconciliations_sha256": sha256_file(FIXTURE_RECONCILIATIONS),
         "accepted_primary_league_seasons": int(quality["quality_status"].eq("ACCEPTED").sum()),
         "expansion_matches": int(len(expansion)),
         "candidate_matches": int(len(candidate)),
