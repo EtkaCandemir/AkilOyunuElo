@@ -429,6 +429,33 @@ ao_draw_probability
 ao_away_probability
 ```
 
+#### `round` ve `round_sequence`: egitim vokabuleri baglayicidir
+
+`round` ve `stage` kategorik, `round_sequence` ve `leg_number` sayisal
+feature'lardir.  Kategorik encoder `handle_unknown="ignore"` ile kurulur: egitimde
+gorulmemis bir deger **hata vermez**, one-hot'u sessizce sifirlanir.  Bu yuzden
+servis edilen her `round` degeri egitim vokabulerinde bulunmak zorundadir.
+
+UEFA'nin `GROUP` modlu lig asamasi egitim verisinde **`League Stage`** olarak
+gecer (2024/25 ve 2025/26, 792 satir).  Saglayicinin `League phase` etiketi bu
+ada cevrilir; `League Phase` uretmek modelin hic gormedigi bir kategori yaratir
+ve o satirlar tur bilgisini tumden kaybeder.  `ROUND_NAME_MAP`'in urettigi her
+ad icin bu kural testle pinlidir.
+
+`round_sequence` sezon-ici bir siradir: o sezonun fiilen icerdigi turlar uzerinden
+atanir, dolayisiyla oynanmakta olan bir sezon icin hesaplanamaz.  Servis edilen
+fiksturlere sabit `-1.0` yazilirdi; bu deger hicbir egitim satirinda yoktur ve
+model her tahminde uyduruldugu araligin disina cikardi.  Artik en son tamamlanmis
+sezonun `(competition, round)` ordinalleri tasinir -- format degismedigi surece
+dogru degerler bunlardir:
+
+```text
+League Stage    UCL 4.0    UEL 14.0    UECL 24.0
+```
+
+Eslenmemis bir tur artik `-1.0`'a dusmez, **hata verir**.  Bu iki kusur birlikte
+servis edilen 1X2'yi `0.0019` kaydiriyordu; ikisi de sessizdi.
+
 Feature store yalniz kickoff'tan once bilinen AO, format, Avrupa formu,
 dinlenme ve mac yogunlugu alanlarini icerebilir. Hedef macin sonucu, skoru,
 xG'si veya match-sonu ratingi girdi olamaz.

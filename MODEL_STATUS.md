@@ -4,9 +4,13 @@ Güncelleme tarihi: 2026-08-28
 
 Production revision: `2026-08-28-domestic-provider-season-and-fixture-integrity-fixes`.
 Önceki on giriş/state düzeltmesine ek olarak provider sezonu, fikstür tekilliği,
-üç resmî skor uzlaştırması ve tekrar etmeyen mod düzeltildi. Checkpoint
-76.327 tekil maçtan yeniden üretildi. Donmuş parametreler ve aktif katmanlar
-değişmedi. Kanıt: `reports/domestic_integrity_fix_2026_08_28.md`.
+üç resmî skor uzlaştırması ve tekrar etmeyen mod düzeltildi. 29 Ağustos canlı
+yenilemesi checkpoint'i `2026-08-29T00:00:00Z` cutoff'una taşıdı: **76.976**
+tekil maç, 428 tamamlanmış Avrupa maçı. Aynı turda servis edilen tur
+metadata'sının iki kusuru kapatıldı (bkz. `DATA_CONTRACTS.md` §11.1).
+Donmuş parametreler ve aktif katmanlar değişmedi. Kanıt:
+`reports/domestic_integrity_fix_2026_08_28.md` ve
+`reports/2026-08-29_live_refresh.md`.
 
 Aktif geliştirme sürümü: `ao-european-elo-v2.0-dev-freeze`
 
