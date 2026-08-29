@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T14:29:32.466806+00:00",
+  "generated_at": "2026-08-29T18:33:49.207696+00:00",
   "evaluation_only": true,
   "production_files_changed": false,
   "model_version": "ao-european-elo-v2.0-dev-freeze",
@@ -16,8 +16,8 @@
     "candidate_production_activation": true
   },
   "contract_sha256": {
-    "production": "e6ed6a74610ec650153a48b5c2929d4904d8ac88611bc686dd1ce7c35ced57fd",
-    "final_candidate": "81f100387c582aaeeb801e9804c5a3692361786ffc6e3f94b2ee8ec1eed5d5a0"
+    "production": "87a99f395c6046edbd9d79d44fd15f030f6791cc3504831be068c90ec2d669db",
+    "final_candidate": "29d790f2be80133963eff7f3fcfc2852892c9daf1903dd9b6c3a00ade2cb8a14"
   },
   "seasons": [
     "2018/19",

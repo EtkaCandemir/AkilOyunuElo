@@ -214,12 +214,12 @@ SCO,4330,Scottish Premier League,2016-2017,0,,,0,0,False,False,REJECTED,FETCH_OR
 SCO,4330,Scottish Premier League,2017-2018,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2017-2018.json
 SCO,4330,Scottish Premier League,2018-2019,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2018-2019.json
 SCO,4330,Scottish Premier League,2019-2020,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2019-2020.json
-SCO,4330,Scottish Premier League,2020-2021,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2020-2021.json
-SCO,4330,Scottish Premier League,2021-2022,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2021-2022.json
-SCO,4330,Scottish Premier League,2022-2023,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2022-2023.json
-SCO,4330,Scottish Premier League,2023-2024,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2023-2024.json
-SCO,4330,Scottish Premier League,2024-2025,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2024-2025.json
-SCO,4330,Scottish Premier League,2025-2026,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SCO/2025-2026.json
+SCO,4330,Scottish Premier League,2020-2021,233,198,1.1767676767676767,233,15,True,True,ACCEPTED,ACCEPTED,
+SCO,4330,Scottish Premier League,2021-2022,234,198,1.1818181818181819,234,15,True,True,ACCEPTED,ACCEPTED,
+SCO,4330,Scottish Premier League,2022-2023,234,198,1.1818181818181819,234,15,True,True,ACCEPTED,ACCEPTED,
+SCO,4330,Scottish Premier League,2023-2024,234,198,1.1818181818181819,234,15,True,True,ACCEPTED,ACCEPTED,
+SCO,4330,Scottish Premier League,2024-2025,234,114,2.0526315789473686,234,15,True,True,ACCEPTED,ACCEPTED,
+SCO,4330,Scottish Premier League,2025-2026,234,198,1.1818181818181819,234,15,True,True,ACCEPTED,ACCEPTED,
 SUI,4675,Swiss Super League,2013-2014,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2013-2014.json
 SUI,4675,Swiss Super League,2014-2015,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2014-2015.json
 SUI,4675,Swiss Super League,2015-2016,0,,,0,0,False,False,REJECTED,FETCH_OR_PARSE_ERROR:ValueError,Offline cache is missing: /Users/buycell/Desktop/Akil Oyunu Elo/data/domestic_league_matches_2013_2026/_source_cache/table/SUI/2015-2016.json

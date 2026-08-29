@@ -495,13 +495,14 @@ resmi fikstur formati veya eksiksizlik kaniti degildir. Kabul esigi yine %95'tir
 
 #### Bilinen kapsam bosluklari
 
-Kaynak sezonu duzeltildikten sonra iki lig-sezonu bu kapiya takilip production
-girdisinin disinda kalir:
+Kaynak sezonu duzeltildikten sonra iki lig-sezonu production girdisinin disinda
+kalir. Bu karar `FROZEN_ACCEPTED_COVERAGE_GAPS` ile pinlidir; provider'in daha
+sonra farkli bir tablo dondurmesi sezona sessizce production girisi vermez:
 
 | Lig-sezon | Arsivdeki oynanmis mac | Beklenen (mod) | Coverage | Sonuc |
 | --- | ---: | ---: | ---: | --- |
 | GEO 2014 | 120 | 184 | 0.652 | REJECTED |
-| LIT 2020 | 60 | 127 | 0.472 | REJECTED |
+| LIT 2020 | 60 | 127 | 0.472 | REJECTED / FROZEN |
 
 Ikisi de secondary arsivde tam olarak mevcuttur ve `is_played` degeri dogrudur;
 kapi eksik veri gordugu icin degil, sezonun mac sayisi ligin tekrar eden format
@@ -511,14 +512,12 @@ bir sezon kovasina karistiriyordu. Duzeltme etiketi dogrulttu, kapi da tasarland
 gibi calisti.
 
 Yayimlanan `league_season_quality.csv` bu iki satiri
-`REJECTED / UNAVAILABLE / FETCH_OR_PARSE_ERROR:ValueError` olarak gosterir.
-**Bu etiket yaniltir:** primary kaynagin hatasini tasir, secondary'nin coverage
-reddini degil.  Kaynak secimi (country, provider_season) basina tek satir
-yazdigi icin secondary'nin `SECONDARY_INFERRED_FORMAT_BELOW_95_PCT` gerekcesi
-yayimlanan audit'te korunmaz.  Gercek sebep ancak secondary arsivi yeniden
-normalize edip `assess_secondary_league_seasons` cagrilarak gorulur; yukaridaki
-tablo bu sekilde dogrulanmistir.  Bu audit-izi eksigi kapsam boslugundan ayri
-bir kusurdur ve kapatilmamistir.
+`REJECTED / UNAVAILABLE / FROZEN_ACCEPTED_COVERAGE_GAP` olarak gosterir. Kaynak
+secimi audit'i diger provider'in kendi verdictini de korur. 2026-08-29
+yenilemesinde primary LIT 2020 icin `60/60` kabul sonucu dondurdu; pin bu yeni
+kaynak sonucunun daha once kabul edilmis coverage politikasini sessizce
+degistirmesini engelledi. Secondary olcumu `60/127 = 0.472441` olarak audit'te
+ayrica gorunur.
 
 #### Kickoff timezone siniri
 
@@ -545,7 +544,7 @@ kaynagin sectirildigine baglidir.  Ayni denetimde ortaya cikan karsi ornek:
 | Lig-sezon | Secondary | Primary | Production sonucu |
 | --- | --- | --- | --- |
 | GEO 2014 | `120/184 = 0.652` REJECTED | UNAVAILABLE | disarida |
-| LIT 2020 | `60/127 = 0.472` REJECTED | UNAVAILABLE | disarida |
+| LIT 2020 | `60/127 = 0.472` REJECTED | `60/60 = 1.000` ACCEPTED | **frozen pin nedeniyle disarida** |
 | GEO 2020 | `94/184 = 0.511` REJECTED | `92/72 = 1.278` ACCEPTED | **iceride** |
 
 GEO 2020 secondary'nin kendi olcusune gore GEO 2014'ten **daha kotudur**
@@ -566,14 +565,14 @@ ise `primary_*` onekiyle):
 <other>_coverage_rate
 ```
 
-Boylece LIT 2020 satiri primary'nin fetch hatasini tasimaya devam ederken
+Boylece LIT 2020 satiri frozen policy kararini tasirken
 `secondary_quality_reason = SECONDARY_INFERRED_FORMAT_BELOW_95_PCT` ve
 `secondary_coverage_rate = 0.472441` de gorunur; GEO 2020 satirinda ise
 `table_expected_matches = 72` ile `secondary_table_expected_matches = 184`
-yan yana durur.  **Bu kolonlar bir sonraki expansion build'inde olusur;**
-mevcut yayimlanmis CSV onlari henuz tasimaz.
+yan yana durur.  Bu kolonlar 2026-08-29 expansion build'inde yayimlanan CSV'de
+mevcuttur.
 
-Bu tekil bir durum degildir: `league_season_quality.csv` icinde **22 ulke** ayni
+Bu tekil bir durum degildir: `league_season_quality.csv` icinde **26 ulke** ayni
 lig icin birden fazla `table_expected_matches` degeri tasir.  Dolayisiyla
 "coverage kapisindan gecti" ifadesi sezonun tam oldugunu gostermez.  Kapinin
 kaynak-bagimsiz hale gelmesi, beklenen mac sayisinin resmi fikstur kaydindan

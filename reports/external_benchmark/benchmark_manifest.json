@@ -4,8 +4,8 @@
   "prediction_axis": {
     "any_reliable_difference": false,
     "ao_rating_core_brier": 0.5772440319016331,
-    "ao_served_brier_skill_vs_climatology": -0.09996365674843442,
-    "ao_served_ensemble_brier": 0.5787080132367958,
+    "ao_served_brier_skill_vs_climatology": -0.09661094407059821,
+    "ao_served_ensemble_brier": 0.5808637502881852,
     "clubelo_published_brier": 0.5749830812264415,
     "max_snapshot_age_days": 31,
     "paired_matches": 363,

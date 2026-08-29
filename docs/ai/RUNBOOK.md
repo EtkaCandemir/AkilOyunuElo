@@ -478,9 +478,12 @@ gorulmelidir.
 Lig-sezon seviyesindeki coverage kapisi ayri bir kapidir ve iki lig-sezonunu
 bilerek disarida birakir: **GEO 2014** (`120/184 = 0.652`) ve **LIT 2020**
 (`60/127 = 0.472`). Bu satirlar `league_season_quality.csv` icinde
-`REJECTED / UNAVAILABLE` olarak gorunur -- etiket primary kaynagin hatasini
-tasir, gercek sebep secondary'nin coverage reddidir.  Durum **beklenen
-davranistir**;
+`quality_status = REJECTED` ve
+`quality_reason = FROZEN_ACCEPTED_COVERAGE_GAP` olarak gorunur. Kaybeden
+kaynagin kendi coverage olcumu `secondary_*`/`primary_*` audit kolonlarinda
+korunur. 2026-08-29 yenilemesinde LIT 2020 primary kaynagi `60/60` kabul
+sonucu dondurdu; frozen pin bu kaynak degisikliginin sezona sessizce production
+girisi vermesini engelledi. Durum **beklenen davranistir**;
 kabul edilmis kapsam boslugu olarak `docs/ai/DATA_CONTRACTS.md` §11.2'de
 belgelidir. Bu iki sezonu geri almak icin %95 esigini dusurmeyin veya kapiyi
 kapatmayin; dogru mudahale beklenen mac sayisini resmi fikstur kaydindan

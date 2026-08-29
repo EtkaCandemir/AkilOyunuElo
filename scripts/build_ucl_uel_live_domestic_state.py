@@ -146,6 +146,11 @@ def main() -> None:
         raise ValueError("No 2026/27 completed domestic results were retrieved")
     live = live.sort_values(["kickoff_utc", "match_id"], kind="stable").reset_index(drop=True)
     live_bridge = build_domestic_team_bridge(live, registry)
+    live_bridge = _restrict_live_bridge_to_production_universe(
+        live_bridge,
+        bridge,
+        targets,
+    )
     combined_bridge = _merge_bridges(bridge, live_bridge)
     combined_bridge, alias_audit = apply_verified_target_aliases(combined_bridge, targets)
     live, combined_bridge = canonicalize_candidate_domestic_state(
@@ -238,6 +243,37 @@ def _merge_bridges(existing: pd.DataFrame, extra: pd.DataFrame) -> pd.DataFrame:
             )
         ]
     return merged.sort_values(key, kind="stable").reset_index(drop=True)
+
+
+def _restrict_live_bridge_to_production_universe(
+    live_bridge: pd.DataFrame,
+    existing_bridge: pd.DataFrame,
+    targets: pd.DataFrame,
+) -> pd.DataFrame:
+    """Do not activate unaudited AO identities discovered in live schedules.
+
+    Live results must still update league and opponent state, but the coverage
+    audit only evaluates the explicit UCL/UEL target universe.  A registry name
+    match outside that universe would otherwise become production-eligible
+    without the two-season/40-match gate ever seeing it.  Existing mappings are
+    retained and target mappings may still repair an old null bridge row.
+    """
+
+    required_bridge = {"ao_club_id", "identity_method"}
+    missing = required_bridge.difference(live_bridge.columns)
+    if missing:
+        raise ValueError(f"Live bridge missing columns: {sorted(missing)}")
+    if "ao_club_id" not in existing_bridge or "ao_club_id" not in targets:
+        raise ValueError("Production identity universe requires ao_club_id columns")
+    allowed = set(existing_bridge["ao_club_id"].dropna().astype(str)) | set(
+        targets["ao_club_id"].dropna().astype(str)
+    )
+    result = live_bridge.copy()
+    mapped = result["ao_club_id"].notna()
+    outside = mapped & ~result["ao_club_id"].astype(str).isin(allowed)
+    result.loc[outside, "ao_club_id"] = pd.NA
+    result.loc[outside, "identity_method"] = "OUTSIDE_PRODUCTION_TARGET_UNIVERSE"
+    return result
 
 
 def _write_csv(frame: pd.DataFrame, path: Path) -> None:

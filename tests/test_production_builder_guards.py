@@ -138,8 +138,22 @@ def test_contract_block_with_an_unknown_field_is_refused(tmp_path: Path) -> None
 def test_bridge_merge_keeps_a_newly_resolved_identity_over_an_old_null() -> None:
     module = _load_script(LIVE_BUILDER)
     existing = pd.DataFrame([{"country_code": "ZZZ", "source_team_id": "1", "ao_club_id": None}])
-    extra = pd.DataFrame([{"country_code": "ZZZ", "source_team_id": "1", "ao_club_id": "AO-X"}])
-    assert module._merge_bridges(existing, extra)["ao_club_id"].tolist() == ["AO-X"]
+    extra = pd.DataFrame(
+        [
+            {"country_code": "ZZZ", "source_team_id": "1", "ao_club_id": "AO-X", "identity_method": "EXACT_NAME"},
+            {"country_code": "ZZZ", "source_team_id": "2", "ao_club_id": "AO-Y", "identity_method": "EXACT_NAME"},
+        ]
+    )
+    targets = pd.DataFrame([{"ao_club_id": "AO-X"}])
+    restricted = module._restrict_live_bridge_to_production_universe(
+        extra, existing, targets
+    )
+    assert restricted.loc[0, "ao_club_id"] == "AO-X"
+    assert pd.isna(restricted.loc[1, "ao_club_id"])
+    assert restricted.loc[1, "identity_method"] == "OUTSIDE_PRODUCTION_TARGET_UNIVERSE"
+    merged = module._merge_bridges(existing, restricted)
+    assert merged.loc[0, "ao_club_id"] == "AO-X"
+    assert pd.isna(merged.loc[1, "ao_club_id"])
 
 
 def test_bridge_merge_still_rejects_two_different_identities() -> None:
@@ -148,3 +162,66 @@ def test_bridge_merge_still_rejects_two_different_identities() -> None:
     right = pd.DataFrame([{"country_code": "ZZZ", "source_team_id": "1", "ao_club_id": "AO-Y"}])
     with pytest.raises(ValueError, match="identity conflicts"):
         module._merge_bridges(left, right)
+
+
+# --- Round vokabuleri ve round_sequence (servis edilen ozellikler) ----------
+#
+# `round` kategorik bir ozellik ve encoder handle_unknown="ignore" ile kurulu:
+# egitimde olmayan bir round adi hata vermez, one-hot'u sessizce sifirlanir.
+# `round_sequence` ise sabit -1.0 yaziliyordu; egitimde hic gecmeyen bir deger.
+
+HISTORY = ROOT / "data" / "dynamic_backtest_2018_2026" / "matches.csv"
+FIXTURES = ROOT / "data" / "season_2026_27_preproduction" / "fixtures_upcoming.csv"
+
+
+def _training_round_vocabulary() -> set[str]:
+    return set(pd.read_csv(HISTORY)["round"].astype(str))
+
+
+def test_round_name_map_only_produces_rounds_the_model_was_trained_on() -> None:
+    builder = _load_script(ROOT / "scripts" / "build_2026_27_preproduction_inputs.py")
+    vocabulary = _training_round_vocabulary()
+    unseen = sorted(set(builder.ROUND_NAME_MAP.values()) - vocabulary)
+    assert not unseen, f"round adlari egitim vokabulerinde yok: {unseen}"
+
+
+def test_league_phase_maps_to_the_training_name() -> None:
+    builder = _load_script(ROOT / "scripts" / "build_2026_27_preproduction_inputs.py")
+    assert builder.ROUND_NAME_MAP["League phase"] == "League Stage"
+
+
+def test_served_fixtures_carry_a_round_the_model_knows() -> None:
+    fixtures = pd.read_csv(FIXTURES)
+    unseen = sorted(set(fixtures["round"].astype(str)) - _training_round_vocabulary())
+    assert not unseen, f"servis edilecek round adi egitimde yok: {unseen}"
+
+
+def test_round_sequence_is_derived_not_the_old_sentinel() -> None:
+    builder = _load_script(ROOT / "scripts" / "build_2026_27_prediction_features.py")
+    metadata = builder.load_metadata()
+    fixtures = pd.read_csv(FIXTURES)
+    served = metadata[metadata["match_id"].isin(fixtures["match_id"])]
+    assert len(served) == len(fixtures)
+    assert (served["round_sequence"] >= 0).all(), "servis edilen satirda -1 sentinel kaldi"
+    history = pd.read_csv(HISTORY)
+    latest = str(history["season"].astype(str).max())
+    expected = (
+        history[history["season"].astype(str).eq(latest)]
+        .groupby(["competition", "round"])["round_sequence"]
+        .min()
+    )
+    for competition, round_name in fixtures[["competition", "round"]].drop_duplicates().itertuples(index=False):
+        got = served.merge(fixtures[["match_id", "competition"]], on="match_id")
+        got = got[got["competition"].eq(competition) & got["round"].eq(round_name)]
+        assert got["round_sequence"].nunique() == 1
+        assert got["round_sequence"].iloc[0] == expected[(competition, round_name)]
+
+
+def test_an_unmapped_round_is_refused_rather_than_served_as_minus_one(tmp_path: Path) -> None:
+    builder = _load_script(ROOT / "scripts" / "build_2026_27_prediction_features.py")
+    fixtures = pd.read_csv(FIXTURES).head(1).copy()
+    fixtures["round"] = "Totally Unknown Round"
+    path = tmp_path / "fixtures.csv"
+    fixtures.to_csv(path, index=False)
+    with pytest.raises(ValueError, match="No round_sequence"):
+        builder.load_metadata(path)

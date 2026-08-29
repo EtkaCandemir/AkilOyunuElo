@@ -18,6 +18,9 @@ from ao_elo.domestic_ucl_uel_expansion import (
     SECONDARY_LEAGUE_IDS,
     target_domestic_coverage_audit,
 )
+from scripts.build_ucl_uel_domestic_expansion import (
+    _prefer_base_for_identical_overlap,
+)
 
 
 @pytest.mark.parametrize("code", ["LIT", "KAZ", "GEO"])
@@ -150,6 +153,32 @@ def test_candidate_merge_rejects_duplicate_provider_event_within_league() -> Non
     else:
         raise AssertionError("Expected duplicate provider event validation")
 
+    row = {
+        "match_id": "same",
+        "source_event_id": "1",
+        "sportsdb_league_id": "AO-DOMESTIC:SCO",
+        "country_code": "SCO",
+        "provider_season": "2025-2026",
+        "ao_season": "2025/26",
+        "kickoff_utc": "2025-08-01T12:00:00+00:00",
+        "home_source_team_id": "AO:A",
+        "away_source_team_id": "AO:B",
+        "home_goals": 1,
+        "away_goals": 0,
+    }
+    filtered, audit = _prefer_base_for_identical_overlap(
+        pd.DataFrame([row]),
+        pd.DataFrame([{**row, "kickoff_utc": "2025-08-01T15:00:00+03:00"}]),
+    )
+    assert filtered.empty
+    assert audit["match_id"].tolist() == ["same"]
+    assert audit["action"].tolist() == ["KEEP_BASE_REMOVE_EXPANSION"]
+    with pytest.raises(ValueError, match="home_goals"):
+        _prefer_base_for_identical_overlap(
+            pd.DataFrame([row]),
+            pd.DataFrame([{**row, "home_goals": 2}]),
+        )
+
 
 def test_canonical_state_keys_join_selected_sources_for_one_club() -> None:
     matches = pd.DataFrame(
@@ -233,7 +262,7 @@ def _production_domestic_input() -> pd.DataFrame:
     )
 
 
-def test_documented_coverage_gaps_carry_no_matches_in_the_quality_audit() -> None:
+def test_documented_coverage_gaps_remain_rejected_in_the_quality_audit() -> None:
     quality = pd.read_csv(_EXPANSION / "league_season_quality.csv")
     for country, season in sorted(ACCEPTED_COVERAGE_GAPS):
         row = quality[
@@ -242,7 +271,8 @@ def test_documented_coverage_gaps_carry_no_matches_in_the_quality_audit() -> Non
         ]
         assert len(row) == 1, f"{country} {season} icin tek kalite satiri bekleniyor"
         assert row["quality_status"].item() != "ACCEPTED"
-        assert int(row["schedule_matches"].item()) == 0
+        assert row["quality_reason"].item() == "FROZEN_ACCEPTED_COVERAGE_GAP"
+        assert row["source_selection"].item() == "UNAVAILABLE"
 
 
 def test_documented_coverage_gaps_are_absent_from_the_production_input() -> None:

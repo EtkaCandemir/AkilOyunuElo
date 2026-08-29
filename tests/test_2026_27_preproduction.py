@@ -140,8 +140,8 @@ def test_curated_2026_27_input_snapshot_contract() -> None:
     upcoming = pd.read_csv(DATA_ROOT / "fixtures_upcoming.csv")
 
     assert len(teams) == 237
-    assert len(completed) == 342
-    assert len(upcoming) == 86
+    assert not completed.empty
+    assert not upcoming.empty
     assert teams["team_id"].is_unique
     assert identity["uefa_team_id"].is_unique
     assert set(teams["team_id"]) == set(identity["team_id"])
@@ -150,8 +150,16 @@ def test_curated_2026_27_input_snapshot_contract() -> None:
     ).all()
     assert completed["match_id"].is_unique
     assert upcoming["match_id"].is_unique
-    assert completed["event_order"].tolist() == list(range(1, 343))
-    assert upcoming["event_order"].tolist() == list(range(1, 87))
+    assert completed["event_order"].tolist() == list(range(1, len(completed) + 1))
+    assert upcoming["event_order"].tolist() == list(range(1, len(upcoming) + 1))
+    assert set(completed["match_id"]).isdisjoint(set(upcoming["match_id"]))
+    # Egitim verisi bu asamayi "League Stage" olarak adlandirir; "League Phase"
+    # modelin gormedigi bir kategori olurdu ve encoder onu sessizce sifirlardi.
+    assert upcoming["round"].eq("League Stage").all()
+    assert upcoming["stage"].eq("LEAGUE").all()
+    assert not upcoming["is_knockout"].astype(bool).any()
+    assert upcoming["tie_id"].isna().all()
+    assert upcoming["leg_number"].eq(0).all()
     # xG is present from 2026/27 onward wherever the audited source has it.
     # The invariant is the acceptance contract, not the count: a row either
     # carries both sides or none, and a missing value is never imputed.
@@ -201,22 +209,28 @@ def test_preproduction_q1_q3_replay_obeys_active_contract(tmp_path: Path) -> Non
     )
 
     assert len(state_to_frame(final_state)) == 237
-    assert len(frame) == 342
+    results = pd.read_csv(DATA_ROOT / "matches_completed.csv")
+    assert len(frame) == len(results)
     assert (
         frame.groupby("qualification_round_key")["stage_k_multiplier"].first().to_dict()
-        == {"Q1": 0.20, "Q2": 0.275, "Q3": 0.35}
+        == {
+            "Q1": 0.20,
+            "Q2": 0.275,
+            "Q3": 0.35,
+            "QUALIFYING_PLAYOFF": 0.425,
+        }
     )
     assert frame["qualification_round_key"].value_counts().to_dict() == {
         "Q2": 144,
         "Q3": 106,
         "Q1": 92,
+        "QUALIFYING_PLAYOFF": 86,
     }
     assert not frame["home_qualifier_carry_applied"].any()
     assert not frame["away_qualifier_carry_applied"].any()
     # The kernel suppresses xG on draws, so an applied adjustment implies both
     # an eligible row and a decisive field result. Anything else would mean the
     # settlement path stopped honouring its own eligibility gate.
-    results = pd.read_csv(DATA_ROOT / "matches_completed.csv")
     eligible_ids = set(
         results.loc[results["xg_analysis_eligible"].astype(bool), "match_id"]
     )
@@ -236,9 +250,13 @@ def test_preproduction_q1_q3_replay_obeys_active_contract(tmp_path: Path) -> Non
     ).abs()
     assert zero_sum_error.max() < 1e-9
     assert len(phase_summary) == 237
-    assert int(phase_summary["upcoming_playoff_participant"].sum()) == 86
+    upcoming = pd.read_csv(DATA_ROOT / "fixtures_upcoming.csv")
+    upcoming_participants = set(upcoming["home_team_id"]) | set(upcoming["away_team_id"])
+    assert int(phase_summary["upcoming_playoff_participant"].sum()) == len(
+        upcoming_participants
+    )
     assert not phase_summary["main_entry_reset_applied_at_this_cutoff"].any()
-    assert phase_summary["q3_end_live_elo"].equals(
+    assert phase_summary["qualifying_playoff_end_live_elo"].equals(
         phase_summary["pre_playoff_live_elo"]
     )
     qualifier = phase_summary.loc[

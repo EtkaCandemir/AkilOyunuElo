@@ -38,12 +38,50 @@ from scripts.build_2026_27_prediction_features import (
 )
 
 
-FB_LYON_FIRST = "UEFA-2049213"
-FB_LYON_SECOND = "UEFA-2049220"
-INPUTS_PRESENT = DEFAULT_HISTORY.exists() and DEFAULT_DOMESTIC.exists()
+SYNTHETIC_FIRST_LEG = "TEST-TWO-LEG-1"
+SYNTHETIC_SECOND_LEG = "TEST-TWO-LEG-2"
+REAL_INTER_FIXTURE = "UEFA-2049553"
+INPUTS_PRESENT = (
+    DEFAULT_HISTORY.exists()
+    and DEFAULT_DOMESTIC.exists()
+    and DEFAULT_FIXTURES.exists()
+    and (ROOT / "output/season_2026_27_preproduction/playoff_pre_match_team_ratings.csv").exists()
+)
 requires_inputs = pytest.mark.skipif(
     not INPUTS_PRESENT, reason="bridge inputs are not built in this checkout"
 )
+
+
+def _two_leg_fixture_path(tmp_path: Path) -> Path:
+    """Build a stable two-leg input without depending on mutable live fixtures."""
+
+    fixtures = pd.read_csv(DEFAULT_FIXTURES)
+    source = fixtures.loc[fixtures["match_id"].eq(REAL_INTER_FIXTURE)]
+    assert len(source) == 1, "the synthetic tie needs two current league participants"
+
+    first = source.iloc[0].copy()
+    first["match_id"] = SYNTHETIC_FIRST_LEG
+    first["kickoff_utc"] = "2026-09-08T19:00:00Z"
+    first["round"] = "Qualifying Play-off Round"
+    first["tie_id"] = "TEST-TWO-LEG-TIE"
+    first["leg_number"] = 1
+    first["is_knockout"] = True
+    first["is_tie_decider"] = False
+    first["is_single_match_tie"] = False
+    first["stage"] = "QUALIFYING"
+
+    second = first.copy()
+    second["match_id"] = SYNTHETIC_SECOND_LEG
+    second["kickoff_utc"] = "2026-09-15T19:00:00Z"
+    second["leg_number"] = 2
+    second["is_tie_decider"] = True
+    for column in ("team_id", "team_name"):
+        second[f"home_{column}"] = first[f"away_{column}"]
+        second[f"away_{column}"] = first[f"home_{column}"]
+
+    path = tmp_path / "two_leg_fixtures.csv"
+    pd.DataFrame([first, second]).to_csv(path, index=False)
+    return path
 
 
 # ---------------------------------------------------------------------------
@@ -93,31 +131,39 @@ def test_synthetic_ids_never_collide_with_real_ones() -> None:
 
 
 @requires_inputs
-def test_two_legs_of_one_tie_build_in_separate_batches() -> None:
+def test_two_legs_of_one_tie_build_in_separate_batches(tmp_path: Path) -> None:
     """The second leg must not see the first leg's placeholder result."""
+    fixture_path = _two_leg_fixture_path(tmp_path)
     completed = load_completed_matches(DEFAULT_HISTORY, DEFAULT_IDENTITY)
-    fixtures = load_upcoming_fixtures(DEFAULT_FIXTURES, [FB_LYON_FIRST, FB_LYON_SECOND])
+    fixtures = load_upcoming_fixtures(
+        fixture_path, [SYNTHETIC_FIRST_LEG, SYNTHETIC_SECOND_LEG]
+    )
     domestic = load_domestic_matches(DEFAULT_DOMESTIC)
 
-    features, batches = build_features(completed, load_metadata(), fixtures, domestic)
+    features, batches = build_features(
+        completed, load_metadata(fixture_path), fixtures, domestic
+    )
 
     assert batches == 2, "each leg has its own kickoff, so each needs its own build"
-    first = features.loc[features["match_id"].eq(FB_LYON_FIRST)].iloc[0]
-    second = features.loc[features["match_id"].eq(FB_LYON_SECOND)].iloc[0]
+    first = features.loc[features["match_id"].eq(SYNTHETIC_FIRST_LEG)].iloc[0]
+    second = features.loc[features["match_id"].eq(SYNTHETIC_SECOND_LEG)].iloc[0]
 
-    # Fenerbahce is home in the first leg and away in the second. If the first
-    # leg had entered history, the second leg would count one more match.
+    # The clubs swap venues in the second leg. If the first leg had entered
+    # history, the second leg would count one more match.
     assert first["home_euro_matches_pre"] == second["away_euro_matches_pre"]
     assert first["away_euro_matches_pre"] == second["home_euro_matches_pre"]
 
 
 @requires_inputs
-def test_rolling_windows_reach_past_the_current_season() -> None:
+def test_rolling_windows_reach_past_the_current_season(tmp_path: Path) -> None:
+    fixture_path = _two_leg_fixture_path(tmp_path)
     completed = load_completed_matches(DEFAULT_HISTORY, DEFAULT_IDENTITY)
-    fixtures = load_upcoming_fixtures(DEFAULT_FIXTURES, [FB_LYON_FIRST])
+    fixtures = load_upcoming_fixtures(fixture_path, [SYNTHETIC_FIRST_LEG])
     domestic = load_domestic_matches(DEFAULT_DOMESTIC)
 
-    features, _ = build_features(completed, load_metadata(), fixtures, domestic)
+    features, _ = build_features(
+        completed, load_metadata(fixture_path), fixtures, domestic
+    )
     row = features.iloc[0]
 
     # 2026/27 alone would give at most a handful of qualifiers per club.
@@ -142,11 +188,16 @@ def test_completed_history_spans_every_season() -> None:
 
 
 @requires_inputs
-def test_validation_gates_pass_for_a_single_tie() -> None:
+def test_validation_gates_pass_for_a_single_tie(tmp_path: Path) -> None:
+    fixture_path = _two_leg_fixture_path(tmp_path)
     completed = load_completed_matches(DEFAULT_HISTORY, DEFAULT_IDENTITY)
-    fixtures = load_upcoming_fixtures(DEFAULT_FIXTURES, [FB_LYON_FIRST, FB_LYON_SECOND])
+    fixtures = load_upcoming_fixtures(
+        fixture_path, [SYNTHETIC_FIRST_LEG, SYNTHETIC_SECOND_LEG]
+    )
     domestic = load_domestic_matches(DEFAULT_DOMESTIC)
-    features, batches = build_features(completed, load_metadata(), fixtures, domestic)
+    features, batches = build_features(
+        completed, load_metadata(fixture_path), fixtures, domestic
+    )
 
     gates = validation_gates(features, fixtures, completed, batches)
 

@@ -119,6 +119,27 @@ def test_bridge_maps_only_existing_ao_clubs_and_dataset_stays_valid() -> None:
     ])
     validate_domestic_dataset(attached, quality, bridge)
 
+    ukraine = pd.DataFrame(
+        [
+            {
+                "country_code": "UKR",
+                "home_source_team_id": "133944",
+                "away_source_team_id": "134422",
+                "home_team_name": "Dynamo Kiev",
+                "away_team_name": "Zorya",
+            }
+        ]
+    )
+    ukraine_registry = pd.DataFrame(
+        [
+            {"club_id": "AO-UEFA-52723", "canonical_name": "Dynamo Kyiv", "country_code": "UKR"},
+            {"club_id": "AO-UEFA-65130", "canonical_name": "Zorya Luhansk", "country_code": "UKR"},
+        ]
+    )
+    verified = build_domestic_team_bridge(ukraine, ukraine_registry)
+    assert verified["ao_club_id"].tolist() == ["AO-UEFA-52723", "AO-UEFA-65130"]
+    assert verified["identity_method"].eq("VERIFIED_PROVIDER_ALIAS").all()
+
 
 def test_duplicate_source_event_is_rejected() -> None:
     payload = schedule_payload()

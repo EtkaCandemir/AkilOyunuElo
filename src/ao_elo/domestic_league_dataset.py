@@ -15,6 +15,11 @@ from ao_elo.validators import DOMESTIC_FIXTURE_COLUMNS, domestic_fixture_keys, v
 
 FIXTURE_RECONCILIATIONS = Path(__file__).resolve().parents[2] / "data/domestic_fixture_reconciliations.json"
 FIXTURE_AUDIT_COLUMNS = [*DOMESTIC_FIXTURE_COLUMNS, "source_event_id", "home_goals", "away_goals", "action", "retained_source_event_id", "reason", "source_url"]
+VERIFIED_DOMESTIC_PROVIDER_ALIASES = {
+    ("UKR", "dynamo kiev"): "AO-UEFA-52723",
+    ("UKR", "vorskla"): "AO-UEFA-62174",
+    ("UKR", "zorya"): "AO-UEFA-65130",
+}
 
 
 class DomesticFixtureConflictError(ValueError):
@@ -341,6 +346,28 @@ def build_domestic_team_bridge(
     for team in teams.itertuples(index=False):
         candidates = registry_values.get(str(team.country_code), [])
         source_name = normalize_name(str(team.source_team_name))
+        verified_alias = VERIFIED_DOMESTIC_PROVIDER_ALIASES.get(
+            (str(team.country_code), source_name)
+        )
+        if verified_alias is not None:
+            alias_candidates = [
+                value for value in candidates if value["club_id"] == verified_alias
+            ]
+            if len(alias_candidates) != 1:
+                raise ValueError(
+                    "Verified domestic provider alias is absent or ambiguous in registry: "
+                    f"{team.country_code}/{team.source_team_name}/{verified_alias}"
+                )
+            rows.append(
+                _bridge_record(
+                    team,
+                    verified_alias,
+                    "VERIFIED_PROVIDER_ALIAS",
+                    1.0,
+                    1.0,
+                )
+            )
+            continue
         exact = [value for value in candidates if source_name in value["names"]]
         if len(exact) == 1:
             selected = exact[0]

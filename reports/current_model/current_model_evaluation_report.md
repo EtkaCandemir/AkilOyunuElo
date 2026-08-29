@@ -9,7 +9,7 @@
 - Referansa karşı farklar: Brier `-0.001640`, log-loss `-0.002915`, accuracy `+0.0047`.
 - Fold kazanımları Brier `6/6`, log-loss `6/6`, aynı-sezon Spearman `6/6`, pairwise `6/6`.
 - Kullanıcıya sunulan production tahmini `%50 Current ML + %50 AO Domestic Poisson (rho=0)` log-probability ensemble'dır.
-- Tarihsel nested `ML_POISSON_ENSEMBLE` kolu Brier `0.562065`, log-loss `0.949965`, accuracy `0.5612` üretmiştir. Bu kol her fold için Poisson kaynağı ve ağırlığı seçer; sabit production karışımının birebir replay ölçümü değildir. Kaynak: `reports/production_prediction/model_comparison.csv` ve `reports/production_prediction/fold_selections.csv`.
+- Contract'ta donmus aktivasyon kaniti olarak kayitli tarihsel nested `ML_POISSON_ENSEMBLE` kolu Brier `0.562065`, log-loss `0.949965`, accuracy `0.5612` uretmistir. Bu degerler contract'in `prediction_layer_evidence` blogundan gelir; veri yenilemesiyle tekrar kosulan `reports/production_prediction/` metrikleri degildir. Kol her fold icin Poisson kaynagi ve agirligi secer; sabit production karisiminin birebir replay olcumu degildir.
 - Kararlar: rating çekirdeği **KEEP**; prediction katmanı **PROMOTE_WITH_MONITORING**. Prediction yalnız olasılık üretir, AO Live Elo'ya geri beslenmez ve sorun halinde Current AO 1X2'ye döner.
 
 ## Güncel sözleşme ve aktif mimari
