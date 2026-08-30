@@ -407,6 +407,41 @@ Prospective degerlendirme icin prediction record su kosullari saglar:
 
 Ledger append-only olmalidir. Eski prediction sonuctan sonra overwrite edilmez.
 
+### 11.0 Ledger uygulamasi
+
+`src/ao_elo/prediction_ledger.py` bu sozlesmeyi hash zinciriyle uygular.
+Dosya: `data/prediction_ledger/prediction_ledger_2026_27.jsonl`, satir basina bir
+JSON kaydi:
+
+```text
+sequence        artan tam sayi
+kind            PREDICTION | SETTLEMENT
+recorded_at_utc kaydin yazildigi an
+payload         servis edilen satirin tamami
+previous_hash   bir onceki girisin entry_hash'i
+entry_hash      sha256(canonical(sequence,kind,recorded_at,payload,previous_hash))
+```
+
+Yazma kurallari:
+
+- `generated_at_utc < kickoff_utc` olmayan satir reddedilir.
+- `recorded_at` kickoff'tan sonraysa reddedilir.
+- Sonuc alanlari (`home_goals`, `outcome`, `xg_*` ...) pre-match kayitta bulunamaz.
+- Bir mac kickoff'tan once **revize edilebilir**; eski surum silinmez,
+  `ledger_revision` ile numaralanir ve son pre-kickoff surum kilitli tahmindir.
+- Settlement ayri bir giris olarak eklenir; tahmin satirina dokunulmaz ve
+  fikstur kimligi (kickoff, iki kulup) tahminle birebir eslesmelidir.
+- Settlement yazildiktan sonra o mac icin yeni tahmin kabul edilmez.
+- Toplu yazimda tek bir satir gecersizse hicbiri yazilmaz.
+
+**Zincirin kanitladigi ve kanitlamadigi:** icerigi degistirmek girisin hash'ini,
+girisin hash'ini duzeltmek de sonraki girisin `previous_hash`'ini bozar; ikisi de
+`verify_ledger` tarafindan yakalanir. Fakat butun dosyayi yeniden yazabilen biri
+tutarli bir zinciri uydurma zaman damgalariyla yeniden kurabilir -- bu durumda
+zincir gecerli gorunur ama **head hash degisir**. Bu yuzden koruma ancak head
+hash disarida sabitlendiginde tamamlanir. `ledger_anchor_2026_27.json` bu amacla
+tutulur ve commit/push ile uzak deponun zaman damgasina baglanir.
+
 ### 11.1 Production Prediction Ensemble Input ve Logu
 
 Aktif ensemble, base locked prediction'a ek olarak
@@ -428,6 +463,33 @@ ao_home_probability
 ao_draw_probability
 ao_away_probability
 ```
+
+#### `round` ve `round_sequence`: egitim vokabuleri baglayicidir
+
+`round` ve `stage` kategorik, `round_sequence` ve `leg_number` sayisal
+feature'lardir.  Kategorik encoder `handle_unknown="ignore"` ile kurulur: egitimde
+gorulmemis bir deger **hata vermez**, one-hot'u sessizce sifirlanir.  Bu yuzden
+servis edilen her `round` degeri egitim vokabulerinde bulunmak zorundadir.
+
+UEFA'nin `GROUP` modlu lig asamasi egitim verisinde **`League Stage`** olarak
+gecer (2024/25 ve 2025/26, 792 satir).  Saglayicinin `League phase` etiketi bu
+ada cevrilir; `League Phase` uretmek modelin hic gormedigi bir kategori yaratir
+ve o satirlar tur bilgisini tumden kaybeder.  `ROUND_NAME_MAP`'in urettigi her
+ad icin bu kural testle pinlidir.
+
+`round_sequence` sezon-ici bir siradir: o sezonun fiilen icerdigi turlar uzerinden
+atanir, dolayisiyla oynanmakta olan bir sezon icin hesaplanamaz.  Servis edilen
+fiksturlere sabit `-1.0` yazilirdi; bu deger hicbir egitim satirinda yoktur ve
+model her tahminde uyduruldugu araligin disina cikardi.  Artik en son tamamlanmis
+sezonun `(competition, round)` ordinalleri tasinir -- format degismedigi surece
+dogru degerler bunlardir:
+
+```text
+League Stage    UCL 4.0    UEL 14.0    UECL 24.0
+```
+
+Eslenmemis bir tur artik `-1.0`'a dusmez, **hata verir**.  Bu iki kusur birlikte
+servis edilen 1X2'yi `0.0019` kaydiriyordu; ikisi de sessizdi.
 
 Feature store yalniz kickoff'tan once bilinen AO, format, Avrupa formu,
 dinlenme ve mac yogunlugu alanlarini icerebilir. Hedef macin sonucu, skoru,

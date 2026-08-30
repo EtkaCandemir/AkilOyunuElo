@@ -69,9 +69,9 @@ basit `AO_POISSON_RHO0_CONTROL` kolunu kullanır.
 Veri:
 
 ```text
-45,419 yerel lig maci (28 Agustos kaynak/fikstur duzeltmesi sonrasi)
-19 lig
-508 source takim
+46,822 yerel lig maci (29 Agustos canli yenilemesi sonrasi)
+20 lig
+531 source takim
 Tarihsel backtest cekirdegi 171 AO kulubunu guvenle eslestirir. Canli
 checkpoint UCL/UEL kapsama genislemesiyle 312 dogrulanmis kimligi denetler;
 runtime kalite kapisindan gecen 311 kimligi kullanir. 2026/27 hedef evreninde

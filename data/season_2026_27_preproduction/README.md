@@ -5,7 +5,7 @@ bir preproduction veri snapshot'idir.
 
 - Katilimci: 237
 - Tamamlanmis UEFA maci: 428
-- Yaklasan play-off fiksturu: 243
+- Yaklasan play-off fiksturu: 396
 - Bes sezon domestic history tam: 193/237
 - Domestic Surprise uygulanan takim: 191
 - CW rotasi current-table eslesmesi: 33/36

@@ -482,24 +482,28 @@ ile üretilmişti ve exposure kararının kazancını feature katkısı gibi
 gösteriyordu.
 
 Production tahmin katmanı aynı unseen maçlarda. Bu tablo
-`reports/production_prediction/` paketinden gelir. İki paketin AO kolu artık
-aynı sayıdır (`0.566413`): ensemble paketi katılım normalizasyonu
-aktivasyonuyla birlikte yeniden üretilmiştir.
+`reports/production_prediction/` paketinden gelir ve 29 Ağustos 2026 canlı veri
+yenilemesinden sonraki hâlidir. İki paketin AO kolu aynı sayıdır (`0.566413`):
+yenileme AO çekirdeğini değiştirmedi, `model_summary`/`fold_summary`/
+`competition_summary` önceki snapshot ile byte-identical kaldı.
 
 | Tahmin | Brier | Log-loss | Accuracy |
 | --- | ---: | ---: | ---: |
 | Current AO 1X2 | `0.566413` | `0.956259` | `0.559173` |
-| Current ML | `0.562524` | `0.950903` | `0.560606` |
-| AO Poisson | `0.564199` | `0.953042` | `0.560606` |
-| Production ML + Poisson | **`0.561935`** | **`0.949792`** | **`0.561425`** |
+| Current ML | `0.563746` | `0.952686` | `0.558559` |
+| AO Poisson | `0.564488` | `0.953443` | `0.560606` |
+| Production ML + Poisson | **`0.563050`** | **`0.951368`** | **`0.559582`** |
 
 Production ensemble'ın Current AO'ya farkı:
 
 ```text
-Brier     -0.004478
-Log-loss  -0.006468
-Accuracy  +0.002252
+Brier     -0.003362
+Log-loss  -0.004891
+Accuracy  +0.000410
 ```
+
+Bu tablo fold bazında seçim yapan **nested tarihsel koldur**; sabit production
+`%50/%50, rho=0` politikasının birebir tam pencere ölçümü değildir.
 
 Bu sonuçlar geliştirme dönemi walk-forward kanıtıdır; bağımsız 2026/27
 prospective izleme yerine geçmez.
@@ -513,7 +517,11 @@ Ana raporlar:
 ## 7. Aktif Olmayan Araştırmalar
 
 Repository'de çok sayıda araştırma modülü bulunur. Bir modülün kodda bulunması
-production'da aktif olduğu anlamına gelmez.
+production'da aktif olduğu anlamına gelmez. Bunun tersi de geçerlidir:
+`scoreline.py` araştırma tarafında kalibrasyon için kullanılır ama iki gol
+beklentisini H/D/A'ya çeviren çekirdeği production Domestic Poisson'a da
+sağlar. Modül-modül sınır [`docs/ai/ARCHITECTURE.md`](docs/ai/ARCHITECTURE.md)
+§6'dadır.
 
 | Katman | Durum |
 | --- | --- |
@@ -526,7 +534,7 @@ production'da aktif olduğu anlamına gelmez.
 | Stage-weighted progression | Reddedildi |
 | Q1-Q5 / Q1-Q3 rakip profili | Diagnostic |
 | Domestic Surprise MOB | Diagnostic |
-| Scoreline Poisson/Dixon-Coles | Diagnostic |
+| Scoreline rho kalibrasyonu (Dixon-Coles) | Diagnostic; production `rho=0` |
 
 Tam durum listesi:
 [`docs/ai/RESEARCH_STATUS.md`](docs/ai/RESEARCH_STATUS.md).
@@ -662,6 +670,8 @@ output/                      Yeniden üretilebilir yerel çıktılar; Git'e girm
 | Test ve metrikler | [`docs/ai/EVALUATION.md`](docs/ai/EVALUATION.md) |
 | Aktif/shadow/rejected durumu | [`docs/ai/RESEARCH_STATUS.md`](docs/ai/RESEARCH_STATUS.md) |
 | Çalıştırma adımları | [`docs/ai/RUNBOOK.md`](docs/ai/RUNBOOK.md) |
+| Production sözleşmesi (anlatı) | [`docs/AO_EUROPEAN_ELO_V2_MODEL_CONTRACT.md`](docs/AO_EUROPEAN_ELO_V2_MODEL_CONTRACT.md) |
+| 2026/27 holdout protokolü | [`docs/HOLDOUT_PROTOCOL_2026_27.md`](docs/HOLDOUT_PROTOCOL_2026_27.md) |
 
 Sunum ve paylaşım için güncel PDF seti:
 
@@ -684,6 +694,9 @@ Sunum ve paylaşım için güncel PDF seti:
 - Power Elo her maçta sıfır toplamlıdır.
 - xG yokluğu sıfır performans olarak yorumlanmaz; fallback uygulanır.
 - Production artifact ve contract SHA-256 değerleri startup'ta doğrulanır.
+- Servis edilen her kategorik değer eğitim vokabülerinde bulunmalıdır. Encoder
+  `handle_unknown="ignore"` ile kurulduğu için bilinmeyen bir değer hata vermez,
+  sessizce sıfırlanır; bu yüzden kontrol veriyle değil testle yapılır.
 - `output/`, provider cache'leri, API anahtarları ve büyük ham veri Git'e
   eklenmez.
 

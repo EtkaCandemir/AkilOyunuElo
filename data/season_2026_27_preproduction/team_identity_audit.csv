@@ -52,15 +52,15 @@ season,team_id,club_id,uefa_team_id,team_name,uefa_team_name,country,country_cod
 2026/27,AO-UEFA-52709,AO-UEFA-52709,52709,FC København,Copenhagen,Denmark,DEN,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
 2026/27,AO-UEFA-75795,AO-UEFA-75795,75795,FC Midtjylland,Midtjylland,Denmark,DEN,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-79940,AO-UEFA-79940,79940,FC Nordsjælland,Nordsjælland,Denmark,DEN,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
-2026/27,AO-UEFA-2601124,AO-UEFA-2601124,2601124,AFC Bournemouth,AFC Bournemouth,England,ENG,VERIFIED_UEFA_ID_OVERRIDE,https://www.uefa.com/uefaeuropaleague/clubs/2601124--bournemouth/,True
+2026/27,AO-UEFA-2601124,AO-UEFA-2601124,2601124,AFC Bournemouth,Bournemouth,England,ENG,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-52280,AO-UEFA-52280,52280,Arsenal,Arsenal,England,ENG,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-52683,AO-UEFA-52683,52683,Aston Villa,Aston Villa,England,ENG,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-2601105,AO-UEFA-2601105,2601105,Brighton & Hove Albion,Brighton,England,ENG,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
-2026/27,AO-UEFA-52916,AO-UEFA-52916,52916,Crystal Palace,Crystal Palace,England,ENG,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
+2026/27,AO-UEFA-52916,AO-UEFA-52916,52916,Crystal Palace,Crystal Palace,England,ENG,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-7889,AO-UEFA-7889,7889,Liverpool,Liverpool,England,ENG,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-52919,AO-UEFA-52919,52919,Manchester City,Man City,England,ENG,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-52682,AO-UEFA-52682,52682,Manchester United,Man Utd,England,ENG,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
-2026/27,AO-UEFA-53360,AO-UEFA-53360,53360,Sunderland AFC,Sunderland AFC,England,ENG,VERIFIED_UEFA_ID_OVERRIDE,https://www.uefa.com/uefaeuropaleague/clubs/53360--sunderland/,True
+2026/27,AO-UEFA-53360,AO-UEFA-53360,53360,Sunderland AFC,Sunderland,England,ENG,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-59341,AO-UEFA-59341,59341,Flora Tallinn,Flora Tallinn,Estonia,EST,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-2600371,AO-UEFA-2600371,2600371,Kalju Nomme,Kalju,Estonia,EST,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
 2026/27,AO-UEFA-77482,AO-UEFA-77482,77482,Levadia Tallinn,Levadia Tallinn,Estonia,EST,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
@@ -76,16 +76,16 @@ season,team_id,club_id,uefa_team_id,team_name,uefa_team_name,country,country_cod
 2026/27,AO-UEFA-50023,AO-UEFA-50023,50023,AS Monaco,Monaco,France,FRA,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-75797,AO-UEFA-75797,75797,Lille OSC,Lille,France,FRA,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
 2026/27,AO-UEFA-5312,AO-UEFA-5312,5312,Olympique Lyon,Lyon,France,FRA,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
-2026/27,AO-UEFA-52748,AO-UEFA-52748,52748,Olympique Marseille,Olympique Marseille,France,FRA,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
+2026/27,AO-UEFA-52748,AO-UEFA-52748,52748,Olympique Marseille,Marseille,France,FRA,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
 2026/27,AO-UEFA-52747,AO-UEFA-52747,52747,Paris Saint-Germain,Paris,France,FRA,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-52277,AO-UEFA-52277,52277,RC Lens,Lens,France,FRA,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
-2026/27,AO-UEFA-55031,AO-UEFA-55031,55031,Stade Rennais,Stade Rennais,France,FRA,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
+2026/27,AO-UEFA-55031,AO-UEFA-55031,55031,Stade Rennais,Rennes,France,FRA,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
 2026/27,AO-UEFA-64467,AO-UEFA-64467,64467,Dila Gori,Dila,Georgia,GEO,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
 2026/27,AO-UEFA-52705,AO-UEFA-52705,52705,Dinamo Tbilisi,Dinamo Tbilisi,Georgia,GEO,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-2605905,AO-UEFA-2605905,2605905,Iberia 1999,Iberia Tbilisi,Georgia,GEO,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
 2026/27,AO-UEFA-64471,AO-UEFA-64471,64471,Torpedo Kutaisi,Torpedo Kutaisi,Georgia,GEO,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
-2026/27,AO-UEFA-2600431,AO-UEFA-2600431,2600431,1899 Hoffenheim,1899 Hoffenheim,Germany,GER,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
-2026/27,AO-UEFA-50109,AO-UEFA-50109,50109,Bayer Leverkusen,Bayer Leverkusen,Germany,GER,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
+2026/27,AO-UEFA-2600431,AO-UEFA-2600431,2600431,1899 Hoffenheim,Hoffenheim,Germany,GER,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
+2026/27,AO-UEFA-50109,AO-UEFA-50109,50109,Bayer Leverkusen,Leverkusen,Germany,GER,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
 2026/27,AO-UEFA-50037,AO-UEFA-50037,50037,Bayern München,Bayern München,Germany,GER,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-52758,AO-UEFA-52758,52758,Borussia Dortmund,B. Dortmund,Germany,GER,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-2603790,AO-UEFA-2603790,2603790,RB Leipzig,Leipzig,Germany,GER,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
@@ -115,12 +115,12 @@ season,team_id,club_id,uefa_team_id,team_name,uefa_team_name,country,country_cod
 2026/27,AO-UEFA-59340,AO-UEFA-59340,59340,Hapoel Beer-Sheva,H. Beer-Sheva,Israel,ISR,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
 2026/27,AO-UEFA-59869,AO-UEFA-59869,59869,Hapoel Tel-Aviv,H. Tel-Aviv,Israel,ISR,VERIFIED_UEFA_ID_OVERRIDE,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-57477,AO-UEFA-57477,57477,Maccabi Tel-Aviv,M. Tel-Aviv,Israel,ISR,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
-2026/27,AO-UEFA-50058,AO-UEFA-50058,50058,AC Milan,AC Milan,Italy,ITA,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
+2026/27,AO-UEFA-50058,AO-UEFA-50058,50058,AC Milan,Milan,Italy,ITA,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-50137,AO-UEFA-50137,50137,AS Roma,Roma,Italy,ITA,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-52816,AO-UEFA-52816,52816,Atalanta,Atalanta,Italy,ITA,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-79946,AO-UEFA-79946,79946,Como 1907,Como,Italy,ITA,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-50138,AO-UEFA-50138,50138,Internazionale,Inter,Italy,ITA,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
-2026/27,AO-UEFA-50139,AO-UEFA-50139,50139,Juventus,Juventus,Italy,ITA,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
+2026/27,AO-UEFA-50139,AO-UEFA-50139,50139,Juventus,Juventus,Italy,ITA,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-50136,AO-UEFA-50136,50136,Napoli,Napoli,Italy,ITA,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-2600605,AO-UEFA-2600605,2600605,FK Astana,Astana,Kazakhstan,KAZ,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
 2026/27,AO-UEFA-79966,AO-UEFA-79966,79966,FK Yelimay,Elimai,Kazakhstan,KAZ,VERIFIED_UEFA_ID_OVERRIDE,UEFA_2026_27_MATCH_FEED,True
@@ -155,7 +155,7 @@ season,team_id,club_id,uefa_team_id,team_name,uefa_team_name,country,country_cod
 2026/27,AO-UEFA-89562,AO-UEFA-89562,89562,Mornar Bar,Mornar,Montenegro,MON,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
 2026/27,AO-UEFA-2600104,AO-UEFA-2600104,2600104,OFK Petrovac,Petrovac,Montenegro,MON,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-73936,AO-UEFA-73936,73936,Sutjeska Niksic,Sutjeska,Montenegro,MON,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
-2026/27,AO-UEFA-52327,AO-UEFA-52327,52327,AZ Alkmaar,AZ Alkmaar,Netherlands,NED,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
+2026/27,AO-UEFA-52327,AO-UEFA-52327,52327,AZ Alkmaar,AZ Alkmaar,Netherlands,NED,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-50143,AO-UEFA-50143,50143,Ajax,Ajax,Netherlands,NED,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-52818,AO-UEFA-52818,52818,FC Twente Enschede,Twente,Netherlands,NED,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
 2026/27,AO-UEFA-52749,AO-UEFA-52749,52749,Feyenoord,Feyenoord,Netherlands,NED,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
@@ -182,7 +182,7 @@ season,team_id,club_id,uefa_team_id,team_name,uefa_team_name,country,country_cod
 2026/27,AO-UEFA-50064,AO-UEFA-50064,50064,FC Porto,Porto,Portugal,POR,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-52336,AO-UEFA-52336,52336,Sporting Braga,Braga,Portugal,POR,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
 2026/27,AO-UEFA-50149,AO-UEFA-50149,50149,Sporting CP Lisbon,Sporting CP,Portugal,POR,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
-2026/27,AO-UEFA-2603107,AO-UEFA-2603107,2603107,União Torreense,União Torreense,Portugal,POR,VERIFIED_UEFA_ID_OVERRIDE,https://www.uefa.com/uefaeuropaleague/clubs/2603107--torreense/,True
+2026/27,AO-UEFA-2603107,AO-UEFA-2603107,2603107,União Torreense,Torreense,Portugal,POR,VERIFIED_UEFA_ID_OVERRIDE,https://www.uefa.com/uefaeuropaleague/clubs/2603107--torreense/,True
 2026/27,AO-UEFA-88131,AO-UEFA-88131,88131,CFR Cluj,CFR Cluj,Romania,ROM,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-50065,AO-UEFA-50065,50065,FCSB,FCSB,Romania,ROM,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-53025,AO-UEFA-53025,53025,Universitatea Cluj,U. Cluj,Romania,ROM,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
@@ -208,12 +208,12 @@ season,team_id,club_id,uefa_team_id,team_name,uefa_team_name,country,country_cod
 2026/27,AO-UEFA-59030,AO-UEFA-59030,59030,NK Celje,Celje,Slovenia,SLO,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-69617,AO-UEFA-69617,69617,NK Koper,Koper,Slovenia,SLO,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
 2026/27,AO-UEFA-50124,AO-UEFA-50124,50124,Atlético Madrid,Atleti,Spain,ESP,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
-2026/27,AO-UEFA-53043,AO-UEFA-53043,53043,Celta de Vigo,Celta de Vigo,Spain,ESP,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
+2026/27,AO-UEFA-53043,AO-UEFA-53043,53043,Celta de Vigo,Celta,Spain,ESP,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
 2026/27,AO-UEFA-50080,AO-UEFA-50080,50080,FC Barcelona,Barcelona,Spain,ESP,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-87960,AO-UEFA-87960,87960,Getafe,Getafe,Spain,ESP,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-52265,AO-UEFA-52265,52265,Real Betis,Real Betis,Spain,ESP,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-50051,AO-UEFA-50051,50051,Real Madrid,Real Madrid,Spain,ESP,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
-2026/27,AO-UEFA-50123,AO-UEFA-50123,50123,Real Sociedad,Real Sociedad,Spain,ESP,HISTORICAL_UEFA_REGISTRY_EXACT,/Users/buycell/Desktop/Akil Oyunu Elo/data/club_identity/club_registry.csv,True
+2026/27,AO-UEFA-50123,AO-UEFA-50123,50123,Real Sociedad,Real Sociedad,Spain,ESP,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-70691,AO-UEFA-70691,70691,Villarreal,Villarreal,Spain,ESP,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-91862,AO-UEFA-91862,91862,GAIS Göteborg,GAIS,Sweden,SWE,VERIFIED_UEFA_ID_OVERRIDE,UEFA_2026_27_MATCH_FEED,True
 2026/27,AO-UEFA-52343,AO-UEFA-52343,52343,Hammarby IF,Hammarby,Sweden,SWE,CURRENT_UEFA_FIXTURE_EXACT,UEFA_2026_27_MATCH_FEED,True
