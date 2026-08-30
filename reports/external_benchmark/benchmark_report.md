@@ -18,8 +18,8 @@ dondurulmus tahmin ve rating artefact'lari puanlanir.
    CLIMATOLOGY_WALK_FORWARD      363   0.642983      1.062634      0.457300                    0.000000                       0.000000
 CLUBELO_PUBLISHED_SCALE_400      363   0.574983      0.966819      0.537190                   -0.105757                      -0.090167
   CLUBELO_TUNED_SCALE_AND_H      363   0.574890      0.966486      0.531680                   -0.105902                      -0.090481
-         AO_RATING_CORE_1X2      363   0.577244      0.972194      0.553719                   -0.102241                      -0.085109
-   AO_SERVED_ENSEMBLE_50_50      363   0.580864      0.975477      0.556474                   -0.096611                      -0.082020
+         AO_RATING_CORE_1X2      363   0.575267      0.969396      0.550964                   -0.105315                      -0.087742
+   AO_SERVED_ENSEMBLE_50_50      363   0.577783      0.971384      0.550964                   -0.101402                      -0.085871
 ```
 
 ### Bagimliliga dayanikli guven zarfi
@@ -28,32 +28,32 @@ Pozitif fark ClubElo'nun onde oldugunu gosterir.
 
 ```text
                   ao_arm                external_arm       metric  matches  mean_ao_minus_external  ci_95_lower  ci_95_upper  ao_reliably_better  external_reliably_better
-      AO_RATING_CORE_1X2 CLUBELO_PUBLISHED_SCALE_400    brier_1x2      363                0.002261    -0.024497     0.031243               False                     False
-      AO_RATING_CORE_1X2 CLUBELO_PUBLISHED_SCALE_400 log_loss_1x2      363                0.005375    -0.032010     0.046298               False                     False
-      AO_RATING_CORE_1X2   CLUBELO_TUNED_SCALE_AND_H    brier_1x2      363                0.002355    -0.023640     0.031312               False                     False
-      AO_RATING_CORE_1X2   CLUBELO_TUNED_SCALE_AND_H log_loss_1x2      363                0.005708    -0.030970     0.046474               False                     False
-AO_SERVED_ENSEMBLE_50_50 CLUBELO_PUBLISHED_SCALE_400    brier_1x2      363                0.005881    -0.021982     0.035393               False                     False
-AO_SERVED_ENSEMBLE_50_50 CLUBELO_PUBLISHED_SCALE_400 log_loss_1x2      363                0.008658    -0.030001     0.049454               False                     False
-AO_SERVED_ENSEMBLE_50_50   CLUBELO_TUNED_SCALE_AND_H    brier_1x2      363                0.005974    -0.021124     0.034916               False                     False
-AO_SERVED_ENSEMBLE_50_50   CLUBELO_TUNED_SCALE_AND_H log_loss_1x2      363                0.008991    -0.028909     0.048615               False                     False
+      AO_RATING_CORE_1X2 CLUBELO_PUBLISHED_SCALE_400    brier_1x2      363                0.000284    -0.025291     0.027927               False                     False
+      AO_RATING_CORE_1X2 CLUBELO_PUBLISHED_SCALE_400 log_loss_1x2      363                0.002577    -0.033564     0.041728               False                     False
+      AO_RATING_CORE_1X2   CLUBELO_TUNED_SCALE_AND_H    brier_1x2      363                0.000378    -0.024885     0.027829               False                     False
+      AO_RATING_CORE_1X2   CLUBELO_TUNED_SCALE_AND_H log_loss_1x2      363                0.002910    -0.032286     0.041422               False                     False
+AO_SERVED_ENSEMBLE_50_50 CLUBELO_PUBLISHED_SCALE_400    brier_1x2      363                0.002800    -0.024110     0.031134               False                     False
+AO_SERVED_ENSEMBLE_50_50 CLUBELO_PUBLISHED_SCALE_400 log_loss_1x2      363                0.004565    -0.032832     0.043496               False                     False
+AO_SERVED_ENSEMBLE_50_50   CLUBELO_TUNED_SCALE_AND_H    brier_1x2      363                0.002894    -0.023516     0.030917               False                     False
+AO_SERVED_ENSEMBLE_50_50   CLUBELO_TUNED_SCALE_AND_H log_loss_1x2      363                0.004899    -0.031941     0.043112               False                     False
 ```
 
 ### Turnuva kirilimi
 
 ```text
 competition                   model_arm  matches  brier_1x2  log_loss_1x2  accuracy_1x2
-        UCL          AO_RATING_CORE_1X2      171   0.591809      0.989656      0.538012
-        UCL    AO_SERVED_ENSEMBLE_50_50      171   0.596204      0.994412      0.555556
+        UCL          AO_RATING_CORE_1X2      171   0.587840      0.984005      0.538012
+        UCL    AO_SERVED_ENSEMBLE_50_50      171   0.590133      0.985844      0.549708
         UCL    CLIMATOLOGY_WALK_FORWARD      171   0.643057      1.062010      0.432749
         UCL CLUBELO_PUBLISHED_SCALE_400      171   0.566977      0.957281      0.578947
         UCL   CLUBELO_TUNED_SCALE_AND_H      171   0.567515      0.957320      0.573099
-       UECL          AO_RATING_CORE_1X2       90   0.549725      0.933618      0.566667
-       UECL    AO_SERVED_ENSEMBLE_50_50       90   0.543788      0.919136      0.555556
+       UECL          AO_RATING_CORE_1X2       90   0.549196      0.932852      0.566667
+       UECL    AO_SERVED_ENSEMBLE_50_50       90   0.544851      0.920984      0.544444
        UECL    CLIMATOLOGY_WALK_FORWARD       90   0.644603      1.064520      0.433333
        UECL CLUBELO_PUBLISHED_SCALE_400       90   0.567717      0.952306      0.500000
        UECL   CLUBELO_TUNED_SCALE_AND_H       90   0.567646      0.952964      0.488889
-        UEL          AO_RATING_CORE_1X2      102   0.577107      0.976956      0.568627
-        UEL    AO_SERVED_ENSEMBLE_50_50      102   0.587860      0.993445      0.558824
+        UEL          AO_RATING_CORE_1X2      102   0.577194      0.977149      0.558824
+        UEL    AO_SERVED_ENSEMBLE_50_50      102   0.586138      0.991614      0.558824
         UEL    CLIMATOLOGY_WALK_FORWARD      102   0.641429      1.062015      0.519608
         UEL CLUBELO_PUBLISHED_SCALE_400      102   0.594816      0.995614      0.500000
         UEL   CLUBELO_TUNED_SCALE_AND_H      102   0.593644      0.993783      0.500000
@@ -97,8 +97,8 @@ competition                   model_arm  matches  brier_1x2  log_loss_1x2  accur
 
 ```text
                            rating reference_type  teams  spearman_vs_realized  pearson_vs_realized  pairwise_accuracy_vs_realized
-                     AO_FIRST_ELO          MODEL    236              0.423272             0.402056                       0.647167
-AO_FIRST_ELO_NO_DOMESTIC_SURPRISE MODEL_ABLATION    236              0.421493             0.400152                       0.646262
+                     AO_FIRST_ELO          MODEL    236              0.423578             0.406560                       0.647421
+AO_FIRST_ELO_NO_DOMESTIC_SURPRISE MODEL_ABLATION    236              0.421611             0.404673                       0.646334
     OPTA_PRE_SEASON_POWER_RANKING       EXTERNAL    236              0.486618             0.489748                       0.671870
  UEFA_CLUB_COEFFICIENT_PRE_SEASON      OWN_INPUT    236              0.268334             0.284027                       0.596310
 ```
@@ -114,11 +114,11 @@ Eslesmis Spearman farklari:
 
 ```text
                                                               comparison reference_type  teams  spearman_difference  ci_95_lower  ci_95_upper  ao_reliably_better  benchmark_reliably_better  rank_agreement_spearman
-                    AO_FIRST_ELO_minus_AO_FIRST_ELO_NO_DOMESTIC_SURPRISE MODEL_ABLATION    236             0.001779    -0.004942     0.008528               False                      False                 0.998542
-                        AO_FIRST_ELO_minus_OPTA_PRE_SEASON_POWER_RANKING       EXTERNAL    236            -0.063319    -0.106158    -0.020041               False                       True                 0.934826
-                     AO_FIRST_ELO_minus_UEFA_CLUB_COEFFICIENT_PRE_SEASON      OWN_INPUT    236             0.153808     0.056536     0.257488                True                      False                 0.754245
-   AO_FIRST_ELO_NO_DOMESTIC_SURPRISE_minus_OPTA_PRE_SEASON_POWER_RANKING       EXTERNAL    236            -0.065098    -0.107604    -0.022454               False                       True                 0.934156
-AO_FIRST_ELO_NO_DOMESTIC_SURPRISE_minus_UEFA_CLUB_COEFFICIENT_PRE_SEASON      OWN_INPUT    236             0.152029     0.055868     0.254579                True                      False                 0.760978
+                    AO_FIRST_ELO_minus_AO_FIRST_ELO_NO_DOMESTIC_SURPRISE MODEL_ABLATION    236             0.001970    -0.004736     0.008730               False                      False                 0.998568
+                        AO_FIRST_ELO_minus_OPTA_PRE_SEASON_POWER_RANKING       EXTERNAL    236            -0.063009    -0.105594    -0.019895               False                       True                 0.934919
+                     AO_FIRST_ELO_minus_UEFA_CLUB_COEFFICIENT_PRE_SEASON      OWN_INPUT    236             0.154118     0.057291     0.258393                True                      False                 0.754347
+   AO_FIRST_ELO_NO_DOMESTIC_SURPRISE_minus_OPTA_PRE_SEASON_POWER_RANKING       EXTERNAL    236            -0.064979    -0.107300    -0.022592               False                       True                 0.934174
+AO_FIRST_ELO_NO_DOMESTIC_SURPRISE_minus_UEFA_CLUB_COEFFICIENT_PRE_SEASON      OWN_INPUT    236             0.152148     0.056074     0.254445                True                      False                 0.760996
 ```
 
 UEFA kulup katsayisi bagimsiz bir benchmark degildir: `club_points_t_*` girdileri

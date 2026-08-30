@@ -166,7 +166,7 @@
     },
     "artifact_manifest": {
       "path": "artifacts/production_prediction/manifest.json",
-      "sha256": "d577e9a883351a534e1be17a081f83f1248b65b2eb9791b994744832ea5bd021"
+      "sha256": "27a56b3a6a95a8f1d477841a7e01741be550ca1a6f9f5d1f377b1b53eca2a751"
     },
     "fallback": "CURRENT_AO_1X2",
     "rating_feedback": false,

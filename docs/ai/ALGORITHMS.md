@@ -71,7 +71,8 @@ achievement component toplanir.
 3. Agirlikli toplami katilim agirligina gore normalize et:
    `rate = history * (1 + 0.20) / (pw + 0.20)`. `pw = 0` ise `rate = 0`.
 4. Benchmark `20` ile log normalize et.
-5. Aktif `european_tail_beta=0` nedeniyle normu `1` uzerinde cap et.
+5. Aktif `european_tail_beta=1` oldugu icin norm kesilmez; benchmark'i asan
+   kulup gecmisi ayrisik kalir.
 6. Base `500` uzerine European boost ekle.
 
 Ucuncu adim, girilmeyen sezonu "girdim ve puan alamadim" gibi saymayi

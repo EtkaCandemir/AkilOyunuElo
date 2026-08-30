@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-08-29T18:33:49.207696+00:00",
+  "generated_at": "2026-08-30T17:25:54.111561+00:00",
   "evaluation_only": true,
   "production_files_changed": false,
   "model_version": "ao-european-elo-v2.0-dev-freeze",
-  "production_revision": "2026-08-28-domestic-provider-season-and-fixture-integrity-fixes",
+  "production_revision": "2026-08-30-european-prior-tail-no-truncation",
   "final_candidate_version": "ao-european-elo-v2.0-final-candidate-2026-08-13",
   "contract_status": {
     "all_active_blocks_exactly_equal": false,
     "all_active_parameters_equal": false,
     "core_active_parameters_equal": true,
     "qualification_override_declared": true,
-    "production_revision": "2026-08-28-domestic-provider-season-and-fixture-integrity-fixes",
+    "production_revision": "2026-08-30-european-prior-tail-no-truncation",
     "candidate_revision": "2026-08-13-ml-poisson-ensemble-monitoring",
     "candidate_status": "FINAL_MODEL_CANDIDATE",
     "candidate_production_activation": true
   },
   "contract_sha256": {
-    "production": "87a99f395c6046edbd9d79d44fd15f030f6791cc3504831be068c90ec2d669db",
+    "production": "a548e4ea3b2803ec8248fa92bf340602bfc9c3f04fbfd5f83726ec5329c1c937",
     "final_candidate": "29d790f2be80133963eff7f3fcfc2852892c9daf1903dd9b6c3a00ade2cb8a14"
   },
   "seasons": [

@@ -259,8 +259,9 @@ Sözleşme invariantları:
   yalnız prior'ın **girdisine** uygulanır, blend ağırlığına değil.
 - `k` holdout boyunca yeniden seçilemez.
 
-Aktif `european_tail_beta = 0` olduğu için benchmark üzerindeki kulüp geçmişi
-mevcut hard-cap davranışını korur. `official_club_coefficient` ana formüle
+Aktif `european_tail_beta = 1` olduğu için benchmark üzerindeki kulüp geçmişi
+kesilmez ve ayrışık kalır. `country_tail_beta` ve `exposure_tail_beta` `0`
+olarak korunur; kuyruk kararı yalnız Avrupa geçmişi normuna uygulanır. `official_club_coefficient` ana formüle
 girmez; denetim alanıdır.
 
 ## 9. European Exposure

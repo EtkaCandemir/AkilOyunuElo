@@ -205,10 +205,10 @@ Katman kapaliyken `EuropeanHistoryRate = WeightedEuropeanHistory`.
 u_europe = ln(1 + EuropeanHistoryRate) / ln(1 + 20)
 ```
 
-Aktif `european_tail_beta=0`:
+Aktif `european_tail_beta=1`, yani ust kuyruk kesilmez:
 
 ```text
-EuropeanHistoryNorm = min(u_europe, 1)
+EuropeanHistoryNorm = Tail(u_europe, 1) = u_europe
 
 EuropeanPrior = 500
               + 1559.714795008913 * EuropeanHistoryNorm

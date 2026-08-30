@@ -14,13 +14,19 @@ import math
 import numpy as np
 import pandas as pd
 
+# Shared pure helper, not the production pipeline: re-implementing the tail here
+# would risk diverging from the curve the active model uses.
+from ao_elo.scoring import apply_upper_tail, participation_normalized_history
+
 
 REQUIRED_COLUMNS = {
     "season",
     "team_id",
     "competition",
     "weighted_european_history",
+    "weighted_season_exposure",
     "european_exposure",
+    "domestic_prior",
     "adjusted_domestic_prior",
     "adjusted_ao_first_elo",
 }
@@ -32,6 +38,12 @@ class EuropeanPriorRecalibrationConfig:
     history_benchmark: float = 20.0
     prior_boost_scale: float = 1.0
     exposure_cap: float = 0.85
+    european_tail_beta: float = 0.0
+    domestic_boost_scale: float = 1.0
+    # Pinned to the active production layer: this study measures the tail and
+    # the domestic scale, not participation. Without it the research surface
+    # normalizes raw history and stops reproducing production.
+    participation_shrinkage: float = 0.2
     uel_quality: float = 1.0
     uecl_quality: float = 1.0
     base_rating: float = 500.0
@@ -57,12 +69,25 @@ class EuropeanPriorRecalibrationConfig:
                 raise ValueError(f"{name} must be within [0,1]")
         if self.uel_quality < self.uecl_quality:
             raise ValueError("competition quality must preserve UCL >= UEL >= UECL")
+        if not math.isfinite(self.european_tail_beta) or not (
+            0.0 <= self.european_tail_beta <= 1.0
+        ):
+            raise ValueError("european_tail_beta must be within [0,1]")
+        if not math.isfinite(self.domestic_boost_scale) or not (
+            1.0 <= self.domestic_boost_scale <= 1.5
+        ):
+            raise ValueError("domestic_boost_scale must be within [1,1.5]")
+        if not math.isfinite(self.participation_shrinkage) or (
+            self.participation_shrinkage < 0.0
+        ):
+            raise ValueError("participation_shrinkage must be non-negative")
 
     @property
     def key(self) -> str:
         return (
             f"b{self.history_benchmark:g}_s{self.prior_boost_scale:g}_"
-            f"e{self.exposure_cap:g}_q1-{self.uel_quality:g}-{self.uecl_quality:g}"
+            f"e{self.exposure_cap:g}_q1-{self.uel_quality:g}-{self.uecl_quality:g}_"
+            f"t{self.european_tail_beta:g}_d{self.domestic_boost_scale:g}"
         )
 
 
@@ -83,6 +108,39 @@ def candidate_grid() -> tuple[EuropeanPriorRecalibrationConfig, ...]:
                 exposure_cap=exposure,
                 uel_quality=quality[0],
                 uecl_quality=quality[1],
+            ),
+        )
+    }
+    return tuple(candidates[key] for key in sorted(candidates))
+
+
+def tail_and_domestic_grid() -> tuple[EuropeanPriorRecalibrationConfig, ...]:
+    """Grid for the two axes that address top-end compression.
+
+    `candidate_grid` is left untouched: it is the evidence of the earlier study
+    and still carries the pre-0.65 exposure default. Here the exposure cap,
+    benchmark, prior scale and competition quality are all pinned to the active
+    production values so the two new axes are measured on their own.
+    """
+
+    candidates = {
+        config.key: config
+        for tail, domestic in product(
+            # Reaches 1.0 so the selection is not forced to the grid edge.
+            # beta = 1 removes the truncation entirely: the log curve simply
+            # continues, which is the natural formulation the cap overrides.
+            (0.0, 0.25, 0.35, 0.50, 0.75, 0.90, 1.0),
+            (1.0, 1.10, 1.20, 1.343),
+        )
+        for config in (
+            EuropeanPriorRecalibrationConfig(
+                history_benchmark=20.0,
+                prior_boost_scale=1.0,
+                exposure_cap=0.65,
+                uel_quality=1.0,
+                uecl_quality=1.0,
+                european_tail_beta=tail,
+                domestic_boost_scale=domestic,
             ),
         )
     }
@@ -133,7 +191,9 @@ def apply_european_prior_recalibration(
     result = seeds.copy()
     numeric_columns = (
         "weighted_european_history",
+        "weighted_season_exposure",
         "european_exposure",
+        "domestic_prior",
         "adjusted_domestic_prior",
         "adjusted_ao_first_elo",
     )
@@ -149,10 +209,27 @@ def apply_european_prior_recalibration(
         invalid = sorted(competition.loc[~competition.isin(COMPETITIONS)].unique())
         raise ValueError(f"Unsupported competition values: {invalid}")
 
-    uncapped_norm = np.log1p(numeric["weighted_european_history"]) / math.log1p(
-        config.history_benchmark
+    # Production normalizes participation-adjusted history, not the raw sum.
+    # Skipping this made the research baseline miss production by up to 131 Elo.
+    rate = pd.Series(
+        [
+            participation_normalized_history(
+                history, played, config.participation_shrinkage
+            )
+            for history, played in zip(
+                numeric["weighted_european_history"],
+                numeric["weighted_season_exposure"],
+                strict=True,
+            )
+        ],
+        index=numeric.index,
     )
-    history_norm = uncapped_norm.clip(upper=1.0)
+    uncapped_norm = np.log1p(rate) / math.log1p(config.history_benchmark)
+    # beta = 0 reproduces the production clip exactly; above one the curve keeps
+    # going with slope beta so clubs past the benchmark stay distinguishable.
+    history_norm = uncapped_norm.map(
+        lambda value: apply_upper_tail(value, config.european_tail_beta)
+    )
     quality = competition.map(
         {"UCL": 1.0, "UEL": config.uel_quality, "UECL": config.uecl_quality}
     ).astype(float)
@@ -162,14 +239,29 @@ def apply_european_prior_recalibration(
         * quality
         * history_norm
     )
+    # Scale only the evidence components above the base rating. The Domestic
+    # Surprise adjustment rides along in adjusted_domestic_prior and is added
+    # back unscaled: it is capped at +-30 by a frozen parameter, and scaling it
+    # here would silently widen that cap.
+    surprise = numeric["adjusted_domestic_prior"] - numeric["domestic_prior"]
+    scaled_domestic = config.base_rating + config.domestic_boost_scale * (
+        numeric["domestic_prior"] - config.base_rating
+    )
+    scaled_adjusted_domestic = scaled_domestic + surprise
     effective_exposure = numeric["european_exposure"].clip(upper=config.exposure_cap)
-    candidate = numeric["adjusted_domestic_prior"] + effective_exposure * (
-        prior - numeric["adjusted_domestic_prior"]
+    candidate = scaled_adjusted_domestic + effective_exposure * (
+        prior - scaled_adjusted_domestic
     )
 
     result["candidate_key"] = config.key
     result["candidate_history_norm"] = history_norm
     result["candidate_competition_quality"] = quality
+    result["candidate_history_rate"] = rate
+    result["candidate_uncapped_history_norm"] = uncapped_norm
+    result["candidate_tail_active"] = (uncapped_norm > 1.0) & (
+        config.european_tail_beta > 0.0
+    )
+    result["candidate_adjusted_domestic_prior"] = scaled_adjusted_domestic
     result["candidate_european_prior"] = prior
     result["candidate_effective_exposure"] = effective_exposure
     result["candidate_ao_first_elo"] = candidate
@@ -178,7 +270,7 @@ def apply_european_prior_recalibration(
     zero_exposure = numeric["european_exposure"].eq(0.0)
     if not np.allclose(
         result.loc[zero_exposure, "candidate_ao_first_elo"],
-        numeric.loc[zero_exposure, "adjusted_domestic_prior"],
+        scaled_adjusted_domestic.loc[zero_exposure],
         atol=1e-10,
     ):
         raise ValueError("Zero-exposure candidate must equal adjusted Domestic Prior")

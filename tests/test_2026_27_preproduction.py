@@ -19,6 +19,7 @@ from ao_elo.dynamic_csv import (
     updates_to_frame,
 )
 from ao_elo.pipeline import compute_ao_first_elo_from_csv
+from scripts import build_2026_27_prediction_features as prediction_feature_builder
 from scripts.build_2026_27_preproduction_inputs import (
     entry_competition,
     preserve_existing_xg,
@@ -33,6 +34,13 @@ from scripts.run_2026_27_preproduction_replay import (
 
 DATA_ROOT = ROOT / "data" / "season_2026_27_preproduction"
 CONTRACT = ROOT / "contracts" / "ao_european_elo_v2_production.json"
+
+
+def test_prediction_builder_default_generated_at_is_the_real_utc_clock() -> None:
+    before = pd.Timestamp.now(tz="UTC")
+    generated = prediction_feature_builder.resolve_generated_at(None)
+    after = pd.Timestamp.now(tz="UTC")
+    assert before <= generated <= after
 
 
 def test_entry_competition_maps_supported_routes() -> None:

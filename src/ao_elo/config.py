@@ -125,7 +125,12 @@ class AOEuropeanEloConfig:
         cls,
         *,
         country_tail_beta: float = 0.0,
-        european_tail_beta: float = 0.0,
+        # 1.0 means the log curve is not truncated at all. The old 0.0 clipped
+        # every club past the benchmark to the same normalized score, so the 14
+        # clubs with the strongest European records received an identical
+        # European Prior. Removing the truncation is a reliable improvement in
+        # Brier, log-loss, seed Spearman and seed pairwise accuracy.
+        european_tail_beta: float = 1.0,
         exposure_tail_beta: float = 0.0,
         country_strength_benchmark: float = 25.0,
         european_history_benchmark: float = 20.0,

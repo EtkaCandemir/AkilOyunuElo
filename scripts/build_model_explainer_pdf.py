@@ -72,6 +72,21 @@ def _num(value: object) -> str:
     return f"{float(value):g}"
 
 
+def _effective_prediction_weights(c: dict) -> tuple[float, float, float]:
+    layer = c["prediction_layer"]
+    top = layer["top_level_blend"]
+    ml_component = layer["current_ml_component"]
+    poisson_component = layer["ao_domestic_poisson_component"]
+    effective_ao = top["current_ml_weight"] * ml_component["ao_weight"] + (
+        top["ao_domestic_poisson_weight"] * poisson_component["ao_weight"]
+    )
+    effective_ml = top["current_ml_weight"] * ml_component["ml_weight"]
+    effective_poisson = (
+        top["ao_domestic_poisson_weight"] * poisson_component["poisson_weight"]
+    )
+    return effective_ao, effective_ml, effective_poisson
+
+
 def main() -> None:
     output_path, docs_path = build_pdf(SPEC, story())
     print(f"PDF written: {output_path}")
@@ -89,11 +104,7 @@ def story() -> list[object]:
     poisson_component = layer["ao_domestic_poisson_component"]
     core = c["dynamic_core"]
 
-    eff_ao = top["current_ml_weight"] * ml_component["ao_weight"] + (
-        top["ao_domestic_poisson_weight"] * poisson_component["ao_weight"]
-    )
-    eff_ml = top["current_ml_weight"] * ml_component["ml_weight"]
-    eff_poisson = top["ao_domestic_poisson_weight"] * poisson_component["poisson_weight"]
+    eff_ao, eff_ml, eff_poisson = _effective_prediction_weights(c)
 
     out: list[object] = cover(
         SPEC,
@@ -125,7 +136,7 @@ def story() -> list[object]:
     out += _section_live(s, c)
     out += _section_prediction(s, c, pred, eff_ao, eff_ml, eff_poisson)
     out += _section_monitoring(s)
-    out += _section_layers(s, c)
+    out += _section_layers(s, c, cfg, (eff_ao, eff_ml, eff_poisson))
     out += _section_evaluation(s)
     out += _section_limits(s)
     out += _section_holdout(s, cfg, core, top, ml_component, poisson_component)
@@ -266,6 +277,11 @@ def _section_first_elo(s: dict, cfg, c: dict) -> list[object]:
                 "rate = history * (1 + k) / (weighted_season_exposure + k)",
                 f"  k = {_num(cfg.european_participation_shrinkage)}",
                 "",
+                "european_history_norm = Tail(ln(1+rate)/ln(1+benchmark), beta)",
+                f"  benchmark = {_num(cfg.european_history_benchmark)}",
+                f"  beta      = {_num(cfg.european_tail_beta)}"
+                + ("   (kesme yok)" if cfg.european_tail_beta >= 1.0 else ""),
+                "",
                 "european_exposure = "
                 f"{_num(cfg.exposure_season_weight)} * season + "
                 f"{_num(cfg.exposure_match_weight)} * match",
@@ -288,6 +304,17 @@ def _section_first_elo(s: dict, cfg, c: dict) -> list[object]:
             "geçmişe birebir eşit olur, yani beş sezonun beşinde oynamış bir kulüp "
             "hiç hareket etmez. Düzeltme yalnız gerçek katılım açığıyla orantılıdır.",
             s,
+        ),
+        callout(
+            "Üst kuyruk neden kesilmiyor",
+            f"beta = {_num(cfg.european_tail_beta)} olduğu için log eğrisi benchmark'ın "
+            "üstünde de devam eder. Önceki beta = 0 değeri normu 1'de kesiyordu ve "
+            "benchmark'ı aşan bütün kulüpleri tek bir European Prior'a indiriyordu; "
+            "2026/27'de bu 14 kulüp demekti. Kesmenin kaldırılması Brier, log-loss, "
+            "seed Spearman ve seed pairwise accuracy'de güvenilir iyileşme verdi ve "
+            "hiçbir kulübün ratingini düşürmedi.",
+            s,
+            tone="green",
         ),
         callout(
             "Exposure tavanının anlamı",
@@ -631,7 +658,10 @@ def _section_prediction(
             [
                 ["Durum", "Davranış"],
                 ["Kulüplerin ikisinde de domestic profil var", "BOTH"],
-                ["Yalnız birinde var", "ONE — Poisson bileşeni AO tabanına düşer"],
+                [
+                    "Yalnız birinde var",
+                    "ONE — mevcut tarafın profili kullanılır; eksik taraf nötrdür",
+                ],
                 ["Hiçbirinde yok", "NONE — Poisson bileşeni AO tabanına düşer"],
                 [
                     "ML veya Poisson hiç çalışmazsa",
@@ -702,10 +732,23 @@ def _section_monitoring(s: dict) -> list[object]:
     ]
 
 
-def _section_layers(s: dict, c: dict) -> list[object]:
+def _section_layers(
+    s: dict,
+    c: dict,
+    cfg: AOEuropeanEloConfig,
+    effective_weights: tuple[float, float, float],
+) -> list[object]:
+    _, effective_ml, effective_poisson = effective_weights
+    ml_label = f"{effective_ml:.2f}".replace(".", ",")
+    poisson_label = f"{effective_poisson:.2f}".replace(".", ",")
     rows = [["Katman", "Durum", "Rating'e etkisi", "Prediction'a etkisi"]]
     rows += [
-        ["Domestic Surprise", "ACTIVE", "AO First'ü ±30 içinde kaydırır", "Dolaylı"],
+        [
+            "Domestic Surprise",
+            "ACTIVE",
+            f"AO First'ü ±{_num(cfg.domestic_surprise_max_abs_adjustment)} içinde kaydırır",
+            "Dolaylı",
+        ],
         ["Gol farkı", "ACTIVE", "Power Elo deltasını çarpar", "Dolaylı"],
         ["xG", "ACTIVE", "Deltaya toplanır", "Dolaylı"],
         ["Progression bonus", "ACTIVE", "AO Live'a eklenir", "Dolaylı"],
@@ -716,8 +759,8 @@ def _section_layers(s: dict, c: dict) -> list[object]:
         ["Dynamic K", "REJECTED", "Yok", "Yok"],
         ["Season power carry", "INACTIVE", "Yok", "Yok"],
         ["Team-specific home context", "SHADOW", "Yok", "Yok"],
-        ["Structural ML", "ACTIVE", "Yok", "0,45 efektif ağırlık"],
-        ["Domestic Poisson", "ACTIVE", "Yok", "0,25 efektif ağırlık"],
+        ["Structural ML", "ACTIVE", "Yok", f"{ml_label} efektif ağırlık"],
+        ["Domestic Poisson", "ACTIVE", "Yok", f"{poisson_label} efektif ağırlık"],
         [
             "Final ensemble",
             "ACTIVE + izleme",

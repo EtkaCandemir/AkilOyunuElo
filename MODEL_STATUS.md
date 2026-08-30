@@ -129,16 +129,33 @@ Makinece doğrulanan aday sözleşmesi:
 contracts/ao_european_elo_v2_final_candidate.json
 ```
 
-Final rating'e `min/max` clipping uygulanmaz. Aktif tail beta'ları sıfırken
-yapısal maksimum, exposure tavanının `0.65` olmasından türer:
+Final rating'e `min/max` clipping uygulanmaz.
+
+`european_tail_beta = 1` olduğundan **European Prior'ın yapısal bir tavanı
+yoktur**: log eğrisi benchmark'ın üstünde kesilmez, dolayısıyla üst sınır
+kulübün gerçek Avrupa geçmişiyle birlikte hareket eder. Yapısal tavanı olan tek
+bileşen Domestic Prior'dır (`country_tail_beta = 0` olduğu için
+`league_strength <= 1`).
 
 ```text
-Domestic Prior max  = 500 + 519.905 + 594.177 * 1.08                 = 1661.62
-European Prior max  = 500 + 1559.715                               = 2059.71
-Surprise öncesi max = 0.35 * 1661.62 + 0.65 * 2059.71              = 1920.38
-Surprise katkısı    = (1 - 0.65) * 30                              =   10.50
-Surprise sonrası    =                                                 1930.88
+Domestic Prior yapisal max = 500 + 519.905 + 594.177 * 1.08        = 1661.62
+European Prior             = 500 + 1559.715 * uncapped_norm        (tavansiz)
 ```
+
+2026/27 evreninde gözlenen en yüksek değerler — yapısal sınır değil, veriden
+gelen değerler:
+
+```text
+en yuksek uncapped_norm                                            = 1.155948
+o kulubun European Prior   = 500 + 1559.715 * 1.155948             = 2302.95
+Surprise oncesi            = 0.35 * 1661.62 + 0.65 * 2302.95       = 2078.48
+Surprise katkisi           = (1 - 0.65) * 30                       =   10.50
+Surprise sonrasi                                                   = 2088.98
+```
+
+Önceki `european_tail_beta = 0` değeri normu `1`'de kesiyor ve European Prior'ı
+`2059.71`'de sabitliyordu; benchmark'ı aşan bütün kulüpler o tek değeri
+alıyordu. Kesme kaldırıldı.
 
 Sürprizin tam `+30`u ratinge geçmez: AO First'e yansıyan pay `(1 - e_eff)` ile
 ölçeklenir ve maksimum exposure'da bu `10.50`dir. Dynamic/Live Elo kırpılmadığı
@@ -171,7 +188,7 @@ güncel model metrikleri için `reports/current_model/` kullanılmalıdır.
 | xG goal-bonus guard | `SHADOW_ONLY` | Yalnız GD bonusunu düzenledi; Brier `+0.000027`, pairwise `+0.000103`, güvenilir zarar yok fakat terfi kapısı geçilmedi |
 | xG çift yönlü performans bonusu | `SHADOW_CANDIDATE` | Beş nested foldun tamamında seçildi; pooled Brier `-0.005023`, log-loss `-0.007137` ve sıralama olumlu, fakat UECL geriledi ve cluster CI sıfırı kesti |
 | Kontrollü xG düzeltmesi | `PROMOTE_MANUAL` | `%30` etki tavanlı `ratio=0.30/scale=1.25`; sabit unseen Brier `-0.002542`, log-loss `-0.003828`, üç turnuva olumlu; production'da aktif |
-| ML + Domestic Poisson 1X2 | `PROMOTE_WITH_MONITORING` | Tarihsel nested ensemble: 4.884 unseen maç, Brier `0.562065`, log-loss `0.949965`; AO'ya fark `-0.004348/-0.006294`. Sabit served `%50/%50`, `rho=0` ayrı operational karardır; AO fallback, rating feedback kapalı |
+| ML + Domestic Poisson 1X2 | `PROMOTE_WITH_MONITORING` | Tarihsel nested ensemble: 4.884 unseen maç, Brier `0.561282`, log-loss `0.948773`; AO'ya fark `-0.004022/-0.005899`. Sabit served `%50/%50`, `rho=0` ayrı operational karardır; AO fallback, rating feedback kapalı |
 | Takım belirsizliğine göre Dynamic K | `KEEP_FIXED_K` | Nested ΔBrier `+0.000085`, Δlog-loss `+0.000112`; forward ranking güvenli 1/5 |
 | Format-duyarlı `P_advance` | `SHADOW_ONLY` | Tie Brier `-0.003531`, log-loss `-0.009814`; bazı turnuva/format segmentleri geriledi |
 | Sıfır-toplamlı progression | `REJECT` | Nested ΔBrier `-0.000014`; pratik fayda yok, forward ranking 3/5 |

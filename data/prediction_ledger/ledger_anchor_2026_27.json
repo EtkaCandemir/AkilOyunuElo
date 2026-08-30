@@ -1,14 +1,16 @@
 {
   "ledger": "data/prediction_ledger/prediction_ledger_2026_27.jsonl",
   "season": "2026/27",
-  "anchored_at_utc": "2026-08-30T10:00:26.067615+00:00",
-  "head_hash": "bc09379e45df2a8ff2462bf1dbe7358ef47e38f7df6b856274c5ea6d145f7985",
-  "entries": 396,
-  "predictions": 396,
+  "anchored_at_utc": "2026-08-30T17:49:33.920648+00:00",
+  "head_hash": "11d45a81c12ac0586272f9f22b2f329cb0b8ffc9c44fdb2920e098e6ec90848a",
+  "entries": 1188,
+  "predictions": 1188,
   "settlements": 0,
-  "file_sha256": "12e333ababf6c837a9f0cb72561244257c12236780c5c7295a77944742c921fb",
+  "file_sha256": "88fddab87c41dd6963573bb9b80ba9b99a8f1b248a4f6a95e720fdd21e2ad543",
   "earliest_kickoff_utc": "2026-09-08T16:45:00+00:00",
   "latest_kickoff_utc": "2027-01-28T20:00:00+00:00",
   "chain_valid_at_anchor": true,
-  "anchor_note": "A hash chain proves internal consistency, not a timestamp: anyone able to rewrite the whole file can rebuild a consistent chain with invented times. This record becomes evidence only once it is committed and pushed, because the remote's commit timestamp is witnessed by a party the writer does not control. Compare a later head against the value recorded here."
+  "anchor_note": "A hash chain proves internal consistency, not a timestamp: anyone able to rewrite the whole file can rebuild a consistent chain with invented times. This record becomes evidence only once it is committed and pushed, because the remote's commit timestamp is witnessed by a party the writer does not control. Compare a later head against the value recorded here.",
+  "locked_revision": 2,
+  "production_revision": "2026-08-30-european-prior-tail-no-truncation"
 }

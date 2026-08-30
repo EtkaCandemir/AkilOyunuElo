@@ -21,7 +21,8 @@ değerlendirme şu kapsamla sınırlandırılır:
   kapsam dışıdır. Buradaki play-off, `Qualifying Play-off Round` turudur.
 - Lig aşamasından sonraki `Knockout round play-offs` (`KNOCKOUT_PLAYOFF`)
   kapsam içindedir; aynı kickoff ve tahmin kilidi koşullarına tabidir.
-- Yalnız `generated_at_utc < kickoff_utc` olan kilitli tahminler uygundur.
+- Yalnız `generated_at_utc <= recorded_at_utc < kickoff_utc` olan kilitli
+  tahminler uygundur.
 - Retrospective replay hiçbir koşulda prospective kanıta dönüştürülemez.
 - 2027/28 bir sonraki tam sezon holdout adayıdır.
 
@@ -42,6 +43,7 @@ tahmin değerlendirmesinden çıkarıldığı anlamına gelmez.
 ```text
 effective European exposure cap = 0.65
 European prior katilim normalizasyonu = aktif, k = 0.20
+European prior ust kuyrugu = aktif, european_tail_beta = 1.00 (kesme yok)
 Kupa katkisi = aktif, w = 0.129032
 Bilinmeyen lig sirasi = 0.15
 Domestic Surprise = theta 0.40 / gamma 0.50 / cap +/-30
