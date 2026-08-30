@@ -407,6 +407,41 @@ Prospective degerlendirme icin prediction record su kosullari saglar:
 
 Ledger append-only olmalidir. Eski prediction sonuctan sonra overwrite edilmez.
 
+### 11.0 Ledger uygulamasi
+
+`src/ao_elo/prediction_ledger.py` bu sozlesmeyi hash zinciriyle uygular.
+Dosya: `data/prediction_ledger/prediction_ledger_2026_27.jsonl`, satir basina bir
+JSON kaydi:
+
+```text
+sequence        artan tam sayi
+kind            PREDICTION | SETTLEMENT
+recorded_at_utc kaydin yazildigi an
+payload         servis edilen satirin tamami
+previous_hash   bir onceki girisin entry_hash'i
+entry_hash      sha256(canonical(sequence,kind,recorded_at,payload,previous_hash))
+```
+
+Yazma kurallari:
+
+- `generated_at_utc < kickoff_utc` olmayan satir reddedilir.
+- `recorded_at` kickoff'tan sonraysa reddedilir.
+- Sonuc alanlari (`home_goals`, `outcome`, `xg_*` ...) pre-match kayitta bulunamaz.
+- Bir mac kickoff'tan once **revize edilebilir**; eski surum silinmez,
+  `ledger_revision` ile numaralanir ve son pre-kickoff surum kilitli tahmindir.
+- Settlement ayri bir giris olarak eklenir; tahmin satirina dokunulmaz ve
+  fikstur kimligi (kickoff, iki kulup) tahminle birebir eslesmelidir.
+- Settlement yazildiktan sonra o mac icin yeni tahmin kabul edilmez.
+- Toplu yazimda tek bir satir gecersizse hicbiri yazilmaz.
+
+**Zincirin kanitladigi ve kanitlamadigi:** icerigi degistirmek girisin hash'ini,
+girisin hash'ini duzeltmek de sonraki girisin `previous_hash`'ini bozar; ikisi de
+`verify_ledger` tarafindan yakalanir. Fakat butun dosyayi yeniden yazabilen biri
+tutarli bir zinciri uydurma zaman damgalariyla yeniden kurabilir -- bu durumda
+zincir gecerli gorunur ama **head hash degisir**. Bu yuzden koruma ancak head
+hash disarida sabitlendiginde tamamlanir. `ledger_anchor_2026_27.json` bu amacla
+tutulur ve commit/push ile uzak deponun zaman damgasina baglanir.
+
 ### 11.1 Production Prediction Ensemble Input ve Logu
 
 Aktif ensemble, base locked prediction'a ek olarak
