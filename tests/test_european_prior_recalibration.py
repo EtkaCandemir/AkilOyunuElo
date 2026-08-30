@@ -9,6 +9,7 @@ from ao_elo.european_prior_recalibration import (
     EuropeanPriorRecalibrationConfig,
     apply_european_prior_recalibration,
     candidate_grid,
+    participation_grid,
     ranking_uncertainty_summary,
     tail_and_domestic_grid,
 )
@@ -171,3 +172,70 @@ def test_tail_and_domestic_grid_pins_every_other_axis() -> None:
     assert {config.history_benchmark for config in grid} == {20.0}
     assert {config.prior_boost_scale for config in grid} == {1.0}
     assert {config.uel_quality for config in grid} == {1.0}
+
+
+def test_participation_grid_pins_every_other_axis_to_production() -> None:
+    from ao_elo.config import AOEuropeanEloConfig
+
+    active = AOEuropeanEloConfig.active()
+    grid = participation_grid()
+    assert len(grid) == 7
+    assert len({config.key for config in grid}) == len(grid)
+    # Every other axis sits on the live production value, so a difference in
+    # this grid can only be caused by the shrinkage.
+    assert {config.exposure_cap for config in grid} == {active.max_european_exposure}
+    assert {config.european_tail_beta for config in grid} == {active.european_tail_beta}
+    assert {config.history_benchmark for config in grid} == {
+        active.european_history_benchmark
+    }
+    assert {config.domestic_boost_scale for config in grid} == {1.0}
+    assert {config.prior_boost_scale for config in grid} == {1.0}
+    assert {config.uel_quality for config in grid} == {1.0}
+    assert {config.uecl_quality for config in grid} == {1.0}
+    # The active value must be a candidate, otherwise nothing measures "keep
+    # what we serve today".
+    assert active.european_participation_shrinkage in {
+        config.participation_shrinkage for config in grid
+    }
+
+
+def test_the_shrinkage_never_moves_a_club_that_played_every_season() -> None:
+    """k is neutral at full participation, so it cannot touch Bayern or Barca.
+
+    This is what makes the axis safe to move at all: it only reaches clubs
+    whose record is thin enough to be inflated by the normalization.
+    """
+
+    frame = seed_frame()
+    assert (frame["weighted_season_exposure"] == 1.0).all()
+    base = apply_european_prior_recalibration(
+        frame, EuropeanPriorRecalibrationConfig(exposure_cap=0.65, european_tail_beta=1.0)
+    )
+    for shrinkage in (0.35, 0.5, 1.0, 2.5):
+        moved = apply_european_prior_recalibration(
+            frame,
+            EuropeanPriorRecalibrationConfig(
+                exposure_cap=0.65,
+                european_tail_beta=1.0,
+                participation_shrinkage=shrinkage,
+            ),
+        )
+        pd.testing.assert_series_equal(
+            moved["candidate_european_prior"],
+            base["candidate_european_prior"],
+        )
+
+
+def test_raising_the_shrinkage_shrinks_a_partial_record_towards_the_raw_sum() -> None:
+    for played in (0.2, 0.5, 0.8):
+        previous = None
+        for shrinkage in (0.2, 0.35, 0.5, 1.0, 2.5):
+            rate = participation_normalized_history(12.0, played, shrinkage)
+            assert rate >= 12.0
+            if previous is not None:
+                assert rate < previous
+            previous = rate
+        # The limit is the raw sum: no normalization at all.
+        assert participation_normalized_history(12.0, played, 1e9) == pytest.approx(
+            12.0, rel=1e-6
+        )

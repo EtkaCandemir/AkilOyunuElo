@@ -40,9 +40,11 @@ class EuropeanPriorRecalibrationConfig:
     exposure_cap: float = 0.85
     european_tail_beta: float = 0.0
     domestic_boost_scale: float = 1.0
-    # Pinned to the active production layer: this study measures the tail and
-    # the domestic scale, not participation. Without it the research surface
-    # normalizes raw history and stops reproducing production.
+    # Defaults to the active production value so a grid that does not vary it
+    # still reproduces production. Without the normalization at all the
+    # research surface would score raw history and miss production by ~131 Elo.
+    # `participation_grid` moves this axis on purpose: k interpolates between
+    # the pure per-participation rate (k -> 0) and the raw sum (k -> inf).
     participation_shrinkage: float = 0.2
     uel_quality: float = 1.0
     uecl_quality: float = 1.0
@@ -87,7 +89,8 @@ class EuropeanPriorRecalibrationConfig:
         return (
             f"b{self.history_benchmark:g}_s{self.prior_boost_scale:g}_"
             f"e{self.exposure_cap:g}_q1-{self.uel_quality:g}-{self.uecl_quality:g}_"
-            f"t{self.european_tail_beta:g}_d{self.domestic_boost_scale:g}"
+            f"t{self.european_tail_beta:g}_d{self.domestic_boost_scale:g}_"
+            f"p{self.participation_shrinkage:g}"
         )
 
 
@@ -145,6 +148,37 @@ def tail_and_domestic_grid() -> tuple[EuropeanPriorRecalibrationConfig, ...]:
         )
     }
     return tuple(candidates[key] for key in sorted(candidates))
+
+
+def participation_grid() -> tuple[EuropeanPriorRecalibrationConfig, ...]:
+    """Grid for the participation shrinkage, with every other axis pinned.
+
+    `rate = history * (1 + k) / (pw + k)` is neutral at full participation and
+    scales a partial record up towards the rate the club posted while present.
+    At the active k = 0.20 that reaches 4.44x for the thinnest record, which
+    lifts clubs into the tail region on a small sample: with the truncation
+    gone that inflation is now expressed in the ordering instead of being
+    hidden by the shared cap. Raising k shrinks every multiplier towards the
+    raw sum without touching a club that played every season, so this axis
+    cannot move the clubs at pw = 1 by construction.
+
+    The grid reaches 2.5 (max inflation 1.35x) so the selection has room on
+    both sides and is not forced to an edge the way the tail grid first was.
+    """
+
+    return tuple(
+        EuropeanPriorRecalibrationConfig(
+            history_benchmark=20.0,
+            prior_boost_scale=1.0,
+            exposure_cap=0.65,
+            uel_quality=1.0,
+            uecl_quality=1.0,
+            european_tail_beta=1.0,
+            domestic_boost_scale=1.0,
+            participation_shrinkage=shrinkage,
+        )
+        for shrinkage in (0.20, 0.35, 0.50, 0.75, 1.00, 1.50, 2.50)
+    )
 
 
 def exposure_refinement_grid() -> tuple[EuropeanPriorRecalibrationConfig, ...]:

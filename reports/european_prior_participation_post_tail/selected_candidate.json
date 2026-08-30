@@ -1,0 +1,29 @@
+{
+  "brier_fold_wins": 0,
+  "candidate_count": 7,
+  "competition_loss_harm": false,
+  "decision": "KEEP_RESEARCH",
+  "ferencvaros_candidate_elo": 1612.3451353080375,
+  "ferencvaros_candidate_rank": 45,
+  "ferencvaros_current_elo": 1612.3451353080377,
+  "fold_count": 6,
+  "full_history_candidate_key": "b20_s1_e0.65_q1-1-1_t1_d1_p0.2",
+  "log_loss_fold_wins": 0,
+  "matches": 4884,
+  "nested_selected_keys": [
+    "b20_s1_e0.65_q1-1-1_t1_d1_p0.2",
+    "b20_s1_e0.65_q1-1-1_t1_d1_p0.2",
+    "b20_s1_e0.65_q1-1-1_t1_d1_p0.2",
+    "b20_s1_e0.65_q1-1-1_t1_d1_p0.2",
+    "b20_s1_e0.65_q1-1-1_t1_d1_p0.2",
+    "b20_s1_e0.65_q1-1-1_t1_d1_p0.2"
+  ],
+  "pooled_brier_delta": 0.0,
+  "pooled_log_loss_delta": 0.0,
+  "pooled_seed_pairwise_delta": 0.0,
+  "pooled_seed_spearman_delta": 0.0,
+  "production_changed": false,
+  "production_contract_sha256": "e7f4622a609fcc91cbb839ec84a602059316345f40260f587d985eb21e07fd75",
+  "quality_proxy_note": "Competition quality uses the known season-entry competition, not a complete historical competition-by-points decomposition.",
+  "ranking_reliable_harm_proxy": false
+}

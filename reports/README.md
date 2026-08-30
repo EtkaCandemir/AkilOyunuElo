@@ -72,6 +72,18 @@ participation structure rather than to the lift. Match loss improves as well
 further gates cleared: the exposure cap sweep below and the served-layer replay
 in `participation_served_ensemble/`.
 
+`european_prior_participation_post_tail/` re-asks the same question after the
+history norm stopped being truncated on 2026-08-30. The truncation had been
+hiding the axis's cost: normalization multiplies a thin record by up to
+`4.44x`, and while every saturated club collapsed to one value that inflation
+never reached the ordering. It does now — Aston Villa's raw history sits below
+Barcelona's and Inter's and its normalized rate sits above both. Raising `k`
+would flatten that, and it is the one knob that cannot touch a club which
+played every season. Seven values to `2.50`: all four measures get monotonically
+worse with no turning point and all six folds keep `0.20`, so the decision is
+`KEEP_RESEARCH`. The inflation carries signal rather than noise, and the
+exposure weight already discounts the thinnest records.
+
 ## Exposure cap x participation interaction
 
 `participation_exposure_interaction/` asks whether the exposure cap should move
