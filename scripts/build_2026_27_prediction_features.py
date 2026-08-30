@@ -82,6 +82,12 @@ METADATA_COLUMNS = ("match_id", "round", "round_sequence", "leg_number", "is_kno
 SYNTHETIC_TEAM_ID_BASE = 900_000
 
 
+def resolve_generated_at(value: str | None) -> pd.Timestamp:
+    """Use an explicit UTC time or the clock at the actual production run."""
+
+    return pd.Timestamp(value) if value is not None else pd.Timestamp.now(tz="UTC")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=(
@@ -137,11 +143,7 @@ def main() -> None:
 
     served = None
     if arguments.predict:
-        generated_at = (
-            pd.Timestamp(arguments.generated_at_utc)
-            if arguments.generated_at_utc
-            else pd.Timestamp(features["kickoff_utc"].min()) - pd.Timedelta(hours=6)
-        )
+        generated_at = resolve_generated_at(arguments.generated_at_utc)
         service = ProductionPredictionService.from_contract(
             PRODUCTION_CONTRACT, allow_degraded_fallback=False
         )

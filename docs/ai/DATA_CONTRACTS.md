@@ -398,7 +398,7 @@ retention sozlesmesi MAIN gecisinde carry uygulamadigi icin ikinci set bostur.
 
 Prospective degerlendirme icin prediction record su kosullari saglar:
 
-- `generated_at_utc < kickoff_utc`,
+- `generated_at_utc <= recorded_at_utc < kickoff_utc`,
 - state chronology pointer'lari kayitli,
 - sonuc/skor/xG/advanced team bulunmaz,
 - pre-match component ratingleri ve 1X2 kayitlidir,
@@ -424,13 +424,21 @@ entry_hash      sha256(canonical(sequence,kind,recorded_at,payload,previous_hash
 
 Yazma kurallari:
 
-- `generated_at_utc < kickoff_utc` olmayan satir reddedilir.
-- `recorded_at` kickoff'tan sonraysa reddedilir.
+- `generated_at_utc <= recorded_at_utc < kickoff_utc` olmayan satir reddedilir.
+- Ledger revision secimi, mevcut zincir dogrulamasi ve publish tek exclusive
+  process kilidi altinda yapilir.
+- Batch ayni dizindeki temp dosyada tamamlanir; `flush + fsync` ve tam zincir
+  dogrulamasi basarili olmadan atomik `os.replace` ile yayinlanmaz. Publish
+  oncesi hata live dosyada byte birakmaz.
 - Sonuc alanlari (`home_goals`, `outcome`, `xg_*` ...) pre-match kayitta bulunamaz.
 - Bir mac kickoff'tan once **revize edilebilir**; eski surum silinmez,
   `ledger_revision` ile numaralanir ve son pre-kickoff surum kilitli tahmindir.
-- Settlement ayri bir giris olarak eklenir; tahmin satirina dokunulmaz ve
-  fikstur kimligi (kickoff, iki kulup) tahminle birebir eslesmelidir.
+- Settlement ayri bir giris olarak eklenir; tahmin satirina dokunulmaz.
+  `recorded_at_utc` kickoff'tan sonra olmalidir; goller finite, negatif olmayan
+  tam sayidir ve `outcome` field score ile birebir eslesir.
+- Settlement fikstur kickoff'unu UTC normalize ederek, iki kulup kimligini ise
+  birebir karsilastirir. Baglandigi kilitli tahminin `prediction_entry_hash` ve
+  `ledger_revision` degerlerini payload'inda tasir.
 - Settlement yazildiktan sonra o mac icin yeni tahmin kabul edilmez.
 - Toplu yazimda tek bir satir gecersizse hicbiri yazilmaz.
 

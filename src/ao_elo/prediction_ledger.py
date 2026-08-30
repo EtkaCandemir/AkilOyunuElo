@@ -27,9 +27,16 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
+import os
+import tempfile
 from collections.abc import Iterable, Mapping, Sequence
+from contextlib import contextmanager
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Iterator
+
+import fcntl
 
 import pandas as pd
 
@@ -56,9 +63,15 @@ REQUIRED_PREDICTION_FIELDS: tuple[str, ...] = (
     "ao_home_probability",
     "ao_draw_probability",
     "ao_away_probability",
+    "ml_home_probability",
+    "ml_draw_probability",
+    "ml_away_probability",
     "current_ml_home_probability",
     "current_ml_draw_probability",
     "current_ml_away_probability",
+    "poisson_home_probability",
+    "poisson_draw_probability",
+    "poisson_away_probability",
     "ao_poisson_home_probability",
     "ao_poisson_draw_probability",
     "ao_poisson_away_probability",
@@ -66,7 +79,9 @@ REQUIRED_PREDICTION_FIELDS: tuple[str, ...] = (
     "draw_probability",
     "away_probability",
     "domestic_poisson_coverage",
+    "poisson_component_fallback",
     "prediction_status",
+    "fallback_reason",
     "rating_feedback_applied",
     "prediction_model_version",
     "config_id",
@@ -179,7 +194,7 @@ def _normalize(value: object) -> object:
     return str(value)
 
 
-def read_entries(ledger_path: Path) -> list[LedgerEntry]:
+def _read_entries_unlocked(ledger_path: Path) -> list[LedgerEntry]:
     if not ledger_path.exists():
         return []
     entries: list[LedgerEntry] = []
@@ -205,10 +220,13 @@ def read_entries(ledger_path: Path) -> list[LedgerEntry]:
     return entries
 
 
-def verify_ledger(ledger_path: Path) -> dict[str, object]:
-    """Recompute the whole chain and report where, if anywhere, it breaks."""
+def read_entries(ledger_path: Path) -> list[LedgerEntry]:
+    return _read_entries_unlocked(ledger_path)
 
-    entries = read_entries(ledger_path)
+
+def _verification_report(
+    ledger_path: Path, entries: Sequence[LedgerEntry]
+) -> dict[str, object]:
     problems: list[str] = []
     previous = GENESIS_HASH
     for index, entry in enumerate(entries):
@@ -260,6 +278,12 @@ def verify_ledger(ledger_path: Path) -> dict[str, object]:
     }
 
 
+def verify_ledger(ledger_path: Path) -> dict[str, object]:
+    """Recompute the whole chain and report where, if anywhere, it breaks."""
+
+    return _verification_report(ledger_path, _read_entries_unlocked(ledger_path))
+
+
 def ledger_head(ledger_path: Path) -> LedgerHead:
     """Head hash to anchor externally; anchoring is what makes the chain proof."""
 
@@ -273,7 +297,9 @@ def ledger_head(ledger_path: Path) -> LedgerHead:
     )
 
 
-def _validate_prediction(payload: Mapping[str, object], label: str) -> None:
+def _validate_prediction(
+    payload: Mapping[str, object], label: str, *, recorded_at: pd.Timestamp
+) -> None:
     missing = sorted(set(REQUIRED_PREDICTION_FIELDS).difference(payload))
     if missing:
         raise ValueError(f"{label}: prediction is missing fields {missing}")
@@ -291,6 +317,12 @@ def _validate_prediction(payload: Mapping[str, object], label: str) -> None:
         raise ValueError(
             f"{label}: generated_at_utc {generated.isoformat()} is not before "
             f"kickoff {kickoff.isoformat()}; the row is not prospective"
+        )
+    if generated > recorded_at:
+        raise ValueError(
+            f"{label}: generated_at_utc {generated.isoformat()} is after recorded_at "
+            f"{recorded_at.isoformat()}; a prediction cannot be recorded before it "
+            "is generated"
         )
     if payload["rating_feedback_applied"] not in (False, "False", "false", 0):
         raise ValueError(f"{label}: rating_feedback_applied must be false")
@@ -315,37 +347,41 @@ def append_predictions(
 
     recorded_ts = require_utc_timestamp(recorded_at, "recorded_at")
     recorded = recorded_ts.isoformat()
-    entries = read_entries(ledger_path)
-    revisions: dict[str, int] = {}
-    for entry in entries:
-        if entry.kind == PREDICTION:
-            key = str(entry.payload["match_id"])
-            revisions[key] = revisions.get(key, -1) + 1
-    settled = {
-        str(entry.payload["match_id"]) for entry in entries if entry.kind == SETTLEMENT
-    }
-    payloads: list[dict[str, object]] = []
-    for position, row in enumerate(rows.to_dict("records")):
-        payload = {key: _normalize(value) for key, value in row.items()}
-        match_id = str(payload.get("match_id"))
-        label = f"row {position} ({match_id})"
-        _validate_prediction(payload, label)
-        if match_id in settled:
-            raise ValueError(
-                f"{label}: the match is already settled; a prediction can never be "
-                "added or revised after the result is in the ledger"
-            )
-        kickoff = require_utc_timestamp(payload["kickoff_utc"], label)
-        if recorded_ts >= kickoff:
-            raise ValueError(
-                f"{label}: recorded_at {recorded} is not before kickoff "
-                f"{kickoff.isoformat()}; the entry would not be prospective"
-            )
-        revision = revisions.get(match_id, -1) + 1
-        revisions[match_id] = revision
-        payload["ledger_revision"] = revision
-        payloads.append(payload)
-    return _append(ledger_path, PREDICTION, payloads, recorded, entries)
+    with _exclusive_ledger_lock(ledger_path):
+        entries = _read_entries_unlocked(ledger_path)
+        _ensure_valid_before_append(ledger_path, entries)
+        revisions: dict[str, int] = {}
+        for entry in entries:
+            if entry.kind == PREDICTION:
+                key = str(entry.payload["match_id"])
+                revisions[key] = revisions.get(key, -1) + 1
+        settled = {
+            str(entry.payload["match_id"])
+            for entry in entries
+            if entry.kind == SETTLEMENT
+        }
+        payloads: list[dict[str, object]] = []
+        for position, row in enumerate(rows.to_dict("records")):
+            payload = {key: _normalize(value) for key, value in row.items()}
+            match_id = str(payload.get("match_id"))
+            label = f"row {position} ({match_id})"
+            _validate_prediction(payload, label, recorded_at=recorded_ts)
+            if match_id in settled:
+                raise ValueError(
+                    f"{label}: the match is already settled; a prediction can never "
+                    "be added or revised after the result is in the ledger"
+                )
+            kickoff = require_utc_timestamp(payload["kickoff_utc"], label)
+            if recorded_ts >= kickoff:
+                raise ValueError(
+                    f"{label}: recorded_at {recorded} is not before kickoff "
+                    f"{kickoff.isoformat()}; the entry would not be prospective"
+                )
+            revision = revisions.get(match_id, -1) + 1
+            revisions[match_id] = revision
+            payload["ledger_revision"] = revision
+            payloads.append(payload)
+        return _append(ledger_path, PREDICTION, payloads, recorded, entries)
 
 
 def append_settlements(
@@ -356,38 +392,113 @@ def append_settlements(
 ) -> dict[str, object]:
     """Append results. The prediction row is never touched."""
 
-    recorded = require_utc_timestamp(recorded_at, "recorded_at").isoformat()
-    entries = read_entries(ledger_path)
-    # Sonuncu pre-kickoff tahmin kilitli olandir; settlement ona baglanir.
-    predicted: dict[str, Mapping[str, object]] = {}
-    for entry in entries:
-        if entry.kind == PREDICTION:
-            predicted[str(entry.payload["match_id"])] = entry.payload
-    settled = {
-        str(entry.payload["match_id"]) for entry in entries if entry.kind == SETTLEMENT
-    }
-    payloads: list[dict[str, object]] = []
-    for position, row in enumerate(rows.to_dict("records")):
-        payload = {key: _normalize(value) for key, value in row.items()}
-        match_id = str(payload.get("match_id"))
-        label = f"row {position} ({match_id})"
-        missing = sorted(set(REQUIRED_SETTLEMENT_FIELDS).difference(payload))
-        if missing:
-            raise ValueError(f"{label}: settlement is missing fields {missing}")
-        if match_id not in predicted:
-            raise ValueError(f"{label}: settles a match that was never predicted")
-        if match_id in settled:
-            raise ValueError(f"{label}: already settled")
-        original = predicted[match_id]
-        for field in SETTLEMENT_IDENTITY_FIELDS:
-            if str(payload[field]) != str(original[field]):
+    recorded_ts = require_utc_timestamp(recorded_at, "recorded_at")
+    recorded = recorded_ts.isoformat()
+    with _exclusive_ledger_lock(ledger_path):
+        entries = _read_entries_unlocked(ledger_path)
+        _ensure_valid_before_append(ledger_path, entries)
+        # Sonuncu pre-kickoff tahmin kilitli olandir; settlement ona baglanir.
+        predicted: dict[str, LedgerEntry] = {}
+        for entry in entries:
+            if entry.kind == PREDICTION:
+                predicted[str(entry.payload["match_id"])] = entry
+        settled = {
+            str(entry.payload["match_id"])
+            for entry in entries
+            if entry.kind == SETTLEMENT
+        }
+        payloads: list[dict[str, object]] = []
+        for position, row in enumerate(rows.to_dict("records")):
+            payload = {key: _normalize(value) for key, value in row.items()}
+            match_id = str(payload.get("match_id"))
+            label = f"row {position} ({match_id})"
+            missing = sorted(set(REQUIRED_SETTLEMENT_FIELDS).difference(payload))
+            if missing:
+                raise ValueError(f"{label}: settlement is missing fields {missing}")
+            if match_id not in predicted:
+                raise ValueError(f"{label}: settles a match that was never predicted")
+            if match_id in settled:
+                raise ValueError(f"{label}: already settled")
+
+            prediction = predicted[match_id]
+            original = prediction.payload
+            settlement_kickoff = require_utc_timestamp(
+                payload["kickoff_utc"], f"{label}: kickoff_utc"
+            )
+            prediction_kickoff = require_utc_timestamp(
+                original["kickoff_utc"], f"{label}: predicted kickoff_utc"
+            )
+            if settlement_kickoff != prediction_kickoff:
                 raise ValueError(
-                    f"{label}: settlement {field} does not match the predicted "
-                    f"fixture ({payload[field]!r} vs {original[field]!r})"
+                    f"{label}: settlement kickoff_utc does not match the predicted "
+                    f"fixture ({payload['kickoff_utc']!r} vs "
+                    f"{original['kickoff_utc']!r})"
                 )
-        settled.add(match_id)
-        payloads.append(payload)
-    return _append(ledger_path, SETTLEMENT, payloads, recorded, entries)
+            for field in ("home_club_id", "away_club_id"):
+                if str(payload[field]) != str(original[field]):
+                    raise ValueError(
+                        f"{label}: settlement {field} does not match the predicted "
+                        f"fixture ({payload[field]!r} vs {original[field]!r})"
+                    )
+            if recorded_ts <= prediction_kickoff:
+                raise ValueError(
+                    f"{label}: settlement recorded_at {recorded} must be after "
+                    f"kickoff {prediction_kickoff.isoformat()}"
+                )
+
+            home_goals = _settlement_goals(payload["home_goals"], label, "home_goals")
+            away_goals = _settlement_goals(payload["away_goals"], label, "away_goals")
+            expected_outcome = (
+                "HOME" if home_goals > away_goals else "AWAY" if away_goals > home_goals else "DRAW"
+            )
+            if str(payload["outcome"]) != expected_outcome:
+                raise ValueError(
+                    f"{label}: outcome does not match the field score; expected "
+                    f"{expected_outcome}, got {payload['outcome']!r}"
+                )
+            payload["home_goals"] = home_goals
+            payload["away_goals"] = away_goals
+            payload["prediction_entry_hash"] = prediction.entry_hash
+            payload["ledger_revision"] = int(original["ledger_revision"])
+            settled.add(match_id)
+            payloads.append(payload)
+        return _append(ledger_path, SETTLEMENT, payloads, recorded, entries)
+
+
+def _settlement_goals(value: object, label: str, field: str) -> int:
+    if isinstance(value, bool):
+        raise ValueError(f"{label}: {field} must be a finite non-negative integer")
+    try:
+        numeric = float(value)
+    except (TypeError, ValueError) as exc:
+        raise ValueError(
+            f"{label}: {field} must be a finite non-negative integer"
+        ) from exc
+    if not math.isfinite(numeric) or numeric < 0.0 or not numeric.is_integer():
+        raise ValueError(f"{label}: {field} must be a finite non-negative integer")
+    return int(numeric)
+
+
+@contextmanager
+def _exclusive_ledger_lock(ledger_path: Path) -> Iterator[None]:
+    """Serialize the complete read/validate/revision/write transaction."""
+
+    ledger_path.parent.mkdir(parents=True, exist_ok=True)
+    lock_path = ledger_path.with_name(f"{ledger_path.name}.lock")
+    with lock_path.open("a+b") as handle:
+        fcntl.flock(handle.fileno(), fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
+
+
+def _ensure_valid_before_append(
+    ledger_path: Path, entries: Sequence[LedgerEntry]
+) -> None:
+    report = _verification_report(ledger_path, entries)
+    if not report["valid"]:
+        raise ValueError(f"Ledger is invalid before append: {report['problems']}")
 
 
 def _append(
@@ -398,6 +509,7 @@ def _append(
     entries: Iterable[LedgerEntry],
 ) -> dict[str, object]:
     existing = list(entries)
+    _ensure_valid_before_append(ledger_path, existing)
     sequence = len(existing)
     previous = existing[-1].entry_hash if existing else GENESIS_HASH
     lines: list[str] = []
@@ -416,15 +528,38 @@ def _append(
         sequence += 1
 
     ledger_path.parent.mkdir(parents=True, exist_ok=True)
-    # Open in append mode so an existing entry is never rewritten, even by a bug
-    # in this function.
-    with ledger_path.open("a", encoding="utf-8") as handle:
-        for line in lines:
-            handle.write(line + "\n")
+    original = ledger_path.read_bytes() if ledger_path.exists() else b""
+    descriptor, temporary_name = tempfile.mkstemp(
+        dir=ledger_path.parent,
+        prefix=f".{ledger_path.name}.",
+        suffix=".tmp",
+    )
+    temporary_path = Path(temporary_name)
+    try:
+        with os.fdopen(descriptor, "wb") as handle:
+            handle.write(original)
+            if original and not original.endswith(b"\n"):
+                handle.write(b"\n")
+            for line in lines:
+                handle.write(line.encode("utf-8") + b"\n")
+            handle.flush()
+            os.fsync(handle.fileno())
+        if ledger_path.exists():
+            os.chmod(temporary_path, ledger_path.stat().st_mode & 0o777)
+        else:
+            os.chmod(temporary_path, 0o644)
 
-    report = verify_ledger(ledger_path)
-    if not report["valid"]:
-        raise ValueError(f"Ledger became invalid after append: {report['problems']}")
+        report = verify_ledger(temporary_path)
+        if not report["valid"]:
+            raise ValueError(
+                f"Ledger candidate is invalid before publish: {report['problems']}"
+            )
+        os.replace(temporary_path, ledger_path)
+    finally:
+        if temporary_path.exists():
+            temporary_path.unlink()
+
+    report["ledger"] = str(ledger_path)
     report["appended"] = len(lines)
     report["kind"] = kind
     return report

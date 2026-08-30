@@ -21,7 +21,8 @@ değerlendirme şu kapsamla sınırlandırılır:
   kapsam dışıdır. Buradaki play-off, `Qualifying Play-off Round` turudur.
 - Lig aşamasından sonraki `Knockout round play-offs` (`KNOCKOUT_PLAYOFF`)
   kapsam içindedir; aynı kickoff ve tahmin kilidi koşullarına tabidir.
-- Yalnız `generated_at_utc < kickoff_utc` olan kilitli tahminler uygundur.
+- Yalnız `generated_at_utc <= recorded_at_utc < kickoff_utc` olan kilitli
+  tahminler uygundur.
 - Retrospective replay hiçbir koşulda prospective kanıta dönüştürülemez.
 - 2027/28 bir sonraki tam sezon holdout adayıdır.
 

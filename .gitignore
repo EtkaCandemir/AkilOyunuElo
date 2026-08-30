@@ -18,6 +18,9 @@ data/**/_source_cache/
 
 .coverage.*
 
+# Stable lock inode used by the append-only prediction ledger transaction.
+data/prediction_ledger/*.lock
+
 data/domestic_league_expansion_ucl_uel/_source_cache/
 
 data/domestic_league_expansion_ucl_uel/_secondary_cache/
@@ -33,4 +36,3 @@ data/domestic_league_expansion_ucl_uel/expansion_matches_selected.csv
 reports/domestic_poisson_ucl_uel_expansion/unseen_predictions.csv
 
 reports/domestic_poisson_ucl_uel_expansion/domestic_poisson_feature_store.csv
-

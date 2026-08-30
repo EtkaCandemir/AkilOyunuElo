@@ -675,15 +675,18 @@ Her fikstür için iki kulübün domestic profili var mı diye bakılır:
 | `domestic_poisson_coverage` | Anlam |
 | --- | --- |
 | `BOTH` | İki kulübün de profili var |
-| `ONE` | Yalnız birinin |
-| `NONE` | Hiçbirinin |
+| `ONE` | Yalnız birinin profili var; mevcut tarafın profili kullanılır, eksik taraf nötrdür |
+| `NONE` | Hiçbirinin profili yok; Poisson bileşeni AO tabanına düşer |
 
 (`src/ao_elo/domestic_poisson.py:643`)
 
 Yeterli yerel kanıtı olmayan kulüpler (iki sezon / 40 maç eşiği) takım-bazlı
-profilden **çıkarılır** ve `excluded_ao_club_ids` listesine yazılır. Bu
-kulüplerin maçlarında `ONE`/`NONE` kuralı devreye girer ve Poisson bileşeni AO
-tabanına düşer (`fallback_to_ao_without_history=True`).
+profilden **çıkarılır** ve `excluded_ao_club_ids` listesine yazılır. `ONE`
+kapsamında mevcut tarafın profili kullanılmaya devam eder ve eksik taraf nötr
+girdi alır. Yalnız `NONE` kapsamında Poisson bileşeni AO tabanına düşer
+(`fallback_to_ao_without_history=True`). 30 Ağustos 2026 üretiminde dağılım
+`BOTH=338`, `ONE=54`, `NONE=4`; gerçek satırlarda `ONE` için ölçülen en büyük
+`|Poisson - AO|` farkı `0.164`, `NONE` için `0.000` idi.
 
 ### Poisson iç blend'i
 
