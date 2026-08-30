@@ -42,7 +42,7 @@ Bir output JSON'da `PROMOTE_CANDIDATE` yazmasi production aktivasyonu degildir.
 | AO First v2 | `ACTIVE` | 500-2000 referans olcegi; no clipping |
 | Country strength | `ACTIVE` | benchmark 25, gamma .80, hard upper tail beta 0 |
 | Domestic achievement | `ACTIVE` | position, champion, weighted cup contribution `w=0.129032`, unknown finish at the `0.15` floor |
-| Club European history | `ACTIVE` | benchmark 20, beta 0 |
+| Club European history | `ACTIVE` | benchmark 20, tail beta 1 (kesme yok) |
 | European Exposure | `ACTIVE` | .60 season + .40 match; effective cap .65 |
 | European prior katilim normalizasyonu | `ACTIVE` | `rate = history x (1+k) / (pw + k)`, `k = 0.20`; tam katilimda notr |
 | Domestic Surprise | `ACTIVE` | theta .40, variance .50, cap +/-30, 5 seasons |
@@ -86,7 +86,7 @@ edilmis kapsam boslugudur (bkz. `DATA_CONTRACTS.md` §11.2).
 Pooled sonuc:
 
 ```text
-AO baseline Brier     0.566413
+AO baseline Brier     0.565303
 AO+Poisson Brier      0.564201   delta -0.002212
 AO baseline log-loss  0.956259
 AO+Poisson log-loss   0.953045   delta -0.003214
@@ -135,8 +135,8 @@ Tarihsel otomatik gate: **`KEEP_SHADOW`**. Guncel operasyonel karar:
 fakat AO First/Live rating state'ine geri beslenmez.
 
 ```text
-Brier     0.562065   AO'ya fark -0.004348
-Log-loss  0.949965   AO'ya fark -0.006294
+Brier     0.561282   AO'ya fark -0.004022
+Log-loss  0.948773   AO'ya fark -0.005899
 Accuracy  0.561220   AO'ya fark +0.002048
 ```
 

@@ -277,6 +277,11 @@ def _section_first_elo(s: dict, cfg, c: dict) -> list[object]:
                 "rate = history * (1 + k) / (weighted_season_exposure + k)",
                 f"  k = {_num(cfg.european_participation_shrinkage)}",
                 "",
+                "european_history_norm = Tail(ln(1+rate)/ln(1+benchmark), beta)",
+                f"  benchmark = {_num(cfg.european_history_benchmark)}",
+                f"  beta      = {_num(cfg.european_tail_beta)}"
+                + ("   (kesme yok)" if cfg.european_tail_beta >= 1.0 else ""),
+                "",
                 "european_exposure = "
                 f"{_num(cfg.exposure_season_weight)} * season + "
                 f"{_num(cfg.exposure_match_weight)} * match",
@@ -299,6 +304,17 @@ def _section_first_elo(s: dict, cfg, c: dict) -> list[object]:
             "geçmişe birebir eşit olur, yani beş sezonun beşinde oynamış bir kulüp "
             "hiç hareket etmez. Düzeltme yalnız gerçek katılım açığıyla orantılıdır.",
             s,
+        ),
+        callout(
+            "Üst kuyruk neden kesilmiyor",
+            f"beta = {_num(cfg.european_tail_beta)} olduğu için log eğrisi benchmark'ın "
+            "üstünde de devam eder. Önceki beta = 0 değeri normu 1'de kesiyordu ve "
+            "benchmark'ı aşan bütün kulüpleri tek bir European Prior'a indiriyordu; "
+            "2026/27'de bu 14 kulüp demekti. Kesmenin kaldırılması Brier, log-loss, "
+            "seed Spearman ve seed pairwise accuracy'de güvenilir iyileşme verdi ve "
+            "hiçbir kulübün ratingini düşürmedi.",
+            s,
+            tone="green",
         ),
         callout(
             "Exposure tavanının anlamı",

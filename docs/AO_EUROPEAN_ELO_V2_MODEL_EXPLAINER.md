@@ -61,7 +61,7 @@ birleşimidir. İç blend'ler açıldığında efektif katkılar `%30` Current A
 sessizce bozulmaz: `FALLBACK_CURRENT_AO` durumuna düşer ve sebebi loglanır.
 
 Modelin ölçülmüş kazancı küçüktür. Geliştirme penceresinde ensemble, Current
-AO'ya göre Brier'de `-0.003362` iyileşme sağlar. Bu bir geliştirme dönemi
+AO'ya göre Brier'de `-0.004022` iyileşme sağlar. Bu bir geliştirme dönemi
 walk-forward ölçümüdür ve 2026/27 prospective kanıtı **değildir**. Otomatik
 kapı ensemble'ı `KEEP_SHADOW` olarak işaretler; production'da aktif olması bir
 ürün kararıdır, otomatik bir terfi değildir.
@@ -256,6 +256,24 @@ European Prior = base_rating + european_prior_max_boost * european_history_norm
 
 `european_history_norm`, ağırlıklı Avrupa geçmişinin
 `european_history_benchmark = 20.0` ile normalize edilmiş hâlidir.
+
+Norm **kesilmez**: `european_tail_beta = 1.0` olduğu için log eğrisi benchmark'ın
+üstünde de devam eder.
+
+```text
+EuropeanHistoryNorm = Tail(uncapped_norm, european_tail_beta)
+                    = uncapped_norm            (beta = 1 iken)
+```
+
+Önceki `beta = 0` değeri normu `1.0`'da kesiyordu ve benchmark'ı aşan bütün
+kulüpleri **tek bir** European Prior'a indiriyordu. 2026/27'de bu 14 kulüp
+demekti: Bayern'in normalize Avrupa geçmişi Lyon'un `%52` üstündeyken ikisi de
+`2059.71` alıyordu. Kesmeyi kaldırmak Brier, log-loss, seed Spearman ve seed
+pairwise accuracy'de güvenilir iyileşme verdi; 237 kulübün 223'ü değişmedi ve
+hiçbiri düşmedi.
+
+`country_tail_beta` ve `exposure_tail_beta` `0.0` olarak korunur — karar yalnız
+Avrupa geçmişi normuna uygulanır.
 
 Katılım normalizasyonu bu girdiye uygulanır:
 
@@ -848,29 +866,29 @@ unseen mac             4,884
 
 | Model | Brier | Log-loss | Accuracy | Spearman | Pairwise |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| `REFERENCE_CORE_NO_ACTIVE_EXTRAS` | `0.568053` | `0.959174` | `0.554464` | `0.681487` | `0.758195` |
-| `CURRENT_PRODUCTION` | `0.566413` | `0.956259` | `0.559173` | `0.683258` | `0.759421` |
+| `REFERENCE_CORE_NO_ACTIVE_EXTRAS` | `0.566859` | `0.957462` | `0.556306` | `0.680642` | `0.757837` |
+| `CURRENT_PRODUCTION` | `0.565303` | `0.954672` | `0.559582` | `0.682848` | `0.759278` |
 
 ### Prediction katmanı
 
 | Model | Brier | Log-loss | Accuracy |
 | --- | ---: | ---: | ---: |
-| `CURRENT_AO` | `0.566413` | `0.956259` | `0.559173` |
-| `CURRENT_ML_BLEND` | `0.563746` | `0.952686` | `0.558559` |
-| `AO_POISSON_BLEND` | `0.564488` | `0.953443` | `0.560606` |
-| `AO_POISSON_RHO0_CONTROL` | `0.564313` | `0.953034` | `0.561016` |
-| `ML_POISSON_ENSEMBLE` | `0.563050` | `0.951368` | `0.559582` |
+| `CURRENT_AO` | `0.565303` | `0.954672` | `0.559582` |
+| `CURRENT_ML_BLEND` | `0.561628` | `0.949608` | `0.559787` |
+| `AO_POISSON_BLEND` | `0.563527` | `0.952001` | `0.561835` |
+| `AO_POISSON_RHO0_CONTROL` | `0.563368` | `0.951631` | `0.562039` |
+| `ML_POISSON_ENSEMBLE` | `0.561282` | `0.948773` | `0.561220` |
 
-Ensemble'ın Current AO'ya farkı: Brier `-0.003362`, log-loss `-0.004891`,
-accuracy `+0.000410`.
+Ensemble'ın Current AO'ya farkı: Brier `-0.004022`, log-loss `-0.005899`,
+accuracy `+0.001638`.
 
 ### Güven aralıkları
 
 Conservative envelope (`4,000` bootstrap), `ML_POISSON_ENSEMBLE` vs `CURRENT_AO`:
 
 ```text
-Brier     -0.003362   %95 CI [-0.005559, -0.001353]   guvenilir iyilesme
-Log-loss  -0.004891   %95 CI [-0.008308, -0.001447]   guvenilir iyilesme
+Brier     -0.004022   %95 CI [-0.006019, -0.001998]   guvenilir iyilesme
+Log-loss  -0.005899   %95 CI [-0.009148, -0.002661]   guvenilir iyilesme
 ```
 
 `CURRENT_ML_BLEND` tabanına karşı ise aralık sıfırı keser

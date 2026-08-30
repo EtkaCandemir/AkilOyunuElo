@@ -63,9 +63,9 @@ engeller.
 
 | Model | Mac | Brier | Log-loss | Accuracy | Spearman | Pairwise |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| AO rating core 1X2 | 4,884 | `0.566413` | `0.956259` | `0.5592` | `0.683258` | `0.759421` |
-| Reference core | 4,884 | `0.568053` | `0.959174` | `0.5545` | `0.681487` | `0.758195` |
-| Current - reference | | `-0.001640` | `-0.002915` | `+0.0047` | `+0.001771` | `+0.001226` |
+| AO rating core 1X2 | 4,884 | `0.565303` | `0.954672` | `0.5596` | `0.682848` | `0.759278` |
+| Reference core | 4,884 | `0.566859` | `0.957462` | `0.5563` | `0.680642` | `0.757837` |
+| Current - reference | | `-0.001556` | `-0.002790` | `+0.0033` | `+0.002206` | `+0.001441` |
 
 Dusuk Brier/log-loss daha iyidir. Current model Brier ve log-loss'ta `6/6`,
 same-season Spearman ve pairwise metriklerinde `6/6` fold yon kazanimi
@@ -88,16 +88,16 @@ birebir replay'i degildir.
 
 | Model | Mac | Brier | Log-loss | Accuracy |
 | --- | ---: | ---: | ---: | ---: |
-| AO rating core 1X2 | 4,884 | `0.566413` | `0.956259` | `0.559173` |
-| Nested ML + Poisson (`ML_POISSON_ENSEMBLE`) | 4,884 | `0.562065` | `0.949965` | `0.561220` |
-| Ensemble - AO | | `-0.004348` | `-0.006294` | `+0.002048` |
+| AO rating core 1X2 | 4,884 | `0.565303` | `0.954672` | `0.559582` |
+| Nested ML + Poisson (`ML_POISSON_ENSEMBLE`) | 4,884 | `0.561282` | `0.948773` | `0.561220` |
+| Ensemble - AO | | `-0.004022` | `-0.005899` | `+0.001638` |
 
-Iki tablonun AO kolu aynidir (`0.566413`). Guncel sayilar, `2026-08-28` domestic kaynak/fikstur duzeltmesinden sonraki
+Iki tablonun AO kolu aynidir (`0.565303`). Guncel sayilar, `2026-08-30` Avrupa kuyrugu aktivasyonundan sonraki
 [model_comparison.csv](../../reports/production_prediction/model_comparison.csv)
 dosyasindan gelir. Katilim gate'inin ayri
 [aday snapshot'i](../../reports/participation_served_ensemble/model_comparison_candidate.csv)
 `0.562152` Brier ve AO'ya `-0.004360` fark tasir; guncel nested kolun degerleri
-`0.562065` ve `-0.004348`dir. Iki snapshot birbirinin yerine kullanilmaz.
+`0.561282` ve `-0.004022`dir. Iki snapshot birbirinin yerine kullanilmaz.
 
 Nested ensemble Current ML'ye karsi Brier'da `4/6`, log-loss'ta `5/6` fold
 kazanmistir; `2024/25` iki metrikte de iyilesmistir. Kaynak
@@ -119,7 +119,7 @@ Nested ensemble icin dependency-robust pooled farklar
 
 | Baseline | Brier farki [%95 CI] | Log-loss farki [%95 CI] |
 | --- | --- | --- |
-| Current AO | `-0.004348 [-0.006442,-0.002186]` | `-0.006294 [-0.009636,-0.002765]` |
+| Current AO | `-0.004022 [-0.006019,-0.001998]` | `-0.005899 [-0.009148,-0.002661]` |
 | Current ML | `-0.000685 [-0.001662,+0.000218]` | `-0.001249 [-0.002901,+0.000265]` |
 
 AO rating core - reference core icin dependency-robust pooled farklar:

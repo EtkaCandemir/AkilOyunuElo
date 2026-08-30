@@ -3,9 +3,9 @@
   "changes_production_parameters": false,
   "prediction_axis": {
     "any_reliable_difference": false,
-    "ao_rating_core_brier": 0.5772440319016331,
-    "ao_served_brier_skill_vs_climatology": -0.09661094407059821,
-    "ao_served_ensemble_brier": 0.5808637502881852,
+    "ao_rating_core_brier": 0.575267091726418,
+    "ao_served_brier_skill_vs_climatology": -0.10140176967380944,
+    "ao_served_ensemble_brier": 0.5777833311613506,
     "clubelo_published_brier": 0.5749830812264415,
     "max_snapshot_age_days": 31,
     "paired_matches": 363,
@@ -23,74 +23,74 @@
         "ao_reliably_better": false,
         "benchmark_reliably_better": false,
         "ci_95": [
-          -0.004942486499143961,
-          0.00852841842845982
+          -0.00473588718451291,
+          0.008730213513561067
         ],
         "comparison": "AO_FIRST_ELO_minus_AO_FIRST_ELO_NO_DOMESTIC_SURPRISE",
-        "rank_agreement_spearman": 0.9985419985666485,
+        "rank_agreement_spearman": 0.9985675615222741,
         "reference_type": "MODEL_ABLATION",
-        "spearman_difference": 0.001778904275232776
+        "spearman_difference": 0.001969921415383629
       },
       {
         "ao_reliably_better": false,
         "benchmark_reliably_better": true,
         "ci_95": [
-          -0.1061584611044883,
-          -0.02004120501311994
+          -0.10559413982921549,
+          -0.019894582680643504
         ],
         "comparison": "AO_FIRST_ELO_minus_OPTA_PRE_SEASON_POWER_RANKING",
-        "rank_agreement_spearman": 0.9348263316702196,
+        "rank_agreement_spearman": 0.9349194538657123,
         "reference_type": "EXTERNAL",
-        "spearman_difference": -0.06331927913722288
+        "spearman_difference": -0.06300925759708713
       },
       {
         "ao_reliably_better": true,
         "benchmark_reliably_better": false,
         "ci_95": [
-          0.05653639784914574,
-          0.2574882681228422
+          0.057291286579065515,
+          0.2583932368877293
         ],
         "comparison": "AO_FIRST_ELO_minus_UEFA_CLUB_COEFFICIENT_PRE_SEASON",
-        "rank_agreement_spearman": 0.7542448792645191,
+        "rank_agreement_spearman": 0.7543467672025347,
         "reference_type": "OWN_INPUT",
-        "spearman_difference": 0.15380754998965557
+        "spearman_difference": 0.1541175715297913
       },
       {
         "ao_reliably_better": false,
         "benchmark_reliably_better": true,
         "ci_95": [
-          -0.10760394320201482,
-          -0.022453564868378722
+          -0.10730041372039177,
+          -0.022592197222677128
         ],
         "comparison": "AO_FIRST_ELO_NO_DOMESTIC_SURPRISE_minus_OPTA_PRE_SEASON_POWER_RANKING",
-        "rank_agreement_spearman": 0.9341562170477524,
+        "rank_agreement_spearman": 0.9341744763017706,
         "reference_type": "EXTERNAL",
-        "spearman_difference": -0.06509818341245566
+        "spearman_difference": -0.06497917901247076
       },
       {
         "ao_reliably_better": true,
         "benchmark_reliably_better": false,
         "ci_95": [
-          0.055867500528293666,
-          0.2545794204035338
+          0.05607402737084252,
+          0.2544451427743627
         ],
         "comparison": "AO_FIRST_ELO_NO_DOMESTIC_SURPRISE_minus_UEFA_CLUB_COEFFICIENT_PRE_SEASON",
-        "rank_agreement_spearman": 0.7609777073120366,
+        "rank_agreement_spearman": 0.7609964400719408,
         "reference_type": "OWN_INPUT",
-        "spearman_difference": 0.1520286457144228
+        "spearman_difference": 0.1521476501144077
       }
     ],
     "domestic_surprise_effect": {
       "max_abs_seed_delta": 30.0,
-      "mean_abs_seed_delta": 8.9019107433739,
+      "mean_abs_seed_delta": 8.901910743373897,
       "season": "2025/26",
       "teams": 236,
       "teams_moved_by_layer": 181
     },
     "season": "2025/26",
     "spearman_vs_realized": {
-      "AO_FIRST_ELO": 0.42327192437080347,
-      "AO_FIRST_ELO_NO_DOMESTIC_SURPRISE": 0.4214933577383815,
+      "AO_FIRST_ELO": 0.4235777867023544,
+      "AO_FIRST_ELO_NO_DOMESTIC_SURPRISE": 0.42161113756157576,
       "OPTA_PRE_SEASON_POWER_RANKING": 0.4866178392787856,
       "UEFA_CLUB_COEFFICIENT_PRE_SEASON": 0.268333567596536
     },

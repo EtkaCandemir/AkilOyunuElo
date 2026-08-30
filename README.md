@@ -178,7 +178,9 @@ European History Norm = min(u_europe, 1)
 European Prior = 500 + 1559.7147950089 * European History Norm
 ```
 
-Aktif `european_tail_beta=0`dır. Avrupa geçmişi olmayan takımın history satırı
+Aktif `european_tail_beta=1`dır: log eğrisi `1`'de kesilmez. Kesme, benchmark'ı
+aşan bütün kulüpleri tek bir European Prior'a indiriyordu — 2026/27'de 14 kulüp
+aynı `2059.71` değerini alıyordu. Avrupa geçmişi olmayan takımın history satırı
 atlanmaz; beş sezon açıkça sıfır yazılır.
 
 ### 1.5 European Exposure
@@ -443,7 +445,7 @@ olarak loglanır. Tahmin katmanı hiçbir durumda rating state'ini değiştirmez
 | Model ölçeği | `500-2000` referans, clipping yok |
 | Sezon ağırlıkları | `0.07 / 0.13 / 0.20 / 0.27 / 0.33` |
 | Country benchmark / gamma / tail | `25 / 0.80 / 0` |
-| European benchmark / tail | `20 / 0` |
+| European benchmark / tail | `20 / 1` (kesme yok) |
 | Katılım normalizasyonu | Aktif, `k = 0.20`; tam katılımda nötr |
 | Kupa katkısı | Aktif, `w = 0.129032`; kupasızda inert |
 | Bilinmeyen lig sırası | `0.15` = percentile tabanı |
@@ -473,8 +475,8 @@ Avrupa maçında değerlendirilmiştir:
 
 | Model | Brier | Log-loss | Accuracy | Spearman | Pairwise |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Reference core | `0.568053` | `0.959174` | `0.554464` | `0.681487` | `0.758195` |
-| Current AO rating core | `0.566413` | `0.956259` | `0.559173` | `0.683258` | `0.759421` |
+| Reference core | `0.566859` | `0.957462` | `0.556306` | `0.680642` | `0.757837` |
+| Current AO rating core | `0.565303` | `0.954672` | `0.559582` | `0.682848` | `0.759278` |
 
 Referans kolu da aktif `0.65` exposure cap'iyle seed'lenir. Daha önce
 yayımlanan `0.573699` referans değeri, bayat bir manifest üzerinden `0.85` cap
@@ -482,24 +484,24 @@ ile üretilmişti ve exposure kararının kazancını feature katkısı gibi
 gösteriyordu.
 
 Production tahmin katmanı aynı unseen maçlarda. Bu tablo
-`reports/production_prediction/` paketinden gelir ve 29 Ağustos 2026 canlı veri
-yenilemesinden sonraki hâlidir. İki paketin AO kolu aynı sayıdır (`0.566413`):
-yenileme AO çekirdeğini değiştirmedi, `model_summary`/`fold_summary`/
-`competition_summary` önceki snapshot ile byte-identical kaldı.
+`reports/production_prediction/` paketinden gelir ve 30 Ağustos 2026 Avrupa
+kuyruğu aktivasyonundan sonraki hâlidir. İki paketin AO kolu aynı sayıdır (`0.565303`):
+kuyruk aktivasyonu AO çekirdeğini değiştirdiği için iki paket de yeniden
+üretildi.
 
 | Tahmin | Brier | Log-loss | Accuracy |
 | --- | ---: | ---: | ---: |
-| Current AO 1X2 | `0.566413` | `0.956259` | `0.559173` |
-| Current ML | `0.563746` | `0.952686` | `0.558559` |
-| AO Poisson | `0.564488` | `0.953443` | `0.560606` |
-| Production ML + Poisson | **`0.563050`** | **`0.951368`** | **`0.559582`** |
+| Current AO 1X2 | `0.565303` | `0.954672` | `0.559582` |
+| Current ML | `0.561628` | `0.949608` | `0.559787` |
+| AO Poisson | `0.563527` | `0.952001` | `0.561835` |
+| Production ML + Poisson | **`0.561282`** | **`0.948773`** | **`0.561220`** |
 
 Production ensemble'ın Current AO'ya farkı:
 
 ```text
-Brier     -0.003362
-Log-loss  -0.004891
-Accuracy  +0.000410
+Brier     -0.004022
+Log-loss  -0.005899
+Accuracy  +0.001638
 ```
 
 Bu tablo fold bazında seçim yapan **nested tarihsel koldur**; sabit production

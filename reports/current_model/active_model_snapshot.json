@@ -6,7 +6,7 @@
     "precedence": "production_contract_over_final_candidate"
   },
   "model_version": "ao-european-elo-v2.0-dev-freeze",
-  "production_revision": "2026-08-28-domestic-provider-season-and-fixture-integrity-fixes",
+  "production_revision": "2026-08-30-european-prior-tail-no-truncation",
   "static_initial_elo": {
     "country_strength_benchmark": 25.0,
     "european_history_benchmark": 20.0,
@@ -36,7 +36,7 @@
     "exposure_match_weight": 0.4,
     "max_european_exposure": 0.65,
     "country_tail_beta": 0.0,
-    "european_tail_beta": 0.0,
+    "european_tail_beta": 1.0,
     "exposure_tail_beta": 0.0,
     "rating_source_evidence_threshold": 0.75,
     "european_participation_enabled": true,

@@ -1,6 +1,6 @@
 {
   "model_version": "ao-european-elo-v2.0-dev-freeze",
-  "production_revision": "2026-08-28-domestic-provider-season-and-fixture-integrity-fixes",
+  "production_revision": "2026-08-30-european-prior-tail-no-truncation",
   "runtime_input_guards": {
     "revision_kind": "BUGFIX_NO_PARAMETER_RETUNING",
     "domestic_state_schema_version": "2.0",
@@ -26,6 +26,7 @@
     "max_european_exposure": 0.65,
     "minimum_domestic_prior_weight": 0.35,
     "european_history_benchmark": 20.0,
+    "european_tail_beta": 1.0,
     "european_prior_scale": 1.0,
     "competition_quality_multipliers": {
       "UCL": 1.0,
@@ -269,7 +270,7 @@
     },
     "artifact_manifest": {
       "path": "artifacts/production_prediction/manifest.json",
-      "sha256": "d577e9a883351a534e1be17a081f83f1248b65b2eb9791b994744832ea5bd021"
+      "sha256": "27a56b3a6a95a8f1d477841a7e01741be550ca1a6f9f5d1f377b1b53eca2a751"
     },
     "fallback": "CURRENT_AO_1X2",
     "rating_feedback": false,
@@ -480,5 +481,60 @@
     "eligible_clubs_affected_by_duplicates": 71,
     "eligible_clubs_affected_by_full_repair": 81,
     "parameter_retuning": false
+  },
+  "european_prior_tail": {
+    "active": true,
+    "family": "CONTINUOUS_LOG_NORMALIZATION_NO_UPPER_TRUNCATION",
+    "european_tail_beta": 1.0,
+    "formula": "norm = 1 + beta * (uncapped_norm - 1) for uncapped_norm > 1; beta = 1 leaves the log curve untouched",
+    "supersedes": "hard clip at norm = 1.0, which mapped every club past the benchmark to one European Prior",
+    "country_tail_beta": 0.0,
+    "exposure_tail_beta": 0.0,
+    "scope": "EUROPEAN_HISTORY_NORM_ONLY",
+    "clubs_changed_2026_27": 14,
+    "clubs_unchanged_2026_27": 223,
+    "never_lowers_rating": true,
+    "evidence_window": "2018/19-2025/26",
+    "unseen_matches": 4884,
+    "outer_folds": 6,
+    "fold_selection_unanimous": true,
+    "brier_delta": -0.001109,
+    "brier_ci_95": [
+      -0.001845,
+      -0.000369
+    ],
+    "log_loss_delta": -0.001587,
+    "log_loss_ci_95": [
+      -0.002645,
+      -0.000546
+    ],
+    "seed_spearman_delta": 0.000438,
+    "seed_pairwise_delta": 0.000165,
+    "reliable_improvement": [
+      "brier",
+      "log_loss",
+      "seed_spearman",
+      "seed_pairwise_accuracy"
+    ],
+    "research_report": "output/tail_domestic_recalibration_2026_08_30/backtest_report.md",
+    "rejected_axis": {
+      "name": "domestic_boost_scale",
+      "tested": [
+        1.0,
+        1.1,
+        1.2,
+        1.343
+      ],
+      "reason": "Lower Brier but monotone ranking harm; seed Spearman fell from 0.467 at 1.0 to 0.453 at 1.343"
+    },
+    "evidence_note": "This closes an information loss, not the top-end calibration gap. In the 400+ rating-difference band the favourite still wins more often than predicted (+35.0 over 611 matches); 93.4% of those matches have at least one club at the 0.65 exposure cap, which is the binding mechanism and is deliberately frozen.",
+    "transfer_config_decision": {
+      "refit": false,
+      "reason": "The AO First scale moved for 14 clubs, so the European Poisson transfer coefficients in prediction_layer are now fitted against a slightly different AO distribution than the live one. They were deliberately left unchanged.",
+      "why_not_refit": "No derivation procedure for the production transfer is recorded anywhere: the coefficients are hand-written in production_prediction.py and production_activation.json carries no provenance. Refitting would substitute a reconstructed procedure for an undocumented one, which can diverge more than leaving the values alone.",
+      "measured_risk": "The transfer reads the AO 1X2 probability, not the raw rating, so its input is bounded. Across the 396 served league-phase fixtures the AO probability is unchanged on 301, shifts 1.1 points on average where it moves, and 8.4 points at most.",
+      "note": "The backtest arms refit the transfer per fold, so the reported ensemble metrics are not affected by this. Only the frozen production constants carry the older fit.",
+      "follow_up": "Document the transfer derivation procedure, then refit against it. This is a post-lock maintenance item, not a pre-launch blocker."
+    }
   }
 }

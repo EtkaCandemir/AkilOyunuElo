@@ -43,6 +43,7 @@ tahmin değerlendirmesinden çıkarıldığı anlamına gelmez.
 ```text
 effective European exposure cap = 0.65
 European prior katilim normalizasyonu = aktif, k = 0.20
+European prior ust kuyrugu = aktif, european_tail_beta = 1.00 (kesme yok)
 Kupa katkisi = aktif, w = 0.129032
 Bilinmeyen lig sirasi = 0.15
 Domestic Surprise = theta 0.40 / gamma 0.50 / cap +/-30

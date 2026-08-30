@@ -28,6 +28,7 @@ from ao_elo.european_prior_recalibration import (  # noqa: E402
     EuropeanPriorRecalibrationConfig,
     apply_european_prior_recalibration,
     candidate_grid,
+    tail_and_domestic_grid,
     ranking_uncertainty_summary,
 )
 from ao_elo.evaluation import (  # noqa: E402
@@ -60,7 +61,11 @@ OUTPUT_ROOT = ROOT / "output" / "european_prior_recalibration_backtest_2018_2026
 CURRENT_RATINGS = (
     ROOT / "output" / "season_2026_27_preproduction" / "ao_first_elo_2026_27.csv"
 )
-BASELINE_CONFIG = EuropeanPriorRecalibrationConfig()
+# The baseline must be the active production configuration, otherwise the
+# candidates are measured against a model that is no longer live. The exposure
+# cap moved to 0.65 after the original study, so the dataclass defaults no
+# longer describe production.
+BASELINE_CONFIG = EuropeanPriorRecalibrationConfig(exposure_cap=0.65)
 RANKING_TOLERANCE = 0.002
 DEFAULT_BOOTSTRAP_SAMPLES = 1000
 
@@ -70,6 +75,16 @@ def main() -> None:
         description="Test European Prior scale, competition quality and exposure"
     )
     parser.add_argument("--output-root", type=Path, default=OUTPUT_ROOT)
+    parser.add_argument(
+        "--grid",
+        choices=("default", "tail-and-domestic"),
+        default="default",
+        help=(
+            "default: the original 81-candidate study. tail-and-domestic: the "
+            "two top-end-compression axes with every other axis pinned to the "
+            "active production value."
+        ),
+    )
     parser.add_argument(
         "--bootstrap-samples", type=int, default=DEFAULT_BOOTSTRAP_SAMPLES
     )
@@ -89,7 +104,18 @@ def main() -> None:
     target = aggregate_target(target_by_competition)
     xg_map = load_xg_map(XG_DATA, datasets)
     seeds = load_seed_evidence(production_seed_map)
-    configs = candidate_grid()
+    configs = (
+        tail_and_domestic_grid()
+        if args.grid == "tail-and-domestic"
+        else candidate_grid()
+    )
+    if BASELINE_CONFIG.key not in {config.key for config in configs}:
+        raise ValueError(
+            f"Grid {args.grid!r} does not contain the production baseline "
+            f"{BASELINE_CONFIG.key!r}. The original grid was built around the "
+            "pre-0.65 exposure cap; its saved output stands as the evidence of "
+            "that study and it cannot be re-run against current production."
+        )
     config_by_key = {config.key: config for config in configs}
 
     predictions: dict[str, pd.DataFrame] = {}
@@ -132,7 +158,7 @@ def main() -> None:
     )
     candidate_summary = aggregate_candidate_surface(surface)
     full_selected = select_candidate(candidate_summary)
-    ablation = axis_ablation(candidate_summary, full_selected)
+    ablation = axis_ablation(candidate_summary, full_selected, args.grid)
     current_impact = current_snapshot_impact(config_by_key[full_selected])
     impact = historical_impact(candidate_seeds[full_selected])
     decision = decide(
@@ -215,9 +241,11 @@ def load_seed_evidence(
                     "season",
                     "team_id",
                     "weighted_european_history",
+                    "weighted_season_exposure",
                     "european_exposure",
                     "effective_european_exposure",
                     "european_prior",
+                    "domestic_prior",
                 ]
             ]
         )
@@ -274,6 +302,8 @@ def season_surface(config, seeds, predictions, target, seasons):
                 "history_benchmark": config.history_benchmark,
                 "prior_boost_scale": config.prior_boost_scale,
                 "exposure_cap": config.exposure_cap,
+                "european_tail_beta": config.european_tail_beta,
+                "domestic_boost_scale": config.domestic_boost_scale,
                 "uel_quality": config.uel_quality,
                 "uecl_quality": config.uecl_quality,
             }
@@ -297,6 +327,8 @@ def aggregate_metrics(key: str, frame: pd.DataFrame) -> dict[str, object]:
         "history_benchmark": float(first["history_benchmark"]),
         "prior_boost_scale": float(first["prior_boost_scale"]),
         "exposure_cap": float(first["exposure_cap"]),
+        "european_tail_beta": float(first["european_tail_beta"]),
+        "domestic_boost_scale": float(first["domestic_boost_scale"]),
         "uel_quality": float(first["uel_quality"]),
         "uecl_quality": float(first["uecl_quality"]),
         "seasons": int(frame["season"].nunique()),
@@ -318,7 +350,16 @@ def aggregate_metrics(key: str, frame: pd.DataFrame) -> dict[str, object]:
     }
 
 
-def axis_ablation(summary: pd.DataFrame, full_selected: str) -> pd.DataFrame:
+def axis_ablation(
+    summary: pd.DataFrame, full_selected: str, grid: str = "default"
+) -> pd.DataFrame:
+    """Best candidate when only one axis is allowed to move.
+
+    The axes differ per grid: the original study varied benchmark, prior scale,
+    exposure and competition quality, while the tail-and-domestic grid pins all
+    of those and varies only the two top-end axes.
+    """
+
     def best(label: str, mask: pd.Series) -> dict[str, object]:
         frame = summary.loc[mask]
         if frame.empty:
@@ -328,6 +369,35 @@ def axis_ablation(summary: pd.DataFrame, full_selected: str) -> pd.DataFrame:
         return row
 
     baseline = summary["candidate_key"].eq(BASELINE_CONFIG.key)
+    if grid == "tail-and-domestic":
+        rows = [
+            best("CURRENT_BASELINE", baseline),
+            best(
+                "TAIL_ONLY",
+                summary["domestic_boost_scale"].eq(1.0)
+                & summary["european_tail_beta"].gt(0.0),
+            ),
+            best(
+                "DOMESTIC_SCALE_ONLY",
+                summary["european_tail_beta"].eq(0.0)
+                & summary["domestic_boost_scale"].gt(1.0),
+            ),
+            best("SELECTED_COMBINED", summary["candidate_key"].eq(full_selected)),
+        ]
+        columns = [
+            "ablation",
+            "candidate_key",
+            "brier_1x2",
+            "delta_vs_baseline_brier_1x2",
+            "log_loss_1x2",
+            "delta_vs_baseline_log_loss_1x2",
+            "seed_spearman",
+            "delta_vs_baseline_seed_spearman",
+            "seed_pairwise_accuracy",
+            "delta_vs_baseline_seed_pairwise_accuracy",
+        ]
+        return pd.DataFrame(rows)[columns]
+
     no_quality = summary["uel_quality"].eq(1.0) & summary["uecl_quality"].eq(1.0)
     rows = [
         best("CURRENT_BASELINE", baseline),

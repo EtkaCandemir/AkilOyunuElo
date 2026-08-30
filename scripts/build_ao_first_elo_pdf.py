@@ -129,6 +129,17 @@ def _explanation(s: dict, cfg, data: pd.DataFrame) -> list[object]:
             s,
         ),
         callout(
+            "Avrupa geçmişi neden bir tavanda toplanmıyor",
+            f"european_tail_beta = {str(cfg.european_tail_beta).replace('.', ',')} "
+            "olduğu için Avrupa geçmişi normu kesilmez. Önceki `0` değeri, "
+            f"benchmark'ı ({str(cfg.european_history_benchmark).replace('.0', '')}) "
+            "aşan bütün kulüpleri tek bir European Prior'a indiriyordu — güçlü ve "
+            "çok güçlü Avrupa sicilleri aynı sayıya düşüyordu. Şimdi ayrışık "
+            "kalıyorlar.",
+            s,
+            tone="green",
+        ),
+        callout(
             f"Yerel kanıt neden en az %{int((1 - cfg.max_european_exposure) * 100)} ağırlıkta kalıyor",
             "Kulüp ne kadar çok Avrupa oynamış olursa olsun Domestic Prior'ın ağırlığı "
             f"{str(1 - cfg.max_european_exposure).replace('.', ',')}'in altına inmez. "

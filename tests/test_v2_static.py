@@ -505,3 +505,38 @@ def read_pilot_frames() -> dict[str, pd.DataFrame]:
             PILOT_ROOT / "club_european_points.csv"
         ),
     }
+
+
+def test_active_european_tail_is_not_truncated() -> None:
+    # beta = 1 kesme yapmaz. beta = 0 iken benchmark'i asan butun kulupler tek
+    # bir European Prior'a iniyordu; 2026/27'de bu 14 kulup demekti.
+    config = AOEuropeanEloConfig.active()
+    assert config.european_tail_beta == pytest.approx(1.0)
+    assert apply_upper_tail(1.25, config.european_tail_beta) == pytest.approx(1.25)
+
+
+def test_country_and_exposure_tails_stay_closed() -> None:
+    # Karar yalniz Avrupa gecmisi normuna uygulandi.
+    config = AOEuropeanEloConfig.active()
+    assert config.country_tail_beta == pytest.approx(0.0)
+    assert config.exposure_tail_beta == pytest.approx(0.0)
+
+
+def test_legacy_configs_keep_the_hard_cap() -> None:
+    # Donmus regresyon pilotlari eski davranisi korumali.
+    assert AOEuropeanEloConfig.v1_1().european_tail_beta == pytest.approx(0.0)
+    assert AOEuropeanEloConfig.experimental_country_candidate().european_tail_beta == (
+        pytest.approx(0.0)
+    )
+
+
+def test_the_tail_never_lowers_a_european_prior() -> None:
+    config = AOEuropeanEloConfig.active()
+    for uncapped in (0.25, 0.9, 1.0, 1.0001, 1.16, 2.0):
+        flat = apply_upper_tail(uncapped, 0.0)
+        active = apply_upper_tail(uncapped, config.european_tail_beta)
+        assert active >= flat
+    # Benchmark altinda kalan kulupler birebir ayni kalir.
+    assert apply_upper_tail(0.9, config.european_tail_beta) == pytest.approx(
+        apply_upper_tail(0.9, 0.0)
+    )
