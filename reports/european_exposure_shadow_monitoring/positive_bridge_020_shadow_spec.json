@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "arm_id": "POSITIVE_BRIDGE_020",
+  "status": "EXECUTABLE_SPEC_FROZEN_LOCALLY_NOT_EXTERNALLY_ANCHORED",
+  "evidence_class": "POST_HOC_DEVELOPMENT_SHADOW",
+  "frozen_on": "2026-09-01",
+  "source_production_revision": "2026-08-30-european-prior-tail-no-truncation",
+  "source_production_contract_sha256": "e7f4622a609fcc91cbb839ec84a602059316345f40260f587d985eb21e07fd75",
+  "source_production_state_sha256": "62ffabe7bd78ed59844aa6e09c93e235c960de5d41453c4aaa51aa199c05ee8d",
+  "initial_run_inputs": {
+    "production_seeds_sha256": "f6b5cff606297a376433208044134f7926efbdd04d0905c9714716f7c9db1ac8",
+    "completed_matches_sha256": "a20b5cadc3df0d751e210cfbc80047878ad146124fc0f6cb42d6733463a2aa98",
+    "fixtures_sha256": "592df8c9eb04cdb5756fed0b42ad1e2744d5b96f3f900df7319c2704d34ffd67",
+    "checkpoint_ratings_sha256": "af02b05db7cebdff847146b4afaaaa6cf91fc8c32a85e9d20f2844c8734b48c7",
+    "checkpoint_metadata_sha256": "08160b512953f01180843d130d1432b8a8609b5a6367e688dcfa1750716cbd07",
+    "served_predictions_sha256": "c1be0885c6e929ba0e672b30c225f1e0038b410e83a0e009bcb7c285235e52bb",
+    "production_ledger_sha256": "88fddab87c41dd6963573bb9b80ba9b99a8f1b248a4f6a95e720fdd21e2ad543",
+    "production_ledger_head": "11d45a81c12ac0586272f9f22b2f329cb0b8ffc9c44fdb2920e098e6ec90848a",
+    "production_ledger_entries": 1188
+  },
+  "candidate_runtime_source_sha256": {
+    "positive_bridge_transform": "955ee3e979049f367a8a59697232d6789f1ce943dd5b9505fc4dab976b938814",
+    "dynamic": "59214f3f4274b0a18b49c9f0a6b39a0ea22dd67ce61d0afd0a5f46bb8fba8598",
+    "dynamic_csv": "cb2404684622f5a8ef5ca8ed742edb81594fba8caf08ff2c6a96243ed41d09cd",
+    "config": "57b72085011d95408eba0aa51dcd0e069b9e9716e14e4fa70bb51c99186b8cb2",
+    "controlled_live": "538049327b0f900dd3d4966a61e3cedc1f9a6496aba41649050f09a0bfb713b4",
+    "draw_probability": "f2fa06e18629811da94e51bc0ecae8390784c96d9b541ff14ae6481ed494acfd",
+    "qualification_stage_k": "2a0fa1cf4f33a2723da9e58120bd9f7a61d034dd31b3f5ed03e44338e7ae375b",
+    "qualification_transition": "d27f13d974d76475105a7943099a3e69388052c672071ffe2961d024a3647a2b",
+    "tournament_bonus": "9cb67d3237feaa6b540d71e5d41c7abd15099f809df4ba75f532379c02158ebf",
+    "validators": "e53a2b69edba2a908857a8e77b19ab6612897935c8a32d294bf215951222cdf4",
+    "xg_live": "a2b693a25f3cfc3b428bbeb40b00db5b7aa7629844b6d969a0da1aeb867c8db6"
+  },
+  "parameters": {
+    "eta": 0.2,
+    "exposure_cap": 0.65
+  },
+  "inputs": {
+    "domestic": "adjusted_domestic_prior",
+    "european": "european_prior",
+    "exposure": "effective_european_exposure"
+  },
+  "formula": "if 0 < w < 0.65 and E > D: w_shadow = w + 0.20 * (0.65 - w); else w_shadow = w; AO_First_shadow = D + w_shadow * (E - D)",
+  "invariants": [
+    "zero exposure is inert",
+    "w >= 0.65 is inert",
+    "E <= D is inert",
+    "production AO First and production state are not mutated",
+    "shadow predictions use an isolated ledger"
+  ],
+  "permitted_evidence_scopes": [
+    "AO_CORE_SHADOW",
+    "FULL_SERVED_SHADOW"
+  ],
+  "initial_scope": "AO_CORE_SHADOW",
+  "spec_immutability": "RUN_STATUS_AND_ARTIFACT_POINTERS_MUST_LIVE_OUTSIDE_THIS_FILE",
+  "missing_season_point_penalty": null,
+  "selection_policy": "NO_PARAMETER_SELECTION_FROM_2026_27_RESULTS"
+}

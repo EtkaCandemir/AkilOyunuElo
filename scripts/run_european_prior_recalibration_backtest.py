@@ -28,6 +28,7 @@ from ao_elo.european_prior_recalibration import (  # noqa: E402
     EuropeanPriorRecalibrationConfig,
     apply_european_prior_recalibration,
     candidate_grid,
+    participation_grid,
     tail_and_domestic_grid,
     ranking_uncertainty_summary,
 )
@@ -62,10 +63,23 @@ CURRENT_RATINGS = (
     ROOT / "output" / "season_2026_27_preproduction" / "ao_first_elo_2026_27.csv"
 )
 # The baseline must be the active production configuration, otherwise the
-# candidates are measured against a model that is no longer live. The exposure
-# cap moved to 0.65 after the original study, so the dataclass defaults no
-# longer describe production.
-BASELINE_CONFIG = EuropeanPriorRecalibrationConfig(exposure_cap=0.65)
+# candidates are measured against a model that is no longer live. It is derived
+# from `active()` rather than written out, because hand-copied values go stale
+# silently: the exposure cap moved to 0.65 and then the tail beta moved to 1.0,
+# and a literal baseline would still be quoting the pre-tail model here.
+_ACTIVE = AOEuropeanEloConfig.active()
+BASELINE_CONFIG = EuropeanPriorRecalibrationConfig(
+    history_benchmark=_ACTIVE.european_history_benchmark,
+    prior_boost_scale=1.0,
+    exposure_cap=_ACTIVE.max_european_exposure,
+    european_tail_beta=_ACTIVE.european_tail_beta,
+    domestic_boost_scale=1.0,
+    participation_shrinkage=_ACTIVE.european_participation_shrinkage,
+    uel_quality=1.0,
+    uecl_quality=1.0,
+    base_rating=_ACTIVE.base_rating,
+    european_prior_max_boost=_ACTIVE.european_prior_max_boost,
+)
 RANKING_TOLERANCE = 0.002
 DEFAULT_BOOTSTRAP_SAMPLES = 1000
 
@@ -77,12 +91,13 @@ def main() -> None:
     parser.add_argument("--output-root", type=Path, default=OUTPUT_ROOT)
     parser.add_argument(
         "--grid",
-        choices=("default", "tail-and-domestic"),
+        choices=("default", "tail-and-domestic", "participation"),
         default="default",
         help=(
             "default: the original 81-candidate study. tail-and-domestic: the "
             "two top-end-compression axes with every other axis pinned to the "
-            "active production value."
+            "active production value. participation: the participation "
+            "shrinkage alone, pinned to the post-tail production model."
         ),
     )
     parser.add_argument(
@@ -104,11 +119,11 @@ def main() -> None:
     target = aggregate_target(target_by_competition)
     xg_map = load_xg_map(XG_DATA, datasets)
     seeds = load_seed_evidence(production_seed_map)
-    configs = (
-        tail_and_domestic_grid()
-        if args.grid == "tail-and-domestic"
-        else candidate_grid()
-    )
+    configs = {
+        "tail-and-domestic": tail_and_domestic_grid,
+        "participation": participation_grid,
+        "default": candidate_grid,
+    }[args.grid]()
     if BASELINE_CONFIG.key not in {config.key for config in configs}:
         raise ValueError(
             f"Grid {args.grid!r} does not contain the production baseline "
@@ -171,6 +186,7 @@ def main() -> None:
         full_selected,
         current_impact,
         contract_hash,
+        len(configs),
     )
 
     surface.to_csv(output / "candidate_surface.csv", index=False)
@@ -304,6 +320,7 @@ def season_surface(config, seeds, predictions, target, seasons):
                 "exposure_cap": config.exposure_cap,
                 "european_tail_beta": config.european_tail_beta,
                 "domestic_boost_scale": config.domestic_boost_scale,
+                "participation_shrinkage": config.participation_shrinkage,
                 "uel_quality": config.uel_quality,
                 "uecl_quality": config.uecl_quality,
             }
@@ -329,6 +346,7 @@ def aggregate_metrics(key: str, frame: pd.DataFrame) -> dict[str, object]:
         "exposure_cap": float(first["exposure_cap"]),
         "european_tail_beta": float(first["european_tail_beta"]),
         "domestic_boost_scale": float(first["domestic_boost_scale"]),
+        "participation_shrinkage": float(first["participation_shrinkage"]),
         "uel_quality": float(first["uel_quality"]),
         "uecl_quality": float(first["uecl_quality"]),
         "seasons": int(frame["season"].nunique()),
@@ -384,6 +402,22 @@ def axis_ablation(
             ),
             best("SELECTED_COMBINED", summary["candidate_key"].eq(full_selected)),
         ]
+    elif grid == "participation":
+        rows = [
+            best("CURRENT_BASELINE", baseline),
+            # A single axis, so "only this axis moves" is every non-baseline
+            # candidate. Reporting the raised direction on its own keeps the
+            # table honest about which way the evidence points, instead of
+            # letting one winner stand in for the whole axis.
+            best(
+                "SHRINKAGE_RAISED",
+                summary["participation_shrinkage"].gt(
+                    _ACTIVE.european_participation_shrinkage
+                ),
+            ),
+            best("SELECTED", summary["candidate_key"].eq(full_selected)),
+        ]
+    if grid in ("tail-and-domestic", "participation"):
         columns = [
             "ablation",
             "candidate_key",
@@ -711,6 +745,7 @@ def decide(
     full_selected,
     current,
     contract_hash,
+    candidate_count,
 ):
     selected = summary.loc[summary["model"].eq("NESTED_RECALIBRATION")].iloc[0]
     brier_wins = int((folds["delta_brier_1x2"] < 0.0).sum())
@@ -734,7 +769,7 @@ def decide(
     return {
         "decision": decision,
         "production_changed": False,
-        "candidate_count": 81,
+        "candidate_count": int(candidate_count),
         "fold_count": len(folds),
         "matches": int(summary["matches"].max()),
         "full_history_candidate_key": full_selected,

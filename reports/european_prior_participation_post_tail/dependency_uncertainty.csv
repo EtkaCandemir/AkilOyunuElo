@@ -1,0 +1,9 @@
+metric,method,matches,clusters,mean_difference,ci_95_lower,ci_95_upper,reliable_improvement,reliable_harm
+brier,tie_or_match,4884,1612,0.0,0.0,0.0,False,False
+brier,team_season,4884,1413,0.0,0.0,0.0,False,False
+brier,calendar_month,4884,65,0.0,0.0,0.0,False,False
+brier,conservative_envelope,4884,,0.0,0.0,0.0,False,False
+log_loss,tie_or_match,4884,1612,0.0,0.0,0.0,False,False
+log_loss,team_season,4884,1413,0.0,0.0,0.0,False,False
+log_loss,calendar_month,4884,65,0.0,0.0,0.0,False,False
+log_loss,conservative_envelope,4884,,0.0,0.0,0.0,False,False

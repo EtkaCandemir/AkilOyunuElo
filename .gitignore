@@ -20,6 +20,7 @@ data/**/_source_cache/
 
 # Stable lock inode used by the append-only prediction ledger transaction.
 data/prediction_ledger/*.lock
+data/prediction_ledger/**/*.lock
 
 data/domestic_league_expansion_ucl_uel/_source_cache/
 

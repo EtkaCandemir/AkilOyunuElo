@@ -1,7 +1,7 @@
 # Aktif, Shadow ve Research Durumu
 
 Bu belge repository'deki cok sayidaki deneyin production modeliyle
-karistirilmamasini saglar. Son guncelleme: **2026-08-27**.
+karistirilmamasini saglar. Son guncelleme: **2026-08-30**.
 
 ## European Exposure Production Karari
 
@@ -767,6 +767,30 @@ Karar `PROMOTE_CANDIDATE` idi ve **`2026-08-27` tarihinde aktive edilmistir**
   `-0.004450` -> `-0.004360`; hicbir segmentte `reliable_harm` yok.
 
 Rapor: `reports/european_participation/`.
+
+### Katilim shrinkage'i — tail sonrasi yeniden olcum (`KEEP_RESEARCH`)
+
+`k = 0.20` yukaridaki calismadan geliyor ama o calisma
+`european_tail_beta = 0` altinda kosulmustu. Kesme, eksenin bedelini
+gizliyordu: normalizasyon ince bir kaydi `4.44x`'e kadar buyutur, ve doygun
+bolgedeki her kulup ayni puana coktugu surece bu sisme siralamaya hic
+ulasmiyordu. `2026-08-30`'da kesme kalkinca ulasti — Aston Villa'nin **ham**
+Avrupa gecmisi Barcelona ve Inter'in altinda, normalize orani ikisinin de
+ustunde. Opta ile en cok ayristigimiz 12 kulubun besi `pw` 0.60-0.85 bandinda.
+
+`k` bu is icin dogru koldur: tam katilimda notrdur, yani her sezon oynamis bir
+kulubu **yapisal olarak** kimildatamaz. Yedi deger `2.50`'ye kadar olculdu
+(orada sisme `1.35x`). Brier, log-loss, seed Spearman ve ikili dogruluk
+dordu de `k` ile monoton kotulesti, donus noktasi yok, ve alti outer fold'un
+altisi `0.20`'yi secti — modal pay ilk calismadaki `0.667`'den `1.000`'e
+cikti. Karar `KEEP_RESEARCH`, production'a dokunulmadi.
+
+Yorum: Lyon'un sismis gorunmesi yanilsama degil ama hata da degil. Orani ham
+gecmisinden daha iyi tahmin ediyor; gorunumu duzeltmek dogrulugu bozuyor.
+Maruziyet tavani zaten ince kayitli kulubu discount ediyor, shrinkage'i ayrica
+sertlestirmek ayni sinyali iki kez cezalandirir.
+
+Rapor: `reports/european_prior_participation_post_tail/`.
 
 ### Exposure cap x katilim normalizasyonu etkilesimi
 

@@ -1,0 +1,93 @@
+{
+  "arm_id": "POSITIVE_BRIDGE_020",
+  "artifact_files": {
+    "ao_core_shadow_predictions_preledger.csv": "7668ed19e3cd2f64bcfafc1ee4c0a40b2cab8eb54dad440461fb5ca5a65cd00c",
+    "positive_bridge_020_ao_first_elo_2026_27.csv": "f311034f2285933cc9338ec2a70671bfeb0d5b25bc2bb217bc6bf0160155e727",
+    "qualifier_replay/batch_manifest.json": "81cd1fd3c103175512a0c5b97d8c49b5982d963b2c8444b212c9fb1738550e70",
+    "qualifier_replay/match_updates.csv": "e39456f2782abe43547e389c3a69900728a0bd22806eb1cd17d2413735374ec9",
+    "qualifier_replay/ratings_state.csv": "e5d2f9ccaca2e5d1008f0faece3cebbbf662dbfa08e1583ee53a1f76b02788e8",
+    "qualifier_replay/replay_predictions.csv": "678da1b548e33fd9fe5c948c240e3de86c0ff1c00ad5e2f8a88da6be1e3852ee",
+    "qualifier_replay/state_checkpoint.json": "02f3f42cbea5a1ccede3550611cc7d27a933cd7016738b209754c9bf5256353c"
+  },
+  "artifact_type": "AO_CORE_SHADOW_START",
+  "baseline_reproduction": {
+    "maximum_state_difference": 2.2737367544323206e-13,
+    "probability_maxima": {
+      "away": 4.996003610813204e-16,
+      "draw": 2.220446049250313e-16,
+      "home": 4.440892098500626e-16,
+      "score": 1.1102230246251565e-16,
+      "sum": 1.1102230246251565e-16
+    },
+    "state_maxima": {
+      "achievement_reserve": 0.0,
+      "ao_first_elo": 0.0,
+      "ao_live_elo": 2.2737367544323206e-13,
+      "power_elo": 2.2737367544323206e-13,
+      "progression_bonus_ucl": 0.0,
+      "progression_bonus_uecl": 0.0,
+      "progression_bonus_uel": 0.0
+    }
+  },
+  "candidate": {
+    "affected_fixture_teams": 12,
+    "affected_seed_rows": 18,
+    "changed_prediction_rows": 214,
+    "completed_matches_replayed": 428,
+    "maximum_elo_delta": 49.49497773990197,
+    "minimum_elo_delta": 0.0,
+    "prediction_rows": 396,
+    "seed_rows": 237
+  },
+  "dynamic_config_id": "dea61d8b6f506a2e",
+  "dynamic_model_version": "ao-european-elo-v2.0-dev-freeze",
+  "fixture_universe": {
+    "competition_counts": {
+      "UCL": 144,
+      "UECL": 108,
+      "UEL": 144
+    },
+    "earliest_kickoff_utc": "2026-09-08T16:45:00+00:00",
+    "fixtures": 396,
+    "latest_kickoff_utc": "2027-01-28T20:00:00+00:00"
+  },
+  "generated_at_utc": "2026-09-02T11:15:58.492767+00:00",
+  "implementation_hashes": {
+    "config": "57b72085011d95408eba0aa51dcd0e069b9e9716e14e4fa70bb51c99186b8cb2",
+    "controlled_live": "538049327b0f900dd3d4966a61e3cedc1f9a6496aba41649050f09a0bfb713b4",
+    "draw_probability": "f2fa06e18629811da94e51bc0ecae8390784c96d9b541ff14ae6481ed494acfd",
+    "dynamic": "59214f3f4274b0a18b49c9f0a6b39a0ea22dd67ce61d0afd0a5f46bb8fba8598",
+    "dynamic_csv": "cb2404684622f5a8ef5ca8ed742edb81594fba8caf08ff2c6a96243ed41d09cd",
+    "positive_bridge_transform": "955ee3e979049f367a8a59697232d6789f1ce943dd5b9505fc4dab976b938814",
+    "production_ledger_reader": "2994bff2cd6a8df8996cce64727f4c50cfdb249fc10312bf3e2710ad610b0b5e",
+    "qualification_stage_k": "2a0fa1cf4f33a2723da9e58120bd9f7a61d034dd31b3f5ed03e44338e7ae375b",
+    "qualification_transition": "d27f13d974d76475105a7943099a3e69388052c672071ffe2961d024a3647a2b",
+    "runner": "31df328a7f838fabec53473fb98841a75fe14d24cbb237684f2630bc85f6dbe6",
+    "shadow_ledger": "f5b4fe9742dbf30b70f600d5026a55f60dc83c9928908e3d15dc0333f74291b9",
+    "tournament_bonus": "9cb67d3237feaa6b540d71e5d41c7abd15099f809df4ba75f532379c02158ebf",
+    "validators": "e53a2b69edba2a908857a8e77b19ab6612897935c8a32d294bf215951222cdf4",
+    "xg_live": "a2b693a25f3cfc3b428bbeb40b00db5b7aa7629844b6d969a0da1aeb867c8db6"
+  },
+  "production_revision": "2026-08-30-european-prior-tail-no-truncation",
+  "runtime_versions": {
+    "numpy": "2.4.2",
+    "pandas": "3.0.3",
+    "python": "3.14.0"
+  },
+  "schema_version": 1,
+  "scope": "AO_CORE_SHADOW",
+  "season": "2026/27",
+  "source_hashes": {
+    "checkpoint_metadata": "08160b512953f01180843d130d1432b8a8609b5a6367e688dcfa1750716cbd07",
+    "checkpoint_ratings": "af02b05db7cebdff847146b4afaaaa6cf91fc8c32a85e9d20f2844c8734b48c7",
+    "completed_matches": "a20b5cadc3df0d751e210cfbc80047878ad146124fc0f6cb42d6733463a2aa98",
+    "contract": "e7f4622a609fcc91cbb839ec84a602059316345f40260f587d985eb21e07fd75",
+    "fixtures": "592df8c9eb04cdb5756fed0b42ad1e2744d5b96f3f900df7319c2704d34ffd67",
+    "production_ledger": "88fddab87c41dd6963573bb9b80ba9b99a8f1b248a4f6a95e720fdd21e2ad543",
+    "production_seeds": "f6b5cff606297a376433208044134f7926efbdd04d0905c9714716f7c9db1ac8",
+    "production_state": "62ffabe7bd78ed59844aa6e09c93e235c960de5d41453c4aaa51aa199c05ee8d",
+    "served_predictions": "c1be0885c6e929ba0e672b30c225f1e0038b410e83a0e009bcb7c285235e52bb"
+  },
+  "source_production_ledger_head": "11d45a81c12ac0586272f9f22b2f329cb0b8ffc9c44fdb2920e098e6ec90848a",
+  "spec_sha256": "0c3c4867d02f94f93054219390963c49ca72fdd9ac59119860cbbcecd197e23d"
+}
