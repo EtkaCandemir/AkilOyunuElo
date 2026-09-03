@@ -16,7 +16,11 @@ import pandas as pd
 
 # Shared pure helper, not the production pipeline: re-implementing the tail here
 # would risk diverging from the curve the active model uses.
-from ao_elo.scoring import apply_upper_tail, participation_normalized_history
+from ao_elo.scoring import (
+    apply_upper_tail,
+    compute_effective_european_exposure,
+    participation_normalized_history,
+)
 
 
 REQUIRED_COLUMNS = {
@@ -31,6 +35,13 @@ REQUIRED_COLUMNS = {
     "adjusted_ao_first_elo",
 }
 COMPETITIONS = ("UCL", "UEL", "UECL")
+EXPOSURE_FAMILIES = (
+    "HARD_CAP",
+    "CAP_TAIL",
+    "CAPPED_BRIDGE",
+    "LINEAR_SCALE",
+    "SOFT_POWER",
+)
 
 
 @dataclass(frozen=True)
@@ -50,6 +61,15 @@ class EuropeanPriorRecalibrationConfig:
     uecl_quality: float = 1.0
     base_rating: float = 500.0
     european_prior_max_boost: float = 1559.714795008913
+    # Research-only alternative for translating raw evidence exposure into the
+    # final Domestic/European blend weight.  HARD_CAP reproduces production;
+    # LINEAR_SCALE interprets exposure_scale as the maximum European share and
+    # preserves the full [0, 1] evidence ordering with weight = scale * raw.
+    exposure_family: str = "HARD_CAP"
+    exposure_scale: float = 0.65
+    exposure_power: float = 1.0
+    exposure_tail_beta: float = 0.0
+    exposure_knee: float = 0.60
 
     def validate(self) -> None:
         finite_positive = {
@@ -62,6 +82,10 @@ class EuropeanPriorRecalibrationConfig:
                 raise ValueError(f"{name} must be positive and finite")
         if not math.isfinite(self.base_rating):
             raise ValueError("base_rating must be finite")
+        if self.exposure_family not in EXPOSURE_FAMILIES:
+            raise ValueError(
+                f"exposure_family must be one of {EXPOSURE_FAMILIES}"
+            )
         for name, value in {
             "exposure_cap": self.exposure_cap,
             "uel_quality": self.uel_quality,
@@ -83,14 +107,62 @@ class EuropeanPriorRecalibrationConfig:
             self.participation_shrinkage < 0.0
         ):
             raise ValueError("participation_shrinkage must be non-negative")
+        if not math.isfinite(self.exposure_scale) or not (
+            0.0 <= self.exposure_scale <= 1.0
+        ):
+            raise ValueError("exposure_scale must be within [0,1]")
+        if not math.isfinite(self.exposure_power) or self.exposure_power <= 0.0:
+            raise ValueError("exposure_power must be positive and finite")
+        if not math.isfinite(self.exposure_tail_beta) or not (
+            0.0 <= self.exposure_tail_beta <= 1.0
+        ):
+            raise ValueError("exposure_tail_beta must be within [0,1]")
+        if not math.isfinite(self.exposure_knee) or not (
+            0.0 <= self.exposure_knee <= 1.0
+        ):
+            raise ValueError("exposure_knee must be within [0,1]")
+        if self.exposure_family == "CAPPED_BRIDGE":
+            if self.exposure_knee >= self.exposure_cap:
+                raise ValueError(
+                    "CAPPED_BRIDGE exposure_knee must be below exposure_cap"
+                )
+            if self.exposure_power < 1.0:
+                raise ValueError(
+                    "CAPPED_BRIDGE exposure_power must be at least 1"
+                )
+        if self.exposure_family == "SOFT_POWER":
+            if self.exposure_scale <= 0.0:
+                raise ValueError("SOFT_POWER exposure_scale must be positive")
+            if self.exposure_scale < 1.0:
+                monotonic_limit = self.exposure_scale / (
+                    1.0 - self.exposure_scale
+                )
+                if self.exposure_power > monotonic_limit + 1e-12:
+                    raise ValueError(
+                        "SOFT_POWER exposure_power violates monotonicity"
+                    )
 
     @property
     def key(self) -> str:
-        return (
+        base = (
             f"b{self.history_benchmark:g}_s{self.prior_boost_scale:g}_"
             f"e{self.exposure_cap:g}_q1-{self.uel_quality:g}-{self.uecl_quality:g}_"
             f"t{self.european_tail_beta:g}_d{self.domestic_boost_scale:g}_"
             f"p{self.participation_shrinkage:g}"
+        )
+        if self.exposure_family == "HARD_CAP":
+            return base
+        if self.exposure_family == "LINEAR_SCALE":
+            return f"{base}_xlinear{self.exposure_scale:g}"
+        if self.exposure_family == "CAP_TAIL":
+            return f"{base}_xtail{self.exposure_tail_beta:g}"
+        if self.exposure_family == "CAPPED_BRIDGE":
+            return (
+                f"{base}_xbridge{self.exposure_knee:g}"
+                f"g{self.exposure_power:g}"
+            )
+        return (
+            f"{base}_xsoft{self.exposure_scale:g}g{self.exposure_power:g}"
         )
 
 
@@ -282,7 +354,38 @@ def apply_european_prior_recalibration(
         numeric["domestic_prior"] - config.base_rating
     )
     scaled_adjusted_domestic = scaled_domestic + surprise
-    effective_exposure = numeric["european_exposure"].clip(upper=config.exposure_cap)
+    if config.exposure_family == "HARD_CAP":
+        effective_exposure = numeric["european_exposure"].clip(
+            upper=config.exposure_cap
+        )
+    elif config.exposure_family == "CAP_TAIL":
+        effective_exposure = numeric["european_exposure"].map(
+            lambda exposure: compute_effective_european_exposure(
+                exposure,
+                config.exposure_cap,
+                config.exposure_tail_beta,
+            )
+        )
+    elif config.exposure_family == "CAPPED_BRIDGE":
+        raw_exposure = numeric["european_exposure"]
+        above_knee = raw_exposure > config.exposure_knee
+        bridge_position = (
+            (raw_exposure - config.exposure_knee)
+            / (1.0 - config.exposure_knee)
+        ).clip(lower=0.0)
+        bridged = config.exposure_knee + (
+            config.exposure_cap - config.exposure_knee
+        ) * bridge_position.pow(config.exposure_power)
+        effective_exposure = raw_exposure.where(~above_knee, bridged)
+    elif config.exposure_family == "LINEAR_SCALE":
+        effective_exposure = config.exposure_scale * numeric["european_exposure"]
+    else:
+        raw_exposure = numeric["european_exposure"]
+        effective_exposure = raw_exposure * (
+            1.0
+            - (1.0 - config.exposure_scale)
+            * raw_exposure.pow(config.exposure_power)
+        )
     candidate = scaled_adjusted_domestic + effective_exposure * (
         prior - scaled_adjusted_domestic
     )

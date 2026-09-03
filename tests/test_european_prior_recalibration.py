@@ -61,6 +61,192 @@ def test_lower_quality_and_exposure_reduce_only_supported_evidence() -> None:
     assert result["candidate_effective_exposure"].max() <= 0.80
 
 
+def test_linear_exposure_scale_preserves_raw_evidence_ordering() -> None:
+    frame = pd.concat([seed_frame().iloc[[0]]] * 5, ignore_index=True)
+    frame["team_id"] = range(1, 6)
+    frame["european_exposure"] = [0.0, 0.4, 0.67, 0.8, 1.0]
+    result = apply_european_prior_recalibration(
+        frame,
+        EuropeanPriorRecalibrationConfig(
+            exposure_family="LINEAR_SCALE",
+            exposure_scale=0.65,
+        ),
+    )
+
+    assert result["candidate_effective_exposure"].tolist() == pytest.approx(
+        [0.0, 0.26, 0.4355, 0.52, 0.65]
+    )
+    assert result["candidate_effective_exposure"].is_monotonic_increasing
+    assert result.loc[0, "candidate_ao_first_elo"] == pytest.approx(1200.0)
+
+
+def test_linear_exposure_key_is_distinct_and_validation_is_strict() -> None:
+    baseline = EuropeanPriorRecalibrationConfig()
+    linear = EuropeanPriorRecalibrationConfig(
+        exposure_family="LINEAR_SCALE", exposure_scale=0.65
+    )
+    assert linear.key != baseline.key
+    assert linear.key.endswith("_xlinear0.65")
+
+    with pytest.raises(ValueError, match="exposure_family"):
+        EuropeanPriorRecalibrationConfig(exposure_family="UNKNOWN").validate()
+    with pytest.raises(ValueError, match="exposure_scale"):
+        EuropeanPriorRecalibrationConfig(exposure_scale=1.01).validate()
+
+
+def test_cap_tail_changes_only_exposure_above_the_active_cap() -> None:
+    frame = pd.concat([seed_frame().iloc[[0]]] * 6, ignore_index=True)
+    frame["team_id"] = range(1, 7)
+    frame["european_exposure"] = [0.0, 0.4, 0.65, 0.67, 0.8, 1.0]
+    result = apply_european_prior_recalibration(
+        frame,
+        EuropeanPriorRecalibrationConfig(
+            exposure_family="CAP_TAIL",
+            exposure_cap=0.65,
+            exposure_tail_beta=0.2,
+        ),
+    )
+
+    assert result["candidate_effective_exposure"].tolist() == pytest.approx(
+        [0.0, 0.4, 0.65, 0.654, 0.68, 0.72]
+    )
+    assert result["candidate_effective_exposure"].is_monotonic_increasing
+
+
+def test_cap_tail_endpoints_match_hard_cap_and_no_cap() -> None:
+    frame = pd.concat([seed_frame().iloc[[0]]] * 5, ignore_index=True)
+    frame["team_id"] = range(1, 6)
+    frame["european_exposure"] = [0.0, 0.4, 0.65, 0.8, 1.0]
+    hard_cap = apply_european_prior_recalibration(
+        frame, EuropeanPriorRecalibrationConfig()
+    )
+    beta_zero = apply_european_prior_recalibration(
+        frame,
+        EuropeanPriorRecalibrationConfig(
+            exposure_family="CAP_TAIL", exposure_tail_beta=0.0
+        ),
+    )
+    beta_one = apply_european_prior_recalibration(
+        frame,
+        EuropeanPriorRecalibrationConfig(
+            exposure_family="CAP_TAIL", exposure_tail_beta=1.0
+        ),
+    )
+
+    assert beta_zero["candidate_effective_exposure"].tolist() == pytest.approx(
+        hard_cap["candidate_effective_exposure"].tolist()
+    )
+    assert beta_one["candidate_effective_exposure"].tolist() == pytest.approx(
+        frame["european_exposure"].tolist()
+    )
+    assert beta_zero.iloc[0]["candidate_key"].endswith("_xtail0")
+    assert beta_one.iloc[0]["candidate_key"].endswith("_xtail1")
+
+
+def test_cap_tail_rejects_beta_outside_unit_interval() -> None:
+    with pytest.raises(ValueError, match="exposure_tail_beta"):
+        EuropeanPriorRecalibrationConfig(exposure_tail_beta=-0.01).validate()
+    with pytest.raises(ValueError, match="exposure_tail_beta"):
+        EuropeanPriorRecalibrationConfig(exposure_tail_beta=1.01).validate()
+
+
+@pytest.mark.parametrize("knee", [0.4, 0.5, 0.55, 0.6, 0.625, 0.64])
+@pytest.mark.parametrize("power", [1.0, 1.5, 2.0, 3.0])
+def test_capped_bridge_is_monotonic_bounded_and_keeps_endpoints(
+    knee: float,
+    power: float,
+) -> None:
+    frame = pd.concat([seed_frame().iloc[[0]]] * 101, ignore_index=True)
+    frame["team_id"] = range(1, 102)
+    frame["european_exposure"] = [index / 100.0 for index in range(101)]
+    result = apply_european_prior_recalibration(
+        frame,
+        EuropeanPriorRecalibrationConfig(
+            exposure_family="CAPPED_BRIDGE",
+            exposure_cap=0.65,
+            exposure_knee=knee,
+            exposure_power=power,
+        ),
+    )
+    effective = result["candidate_effective_exposure"]
+    below_knee = frame["european_exposure"] <= knee
+
+    assert effective.loc[below_knee].tolist() == pytest.approx(
+        frame.loc[below_knee, "european_exposure"].tolist()
+    )
+    assert effective.iloc[-1] == pytest.approx(0.65)
+    assert effective.is_monotonic_increasing
+    assert (effective <= frame["european_exposure"] + 1e-12).all()
+    assert effective.max() <= 0.65 + 1e-12
+
+
+def test_capped_bridge_separates_partial_from_full_exposure() -> None:
+    frame = pd.concat([seed_frame().iloc[[0]]] * 4, ignore_index=True)
+    frame["team_id"] = range(1, 5)
+    frame["european_exposure"] = [0.5, 0.6, 0.67, 1.0]
+    result = apply_european_prior_recalibration(
+        frame,
+        EuropeanPriorRecalibrationConfig(
+            exposure_family="CAPPED_BRIDGE",
+            exposure_cap=0.65,
+            exposure_knee=0.6,
+            exposure_power=1.0,
+        ),
+    )
+
+    assert result["candidate_effective_exposure"].tolist() == pytest.approx(
+        [0.5, 0.6, 0.60875, 0.65]
+    )
+    assert result.iloc[0]["candidate_key"].endswith("_xbridge0.6g1")
+
+
+def test_capped_bridge_validation_rejects_invalid_shape() -> None:
+    with pytest.raises(ValueError, match="exposure_knee"):
+        EuropeanPriorRecalibrationConfig(exposure_knee=-0.01).validate()
+    with pytest.raises(ValueError, match="below exposure_cap"):
+        EuropeanPriorRecalibrationConfig(
+            exposure_family="CAPPED_BRIDGE",
+            exposure_cap=0.65,
+            exposure_knee=0.65,
+        ).validate()
+    with pytest.raises(ValueError, match="at least 1"):
+        EuropeanPriorRecalibrationConfig(
+            exposure_family="CAPPED_BRIDGE",
+            exposure_knee=0.6,
+            exposure_power=0.9,
+        ).validate()
+
+
+@pytest.mark.parametrize("power", [0.5, 1.0, 1.5, 1.8, 0.65 / 0.35])
+def test_soft_power_exposure_is_monotonic_and_keeps_endpoints(power: float) -> None:
+    frame = pd.concat([seed_frame().iloc[[0]]] * 101, ignore_index=True)
+    frame["team_id"] = range(1, 102)
+    frame["european_exposure"] = [index / 100.0 for index in range(101)]
+    result = apply_european_prior_recalibration(
+        frame,
+        EuropeanPriorRecalibrationConfig(
+            exposure_family="SOFT_POWER",
+            exposure_scale=0.65,
+            exposure_power=power,
+        ),
+    )
+    effective = result["candidate_effective_exposure"]
+
+    assert effective.iloc[0] == pytest.approx(0.0)
+    assert effective.iloc[-1] == pytest.approx(0.65)
+    assert effective.is_monotonic_increasing
+    assert (effective <= frame["european_exposure"] + 1e-12).all()
+
+
+def test_soft_power_rejects_a_non_monotonic_parameter() -> None:
+    with pytest.raises(ValueError, match="monotonicity"):
+        EuropeanPriorRecalibrationConfig(
+            exposure_family="SOFT_POWER",
+            exposure_scale=0.65,
+            exposure_power=2.0,
+        ).validate()
+
+
 def test_candidate_grid_preserves_quality_hierarchy_and_unique_keys() -> None:
     candidates = candidate_grid()
     assert len(candidates) == 81

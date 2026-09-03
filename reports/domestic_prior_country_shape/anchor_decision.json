@@ -1,0 +1,385 @@
+{
+  "brier_fold_wins": 6,
+  "candidate_count": 10,
+  "decision": "PROMOTE_CANDIDATE",
+  "fold_count": 6,
+  "full_history_candidate_key": "p95_g2",
+  "log_loss_fold_wins": 6,
+  "nested_selected_keys": [
+    "p95_g2",
+    "p95_g2",
+    "p95_g2",
+    "p95_g2",
+    "p95_g2",
+    "p95_g2"
+  ],
+  "pooled_brier_delta": -0.0035860944748263845,
+  "pooled_seed_spearman_delta": 0.00570509171155964,
+  "production_changed": false,
+  "production_contract_sha256": "e7f4622a609fcc91cbb839ec84a602059316345f40260f587d985eb21e07fd75",
+  "ranking_reliable_harm": false,
+  "same_candidate_every_fold": true,
+  "season_anchors": [
+    {
+      "anchor": "max",
+      "benchmark": 20.967380000000002,
+      "season": "2018/19"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 20.335230000000003,
+      "season": "2019/20"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 19.76663,
+      "season": "2020/21"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 21.23457,
+      "season": "2021/22"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 21.569020000000002,
+      "season": "2022/23"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 22.130570000000002,
+      "season": "2023/24"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 20.61013,
+      "season": "2024/25"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 23.44936,
+      "season": "2025/26"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 20.967380000000002,
+      "season": "2018/19"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 20.335230000000003,
+      "season": "2019/20"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 19.76663,
+      "season": "2020/21"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 21.23457,
+      "season": "2021/22"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 21.569020000000002,
+      "season": "2022/23"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 22.130570000000002,
+      "season": "2023/24"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 20.61013,
+      "season": "2024/25"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 23.44936,
+      "season": "2025/26"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 20.967380000000002,
+      "season": "2018/19"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 20.335230000000003,
+      "season": "2019/20"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 19.76663,
+      "season": "2020/21"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 21.23457,
+      "season": "2021/22"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 21.569020000000002,
+      "season": "2022/23"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 22.130570000000002,
+      "season": "2023/24"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 20.61013,
+      "season": "2024/25"
+    },
+    {
+      "anchor": "max",
+      "benchmark": 23.44936,
+      "season": "2025/26"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 17.579853333333332,
+      "season": "2018/19"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 17.847033333333332,
+      "season": "2019/20"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 18.08657666666667,
+      "season": "2020/21"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 18.69489,
+      "season": "2021/22"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 18.831360000000004,
+      "season": "2022/23"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 19.336113333333333,
+      "season": "2023/24"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 19.141163333333335,
+      "season": "2024/25"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 21.096073333333333,
+      "season": "2025/26"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 17.579853333333332,
+      "season": "2018/19"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 17.847033333333332,
+      "season": "2019/20"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 18.08657666666667,
+      "season": "2020/21"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 18.69489,
+      "season": "2021/22"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 18.831360000000004,
+      "season": "2022/23"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 19.336113333333333,
+      "season": "2023/24"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 19.141163333333335,
+      "season": "2024/25"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 21.096073333333333,
+      "season": "2025/26"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 17.579853333333332,
+      "season": "2018/19"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 17.847033333333332,
+      "season": "2019/20"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 18.08657666666667,
+      "season": "2020/21"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 18.69489,
+      "season": "2021/22"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 18.831360000000004,
+      "season": "2022/23"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 19.336113333333333,
+      "season": "2023/24"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 19.141163333333335,
+      "season": "2024/25"
+    },
+    {
+      "anchor": "top3",
+      "benchmark": 21.096073333333333,
+      "season": "2025/26"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 14.093481999999996,
+      "season": "2018/19"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 14.047318999999998,
+      "season": "2019/20"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 14.714272999999997,
+      "season": "2020/21"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 15.253934000000001,
+      "season": "2021/22"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 15.580364499999998,
+      "season": "2022/23"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 16.966368999999993,
+      "season": "2023/24"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 17.397879500000002,
+      "season": "2024/25"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 18.390606999999992,
+      "season": "2025/26"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 14.093481999999996,
+      "season": "2018/19"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 14.047318999999998,
+      "season": "2019/20"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 14.714272999999997,
+      "season": "2020/21"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 15.253934000000001,
+      "season": "2021/22"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 15.580364499999998,
+      "season": "2022/23"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 16.966368999999993,
+      "season": "2023/24"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 17.397879500000002,
+      "season": "2024/25"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 18.390606999999992,
+      "season": "2025/26"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 14.093481999999996,
+      "season": "2018/19"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 14.047318999999998,
+      "season": "2019/20"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 14.714272999999997,
+      "season": "2020/21"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 15.253934000000001,
+      "season": "2021/22"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 15.580364499999998,
+      "season": "2022/23"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 16.966368999999993,
+      "season": "2023/24"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 17.397879500000002,
+      "season": "2024/25"
+    },
+    {
+      "anchor": "p95",
+      "benchmark": 18.390606999999992,
+      "season": "2025/26"
+    }
+  ],
+  "unseen_matches": 4884
+}

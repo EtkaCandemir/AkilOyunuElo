@@ -1,0 +1,57 @@
+{
+  "brier_fold_wins": 6,
+  "candidate_count": 7,
+  "decision": "PROMOTE_CANDIDATE",
+  "fold_count": 6,
+  "full_history_candidate_key": "relative_g1.6",
+  "log_loss_fold_wins": 6,
+  "nested_selected_keys": [
+    "relative_g1.6",
+    "relative_g2",
+    "relative_g1.6",
+    "relative_g1.6",
+    "relative_g1.6",
+    "relative_g1.6"
+  ],
+  "pooled_brier_delta": -0.002357830136635486,
+  "pooled_seed_spearman_delta": 0.005068802273875794,
+  "production_changed": false,
+  "production_contract_sha256": "e7f4622a609fcc91cbb839ec84a602059316345f40260f587d985eb21e07fd75",
+  "ranking_reliable_harm": false,
+  "same_candidate_every_fold": false,
+  "season_anchors": [
+    {
+      "benchmark": 20.967380000000002,
+      "season": "2018/19"
+    },
+    {
+      "benchmark": 20.335230000000003,
+      "season": "2019/20"
+    },
+    {
+      "benchmark": 19.76663,
+      "season": "2020/21"
+    },
+    {
+      "benchmark": 21.23457,
+      "season": "2021/22"
+    },
+    {
+      "benchmark": 21.569020000000002,
+      "season": "2022/23"
+    },
+    {
+      "benchmark": 22.130570000000002,
+      "season": "2023/24"
+    },
+    {
+      "benchmark": 20.61013,
+      "season": "2024/25"
+    },
+    {
+      "benchmark": 23.44936,
+      "season": "2025/26"
+    }
+  ],
+  "unseen_matches": 4884
+}

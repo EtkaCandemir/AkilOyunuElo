@@ -1,0 +1,22 @@
+{
+  "brier_fold_wins": 5,
+  "candidate_count": 12,
+  "decision": "KEEP_PRODUCTION",
+  "fold_count": 6,
+  "full_history_candidate_key": "gamma1.4",
+  "log_loss_fold_wins": 5,
+  "nested_selected_keys": [
+    "gamma1.4",
+    "gamma1.6",
+    "gamma1.6",
+    "gamma1.4",
+    "gamma1.4",
+    "gamma1.4"
+  ],
+  "pooled_brier_delta": -0.001417350854269528,
+  "pooled_seed_spearman_delta": 0.004483139025680705,
+  "production_changed": false,
+  "production_contract_sha256": "e7f4622a609fcc91cbb839ec84a602059316345f40260f587d985eb21e07fd75",
+  "ranking_reliable_harm": false,
+  "unseen_matches": 4884
+}

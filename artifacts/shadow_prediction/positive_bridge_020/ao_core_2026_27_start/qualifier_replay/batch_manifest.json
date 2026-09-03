@@ -1,0 +1,7 @@
+{
+  "config_id": "dea61d8b6f506a2e",
+  "matches_processed": 428,
+  "mode": "RETROSPECTIVE_REPLAY",
+  "model_version": "ao-european-elo-v2.0-dev-freeze",
+  "prospective_holdout_evidence": false
+}
